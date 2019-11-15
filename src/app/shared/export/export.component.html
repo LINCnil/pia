@@ -1,0 +1,33 @@
+
+<div class="pia-exportBlock hide-for-print">
+  <div class="pia-exportBlock-title">
+  {{ 'summary.actions.print_and_download' | translate }}
+  </div>
+  <!-- Print -->
+  <div class="pia-exportBlock-print">
+    <button onclick="print()">{{ 'summary.actions.print' | translate }}</button>
+  </div>
+
+  <!-- Full export -->
+  <div class="pia-exportBlock-full">
+    <button (click)="generateZip('pia-full-content')">
+      <div>{{ 'summary.actions.complete_download' | translate }}</div>
+      <div>{{ 'summary.actions.complete_download_desc' | translate }}</div>
+    </button>
+  </div>
+
+  <!-- Individual exports -->
+  <div class="pia-exportBlock-individual">
+    <div class="pia-exportBlock-individual-description" 
+    (click)="toggleIndividualExports()">
+      <div>{{ 'summary.actions.individual_download' | translate }}</div>
+      <div>{{ 'summary.actions.individual_download_desc' | translate }}</div>
+    </div>
+    <div class="hide pia-exportBlock-individual-links">
+      <div>{{ 'summary.actions.individual_download_select' | translate }}</div>
+      <button (click)="generateDocx('pia-full-content')">{{ 'summary.actions.individual_download_doc' | translate }}</button>
+      <angular2csv [data]="csvContent" filename="plan_d-action" [options]="csvOptions"></angular2csv>
+      <button (click)="downloadAllGraphsAsImages()">{{ 'summary.actions.individual_download_images' | translate }}</button>
+    </div>
+  </div>
+</div>
