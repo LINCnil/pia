@@ -7,6 +7,7 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
 import { AppDataService } from 'src/app/services/app-data.service';
 import { ActionPlanService } from 'src/app/entry/entry-content/action-plan/action-plan.service';
 import { TranslateService } from '@ngx-translate/core';
+declare const require: any;
 
 @Component({
   selector: 'app-export',
@@ -43,6 +44,10 @@ export class ExportComponent implements OnInit {
         this.fromArchives = true;
       }
     });
+  }
+
+  ngAfterViewChecked() {
+    document.querySelector('angular2csv > button').innerHTML = this._translateService.instant('summary.download_csv');
   }
   
   /**
