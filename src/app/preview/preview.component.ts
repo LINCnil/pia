@@ -72,13 +72,12 @@ export class PreviewComponent implements OnInit {
     document.querySelector('angular2csv > button').innerHTML = this._translateService.instant('summary.download_csv');
 
     // scroll spy
-    const sections = document.querySelectorAll('.pia-fullPreviewBlock-headline-title h2');
-    const menus = document.querySelectorAll('.pia-sectionBlock-body li a');
+    const sections = document.querySelectorAll('.pia-fullPreviewBlock-headline-title h2') as NodeListOf<HTMLElement>;
+    const menus = document.querySelectorAll('.pia-sectionBlock-body li a') as NodeListOf<HTMLElement>;
     window.onscroll = () => {
-      let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
       sections.forEach(s => {
         if (s.offsetTop < scrollPosition + 100) {
-          console.log('section courante ' + new Date(), s)
           menus.forEach(l => {
             l.classList.remove('active');
             if (l.innerText === s.innerText) {
