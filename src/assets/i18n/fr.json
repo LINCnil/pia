@@ -1331,7 +1331,7 @@
       "print": "Imprimer l'analyse",
       "complete_download": "Télécharger l'ensemble de l'analyse",
       "complete_download_desc": "Exporte dans une archive .zip les contenus de l'analyse (.doc et images), les pièces-jointes associées et le plan d'action au format .csv.",
-      "individual_download": "Télécharger des éléments de l'analyse",
+      "individual_download": "Téléchargement",
       "individual_download_desc": "Exporte des éléments spécifiques de l'analyse.",
       "individual_download_select": "Sélectionnez les éléments à exporter :",
       "individual_download_doc": "Contenus textuels (fichier .doc)",

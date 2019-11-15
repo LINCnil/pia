@@ -58,7 +58,6 @@ export class PreviewComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-
     // scroll spy
     const sections = document.querySelectorAll('.pia-fullPreviewBlock-headline-title h2') as NodeListOf<HTMLElement>;
     const menus = document.querySelectorAll('.pia-sectionBlock-body li a') as NodeListOf<HTMLElement>;
