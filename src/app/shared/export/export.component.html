@@ -1,7 +1,7 @@
 
 <div class="pia-exportBlock hide-for-print">
   <div class="pia-exportBlock-title">
-  {{ 'summary.actions.print_and_download' | translate }}
+    {{ 'summary.actions.print_and_download' | translate }}
   </div>
   <!-- Print -->
   <div class="pia-exportBlock-print">
@@ -12,22 +12,44 @@
   <div class="pia-exportBlock-full">
     <button (click)="generateZip('pia-full-content')">
       <div>{{ 'summary.actions.complete_download' | translate }}</div>
-      <div>{{ 'summary.actions.complete_download_desc' | translate }}</div>
     </button>
   </div>
 
   <!-- Individual exports -->
   <div class="pia-exportBlock-individual">
-    <div class="pia-exportBlock-individual-description" 
-    (click)="toggleIndividualExports()">
+    <div class="pia-exportBlock-individual-description">
       <div>{{ 'summary.actions.individual_download' | translate }}</div>
-      <div>{{ 'summary.actions.individual_download_desc' | translate }}</div>
     </div>
-    <div class="hide pia-exportBlock-individual-links">
+    <div class="pia-exportBlock-individual-links">
       <div>{{ 'summary.actions.individual_download_select' | translate }}</div>
-      <button (click)="generateDocx('pia-full-content')">{{ 'summary.actions.individual_download_doc' | translate }}</button>
-      <angular2csv [data]="csvContent" filename="plan_d-action" [options]="csvOptions"></angular2csv>
-      <button (click)="downloadAllGraphsAsImages()">{{ 'summary.actions.individual_download_images' | translate }}</button>
+
+        <!-- <button (click)="generateDocx('pia-full-content')">{{ 'summary.actions.individual_download_doc' | translate }}</button>
+        <angular2csv [data]="csvContent" filename="plan_d-action" [options]="csvOptions"></angular2csv>
+        <button (click)="downloadAllGraphsAsImages()">{{ 'summary.actions.individual_download_images' | translate }}</button> -->
+
+      <ul>
+        <li>
+          <label for="doc">
+            <input type="checkbox" (change)="onSelectDownload('doc', $event.target.checked)" name="doc" value="doc" id="doc">
+            {{ 'summary.actions.individual_download_doc' | translate }}
+          </label>
+        </li>
+        <li>
+            <label for="images">
+              <input type="checkbox" (change)="onSelectDownload('images', $event.target.checked)" name="images" value="images" id="images">
+              {{ 'summary.actions.individual_download_images' | translate }}
+            </label>
+          </li>
+          <li>
+            <label for="csv">
+                <input type="checkbox" (change)="onSelectDownload('csv', $event.target.checked)" name="csv" value="csv" id="csv">
+                {{ 'summary.action_plan.title' | translate }}
+            </label>
+          </li>
+      </ul>
+      <button (click)="onDownload()">
+        Télécharger
+      </button>
     </div>
   </div>
 </div>
