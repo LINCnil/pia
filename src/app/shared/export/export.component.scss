@@ -2,21 +2,26 @@
 .pia-exportBlock {
   display: inline-block;
   vertical-align: top;
+  padding-top: 15px;
   padding-left: 15px;
   width: 260px;
   position: sticky;
   top: 0;
-  font-size: 1.7rem;
 
   &-title {
     padding-bottom: 5px;;
     margin-bottom: 15px;
     color: $pia-gray;
     border-bottom: 2px solid $pia-gray;
+    font-size: 1.35em;
+    i {
+      font-size: 25px;
+    }
   }
 
   &-print,
   &-full {
+    cursor: pointer;
     text-align: center;
     margin: 5px 0px;
     padding-top: 5px;
@@ -26,6 +31,7 @@
     width:100%;
     button,
     div {
+      cursor: pointer;
       color: #fff;
     }
   }
@@ -78,7 +84,12 @@
         width: 100%;
         padding: 10px 0;
         text-align: center;
-        border: 1px solid $pia-gray;
+        border: 1px solid black;
+        &:disabled {
+          color: $pia-gray; 
+          border: 1px solid $pia-gray;
+          cursor: not-allowed;
+        }
       }
     }
   }

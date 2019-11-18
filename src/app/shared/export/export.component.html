@@ -1,18 +1,11 @@
 
 <div class="pia-exportBlock hide-for-print">
   <div class="pia-exportBlock-title">
-    {{ 'summary.actions.print_and_download' | translate }}
+    <i class="fa fa-download"></i> {{ 'summary.actions.print_and_download' | translate }}
   </div>
   <!-- Print -->
   <div class="pia-exportBlock-print">
     <button onclick="print()">{{ 'summary.actions.print' | translate }}</button>
-  </div>
-
-  <!-- Full export -->
-  <div class="pia-exportBlock-full">
-    <button (click)="generateExportsZip('pia-full-content', ['csv', 'doc', 'images'])">
-      <div>{{ 'summary.actions.complete_download' | translate }}</div>
-    </button>
   </div>
 
   <!-- Individual exports -->
@@ -47,7 +40,7 @@
             </label>
           </li>
       </ul>
-      <button (click)="onDownload()">
+      <button (click)="onDownload()" [disabled]="exportSelected.length < 1">
         Télécharger
       </button>
     </div>
