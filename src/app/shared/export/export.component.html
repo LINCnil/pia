@@ -47,7 +47,7 @@
           </li>
       </ul>
       <button (click)="onDownload()" [disabled]="exportSelected.length < 1">
-        Télécharger
+        {{ 'summary.actions.individual_to_download' | translate }}
       </button>
     </div>
   </div>
