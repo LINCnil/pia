@@ -1332,6 +1332,7 @@
       "complete_download": "Volledig verslag downloaden",
       "complete_download_desc": "Exporteer in een .zip-archief de volledige inhoud van het verslag (.doc en afbeeldingen), de bijlagen en het actieplan in .csv-formaat..",
       "individual_download": "Alle elementen van het verslag downloaden",
+      "individual_to_download": "Downloaden",
       "individual_download_desc": "Bepaalde elementen van het verslag exporteren.",
       "individual_download_select": "Te exporteren elementen selecteren:",
       "individual_download_doc": "Teksten (.doc)",

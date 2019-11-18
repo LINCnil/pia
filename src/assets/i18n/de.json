@@ -1333,6 +1333,7 @@
       "complete_download": "TO TRANSLATE - Download the full report",
       "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
       "individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_to_download": "TO TRANSLATE - Download",
       "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
       "individual_download_select": "TO TRANSLATE - Select elements to export:",
       "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
