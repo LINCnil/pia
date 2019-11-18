@@ -31,19 +31,19 @@
         <li>
           <label for="doc">
             <input type="checkbox" (change)="onSelectDownload('doc', $event.target.checked)" name="doc" value="doc" id="doc">
-            {{ 'summary.actions.individual_download_doc' | translate }}
+            <span>{{ 'summary.actions.individual_download_doc' | translate }}</span>
           </label>
         </li>
         <li>
             <label for="images">
               <input type="checkbox" (change)="onSelectDownload('images', $event.target.checked)" name="images" value="images" id="images">
-              {{ 'summary.actions.individual_download_images' | translate }}
+              <span>{{ 'summary.actions.individual_download_images' | translate }}</span>
             </label>
           </li>
           <li>
             <label for="csv">
                 <input type="checkbox" (change)="onSelectDownload('csv', $event.target.checked)" name="csv" value="csv" id="csv">
-                {{ 'summary.action_plan.title' | translate }}
+                <span>{{ 'summary.action_plan.title' | translate }}</span>
             </label>
           </li>
       </ul>

@@ -57,8 +57,21 @@
       ul {
         padding-left: 15px;
         list-style: none;
+        li {
+          clear: both;
+          margin-bottom: 10px;
+          input{
+            float: left !important;
+            margin-top: 4px;
+          }
+          span {
+            margin-left: 30px;
+            display: block;
+          }
+        }
       }
       button {
+        margin-top:10px;
         width: 100%;
         padding: 10px 0;
         text-align: center;
