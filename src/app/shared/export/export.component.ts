@@ -132,7 +132,7 @@ export class ExportComponent implements OnInit {
           }
 
           if (exports.includes('json')) { // Json
-            zip2.file('pia.json', this.piaJson, { binary: true });
+            zip2.file('pia-' + this.pia.name + '.json', this.piaJson, { binary: true });
           }
 
           if (exports.includes('csv')) { // Csv

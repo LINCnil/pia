@@ -1336,7 +1336,8 @@
       "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
       "individual_download_select": "TO TRANSLATE - Select elements to export:",
       "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)"
     },
     "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
