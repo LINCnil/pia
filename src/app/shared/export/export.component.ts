@@ -149,7 +149,7 @@ export class ExportComponent implements OnInit {
           if (exports.includes('csv')) { // Csv
             const fileTitle = this._translateService.instant('summary.action_plan.title');
             const blob = this.csvToBlob(fileTitle);
-            zip2.file('CSV/' + fileTitle + '.csv', blob, { binary: true });
+            zip2.file('CSV/' + slugify(fileTitle) + '.csv', blob, { binary: true });
           }
 
           if (exports.includes('images')) { // images
