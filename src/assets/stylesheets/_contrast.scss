@@ -880,40 +880,6 @@ body.pia-contrast {
         }
       }
     }
-    &-exports {
-      &-print,
-      &-full {
-        &:active {
-          background-color: $pia-green-dark;
-        }
-      }
-      &-print,
-      &-full,
-      &-individual {
-        &:focus,
-        &:hover {
-          border-top-color: $pia-green-dark;
-          background-color: $pia-green-dark;
-        }
-      }
-      &-individual {
-        &.activeMenu {
-          background-color: transparent;
-          .pia-fullPreviewBlock-exports-individual-description {
-            > div {
-              color: $pia-green-dark !important;
-            }
-          }
-          > div {
-            &:first-child {
-              div {
-                color: $pia-green-dark;
-              }
-            }
-          }
-        }
-      }
-    }
   }
 
   .green-highlight {
@@ -939,6 +905,41 @@ body.pia-contrast {
       color: $pia-green-dark !important;
       &::placeholder {
         color: $pia-green-dark !important;
+      }
+    }
+  }
+
+  .pia-exportBlock {
+    &-print,
+    &-full {
+      &:active {
+        background-color: $pia-green-dark;
+      }
+    }
+    &-print,
+    &-full,
+    &-individual {
+      &:focus,
+      &:hover {
+        border-top-color: $pia-green-dark;
+        background-color: $pia-green-dark;
+      }
+    }
+    &-individual {
+      &.activeMenu {
+        background-color: transparent;
+        .pia-exportBlock-individual-description {
+          > div {
+            color: $pia-green-dark !important;
+          }
+        }
+        > div {
+          &:first-child {
+            div {
+              color: $pia-green-dark;
+            }
+          }
+        }
       }
     }
   }

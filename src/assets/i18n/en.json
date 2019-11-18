@@ -1334,10 +1334,12 @@
       "complete_download": "Download the full report",
       "complete_download_desc": "Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
       "individual_download": "Download elements of the report",
+			"individual_to_download": "Download",
       "individual_download_desc": "Export specific elements of the report.",
       "individual_download_select": "Select elements to export:",
       "individual_download_doc": "Texts (.doc)",
-      "individual_download_images": "Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+      "individual_download_images": "Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)"
     },
     "download_csv": "Action plan (.csv)",
 		"action_plan": {
