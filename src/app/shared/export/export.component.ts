@@ -85,6 +85,12 @@ export class ExportComponent implements OnInit {
   /****************************** END DOWNLOAD FILES *********************************/
 
   /****************************** CREATE EXPORTS ************************************/
+
+    /**
+     * Generate a ZIP with the docx + all pictures
+     * @param element block in the HTML view used to generate the docx in the zip
+     * @param exports files to exports array ['doc', 'images', 'csv']
+     */
     async generateExportsZip(element, exports: Array<string>) {
       setTimeout(() => {
         const JSZip = require('jszip');
@@ -148,86 +154,21 @@ export class ExportComponent implements OnInit {
             zip2.file('CSV/' + fileTitle + '.csv', blob, { binary: true });
           }
 
-          zip2.generateAsync({ type: 'blob' }).then(blobContent => {
-            FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
-          });
-
-
-        });
-
-      }, 500);
-    }
-
-    /**
-     * Generate a ZIP with the docx + all pictures
-     * @param element block in the HTML view used to generate the docx in the zip
-     */
-    async generateZip(element) {
-      setTimeout(() => {
-        const dataDoc = this.prepareDocFile(element);
-        const JSZip = require('jszip');
-        const zip = new JSZip();
-
-        /* Attachments */
-        this.addAttachmentsToZip(zip).then((zip2: any) => {
-
-          /* CSV */
-          const headers = {
-            section: `"${this._translateService.instant('summary.csv_section')}"`,
-            title: `"${this._translateService.instant('summary.csv_title_object')}"`,
-            action_plan_comment: `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
-            evaluation_comment: `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
-            csv_implement_date: `"${this._translateService.instant('summary.csv_implement_date')}"`,
-            csv_people_in_charge: `"${this._translateService.instant('summary.csv_people_in_charge')}"`
-          };
-
-          const csvContentFormatted = [];
-          this.csvContent.forEach((item) => {
-            const itemData = {}
-            if (item.title) {
-              itemData['title'] = `"${item.title}"`;
-            }
-            if (item.blank) {
-              itemData['blank'] = `"${item.blank}"`;
-            }
-            if (item.short_title) {
-              itemData['short_title'] = `"${item.short_title}"`;
-            }
-            if (item.action_plan_comment) {
-              itemData['action_plan_comment'] = `"${item.action_plan_comment}"`.replace(/,/g, '').replace(/\n/g,' ');
-            }
-            if (item.evaluation_comment) {
-              itemData['evaluation_comment'] = `"${item.evaluation_comment}"`.replace(/,/g, '').replace(/\n/g,' ');
-            }
-            if (item.evaluation_date) {
-              itemData['evaluation_date'] = `"${item.evaluation_date}"`;
-            }
-            if (item.evaluation_charge) {
-              itemData['evaluation_charge'] = `"${item.evaluation_charge}"`;
-            }
-
-            csvContentFormatted.push({
-              title: itemData["title"],
-              blank: itemData["blank"],
-              short_title: itemData["short_title"],
-              action_plan_comment: itemData["action_plan_comment"],
-              evaluation_comment: itemData["evaluation_comment"],
-              evaluation_date: itemData["evaluation_date"],
-              evaluation_charge: itemData["evaluation_charge"]
+          if (exports.includes("images")) { // images
+            this.addImagesToZip(zip2).then((zip3: any) => {
+              // Launch Download
+              zip3.generateAsync({ type: 'blob' }).then(blobContent => {
+                FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+              });
             });
-          });
-          var fileTitle = this._translateService.instant('summary.action_plan.title');
-          const blob = this.exportCSVFile(headers, csvContentFormatted, fileTitle);
-          zip2.file("CSV/" + fileTitle + '.csv', blob, { binary: true });
 
-          /* Images */
-          this.addImagesToZip(zip).then((zip3: any) => {
-            /* Doc */
-            zip3.file("Doc/" + dataDoc.filename, dataDoc.blob);
-            zip3.generateAsync({ type: 'blob' }).then(blobContent => {
+          } else {
+            // Launch Download
+            zip2.generateAsync({ type: 'blob' }).then(blobContent => {
               FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
             });
-          });
+          }
+
         });
 
       }, 500);
@@ -244,7 +185,7 @@ export class ExportComponent implements OnInit {
       var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       return blob;
     }
-    
+
     convertToCSV(objArray) {
       var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
       var str = '';

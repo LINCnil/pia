@@ -10,7 +10,7 @@
 
   <!-- Full export -->
   <div class="pia-exportBlock-full">
-    <button (click)="generateZip('pia-full-content')">
+    <button (click)="generateExportsZip('pia-full-content', ['csv', 'doc', 'images'])">
       <div>{{ 'summary.actions.complete_download' | translate }}</div>
     </button>
   </div>
