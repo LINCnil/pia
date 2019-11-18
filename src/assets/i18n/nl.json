@@ -1335,7 +1335,8 @@
       "individual_download_desc": "Bepaalde elementen van het verslag exporteren.",
       "individual_download_select": "Te exporteren elementen selecteren:",
       "individual_download_doc": "Teksten (.doc)",
-      "individual_download_images": "Visuele elementen (.png) waaronder het risico-overzicht, de risico-mapping en het actieplan."
+      "individual_download_images": "Visuele elementen (.png) waaronder het risico-overzicht, de risico-mapping en het actieplan.",
+      "individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)"
     },
     "download_csv": "Actieplan (.csv)",
 		"action_plan": {
