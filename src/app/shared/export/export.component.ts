@@ -47,10 +47,6 @@ export class ExportComponent implements OnInit {
     });
   }
 
-  ngAfterViewChecked() {
-    //document.querySelector('angular2csv > button').innerHTML = this._translateService.instant('summary.download_csv');
-  }
-
   /****************************** DOWNLOAD FILES ************************************/
     onSelectDownload(type:string, isChecked: boolean) {
       if (isChecked) {
@@ -67,14 +63,25 @@ export class ExportComponent implements OnInit {
           this.generateExportsZip('pia-full-content', this.exportSelected);
         } else {
           switch (this.exportSelected[0]) {
-            case "doc":
+            case 'doc':
               this.generateDocx('pia-full-content');
               break;
-            case "images":
+            case 'images':
               this.downloadAllGraphsAsImages();
               break;
-            case "csv":
-              
+            case 'csv':
+              const fileTitle = this.pia.name + '.csv';
+              const blob = this.csvToBlob(fileTitle);
+              const downloadLink = document.createElement('a');
+              document.body.appendChild(downloadLink);
+
+              if (navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveBlob(blob, fileTitle);
+              } else {
+                downloadLink.href = URL.createObjectURL(blob);
+                downloadLink.download = fileTitle;
+                downloadLink.click();
+              }
               break;
             default:
               break;
@@ -106,55 +113,11 @@ export class ExportComponent implements OnInit {
           }
 
           if (exports.includes('csv')) { // Csv
-            const headers = {
-              section: `"${this._translateService.instant('summary.csv_section')}"`,
-              title: `"${this._translateService.instant('summary.csv_title_object')}"`,
-              action_plan_comment: `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
-              evaluation_comment: `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
-              csv_implement_date: `"${this._translateService.instant('summary.csv_implement_date')}"`,
-              csv_people_in_charge: `"${this._translateService.instant('summary.csv_people_in_charge')}"`
-            };
-
-            const csvContentFormatted = [];
-            this.csvContent.forEach((item) => {
-              const itemData = {}
-              if (item.title) {
-                itemData['title'] = `"${item.title}"`;
-              }
-              if (item.blank) {
-                itemData['blank'] = `"${item.blank}"`;
-              }
-              if (item.short_title) {
-                itemData['short_title'] = `"${item.short_title}"`;
-              }
-              if (item.action_plan_comment) {
-                itemData['action_plan_comment'] = `"${item.action_plan_comment}"`.replace(/,/g, '').replace(/\n/g,' ');
-              }
-              if (item.evaluation_comment) {
-                itemData['evaluation_comment'] = `"${item.evaluation_comment}"`.replace(/,/g, '').replace(/\n/g,' ');
-              }
-              if (item.evaluation_date) {
-                itemData['evaluation_date'] = `"${item.evaluation_date}"`;
-              }
-              if (item.evaluation_charge) {
-                itemData['evaluation_charge'] = `"${item.evaluation_charge}"`;
-              }
-
-              csvContentFormatted.push({
-                title: itemData["title"],
-                blank: itemData["blank"],
-                short_title: itemData["short_title"],
-                action_plan_comment: itemData["action_plan_comment"],
-                evaluation_comment: itemData["evaluation_comment"],
-                evaluation_date: itemData["evaluation_date"],
-                evaluation_charge: itemData["evaluation_charge"]
-              });
-            });
-            const blob = this.exportCSVFile(headers, csvContentFormatted, fileTitle);
+            const blob = this.csvToBlob(fileTitle);
             zip2.file('CSV/' + fileTitle + '.csv', blob, { binary: true });
           }
 
-          if (exports.includes("images")) { // images
+          if (exports.includes('images')) { // images
             this.addImagesToZip(zip2).then((zip3: any) => {
               // Launch Download
               zip3.generateAsync({ type: 'blob' }).then(blobContent => {
@@ -174,52 +137,130 @@ export class ExportComponent implements OnInit {
       }, 500);
     }
 
-    exportCSVFile(headers, items, fileTitle) {
-      if (headers) {
-        items.unshift(headers);
-      }
-      // Convert Object to JSON
-      var jsonObject = JSON.stringify(items);
-      var csv = this.convertToCSV(jsonObject);
-      var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
-      var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      return blob;
-    }
-
-    convertToCSV(objArray) {
-      var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
-      var str = '';
-      for (var i = 0; i < array.length; i++) {
-        var line = '';
-        for (var index in array[i]) {
-          if (line != '') line += ','
-          line += array[i][index];
+    /****************************** CSV EXPORT ************************************/
+      exportCSVFile(headers, items, fileTitle) {
+        if (headers) {
+          items.unshift(headers);
         }
-        str += line + '\r\n';
+        // Convert Object to JSON
+        var jsonObject = JSON.stringify(items);
+        var csv = this.convertToCSV(jsonObject);
+        var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
+        var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        return blob;
       }
-      return str;
-    }
 
-    /**
-     *
-     * @param element block in the HTML view used to generate the docx
-     */
-    async generateDocx(element) {
-      setTimeout(() => {
-        const dataDoc = this.prepareDocFile(element);
-
-        const downloadLink = document.createElement('a');
-        document.body.appendChild(downloadLink);
-        if (navigator.msSaveOrOpenBlob) {
-          navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
-        } else {
-          downloadLink.href = dataDoc.url;
-          downloadLink.download = dataDoc.filename;
-          downloadLink.click();
+      convertToCSV(objArray) {
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+        var str = '';
+        for (var i = 0; i < array.length; i++) {
+          var line = '';
+          for (var index in array[i]) {
+            if (line != '') line += ','
+            line += array[i][index];
+          }
+          str += line + '\r\n';
         }
-        document.body.removeChild(downloadLink);
-      }, 500);
-    }
+        return str;
+      }
+
+      /**
+       * Prepare for CSV export
+       */
+      prepareCsv() {
+        this.csvOptions = {
+          fieldSeparator: ';',
+          quoteStrings: '"',
+          decimalseparator: '.',
+          showLabels: true,
+          showTitle: false,
+          useBom: true,
+          removeNewLines: true,
+          headers: [
+            `"${this._translateService.instant('summary.csv_section')}"`,
+            `"${this._translateService.instant('summary.csv_title_object')}"`,
+            `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
+            `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
+            `"${this._translateService.instant('summary.csv_implement_date')}"`,
+            `"${this._translateService.instant('summary.csv_people_in_charge')}"`
+          ]
+        };
+        this.csvContent = this._actionPlanService.csvRows;
+      }
+
+      csvToBlob(fileTitle) {
+        const headers = {
+          section: `"${this._translateService.instant('summary.csv_section')}"`,
+          title: `"${this._translateService.instant('summary.csv_title_object')}"`,
+          action_plan_comment: `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
+          evaluation_comment: `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
+          csv_implement_date: `"${this._translateService.instant('summary.csv_implement_date')}"`,
+          csv_people_in_charge: `"${this._translateService.instant('summary.csv_people_in_charge')}"`
+        };
+
+        const csvContentFormatted = [];
+        this.csvContent.forEach((item) => {
+          const itemData = {}
+          if (item.title) {
+            itemData['title'] = `"${item.title}"`;
+          }
+          if (item.blank) {
+            itemData['blank'] = `"${item.blank}"`;
+          }
+          if (item.short_title) {
+            itemData['short_title'] = `"${item.short_title}"`;
+          }
+          if (item.action_plan_comment) {
+            itemData['action_plan_comment'] = `"${item.action_plan_comment}"`.replace(/,/g, '').replace(/\n/g,' ');
+          }
+          if (item.evaluation_comment) {
+            itemData['evaluation_comment'] = `"${item.evaluation_comment}"`.replace(/,/g, '').replace(/\n/g,' ');
+          }
+          if (item.evaluation_date) {
+            itemData['evaluation_date'] = `"${item.evaluation_date}"`;
+          }
+          if (item.evaluation_charge) {
+            itemData['evaluation_charge'] = `"${item.evaluation_charge}"`;
+          }
+
+          csvContentFormatted.push({
+            title: itemData['title'],
+            blank: itemData['blank'],
+            short_title: itemData['short_title'],
+            action_plan_comment: itemData['action_plan_comment'],
+            evaluation_comment: itemData['evaluation_comment'],
+            evaluation_date: itemData['evaluation_date'],
+            evaluation_charge: itemData['evaluation_charge']
+          });
+        });
+
+        return this.exportCSVFile(headers, csvContentFormatted, fileTitle);
+      }
+    /****************************** END CSV EXPORT *********************************/
+
+
+    /****************************** DOC EXPORT ************************************/
+      /**
+       *
+       * @param element block in the HTML view used to generate the docx
+       */
+      async generateDocx(element) {
+        setTimeout(() => {
+          const dataDoc = this.prepareDocFile(element);
+
+          const downloadLink = document.createElement('a');
+          document.body.appendChild(downloadLink);
+          if (navigator.msSaveOrOpenBlob) {
+            navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
+          } else {
+            downloadLink.href = dataDoc.url;
+            downloadLink.download = dataDoc.filename;
+            downloadLink.click();
+          }
+          document.body.removeChild(downloadLink);
+        }, 500);
+      }
+    /****************************** END DOC EXPORT ********************************/
 
     /**
      * Add all active attachments (not the removed ones) to the zip after converting them as blob files
@@ -251,7 +292,7 @@ export class ExportComponent implements OnInit {
         document.querySelector('#actionPlanOverviewImg').remove();
         document.querySelector('#risksOverviewSvg').remove();
       }
-      const preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+      const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\'><head><meta charset=\'utf-8\'><title>Export HTML To Doc</title></head><body>';
       const postHtml = '</body></html>';
       const html = preHtml + document.getElementById(element).innerHTML + postHtml;
       const blob = new Blob(['\ufeff', html], {
@@ -286,29 +327,6 @@ export class ExportComponent implements OnInit {
       });
     }
 
-    /**
-     * Prepare for CSV export
-     */
-    prepareCsv() {
-      this.csvOptions = {
-        fieldSeparator: ';',
-        quoteStrings: '"',
-        decimalseparator: '.',
-        showLabels: true,
-        showTitle: false,
-        useBom: true,
-        removeNewLines: true,
-        headers: [
-          `"${this._translateService.instant('summary.csv_section')}"`,
-          `"${this._translateService.instant('summary.csv_title_object')}"`,
-          `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
-          `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
-          `"${this._translateService.instant('summary.csv_implement_date')}"`,
-          `"${this._translateService.instant('summary.csv_people_in_charge')}"`
-        ]
-      };
-      this.csvContent = this._actionPlanService.csvRows;
-    }
 
 
     /**
