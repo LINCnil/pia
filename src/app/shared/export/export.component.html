@@ -39,6 +39,12 @@
                 <span>{{ 'summary.action_plan.title' | translate }}</span>
             </label>
           </li>
+          <li>
+            <label for="json">
+                <input type="checkbox" (change)="onSelectDownload('json', $event.target.checked)" name="json" value="json" id="json">
+                <span>Json</span>
+            </label>
+          </li>
       </ul>
       <button (click)="onDownload()" [disabled]="exportSelected.length < 1">
         Télécharger
