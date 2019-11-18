@@ -100,7 +100,7 @@ export class ExportComponent implements OnInit {
               });
               break;
             case 'csv': // Only csv
-              const csvName = slugify(fileTitle) + '-' + this._translateService.instant('summary.action_plan.title') + '.csv';
+              const csvName = fileTitle + '-' + slugify(this._translateService.instant('summary.action_plan.title')) + '.csv';
               const blob = this.csvToBlob(csvName);
               let downloadLink = document.createElement('a');
               document.body.appendChild(downloadLink);
