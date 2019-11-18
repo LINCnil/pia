@@ -1335,7 +1335,7 @@
       "individual_download_desc": "Exporte des éléments spécifiques de l'analyse.",
       "individual_download_select": "Sélectionnez les éléments à exporter :",
       "individual_download_doc": "Contenus textuels (fichier .doc)",
-      "individual_download_images": "Éléments visuels (fichiers .png) : vue d'ensemble des risques, cartographie des risques, plan d'action."
+      "individual_download_images": "Éléments visuels (fichiers .png) : vue d'ensemble des risques, cartographie des risques, plan d'action"
     },
     "download_csv": "Plan d'action (fichier .csv)",
 		"action_plan": {
