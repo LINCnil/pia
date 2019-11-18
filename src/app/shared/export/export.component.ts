@@ -21,6 +21,7 @@ export class ExportComponent implements OnInit {
   dataNav: any;
   csvOptions = {};
   exportSelected: Array<any> = [];
+  piaJson: JSON;
 
   constructor(
     public _piaService: PiaService,
@@ -36,7 +37,11 @@ export class ExportComponent implements OnInit {
       this.pia = this._piaService.pia;
       this._piaService.calculPiaProgress(this.pia);
 
+      // prepare for export
       this.prepareCsv();
+      this._piaService.export(this.pia.id).then((json: any) => {
+        this.piaJson = json
+      });
 
       this._attachmentsService.pia = this.pia;
       this._attachmentsService.listAttachments();
@@ -58,28 +63,42 @@ export class ExportComponent implements OnInit {
     }
 
     onDownload() {
-      if(this.exportSelected) {
-        if (this.exportSelected.length > 1) {
+      if (this.exportSelected) {
+        if (this.exportSelected.length > 1) { // download by selection
           this.generateExportsZip('pia-full-content', this.exportSelected);
-        } else {
+        } else { // download only one element
+          const fileTitle = 'pia-' + this.pia.name;
           switch (this.exportSelected[0]) {
-            case 'doc':
+            case 'doc': // Only doc
               this.generateDocx('pia-full-content');
               break;
-            case 'images':
+            case 'images': // Only images
               this.downloadAllGraphsAsImages();
               break;
-            case 'csv':
-              const fileTitle = this.pia.name + '.csv';
-              const blob = this.csvToBlob(fileTitle);
-              const downloadLink = document.createElement('a');
+            case 'json': // Only json
+              this._piaService.export(this.pia.id).then((json: any) => {
+                let downloadLink = document.createElement('a');
+                document.body.appendChild(downloadLink);
+                if (navigator.msSaveOrOpenBlob) {
+                  window.navigator.msSaveBlob(json, fileTitle + '.json');
+                } else {
+                  downloadLink.href = json;
+                  downloadLink.download = fileTitle + '.json';
+                  downloadLink.click();
+                }
+              });
+              break;
+            case 'csv': // Only csv
+              const csvName = fileTitle + '-' + this._translateService.instant('summary.action_plan.title') + '.csv';
+              const blob = this.csvToBlob(csvName);
+              let downloadLink = document.createElement('a');
               document.body.appendChild(downloadLink);
 
               if (navigator.msSaveOrOpenBlob) {
-                window.navigator.msSaveBlob(blob, fileTitle);
+                window.navigator.msSaveBlob(blob, csvName);
               } else {
                 downloadLink.href = URL.createObjectURL(blob);
-                downloadLink.download = fileTitle;
+                downloadLink.download = csvName;
                 downloadLink.click();
               }
               break;
@@ -94,25 +113,30 @@ export class ExportComponent implements OnInit {
   /****************************** CREATE EXPORTS ************************************/
 
     /**
-     * Generate a ZIP with the docx + all pictures
+     * Generate a ZIP with the docx + csv + json + all pictures
      * @param element block in the HTML view used to generate the docx in the zip
-     * @param exports files to exports array ['doc', 'images', 'csv']
+     * @param exports files to exports array ['doc', 'images', 'csv', 'json']
      */
     async generateExportsZip(element, exports: Array<string>) {
       setTimeout(() => {
+        const zipName = 'pia-' + this.pia.id + '.zip';
         const JSZip = require('jszip');
         const zip = new JSZip();
 
         // Attach export files
         this.addAttachmentsToZip(zip).then((zip2: any) => {
-          const fileTitle = this._translateService.instant('summary.action_plan.title');
 
           if (exports.includes('doc')) { // Doc
             const dataDoc = this.prepareDocFile(element);
             zip2.file('Doc/' + dataDoc.filename, dataDoc.blob);
           }
 
+          if (exports.includes('json')) { // Json
+            zip2.file('pia.json', this.piaJson, { binary: true });
+          }
+
           if (exports.includes('csv')) { // Csv
+            const fileTitle = this._translateService.instant('summary.action_plan.title');
             const blob = this.csvToBlob(fileTitle);
             zip2.file('CSV/' + fileTitle + '.csv', blob, { binary: true });
           }
@@ -121,14 +145,14 @@ export class ExportComponent implements OnInit {
             this.addImagesToZip(zip2).then((zip3: any) => {
               // Launch Download
               zip3.generateAsync({ type: 'blob' }).then(blobContent => {
-                FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+                FileSaver.saveAs(blobContent, zipName);
               });
             });
 
           } else {
             // Launch Download
             zip2.generateAsync({ type: 'blob' }).then(blobContent => {
-              FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+              FileSaver.saveAs(blobContent, zipName);
             });
           }
 
@@ -260,6 +284,39 @@ export class ExportComponent implements OnInit {
           document.body.removeChild(downloadLink);
         }, 500);
       }
+
+      /**
+       * Prepare .doc file
+       */
+      prepareDocFile(element) {
+        const risksCartography = document.querySelector('#risksCartographyImg');
+        const actionPlanOverview = document.querySelector('#actionPlanOverviewImg');
+        const risksOverview = document.querySelector('#risksOverviewSvg');
+        if (risksCartography && actionPlanOverview && risksOverview) {
+          document.querySelector('#risksCartographyImg').remove();
+          document.querySelector('#actionPlanOverviewImg').remove();
+          document.querySelector('#risksOverviewSvg').remove();
+        }
+        const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\'><head><meta charset=\'utf-8\'><title>Export HTML To Doc</title></head><body>';
+        const postHtml = '</body></html>';
+        const html = preHtml + document.getElementById(element).innerHTML + postHtml;
+        const blob = new Blob(['\ufeff', html], {
+          type: 'application/msword'
+        });
+        const risksCartographyContainer = document.querySelector('.pia-risksCartographyContainer');
+        const actionPlanOverviewContainer = document.querySelector('.pia-actionPlanGraphBlockContainer');
+        const risksOverviewContainer = document.querySelector('.pia-risksOverviewBlock');
+        if (risksCartographyContainer) {
+          risksCartographyContainer.appendChild(risksCartography);
+        }
+        if (actionPlanOverviewContainer) {
+          actionPlanOverviewContainer.appendChild(actionPlanOverview);
+        }
+        if (risksOverviewContainer) {
+          risksOverviewContainer.appendChild(risksOverview);
+        }
+        return { url: 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html), blob, filename: 'pia.doc' };
+      }
     /****************************** END DOC EXPORT ********************************/
 
     /**
@@ -279,39 +336,6 @@ export class ExportComponent implements OnInit {
       });
     }
 
-
-    /**
-     * Prepare .doc file
-     */
-    prepareDocFile(element) {
-      const risksCartography = document.querySelector('#risksCartographyImg');
-      const actionPlanOverview = document.querySelector('#actionPlanOverviewImg');
-      const risksOverview = document.querySelector('#risksOverviewSvg');
-      if (risksCartography && actionPlanOverview && risksOverview) {
-        document.querySelector('#risksCartographyImg').remove();
-        document.querySelector('#actionPlanOverviewImg').remove();
-        document.querySelector('#risksOverviewSvg').remove();
-      }
-      const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\'><head><meta charset=\'utf-8\'><title>Export HTML To Doc</title></head><body>';
-      const postHtml = '</body></html>';
-      const html = preHtml + document.getElementById(element).innerHTML + postHtml;
-      const blob = new Blob(['\ufeff', html], {
-        type: 'application/msword'
-      });
-      const risksCartographyContainer = document.querySelector('.pia-risksCartographyContainer');
-      const actionPlanOverviewContainer = document.querySelector('.pia-actionPlanGraphBlockContainer');
-      const risksOverviewContainer = document.querySelector('.pia-risksOverviewBlock');
-      if (risksCartographyContainer) {
-        risksCartographyContainer.appendChild(risksCartography);
-      }
-      if (actionPlanOverviewContainer) {
-        actionPlanOverviewContainer.appendChild(actionPlanOverview);
-      }
-      if (risksOverviewContainer) {
-        risksOverviewContainer.appendChild(risksOverview);
-      }
-      return { url: 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html), blob, filename: 'pia.doc' };
-    }
 
     /**
      * Download all graphs as images
