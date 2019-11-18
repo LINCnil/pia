@@ -9,6 +9,17 @@ import { ActionPlanService } from 'src/app/entry/entry-content/action-plan/actio
 import { TranslateService } from '@ngx-translate/core';
 declare const require: any;
 
+function slugify(text)
+{
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
+}
+
+
 @Component({
   selector: 'app-export',
   templateUrl: './export.component.html',
@@ -40,7 +51,7 @@ export class ExportComponent implements OnInit {
       // prepare for export
       this.prepareCsv();
       this._piaService.export(this.pia.id).then((json: any) => {
-        this.piaJson = json
+        this.piaJson = json;
       });
 
       this._attachmentsService.pia = this.pia;
@@ -67,7 +78,7 @@ export class ExportComponent implements OnInit {
         if (this.exportSelected.length > 1) { // download by selection
           this.generateExportsZip('pia-full-content', this.exportSelected);
         } else { // download only one element
-          const fileTitle = 'pia-' + this.pia.name;
+          const fileTitle = 'pia-' + slugify(this.pia.name);
           switch (this.exportSelected[0]) {
             case 'doc': // Only doc
               this.generateDocx('pia-full-content');
@@ -119,7 +130,7 @@ export class ExportComponent implements OnInit {
      */
     async generateExportsZip(element, exports: Array<string>) {
       setTimeout(() => {
-        const zipName = 'pia-' + this.pia.id + '.zip';
+        const zipName = 'pia-' + slugify(this.pia.name) + '.zip';
         const JSZip = require('jszip');
         const zip = new JSZip();
 
@@ -132,7 +143,7 @@ export class ExportComponent implements OnInit {
           }
 
           if (exports.includes('json')) { // Json
-            zip2.file('pia-' + this.pia.name + '.json', this.piaJson, { binary: true });
+            zip2.file('pia-' + slugify(this.pia.name) + '.json', this.piaJson, { binary: true });
           }
 
           if (exports.includes('csv')) { // Csv
