@@ -43,6 +43,7 @@ import { QuestionsComponent } from './entry/entry-content/questions/questions.co
 import { Angular2CsvModule } from 'angular2-csv';
 import { PreviewComponent } from './preview/preview.component';
 import { ExportComponent } from './shared/export/export.component';
+import { RevisionsComponent } from './shared/revisions/revisions.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { ExportComponent } from './shared/export/export.component';
     QuestionsComponent,
     PreviewComponent,
     ExportComponent,
+    RevisionsComponent,
   ],
   imports: [
     SharedModule,

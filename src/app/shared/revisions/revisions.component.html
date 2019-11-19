@@ -1,0 +1,54 @@
+<div class="pia-revisions">
+  <div class="pia-revisions-title">
+    <i class="fa fa-history"></i> Révisions
+  </div>
+  <div class="pia-revisions-box">
+    <h4>Version du PIA</h4>
+    <p>
+      <i class="fa fa-circle"></i> 11/11/2019 - Version actuelle
+    </p>
+    <div *ngIf="opened" class="pia-revisions-box-content">
+      <div class="pia-revisions-box-content-revision">
+        <h5>Septembre</h5>
+        <ul>
+          <li><i class="fa fa-circle-o"></i> 10/09/19 
+            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+          <li><i class="fa fa-circle-o"></i> 10/09/19 
+            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+          <li><i class="fa fa-circle-o"></i> 10/09/19 
+            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+        </ul>
+      </div>
+      <div class="pia-revisions-box-content-revision">
+        <h5>Octobre</h5>
+        <ul>
+          <li><i class="fa fa-circle-o"></i> 10/09/19 
+            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+          <li><i class="fa fa-circle-o"></i> 10/09/19 
+            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+          <li><i class="fa fa-circle-o"></i> 10/09/19 
+            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+        </ul>
+      </div>
+      <div class="pia-revisions-box-content-revision">
+        <h5>Novembre</h5>
+        <ul>
+          <li><i class="fa fa-circle-o"></i> 10/09/19 
+            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+          <li><i class="fa fa-circle-o"></i> 10/09/19 
+            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+          <li><i class="fa fa-circle-o"></i> 10/09/19 
+            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+        </ul>
+      </div>
+    </div>
+    <a href="javascript;" class="pia-revisions-box-footer" (click)="opened = !opened; $event.preventDefault();">
+      <span>Afficher les 54 versions</span>
+      <i class="fa fa-chevron-down" *ngIf="!opened else close"></i>
+      <ng-template  #close>
+          <i class="fa fa-chevron-up"></i>
+      </ng-template>
+    </a>
+  </div>
+  <button class="pia-revisions-">Réviser le PIA</button>
+</div>
