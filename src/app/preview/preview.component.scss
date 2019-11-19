@@ -155,6 +155,15 @@
         }
       }
     }
+    &-aside {
+      position: relative;
+      &-content {
+        padding-top: 15px;
+        position: sticky;
+        top: 0px;
+        width: 100%;
+      }
+    }
   }
 }
 

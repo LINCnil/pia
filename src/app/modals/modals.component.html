@@ -314,6 +314,18 @@
   </div>
 </div>
 
+
+<div class="pia-modalBlock" id="revision-selection">
+  <div class="pia-modalBlock-content bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p>Vous venez de choisir une révision</p>
+    <span class="pia-icons pia-icon-sad"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.close' | translate }}</button>
+    </div>
+  </div>
+</div>
+
 <div class="pia-modalBlock" id="modal-list-new-pia">
   <div class="pia-modalBlock-content bounceIn">
     <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close"></span></button>
