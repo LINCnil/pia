@@ -43,12 +43,12 @@
       </div>
     </div>
     <a href="javascript;" class="pia-revisions-box-footer" (click)="opened = !opened; $event.preventDefault();">
-      <span>Afficher les 54 versions</span>
+      <span>Afficher les {{revisions.length}} versions</span>
       <i class="fa fa-chevron-down" *ngIf="!opened else close"></i>
       <ng-template  #close>
           <i class="fa fa-chevron-up"></i>
       </ng-template>
     </a>
   </div>
-  <button class="pia-revisions-">Réviser le PIA</button>
+  <button class="pia-revisions-new" (click)="newRevision()">Réviser le PIA</button>
 </div>
