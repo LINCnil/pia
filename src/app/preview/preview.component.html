@@ -521,8 +521,8 @@
 
     <aside class="small-12 medium-3 columns pia-fullPreviewBlock-aside">
       <div class="pia-fullPreviewBlock-aside-content">
-        <app-revisions></app-revisions>
-        <app-export></app-export>
+        <app-revisions *ngIf="pia" [pia]="pia"></app-revisions>
+        <app-export *ngIf="pia" ></app-export>
       </div>
     </aside>
   </div>

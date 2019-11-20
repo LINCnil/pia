@@ -57,6 +57,8 @@ export class ApplicationDb {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
             } else if (this.tableName === 'attachment') {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
+            } else if (this.tableName === 'revision') {
+              objectStore.createIndex('index1', 'pia_id', { unique: false });
             }
           }
           if (event.oldVersion !== this.dbVersion) {
@@ -104,7 +106,7 @@ export class ApplicationDb {
     };
     return new Promise((resolve, reject) => {
       this.objectStore = db.transaction(this.tableName, 'readwrite').objectStore(this.tableName);
-      resolve();
+      resolve(this.objectStore);
     });
   }
 
