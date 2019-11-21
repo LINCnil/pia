@@ -4,6 +4,7 @@ import { ModalsService } from 'src/app/modals/modals.service';
 import { RevisionService } from 'src/app/services/revision.service';
 import { Pia } from 'src/app/entry/pia.model';
 import { Revision } from 'src/app/models/revision.model';
+import { Subject, iif } from 'rxjs';
 
 @Component({
   selector: 'app-revisions',
@@ -14,24 +15,49 @@ import { Revision } from 'src/app/models/revision.model';
 export class RevisionsComponent implements OnInit {
   @Input() pia: Pia;
   public opened: Boolean = false;
-  public revisions: Array<Revision>;
+  public revisions = null;
+  subject = new Subject()
+  public revisionsGroupByMonth;
+  public revisionsGroupByMonthInArray;
+  public objectKeys = Object.entries;
 
-  constructor(public _modalsService: ModalsService, 
-    public _revisionService: RevisionService) { }
+  constructor(public _modalsService: ModalsService, public _revisionService: RevisionService) {
+
+      this.subject.subscribe((value) => {
+        this.revisionsGroupByMonth = {}
+        this.revisions.forEach((obj) => {
+          const key = new Date(obj.created_at).getMonth() + '/' + new Date(obj.created_at).getFullYear();
+          if (this.revisionsGroupByMonth[key])  {
+            this.revisionsGroupByMonth[key].push(obj);
+          } else {
+            this.revisionsGroupByMonth[key] = []
+            this.revisionsGroupByMonth[key].push(obj);
+          }
+        });
+        this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth)
+
+      });
+
+      
+
+    }
 
   ngOnInit() {
-    this.revisions = [];
-    this._revisionService.getAll(2)
-      .then((resp: Array<Revision>) => {
-        if (resp) {
-          this.revisions.concat(resp);
-        }
+    this._revisionService.getAll(this.pia.id)
+      .then((resp) => {
+        console.log(resp);
+        this.revisions = resp;
+        this.subject.next(resp);
       });
   }
 
+
   newRevision() {
-    console.log(this.pia);
-    this._revisionService.add(this.pia);
+    this._revisionService.add(this.pia)
+    .then(resp => {
+      this.revisions.push(resp);
+      this.subject.next(resp);
+    });
   }
 
   onRevisionSelection(revision, event: Event) {
