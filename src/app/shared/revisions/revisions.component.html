@@ -2,43 +2,17 @@
   <div class="pia-revisions-title">
     <i class="fa fa-history"></i> Révisions
   </div>
-  <div class="pia-revisions-box">
+  <div class="pia-revisions-box" *ngIf="revisions">
     <h4>Version du PIA</h4>
     <p>
       <i class="fa fa-circle"></i> 11/11/2019 - Version actuelle
     </p>
-    <div *ngIf="opened" class="pia-revisions-box-content">
-      <div class="pia-revisions-box-content-revision">
-        <h5>Septembre</h5>
+    <div *ngIf="opened && revisionsGroupByMonth" class="pia-revisions-box-content">
+      <div class="pia-revisions-box-content-revision" *ngFor="let date of revisionsGroupByMonthInArray">
+        <h5>{{date}}</h5>
         <ul>
-          <li><i class="fa fa-circle-o"></i> 10/09/19 
-            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
-          <li><i class="fa fa-circle-o"></i> 10/09/19 
-            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
-          <li><i class="fa fa-circle-o"></i> 10/09/19 
-            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
-        </ul>
-      </div>
-      <div class="pia-revisions-box-content-revision">
-        <h5>Octobre</h5>
-        <ul>
-          <li><i class="fa fa-circle-o"></i> 10/09/19 
-            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
-          <li><i class="fa fa-circle-o"></i> 10/09/19 
-            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
-          <li><i class="fa fa-circle-o"></i> 10/09/19 
-            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
-        </ul>
-      </div>
-      <div class="pia-revisions-box-content-revision">
-        <h5>Novembre</h5>
-        <ul>
-          <li><i class="fa fa-circle-o"></i> 10/09/19 
-            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
-          <li><i class="fa fa-circle-o"></i> 10/09/19 
-            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
-          <li><i class="fa fa-circle-o"></i> 10/09/19 
-            <a href="javascript;" (click)="onRevisionSelection(2, $event)">Restaurer cette version</a></li>
+          <li *ngFor="let revision of revisionsGroupByMonth[date]"><i class="fa fa-circle-o"></i> {{revision}}
+            <a href="javascript;" (click)="onRevisionSelection(revision.id, $event)">Restaurer cette version</a></li>
         </ul>
       </div>
     </div>

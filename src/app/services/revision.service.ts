@@ -11,15 +11,15 @@ export class RevisionService {
   }
 
   async getAll(piaId: number) {
+    console.log(piaId)
     const items = [];
     return new Promise((resolve, reject) => {
       this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
-          const index1 = response.index('index1');
-          const evt = index1.openCursor(IDBKeyRange.only(piaId));
-          evt.onsuccess = (res: any) => {
+          const index = response.index('index1').getAll(IDBKeyRange.only(piaId));
+          index.onsuccess = (res: any) => {
             resolve(res.target.result);
           };
-          evt.onerror = (err) => {
+          index.onerror = (err) => {
             reject(err);
           };
         });
@@ -30,12 +30,10 @@ export class RevisionService {
     return new Promise((resolve, reject) => {
       this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
 
-          const revision = new Revision(
-            null,
-            new Date(),
-            pia,
-            pia.id
-          );
+
+          let json = JSON.stringify(pia);
+
+          let revision = new Revision(JSON.stringify(pia), pia.id, new Date());
 
           const evt = response.add(revision);
 
@@ -44,7 +42,10 @@ export class RevisionService {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            resolve(event.target.result);
+            resolve(
+              {...revision,
+              id: event.target.result}
+            );
           };
 
         });
