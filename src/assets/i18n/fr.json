@@ -954,6 +954,11 @@
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
+		},
+		"revision": {
+			"title": "Réviser le PIA",
+			"message": "En continuant, vous allez mettre à jour l'analyse. Celle-ci perdra son statut de validation et il sera nécessaire de la valider à nouveau une fois les changements effectués.<br><br>La version actuellement validée sera archivée.",
+			"continue": "Continuer"
 		}
 	},
 	"opinions": {

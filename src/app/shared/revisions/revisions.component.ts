@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { RevisionService } from 'src/app/services/revision.service';
@@ -13,55 +13,50 @@ import { Subject, iif } from 'rxjs';
   providers: [RevisionService]
 })
 export class RevisionsComponent implements OnInit {
-  @Input() pia: Pia;
+  @Input() revisions: Array<any>;
+  @Output('newRevisionQuery') newRevisionEmitter = new EventEmitter();
+  @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
+
   public opened: Boolean = false;
-  public revisions = null;
-  subject = new Subject()
+  subject = new Subject();
   public revisionsGroupByMonth;
   public revisionsGroupByMonthInArray;
   public objectKeys = Object.entries;
 
-  constructor(public _modalsService: ModalsService, public _revisionService: RevisionService) {
-
-      this.subject.subscribe((value) => {
-        this.revisionsGroupByMonth = {}
-        this.revisions.forEach((obj) => {
-          const key = new Date(obj.created_at).getMonth() + '/' + new Date(obj.created_at).getFullYear();
-          if (this.revisionsGroupByMonth[key])  {
-            this.revisionsGroupByMonth[key].push(obj);
-          } else {
-            this.revisionsGroupByMonth[key] = []
-            this.revisionsGroupByMonth[key].push(obj);
-          }
-        });
-        this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth)
-
-      });
-
-      
-
-    }
-
-  ngOnInit() {
-    this._revisionService.getAll(this.pia.id)
-      .then((resp) => {
-        console.log(resp);
-        this.revisions = resp;
-        this.subject.next(resp);
-      });
+  constructor() {
   }
 
+  ngOnInit() {
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+
+    // Update RevisionGroupByMonth on this.revisions changements
+    this.revisionsGroupByMonth = {}
+    if (changes.revisions.currentValue) {
+      changes.revisions.currentValue.forEach((obj) => {
+        const key = new Date(new Date(obj.created_at).getUTCFullYear(), new Date(obj.created_at).getMonth(), 1);
+        if (this.revisionsGroupByMonth[key])  {
+          this.revisionsGroupByMonth[key].push(obj);
+        } else {
+          this.revisionsGroupByMonth[key] = []
+          this.revisionsGroupByMonth[key].push(obj);
+        }
+      });
+      this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth) // Get Properties on array
+    }
+
+  }
 
   newRevision() {
-    this._revisionService.add(this.pia)
-    .then(resp => {
-      this.revisions.push(resp);
-      this.subject.next(resp);
-    });
+    // emit revision query
+    this.newRevisionEmitter.emit();
   }
 
   onRevisionSelection(revision, event: Event) {
-    this._modalsService.openModal('revision-selection');
+    // emit revision selection
+    this.selectedRevisionEmitter.emit(revision);
     event.preventDefault();
   }
 }

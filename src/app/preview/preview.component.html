@@ -521,10 +521,10 @@
 
     <aside class="small-12 medium-3 columns pia-fullPreviewBlock-aside">
       <div class="pia-fullPreviewBlock-aside-content">
-        <app-revisions *ngIf="pia" [pia]="pia"></app-revisions>
+        <app-revisions *ngIf="pia" [revisions]="revisions" (newRevisionQuery)="onNewRevision()" (selectedRevisionQuery)="onSelectedRevision($event)"></app-revisions>
         <app-export *ngIf="pia" ></app-export>
       </div>
     </aside>
   </div>
 </main>
-<app-modals></app-modals>
+<app-modals (continueEvent)="loadPiaRevision()"></app-modals>
