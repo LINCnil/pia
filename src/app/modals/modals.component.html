@@ -318,10 +318,11 @@
 <div class="pia-modalBlock" id="revision-selection">
   <div class="pia-modalBlock-content bounceIn">
     <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
-    <p>Vous venez de choisir une révision</p>
-    <span class="pia-icons pia-icon-sad"></span>
-    <div class="pia-modalBlock-validate">
-      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.close' | translate }}</button>
+    <h3>{{ 'modals.revision.title' | translate }}</h3>
+    <p [innerHTML]="'modals.revision.message' | translate"></p>
+    <div class="pia-modalBlock-buttons-choice">
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="continueEvent.emit(); _modalsService.closeModal()" type="button">{{ 'modals.revision.continue' | translate }}</button>
     </div>
   </div>
 </div>

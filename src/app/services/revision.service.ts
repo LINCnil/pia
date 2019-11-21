@@ -6,12 +6,21 @@ import { Revision } from '../models/revision.model';
 @Injectable()
 export class RevisionService {
   private revisionDb: ApplicationDb;
+  public revisionSelected: Revision;
   constructor() {
     this.revisionDb = new ApplicationDb(201911191636, 'revision');
   }
 
+  prepareRevision(id) {
+    this.revisionSelected = id;
+  }
+
+  loadRevision() {
+    console.log(this.revisionSelected);
+  }
+
   async getAll(piaId: number) {
-    console.log(piaId)
+    // console.log(piaId)
     const items = [];
     return new Promise((resolve, reject) => {
       this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
