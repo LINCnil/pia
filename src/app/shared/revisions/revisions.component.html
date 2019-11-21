@@ -7,7 +7,7 @@
     <p>
       <i class="fa fa-circle"></i> 11/11/2019 - Version actuelle
     </p>
-    <div *ngIf="opened && revisionsGroupByMonth && revisionsGroupByMonthInArray" class="pia-revisions-box-content">
+    <div *ngIf="opened && revisionsGroupByMonth" class="pia-revisions-box-content">
       <div class="pia-revisions-box-content-revision" *ngFor="let date of revisionsGroupByMonthInArray">
         <h5>{{date | date:"MMMM y" }}</h5>
         <ul>

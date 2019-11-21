@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { ApplicationDb } from '../application.db';
 import { Pia } from '../entry/pia.model';
 import { Revision } from '../models/revision.model';
+import { PiaService } from './pia.service';
+
 
 @Injectable()
 export class RevisionService {
   private revisionDb: ApplicationDb;
   public revisionSelected: Revision;
-  constructor() {
+  constructor(public _piaService: PiaService) {
     this.revisionDb = new ApplicationDb(201911191636, 'revision');
   }
 
@@ -16,7 +18,11 @@ export class RevisionService {
   }
 
   loadRevision() {
-    console.log(this.revisionSelected);
+    this.revisionDb.find(this.revisionSelected)
+      .then((response: Revision) => {
+        let piaExport = JSON.parse(response.export);
+        this._piaService.replacePiaByExport(piaExport);
+      });
   }
 
   async getAll(piaId: number) {
@@ -35,14 +41,11 @@ export class RevisionService {
     });
   }
 
-  async add(pia: Pia) {
+  async add(piaExport, piaId) {
     return new Promise((resolve, reject) => {
       this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
 
-
-          let json = JSON.stringify(pia);
-
-          let revision = new Revision(JSON.stringify(pia), pia.id, new Date());
+          let revision = new Revision(piaExport, piaId, new Date());
 
           const evt = response.add(revision);
 

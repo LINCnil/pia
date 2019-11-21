@@ -59,9 +59,7 @@ export class PreviewComponent implements OnInit {
       // Load PIA's revisions
       this._revisionService.getAll(this.pia.id)
       .then((resp) => {
-        console.log(resp);
         this.revisions = resp;
-        // this.subject.next(resp);
       });
 
     });
@@ -73,10 +71,14 @@ export class PreviewComponent implements OnInit {
   }
 
   onNewRevision() {
-    this._revisionService.add(this.pia)
-      .then((resp) => {
-       this.revisions.push(resp);
+    this._piaService.export(this.pia.id)
+      .then((exportResult) => {
+        this._revisionService.add(exportResult, this.pia.id)
+          .then((resp) => {
+            this.revisions.push(resp);
+          });
       });
+
   }
 
   onSelectedRevision(piaId) {
