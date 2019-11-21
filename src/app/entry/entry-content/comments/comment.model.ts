@@ -125,6 +125,29 @@ export class Comment extends ApplicationDb {
     });
   }
 
+  async update() {
+    return new Promise((resolve, reject) => {
+      this.find(this.id).then((entry: Comment) => {
+        entry.pia_id = this.pia_id;
+        entry.description = this.description;
+        entry.reference_to = this.reference_to;
+        entry.for_measure = this.for_measure;
+        entry.updated_at = new Date(entry.updated_at);
+        // update indexDB / comment
+        this.getObjectStore().then(() => {
+          const evt = this.objectStore.put(entry);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = () => {
+            resolve();
+          };
+        });
+      });
+    });
+  }
+
   async get(id: number) {
     this.id = id;
     this.find(this.id).then((entry: any) => {

@@ -454,6 +454,86 @@ export class PiaService {
     });
   }
 
+
+  async replacePiaByExport(piaExport) {
+    const pia = new Pia();
+    pia.id = piaExport.pia.id;
+    pia.name = piaExport.pia.name;
+    pia.category = piaExport.pia.category;
+    pia.author_name = piaExport.pia.author_name;
+    pia.evaluator_name = piaExport.pia.evaluator_name;
+    pia.validator_name = piaExport.pia.validator_name;
+    pia.dpo_status = piaExport.pia.dpo_status;
+    pia.dpo_opinion = piaExport.pia.dpo_opinion;
+    pia.concerned_people_opinion = piaExport.pia.concerned_people_opinion;
+    pia.concerned_people_status = piaExport.pia.concerned_people_status;
+    pia.concerned_people_searched_opinion = piaExport.pia.concerned_people_searched_opinion;
+    pia.concerned_people_searched_content = piaExport.pia.concerned_people_searched_content;
+    pia.rejected_reason = piaExport.pia.rejected_reason;
+    pia.applied_adjustements = piaExport.pia.applied_adjustements;
+    pia.created_at = piaExport.pia.created_at;
+    pia.dpos_names = piaExport.pia.dpos_names;
+    pia.people_names = piaExport.pia.people_names;
+    /* Structure import if there is a specific one associated to this PIA */
+    if (piaExport.pia.structure_id) {
+      pia.structure_id = piaExport.pia.structure_id;
+      pia.structure_data = piaExport.pia.structure_data;
+      pia.structure_name = piaExport.pia.structure_name;
+      pia.structure_sector_name = piaExport.pia.structure_sector_name;
+    }
+
+    pia.update() // update pia storage
+      .then(() => {
+
+        // update answers
+        piaExport.answers.forEach((answer: Answer) => {
+          const answerModel = new Answer();
+          answerModel.id = answer.id;
+          answerModel.pia_id = pia.id;
+          answerModel.reference_to = answer.reference_to;
+          answerModel.data = answer.data;
+          answerModel.created_at = new Date(answer.created_at);
+          if (answer.updated_at) {
+            answerModel.updated_at = new Date(answer.updated_at);
+          }
+          answerModel.update(); // update answer storage
+        });
+
+        // update measures
+        piaExport.measures.forEach((measure: Measure) => {
+          const measureModel = new Measure();
+          measureModel.id = measure.id;
+          measureModel.title = measure.title;
+          measureModel.pia_id = pia.id;
+          measureModel.content = measure.content;
+          measureModel.placeholder = measure.placeholder;
+          measureModel.created_at = new Date(measure.created_at);
+          if (measure.updated_at) {
+            measureModel.updated_at = new Date(measure.updated_at);
+          }
+          measureModel.update();
+        });
+
+        // update comment
+        piaExport.comments.forEach((comment: Comment) => {
+          const commentModel = new Comment();
+          commentModel.id = comment.id;
+          commentModel.pia_id = pia.id;
+          commentModel.description = comment.description;
+          commentModel.reference_to = comment.reference_to;
+          commentModel.for_measure = comment.for_measure;
+          commentModel.created_at = new Date(comment.created_at);
+          if (comment.updated_at) {
+            commentModel.updated_at = new Date(comment.updated_at);
+          }
+          commentModel.update();
+        });
+
+      });
+
+    console.log(pia)
+  }
+
   /**
    * Import all evaluations.
    * @private
