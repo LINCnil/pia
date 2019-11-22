@@ -27,7 +27,6 @@ export class RevisionService {
           .then(() => {
             console.log('reload');
             setTimeout(() => {
-              localStorage.setItem('pia-' + piaExport.pia.id, response.created_at);
               location.reload();
             }, 2000);
           });
@@ -71,10 +70,5 @@ export class RevisionService {
 
         });
     });
-  }
-
-  getCurrent(piaId) {
-    let version = localStorage.getItem('pia-' + piaId);
-    return version ? version : undefined;
   }
 }

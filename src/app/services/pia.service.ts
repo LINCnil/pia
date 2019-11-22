@@ -474,6 +474,7 @@ export class PiaService {
     pia.created_at = piaExport.pia.created_at;
     pia.dpos_names = piaExport.pia.dpos_names;
     pia.people_names = piaExport.pia.people_names;
+    pia.updated_at = new Date();
     /* Structure import if there is a specific one associated to this PIA */
     if (piaExport.pia.structure_id) {
       pia.structure_id = piaExport.pia.structure_id;

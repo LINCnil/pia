@@ -61,7 +61,7 @@ export class PreviewComponent implements OnInit {
       this._revisionService.getAll(this.pia.id)
       .then((resp) => {
         this.revisions = resp;
-        this.currentVersion = this._revisionService.getCurrent(this.pia.id) ? new Date(this._revisionService.getCurrent(this.pia.id)) : new Date();
+        this.currentVersion = this.pia.updated_at;
       });
 
     });
@@ -91,6 +91,7 @@ export class PreviewComponent implements OnInit {
   }
 
   async loadPiaRevision() {
+    this.onNewRevision();
     this._revisionService.loadRevision();
   }
 
