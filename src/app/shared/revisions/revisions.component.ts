@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { RevisionService } from 'src/app/services/revision.service';
@@ -12,7 +12,7 @@ import { Subject, iif } from 'rxjs';
   styleUrls: ['./revisions.component.scss'],
   providers: [RevisionService]
 })
-export class RevisionsComponent implements OnInit {
+export class RevisionsComponent implements OnInit, OnChanges {
   @Input() revisions: Array<any>;
   @Output('newRevisionQuery') newRevisionEmitter = new EventEmitter();
   @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
@@ -31,7 +31,7 @@ export class RevisionsComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-
+    console.log(changes)
     // Update RevisionGroupByMonth on this.revisions changements
     this.revisionsGroupByMonth = {}
     if (changes.revisions.currentValue) {

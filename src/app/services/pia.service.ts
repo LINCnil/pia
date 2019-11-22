@@ -485,8 +485,6 @@ export class PiaService {
     pia.update() // update pia storage
       .then(() => {
 
-        console.log("Import des liaisons (answers, measure...)")
-
         // DELETE EVERY ANSWERS, MEASURES AND COMMENT
         const answerMachine = new Answer()
         answerMachine.findAllByPia(pia.id)
