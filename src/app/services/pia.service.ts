@@ -485,10 +485,21 @@ export class PiaService {
     pia.update() // update pia storage
       .then(() => {
 
+        console.log("Import des liaisons (answers, measure...)")
+
+        // DELETE EVERY ANSWERS, MEASURES AND COMMENT
+        const answerMachine = new Answer()
+        answerMachine.findAllByPia(pia.id)
+          .then((response: Array<Answer>) => {
+            response.forEach(a => {
+              answerMachine.delete(a.id);
+            });
+          });
+
+        // CREATE NEWS
         // update answers
         piaExport.answers.forEach((answer: Answer) => {
           const answerModel = new Answer();
-          answerModel.id = answer.id;
           answerModel.pia_id = pia.id;
           answerModel.reference_to = answer.reference_to;
           answerModel.data = answer.data;
@@ -496,28 +507,39 @@ export class PiaService {
           if (answer.updated_at) {
             answerModel.updated_at = new Date(answer.updated_at);
           }
-          answerModel.update(); // update answer storage
+          answerModel.create();
         });
 
         // update measures
-        piaExport.measures.forEach((measure: Measure) => {
-          const measureModel = new Measure();
-          measureModel.id = measure.id;
-          measureModel.title = measure.title;
-          measureModel.pia_id = pia.id;
-          measureModel.content = measure.content;
-          measureModel.placeholder = measure.placeholder;
-          measureModel.created_at = new Date(measure.created_at);
-          if (measure.updated_at) {
-            measureModel.updated_at = new Date(measure.updated_at);
-          }
-          measureModel.update();
-        });
+        if (piaExport.measures.length > 0) {
+          let count = 0;
+          const oldIdToNewId = [];
+          // Create measures
+          piaExport.measures.forEach(measure => {
+            const measureModel = new Measure();
+            measureModel.title = measure.title;
+            measureModel.pia_id = pia.id;
+            measureModel.content = measure.content;
+            measureModel.placeholder = measure.placeholder;
+            measureModel.created_at = new Date(measure.created_at);
+            if (measure.updated_at) {
+              measureModel.updated_at = new Date(measure.updated_at);
+            }
+            measureModel.create().then((id: number) => {
+              count++;
+              oldIdToNewId[measure.id] = id;
+              if (count === piaExport.measures.length) {
+                this.importEvaluations(piaExport, pia.id, false, oldIdToNewId);
+              }
+            });
+          });
+        } else {
+          this.importEvaluations(piaExport, pia.id, false);
+        }
 
-        // update comment
+        // update comment /!\ You have to delete 
         piaExport.comments.forEach((comment: Comment) => {
           const commentModel = new Comment();
-          commentModel.id = comment.id;
           commentModel.pia_id = pia.id;
           commentModel.description = comment.description;
           commentModel.reference_to = comment.reference_to;
@@ -526,12 +548,9 @@ export class PiaService {
           if (comment.updated_at) {
             commentModel.updated_at = new Date(comment.updated_at);
           }
-          commentModel.update();
+          commentModel.create();
         });
-
       });
-
-    console.log(pia)
   }
 
   /**
