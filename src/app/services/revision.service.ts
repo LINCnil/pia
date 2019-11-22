@@ -27,7 +27,7 @@ export class RevisionService {
           .then(() => {
             console.log('reload');
             setTimeout(() => {
-              localStorage.setItem('pia-' + piaExport.pia.id, this.revisionSelected.created_at);
+              localStorage.setItem('pia-' + piaExport.pia.id, response.created_at);
               location.reload();
             }, 2000);
           });
