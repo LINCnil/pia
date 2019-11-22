@@ -7,7 +7,9 @@ import { PiaService } from './pia.service';
 
 @Injectable()
 export class RevisionService {
+
   private revisionDb: ApplicationDb;
+  public currentVersion: Date;
   public revisionSelected: Revision;
   constructor(public _piaService: PiaService) {
     this.revisionDb = new ApplicationDb(201911191636, 'revision');
@@ -17,11 +19,18 @@ export class RevisionService {
     this.revisionSelected = id;
   }
 
-  loadRevision() {
+  async loadRevision() {
     this.revisionDb.find(this.revisionSelected)
-      .then((response: Revision) => {
-        let piaExport = JSON.parse(response.export);
-        this._piaService.replacePiaByExport(piaExport);
+      .then(async (response: Revision) => {
+        const piaExport = JSON.parse(response.export);
+        this._piaService.replacePiaByExport(piaExport)
+          .then(() => {
+            console.log('reload');
+            setTimeout(() => {
+              localStorage.setItem('pia-' + piaExport.pia.id, this.revisionSelected.created_at);
+              location.reload();
+            }, 2000);
+          });
       });
   }
 
@@ -62,5 +71,10 @@ export class RevisionService {
 
         });
     });
+  }
+
+  getCurrent(piaId) {
+    let version = localStorage.getItem('pia-' + piaId);
+    return version ? version : undefined;
   }
 }

@@ -13,6 +13,7 @@ import { Subject, iif } from 'rxjs';
   providers: [RevisionService]
 })
 export class RevisionsComponent implements OnInit, OnChanges {
+  @Input() currentVersion: Date;
   @Input() revisions: Array<any>;
   @Output('newRevisionQuery') newRevisionEmitter = new EventEmitter();
   @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();

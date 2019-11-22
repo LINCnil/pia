@@ -30,6 +30,7 @@ export class PreviewComponent implements OnInit {
   allData: object;
   fromArchives = false;
   public revisions = null;
+  public currentVersion: Date;
 
   constructor(public _actionPlanService: ActionPlanService,
               private el: ElementRef,
@@ -60,6 +61,7 @@ export class PreviewComponent implements OnInit {
       this._revisionService.getAll(this.pia.id)
       .then((resp) => {
         this.revisions = resp;
+        this.currentVersion = this._revisionService.getCurrent(this.pia.id) ? new Date(this._revisionService.getCurrent(this.pia.id)) : new Date();
       });
 
     });
@@ -88,7 +90,7 @@ export class PreviewComponent implements OnInit {
     this._modalsService.openModal('revision-selection');
   }
 
-  loadPiaRevision() {
+  async loadPiaRevision() {
     this._revisionService.loadRevision();
   }
 
