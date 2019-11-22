@@ -11,7 +11,7 @@
       <div class="pia-revisions-box-content-revision" *ngFor="let date of revisionsGroupByMonthInArray">
         <h5>{{date | date:"MMMM yyyy"}}</h5>
         <ul>
-          <li *ngFor="let revision of revisionsGroupByMonth[date]"><i class="fa fa-circle-o"></i> {{revision.created_at  | date:"dd/MM/yy hh:mm:ss"}}
+          <li *ngFor="let revision of revisionsGroupByMonth[date].reverse()"><i class="fa fa-circle-o"></i> {{revision.created_at  | date:"dd/MM/yy hh:mm:ss"}}
             <a href="javascript;" (click)="onRevisionSelection(revision.id, $event)">Restaurer cette version</a></li>
         </ul>
       </div>
