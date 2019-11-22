@@ -75,7 +75,9 @@ export class PreviewComponent implements OnInit {
       .then((exportResult) => {
         this._revisionService.add(exportResult, this.pia.id)
           .then((resp) => {
+            // because ngOnchanges no detect simply array push
             this.revisions.push(resp);
+            this.revisions = this.revisions.slice();
           });
       });
 
