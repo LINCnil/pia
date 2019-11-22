@@ -5,11 +5,11 @@
   <div class="pia-revisions-box" *ngIf="revisions">
     <h4>Version du PIA</h4>
     <p>
-      <i class="fa fa-circle"></i> 11/11/2019 - Version actuelle
+      <i class="fa fa-circle"></i> {{currentVersion  | date:"dd/MM/yy hh:mm:ss"}} - Version actuelle
     </p>
     <div *ngIf="opened && revisionsGroupByMonth" class="pia-revisions-box-content">
       <div class="pia-revisions-box-content-revision" *ngFor="let date of revisionsGroupByMonthInArray">
-        <h5>{{date | date:"MMMM y" }}</h5>
+        <h5>{{date | date:"dd/MM/yy hh:mm:ss"}}</h5>
         <ul>
           <li *ngFor="let revision of revisionsGroupByMonth[date]"><i class="fa fa-circle-o"></i> {{revision.created_at  | date:"dd/MM/yy hh:mm:ss"}}
             <a href="javascript;" (click)="onRevisionSelection(revision.id, $event)">Restaurer cette version</a></li>

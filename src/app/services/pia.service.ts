@@ -482,21 +482,59 @@ export class PiaService {
       pia.structure_sector_name = piaExport.pia.structure_sector_name;
     }
 
-    pia.update() // update pia storage
-      .then(() => {
+    await pia.update() // update pia storage
+      .then(async () => {
+        console.log('finish pia');
 
         // DELETE EVERY ANSWERS, MEASURES AND COMMENT
-        const answerMachine = new Answer()
-        answerMachine.findAllByPia(pia.id)
-          .then((response: Array<Answer>) => {
-            response.forEach(a => {
-              answerMachine.delete(a.id);
-            });
+        const answerMachine = new Answer();
+        await answerMachine.findAllByPia(pia.id)
+          .then(async (response: Array<Answer>) => {
+            for (const c of response) {
+              await answerMachine.delete(c.id)
+                .then(() => {
+                  console.log('finish delete answer: ' + c.id);
+                });
+            }
           });
 
-        // CREATE NEWS
+        const commentMachine = new Comment();
+        await commentMachine.findAllByPia(pia.id)
+          .then(async (response: Array<Comment>) => {
+            for (const c of response) {
+              await commentMachine.delete(c.id)
+              .then(() => {
+                console.log('finish delete comment: ' + c.id);
+              });
+            }
+          });
+
+        const measureMachine = new Measure();
+        await measureMachine.findAllByPia(pia.id)
+          .then(async (response: Array<Comment>) => {
+            for (const c of response) {
+              await measureMachine.delete(c.id)
+                .then(() => {
+                  console.log('finish delete measure: ' + c.id);
+                });
+            }
+          });
+
+        const evaluationMachine = new Evaluation();
+        await evaluationMachine.findAllByPia(pia.id)
+          .then(async (response: Array<Comment>) => {
+            for (const c of response) {
+              await evaluationMachine.delete(c.id)
+                .then(() => {
+                  console.log('finish delete evaluation: ' + c.id);
+                });
+            }
+          });
+
+
+        // CREATE NEW ANSWERS, MEASURES AND COMMENT
         // update answers
-        piaExport.answers.forEach((answer: Answer) => {
+        for (const answer of piaExport.answers) {
           const answerModel = new Answer();
           answerModel.pia_id = pia.id;
           answerModel.reference_to = answer.reference_to;
@@ -505,15 +543,18 @@ export class PiaService {
           if (answer.updated_at) {
             answerModel.updated_at = new Date(answer.updated_at);
           }
-          answerModel.create();
-        });
+          await answerModel.create()
+          .then(() => {
+            console.log('finish create answer');
+          });
+        }
 
         // update measures
         if (piaExport.measures.length > 0) {
           let count = 0;
           const oldIdToNewId = [];
           // Create measures
-          piaExport.measures.forEach(measure => {
+          for (const measure of piaExport.measures) {
             const measureModel = new Measure();
             measureModel.title = measure.title;
             measureModel.pia_id = pia.id;
@@ -523,20 +564,21 @@ export class PiaService {
             if (measure.updated_at) {
               measureModel.updated_at = new Date(measure.updated_at);
             }
-            measureModel.create().then((id: number) => {
+            await measureModel.create().then(async (id: number) => {
+              console.log('finish create measure');
               count++;
               oldIdToNewId[measure.id] = id;
               if (count === piaExport.measures.length) {
-                this.importEvaluations(piaExport, pia.id, false, oldIdToNewId);
+                await this.importEvaluations(piaExport, pia.id, false, oldIdToNewId);
               }
             });
-          });
+          }
         } else {
-          this.importEvaluations(piaExport, pia.id, false);
+          await this.importEvaluations(piaExport, pia.id, false);
         }
 
-        // update comment /!\ You have to delete 
-        piaExport.comments.forEach((comment: Comment) => {
+        // update comment /!\ You have to delete
+        for (const comment of piaExport.comments) {
           const commentModel = new Comment();
           commentModel.pia_id = pia.id;
           commentModel.description = comment.description;
@@ -546,8 +588,11 @@ export class PiaService {
           if (comment.updated_at) {
             commentModel.updated_at = new Date(comment.updated_at);
           }
-          commentModel.create();
-        });
+          await commentModel.create()
+          .then(() => {
+            console.log('finish create comment');
+          });
+        }
       });
   }
 
@@ -559,10 +604,10 @@ export class PiaService {
    * @param {boolean} is_duplicate - Is a duplicated PIA?
    * @param {Array<any>} [oldIdToNewId] - Array to generate new id for special item.
    */
-  private importEvaluations(data: any, pia_id: number, is_duplicate: boolean, oldIdToNewId?: Array<any>) {
+  private async importEvaluations(data: any, pia_id: number, is_duplicate: boolean, oldIdToNewId?: Array<any>) {
     if (!is_duplicate) {
       // Create evaluations
-      data.evaluations.forEach(evaluation => {
+      for (const evaluation of data.evaluations) {
         const evaluationModel = new Evaluation();
         evaluationModel.pia_id = pia_id;
         evaluationModel.status = evaluation.status;
@@ -589,8 +634,11 @@ export class PiaService {
         if (evaluation.updated_at) {
           evaluationModel.updated_at = new Date(evaluation.updated_at);
         }
-        evaluationModel.create();
-      });
+        await evaluationModel.create()
+          .then(() => {
+            console.log('finish create evaluation');
+          });
+      }
     }
   }
 

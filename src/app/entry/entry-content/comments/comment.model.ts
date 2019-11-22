@@ -53,6 +53,42 @@ export class Comment extends ApplicationDb {
     });
   }
 
+  async findAllByPia(pia_id: number) {
+    const items = [];
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        fetch(this.getServerUrl(),{
+          mode: 'cors'
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result);
+        }).catch ((error) => {
+          console.error('Request failed', error);
+          reject();
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          const index1 = this.objectStore.index('index2');
+          const evt = index1.openCursor(IDBKeyRange.only(pia_id));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          }
+        });
+      }
+    });
+  }
+
   async findAllByReference() {
     const items = [];
     return new Promise((resolve, reject) => {
