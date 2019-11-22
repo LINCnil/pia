@@ -12,12 +12,12 @@ export class Comment extends ApplicationDb {
   async create() {
     this.created_at = new Date();
     const data = {
-          description: this.description,
-          pia_id: this.pia_id,
-          reference_to: this.reference_to,
-          for_measure: this.for_measure,
-          created_at: this.created_at
-        }
+      description: this.description,
+      pia_id: this.pia_id,
+      reference_to: this.reference_to,
+      for_measure: this.for_measure,
+      created_at: this.created_at
+    };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
@@ -74,7 +74,7 @@ export class Comment extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -83,7 +83,7 @@ export class Comment extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });
