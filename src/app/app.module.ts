@@ -44,6 +44,7 @@ import { Angular2CsvModule } from 'angular2-csv';
 import { PreviewComponent } from './preview/preview.component';
 import { ExportComponent } from './shared/export/export.component';
 import { RevisionsComponent } from './shared/revisions/revisions.component';
+import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overlay.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { RevisionsComponent } from './shared/revisions/revisions.component';
     PreviewComponent,
     ExportComponent,
     RevisionsComponent,
+    LoadingOverlayComponent,
   ],
   imports: [
     SharedModule,
