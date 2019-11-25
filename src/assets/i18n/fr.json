@@ -1360,7 +1360,7 @@
 			"current_version": "Version actuelle",
 			"restore_version": "Restaurer cette version",
 			"save": "Réviser le PIA",
-			"show": "Afficher les {{length}} versions"
+			"show": "Afficher les {{length}} version(s)"
 		},
 		"attachments": "Pièces jointes",
 		"concerned_people_name": "Noms des personnes concernées",

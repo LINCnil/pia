@@ -7,6 +7,7 @@
         <div class="small-12 medium-3 columns">
             <aside class="pia-leftSidebarBlock">
                 <app-sections [section]="section" [item]="item"></app-sections>
+                <app-revisions [recover]="false" [currentVersion]="currentVersion" [revisions]="revisions" (newRevisionQuery)="onNewRevision()"></app-revisions>
             </aside>
         </div>
 
