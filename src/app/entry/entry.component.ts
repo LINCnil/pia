@@ -32,6 +32,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
   public revisions = null;
   public currentVersion: Date;
+  public pia = null;
 
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
@@ -39,7 +40,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
               private _appDataService: AppDataService,
               private _sidStatusService: SidStatusService,
               private _knowledgeBaseService: KnowledgeBaseService,
-              private _piaService: PiaService,
+              public _piaService: PiaService,
               private _actionPlanService: ActionPlanService,
               private _globalEvaluationService: GlobalEvaluationService,
               public _revisionService: RevisionService,
@@ -173,11 +174,13 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       this._actionPlanService.data = this.data;
       this._actionPlanService.pia = this._piaService.pia;
 
+      this.pia = this._piaService.pia;
+
       // Load PIA's revisions
-      this._revisionService.getAll(this._piaService.pia.id)
+      this._revisionService.getAll(this.pia.id)
       .then((resp) => {
         this.revisions = resp;
-        this.currentVersion = this._piaService.pia.updated_at;
+        this.currentVersion = this.pia.updated_at;
       });
 
     });

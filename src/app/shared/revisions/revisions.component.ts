@@ -5,6 +5,8 @@ import { RevisionService } from 'src/app/services/revision.service';
 import { Pia } from 'src/app/entry/pia.model';
 import { Revision } from 'src/app/models/revision.model';
 import { Subject, iif } from 'rxjs';
+import { RelativeDate } from '../RelativeDate.class';
+
 
 @Component({
   selector: 'app-revisions',
@@ -38,7 +40,11 @@ export class RevisionsComponent implements OnInit, OnChanges {
     this.revisionsGroupByMonth = {}
     if (changes.revisions.currentValue) {
       changes.revisions.currentValue.forEach((obj) => {
-        const key = new Date(new Date(obj.created_at).getUTCFullYear(), new Date(obj.created_at).getMonth(), 1).toString();
+
+        // Determite key
+        const key = new RelativeDate(obj.created_at).simple();
+
+        // Group by key
         if (this.revisionsGroupByMonth[key])  {
           this.revisionsGroupByMonth[key].push(obj);
         } else {
