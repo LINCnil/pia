@@ -23,7 +23,7 @@ export class RevisionService {
     this.revisionDb.find(this.revisionSelected)
       .then(async (response: Revision) => {
         const piaExport = JSON.parse(response.export);
-        this._piaService.replacePiaByExport(piaExport)
+        await this._piaService.replacePiaByExport(piaExport)
           .then(() => {
             console.log('reload');
             setTimeout(() => {

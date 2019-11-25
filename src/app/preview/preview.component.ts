@@ -29,8 +29,10 @@ export class PreviewComponent implements OnInit {
   pia: any;
   allData: object;
   fromArchives = false;
+
   public revisions = null;
   public currentVersion: Date;
+  public revisionOverlay = false;
 
   constructor(public _actionPlanService: ActionPlanService,
               private el: ElementRef,
@@ -124,6 +126,7 @@ export class PreviewComponent implements OnInit {
      */
     async loadPiaRevision() {
       this.onNewRevision();
+      this.revisionOverlay = true;
       this._revisionService.loadRevision();
     }
   /********** END REVISIONS ACTIONS ***********/
