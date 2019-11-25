@@ -26,7 +26,8 @@
       font-size: 1.4rem;
     }
     &-content {
-      min-height: 200px;
+      max-height: 200px;
+      overflow-y: scroll;
       &-revision {
         h5 {
           text-transform: uppercase;
