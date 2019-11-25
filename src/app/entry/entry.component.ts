@@ -13,12 +13,13 @@ import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { RevisionService } from '../services/revision.service';
 
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.scss'],
-  providers: [PiaService]
+  providers: [PiaService, RevisionService]
 })
 export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   section: { id: number, title: string, short_help: string, items: any };
@@ -27,6 +28,10 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   questions: any;
   measureToRemoveFromTags: string;
   subscription: Subscription;
+
+
+  public revisions = null;
+  public currentVersion: Date;
 
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
@@ -37,6 +42,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
               private _piaService: PiaService,
               private _actionPlanService: ActionPlanService,
               private _globalEvaluationService: GlobalEvaluationService,
+              public _revisionService: RevisionService,
               private _measureService: MeasureService) { }
 
   async ngOnInit() {
@@ -166,6 +172,14 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
       this._actionPlanService.data = this.data;
       this._actionPlanService.pia = this._piaService.pia;
+
+      // Load PIA's revisions
+      this._revisionService.getAll(this._piaService.pia.id)
+      .then((resp) => {
+        this.revisions = resp;
+        this.currentVersion = this._piaService.pia.updated_at;
+      });
+
     });
 
     // Update on knowledge base (scroll / content / search field)
@@ -178,4 +192,21 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     this._knowledgeBaseService.loadByItem(this.item);
     this._knowledgeBaseService.placeholder = null;
   }
+
+  /********** REVISIONS ACTIONS ***********/
+    /**
+     * Create a new Revision record in indexDB
+     */
+    onNewRevision() {
+      this._piaService.export(this._piaService.pia.id)
+        .then((exportResult) => {
+          this._revisionService.add(exportResult, this._piaService.pia.id)
+            .then((resp) => {
+              // because ngOnchanges no detect simply array push
+              this.revisions.push(resp);
+              this.revisions = this.revisions.slice();
+            });
+        });
+    }
+  /********** END REVISIONS ACTIONS ***********/
 }
