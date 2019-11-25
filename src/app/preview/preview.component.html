@@ -521,7 +521,7 @@
 
     <aside class="small-12 medium-3 columns pia-fullPreviewBlock-aside">
       <div class="pia-fullPreviewBlock-aside-content">
-        <app-revisions [recover]="true" *ngIf="pia" [currentVersion]="currentVersion" [revisions]="revisions" (newRevisionQuery)="onNewRevision()" (selectedRevisionQuery)="onSelectedRevision($event)"></app-revisions>
+        <app-revisions [recover]="true" *ngIf="pia && pia.is_example == 0 && pia.is_archive  == 0" [currentVersion]="currentVersion" [revisions]="revisions" (newRevisionQuery)="onNewRevision()" (selectedRevisionQuery)="onSelectedRevision($event)"></app-revisions>
         <app-export *ngIf="pia" ></app-export>
       </div>
     </aside>
