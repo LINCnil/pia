@@ -93,7 +93,7 @@
 			"cz": "Česky",
 			"de": "Deutsch",
 			"dk": "Dansk",
-			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
+			"dpa_translations": "Traducción revisada por la Autoridad de protección de datos de la UE",
 			"el": "Ελληνικά",
 			"en": "English",
 			"es": "Español",
@@ -115,7 +115,7 @@
 		"logo_subtitle": "",
 		"logo_title": "Evaluación de impacto de la privacidad",
 		"pia_example_link": "Ejemplo de PIA",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "Modelos PIA",
 		"tools": {
 			"about": "Acerca de",
 			"accessibility": "Accesibilidad para personas con discapacidad visual (colores de alto contraste, daltonismo)",
@@ -161,7 +161,7 @@
 				},
 				"title": "Problemas conocidos"
 			},
-			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+			"footer": "En caso de tener cualquier otro problema o seguerencias de mejora, puede enviarnoslas a traves de este formulario <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
 		"title": "Ayuda"
 	},
@@ -197,12 +197,12 @@
 			"placeholder_new_pia": "Nuevo PIA",
 			"placeholder_new_structure": "Nueva plantilla",
 			"placeholder_pia_name": "Nombre del PIA",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "Nombre del sector asociado",
 			"placeholder_start": "Todos los campos son obligatorios",
 			"placeholder_structure": "Plantilla por defecto",
 			"placeholder_structure_name": "Título de la plantilla",
 			"placeholder_validation": "Nombre y apellidos",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"sector_name": "Sector asociado",
 			"start": "Comenzar",
 			"status": "Estado",
 			"structure": "Plantilla",
@@ -224,8 +224,8 @@
 			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
 			"name": "Nombre",
 			"new_pia": "Nuevo PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"new_structure": "Nueva plantilla",
+			"sector_name": "Sector asociado",
 			"sort": "Ordenar",
 			"sort_by": "por",
 			"status": "Estado",
@@ -238,10 +238,10 @@
 			"column_evaluation": "Revisado por",
 			"column_pia": "PIA",
 			"column_progression": "Progreso",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "Sector asociado",
 			"column_status": "Estado",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "Plantilla",
+			"column_structure_name": "Plantilla",
 			"column_updated_at": "Último acceso",
 			"column_validation": "Validado por",
 			"item": {
@@ -498,8 +498,8 @@
 				"source": "PIA1 page 6"
 			},
 			"PIA_EX_DC": {
-				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data"
+				"description": "Datos utilizados para un sistema de scoring, resultado de la aplicación del scoring....",
+				"name": "Datos calculados"
 			},
 			"PIA_EX_DCPC": {
 				"description": "Datos de Identificación Estado civil, identidad, edad, etcetera. <br><strong>Vida personal</strong> : hábitos de vida, estado civil, etcetera. <br><strong>Vida profesional</strong> : currículum, educación y formación profesional, premios, etcetera. Datos de conexión Direcciones IP, registros de eventos, etcetera.<br><strong>Datos de localización</strong> : viajes, datos GPS, datos GSM, etcetera.<br><strong>Otros</strong> : teléfono número, dirección de correo electrónico, etcetera. ",
@@ -832,31 +832,31 @@
 	},
 	"modals": {
 		"abandon_pia": {
-			"additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed.",
-			"content": "TO BE TRANSLATED - Do you wish to give up the processing?"
+			"additional_text": "El archivado no es definitivo, puede reanudar el PIA de ser necesario.",
+			"content": "¿Desea finalizar el tratamiento?"
 		},
 		"action_plan_no_evaluation": {
-			"content": "TO BE TRANSLATED - You need to begin the review of the analysis to create the action plan.",
-			"review_section": "TO BE TRANSLATED - Review a section"
+			"content": "Debe comenzar la evaluación del análisis para crear el plan de acción.",
+			"review_section": "Evaluar una sección"
 		},
 		"archive": "Archivar",
 		"ask_for_evaluation": {
-			"content": "TO BE TRANSLATED - This section is ready to be reviewed."
+			"content": "Esta sección está lista para ser revisada."
 		},
 		"back_to_edition": {
-			"content": "TO BE TRANSLATED - This section has been sent back for editing.<br> Several fields must be corrected<br> to enable its proper review."
+			"content": "Esta sección se ha devuelto para su edición.<br> Se deben corregir diversos campos<br> para permitir su adecuada revisión."
 		},
 		"back_to_evaluation": {
-			"content": "TO BE TRANSLATED - This section has been sent back for review.<br> Several fields must be reviewed<br> to enable its proper validation."
+			"content": "Esta sección se ha devuelto para su revisión.<br> Se deben revisar diversos campos<br> para permitir su adecuada validación."
 		},
 		"back_to_home": "Volver a inicio",
 		"cancel": "Cancelar",
 		"close": "Cerrar",
 		"completed_edition": {
-			"content": "TO BE TRANSLATED - The PIA has been fully edited and has to be reviewed."
+			"content": "El PIA ha sido completamente editado y debe ser evaluado."
 		},
 		"completed_evaluation": {
-			"content": "TO BE TRANSLATED - The PIA has been fully reviewed and can be validated."
+			"content": "El PIA ha sido completamente evaluado y puede ser validado ."
 		},
 		"continue": "Continuar",
 		"declare_measures": {
@@ -864,28 +864,28 @@
 			"declare": "Declare las medidas existentes o previstas"
 		},
 		"dpo_missing_evaluations": {
-			"comment": "TO BE TRANSLATED - Comment",
-			"content": "TO BE TRANSLATED - You need to complete the review of the analysis to access the DPO page.",
+			"comment": "Inserte un comentario",
+			"content": "Debe.",
 			"remove": "Eliminar",
-			"review_section": "TO BE TRANSLATED - Review a section"
+			"review_section": "Evaluar una sección"
 		},
 		"import_wrong_pia_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+			"content": "El archivo importado no corresponde con un archivo de tipo PIA"
 		},
 		"import_wrong_structure_file": {
 			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
 		},
 		"modal_select_text_pia": {
-			"content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
+			"content": "El contenido del PIA se ha copiado al portapapeles."
 		},
 		"not_enough_measures_to_remove": {
 			"content": "<span class = 'strong'> Advertencia, </ span> <br> Se debe completar al menos una medida: no es posible la eliminación."
 		},
 		"refuse_pia": {
-			"content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
+			"content": "Como ha rechazado el PIA, se devuelve para su validación con el fin de realizar los cambios necesarios."
 		},
 		"remove_attachment": {
-			"comment": "TO BE TRANSLATED - Comment",
+			"comment": "Inserte un comentario",
 			"content": "Advertencia,<br>¿Está seguro de que quiere<br>eliminar este archivo adjunto?",
 			"keep": "Mantener",
 			"remove": "Eliminar"
@@ -900,13 +900,13 @@
 			"remove": "Eliminar este PIA"
 		},
 		"remove_question": {
-			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
-			"keep": "TO BE TRANSLATED - Annuler",
-			"remove": "TO BE TRANSLATED - Supprimer"
+			"content": "¿Quiere eliminar la pregunta?",
+			"keep": "Mantener",
+			"remove": "Eliminar"
 		},
 		"remove_structure": {
 			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
-			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
+			"remove": "Eliminar esta plantilla"
 		},
 		"same_comment": {
 			"content": "Advertencia,<br>Ingrese un comentario diferente al último registrado."
@@ -918,12 +918,12 @@
 		"simple_pia_validation": {
 			"content": "TO BE TRANSLATED - You have approved the PIA."
 		},
-		"start_evaluation": "TO BE TRANSLATED - Start review",
+		"start_evaluation": "Iniciar evaluación",
 		"update_server_url_nok": {
-			"content": "TO BE TRANSLATED - Connection impossible."
+			"content": "Conexión imposible."
 		},
 		"update_server_url_ok": {
-			"content": "TO BE TRANSLATED - The server address has been updated."
+			"content": "La dirección del servidor ha sido actualizada."
 		},
 		"validate_evaluation": {
 			"content": "TO BE TRANSLATED - This section is ready for validating the PIA."
@@ -972,7 +972,7 @@
 		"footer": {
 			"ask_evaluation": "Solicitar revisión",
 			"mandatory_fields": "Todos los campos son obligatorios",
-			"structure_add_question": "TO BE TRANSLATED - Ajouter une question",
+			"structure_add_question": "Añadir una pregunta",
 			"subsection_validated": "Subsección revisada, en espera de validación final",
 			"validate_evaluation": "Validar revisión"
 		},
@@ -1020,19 +1020,19 @@
 			"3": "Importante",
 			"4": "Máximo"
 		},
-		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
-		"remove": "TO BE TRANSLATED - Supprimer la question"
+		"placeholder_title": "Título de la pregunta (obligatorio)",
+		"remove": "Eliminar la pregunta"
 	},
 	"rejection_page": {
-		"applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
-		"applied_adjustments_placeholder": "TO BE TRANSLATED - Describe the changes brought to the PIA.",
+		"applied_adjustments": "Cambios realizados",
+		"applied_adjustments_placeholder": "Describir los cambios realizados en el PIA.",
 		"button": {
-			"abandon_treatment": "TO BE TRANSLATED - Abandon processing",
-			"reject_pia": "TO BE TRANSLATED - Reject PIA",
-			"send_for_validation": "TO BE TRANSLATED - Resend for approval"
+			"abandon_treatment": "Detener el tratamiento",
+			"reject_pia": "Rechazar el PIA",
+			"send_for_validation": "Reenviar para aprobación"
 		},
-		"previous_rejection": "TO BE TRANSLATED - Previous refusal",
-		"rejection_reason": "TO BE TRANSLATED - Refusal reason",
+		"previous_rejection": "PIA ya rechazada",
+		"rejection_reason": "Motivos de rechazo del PIA",
 		"rejection_reason_placeholder": "Describa las razones para rechazar el PIA.",
 		"title": "Historial de la validación"
 	},
@@ -1333,23 +1333,23 @@
 			"1": "El tratamiento podría ser puesto en ejecución."
 		},
 		"creation_date": "Fecha de creación",
-		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
-		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
-		"csv_file_title": "TO BE TRANSLATED - action-plan",
-		"csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
-		"csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
-		"csv_section": "TO BE TRANSLATED - Section",
-		"csv_title_object": "TO BE TRANSLATED - Title",
+		"csv_action_plan_comment": "Comentario sobre el plan de acción",
+		"csv_evaluation_comment": "Comentario sobre la evaluación",
+		"csv_file_title": "Plan de acción",
+		"csv_implement_date": "Fecha estimada de implementación",
+		"csv_people_in_charge": "Persona responsable",
+		"csv_section": "Sección",
+		"csv_title_object": "Título",
 		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
-			"action_plan_content": "TO BE TRANSLATED - Display action plan",
-			"context_content": "TO BE TRANSLATED - Display \"Context\"",
-			"main_content": "TO BE TRANSLATED - Display \"PIA information\"",
-			"principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
-			"risks_cartography_content": "TO BE TRANSLATED - Display risk mapping",
-			"risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-			"risks_overview_content": "TO BE TRANSLATED - Display risks overview",
-			"title": "TO BE TRANSLATED - Filters"
+      "check_all": "Habilitar / deshabilitar todos los filtros",
+			"action_plan_content": "Mostrar plan de acción",
+			"context_content": "Mostrar \"Contexto\"",
+			"main_content": "Mostrar \"Información sobre el PIA\"",
+			"principles_content": "Mostrar \"Principios fundamentales\"",
+			"risks_cartography_content": "Mostrar mapeo de riesgos",
+			"risks_content": "Mostrar \"Riesgos\"",
+			"risks_overview_content": "Mostrar resumen de riesgos",
+			"title": "Filtros"
 		},
 		"dpo_name": "Nombre de DPO",
 		"dpo_opinion": "Opinión de DPO",
