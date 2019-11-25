@@ -12,12 +12,12 @@ export class Comment extends ApplicationDb {
   async create() {
     this.created_at = new Date();
     const data = {
-          description: this.description,
-          pia_id: this.pia_id,
-          reference_to: this.reference_to,
-          for_measure: this.for_measure,
-          created_at: this.created_at
-        }
+      description: this.description,
+      pia_id: this.pia_id,
+      reference_to: this.reference_to,
+      for_measure: this.for_measure,
+      created_at: this.created_at
+    };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
@@ -53,6 +53,42 @@ export class Comment extends ApplicationDb {
     });
   }
 
+  async findAllByPia(pia_id: number) {
+    const items = [];
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        fetch(this.getServerUrl(),{
+          mode: 'cors'
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result);
+        }).catch ((error) => {
+          console.error('Request failed', error);
+          reject();
+        });
+      } else {
+        this.getObjectStore().then(() => {
+          const index1 = this.objectStore.index('index2');
+          const evt = index1.openCursor(IDBKeyRange.only(pia_id));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          }
+        });
+      }
+    });
+  }
+
   async findAllByReference() {
     const items = [];
     return new Promise((resolve, reject) => {
@@ -74,7 +110,7 @@ export class Comment extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -83,7 +119,7 @@ export class Comment extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });
@@ -122,6 +158,29 @@ export class Comment extends ApplicationDb {
           }
         });
       }
+    });
+  }
+
+  async update() {
+    return new Promise((resolve, reject) => {
+      this.find(this.id).then((entry: Comment) => {
+        entry.pia_id = this.pia_id;
+        entry.description = this.description;
+        entry.reference_to = this.reference_to;
+        entry.for_measure = this.for_measure;
+        entry.updated_at = new Date(entry.updated_at);
+        // update indexDB / comment
+        this.getObjectStore().then(() => {
+          const evt = this.objectStore.put(entry);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = () => {
+            resolve();
+          };
+        });
+      });
     });
   }
 

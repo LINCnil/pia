@@ -1,0 +1,82 @@
+@import '../../../assets/stylesheets/variables';
+.pia-revisions {
+  margin-bottom: 50px;
+  &-title {
+    padding-bottom: 5px;;
+    margin-bottom: 15px;
+    color: $pia-gray;
+    border-bottom: 2px solid $pia-gray;
+    font-size: 1.35em;
+    i {
+      font-size: 25px;
+    }
+  }
+  &-box {
+    background-color: $pia-green;
+    box-shadow: 2px 1px 18px 1px #c2c2c2;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+    h4 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      margin: 0px;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+    &-content {
+      max-height: 200px;
+      overflow-y: scroll;
+      &-revision {
+        h5 {
+          text-transform: uppercase;
+          padding-bottom: 10px;
+          border-bottom: 1px solid white;
+          margin-bottom: 5px;
+          font-size: 1.2rem;
+        }
+        ul { 
+          margin: 0px;
+          padding-left: 0px;
+          list-style: none;
+          li {
+            i {
+              margin-right: 5px;
+            }
+            a {
+              color: white;
+              display: none;
+            }
+            &:hover {
+              a {
+                display: inline;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-footer {
+      font-size: 1.4rem;
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+      color: white;
+      i {
+        margin-left: 15px;
+      }
+    }
+  }
+  button {
+    cursor: pointer;
+    text-align: center;
+    margin: 5px 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: $pia-green;
+    font-size: 1.4rem;
+    width:100%;
+    color: white;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -22,6 +22,7 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
 export class ModalsComponent implements OnInit {
   @Input() pia: any;
   @Input() structure: any;
+  @Output() continueEvent = new EventEmitter();
   newPia: Pia;
   newStructure: Structure;
   piaForm: FormGroup;

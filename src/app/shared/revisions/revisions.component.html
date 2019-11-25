@@ -1,0 +1,28 @@
+<div class="pia-revisions">
+  <div class="pia-revisions-title">
+    <i class="fa fa-history"></i> {{ 'summary.revision.revision' | translate }}
+  </div>
+  <div class="pia-revisions-box" *ngIf="revisions">
+    <h4>{{ 'summary.revision.pia_version' | translate }}</h4>
+    <p>
+      <i class="fa fa-circle"></i> {{currentVersion  | date:"dd/MM/yy HH:mm:ss"}} - {{ 'summary.revision.current_version' | translate }}
+    </p>
+    <div *ngIf="opened && revisionsGroupByMonth" class="pia-revisions-box-content">
+      <div class="pia-revisions-box-content-revision" *ngFor="let date of revisionsGroupByMonthInArray">
+        <h5>{{date | date:"MMMM yyyy"}}</h5>
+        <ul>
+          <li *ngFor="let revision of revisionsGroupByMonth[date].reverse()"><i class="fa fa-circle-o"></i> {{revision.created_at  | date:"dd/MM/yy HH:mm:ss"}}
+            <a href="javascript;" (click)="onRevisionSelection(revision.id, $event)">{{ 'summary.revision.restore_version' | translate }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <a href="javascript;" class="pia-revisions-box-footer" (click)="opened = !opened; $event.preventDefault();">
+      <span>{{ 'summary.revision.show' | translate:{'length': revisions.length} }}</span>
+      <i class="fa fa-chevron-down" *ngIf="!opened else close"></i>
+      <ng-template  #close>
+          <i class="fa fa-chevron-up"></i>
+      </ng-template>
+    </a>
+  </div>
+  <button class="pia-revisions-new" (click)="newRevision()">{{ 'summary.revision.save' | translate }}</button>
+</div>

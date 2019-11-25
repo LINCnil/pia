@@ -954,6 +954,11 @@
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
+		},
+		"revision": {
+			"title": "Réviser le PIA",
+			"message": "En continuant, vous allez mettre à jour l'analyse. Celle-ci perdra son statut de validation et il sera nécessaire de la valider à nouveau une fois les changements effectués.<br><br>La version actuellement validée sera archivée.",
+			"continue": "Continuer"
 		}
 	},
 	"opinions": {
@@ -1348,6 +1353,14 @@
 			"no_action_plan": "Aucun plan d'action enregistré.",
 			"risks": "Risques",
 			"title": "Plan d'action"
+		},
+		"revision": {
+			"revision": "Révisions",
+			"pia_version": "Version du Pia",
+			"current_version": "Version actuelle",
+			"restore_version": "Restaurer cette version",
+			"save": "Réviser le PIA",
+			"show": "Afficher les {{length}} versions"
 		},
 		"attachments": "Pièces jointes",
 		"concerned_people_name": "Noms des personnes concernées",

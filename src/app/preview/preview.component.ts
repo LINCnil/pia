@@ -9,6 +9,8 @@ import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { RevisionService } from 'src/app/services/revision.service';
+import { ModalsService } from '../modals/modals.service';
 
 @Component({
   selector: 'app-preview',
@@ -17,7 +19,7 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
     './preview.component.scss',
     '../entry/entry-content/action-plan/action-plan.component.scss'
   ],
-  providers: [PiaService]
+  providers: [PiaService, RevisionService, ModalsService]
 })
 export class PreviewComponent implements OnInit {
   public activeElement: string;
@@ -28,12 +30,18 @@ export class PreviewComponent implements OnInit {
   allData: object;
   fromArchives = false;
 
+  public revisions = null;
+  public currentVersion: Date;
+  public revisionOverlay = false;
+
   constructor(public _actionPlanService: ActionPlanService,
-    private el: ElementRef,
-    private _translateService: TranslateService,
-    public _piaService: PiaService,
-    private _appDataService: AppDataService,
-    public _attachmentsService: AttachmentsService) { }
+              private el: ElementRef,
+              private _translateService: TranslateService,
+              public _piaService: PiaService,
+              private _appDataService: AppDataService,
+              public _attachmentsService: AttachmentsService,
+              public _revisionService: RevisionService,
+              public _modalsService: ModalsService) { }
 
   async ngOnInit() {
 
@@ -50,11 +58,20 @@ export class PreviewComponent implements OnInit {
       if (this.pia.is_archive === 1) {
         this.fromArchives = true;
       }
+
+      // Load PIA's revisions
+      this._revisionService.getAll(this.pia.id)
+      .then((resp) => {
+        this.revisions = resp;
+        this.currentVersion = this.pia.updated_at;
+      });
+
     });
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;
     }
     this.data = this._appDataService.dataNav;
+
   }
 
   ngAfterViewChecked() {
@@ -75,6 +92,45 @@ export class PreviewComponent implements OnInit {
       });
     };
   }
+
+
+  /********** REVISIONS ACTIONS ***********/
+    /**
+     * Create a new Revision record in indexDB
+     */
+    onNewRevision() {
+      this._piaService.export(this.pia.id)
+        .then((exportResult) => {
+          this._revisionService.add(exportResult, this.pia.id)
+            .then((resp) => {
+              // because ngOnchanges no detect simply array push
+              this.revisions.push(resp);
+              this.revisions = this.revisions.slice();
+            });
+        });
+
+    }
+
+    /**
+     * Save revision as selection in revision service
+     * And open modal, wait confirmation
+     * @param {number} piaId
+     */
+    onSelectedRevision(piaId) {
+      this._revisionService.prepareRevision(piaId);
+      this._modalsService.openModal('revision-selection');
+    }
+
+    /**
+     * On modal confirmation, replace current pia version by selected revion
+     */
+    async loadPiaRevision() {
+      this.onNewRevision();
+      this.revisionOverlay = true;
+      this._revisionService.loadRevision();
+    }
+  /********** END REVISIONS ACTIONS ***********/
+
 
   /**
    * Jump to the title/subtitle clicked.
