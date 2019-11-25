@@ -72,30 +72,6 @@ export class PreviewComponent implements OnInit {
 
   }
 
-  onNewRevision() {
-    this._piaService.export(this.pia.id)
-      .then((exportResult) => {
-        this._revisionService.add(exportResult, this.pia.id)
-          .then((resp) => {
-            // because ngOnchanges no detect simply array push
-            this.revisions.push(resp);
-            this.revisions = this.revisions.slice();
-          });
-      });
-
-  }
-
-  onSelectedRevision(piaId) {
-    this._revisionService.prepareRevision(piaId);
-    this._modalsService.openModal('revision-selection');
-  }
-
-  async loadPiaRevision() {
-    this.onNewRevision();
-    this._revisionService.loadRevision();
-  }
-
-
   ngAfterViewChecked() {
     // scroll spy
     const sections = document.querySelectorAll('.pia-fullPreviewBlock-headline-title h2') as NodeListOf<HTMLElement>;
@@ -114,6 +90,44 @@ export class PreviewComponent implements OnInit {
       });
     };
   }
+
+
+  /********** REVISIONS ACTIONS ***********/
+    /**
+     * Create a new Revision record in indexDB
+     */
+    onNewRevision() {
+      this._piaService.export(this.pia.id)
+        .then((exportResult) => {
+          this._revisionService.add(exportResult, this.pia.id)
+            .then((resp) => {
+              // because ngOnchanges no detect simply array push
+              this.revisions.push(resp);
+              this.revisions = this.revisions.slice();
+            });
+        });
+
+    }
+
+    /**
+     * Save revision as selection in revision service
+     * And open modal, wait confirmation
+     * @param {number} piaId
+     */
+    onSelectedRevision(piaId) {
+      this._revisionService.prepareRevision(piaId);
+      this._modalsService.openModal('revision-selection');
+    }
+
+    /**
+     * On modal confirmation, replace current pia version by selected revion
+     */
+    async loadPiaRevision() {
+      this.onNewRevision();
+      this._revisionService.loadRevision();
+    }
+  /********** END REVISIONS ACTIONS ***********/
+
 
   /**
    * Jump to the title/subtitle clicked.
