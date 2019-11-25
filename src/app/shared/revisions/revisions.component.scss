@@ -1,6 +1,5 @@
 @import '../../../assets/stylesheets/variables';
 .pia-revisions {
-  font-size: 1.4rem;
   margin-bottom: 50px;
   &-title {
     padding-bottom: 5px;;
@@ -19,8 +18,12 @@
     padding: 10px;
     margin-bottom: 5px;
     h4 {
+      font-size: 1.4rem;
       text-transform: uppercase;
       margin: 0px;
+    }
+    p {
+      font-size: 1.4rem;
     }
     &-content {
       min-height: 200px;
@@ -30,6 +33,7 @@
           padding-bottom: 10px;
           border-bottom: 1px solid white;
           margin-bottom: 5px;
+          font-size: 1.2rem;
         }
         ul { 
           margin: 0px;
@@ -53,6 +57,7 @@
       }
     }
     &-footer {
+      font-size: 1.4rem;
       display: block;
       width: 100%;
       margin-top: 15px;

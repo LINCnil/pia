@@ -1354,6 +1354,14 @@
 			"risks": "Risques",
 			"title": "Plan d'action"
 		},
+		"revision": {
+			"revision": "Révisions",
+			"pia_version": "Version du Pia",
+			"current_version": "Version actuelle",
+			"restore_version": "Restaurer cette version",
+			"save": "Réviser le PIA",
+			"show": "Afficher les {{length}} versions"
+		},
 		"attachments": "Pièces jointes",
 		"concerned_people_name": "Noms des personnes concernées",
 		"concerned_people_opinion": "Opinions des personnes concernées",

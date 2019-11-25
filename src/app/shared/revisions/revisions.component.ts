@@ -37,7 +37,7 @@ export class RevisionsComponent implements OnInit, OnChanges {
     this.revisionsGroupByMonth = {}
     if (changes.revisions.currentValue) {
       changes.revisions.currentValue.forEach((obj) => {
-        const key = new Date(new Date(obj.created_at).getUTCFullYear(), new Date(obj.created_at).getMonth(), 1);
+        const key = new Date(new Date(obj.created_at).getUTCFullYear(), new Date(obj.created_at).getMonth(), 1).toString();
         if (this.revisionsGroupByMonth[key])  {
           this.revisionsGroupByMonth[key].push(obj);
         } else {
