@@ -9,7 +9,7 @@ export class RelativeDate {
   private M;
 
   approx(num) {
-    return num < 5 ? 'a few' : Math.round(num);
+    return Math.round(num);
   }
 
   constructor(str: string) {
@@ -21,6 +21,30 @@ export class RelativeDate {
     this.w = this.d / 7;
     this.y = this.d / 365.242199;
     this.M = this.y * 12;
+  }
+
+  private getMonthString(month) {
+    return {
+      0: 'january',
+      1: 'february',
+      2: 'march',
+      3: 'april',
+      4: 'may',
+      5: 'june',
+      6: 'july',
+      7: 'august',
+      8: 'september',
+      9: 'october',
+      10: 'november',
+      11: 'december'
+    }[month];
+  }
+
+  private getMonday(d) {
+    d = new Date(d);
+    const day = d.getDay()
+    const diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+    return new Date(d.setDate(diff));
   }
 
   public complete() {
@@ -48,25 +72,34 @@ export class RelativeDate {
 
   public simple() {
 
-    if (this.d < 1) {
-      let res: string = null;
-      if (new Date().getDate() === new Date(this.strDate).getDate()) {
-        res = 'today';
-      } else {
-        res = 'yesterday';
+    const today = new Date();
+    const date = new Date(this.strDate);
+    let res: string = null;
+
+    if (this.w < 1) { // Last 7 days
+      res = 'early in current month';
+
+      // Current week
+      if (this.getMonday(new Date()).getDate() === this.getMonday(this.strDate).getDate()) {
+        res = 'early in current week';
+
+        // Today
+        if (date.getDate() === today.getDate()) {
+          res = 'today';
+        }
+
+        // Yesterday
+        if (date.getDate() === new Date(new Date().setDate(new Date().getDate()-1)).getDate()) {
+          res = 'yesterday';
+        }
       }
-      return res;
-    } else {
-      return this.d <= 1 ? 'yesterday'
-      : this.w < 1 ? 'less then a week'
 
-      : this.w <= 1 && this.M < 1  ? 'ealier in month'
-
-      : this.M <= 1 &&  this.y < 1  ? new Date(this.strDate).getUTCMonth()
-
-      : this.y <= 1 ? 'a year ago'
-      : this.approx(this.y) + ' years ago';
+    } else if (this.M < 1) { // Current Month
+      res = 'early in current month';
+    } else { // Other Month + Full year
+      res = this.getMonthString(new Date(this.strDate).getMonth()) + ' ' + new Date(this.strDate).getFullYear();
     }
 
+    return res;
   }
 }
