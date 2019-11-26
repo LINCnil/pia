@@ -10,7 +10,7 @@ export class RelativeDate {
 
   approx(num) {
     return num < 5 ? 'a few' : Math.round(num);
-  };
+  }
 
   constructor(str: string) {
     this.strDate = str;
@@ -47,16 +47,26 @@ export class RelativeDate {
   }
 
   public simple() {
-    return this.d < 1  ? 'today'
 
-    : this.d <= 1 ? 'yesterday'
-    : this.w < 1 ? 'less then a week'
+    if (this.d < 1) {
+      let res: string = null;
+      if (new Date().getDate() === new Date(this.strDate).getDate()) {
+        res = 'today';
+      } else {
+        res = 'yesterday';
+      }
+      return res;
+    } else {
+      return this.d <= 1 ? 'yesterday'
+      : this.w < 1 ? 'less then a week'
 
-    : this.w <= 1 || this.M < 1  ? 'ealier in month'
+      : this.w <= 1 && this.M < 1  ? 'ealier in month'
 
-    : this.M <= 1 ||  this.y < 1  ? new Date(this.strDate).getUTCMonth()
+      : this.M <= 1 &&  this.y < 1  ? new Date(this.strDate).getUTCMonth()
 
-    : this.y <= 1 ? 'a year ago'
-    : this.approx(this.y) + ' years ago';
+      : this.y <= 1 ? 'a year ago'
+      : this.approx(this.y) + ' years ago';
+    }
+
   }
 }
