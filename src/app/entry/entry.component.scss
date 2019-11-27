@@ -1,0 +1,34 @@
+@import '../../assets/stylesheets/variables';
+.pia-rightSidebarBlock{    
+  &-content {
+    padding-top: 15px;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    &-header {
+      color: $pia-gray;
+      i {
+        font-size: 2.2rem;
+        line-height: 2.2rem;
+        padding: 5px 10px;
+        cursor: pointer;
+        &.active {
+          background: transparent;
+          border-bottom: 3px solid $pia-gray;
+        }
+      }
+      span {
+        width: 100%;
+        display: block;
+        &:first-child {
+          line-height: 2.2rem;
+          border-bottom: solid 2px $pia-gray;
+        }
+        &:last-child {
+            font-size: 1.7rem;
+            font-weight: 400;
+        }
+      }
+    }
+  }
+}

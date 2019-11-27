@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png';
@@ -33,6 +33,7 @@ export class ExportComponent implements OnInit {
   csvOptions = {};
   exportSelected: Array<any> = [];
   piaJson: JSON;
+  @Input() noTitle = false;
 
   constructor(
     public _piaService: PiaService,

@@ -4,24 +4,35 @@
         <div *ngIf="this._piaService.pia.is_example === 1" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.help.title' | translate }} > {{ 'header.help.pia_example_link' | translate }}</div>
         <div *ngIf="this._piaService.pia.is_example === 0" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }} > {{ this._piaService.pia.name }}</div>
         <!-- Left sidebar (sections) -->
-        <div class="small-12 medium-3 columns">
+        <nav class="small-12 medium-3 columns">
             <aside class="pia-leftSidebarBlock">
                 <app-sections [section]="section" [item]="item"></app-sections>
                 <app-revisions *ngIf="_piaService.pia.is_example == 0 && _piaService.pia.is_archive  == 0" [recover]="false" [currentVersion]="currentVersion" [revisions]="revisions" (newRevisionQuery)="onNewRevision()"></app-revisions>
             </aside>
-        </div>
+        </nav>
 
         <!-- Main entry content -->
-        <div class="small-12 medium-6 columns">
+        <section class="small-12 medium-6 columns">
             <app-entry-content [questions]="questions" [section]="section" [item]="item" [data]="data"></app-entry-content>
-        </div>
+        </section>
 
         <!-- Right sidebar (knowledge base) -->
-        <div class="small-12 medium-3 columns">
-            <div class="pia-rightSidebarBlock">
-                <app-knowledge-base [item]="item"></app-knowledge-base>
+        <aside class="small-12 medium-3 columns pia-rightSidebarBlock">
+            <div class="pia-rightSidebarBlock-content">
+                <div class="pia-rightSidebarBlock-content-header">
+                    <h1>
+                        <span>
+                            <i [ngClass]="{'active': sideView === 'knowledge'}" class="fa fa-book" aria-hidden="true" (click)="sideView = 'knowledge'"></i>
+                            <i [ngClass]="{'active': sideView === 'export'}" class="fa fa-download" aria-hidden="true" (click)="sideView = 'export'"></i>
+                        </span>
+                        <span *ngIf="sideView === 'knowledge'">{{ 'knowledge_base.title' | translate }}</span>
+                        <span *ngIf="sideView === 'export'">{{ 'summary.actions.print_and_download' | translate }}</span>
+                    </h1>
+                </div>
+                <app-knowledge-base *ngIf="sideView === 'knowledge'" [item]="item"></app-knowledge-base>
+                <app-export [noTitle]="true"  *ngIf="pia && sideView === 'export'" ></app-export>
             </div>
-        </div>
+        </aside>
     </div>
 </main>
 

@@ -28,7 +28,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   questions: any;
   measureToRemoveFromTags: string;
   subscription: Subscription;
-
+  public sideView = 'knowledge';
 
   public revisions = null;
   public currentVersion: Date;

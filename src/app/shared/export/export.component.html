@@ -1,6 +1,6 @@
 
 <div class="pia-exportBlock hide-for-print">
-  <div class="pia-exportBlock-title">
+  <div class="pia-exportBlock-title" *ngIf="!noTitle">
     <i class="fa fa-download"></i> {{ 'summary.actions.print_and_download' | translate }}
   </div>
   <!-- Print -->
