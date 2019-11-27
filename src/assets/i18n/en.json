@@ -1425,5 +1425,23 @@
 		},
 		"validated_pia_with_signature": "Approved",
 		"waiting_for_signature": "Pending signed PIA"
+	},
+	"date": {
+		"january": "January",
+		"february": "February",
+		"march": "March",
+		"april": "April",
+		"may": "May",
+		"june": "June",
+		"july": "July",
+		"august": "August",
+		"september": "September",
+		"october": "October",
+		"november": "November",
+		"december": "December",
+		"today": "Today",
+		"yesterday": "Yesterday",
+		"earlier-in-this-month": "Earlier in this month",
+		"earlier-in-this-week": "Earlier in this week"
 	}
 }

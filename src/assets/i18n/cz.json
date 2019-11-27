@@ -1424,5 +1424,23 @@
 		},
 		"validated_pia_with_signature": "TO BE TRANSLATED - Approved",
 		"waiting_for_signature": "TO BE TRANSLATED - Pending signed PIA"
+	},
+	"date": {
+		"january": "TO TRANSLATE - January",
+		"february": "TO TRANSLATE - February",
+		"march": "TO TRANSLATE - March",
+		"april": "TO TRANSLATE - April",
+		"may": "TO TRANSLATE - May",
+		"june": "TO TRANSLATE - June",
+		"july": "TO TRANSLATE - July",
+		"august": "TO TRANSLATE - August",
+		"september": "TO TRANSLATE - September",
+		"october": "TO TRANSLATE - October",
+		"november": "TO TRANSLATE - November",
+		"december": "TO TRANSLATE - December",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier in this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier in this week"
 	}
 }
