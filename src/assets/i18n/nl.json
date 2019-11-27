@@ -23,20 +23,20 @@
 		"title": "Overzicht"
 	},
 	"authentication": {
-		"description": "Deze software van de <strong> Franse autoriteit voor gegevensbescherming (CNIL) </strong> is bedoeld als richtlijn voor de verwerkingsverantwoordelijken bij het samenstellen en aantonen van naleving van de AVG. Het helpt om een gegevensbeschermingseffectbeoordeling goed uit te voeren door het gebruik van de door de CNIL ontwikkelde PIA-methode te vergemakkelijken.",
+		"description": "De PIA-software van de <strong> Franse autoriteit voor gegevensbescherming (CNIL) </strong> is bedoeld als ondersteuningsmiddel voor de verwerkingsverantwoordelijken bij de implementatie van de verplichtingen van de AVG. De software begeleidt de uitvoering van een gegevensbeschermingseffectbeoordeling en wil het gebruik van de door de CNIL ontwikkelde PIA-richtlijnen vergemakkelijken.",
 		"start": "Beginnen",
-		"start_app": "Toegang krijgen tot de PIA-software (Beta)",
-		"subtitle1": "Een platform voor het maken en beheren van uw PIA's",
-		"subtitle2": "Toegang tot hulpmiddelen en woordenlijsten",
+		"start_app": "De PIA-software openen (Beta)",
+		"subtitle1": "Een platform om uw PIA's te maken en te beheren",
+		"subtitle2": "Toegang tot tools en woordenlijsten",
 		"title": "Privacy Impact Assessment"
 	},
 	"cartography": {
 		"important": "Belangrijk",
 		"legend1": "Geplande of bestaande maatregelen",
 		"legend2": "Met de geïmplementeerde corrigerende maatregelen",
-		"legend3": "(I)Onwettige toegang tot gegevens",
-		"legend4": "(U)Ongewenste wijziging van gegevens",
-		"legend5": "(D)Gegevens verdwijnen",
+		"legend3": "(I) Onrechtmatige toegang tot gegevens",
+		"legend4": "(U) Ongewenste wijziging van gegevens",
+		"legend5": "(D) Gegevens verdwijnen",
 		"likelihood_axe": "Waarschijnlijkheid van het risico",
 		"limited": "Beperkt",
 		"maximal": "Maximaal",
@@ -53,7 +53,7 @@
 		"send": "Verzenden"
 	},
 	"errors": {
-		"content": "Als u andere problemen ondervindt of suggesties heeft voor verbetering, <br> kunt u deze via dit formulier terugsturen: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
+		"content": "Als u andere problemen ondervindt of verbetersuggesties heeft, <br> kunt u deze via dit formulier terugsturen: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Pagina niet gevonden."
 	},
 	"evaluations": {
@@ -61,7 +61,7 @@
 		"action_plan_comment": "Actieplan / corrigerende maatregelen",
 		"evaluation_comment": "Evaluatiecommentaar",
 		"gauges": {
-			"0": "(Onbepaald)",
+			"0": "(Niet bepaald)",
 			"1": "Verwaarloosbaar",
 			"2": "Beperkt",
 			"3": "Belangrijk",
@@ -288,7 +288,7 @@
 				"source": "AVG Art. 15"
 			},
 			"PIA_DEF_ANO": {
-				"description": "Proces waarbij de identificerende kenmerken uit persoonlijke gegevens worden verwijderd. Om de robuustheid van anonimiseringsprocessen te beoordelen. Zie de <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 richtlijnen</a>.",
+				"description": "Proces waarbij de identificerende kenmerken uit persoonsgegevens worden verwijderd. Om de robuustheid van anonimiseringsprocessen te beoordelen. Zie de <a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 richtlijnen</a>.",
 				"name": "Anonimisering",
 				"source": "Mesures_US and G29 guidelines http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
 			},
@@ -298,17 +298,17 @@
 				"source": "Mesures_USE Archiving"
 			},
 			"PIA_DEF_AUTH": {
-				"description": "Elke persoon met legitieme toegang tot persoonlijke gegevens (werknemers, contractanten en andere derden) moet worden geïdentificeerd door een unieke identificatie. Kies een authenticatiemethode om sessies te openen die geschikt zijn voor de context, het risiconiveau en de verwachte robuustheid. Aanbevelingen: als de risico's niet verhoogd zijn, kan een wachtwoord worden gebruikt; gebruik echter, als de risico's groter zijn, een eenmalige wachtwoordfiche, maar wijzig het standaard activeringswachtwoord of, als een deel van het wachtwoord per sms wordt verzonden, een kaart met een pincode, een elektronisch certificaat of een andere vorm van sterk authenticatie.",
+				"description": "Elke persoon met legitieme toegang tot persoonsgegevens (werknemers, contractanten en andere derden) moet worden geïdentificeerd door een unieke identificatie. Kies een authenticatiemethode om sessies te openen die geschikt zijn voor de context, het risiconiveau en de verwachte robuustheid. Aanbevelingen: als de risico's niet verhoogd zijn, kan een wachtwoord worden gebruikt; gebruik echter, als de risico's groter zijn, een eenmalige wachtwoordfiche, maar wijzig het standaard activeringswachtwoord of, als een deel van het wachtwoord per sms wordt verzonden, een kaart met een pincode, een elektronisch certificaat of een andere vorm van sterk authenticatie.",
 				"name": "Authenticatie",
 				"source": "Mesures_US Logical Access Control"
 			},
 			"PIA_DEF_CHIF": {
-				"description": "Encryptiemaatregelen die persoonlijke gegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
+				"description": "Encryptiemaatregelen die persoonsgegevens voor iedereen zonder toegangsbevoegdheid onbegrijpelijk maken met (symmetrische of asymmetrische codering, gebruik van openbare algoritmes waarvan bekend is dat ze sterk zijn, authenticatiecertificaat, enz.).",
 				"name": "Encryptie",
 				"source": "Mesures_US Encryption"
 			},
 			"PIA_DEF_CLO": {
-				"description": "Gegevensorganisatiemethoden die de mogelijkheid verkleinen dat persoonlijke gegevens kunnen worden gecorreleerd en dat een schending van alle persoonlijke gegevens kan optreden. Bijvoorbeeld door de persoonlijke gegevens te identificeren die alleen voor elk bedrijfsproces nuttig zijn en logisch van elkaar te scheiden.",
+				"description": "Gegevensorganisatiemethoden die de mogelijkheid verkleinen dat persoonsgegevens kunnen worden gecorreleerd en dat een schending van alle persoonsgegevens kan optreden. Bijvoorbeeld door de persoonsgegevens te identificeren die alleen voor elk bedrijfsproces nuttig zijn en logisch van elkaar te scheiden.",
 				"name": "Gegevens partitioneren",
 				"source": "PIA3 p19 - WIKI"
 			},
@@ -318,7 +318,7 @@
 				"source": "AVG Art. 4.10"
 			},
 			"PIA_DEF_CTLA": {
-				"description": "Middelen die worden geïmplementeerd om de risico's te beperken dat onbevoegde personen elektronisch toegang krijgen tot persoonlijke gegevens, het vereist onder andere om: <br> - <strong> Gebruikersprofielen beheren </strong> door taken en verantwoordelijkheidsdomeinen te scheiden (bij voorkeur op gecentraliseerde wijze) om de toegang tot persoonlijke gegevens exclusief aan geautoriseerde gebruikers te beperken door het toepassen van need-to-know en leastprivilege-principes. <br> - Trek de rechten van werknemers, contractpartijen en andere derden in wanneer ze niet langer geautoriseerd zijn voor toegang een pand of een bron </strong> of wanneer hun <strong> arbeidscontract eindigt </strong>.",
+				"description": "Middelen die worden geïmplementeerd om de risico's te beperken dat onbevoegde personen elektronisch toegang krijgen tot persoonsgegevens, het vereist onder andere om: <br> - <strong> Gebruikersprofielen beheren </strong> door taken en verantwoordelijkheidsdomeinen te scheiden (bij voorkeur op gecentraliseerde wijze) om de toegang tot persoonsgegevens exclusief aan geautoriseerde gebruikers te beperken door het toepassen van need-to-know en leastprivilege-principes. <br> - Trek de rechten van werknemers, contractpartijen en andere derden in wanneer ze niet langer geautoriseerd zijn voor toegang een pand of een bron </strong> of wanneer hun <strong> arbeidscontract eindigt </strong>.",
 				"name": "Logische toegangscontrole",
 				"source": "PIA3 p43 - WIKI"
 			},
@@ -343,7 +343,7 @@
 				"source": "PIA1 p4 footnote 8"
 			},
 			"PIA_DEF_EXA": {
-				"description": "Persoonlijke gegevens moeten nauwkeurig zijn en, waar nodig, worden bijgewerkt; elke redelijke stap moet worden gezet om ervoor te zorgen dat persoonsgegevens die onnauwkeurig zijn, rekening houdend met de doeleinden waarvoor ze worden verwerkt, onverwijld worden gewist of gecorrigeerd ('nauwkeurigheid'). <br> zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 5.1 d) van [AVG]</a>",
+				"description": "Persoonsgegevens moeten nauwkeurig zijn en, waar nodig, worden bijgewerkt; elke redelijke stap moet worden gezet om ervoor te zorgen dat persoonsgegevens die onnauwkeurig zijn, rekening houdend met de doeleinden waarvoor ze worden verwerkt, onverwijld worden gewist of gecorrigeerd ('nauwkeurigheid'). <br> zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 5.1 d) van [AVG]</a>",
 				"name": "Quality of data",
 				"source": "AVG Art. 5.1 d)"
 			},
@@ -369,7 +369,7 @@
 			},
 			"PIA_DEF_MENA": {
 				"description": "Bedreigingen met betrekking tot: - <strong> Hardware </strong>, ongepast gebruikt, waargenomen, gewijzigd, verloren (gebruik of transport van gevoelige hardware voor persoonlijke doeleinden, het kijken naar het scherm van een persoon zonder hun medeweten in de trein, het volgen door een hardware-gebaseerd systeem) key logger, etc.) <br> - <strong> Software </strong>, ongepast gebruikt, waargenomen, gewijzigd (verhogen van privileges, verzameling van configuratiegegevens, infectie door schadelijke code, etc.) <br> - <strong> Computerkanalen </strong> waargenomen (onderschepping van Ethernet-verkeer, enz.) <br> - <strong> Mensen </strong>, waargenomen, gemanipuleerd, verloren (onbedoelde openbaarmaking van informatie, social engineering, opdrachtwijzigingen) <br> - <strong> Papendocumenten </strong> waargenomen, verloren (lezen, diefstal van e-mail, enz.) <br> - <strong> kanalen voor papiertransmissie </strong> waargenomen (lezing van handtekeningenboeken in omloop, enz.)",
-				"name": "Bedreigingen die kunnen leiden tot een onwettige toegang",
+				"name": "Bedreigingen die kunnen leiden tot een onrechtmatige toegang",
 				"source": "PIAF Connected objects p44 and 45"
 			},
 			"PIA_DEF_MENI": {
@@ -488,7 +488,7 @@
 				"source": "PIA1 p10"
 			},
 			"PIA_DEF_VIOL": {
-				"description": "Overtreding van de beveiliging die leidt tot de accidentele of onwettige vernietiging, verlies, wijziging, ongeautoriseerde openbaarmaking van of toegang tot doorgegeven, opgeslagen of anderszins verwerkte persoonsgegevens.",
+				"description": "Overtreding van de beveiliging die leidt tot de accidentele of onrechtmatige vernietiging, verlies, wijziging, ongeautoriseerde openbaarmaking van of toegang tot doorgegeven, opgeslagen of anderszins verwerkte persoonsgegevens.",
 				"name": "Inbreuk op persoonsgegevens",
 				"source": "AVG Art. 4.12"
 			},
@@ -512,7 +512,7 @@
 			},
 			"PIA_EX_DCPS": {
 				"description": "burgerservicenummer (BSN), biometrische gegevens, bankgegevens",
-				"name": "Persoonlijke gegevens die als gevoelig worden ervaren"
+				"name": "Persoonsgegevens die als gevoelig worden ervaren"
 			},
 			"PIA_EX_HUME": {
 				"description": "Het kan een van de volgende zijn: <br> - een bedrieglijke of naïeve buur, door een fysieke nabijheid te hebben, de gegevens van het apparaat te hacken; <br> - een hacker die een gebruiker richt door gebruik te maken van de kennis die hij / zij heeft van de gebruiker en sommige van de informatie over hem / haar; <br> - een hacker die zich op een van de bedrijven richt door gebruik te maken van de kennis die hij / zij heeft van de bedrijven die hun imago kunnen ondermijnen; <br> - een geautoriseerd extern bedrijf dat zijn bevoorrechte toegang tot onrechtmatig gebruikt toegang tot informatie.",
@@ -570,7 +570,7 @@
 			},
 			"PIA_LGL_DESC": {
 				"description": "Presenteer een korte schets van de verwerking in kwestie, de aard, reikwijdte, context, doelen en inzetten. Identificeer de verwerkingsverantwoordelijke en eventuele verwerkers. Maak een lijst van de standaardreferenties die van toepassing zijn op de verwerking en die noodzakelijk zijn of moeten worden nageleefd, met name de goedgekeurde gedragscodes (zie artikel 40 van het Reglement). <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a>) en certificeringen met betrekking tot gegevensbescherming (zie Art. 42 van de <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">[AVG]</a>)",
-				"name": "De beschrijving van de verwerking",
+				"name": "Beschrijving van de verwerking",
 				"source": "PIA1 p4"
 			},
 			"PIA_LGL_DEST": {
@@ -600,7 +600,7 @@
 			},
 			"PIA_LGL_MINI": {
 				"description": "Het is belangrijk om de ernst van de risico's te verminderen door het aantal persoonsgegevens dat wordt verwerkt te beperken door deze gegevens te beperken tot wat strikt noodzakelijk is voor de doeleinden waarvoor ze worden verwerkt (anders zouden ze niet moeten worden verzameld). Dan wordt het ook mogelijk om de gegevens zelf te minimaliseren, via controles die gericht zijn op het verminderen van hun gevoeligheid.",
-				"name": "Data minimisatie",
+				"name": "Dataminimalisatie",
 				"source": "PIAF Connected Objects p10 - WIKI"
 			},
 			"PIA_LGL_ST": {
@@ -662,7 +662,7 @@
 			},
 			"PIA_ORG_VIOL": {
 				"description": "Bestaan van een operationele organisatie die incidenten kan detecteren en behandelen die van invloed kunnen zijn op de burgerlijke vrijheden en privacy van de betrokkenen.",
-				"name": " Beleid incidenten en datelekken",
+				"name": " Beleid incidenten en datalekken",
 				"placeholder": "Geef hier aan of IT-incidenten onderworpen zijn aan een gedocumenteerde en geteste beheersprocedure.",
 				"source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
 			},
@@ -1014,7 +1014,7 @@
 	"questions": {
 		"edit": "Vraag bewerken",
 		"gauges": {
-			"0": "(Onbepaald)",
+			"0": "(Niet bepaald)",
 			"1": "Verwaarloosbaar",
 			"2": "Beperkt",
 			"3": "Belangrijk",
@@ -1089,7 +1089,7 @@
 							"title": "Zijn de verwerkingsdoeleinden gespecificeerd, expliciet en legitiem?"
 						},
 						"2": {
-							"placeholder": "Vertaling wordt uitgevoerd",
+							"placeholder": "Vertaling nog niet gebeurd",
 							"short_title": "Rechtsgrondslag",
 							"title": "Wat is de wettelijke basis om de verwerking rechtmatig te maken?"
 						},
@@ -1110,7 +1110,7 @@
 						}
 					},
 					"short_help": "In dit deel kunt u de legitimiteit van uw verwerking en van de verwerkte gegevens aantonen.",
-					"title": "Evenredigheid en noodzaak"
+					"title": "Evenredigheid en noodzakelijkheid"
 				},
 				"2": {
 					"questions": {
@@ -1150,7 +1150,7 @@
 							"title": "Zijn de gegevens in het geval van gegevensoverdracht buiten de Europese Unie voldoende beschermd?"
 						}
 					},
-					"short_help": "Met dit deel kunt u aantonen dat u de nodige middelen inzet om de betrokken personen in staat te stellen om hun rechten uit te oefenen.",
+					"short_help": "Met dit deel kunt u aantonen dat u de nodige middelen inzet om de betrokkenen in staat te stellen om hun rechten uit te oefenen.",
 					"title": "Rechten van de betrokkenen"
 				}
 			},
@@ -1190,7 +1190,7 @@
 							"title": "Hoe schat u de waarschijnlijkheid van het risico, vooral met betrekking tot bedreigingen, risicobronnen en geplande maatregelen?"
 						}
 					},
-					"short_help": "Analyseer de oorzaken en gevolgen van onwettige toegang tot gegevens en schat de ernst en waarschijnlijkheid ervan in.",
+					"short_help": "Analyseer de oorzaken en gevolgen van onrechtmatige toegang tot gegevens en schat de ernst en waarschijnlijkheid ervan in.",
 					"title": "Onrechtmatige toegang tot gegevens"
 				},
 				"3": {
@@ -1273,7 +1273,7 @@
 				},
 				"3": {
 					"short_help": "Presenteer het advies van de persoon die verantwoordelijk is voor gegevensbescherming en privacykwesties (afgevaardigde gegevensbescherming indien aanwezig). Presenteer de standpunten van de betrokkenen of hun vertegenwoordigers.",
-					"title": "Mening van DPO en betrokken personen"
+					"title": "Mening van DPO en betrokkenen"
 				},
 				"4": {
 					"title": "Valideer de PIA"
@@ -1369,7 +1369,7 @@
 		"pia_validator": "Naam validator",
 		"previous_page": "Terug naar de vorige pagina",
 		"rejection_reason": "Reden van verwerping",
-		"risks_cartography_title": "Risicokartering",
+		"risks_cartography_title": "Risicokaart",
 		"risks_overview_title": "Overzicht risico's",
 		"title": "PIA informatie"
 	},
