@@ -222,10 +222,10 @@ export class ApplicationDb {
 
   /**
    * Return the server URL.
-   * @protected
+   * @public
    * @returns {string} - An URL.
    */
-  protected getServerUrl() {
+  public getServerUrl() {
     let prefix = '/pias';
     let id = this.pia_id;
     if (this.tableName === 'structure') {
