@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Pia } from 'src/app/entry/pia.model';
@@ -12,6 +13,7 @@ import { ArchiveService } from 'src/app/services/archive.service';
 import { StructureService } from 'src/app/services/structure.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-modals',
@@ -19,16 +21,19 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
   styleUrls: ['./modals.component.scss'],
   providers: [PiaService, ArchiveService, StructureService]
 })
-export class ModalsComponent implements OnInit {
+export class ModalsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   @Input() structure: any;
   @Output() continueEvent = new EventEmitter();
+
+  subscription: Subscription;
   newPia: Pia;
   newStructure: Structure;
   piaForm: FormGroup;
   structureForm: FormGroup;
   removeAttachmentForm: FormGroup;
   enableSubmit = true;
+  dateFormat: String;
 
   constructor(
     private router: Router,
@@ -38,10 +43,14 @@ export class ModalsComponent implements OnInit {
     public _structureService: StructureService,
     public _answerStructureService: AnswerStructureService,
     public _measuresService: MeasureService,
-    public _attachmentsService: AttachmentsService
+    public _attachmentsService: AttachmentsService,
+    private _translateService: TranslateService
   ) { }
 
   ngOnInit() {
+    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy' : this.dateFormat = 'MM-dd-yy'
+    });
     const structure = new Structure();
     structure.getAll().then((data: any) => {
       this._structureService.structures = data;
@@ -106,5 +115,9 @@ export class ModalsComponent implements OnInit {
         this.removeAttachmentForm.controls['comment'].value.length > 0) {
       this.enableSubmit = false;
     }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

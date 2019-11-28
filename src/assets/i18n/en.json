@@ -1350,6 +1350,14 @@
 			"no_action_plan": "No action plan recorded.",
 			"risks": "Risks",
 			"title": "Action plan"
+    },
+    "revision": {
+			"revision": "Versions and revision",
+			"pia_version": "PIA versions",
+			"current_version": "Current version",
+			"restore_version": "Restore this version",
+			"save": "Create a new version",
+			"show": "Display the {{length}} versions"
 		},
 		"attachments": "Attachments",
 		"concerned_people_name": "Concerned people opinions",
@@ -1441,7 +1449,7 @@
 		"december": "December",
 		"today": "Today",
 		"yesterday": "Yesterday",
-		"earlier-in-this-month": "Earlier in this month",
-		"earlier-in-this-week": "Earlier in this week"
+		"earlier-in-this-month": "Earlier this month",
+		"earlier-in-this-week": "Earlier this week"
 	}
 }

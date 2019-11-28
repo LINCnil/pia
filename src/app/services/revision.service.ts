@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApplicationDb } from '../application.db';
-import { Pia } from '../entry/pia.model';
+
 import { Revision } from '../models/revision.model';
+
 import { PiaService } from './pia.service';
 
 
@@ -34,8 +35,6 @@ export class RevisionService {
   }
 
   async getAll(piaId: number) {
-    // console.log(piaId)
-    const items = [];
     return new Promise((resolve, reject) => {
       this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
           const index = response.index('index1').getAll(IDBKeyRange.only(piaId));

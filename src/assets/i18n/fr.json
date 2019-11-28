@@ -1445,14 +1445,14 @@
 		"may": "Mai",
 		"june": "Juin",
 		"july": "Juillet",
-		"august": "Aout",
+		"august": "Août",
 		"september": "Septembre",
 		"october": "Octobre",
 		"november": "Novembre",
 		"december": "Décembre",
 		"today": "Aujourd'hui",
 		"yesterday": "Hier",
-		"earlier-in-this-month": "Plutôt ce mois-ci",
-		"earlier-in-this-week": "Plutôt cette semaine"
+		"earlier-in-this-month": "Plus tôt ce mois-ci",
+		"earlier-in-this-week": "Plus tôt cette semaine"
 	}
 }

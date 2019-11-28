@@ -5,7 +5,7 @@
   <div class="pia-revisions-box" *ngIf="revisions">
     <h4>{{ 'summary.revision.pia_version' | translate }}</h4>
     <p>
-      <i class="fa fa-circle"></i> {{currentVersion  | date:"dd/MM/yy HH:mm:ss"}} - {{ 'summary.revision.current_version' | translate }}
+      <i class="fa fa-circle"></i> {{ currentVersion  | date: dateFormat }} - {{ 'summary.revision.current_version' | translate }}
     </p>
     <a *ngIf="revisions.length > 0" href="javascript;" class="pia-revisions-box-footer" (click)="opened = !opened; $event.preventDefault();">
         <span>{{ 'summary.revision.show' | translate:{'length': revisions.length} }}</span>
@@ -16,10 +16,10 @@
       </a>
     <div *ngIf="opened && revisionsGroupByMonth" class="pia-revisions-box-content">
       <div class="pia-revisions-box-content-revision" *ngFor="let date of revisionsGroupByMonthInArray.reverse()">
-        <h5>{{date}}</h5>
+        <h5>{{ date }}</h5>
         <ul>
           <li *ngFor="let revision of revisionsGroupByMonth[date].reverse()">
-            <i class="fa fa-circle-o"></i> {{revision.created_at  | date:"dd/MM/yy HH:mm:ss"}}
+            <i class="fa fa-circle-o"></i> {{ revision.created_at  | date:dateFormat }}
             <a *ngIf="recover" href="javascript;" (click)="onRevisionSelection(revision.id, $event)">{{ 'summary.revision.restore_version' | translate }}</a>
           </li>
         </ul>

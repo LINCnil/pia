@@ -319,7 +319,7 @@
   <div class="pia-modalBlock-content pia-modalBlock-recoverVersion bounceIn">
     <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <h3>{{ 'modals.recover_version.title' | translate }}</h3>
-    <p [innerHTML]="'modals.recover_version.message' | translate:{date: 'TODO'}"></p>
+    <p [innerHTML]="'modals.recover_version.message' | translate:{date: _modalsService.revisionDate | date: dateFormat }"></p>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
       <button tabindex="2" class="btn btn-green get-focus" (click)="continueEvent.emit(); _modalsService.closeModal()" type="button">{{ 'modals.recover_version.continue' | translate }}</button>
