@@ -30,10 +30,12 @@
                     </h1>
                 </div>
                 <app-knowledge-base *ngIf="sideView === 'knowledge'" [item]="item"></app-knowledge-base>
-                <app-export [noTitle]="true"  *ngIf="pia && sideView === 'export'" ></app-export>
+                <app-export [editMode]="true"  *ngIf="pia && sideView === 'export'" (downloading)="download = $event"></app-export>
             </div>
         </aside>
     </div>
 </main>
 
 <app-modals></app-modals>
+<app-preview [onlyData]="true" *ngIf="download"></app-preview>
+<app-loading-overlay [visibility]="download"></app-loading-overlay>

@@ -1,14 +1,16 @@
-<app-header></app-header>
+<app-header  *ngIf="!onlyData"></app-header>
 
 <main class="container pia-fullPreviewBlock pia-mainContainerBlock">
 
   <!-- Preview navigation -->
   <div class="row">
+    <ng-container  *ngIf="!onlyData">
+      <div *ngIf="this._piaService.pia.is_example === 1" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.help.title' | translate }} > {{ 'header.current_pias' | translate }} >{{ 'header.help.pia_example_link' | translate }}</div>
+      <div *ngIf="this._piaService.pia.is_example === 0" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }} > {{ this._piaService.pia.name }}</div>
+    </ng-container>
+    
 
-    <div *ngIf="this._piaService.pia.is_example === 1" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.help.title' | translate }} > {{ 'header.current_pias' | translate }} >{{ 'header.help.pia_example_link' | translate }}</div>
-    <div *ngIf="this._piaService.pia.is_example === 0" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }} > {{ this._piaService.pia.name }}</div>
-
-    <nav class="small-12 medium-3 columns hide-for-print">
+    <nav class="small-12 medium-3 columns hide-for-print" *ngIf="!onlyData">
       <div class="pia-leftSidebarBlock pia-fullPreviewBlock-section">
           <div class="pia-sectionsBlock">
             <div class="pia-sectionBlock-header">
@@ -519,7 +521,7 @@
       </div>
     </section>
 
-    <aside class="small-12 medium-3 columns pia-fullPreviewBlock-aside">
+    <aside class="small-12 medium-3 columns pia-fullPreviewBlock-aside" *ngIf="!onlyData">
       <div class="pia-fullPreviewBlock-aside-content">
         <app-revisions [recover]="true" *ngIf="pia && pia.is_example == 0 && pia.is_archive  == 0" [currentVersion]="currentVersion" [revisions]="revisions" (newRevisionQuery)="onNewRevision()" (selectedRevisionQuery)="onSelectedRevision($event)"></app-revisions>
         <app-export *ngIf="pia" ></app-export>

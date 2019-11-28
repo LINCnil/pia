@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png';
@@ -33,7 +33,8 @@ export class ExportComponent implements OnInit {
   csvOptions = {};
   exportSelected: Array<any> = [];
   piaJson: JSON;
-  @Input() noTitle = false;
+  @Output() downloading = new EventEmitter();
+  @Input() editMode = false;
 
   constructor(
     public _piaService: PiaService,
@@ -74,18 +75,31 @@ export class ExportComponent implements OnInit {
       }
     }
 
-    onDownload() {
+    async launchDownload() {
+      if (this.editMode) {
+        this.downloading.emit(true);
+        setTimeout(async () => {
+          await this.onDownload().then(() => {
+            this.downloading.emit(false);
+          });
+        }, 5000);
+      } else {
+        this.onDownload();
+      }
+    }
+
+    async onDownload() {
       if (this.exportSelected) {
         if (this.exportSelected.length > 1) { // download by selection
-          this.generateExportsZip('pia-full-content', this.exportSelected);
+          await this.generateExportsZip('pia-full-content', this.exportSelected);
         } else { // download only one element
           const fileTitle = 'pia-' + slugify(this.pia.name);
           switch (this.exportSelected[0]) {
             case 'doc': // Only doc
-              this.generateDocx('pia-full-content');
+              await this.generateDocx('pia-full-content');
               break;
             case 'images': // Only images
-              this.downloadAllGraphsAsImages();
+              await this.downloadAllGraphsAsImages();
               break;
             case 'json': // Only json
               this._piaService.export(this.pia.id).then((json: any) => {
@@ -130,16 +144,16 @@ export class ExportComponent implements OnInit {
      * @param exports files to exports array ['doc', 'images', 'csv', 'json']
      */
     async generateExportsZip(element, exports: Array<string>) {
-      setTimeout(() => {
+      // await setTimeout(async () => {
         const zipName = 'pia-' + slugify(this.pia.name) + '.zip';
         const JSZip = require('jszip');
         const zip = new JSZip();
 
         // Attach export files
-        this.addAttachmentsToZip(zip).then((zip2: any) => {
+        await this.addAttachmentsToZip(zip).then(async (zip2: any) => {
 
           if (exports.includes('doc')) { // Doc
-            const dataDoc = this.prepareDocFile(element);
+            const dataDoc = await this.prepareDocFile(element);
             zip2.file('Doc/' + dataDoc.filename, dataDoc.blob);
           }
 
@@ -154,23 +168,23 @@ export class ExportComponent implements OnInit {
           }
 
           if (exports.includes('images')) { // images
-            this.addImagesToZip(zip2).then((zip3: any) => {
+            await this.addImagesToZip(zip2).then(async (zip3: any) => {
               // Launch Download
-              zip3.generateAsync({ type: 'blob' }).then(blobContent => {
+              await zip3.generateAsync({ type: 'blob' }).then(blobContent => {
                 FileSaver.saveAs(blobContent, zipName);
               });
             });
 
           } else {
             // Launch Download
-            zip2.generateAsync({ type: 'blob' }).then(blobContent => {
+            await zip2.generateAsync({ type: 'blob' }).then(blobContent => {
               FileSaver.saveAs(blobContent, zipName);
             });
           }
 
         });
 
-      }, 500);
+      // }, 500);
     }
 
     /****************************** CSV EXPORT ************************************/
@@ -281,34 +295,39 @@ export class ExportComponent implements OnInit {
        * @param element block in the HTML view used to generate the docx
        */
       async generateDocx(element) {
-        setTimeout(() => {
-          const dataDoc = this.prepareDocFile(element);
-
-          const downloadLink = document.createElement('a');
-          document.body.appendChild(downloadLink);
-          if (navigator.msSaveOrOpenBlob) {
-            navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
-          } else {
-            downloadLink.href = dataDoc.url;
-            downloadLink.download = dataDoc.filename;
-            downloadLink.click();
-          }
-          document.body.removeChild(downloadLink);
-        }, 500);
+        return new Promise((resolve,reject)=> {
+          this.prepareDocFile(element).then(dataDoc => {
+            setTimeout(() => {
+              const downloadLink = document.createElement('a');
+              document.body.appendChild(downloadLink);
+              if (navigator.msSaveOrOpenBlob) {
+                navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
+              } else {
+                downloadLink.href = dataDoc.url;
+                downloadLink.download = dataDoc.filename;
+                downloadLink.click();
+              }
+              document.body.removeChild(downloadLink);
+              resolve(true);
+            }, 500);
+          });
+        });
       }
 
       /**
        * Prepare .doc file
        */
-      prepareDocFile(element) {
+      async prepareDocFile(element) {
         const risksCartography = document.querySelector('#risksCartographyImg');
         const actionPlanOverview = document.querySelector('#actionPlanOverviewImg');
         const risksOverview = document.querySelector('#risksOverviewSvg');
+
         if (risksCartography && actionPlanOverview && risksOverview) {
           document.querySelector('#risksCartographyImg').remove();
           document.querySelector('#actionPlanOverviewImg').remove();
           document.querySelector('#risksOverviewSvg').remove();
         }
+
         const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\'><head><meta charset=\'utf-8\'><title>Export HTML To Doc</title></head><body>';
         const postHtml = '</body></html>';
         const html = preHtml + document.getElementById(element).innerHTML + postHtml;
