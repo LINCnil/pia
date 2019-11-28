@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Ostavi komentar",
 		"send": "Pošalji"
 	},
+	"date": {
+		"april": "TO TRANSLATE - April",
+		"august": "TO TRANSLATE - August",
+		"december": "TO TRANSLATE - December",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+		"february": "TO TRANSLATE - February",
+		"january": "TO TRANSLATE - January",
+		"july": "TO TRANSLATE - July",
+		"june": "TO TRANSLATE - June",
+		"march": "TO TRANSLATE - March",
+		"may": "TO TRANSLATE - May",
+		"november": "TO TRANSLATE - November",
+		"october": "TO TRANSLATE - October",
+		"september": "TO TRANSLATE - September",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday"
+	},
 	"errors": {
 		"content": "IAko naiđete na druge probleme ili ako imate prijedloge za poboljšanje, <br> možete ih poslati putem ovog obrasca:: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Stranica nije pronađena."
@@ -74,21 +92,26 @@
 		"placeholder_improvable1": "Prema raspoloživim informacijama, potrebno je provesti dodatne mjere kako bi se poboljšala zaštita podataka obrade.",
 		"placeholder_improvable2": "Unesite svoje komentare.",
 		"placeholder_to_correct": "Dostavljene informacije nisu dovoljne njihovo ispravno procjenjivanje. Pošaljite natrag uređivaču kako bi poboljšao izvorni podnesak.",
-		"status": {
-			"0": "Rješava se",
-			"1": "Za ispraviti",
-			"2": "Može se poboljšati",
-			"3": "Prihvatljiv"
-		},
+		"status": [
+			"Rješava se",
+			"Za ispraviti",
+			"Može se poboljšati",
+			"Prihvatljiv"
+		],
 		"title": "Procjena",
 		"to_correct": "Za ispraviti"
 	},
 	"header": {
-    "url_setting": "TO TRANSLATE - Server URL configuration",
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-    "archives": "TO TRANSLATE - PIA Archives",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"help": {
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual",
+			"pia_example_link": "Primjer PUP-a",
+			"title": "Pomoć"
+		},
+		"homepage_link": "TO TRANSLATE - My PIAs",
 		"knowledge_base_link": "Baza znanja",
 		"languages": {
 			"cnil_translations": "Prijevodi od strane CNIL-a",
@@ -113,23 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
-		"logo_subtitle": "",
+		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Procjena učinka na privatnost",
-		"pia_example_link": "Primjer PUP-a",
 		"structures": "PIA template",
-		"help": {
-			"title": "Pomoć",
-			"pia_example_link": "TO TRANSLATE - PIA example",
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual"
-		},
 		"tools": {
 			"about": "O programu",
 			"accessibility": "Pristupačnost za slabovidne osobe (boje visokog kontrasta, daltonizam)",
 			"settings": "Postavke",
-			"title": "Alati"
+			"title": "Alati",
+			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -174,9 +192,9 @@
 		"title": "Pomoć"
 	},
 	"homepage": {
-    "search_filter": "TO TRANSLATE - Search",
 		"cards": {
 			"author": "Uređivanje",
+			"category": "TO TRANSLATE - Category",
 			"creation_status": "Stvaranje",
 			"date": "Datum",
 			"evaluation": "Pregled",
@@ -188,13 +206,13 @@
 				"edit_structure": "Uredi obrazac",
 				"tools": {
 					"action_plan": "Prikaži<br>akcijski plan",
+					"archive": "TO TRANSLATE - Archive",
 					"duplicate": "Stvori kopiju",
 					"export": "Izvezi",
 					"more_options": "Više opcija",
 					"pia": "Prikaži<br>PUP",
 					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Novi PUP",
@@ -202,6 +220,7 @@
 			"or": "ili",
 			"pia_name": "PUP",
 			"placeholder_author": "Ime, prezime",
+			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Ime, prezime",
 			"placeholder_import_pia": "Uvezi PUP",
 			"placeholder_import_structure": "Uvezi obrazac",
@@ -212,16 +231,14 @@
 			"placeholder_start": "Sva polja moraju biti popunjena",
 			"placeholder_structure": "Zadani obrazac",
 			"placeholder_structure_name": "Naziv obrasca",
-      "placeholder_validation": "Ime, prezime",
-      "placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_validation": "Ime, prezime",
 			"sector_name": "Pridruženi sektor",
 			"start": "Početak",
 			"status": "Status",
 			"structure": "Obrazac",
 			"structure_name": "Naziv obrasca",
 			"title_close_creation": "Zatvori",
-      "validation": "Potvrda",
-      "category": "TO TRANSLATE - Category"
+			"validation": "Potvrda"
 		},
 		"filters": {
 			"assessor": "Recenzentu",
@@ -229,6 +246,7 @@
 			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Započnite!<br><br>Kako bi započeli s PUP-om,<br> kliknite na Novi PUP",
 			"card_rocket_content_structure": "Započnite! Kako bi započeli s <br>obrascem, kliknite na +",
+			"category": "TO TRANSLATE - Category",
 			"date": "Datumu",
 			"import_pia": "Uvezi PUP",
 			"import_structure": "Uvezi obrazac",
@@ -242,16 +260,15 @@
 			"sort": "Sortiraj",
 			"sort_by": "po",
 			"status": "Statusu",
-      "validator": "Potvrditelju",
-      "category": "TO TRANSLATE - Category"
+			"validator": "Potvrditelju"
 		},
 		"lists": {
 			"column_actions": "Radnje",
 			"column_author": "Uređivanje",
+			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Stvoren",
 			"column_evaluation": "Pregled",
-      "column_pia": "PUP",
-      "column_category": "TO TRANSLATE - Category",
+			"column_pia": "PUP",
 			"column_progression": "Napredak",
 			"column_sector_name": "Pridruženi sektor",
 			"column_status": "Status",
@@ -262,17 +279,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Prikaži akcijski plan",
+					"archive": "TO TRANSLATE - Archive",
 					"consult": "Pogledaj",
 					"duplicate": "Stvori kopiju",
 					"edit": "Uredi",
 					"export": "Izvezi",
 					"pia": "Prikaži PUP",
 					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Dodaj",
@@ -282,9 +300,9 @@
 			"example": "Example",
 			"general_measure": "Kontrole fizičke sigurnosti",
 			"measure_on_data": "Kontrole logičke sigurnosti",
+			"method": "TO TRANSLATE - Methodology",
 			"organizational_measure": "Organizacijske kontrole",
-			"principle": "Princip",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Princip"
 		},
 		"filters": {
 			"all": "Sve",
@@ -399,11 +417,6 @@
 				"name": "Prijetnje koje mogu dovesti do neželjenih izmjena osobnih podataka",
 				"source": "piaF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Treba ih odabrati između onih dostupnih u odjeljku \"Planirane ili postojeće mjere\", koji možete dopuniti ako je potrebno.",
 				"name": "Mjere",
@@ -635,11 +648,16 @@
 				"name": "Prijenosi",
 				"source": "piaF Connected Objects p18"
 			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+			},
 			"PIA_ORG_AUD": {
 				"description": "Postojanje pravila i postupaka za dobivanje organizacije koja može upravljati i kontrolirati zaštitu osobnih podataka koji se kod nje nalaze.",
 				"name": "Nadzor",
 				"placeholder": "Ovdje navedite da li se nadzire učinkovitost i primjerenost kontrola privatnosti.",
-				"source": "pia3 p76 - WIKI"
+				"source": "PIA3 p76 - WIKI"
 			},
 			"PIA_ORG_EXT": {
 				"description": "Postojanje pravila i postupaka koji smanjuju rizik da legitimni pristup osobnim podacima od strane trećih osoba može predstavljati rizik za građanske slobode i privatnost ispitanika.",
@@ -857,6 +875,10 @@
 			"review_section": "Pregledajte odjeljak"
 		},
 		"archive": "Arhiviraj",
+		"archive_pia": {
+			"archive": "TO TRANSLATE - Archive PIA",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "Ovaj odjeljak spreman je za pregled."
 		},
@@ -898,6 +920,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Warning,</span><br>Upozorenje, </ span> <br> barem jedna mjera mora biti unesena: brisanje nije moguće."
 		},
+		"recover_version": {
+			"continue": "Nastavi",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"title": "TO TRANSLATE - Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "Kako ste odbili PUP, on je ponovno poslan na pregled kako bi se izvršile potrebne promjene."
 		},
@@ -912,17 +939,9 @@
 			"keep": "Zadrži ovu <br>mjeru",
 			"remove": "Ukloni ovu <br>mjeru"
 		},
-    "remove_pia": {
+		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Ukloni ovaj PUP"
-    },
-    "archive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
-			"archive": "TO TRANSLATE - Archive PIA"
-    },
-    "unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"remove_question": {
 			"content": "Jeste li sigurni da želite obrisati pitanje?",
@@ -944,6 +963,10 @@
 			"content": "Odobrili ste PUP."
 		},
 		"start_evaluation": "Započni pregled",
+		"unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "Vezu nije moguće ostvariti."
 		},
@@ -991,6 +1014,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Dodaj",
+			"download": "TO TRANSLATE - Download the attachment",
 			"remove": "Ukloni",
 			"title": "Prilozi"
 		},
@@ -1027,24 +1051,24 @@
 			},
 			"validate_pia": "Potvrdi  PUP"
 		},
-		"statuses": {
-			"0": "U tijeku",
-			"1": "Odbijen",
-			"2": "Jednostavna potvrda",
-			"3": "Potpisana potvrda",
-			"4": "Arhiviran",
-			"5": "Čeka na potvrdu"
-		}
+		"statuses": [
+			"U tijeku",
+			"Odbijen",
+			"Jednostavna potvrda",
+			"Potpisana potvrda",
+			"Arhiviran",
+			"Čeka na potvrdu"
+		]
 	},
 	"questions": {
 		"edit": "Uredi pitanje",
-		"gauges": {
-			"0": "(Nedefinirano)",
-			"1": "Zanemariv",
-			"2": "Ograničen",
-			"3": "Bitan",
-			"4": "Maksimalan"
-		},
+		"gauges": [
+			"(Nedefinirano)",
+			"Zanemariv",
+			"Ograničen",
+			"Bitan",
+			"Maksimalan"
+		],
 		"placeholder_title": "Question title (mandatory)",
 		"remove": "Delete question"
 	},
@@ -1317,29 +1341,6 @@
 		"update": "Ažuriraj URL"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-			"individual_to_download": "TO TRANSLATE - Download",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
-			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)"
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Temeljna načela",
 			"implementation_date": "Očekivani datum provedbe",
@@ -1349,16 +1350,29 @@
 			"risks": "Rizici",
 			"title": "Akcijski plan"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"individual_to_download": "TO TRANSLATE - Download",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Prilozi",
 		"concerned_people_name": "Mišljenja dotičnih osoba",
 		"concerned_people_opinion": "Mišljenja dotičnih osoba",
 		"concerned_people_searched_opinion": "Traženje mišljenja dotičnih osoba",
 		"concerned_people_status": "Statusi dotičnih osoba",
 		"concerned_people_unsearched_opinion_comment": "Razlog zašto nije zatraženo mišljenje dotične osobe",
-		"content_choice": {
-			"0": "Tretman se ne smije koristiti.",
-			"1": "Tretman bi se mogao provesti."
-		},
+		"content_choice": [
+			"Tretman se ne smije koristiti.",
+			"Tretman bi se mogao provesti."
+		],
 		"creation_date": "Datum stvaranja",
 		"csv_action_plan_comment": "Komentar akcijskog plana",
 		"csv_evaluation_comment": "Komentar procjene",
@@ -1367,17 +1381,7 @@
 		"csv_people_in_charge": "Odgovorna osoba",
 		"csv_section": "Odjeljak",
 		"csv_title_object": "Naslov",
-		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
-			"action_plan_content": "Prikaži akcijski plan",
-			"context_content": "Prikaži odjeljak \"Context\"",
-			"main_content": "Prikaži odjeljak \"PIA information\"",
-			"principles_content": "Prikaži odjeljak \"Fundamental principles\"",
-			"risks_cartography_content": "Prikaži mapu rizika",
-			"risks_content": "Prikaži odjeljak \"Risks\"",
-			"risks_overview_content": "Prikaži pregled rizika",
-			"title": "Prikaži filtere"
-		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Ime SZP-a",
 		"dpo_opinion": "Mišljenje SZP-a",
 		"dpo_status": "Status SZP-a",
@@ -1394,8 +1398,25 @@
 		"pia_author": "Ime autora",
 		"pia_name": "PUP",
 		"pia_validator": "Ime potvrditelja",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Natrag na prethodnu stranicu",
 		"rejection_reason": "Razlog odbijanja",
+		"revision": {
+			"current_version": "TO TRANSLATE - Current version",
+			"pia_version": "TO TRANSLATE - PIA versions",
+			"restore_version": "TO TRANSLATE - Restore this version",
+			"revision": "TO TRANSLATE - Versions and revision",
+			"save": "TO TRANSLATE - Create a new version",
+			"show": "TO TRANSLATE - Display the {{length}} versions"
+		},
 		"risks_cartography_title": "Mapiranje rizika",
 		"risks_overview_title": "Pregled rizika",
 		"title": "Informacije o PUP-u"
@@ -1423,23 +1444,5 @@
 		},
 		"validated_pia_with_signature": "Odobreno",
 		"waiting_for_signature": "Čeka se na potpis PUP-a"
-	},
-	"date": {
-		"january": "TO TRANSLATE - January",
-		"february": "TO TRANSLATE - February",
-		"march": "TO TRANSLATE - March",
-		"april": "TO TRANSLATE - April",
-		"may": "TO TRANSLATE - May",
-		"june": "TO TRANSLATE - June",
-		"july": "TO TRANSLATE - July",
-		"august": "TO TRANSLATE - August",
-		"september": "TO TRANSLATE - September",
-		"october": "TO TRANSLATE - October",
-		"november": "TO TRANSLATE - November",
-		"december": "TO TRANSLATE - December",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier in this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier in this week"
 	}
 }
