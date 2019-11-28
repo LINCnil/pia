@@ -5,7 +5,7 @@
   padding: 0 10px;
   cursor: pointer;
   white-space: nowrap;
-  overflow: hidden;
+  /* overflow: hidden; */
   &-title {
     div {
       width: 250px !important;
@@ -32,11 +32,11 @@
   }
   &-attachment {
     vertical-align: middle;
-    display: inline-block;
     width: 10%;
+    margin-top: -16px;
+    float: right;
     position: relative;
     cursor: pointer;
-    margin: auto 0 auto auto;
     ul {
       display: none;
       position: absolute;

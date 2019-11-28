@@ -909,6 +909,15 @@ body.pia-contrast {
     }
   }
 
+  /* Revisions  */
+  .pia-revisions {
+    &-box,
+    &-new {
+      background-color: $pia-green-dark !important;
+    }
+  }
+
+  /* Print and exports */
   .pia-exportBlock {
     &-print,
     &-full {
@@ -916,29 +925,24 @@ body.pia-contrast {
         background-color: $pia-green-dark;
       }
     }
-    &-print,
-    &-full,
-    &-individual {
-      &:focus,
-      &:hover {
-        border-top-color: $pia-green-dark;
-        background-color: $pia-green-dark;
-      }
+    &-print {
+      background-color: $pia-green-dark;
     }
     &-individual {
-      &.activeMenu {
-        background-color: transparent;
-        .pia-exportBlock-individual-description {
-          > div {
-            color: $pia-green-dark !important;
+      .btn-green {
+        &:disabled {
+          color: $pia-gray-dark !important;
+          &:focus,
+          &:hover,
+          &:active {
+            color: $pia-gray-dark !important;
           }
         }
-        > div {
-          &:first-child {
-            div {
-              color: $pia-green-dark;
-            }
-          }
+        color: $pia-green-dark !important;
+        &:focus,
+        &:hover,
+        &:active {
+          color: #fff !important;
         }
       }
     }

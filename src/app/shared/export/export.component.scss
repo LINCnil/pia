@@ -12,8 +12,7 @@
     }
   }
 
-  &-print,
-  &-full {
+  &-print {
     cursor: pointer;
     text-align: center;
     margin: 5px 0px;
@@ -22,13 +21,13 @@
     background-color: $pia-green;
     font-size: 1.4rem;
     width:100%;
+    height: 35px;
     button,
     div {
       cursor: pointer;
       color: #fff;
     }
   }
-
   &-individual {
     margin-top: 10px;
     font-size: 1.4rem;
@@ -36,12 +35,10 @@
     background-color: white;
     border-top-color: $pia-green;
     box-shadow: 2px 1px 18px 1px #c2c2c2;
-    
     button,
     div {
       color: #000;
     }
-    
     &-description {
       div {
         &:last-child {
@@ -60,10 +57,16 @@
         li {
           clear: both;
           margin-bottom: 10px;
-          input{
+          input[type="checkbox"] {
             float: left !important;
             margin-top: 4px;
             cursor:pointer;
+            -webkit-appearance: checkbox !important;
+            -moz-appearance: checkbox !important;
+            -ms-appearance: checkbox !important;
+            -o-appearance: checkbox !important;
+            appearance: checkbox !important;
+            background-color: red;
           }
           span {
             margin-left: 30px;
@@ -78,9 +81,20 @@
         width: 100%;
         padding: 10px 0;
         text-align: center;
-        border: 1px solid black;
+        color: $pia-green;
+        border-radius: 0;
+        &:focus,
+        &:hover,
+        &:active {
+          color: #fff;
+        }
         &:disabled {
-          color: $pia-gray; 
+          &:focus,
+          &:hover,
+          &:active {
+            background-color: initial;
+          }
+          color: $pia-gray;
           border: 1px solid $pia-gray;
           cursor: not-allowed;
         }

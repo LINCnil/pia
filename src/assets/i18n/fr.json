@@ -955,9 +955,9 @@
 		"validate_evaluation_to_correct": {
 			"content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
 		},
-		"revision": {
-			"title": "Réviser le PIA",
-			"message": "En continuant, vous allez mettre à jour l'analyse. Celle-ci perdra son statut de validation et il sera nécessaire de la valider à nouveau une fois les changements effectués.<br><br>La version actuellement validée sera archivée.",
+		"recover_version": {
+			"title": "Restaurer une ancienne version",
+			"message": "En continuant, vous allez restaurer la version du {{date}} de cette analyse. Vous devrez valider à nouveau l'analyse une fois celle-ci terminée.<br><br>La version actuelle sera archivée.",
 			"continue": "Continuer"
 		}
 	},
@@ -1355,8 +1355,8 @@
 			"title": "Plan d'action"
 		},
 		"revision": {
-			"revision": "Révisions",
-			"pia_version": "Version du Pia",
+			"revision": "Versions et révision",
+			"pia_version": "Versions du PIA",
 			"current_version": "Version actuelle",
 			"restore_version": "Restaurer cette version",
 			"save": "Réviser le PIA",

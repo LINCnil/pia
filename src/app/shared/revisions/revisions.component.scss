@@ -26,17 +26,28 @@
       font-size: 1.4rem;
     }
     &-content {
-      max-height: 200px;
-      overflow-y: scroll;
+      max-height: 150px;
+      overflow-y: auto;
+      padding-right: 8px;
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+      &::-webkit-scrollbar-track {
+        border: 1px solid #fff;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #fff;
+      }
       &-revision {
         h5 {
           text-transform: uppercase;
           padding-bottom: 10px;
           border-bottom: 1px solid white;
+          margin-top: 5px;
           margin-bottom: 5px;
           font-size: 1.2rem;
         }
-        ul { 
+        ul {
           margin: 0px;
           padding-left: 0px;
           list-style: none;
@@ -50,7 +61,7 @@
             }
             &:hover {
               a {
-                display: inline;
+                display: block;
               }
             }
           }
@@ -74,6 +85,7 @@
     margin: 5px 0px;
     padding-top: 10px;
     padding-bottom: 10px;
+    height: 35px;
     background-color: $pia-green;
     font-size: 1.4rem;
     width:100%;
