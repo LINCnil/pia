@@ -215,7 +215,7 @@
     <p [innerHTML]="'modals.archive_pia.content' | translate"></p>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-blue" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-blue get-focus" (click)="_piaService.archivePia()" type="button">{{ 'modals.archive_pia.archive' | translate }}</button>
+      <button tabindex="2" class="btn btn-blue get-focus" (click)="continueEvent.emit(); _piaService.archivePia()" type="button">{{ 'modals.archive_pia.archive' | translate }}</button>
     </div>
   </div>
 </div>

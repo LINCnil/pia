@@ -218,6 +218,14 @@ export class PiaService {
     pia.get(piaID).then(() => {
       pia.is_archive = 1;
       pia.update();
+
+      let index = this.pias.findIndex(item => item.id === piaID);
+      if (index !== -1 ) {
+        this.pias[index] = pia;
+
+        this.pias.splice(index, 1);
+
+      }
     });
 
     // Removes the PIA from the view.
