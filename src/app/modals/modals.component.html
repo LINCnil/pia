@@ -226,7 +226,7 @@
       <p [innerHTML]="'modals.unarchive_pia.content' | translate"></p>
       <div class="pia-modalBlock-buttons-choice">
         <button tabindex="1" class="btn btn-blue" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-        <button tabindex="2" class="btn btn-blue get-focus" (click)="_archiveService.unarchivePia()" type="button">{{ 'modals.unarchive_pia.unarchive' | translate }}</button>
+        <button tabindex="2" class="btn btn-blue get-focus" (click)="continueEvent.emit(); _archiveService.unarchivePia()" type="button">{{ 'modals.unarchive_pia.unarchive' | translate }}</button>
       </div>
     </div>
   </div>
@@ -238,7 +238,7 @@
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-red get-focus" (click)="_archiveService.removeArchivedPia()" type="button">{{ 'modals.remove_pia.remove' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="continueEvent.emit();_archiveService.removeArchivedPia()" type="button">{{ 'modals.remove_pia.remove' | translate }}</button>
     </div>
   </div>
 </div>
@@ -250,7 +250,7 @@
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-red get-focus" (click)="_structureService.removeStructure()" type="button">{{ 'modals.remove_structure.remove' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="continueEvent.emit(); _structureService.removeStructure()" type="button">{{ 'modals.remove_structure.remove' | translate }}</button>
     </div>
   </div>
 </div>

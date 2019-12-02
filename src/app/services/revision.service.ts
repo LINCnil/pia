@@ -25,7 +25,6 @@ export class RevisionService {
         const piaExport = JSON.parse(response.export);
         await this._piaService.replacePiaByExport(piaExport)
           .then(() => {
-            console.log('reload');
             setTimeout(() => {
               location.reload();
             }, 2000);
@@ -34,7 +33,6 @@ export class RevisionService {
   }
 
   async getAll(piaId: number) {
-    // console.log(piaId)
     const items = [];
     return new Promise((resolve, reject) => {
       this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {

@@ -59,8 +59,7 @@ export class ArchivesComponent implements OnInit, OnDestroy {
   }
 
   onCleanSearch() {
-    console.log("hello !");
-    this.searchText = "";
+    this.searchText = '';
   }
 
   ngOnDestroy() {
@@ -104,13 +103,14 @@ export class ArchivesComponent implements OnInit, OnDestroy {
    */
   async refreshContent() {
     const pia = new Pia();
-    const data: any = await pia.getAllArchives();
-    this._archiveService.archivedPias = data;
-    this._archiveService.calculProgress();
-    this.sortOrder = localStorage.getItem('sortOrder');
-    this.sortValue = localStorage.getItem('sortValue');
-    setTimeout(() => {
-      this.sortArchive();
+    setTimeout(async () => {
+      await pia.getAllArchives().then((data: Array<Pia>) => {
+        this._archiveService.archivedPias = data;
+        this._archiveService.calculProgress();
+        this.sortOrder = localStorage.getItem('sortOrder');
+        this.sortValue = localStorage.getItem('sortValue');
+        this.sortArchive();
+      });
     }, 200);
   }
 

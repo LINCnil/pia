@@ -80,8 +80,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
   }
 
   onCleanSearch() {
-    console.log("hello !");
-    this.searchText = "";
+    this.searchText = '';
   }
 
   /**
@@ -183,15 +182,14 @@ export class StructuresComponent implements OnInit, OnDestroy {
   async refreshContent() {
     const structure = new Structure();
     const data: any = await structure.getAll();
-
-    this._structureService.loadExample().then((structureExample: Structure) => {
-      data.push(structureExample);
-    });
-
-    this._structureService.structures = data;
-    this.sortOrder = localStorage.getItem('sortOrder');
-    this.sortValue = localStorage.getItem('sortValue');
     setTimeout(() => {
+      this._structureService.loadExample().then((structureExample: Structure) => {
+        data.push(structureExample);
+      });
+
+      this._structureService.structures = data;
+      this.sortOrder = localStorage.getItem('sortOrder');
+      this.sortValue = localStorage.getItem('sortValue');
       this.sortStructure();
     }, 200);
   }
