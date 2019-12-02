@@ -7,7 +7,7 @@
         <nav class="small-12 medium-3 columns">
             <aside class="pia-leftSidebarBlock">
                 <app-sections [section]="section" [item]="item"></app-sections>
-                <app-revisions *ngIf="_piaService.pia.is_example == 0 && _piaService.pia.is_archive  == 0" [recover]="false" [currentVersion]="currentVersion" [revisions]="revisions" (newRevisionQuery)="onNewRevision()"></app-revisions>
+                <app-revisions *ngIf="_piaService.pia.is_example == 0 && _piaService.pia.is_archive  == 0" [title]="false" [currentVersion]="currentVersion" [revisions]="revisions" (newRevisionQuery)="onNewRevision()"></app-revisions>
             </aside>
         </nav>
 
