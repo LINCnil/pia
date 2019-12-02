@@ -6,25 +6,23 @@
     margin-bottom: 15px;
     color: $pia-gray;
     border-bottom: 2px solid $pia-gray;
-    font-size: 1.35em;
+    font-size: 1.8rem;
     i {
       font-size: 25px;
     }
   }
 
   &-print {
-    cursor: pointer;
-    text-align: center;
-    margin: 5px 0px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: $pia-green;
-    font-size: 1.4rem;
-    width:100%;
-    height: 35px;
-    button,
-    div {
+    button {
       cursor: pointer;
+      text-align: center;
+      margin: 5px 0px;
+      padding-top: 2px;
+      padding-bottom: 5px;
+      background-color: $pia-green;
+      font-size: 1.4rem;
+      width: 100%;
+      height: 26px;
       color: #fff;
     }
   }
@@ -33,24 +31,22 @@
     font-size: 1.4rem;
     padding: 10px;
     background-color: white;
-    border-top-color: $pia-green;
-    box-shadow: 2px 1px 18px 1px #c2c2c2;
-    button,
-    div {
-      color: #000;
-    }
+    border: 1px solid #eee;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     &-description {
       div {
         &:last-child {
           text-transform: uppercase;
           font-weight: bold;
-          font-size: 1.4rem;
+          font-size: 1.35rem;
+          margin-bottom: 5px;
         }
       }
     }
     &-links {
       font-size: 1.4rem;
       text-align: left;
+      color: $pia-light-black;
       ul {
         padding-left: 15px;
         list-style: none;
@@ -60,18 +56,11 @@
           input[type="checkbox"] {
             float: left !important;
             margin-top: 4px;
-            cursor:pointer;
-            -webkit-appearance: checkbox !important;
-            -moz-appearance: checkbox !important;
-            -ms-appearance: checkbox !important;
-            -o-appearance: checkbox !important;
-            appearance: checkbox !important;
-            background-color: red;
           }
           span {
-            margin-left: 30px;
+            transition: all .3s;
+            margin-left: 27px;
             display: block;
-            cursor:pointer;
           }
         }
       }
@@ -98,6 +87,40 @@
           border: 1px solid $pia-gray;
           cursor: not-allowed;
         }
+      }
+
+      /* Custom checkboxes styles */
+      input {
+        position: absolute;
+        left: -9999px;
+      }
+      label {
+        cursor: pointer;
+        display: block;
+        position: relative;
+        &:focus,
+        &:hover {
+          span {
+            color: #000;
+          }
+          &:before {
+            border: 1px solid #000;
+          }
+        }
+      }
+      label::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 3px;
+        width: 16px;
+        height: 16px;
+        border: 1px solid $pia-gray-dark;
+        transition: all .3s;
+      }
+      input:checked + label::before {
+        background-color: $pia-green;
+        box-shadow: inset 0px 0px 0px 1px #fff;
       }
     }
   }
