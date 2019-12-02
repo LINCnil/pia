@@ -54,9 +54,8 @@ export class RevisionsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     // Update RevisionGroupByMonth on this.revisions changements
     this.revisionsGroupByMonth = {}
-    if (changes.revisions.currentValue) {
+    if (changes.revisions && changes.revisions.currentValue) {
       changes.revisions.currentValue.forEach((obj) => {
-
         // Determite key and translate it
 
         let temp = slugify(new RelativeDate(obj.created_at).simple());

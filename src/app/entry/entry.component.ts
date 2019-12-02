@@ -33,7 +33,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   subscription: Subscription;
   public sideView = 'knowledge';
   public revisions = null;
-  public currentVersion: Date;
   public pia = null;
   public download = false;
 
@@ -184,7 +183,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       this._revisionService.getAll(this.pia.id)
       .then((resp) => {
         this.revisions = resp;
-        this.currentVersion = this.pia.updated_at;
       });
 
     });

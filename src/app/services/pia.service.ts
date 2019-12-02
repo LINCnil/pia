@@ -93,6 +93,8 @@ export class PiaService {
       pia.author_name = piaForm.value.author_name;
       pia.evaluator_name = piaForm.value.evaluator_name;
       pia.validator_name = piaForm.value.validator_name;
+      pia.created_at = new Date();
+      pia.updated_at = new Date();
       const structure_id = piaForm.value.structure;
       if (structure_id && structure_id > 0) {
         const structure = new Structure();

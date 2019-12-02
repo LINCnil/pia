@@ -31,7 +31,6 @@ export class PreviewComponent implements OnInit {
   fromArchives = false;
   @Input() onlyData = false;
   public revisions = null;
-  public currentVersion: Date;
   public revisionOverlay = false;
 
   constructor(public _actionPlanService: ActionPlanService,
@@ -63,7 +62,6 @@ export class PreviewComponent implements OnInit {
       this._revisionService.getAll(this.pia.id)
       .then((resp) => {
         this.revisions = resp;
-        this.currentVersion = this.pia.updated_at;
       });
 
     });
