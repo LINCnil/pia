@@ -17,27 +17,27 @@
       <div>{{ 'summary.actions.individual_download_select' | translate }}</div>
       <ul>
         <li>
+          <input type="checkbox" (change)="onSelectDownload('doc', $event.target.checked)" name="doc" value="doc" id="doc">
           <label for="doc">
-            <input type="checkbox" (change)="onSelectDownload('doc', $event.target.checked)" name="doc" value="doc" id="doc">
             <span>{{ 'summary.actions.individual_download_doc' | translate }}</span>
           </label>
         </li>
         <li>
+          <input type="checkbox" (change)="onSelectDownload('images', $event.target.checked)" name="images" value="images" id="images">
           <label for="images">
-            <input type="checkbox" (change)="onSelectDownload('images', $event.target.checked)" name="images" value="images" id="images">
             <span>{{ 'summary.actions.individual_download_images' | translate }}</span>
           </label>
         </li>
         <li>
+          <input type="checkbox" (change)="onSelectDownload('csv', $event.target.checked)" name="csv" value="csv" id="csv">
           <label for="csv">
-              <input type="checkbox" (change)="onSelectDownload('csv', $event.target.checked)" name="csv" value="csv" id="csv">
-              <span>{{ 'summary.action_plan.title' | translate }}</span>
+            <span>{{ 'summary.action_plan.title' | translate }}</span>
           </label>
         </li>
         <li>
+          <input type="checkbox" (change)="onSelectDownload('json', $event.target.checked)" name="json" value="json" id="json">
           <label for="json">
-              <input type="checkbox" (change)="onSelectDownload('json', $event.target.checked)" name="json" value="json" id="json">
-              <span>{{ 'summary.actions.individual_download_json' | translate }}</span>
+            <span>{{ 'summary.actions.individual_download_json' | translate }}</span>
           </label>
         </li>
       </ul>

@@ -1414,7 +1414,7 @@
 			"pia_version": "Versions du PIA",
 			"restore_version": "Restaurer cette version",
 			"revision": "Versions et révision",
-			"save": "Réviser le PIA",
+			"save": "Créer une nouvelle version",
 			"show": "Afficher les {{length}} version(s)"
 		},
 		"risks_cartography_title": "Cartographie des risques",

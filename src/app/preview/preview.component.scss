@@ -192,7 +192,7 @@
       margin: 0 0 8px 0;
       padding: 10px 15px;
       background: #fff;
-      box-shadow: 2px 1px 18px 1px #c2c2c2;
+      box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     }
     .evaluationbox {
       p {
@@ -219,7 +219,7 @@
   }
   &-previewRisksOverviewBlock,
   &-previewRisksCartographyBlock {
-    box-shadow: 2px 1px 18px 1px #c2c2c2;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     > div {
       vertical-align: top;
@@ -239,7 +239,7 @@
       display: flex;
       background-color: #fff;
       position: relative;
-      box-shadow:  2px 1px 18px 1px rgba(210,210,210,1);
+      box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
       > div:first-child {
         width: 74px;
         background-color: #3c3b3d;
@@ -409,7 +409,7 @@
       display: flex;
       margin: 15px 0;
       background-color: #fff;
-      box-shadow: 2px 1px 18px 1px rgba(210,210,210,1);
+      box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
       &-title {
         width: 100%;
         border-left: 74px solid #3c3b3d;
@@ -468,5 +468,6 @@
 }
 
 .pagebreak {
-  break-before: page;
+  page-break-before: always;
 }
+

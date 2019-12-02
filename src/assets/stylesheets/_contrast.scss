@@ -919,14 +919,10 @@ body.pia-contrast {
 
   /* Print and exports */
   .pia-exportBlock {
-    &-print,
-    &-full {
-      &:active {
-        background-color: $pia-green-dark;
-      }
-    }
     &-print {
-      background-color: $pia-green-dark;
+      button {
+        background-color: $pia-green-dark !important;
+      }
     }
     &-individual {
       .btn-green {
@@ -943,6 +939,11 @@ body.pia-contrast {
         &:hover,
         &:active {
           color: #fff !important;
+        }
+      }
+      &-links {
+        input:checked + label::before {
+          background-color: $pia-green-dark !important;
         }
       }
     }

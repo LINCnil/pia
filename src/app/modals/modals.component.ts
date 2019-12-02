@@ -48,6 +48,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy' : this.dateFormat = 'MM-dd-yy'
     this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy' : this.dateFormat = 'MM-dd-yy'
     });
