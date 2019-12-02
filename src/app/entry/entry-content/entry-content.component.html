@@ -27,7 +27,7 @@
     </div>
     <a *ngIf="_piaService.pia.is_example === 1" routerLink="/preview/{{_piaService.pia.id}}" class="btn pia-previewBlock">
       <span class="pia-icons pia-icon-preview"></span>
-      <div *ngIf="section.id === 4 && item.id === 2 && _piaService.pia.is_example === 1;else defaultBlock" [innerHTML]="'pia.header.display_action_plan' | translate"></div>
+      <div *ngIf="section.id === 4 && item.id === 2;else defaultBlock" [innerHTML]="'pia.header.display_action_plan' | translate"></div>
       <ng-template #defaultBlock>
         <div>{{ 'pia.header.preview' | translate }}</div>
       </ng-template>

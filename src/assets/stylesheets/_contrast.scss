@@ -153,18 +153,10 @@ body.pia-contrast {
             color: $pia-green-dark;
           }
           progress {
-            &:before, &:after {
-              background-color: $pia-green-dark !important;
-            }
-          }
-          progress {
             appearance: none;
             -moz-appearance: none;
             -webkit-appearance: none;
             color: $pia-green-dark;
-            &:after {
-              color: $pia-green-dark !important;
-            }
             &::-moz-progress-bar {
               background: $pia-green-dark;
             }

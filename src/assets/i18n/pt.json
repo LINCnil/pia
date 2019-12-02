@@ -202,6 +202,7 @@
 			"import_structure": "Importar modelo",
 			"item": {
 				"consult_pia": "Consultar",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Editar",
 				"edit_structure": "Editar modelo",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Exportar",
 					"more_options": "Mais opções",
 					"pia": "Exibir análise <br>PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -285,7 +286,7 @@
 					"edit": "Editar",
 					"export": "Exportar",
 					"pia": "Exibir análise PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

@@ -202,6 +202,7 @@
 			"import_structure": "Importer modèle",
 			"item": {
 				"consult_pia": "Consulter",
+				"consult_structure": "Consulter le modèle",
 				"edit_pia": "Éditer",
 				"edit_structure": "Éditer le modèle",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Exporter",
 					"more_options": "Plus d'options",
 					"pia": "Afficher le<br>PIA",
-					"remove": "Supprimer définitivement",
+					"remove": "Supprimer",
 					"unarchive": "Désarchiver"
 				}
 			},
@@ -285,7 +286,7 @@
 					"edit": "Éditer",
 					"export": "Exporter",
 					"pia": "Afficher le PIA",
-					"remove": "Supprimer définitivement",
+					"remove": "Supprimer",
 					"unarchive": "Désarchiver"
 				}
 			}
@@ -1037,13 +1038,13 @@
 			"refuse_pia": "PIA refusé",
 			"status": {
 				"evaluation": {
-					"cancel": "annuler la demande d'évaluation.",
+					"cancel": " annuler la demande d'évaluation.",
 					"cancel_button": "Annuler la demande d'évaluation",
 					"content": "L'évaluation de cette partie n'a pas encore commencé. Si vous souhaitez modifier les contenus en mode édition, il faut",
 					"title": "En attente d'évaluation"
 				},
 				"validation": {
-					"cancel": "annuler la demande de validation.",
+					"cancel": " annuler la demande de validation.",
 					"cancel_button": "Annuler la demande de validation",
 					"content": "L'évaluation de cette partie est terminée et en attente de validation finale de l'analyse. Si vous souhaitez modifier les évaluations, il faut",
 					"title": "En attente de validation"

@@ -202,6 +202,7 @@
 			"import_structure": "Impordi mõjuhinnang",
 			"item": {
 				"consult_pia": "TO TRANSLATE - Consult",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "TO TRANSLATE - Edit",
 				"edit_structure": "Toimeta mõjuhinnagut",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Ekspordi",
 					"more_options": "Rohkem valikuid",
 					"pia": "Näita<br>mõjuhinnagut",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -285,7 +286,7 @@
 					"edit": "Toimeta",
 					"export": "Ekspordi",
 					"pia": "Näita mõjuhinnagut",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

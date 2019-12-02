@@ -202,6 +202,7 @@
 			"import_structure": "Importa modello",
 			"item": {
 				"consult_pia": "Visualizza PIA",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Modifica PIA",
 				"edit_structure": "Edita modello",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Esporta",
 					"more_options": "Altre opzioni",
 					"pia": "Mostra<br>PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -227,10 +228,10 @@
 			"placeholder_new_pia": "Nuova PIA",
 			"placeholder_new_structure": "Nuovo modello",
 			"placeholder_pia_name": "Nome della PIA",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
 			"placeholder_start": "Tutti i campi sono obbligatori",
 			"placeholder_structure": "Modello di base",
-			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+			"placeholder_structure_name": "TO TRANSLATE - Template's title",
 			"placeholder_validation": "Cognome, nome",
 			"sector_name": "Settore collegato",
 			"start": "Avvio",
@@ -270,10 +271,10 @@
 			"column_evaluation": "Revisore",
 			"column_pia": "PIA",
 			"column_progression": "Avanzamento",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Stato",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "TO TRANSLATE - Template",
+			"column_structure_name": "TO TRANSLATE - Template",
 			"column_updated_at": "Cronologia",
 			"column_validation": "Validatore",
 			"item": {
@@ -285,7 +286,7 @@
 					"edit": "Modifica",
 					"export": "Esporta",
 					"pia": "Mostra PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

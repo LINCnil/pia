@@ -4,15 +4,15 @@
           <div class="pia-cardsBlock-toolbar-export">
             <a href="javascript:;" (click)="export(structure.id)" class="btn pia-tooltip">
               <i class="fa fa-download" aria-hidden="true"></i>
-              <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
+              <span title="{{ 'homepage.cards.item.tools.export' | translate }}" class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
             </a>
             <a href="javascript:;" (click)="duplicate(structure.id)" class="btn pia-tooltip">
               <i class="fa fa-files-o" aria-hidden="true"></i>
-              <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.duplicate' | translate }}</span>
+              <span title="{{ 'homepage.cards.item.tools.duplicate' | translate }}" class="pia-tooltip-text">{{ 'homepage.cards.item.tools.duplicate' | translate }}</span>
             </a>
             <a *ngIf="!structure.is_example" href="javascript:;" (click)="remove(structure.id)" class="btn pia-tooltip">
                 <i class="fa fa-trash-o" aria-hidden="true"></i>
-                <span class="pia-tooltip-text">{{ 'homepage.cards.item.tools.remove' | translate }}</span>
+                <span title="{{ 'homepage.cards.item.tools.remove' | translate }}" class="pia-tooltip-text">{{ 'homepage.cards.item.tools.remove' | translate }}</span>
             </a>
           </div>
       </div>
@@ -45,7 +45,8 @@
             <time>{{ structure.created_at | date: 'dd/MM/yyyy' }}</time>
         </div>
         <div class="pia-cardsBlock-item-btn">
-          <a routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
+          <a *ngIf="structure.is_example" routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_structure' | translate }}</a>
+          <a *ngIf="!structure.is_example" routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
         </div>
       </form>
   </div>

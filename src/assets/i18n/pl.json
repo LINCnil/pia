@@ -202,6 +202,7 @@
 			"import_structure": "Import szablonu",
 			"item": {
 				"consult_pia": "Konsultacja",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Edycja",
 				"edit_structure": "Edycja szablonu",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Eksport",
 					"more_options": "Więcej opcji",
 					"pia": "Wyświetlenie<br>PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -227,7 +228,7 @@
 			"placeholder_new_pia": "Nowa PIA",
 			"placeholder_new_structure": "Nowy szablon",
 			"placeholder_pia_name": "Tytuł PIA",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
 			"placeholder_start": "Należy wypełnić wszystkie pola",
 			"placeholder_structure": "Domyślny szablon",
 			"placeholder_structure_name": "Tytuł szablonu",
@@ -270,7 +271,7 @@
 			"column_evaluation": "Ocena",
 			"column_pia": "PIA",
 			"column_progression": "Postęp",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Status",
 			"column_structure": "Szablon",
 			"column_structure_name": "Szablon",
@@ -285,7 +286,7 @@
 					"edit": "Edycja",
 					"export": "Eksport",
 					"pia": "Wyświetlenie PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

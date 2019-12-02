@@ -202,6 +202,7 @@
 			"import_structure": "Importere skabelon",
 			"item": {
 				"consult_pia": "Konsultere",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Redigere",
 				"edit_structure": "Redigere skabelon",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Exportere",
 					"more_options": "Flere optioner",
 					"pia": "Vis<br>PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -285,7 +286,7 @@
 					"edit": "Redigere",
 					"export": "Exportere",
 					"pia": "Vis PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

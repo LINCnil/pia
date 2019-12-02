@@ -141,7 +141,7 @@
 		},
 		"logo_subtitle": "",
 		"logo_title": "Privacy impact assessment",
-		"structures": "PIA template",
+		"structures": "PIA templates",
 		"tools": {
 			"about": "About",
 			"accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
@@ -202,6 +202,7 @@
 			"import_structure": "Import template",
 			"item": {
 				"consult_pia": "Consult",
+				"consult_structure": "Consult template",
 				"edit_pia": "Edit",
 				"edit_structure": "Edit template",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Export",
 					"more_options": "More options",
 					"pia": "Display<br>PIA",
-					"remove": "Permanently delete",
+					"remove": "Delete",
 					"unarchive": "Unarchive"
 				}
 			},
@@ -236,7 +237,7 @@
 			"start": "Start",
 			"status": "Status",
 			"structure": "Template",
-			"structure_name": "Template",
+			"structure_name": "Template's name",
 			"title_close_creation": "Close",
 			"validation": "Validation"
 		},
@@ -285,7 +286,7 @@
 					"edit": "Edit",
 					"export": "Export",
 					"pia": "Display PIA",
-					"remove": "Permanently delete",
+					"remove": "Delete",
 					"unarchive": "Unarchive"
 				}
 			}

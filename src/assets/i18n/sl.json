@@ -202,6 +202,7 @@
 			"import_structure": "Uvezi obrazac",
 			"item": {
 				"consult_pia": "Pogledaj",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Uredi",
 				"edit_structure": "Uredi obrazac",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Izvezi",
 					"more_options": "Više opcija",
 					"pia": "Prikaži<br>PUP",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -285,7 +286,7 @@
 					"edit": "Uredi",
 					"export": "Izvezi",
 					"pia": "Prikaži PUP",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

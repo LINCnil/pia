@@ -202,6 +202,7 @@
 			"import_structure": "Importar plantilla",
 			"item": {
 				"consult_pia": "Consultar PIA",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Modificar PIA",
 				"edit_structure": "Editar plantilla",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Exportar",
 					"more_options": "Más opciones",
 					"pia": "Mostrar<br>PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -285,7 +286,7 @@
 					"edit": "Modificar",
 					"export": "Exportar",
 					"pia": "Mostrar PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

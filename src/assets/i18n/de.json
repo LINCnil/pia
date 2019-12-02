@@ -202,6 +202,7 @@
 			"import_structure": "Vorlage importieren",
 			"item": {
 				"consult_pia": "Ansehen",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Bearbeiten",
 				"edit_structure": "Bearbeiten der Vorlage",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Exportieren",
 					"more_options": "Weitere Optionen",
 					"pia": "DSFA<br>anzeigen",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -285,7 +286,7 @@
 					"edit": "Bearbeiten",
 					"export": "Exportieren",
 					"pia": "DSFA anzeigen",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

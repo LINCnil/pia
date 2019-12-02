@@ -202,6 +202,7 @@
 			"import_structure": "Importuoti šabloną",
 			"item": {
 				"consult_pia": "Peržiūrėti",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Redaguoti",
 				"edit_structure": "Redaguoti šabloną",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Eksportas",
 					"more_options": "Daugiau funkcijų",
 					"pia": "Atidaryti<br>PDAV",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -285,7 +286,7 @@
 					"edit": "Redaguoti",
 					"export": "Eksportuoti",
 					"pia": "Atidaryti PDAV",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
