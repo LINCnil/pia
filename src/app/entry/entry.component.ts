@@ -53,6 +53,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     await this._piaService.getPIA();
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;
+    } else {
+      this._appDataService.resetDataNav();
     }
     this.data = this._appDataService.dataNav;
 
