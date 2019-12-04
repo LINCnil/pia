@@ -39,11 +39,9 @@
     }
   }
   &-attachment {
-    vertical-align: middle;
-    width: 10%;
-    margin-top: -16px;
-    float: right;
-    position: relative;
+    position: absolute;
+    right: 10px;
+    top: 4px;
     cursor: pointer;
     ul {
       display: none;
