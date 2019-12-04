@@ -6,69 +6,61 @@
     margin-bottom: 15px;
     color: $pia-gray;
     border-bottom: 2px solid $pia-gray;
-    font-size: 1.35em;
+    font-size: 1.8rem;
     i {
       font-size: 25px;
     }
   }
 
-  &-print,
-  &-full {
-    cursor: pointer;
-    text-align: center;
-    margin: 5px 0px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: $pia-green;
-    font-size: 1.4rem;
-    width:100%;
-    button,
-    div {
+  &-print {
+    button {
       cursor: pointer;
+      text-align: center;
+      margin: 5px 0px;
+      padding-top: 2px;
+      padding-bottom: 5px;
+      background-color: $pia-green;
+      font-size: 1.4rem;
+      width: 100%;
+      height: 26px;
       color: #fff;
     }
   }
-
   &-individual {
     margin-top: 10px;
     font-size: 1.4rem;
     padding: 10px;
     background-color: white;
-    border-top-color: $pia-green;
-    box-shadow: 2px 1px 18px 1px #c2c2c2;
-    
-    button,
-    div {
-      color: #000;
-    }
-    
+    border: 1px solid #eee;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     &-description {
       div {
         &:last-child {
           text-transform: uppercase;
           font-weight: bold;
-          font-size: 1.4rem;
+          font-size: 1.35rem;
+          margin-bottom: 5px;
         }
       }
     }
     &-links {
       font-size: 1.4rem;
       text-align: left;
+      color: $pia-light-black;
       ul {
         padding-left: 15px;
         list-style: none;
         li {
           clear: both;
           margin-bottom: 10px;
-          input{
+          input[type="checkbox"] {
             float: left !important;
             margin-top: 4px;
-            cursor:pointer;
           }
           span {
-            margin-left: 30px;
+            transition: all .3s;
+            margin-left: 27px;
             display: block;
-            cursor:pointer;
           }
         }
       }
@@ -78,12 +70,57 @@
         width: 100%;
         padding: 10px 0;
         text-align: center;
-        border: 1px solid black;
+        color: $pia-green;
+        border-radius: 0;
+        &:focus,
+        &:hover,
+        &:active {
+          color: #fff;
+        }
         &:disabled {
-          color: $pia-gray; 
+          &:focus,
+          &:hover,
+          &:active {
+            background-color: initial;
+          }
+          color: $pia-gray;
           border: 1px solid $pia-gray;
           cursor: not-allowed;
         }
+      }
+
+      /* Custom checkboxes styles */
+      input {
+        position: absolute;
+        left: -9999px;
+      }
+      label {
+        cursor: pointer;
+        display: block;
+        position: relative;
+        &:focus,
+        &:hover {
+          span {
+            color: #000;
+          }
+          &:before {
+            border: 1px solid #000;
+          }
+        }
+      }
+      label::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 3px;
+        width: 16px;
+        height: 16px;
+        border: 1px solid $pia-gray-dark;
+        transition: all .3s;
+      }
+      input:checked + label::before {
+        background-color: $pia-green;
+        box-shadow: inset 0px 0px 0px 1px #fff;
       }
     }
   }

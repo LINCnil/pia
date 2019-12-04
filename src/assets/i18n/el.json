@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Αφήστε ένα σχόλιο",
 		"send": "Αποστολή"
 	},
+	"date": {
+		"april": "TO TRANSLATE - April",
+		"august": "TO TRANSLATE - August",
+		"december": "TO TRANSLATE - December",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+		"february": "TO TRANSLATE - February",
+		"january": "TO TRANSLATE - January",
+		"july": "TO TRANSLATE - July",
+		"june": "TO TRANSLATE - June",
+		"march": "TO TRANSLATE - March",
+		"may": "TO TRANSLATE - May",
+		"november": "TO TRANSLATE - November",
+		"october": "TO TRANSLATE - October",
+		"september": "TO TRANSLATE - September",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday"
+	},
 	"errors": {
 		"content": "Εάν αντιμετωπίζετε άλλα προβλήματα ή εάν έχετε προτάσεις για βελτίωση,<br>μπορείτε να τα στείλετε ξανά μέσω αυτής της φόρμας: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Η σελίδα δεν βρέθηκε."
@@ -74,20 +92,26 @@
 		"placeholder_improvable1": "Σύμφωνα με τις διαθέσιμες πληροφορίες, πρέπει να εφαρμοστούν πρόσθετα μέτρα προκειμένου να βελτιωθεί η προστασία των δεδομένων της επεξεργασίας.",
 		"placeholder_improvable2": "Εισάγετε τα σχόλιά σας.",
 		"placeholder_to_correct": "Οι παρεχόμενες πληροφορίες δεν επαρκούν για την ορθή αξιολόγηση τους. Επιστρέψτε στο πρόγραμμα επεξεργασίας για να βελτιώσετε την αρχική υποβολή.",
-		"status": {
-			"0": "Εκκρεμής",
-			"1": "Προς διόρθωση",
-			"2": "Δεκτικό βελτίωσης",
-			"3": "Αποδεκτό"
-		},
+		"status": [
+			"Εκκρεμής",
+			"Προς διόρθωση",
+			"Δεκτικό βελτίωσης",
+			"Αποδεκτό"
+		],
 		"title": "Αξιολόγηση",
 		"to_correct": "Προς διόρθωση"
 	},
 	"header": {
-    "exit_full_screen_mode": "Πατήστε F11 για έξοδο από την πλήρη οθόνη.",
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-    "archives": "TO TRANSLATE - PIA Archives",
+		"exit_full_screen_mode": "Πατήστε F11 για έξοδο από την πλήρη οθόνη.",
+		"help": {
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual",
+			"pia_example_link": "Παράδειγμα ΕΑ",
+			"title": "Βοήθεια"
+		},
+		"homepage_link": "TO TRANSLATE - My PIAs",
 		"knowledge_base_link": "Βάση γνώσεων",
 		"languages": {
 			"cnil_translations": "Μεταφράσεις που παρείχε η CNIL",
@@ -112,24 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
-		"logo_subtitle": "",
+		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Εκτίμηση αντικτύπου",
-		"pia_example_link": "Παράδειγμα ΕΑ",
 		"structures": "Υπoδείγματα ΕΑ",
-		"help": {
-			"title": "Βοήθεια",
-			"pia_example_link": "TO TRANSLATE - PIA example",
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual"
-		},
 		"tools": {
-      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Σχετικά",
 			"accessibility": "Προσβασιμότητα με προβλήματα όρασης (χρώματα υψηλής αντίθεσης, δαλτονισμός)",
 			"settings": "Ρυθμίσεις",
-			"title": "Εργαλεία"
+			"title": "Εργαλεία",
+			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -174,9 +192,9 @@
 		"title": "Βοήθεια"
 	},
 	"homepage": {
-    "search_filter": "TO TRANSLATE - Search",
 		"cards": {
 			"author": "Επεξεργασία",
+			"category": "TO TRANSLATE - Category",
 			"creation_status": "Δημιουργία",
 			"date": "Ημερομηνία",
 			"evaluation": "Αξιολόγηση",
@@ -184,17 +202,18 @@
 			"import_structure": "Εισαγωγή υποδείγματος",
 			"item": {
 				"consult_pia": "Συμβουλευθείτε την",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Επεξεργασία",
 				"edit_structure": "Επεξεργασία υποδείγματος",
 				"tools": {
 					"action_plan": "Εμφάνιση<br>σχεδίου δράσης",
+					"archive": "TO TRANSLATE - Archive",
 					"duplicate": "Διπλότυπο",
 					"export": "Εξαγωγή",
 					"more_options": "Περισσότερες επιλογές",
 					"pia": "Εμφάνιση<br>ΕΑ",
-					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Νέα ΕΑ",
@@ -202,6 +221,7 @@
 			"or": "ή",
 			"pia_name": "ΕΑ",
 			"placeholder_author": "Όνομα, επίθετο",
+			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Όνομα, επίθετο",
 			"placeholder_import_pia": "Εισαγωγή ΕΑ",
 			"placeholder_import_structure": "Εισαγωγή υποδείγματος",
@@ -213,15 +233,13 @@
 			"placeholder_structure": "Προεπιλεγμένο υπόδειγμα",
 			"placeholder_structure_name": "Τίτλος υποδείγματος",
       "placeholder_validation": "Όνομα, επίθετο",
-      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Σχετικός τομέας",
 			"start": "Έναρξη",
 			"status": "Κατάσταση",
 			"structure": "Υπόδειγμα",
 			"structure_name": "Όνομα υποδείγματος",
 			"title_close_creation": "Κλείσιμο",
-      "validation": "Επικύρωση",
-      "category": "TO TRANSLATE - Category"
+      "validation": "Επικύρωση"
 		},
 		"filters": {
 			"assessor": "Αξιολογητής",
@@ -229,6 +247,7 @@
 			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Αρχίστε !<br><br>Για να ξεκινήσετε μια ΕΑ,<br> κάντε κλικ στο Νέα ΕΑ",
 			"card_rocket_content_structure": "Αρχίστε ! Για να ξεκινήσετε <br>ένα υπόδειγμα, κάντε κλικ στο +",
+			"category": "TO TRANSLATE - Category",
 			"date": "Ημερομηνία",
 			"import_pia": "Εισαγωγή ΕΑ",
 			"import_structure": "Εισαγωγή υποδείγματος",
@@ -242,16 +261,15 @@
 			"sort": "Ταξινόμηση",
 			"sort_by": "κατά",
 			"status": "Κατάσταση",
-      "validator": "Επικυρών",
-      "category": "TO TRANSLATE - Category"
+      "validator": "Επικυρών"
 		},
 		"lists": {
 			"column_actions": "Ενέργειες",
 			"column_author": "Σύνταξη",
+			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Δημιουργία",
 			"column_evaluation": "Αξιολόγηση",
       "column_pia": "ΕΑ",
-      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Πρόοδος",
 			"column_sector_name": "Σχετικός τομέας",
 			"column_status": "Κατάσταση",
@@ -262,17 +280,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Εμφάνιση σχεδίου δράσης",
+					"archive": "TO TRANSLATE - Archive",
 					"consult": "Συμβουλή",
 					"duplicate": "Δημιουργία διπλότυπου",
 					"edit": "Επεξεργασία",
 					"export": "Εξαγωγή",
 					"pia": "Εμφάνιση ΕΑ",
-					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Προσθήκη",
@@ -282,9 +301,9 @@
 			"example": "Παράδειγμα",
 			"general_measure": "Μέτρο ασφαλείας του συστήματος",
 			"measure_on_data": "Μέτρο για τα δεδομένα",
+			"method": "Μεθοδολογία",
 			"organizational_measure": "Οργανωτικό μέτρο",
-			"principle": "Αρχή",
-      "method": "Μεθοδολογία"
+			"principle": "Αρχή"
 		},
 		"filters": {
 			"all": "Όλα",
@@ -399,11 +418,6 @@
 				"name": "Απειλές που μπορούν να οδηγήσουν σε ανεπιθύμητη τροποποίηση των προσωπικών δεδομένων",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "Τα προγραμματισμένα μέτρα είναι εκείνα που είχαν αρχικά τεθεί σε εφαρμογή, πριν από οποιαδήποτε ανάλυση από τον αξιολογητή. Τα συμπληρωματικά ή διορθωτικά μέτρα που συμβουλεύει ο αξιολογητής θα αναφέρονται στο σχέδιο δράσης και θα επιτρέπουν μια δεύτερη αξιολόγηση της σοβαρότητας και της πιθανότητας του κινδύνου.",
-				"name": "Προγραμματισμένα και διορθωτικά μέτρα",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Διαλογή μεταξύ αυτών που διατίθενται στην ενότητα \"Προγραμματιζόμενα ή υπάρχοντα μέτρα\", τα οποία μπορείτε να συμπληρώσετε εάν χρειάζεται.",
 				"name": "Μέτρα",
@@ -635,6 +649,11 @@
 				"name": "Μεταφορές",
 				"source": "PIAF Connected Objects p18"
 			},
+			"PIA_METHOD_MES": {
+				"description": "Τα προγραμματισμένα μέτρα είναι εκείνα που είχαν αρχικά τεθεί σε εφαρμογή, πριν από οποιαδήποτε ανάλυση από τον αξιολογητή. Τα συμπληρωματικά ή διορθωτικά μέτρα που συμβουλεύει ο αξιολογητής θα αναφέρονται στο σχέδιο δράσης και θα επιτρέπουν μια δεύτερη αξιολόγηση της σοβαρότητας και της πιθανότητας του κινδύνου.",
+				"name": "Προγραμματισμένα και διορθωτικά μέτρα",
+				"source": ""
+			},
 			"PIA_ORG_AUD": {
 				"description": "Ύπαρξη μιας πολιτικής και διαδικασιών για την απόκτηση μιας οργάνωσης ικανής να διαχειρίζεται και να ελέγχει την προστασία των προσωπικών δεδομένων που τηρούνται σε αυτήν.",
 				"name": "Παρακολούθηση των μέτρων προστασίας δεδομένων",
@@ -857,6 +876,10 @@
 			"review_section": "Αξιολόγηση ενός τμήματος"
 		},
 		"archive": "Αρχειοθέτηση",
+		"archive_pia": {
+			"archive": "TO TRANSLATE - Archive PIA",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "<span class='strong'>Συγχαρητήρια,</span><br>η υποενότητα είναι τώρα<br>διαθέσιμη για αξιολόγηση."
 		},
@@ -898,6 +921,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Προσοχή,</span><br>Πρέπει να συμπληρωθεί τουλάχιστον ένα μέτρο: δεν είναι δυνατή η διαγραφή."
 		},
+		"recover_version": {
+			"continue": "Συνέχεια",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"title": "TO TRANSLATE - Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "<span class='strong'>Απορριφθείσα ΕΑ,</span><br>Αρκετά πεδία πρέπει να διορθωθούν.<br>Επιστροφή στη λειτουργία αξιολόγησης<br>για να κάνετε διορθώσεις."
 		},
@@ -912,18 +940,10 @@
 			"keep": "Διατήρηση αυτού του <br>μέτρου",
 			"remove": "Κατάργηση αυτού του <br>μέτρου"
 		},
-    "remove_pia": {
+		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Αφαίρεση αυτής της ΕΑ"
     },
-    "archive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
-			"archive": "TO TRANSLATE - Archive PIA"
-    },
-    "unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
-		},
 		"remove_question": {
 			"content": "Είστε βέβαιοι ότι θέλετε να διαγράψετε το ερώτημα;",
 			"keep": "Ακύρωση",
@@ -944,6 +964,10 @@
 			"content": "Η ΕΑ επικυρώθηκε."
 		},
 		"start_evaluation": "Έναρξη αξιολόγησης",
+		"unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "Αδύνατη σύνδεση."
 		},
@@ -991,6 +1015,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Προσθήκη",
+			"download": "TO TRANSLATE - Download the attachment",
 			"remove": "Αφαίρεση",
 			"title": "Συνημμένα"
 		},
@@ -1027,24 +1052,24 @@
 			},
 			"validate_pia": "Επικύρωση ΕΑ"
 		},
-		"statuses": {
-			"0": "Σε εξέλιξη",
-			"1": "Απορρίφθηκε",
-			"2": "Απλή επικύρωση",
-			"3": "Υπογεγραμμένη επικύρωση",
-			"4": "Αρχειοθετημένη",
-			"5": "Σε αναμονή επικύρωσης"
-		}
+		"statuses": [
+			"Σε εξέλιξη",
+			"Απορρίφθηκε",
+			"Απλή επικύρωση",
+			"Υπογεγραμμένη επικύρωση",
+			"Αρχειοθετημένη",
+			"Σε αναμονή επικύρωσης"
+		]
 	},
 	"questions": {
 		"edit": "Επεξεργασία ερωτήματος",
-		"gauges": {
-			"0": "(Απροσδιόριστο)",
-			"1": "Αμελητέο",
-			"2": "Περιορισμένο",
-			"3": "Σημαντικό",
-			"4": "Μέγιστο"
-		},
+		"gauges": [
+			"(Απροσδιόριστο)",
+			"Αμελητέο",
+			"Περιορισμένο",
+			"Σημαντικό",
+			"Μέγιστο"
+		],
 		"placeholder_title": "Τίτλος ερωτήματος (υποχρεωτικό)",
 		"remove": "Διαγραφή ερωτήματος"
 	},
@@ -1317,29 +1342,6 @@
 		"update": "Ανανέωση του URL"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-			"individual_to_download": "TO TRANSLATE - Download",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
-			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)"
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Θεμελιώδεις αρχές",
 			"implementation_date": "Αναμενόμενη ημερομηνία εφαρμογής",
@@ -1349,16 +1351,29 @@
 			"risks": "Κίνδυνοι",
 			"title": "Σχέδιο δράσης"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"individual_to_download": "TO TRANSLATE - Download",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Συνημμένα",
 		"concerned_people_name": "Ονόματα των ενδιαφερομένων",
 		"concerned_people_opinion": "Γνώμες των ενδιαφερομένων",
 		"concerned_people_searched_opinion": "Αναζήτηση της γνώμης των ενδιαφερόμενων ανθρώπων",
 		"concerned_people_status": "Καθεστώς των ενδιαφερομένων",
 		"concerned_people_unsearched_opinion_comment": "Ο λόγος για τον οποίο δεν ζητήθηκε η γνώμη των πολιτών",
-		"content_choice": {
-			"0": "Η επεξεργασία δεν πρέπει να διεξάγεται.",
-			"1": "Η επεξεργασία θα μπορούσε να διεξαχθεί."
-		},
+		"content_choice": [
+			"Η επεξεργασία δεν πρέπει να διεξάγεται.",
+			"Η επεξεργασία θα μπορούσε να διεξαχθεί."
+		],
 		"creation_date": "Ημερομηνία δημιουργίας",
 		"csv_action_plan_comment": "Σχόλιο σχεδίου δράσης",
 		"csv_evaluation_comment": "Σχόλιο αξιολόγησης",
@@ -1367,17 +1382,7 @@
 		"csv_people_in_charge": "Επικεφαλής",
 		"csv_section": "Ενότητα",
 		"csv_title_object": "Τίτλος",
-		"display_filters": {
-      "check_all": "Ενεργοποίηση / απενεργοποίηση όλων των φίλτρων εμφάνισης",
-			"action_plan_content": "Εμφάνιση σχεδίου δράσης",
-			"context_content": "Εμφάνιση τμήματος \"Γενικό πλαίσιο\"",
-			"main_content": "Εμφάνιση τμήματος \"Πληροφορίες ΕΑ\"",
-			"principles_content": "Εμφάνιση τμήματος \"Θεμελιώσεις αρχές\"",
-			"risks_cartography_content": "Εμφάνιση χαρτογράφησης κινδύνων",
-			"risks_content": "Εμφάνιση τμήματος \"Κίνδυνοι\"",
-			"risks_overview_content": "Εμφάνιση επισκόπησης κινδύνων",
-			"title": "Εμφάνιση φίλτρων"
-		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Όνομα του ΥΠΔ",
 		"dpo_opinion": "Γνώμη του ΥΠΔ",
 		"dpo_status": "Καθεστώς του ΥΠΔ",
@@ -1394,8 +1399,25 @@
 		"pia_author": "Όνομα συντάκτη",
 		"pia_name": "ΕΑ",
 		"pia_validator": "Όνομα επικυρωτή",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Επιστροφή στην προηγούμενη σελίδα",
 		"rejection_reason": "Λόγος απόρριψης",
+		"revision": {
+			"current_version": "TO TRANSLATE - Current version",
+			"pia_version": "TO TRANSLATE - PIA versions",
+			"restore_version": "TO TRANSLATE - Restore this version",
+			"revision": "TO TRANSLATE - Versions and revision",
+			"save": "TO TRANSLATE - Create a new version",
+			"show": "TO TRANSLATE - Display the {{length}} versions"
+		},
 		"risks_cartography_title": "Χαρτογράφηση κινδύνων",
 		"risks_overview_title": "Επισκόπηση κινδύνων",
 		"title": "Πληροφορίες ΕΑ"
@@ -1423,23 +1445,5 @@
 		},
 		"validated_pia_with_signature": "Εγκρίθηκε",
 		"waiting_for_signature": "Εκκρεμεί υπογραφή EA"
-	},
-	"date": {
-		"january": "TO TRANSLATE - January",
-		"february": "TO TRANSLATE - February",
-		"march": "TO TRANSLATE - March",
-		"april": "TO TRANSLATE - April",
-		"may": "TO TRANSLATE - May",
-		"june": "TO TRANSLATE - June",
-		"july": "TO TRANSLATE - July",
-		"august": "TO TRANSLATE - August",
-		"september": "TO TRANSLATE - September",
-		"october": "TO TRANSLATE - October",
-		"november": "TO TRANSLATE - November",
-		"december": "TO TRANSLATE - December",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier in this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier in this week"
 	}
 }

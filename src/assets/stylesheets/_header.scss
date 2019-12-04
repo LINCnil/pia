@@ -175,7 +175,7 @@
             border-top: 1px solid $pia-gray;
             border-bottom: 1px solid $pia-gray;
             padding: 8px 0;
-            input, label {
+            /* input, label {
               display: inline-block;
               vertical-align: top;
             }
@@ -194,12 +194,46 @@
               span {
                 font-style: italic;
               }
-            }
+            } */
             &:last-child {
               border: 0;
               padding: 0;
               margin-bottom: 0;
             }
+
+            /* Custom checkboxes styles */
+            input {
+              position: absolute;
+              left: -9999px;
+            }
+            label {
+              padding-left: 20px;
+              cursor: pointer;
+              display: block;
+              position: relative;
+              &:focus,
+              &:hover {
+                &:before {
+                  border: 1px solid #000;
+                }
+              }
+            }
+            label::before {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 3px;
+              left: 0;
+              width: 16px;
+              height: 16px;
+              border: 1px solid $pia-gray-dark;
+              transition: all .3s;
+            }
+            input:checked + label::before {
+              background-color: $pia-green-dark;
+              box-shadow: inset 0px 0px 0px 1px #fff;
+            }
+
             > a {
               cursor: pointer;
               &:hover {

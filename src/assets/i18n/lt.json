@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Palikti komentarą",
 		"send": "Siųsti"
 	},
+	"date": {
+		"april": "TO TRANSLATE - April",
+		"august": "TO TRANSLATE - August",
+		"december": "TO TRANSLATE - December",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+		"february": "TO TRANSLATE - February",
+		"january": "TO TRANSLATE - January",
+		"july": "TO TRANSLATE - July",
+		"june": "TO TRANSLATE - June",
+		"march": "TO TRANSLATE - March",
+		"may": "TO TRANSLATE - May",
+		"november": "TO TRANSLATE - November",
+		"october": "TO TRANSLATE - October",
+		"september": "TO TRANSLATE - September",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday"
+	},
 	"errors": {
 		"content": "Jei susiduriate su problemomis, besinaudodami PIA programa, ar turite pasiūlymų, kaip ją galima būtų patobulinti, galite mums parašyti, užpildydami šią formą: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Nerastas puslapis."
@@ -74,20 +92,26 @@
 		"placeholder_improvable1": "Atsižvelgiant į turimą informaciją, reikėtų imtis papildomų priemonių, siekiant pagerinti tvarkomų asmens  duomenų apsaugą.",
 		"placeholder_improvable2": "Pateikite savo komentarą.",
 		"placeholder_to_correct": "Pateiktos informacijos nepakanka įvertinimui. PDAV grąžinimas jo rengėjui tobulinimui, būtina atsižvelgti į pateiktas pastabas.",
-		"status": {
-			"0": "Nebaigtas",
-			"1": "Taisytinas",
-			"2": "Tobulintinas",
-			"3": "Tinkamas"
-		},
+		"status": [
+			"Nebaigtas",
+			"Taisytinas",
+			"Tobulintinas",
+			"Tinkamas"
+		],
 		"title": "Vertinimas",
 		"to_correct": "Taisytinas"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-    "archives": "TO TRANSLATE - PIA Archives",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"help": {
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual",
+			"pia_example_link": "PDAV pavyzdys",
+			"title": "Pagalba"
+		},
+		"homepage_link": "TO TRANSLATE - My PIAs",
 		"knowledge_base_link": "Pagalba",
 		"languages": {
 			"cnil_translations": "CNIL vertimas",
@@ -112,24 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
-		"logo_subtitle": "",
+		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Poveikio duomenų apsaugai vertinimas",
-		"pia_example_link": "PDAV pavyzdys",
 		"structures": "PDAV šablonas",
-		"help": {
-			"title": "Pagalba",
-			"pia_example_link": "TO TRANSLATE - PIA example",
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual"
-		},
 		"tools": {
-      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Apie",
 			"accessibility": "Regėjimo sutrikimą turintiems (padidinto ryškumo spalvos, daltonismas)",
 			"settings": "Nustatymai",
-			"title": "Įrankiai"
+			"title": "Įrankiai",
+			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -174,9 +192,9 @@
 		"title": "Pagalba"
 	},
 	"homepage": {
-    "search_filter": "TO TRANSLATE - Search",
 		"cards": {
 			"author": "Redagavimas",
+			"category": "TO TRANSLATE - Category",
 			"creation_status": "Sukūrimas",
 			"date": "Data",
 			"evaluation": "Tikrinimas",
@@ -184,17 +202,18 @@
 			"import_structure": "Importuoti šabloną",
 			"item": {
 				"consult_pia": "Peržiūrėti",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Redaguoti",
 				"edit_structure": "Redaguoti šabloną",
 				"tools": {
 					"action_plan": "Peržiūrėti<br>veiksmų planą",
+					"archive": "TO TRANSLATE - Archive",
 					"duplicate": "Daryti kopiją",
 					"export": "Eksportas",
 					"more_options": "Daugiau funkcijų",
 					"pia": "Atidaryti<br>PDAV",
-					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Naujas PDAV",
@@ -202,6 +221,7 @@
 			"or": "arba",
 			"pia_name": "PDAV",
 			"placeholder_author": "Vardas, Pavardė",
+			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Vardas, Pavardė",
 			"placeholder_import_pia": "Importuoti PDAV",
 			"placeholder_import_structure": "Importuoti šabloną",
@@ -213,15 +233,13 @@
 			"placeholder_structure": "Standartinis šablonas",
 			"placeholder_structure_name": "Šablono pavadinimas",
       "placeholder_validation": "Vardas, Pavardė",
-      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Susijęs sektorius",
 			"start": "Start",
 			"status": "Statusas",
 			"structure": "Šablonas",
 			"structure_name": "Šablono pavadinimas",
 			"title_close_creation": "Uždaryti",
-      "validation": "Tvirtinimas",
-      "category": "TO TRANSLATE - Category"
+      "validation": "Tvirtinimas"
 		},
 		"filters": {
 			"assessor": "Tikrintoją",
@@ -229,6 +247,7 @@
 			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Pradėti !<br><br> Tam, kad pradėti<br> spausk Naujas PDAV",
 			"card_rocket_content_structure": "Pradėk ! Tam, kad pradėti rengti <br>šabloną, spausk +",
+			"category": "TO TRANSLATE - Category",
 			"date": "Datą",
 			"import_pia": "Importuoti PDAV",
 			"import_structure": "Importuoti šabloną",
@@ -242,16 +261,15 @@
 			"sort": "Rūšiuoti",
 			"sort_by": "pagal",
 			"status": "Statusą",
-      "validator": "Tvirtintoją",
-      "category": "TO TRANSLATE - Category"
+      "validator": "Tvirtintoją"
 		},
 		"lists": {
 			"column_actions": "Veiksmai",
 			"column_author": "Redagavimas",
+			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Sukurtas",
 			"column_evaluation": "Tikrinimas",
       "column_pia": "PDAV",
-      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Progresas",
 			"column_sector_name": "Susijęs sektorius",
 			"column_status": "Statusas",
@@ -262,17 +280,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Peržiūrėti veiksmų planą",
+					"archive": "TO TRANSLATE - Archive",
 					"consult": "Peržiūrėti",
 					"duplicate": "Kopijuoti",
 					"edit": "Redaguoti",
 					"export": "Eksportuoti",
 					"pia": "Atidaryti PDAV",
-					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Įvesti",
@@ -282,9 +301,9 @@
 			"example": "Pavyzdys",
 			"general_measure": "Fizinės (techninės) apsaugos priemonės",
 			"measure_on_data": "Loginės apsaugos priemonės",
+			"method": "TO TRANSLATE - Methodology",
 			"organizational_measure": "Organizacinės apsaugos priemonės",
-			"principle": "Principas",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Principas"
 		},
 		"filters": {
 			"all": "Visi",
@@ -399,11 +418,6 @@
 				"name": "Grėsmės, dėl kurių gali būti neteisėtai pakeisti asmens duomenys",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Pasirinkite priemonę iš skyriaus 'Planuojamos arba egzistuojančios apsaugos priemonės', esant poreikiui, papildykite jas.",
 				"name": "Priemonės",
@@ -635,6 +649,11 @@
 				"name": "Duomenų teikimas į trečiąsias šalis",
 				"source": "PIAF Connected Objects p18"
 			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+			},
 			"PIA_ORG_AUD": {
 				"description": "Kokių veiksmų imamais, kad duomenų apsaugos priemonės atitiktų gerąją praktiką ir duomenų apsaugos teisės aktų reikalavimus (asmens duomenų apsaugos auditai, duomenų tvarkymo tikslų peržiūra, atsakomybių kontrolė).",
 				"name": "Duomenų apsaugos priemonių stebėjimas",
@@ -857,6 +876,10 @@
 			"review_section": "Dalies peržiūra"
 		},
 		"archive": "Archyvuoti",
+		"archive_pia": {
+			"archive": "TO TRANSLATE - Archive PIA",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "Ši dalis paruošta peržiūrai."
 		},
@@ -898,6 +921,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Įspėjimas,</span><br>Mažiausiai bent vieną priemonę reikia nurodyti: ištrynimas negalimas."
 		},
+		"recover_version": {
+			"continue": "Tęsti",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"title": "TO TRANSLATE - Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "Kadangi atsisakėte tvirtinti PDAV, jis yra grąžintas tobulinimui."
 		},
@@ -912,18 +940,10 @@
 			"keep": "Palikti <br>šią priemonę",
 			"remove": "Ištrinti <br>šią priemonę"
 		},
-    "remove_pia": {
+		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Ištrinti šį PDAV"
     },
-    "archive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
-			"archive": "TO TRANSLATE - Archive PIA"
-    },
-    "unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
-		},
 		"remove_question": {
 			"content": "Ar tikrai norite ištrinti klausimą?",
 			"keep": "Atsisakyti",
@@ -944,6 +964,10 @@
 			"content": "Jūs patvirtinote PDAV."
 		},
 		"start_evaluation": "Pradėti peržiūrą",
+		"unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "Nėra ryšio."
 		},
@@ -991,6 +1015,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Pridėti",
+			"download": "TO TRANSLATE - Download the attachment",
 			"remove": "Pašalinti",
 			"title": "Priedai"
 		},
@@ -1027,24 +1052,24 @@
 			},
 			"validate_pia": "Tvirtinti PDAV"
 		},
-		"statuses": {
-			"0": "Vykdomas",
-			"1": "Atmestas",
-			"2": "Preliminarus patvirtinimas",
-			"3": "Galutinis patvirtinimas",
-			"4": "Suarchyvuota",
-			"5": "Laukiama patvirtinimo"
-		}
+		"statuses": [
+			"Vykdomas",
+			"Atmestas",
+			"Preliminarus patvirtinimas",
+			"Galutinis patvirtinimas",
+			"Suarchyvuota",
+			"Laukiama patvirtinimo"
+		]
 	},
 	"questions": {
 		"edit": "Redaguoti klausimą",
-		"gauges": {
-			"0": "(Nenustatytas)",
-			"1": "Nedidelis",
-			"2": "Ribotas",
-			"3": "Reikšmingas",
-			"4": "Maksimalus"
-		},
+		"gauges": [
+			"(Nenustatytas)",
+			"Nedidelis",
+			"Ribotas",
+			"Reikšmingas",
+			"Maksimalus"
+		],
 		"placeholder_title": "Klausimo pavadinimas",
 		"remove": "Ištrinti klausimą"
 	},
@@ -1317,29 +1342,6 @@
 		"update": "Atnaujinkite URL nuorodą"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-			"individual_to_download": "TO TRANSLATE - Download",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
-			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)"
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Pagrindiniai principai",
 			"implementation_date": "Planuojamas įgyvendinimo terminas",
@@ -1349,16 +1351,29 @@
 			"risks": "Rizikos",
 			"title": "Veiksmų planas"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"individual_to_download": "TO TRANSLATE - Download",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Priedeliai",
 		"concerned_people_name": "Duomenų subjektų vardai, pavardės",
 		"concerned_people_opinion": "Duomenų subjektų nuomonės",
 		"concerned_people_searched_opinion": "Duomenų subjektų nuomonė",
 		"concerned_people_status": "Duomenų subjektų statusas",
 		"concerned_people_unsearched_opinion_comment": "Priežastys, dėl kurių duomenų subjektų nuomonės nebuvo prašoma",
-		"content_choice": {
-			"0": "Tvarkymas neturėtų būti vykdomas.",
-			"1": "Tvarkymas gali būti vykdomas."
-		},
+		"content_choice": [
+			"Tvarkymas neturėtų būti vykdomas.",
+			"Tvarkymas gali būti vykdomas."
+		],
 		"creation_date": "Data",
 		"csv_action_plan_comment": "Komentaras veiksmų planui",
 		"csv_evaluation_comment": "Komentaro įvertinimas",
@@ -1367,17 +1382,7 @@
 		"csv_people_in_charge": "Atsakingas asmuo",
 		"csv_section": "Dalis",
 		"csv_title_object": "Pavadinimas",
-		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
-			"action_plan_content": "Parodyti veiksmų planą",
-			"context_content": "Parodyti dalį \"Kontekstas\"",
-			"main_content": "Parodyti dalį\"PDAV informacija\"",
-			"principles_content": "Parodyti dalį \"Pagrindiniai principai\"",
-			"risks_cartography_content": "Parodyti rizikų tarpusavio sąsajas",
-			"risks_content": "Parodyti dalį \"Rizikos\"",
-			"risks_overview_content": "Parodyti rizikų apžvalgą",
-			"title": "Filtrai"
-		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "DPA vardas, pavardė",
 		"dpo_opinion": "DPA nuomonė",
 		"dpo_status": "DPA paskyrimo detalės (išorinis, vidinis)",
@@ -1394,8 +1399,25 @@
 		"pia_author": "Rengėjo vardas, pavardė, el. pašto adresas",
 		"pia_name": "PDAV",
 		"pia_validator": "Tvirtintojo vardas, pavardė, el. pašto adresas",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Atgal į ankstesnį puslapį",
 		"rejection_reason": "Atmetimo priežastys",
+		"revision": {
+			"current_version": "TO TRANSLATE - Current version",
+			"pia_version": "TO TRANSLATE - PIA versions",
+			"restore_version": "TO TRANSLATE - Restore this version",
+			"revision": "TO TRANSLATE - Versions and revision",
+			"save": "TO TRANSLATE - Create a new version",
+			"show": "TO TRANSLATE - Display the {{length}} versions"
+		},
 		"risks_cartography_title": "Rizikų tarpusavio sąsajos",
 		"risks_overview_title": "Rizikų apžvalga",
 		"title": "PDAV informacija"
@@ -1423,23 +1445,5 @@
 		},
 		"validated_pia_with_signature": "Patvirtinta",
 		"waiting_for_signature": "Laukiama PDAV pasirašymo"
-	},
-	"date": {
-		"january": "TO TRANSLATE - January",
-		"february": "TO TRANSLATE - February",
-		"march": "TO TRANSLATE - March",
-		"april": "TO TRANSLATE - April",
-		"may": "TO TRANSLATE - May",
-		"june": "TO TRANSLATE - June",
-		"july": "TO TRANSLATE - July",
-		"august": "TO TRANSLATE - August",
-		"september": "TO TRANSLATE - September",
-		"october": "TO TRANSLATE - October",
-		"november": "TO TRANSLATE - November",
-		"december": "TO TRANSLATE - December",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier in this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier in this week"
 	}
 }

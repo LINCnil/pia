@@ -6,7 +6,7 @@
     margin-right: 12px;
     margin-bottom: 40px;
     height: 440px;
-    border: 1px solid #fff;
+    border: 1px solid #ddd;
     background-color: #fff;
     &-title {
       height: 23px;
@@ -87,15 +87,21 @@
         &-progressBar {
           width: 100px;
           text-align: right;
+          position: relative;
           span {
             font-size: 0.9em;
-            position: absolute;
             z-index: 5;
             position: absolute;
-            top: 50%; left: 15px;
+            top: 50%;
+            left: 0;
+            right: 0;
+            text-align: left;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
             -webkit-transform: translateY(-50%);
-                -ms-transform: translateY(-50%);
-                    transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
           }
           div {
             color: $pia-green;

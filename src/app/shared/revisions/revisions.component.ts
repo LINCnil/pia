@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { RevisionService } from 'src/app/services/revision.service';
@@ -6,7 +7,7 @@ import { Pia } from 'src/app/entry/pia.model';
 import { Revision } from 'src/app/models/revision.model';
 import { Subject, iif } from 'rxjs';
 import { RelativeDate } from '../RelativeDate.class';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
 function slugify(string) {
@@ -31,28 +32,40 @@ function slugify(string) {
   styleUrls: ['./revisions.component.scss'],
   providers: [RevisionService, TranslateService]
 })
-export class RevisionsComponent implements OnInit, OnChanges {
+export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() currentVersion: Date;
   @Input() revisions: Array<any>;
   @Input() title: boolean = true;
   @Output('newRevisionQuery') newRevisionEmitter = new EventEmitter();
   @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
 
+  subscription: Subscription;
   public opened: Boolean = false;
   subject = new Subject();
   public revisionsGroupByMonth;
   public revisionsGroupByMonthInArray;
   public objectKeys = Object.entries;
+  dateFormat: String;
 
-  constructor(private _translateService: TranslateService) {
-  }
+  constructor(private _translateService: TranslateService) { }
 
   ngOnInit() {
-
+    this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy HH:mm:ss' : this.dateFormat = 'MM-dd-yy HH:mm:ss'
+    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy HH:mm:ss' : this.dateFormat = 'MM-dd-yy HH:mm:ss'
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
     // Update RevisionGroupByMonth on this.revisions changements
+    this.generateDates(changes);
+    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.generateDates(changes);
+    });
+
+  }
+
+  generateDates(changes) {
     this.revisionsGroupByMonth = {}
     if (changes.revisions && changes.revisions.currentValue) {
       changes.revisions.currentValue.forEach((obj) => {
@@ -77,7 +90,6 @@ export class RevisionsComponent implements OnInit, OnChanges {
       });
       this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth) // Get Properties on array
     }
-
   }
 
   newRevision() {
@@ -89,5 +101,9 @@ export class RevisionsComponent implements OnInit, OnChanges {
     // emit revision selection
     this.selectedRevisionEmitter.emit(revision);
     event.preventDefault();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

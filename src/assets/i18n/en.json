@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Leave a comment",
 		"send": "Send"
 	},
+	"date": {
+		"april": "April",
+		"august": "August",
+		"december": "December",
+		"earlier-in-this-month": "Earlier this month",
+		"earlier-in-this-week": "Earlier this week",
+		"february": "February",
+		"january": "January",
+		"july": "July",
+		"june": "June",
+		"march": "March",
+		"may": "May",
+		"november": "November",
+		"october": "October",
+		"september": "September",
+		"today": "Today",
+		"yesterday": "Yesterday"
+	},
 	"errors": {
 		"content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Page not found."
@@ -74,20 +92,26 @@
 		"placeholder_improvable1": "According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
 		"placeholder_improvable2": "Enter your comments.",
 		"placeholder_to_correct": "The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-		"status": {
-			"0": "Pending",
-			"1": "To correct",
-			"2": "Improvable",
-			"3": "Acceptable"
-		},
+		"status": [
+			"Pending",
+			"To correct",
+			"Improvable",
+			"Acceptable"
+		],
 		"title": "Evaluation",
 		"to_correct": "To correct"
 	},
 	"header": {
-    "exit_full_screen_mode": "Press F11 to exit full screen mode.",
-		"homepage_link": "My PIAs",
+		"archives": "PIA Archives",
 		"current_pias": "Current PIAs",
-    "archives": "PIA Archives",
+		"exit_full_screen_mode": "Press F11 to exit full screen mode.",
+		"help": {
+			"issue_reporting": "Report an issue",
+			"manual": "User manual",
+			"pia_example_link": "PIA example",
+			"title": "Help"
+		},
+		"homepage_link": "My PIAs",
 		"knowledge_base_link": "Knowledge base",
 		"languages": {
 			"cnil_translations": "CNIL provided translations",
@@ -112,24 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
 		"logo_subtitle": "",
 		"logo_title": "Privacy impact assessment",
-		"pia_example_link": "PIA example",
-		"structures": "PIA template",
-		"help": {
-			"title": "Help",
-			"pia_example_link": "PIA example",
-			"issue_reporting": "Report an issue",
-			"manual": "User manual"
-		},
+		"structures": "PIA templates",
 		"tools": {
-      "url_setting": "Server URL configuration",
 			"about": "About",
 			"accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
 			"settings": "Settings",
-			"title": "Tools"
+			"title": "Tools",
+			"url_setting": "Server URL configuration"
 		}
 	},
 	"help": {
@@ -174,9 +192,9 @@
 		"title": "Help"
 	},
 	"homepage": {
-    "search_filter": "Search",
 		"cards": {
 			"author": "Editing",
+			"category": "Category",
 			"creation_status": "Creation",
 			"date": "Date",
 			"evaluation": "Review",
@@ -184,17 +202,18 @@
 			"import_structure": "Import template",
 			"item": {
 				"consult_pia": "Consult",
+				"consult_structure": "Consult template",
 				"edit_pia": "Edit",
 				"edit_structure": "Edit template",
 				"tools": {
 					"action_plan": "Display<br>action plan",
+					"archive": "Archive",
 					"duplicate": "Duplicate",
 					"export": "Export",
 					"more_options": "More options",
 					"pia": "Display<br>PIA",
-					"remove": "Permanently delete",
-          "archive": "Archive",
-          "unarchive": "Unarchive"
+					"remove": "Delete",
+					"unarchive": "Unarchive"
 				}
 			},
 			"new_pia": "New PIA",
@@ -202,6 +221,7 @@
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Firstname, lastname",
+			"placeholder_category": "Category",
 			"placeholder_evaluation": "Firstname, lastname",
 			"placeholder_import_pia": "Import PIA",
 			"placeholder_import_structure": "Import template",
@@ -213,15 +233,13 @@
 			"placeholder_structure": "Default template",
 			"placeholder_structure_name": "Template's title",
       "placeholder_validation": "Firstname, lastname",
-      "placeholder_category": "Category",
 			"sector_name": "Sector",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Template",
-			"structure_name": "Template",
+			"structure_name": "Template's name",
 			"title_close_creation": "Close",
-      "validation": "Validation",
-      "category": "Category"
+      "validation": "Validation"
 		},
 		"filters": {
 			"assessor": "Reviewer",
@@ -229,6 +247,7 @@
 			"card": "Card view",
 			"card_rocket_content": "Get started !<br>To initiate a PIA,<br> click on the +",
 			"card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the +",
+			"category": "Category",
 			"date": "Date",
 			"import_pia": "Import PIA",
 			"import_structure": "Import template",
@@ -242,16 +261,15 @@
 			"sort": "Sort",
 			"sort_by": "by",
 			"status": "Status",
-      "validator": "Validator",
-      "category": "Category"
+      "validator": "Validator"
 		},
 		"lists": {
 			"column_actions": "Actions",
 			"column_author": "Editing",
+			"column_category": "Category",
 			"column_creation": "Created",
 			"column_evaluation": "Review",
       "column_pia": "PIA",
-      "column_category": "Category",
 			"column_progression": "Progress",
 			"column_sector_name": "Associated sector",
 			"column_status": "Status",
@@ -262,17 +280,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Display action plan",
+					"archive": "Archive",
 					"consult": "Consult",
 					"duplicate": "Duplicate",
 					"edit": "Edit",
 					"export": "Export",
 					"pia": "Display PIA",
-					"remove": "Permanently delete",
-          "archive": "Archive",
-          "unarchive": "Unarchive"
+					"remove": "Delete",
+					"unarchive": "Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Add",
@@ -282,9 +301,9 @@
 			"example": "Example",
 			"general_measure": "Physical Security control",
 			"measure_on_data": "Logical security control",
+			"method": "Methodology",
 			"organizational_measure": "Organisational control",
-			"principle": "Principle",
-      "method": "Methodology"
+			"principle": "Principle"
 		},
 		"filters": {
 			"all": "All",
@@ -399,11 +418,6 @@
 				"name": "Threats that can lead to an unwanted modification of personal data",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
 				"name": "Measures",
@@ -635,6 +649,11 @@
 				"name": "Transfers",
 				"source": "PIAF Connected Objects p18"
 			},
+			"PIA_METHOD_MES": {
+				"description": "Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "Planned and corrective controls",
+				"source": ""
+			},
 			"PIA_ORG_AUD": {
 				"description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
 				"name": "Supervision",
@@ -857,6 +876,10 @@
 			"review_section": "Review a section"
 		},
 		"archive": "Archive",
+		"archive_pia": {
+			"archive": "Archive PIA",
+			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "This section is ready to be reviewed."
 		},
@@ -898,6 +921,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Warning,</span><br>At least one measure must be filled: no deletion possible."
 		},
+		"recover_version": {
+			"continue": "Continue",
+			"message": "By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"title": "Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "As you have rejected the PIA, it is sent back for review to make the required changes."
 		},
@@ -916,14 +944,6 @@
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Remove this PIA"
     },
-    "archive_pia": {
-			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
-			"archive": "Archive PIA"
-    },
-    "unarchive_pia": {
-			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "Unarchive PIA"
-		},
 		"remove_question": {
 			"content": "Are you sure you want to delete the question?",
 			"keep": "Cancel",
@@ -944,6 +964,10 @@
 			"content": "You have approved the PIA."
 		},
 		"start_evaluation": "Start review",
+		"unarchive_pia": {
+			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "Connection impossible."
 		},
@@ -991,9 +1015,9 @@
 	"pia": {
 		"attachments": {
 			"add": "Add",
+			"download": "Download the attachment",
 			"remove": "Remove",
-			"title": "Attachments",
-			"download": "Download the attachment"
+			"title": "Attachments"
 		},
 		"footer": {
 			"ask_evaluation": "Ask for review",
@@ -1003,7 +1027,6 @@
 			"validate_evaluation": "Validate review"
 		},
 		"header": {
-      "exit_full_screen_mode": "Press F11 to exit full screen mode.",
 			"display_action_plan": "Display<br>action plan",
 			"edition": "Edition",
 			"evaluation": "Evaluation",
@@ -1029,24 +1052,24 @@
 			},
 			"validate_pia": "Validate PIA"
 		},
-		"statuses": {
-			"0": "In progress",
-			"1": "Rejected",
-			"2": "Simple validation",
-			"3": "Signed validation",
-			"4": "Archived",
-			"5": "Waiting for validation"
-		}
+		"statuses": [
+			"In progress",
+			"Rejected",
+			"Simple validation",
+			"Signed validation",
+			"Archived",
+			"Waiting for validation"
+		]
 	},
 	"questions": {
 		"edit": "Edit question",
-		"gauges": {
-			"0": "(Undefined)",
-			"1": "Negligible",
-			"2": "Limited",
-			"3": "Important",
-			"4": "Maximum"
-		},
+		"gauges": [
+			"(Undefined)",
+			"Negligible",
+			"Limited",
+			"Important",
+			"Maximum"
+		],
 		"placeholder_title": "Question title (mandatory)",
 		"remove": "Delete question"
 	},
@@ -1319,29 +1342,6 @@
 		"update": "Update URL"
 	},
 	"summary": {
-    "preview_title": "Preview",
-    "preview_subtitle": "General information",
-    "preview_edition": "Editing",
-    "preview_evaluation": "Evaluation",
-    "preview_validation": "Validation",
-    "preview_status": "Status",
-    "preview_validation_section": "Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "No data to display.",
-    "actions": {
-      "print_and_download": "Print and download",
-      "print": "Print the report",
-      "complete_download": "Download the full report",
-      "complete_download_desc": "Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "Download elements of the report",
-			"individual_to_download": "Download",
-      "individual_download_desc": "Export specific elements of the report.",
-      "individual_download_select": "Select elements to export:",
-      "individual_download_doc": "Texts (.doc)",
-      "individual_download_images": "Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
-			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)"
-    },
-    "download_csv": "Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamental principles",
 			"implementation_date": "Expected date of implementation",
@@ -1351,16 +1351,29 @@
 			"risks": "Risks",
 			"title": "Action plan"
 		},
+		"actions": {
+			"complete_download": "Download the full report",
+			"complete_download_desc": "Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "Download elements of the report",
+			"individual_download_desc": "Export specific elements of the report.",
+			"individual_download_doc": "Texts (.doc)",
+			"individual_download_images": "Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_select": "Select elements to export:",
+			"individual_to_download": "Download",
+			"print": "Print the report",
+			"print_and_download": "Print and download"
+		},
 		"attachments": "Attachments",
 		"concerned_people_name": "Concerned people opinions",
 		"concerned_people_opinion": "Concerned people opinions",
 		"concerned_people_searched_opinion": "Search of concerned people opinion",
 		"concerned_people_status": "Concerned people statuses",
 		"concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-		"content_choice": {
-			"0": "The treatment should not be used.",
-			"1": "The treatment could be implemented."
-		},
+		"content_choice": [
+			"The treatment should not be used.",
+			"The treatment could be implemented."
+		],
 		"creation_date": "Creation date",
 		"csv_action_plan_comment": "Action plan comment",
 		"csv_evaluation_comment": "Evaluation comment",
@@ -1369,17 +1382,7 @@
 		"csv_people_in_charge": "Person in charge",
 		"csv_section": "Section",
 		"csv_title_object": "Title",
-		"display_filters": {
-      "check_all": "Enable / disable all display filters",
-			"action_plan_content": "Display action plan",
-			"context_content": "Display section \"Context\"",
-			"main_content": "Display section \"PIA information\"",
-			"principles_content": "Display section \"Fundamental principles\"",
-			"risks_cartography_content": "Display risk mapping",
-			"risks_content": "Display section \"Risks\"",
-			"risks_overview_content": "Display risks overview",
-			"title": "Display filters"
-		},
+		"download_csv": "Action plan (.csv)",
 		"dpo_name": "DPO's name",
 		"dpo_opinion": "DPO's opinion",
 		"dpo_status": "DPO's status",
@@ -1396,8 +1399,25 @@
 		"pia_author": "Author's name",
 		"pia_name": "PIA",
 		"pia_validator": "Validator's name",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "Editing",
+		"preview_evaluation": "Evaluation",
+		"preview_no_data": "No data to display.",
+		"preview_status": "Status",
+		"preview_subtitle": "General information",
+		"preview_title": "Preview",
+		"preview_validation": "Validation",
+		"preview_validation_section": "Validation",
 		"previous_page": "Back to previous page",
 		"rejection_reason": "Rejection reason",
+		"revision": {
+			"current_version": "Current version",
+			"pia_version": "PIA versions",
+			"restore_version": "Restore this version",
+			"revision": "Versions and revision",
+			"save": "Create a new version",
+			"show": "Display the {{length}} versions"
+		},
 		"risks_cartography_title": "Risk mapping",
 		"risks_overview_title": "Risks overview",
 		"title": "PIA information"
@@ -1425,23 +1445,5 @@
 		},
 		"validated_pia_with_signature": "Approved",
 		"waiting_for_signature": "Pending signed PIA"
-	},
-	"date": {
-		"january": "January",
-		"february": "February",
-		"march": "March",
-		"april": "April",
-		"may": "May",
-		"june": "June",
-		"july": "July",
-		"august": "August",
-		"september": "September",
-		"october": "October",
-		"november": "November",
-		"december": "December",
-		"today": "Today",
-		"yesterday": "Yesterday",
-		"earlier-in-this-month": "Earlier in this month",
-		"earlier-in-this-week": "Earlier in this week"
 	}
 }

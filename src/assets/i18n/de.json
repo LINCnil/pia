@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Hinterlassen Sie einen Kommentar",
 		"send": "Senden"
 	},
+	"date": {
+		"april": "TO TRANSLATE - April",
+		"august": "TO TRANSLATE - August",
+		"december": "TO TRANSLATE - December",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+		"february": "TO TRANSLATE - February",
+		"january": "TO TRANSLATE - January",
+		"july": "TO TRANSLATE - July",
+		"june": "TO TRANSLATE - June",
+		"march": "TO TRANSLATE - March",
+		"may": "TO TRANSLATE - May",
+		"november": "TO TRANSLATE - November",
+		"october": "TO TRANSLATE - October",
+		"september": "TO TRANSLATE - September",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday"
+	},
 	"errors": {
 		"content": "Wenn Sie auf andere Probleme stoßen oder Verbesserungsvorschläge haben, können Sie diese über das folgende Formular zurücksenden: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Seite nicht gefunden."
@@ -74,20 +92,26 @@
 		"placeholder_improvable1": " Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
 		"placeholder_improvable2": "Geben Sie Ihre Kommentare ein.",
 		"placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend für eine vollständige Bewertung. Die DSFA wird zurück an den Bearbeiter verwiesen, um den ursprünglichen Vorschlag zu ergänzen.",
-		"status": {
-			"0": "unerledigt",
-			"1": "zu korrigieren",
-			"2": "verbesserungsfähig",
-			"3": "akzeptabel"
-		},
+		"status": [
+			"unerledigt",
+			"zu korrigieren",
+			"verbesserungsfähig",
+			"akzeptabel"
+		],
 		"title": "Bewertung",
 		"to_correct": "zu berichtigen"
 	},
 	"header": {
-		"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-    "archives": "TO TRANSLATE - PIA Archives",
+		"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
+		"help": {
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual",
+			"pia_example_link": "Beispiel DSFA",
+			"title": "Hilfe"
+		},
+		"homepage_link": "TO TRANSLATE - My PIAs",
 		"knowledge_base_link": "Wissensbasis",
 		"languages": {
 			"cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
@@ -112,24 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
 		"logo_subtitle": "PIA - privacy impact assessment",
 		"logo_title": "DSFA - Datenschutz-Folgenabschätzung",
-		"pia_example_link": "Beispiel DSFA",
 		"structures": "DSFA-Vorlagen",
-		"help": {
-			"title": "Hilfe",
-			"pia_example_link": "TO TRANSLATE - PIA example",
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual"
-		},
 		"tools": {
-      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Über",
 			"accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
 			"settings": "Einstellungen",
-			"title": "Tools"
+			"title": "Tools",
+			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -174,9 +192,9 @@
 		"title": "Hilfe"
 	},
 	"homepage": {
-    "search_filter": "TO TRANSLATE - Search",
 		"cards": {
 			"author": "Bearbeiter",
+			"category": "TO TRANSLATE - Category",
 			"creation_status": "Anlegen",
 			"date": "Datum",
 			"evaluation": "Prüfer",
@@ -184,17 +202,18 @@
 			"import_structure": "Vorlage importieren",
 			"item": {
 				"consult_pia": "Ansehen",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Bearbeiten",
 				"edit_structure": "Bearbeiten der Vorlage",
 				"tools": {
 					"action_plan": "Aktionsplan<br>anzeigen",
+					"archive": "TO TRANSLATE - Archive",
 					"duplicate": "Kopieren",
 					"export": "Exportieren",
 					"more_options": "Weitere Optionen",
 					"pia": "DSFA<br>anzeigen",
-					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Neue DSFA",
@@ -202,6 +221,7 @@
 			"or": "oder",
 			"pia_name": "DSFA",
 			"placeholder_author": "Vorname Nachname",
+			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Vorname Nachname",
 			"placeholder_import_pia": "DSFA importieren",
 			"placeholder_import_structure": "Vorlage importieren",
@@ -213,15 +233,13 @@
 			"placeholder_structure": "Standardvorlage",
 			"placeholder_structure_name": "Titel der Vorlage",
       "placeholder_validation": "Vorname Nachname",
-      "placeholder_category": "TO TRANSLATE - Category",
 			"sector_name": "Zugehöriger Abschnitt",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Vorlage",
 			"structure_name": "Name der Vorlage",
 			"title_close_creation": "Schließen",
-      "validation": "Bestätigender",
-      "category": "TO TRANSLATE - Category"
+      "validation": "Bestätigender"
 		},
 		"filters": {
 			"assessor": "Überprüft von",
@@ -229,6 +247,7 @@
 			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\"",
 			"card_rocket_content_structure": "Fangen Sia an!<br><br>Um eine Vorlage<br>zu beginnen, klicken Sie auf<br> auf das +.",
+			"category": "TO TRANSLATE - Category",
 			"date": "Datum",
 			"import_pia": "DSFA importieren",
 			"import_structure": "Vorlage importieren",
@@ -242,16 +261,15 @@
 			"sort": "Sortieren",
 			"sort_by": "nach",
 			"status": "Status",
-      "validator": "Bestätigt von",
-      "category": "TO TRANSLATE - Category"
+      "validator": "Bestätigt von"
 		},
 		"lists": {
 			"column_actions": "Aktionen",
 			"column_author": "Bearbeitet von",
+			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Bearbeitet",
 			"column_evaluation": "Überprüft von",
       "column_pia": "DSFA",
-      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Fortschritt",
 			"column_sector_name": "Zugehöriger Abschnitt",
 			"column_status": "Status",
@@ -262,17 +280,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Aktionsplan anzeigen",
+					"archive": "TO TRANSLATE - Archive",
 					"consult": "Ansehen",
 					"duplicate": "Kopieren",
 					"edit": "Bearbeiten",
 					"export": "Exportieren",
 					"pia": "DSFA anzeigen",
-					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Hinzufügen",
@@ -282,9 +301,9 @@
 			"example": "Beispiel",
 			"general_measure": "Physische Sicherheitsmaßnahme",
 			"measure_on_data": "Logische Sicherheitsmaßnahme",
+			"method": "Methodik",
 			"organizational_measure": "Organisationsmaßnahme",
-			"principle": "Prinzip",
-      "method": "Methodik"
+			"principle": "Prinzip"
 		},
 		"filters": {
 			"all": "Alle",
@@ -399,11 +418,6 @@
 				"name": "Bedrohungen, die zu einer unerwünschten Veränderung personenbezogener Daten führen können",
 				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
-      "PIA_METHOD_MES": {
-				"description": "Geplante Maßnahmen sind die ursprünglich eingeführten Maßnahmen vor einer Analyse durch den Prüfer. Die vom Gutachter empfohlenen Korrekturmaßnahmen werden im Aktionsplan aufgeführt und ermöglichen eine zweite Bewertung der Schwere und Wahrscheinlichkeit des Risikos.",
-				"name": "Geplante und korrigierende Maßnahmen",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Wählen Sie Maßnahmen aus den im Abschnitt \"Vorhandene oder geplante Maßnahmen\" verfügbaren aus, ergänzen Sie diese bei Bedarf.",
 				"name": "Maßnahmen",
@@ -635,6 +649,11 @@
 				"name": "Datenübermittlung in Drittländer",
 				"source": "WIKI Transferts_:_respect_des_obligations_en_mati%C3%A8re_de_transfert_de_donn%C3%A9es_en_dehors_de_l%E2%80%99Union_europ%C3%A9enne et PIAF Objets connectés p17"
 			},
+			"PIA_METHOD_MES": {
+				"description": "Geplante Maßnahmen sind die ursprünglich eingeführten Maßnahmen vor einer Analyse durch den Prüfer. Die vom Gutachter empfohlenen Korrekturmaßnahmen werden im Aktionsplan aufgeführt und ermöglichen eine zweite Bewertung der Schwere und Wahrscheinlichkeit des Risikos.",
+				"name": "Geplante und korrigierende Maßnahmen",
+				"source": ""
+			},
 			"PIA_ORG_AUD": {
 				"description": "Vorhandensein von Maßnahmen, um einen globalen und aktuellen Überblick über den Stand des Datenschutzes und die Einhaltung der DS-GVO zu erhalten (Überprüfung der Einhaltung von Verarbeitungen, Zielen und Indikatoren, Verantwortlichkeiten usw.).",
 				"name": "Überwachung der Datenschutzmaßnahmen",
@@ -857,6 +876,10 @@
 			"review_section": "Überprüfen Sie einen Abschnitt"
 		},
 		"archive": "Archivieren",
+		"archive_pia": {
+			"archive": "TO TRANSLATE - Archive PIA",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "Der Unterabschnitt steht jetzt zur Überprüfung bereit."
 		},
@@ -898,6 +921,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class = 'strong'>Warnung, </span><br>Es muss mindestens eine Maßnahme angegeben werden: keine Löschung möglich."
 		},
+		"recover_version": {
+			"continue": "Fortsetzen",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"title": "TO TRANSLATE - Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "Nach Ihrer Ablehnung wird vom Analyse-<br>in den Überprüfungsmodus zurückgesetzt,<br>um die notwendigen Änderungen vorzunehmen."
 		},
@@ -912,18 +940,10 @@
 			"keep": "Behalten Sie<br>diese Maßnahme",
 			"remove": "Entfernen Sie<br>diese Maßnahme"
 		},
-    "remove_pia": {
+		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Diese DSFA entfernen"
     },
-    "archive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
-			"archive": "TO TRANSLATE - Archive PIA"
-    },
-    "unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
-		},
 		"remove_question": {
 			"content": "Möchten Sie die Frage löschen?",
 			"keep": "Abbrechen",
@@ -944,6 +964,10 @@
 			"content": "Die DSFA wurde bestätigt."
 		},
 		"start_evaluation": "Beginnen Sie die Überprüfung",
+		"unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "Keine Verbindung möglich."
 		},
@@ -991,6 +1015,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Hinzufügen",
+			"download": "TO TRANSLATE - Download the attachment",
 			"remove": "Löschen",
 			"title": "Anlagen"
 		},
@@ -1005,7 +1030,6 @@
 			"display_action_plan": "Aktionsplan<br>anzeigen",
 			"edition": "Bearbeitung",
 			"evaluation": "Auswertung",
-			"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
 			"preview": "Vorschau"
 		},
 		"sections": {
@@ -1028,24 +1052,24 @@
 			},
 			"validate_pia": "DSFA bestätigen"
 		},
-		"statuses": {
-			"0": "In Bearbeitung",
-			"1": "Abgelehnt",
-			"2": "Einfache Bestätigung",
-			"3": "Bestätigung per Unterschrift",
-			"4": "Archiviert",
-			"5": "Warten auf Bestätigung"
-		}
+		"statuses": [
+			"In Bearbeitung",
+			"Abgelehnt",
+			"Einfache Bestätigung",
+			"Bestätigung per Unterschrift",
+			"Archiviert",
+			"Warten auf Bestätigung"
+		]
 	},
 	"questions": {
 		"edit": "Frage bearbeiten",
-		"gauges": {
-			"0": "(Nicht definiert)",
-			"1": "Geringfügig",
-			"2": "Überschaubar",
-			"3": "Substantiell",
-			"4": "Groß"
-		},
+		"gauges": [
+			"(Nicht definiert)",
+			"Geringfügig",
+			"Überschaubar",
+			"Substantiell",
+			"Groß"
+		],
 		"placeholder_title": "Titel der Frage (erforderlich)",
 		"remove": "Löschen Sie die Frage"
 	},
@@ -1318,29 +1342,6 @@
 		"update": "URL aktualisieren"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-			"individual_to_download": "TO TRANSLATE - Download",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
-			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)"
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Grundlegende Prinzipien",
 			"implementation_date": "Voraussichtliches Datum der Umsetzung",
@@ -1350,16 +1351,29 @@
 			"risks": "Risiken",
 			"title": "Aktionsplan"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"individual_to_download": "TO TRANSLATE - Download",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Anlagen",
 		"concerned_people_name": "Namen der Betroffenen",
 		"concerned_people_opinion": "Auffassungen der Betroffenen",
 		"concerned_people_searched_opinion": "Einholung der Meinung der Betroffenen",
 		"concerned_people_status": "Feststellungen der Betroffenen",
 		"concerned_people_unsearched_opinion_comment": "Grund, warum die Meinung der Betroffenen nicht erfragt wurde",
-		"content_choice": {
-			"0": "Die Verarbeitung sollte nicht durchgeführt werden.",
-			"1": "Die Verarbeitung kann umgesetzt werden."
-		},
+		"content_choice": [
+			"Die Verarbeitung sollte nicht durchgeführt werden.",
+			"Die Verarbeitung kann umgesetzt werden."
+		],
 		"creation_date": "Bearbeitungsdatum",
 		"csv_action_plan_comment": "Aktionsplankommentar",
 		"csv_evaluation_comment": "Bewertungskommentar",
@@ -1368,17 +1382,7 @@
 		"csv_people_in_charge": "Verantwortlicher",
 		"csv_section": "Abschnitt",
 		"csv_title_object": "Titel",
-		"display_filters": {
-			"action_plan_content": "\"Aktionsplan\" anzeigen",
-			"check_all": "Alle Anzeigefilter aktivieren / deaktivieren",
-			"context_content": "\"Kontext\" anzeigen",
-			"main_content": "\"Information zur DSFA\" anzeigen",
-			"principles_content": "\"Grundlegende Prinzipien\" anzeigen",
-			"risks_cartography_content": "Risikokartierung anzeigen",
-			"risks_content": "\"Risiken\" anzeigen",
-			"risks_overview_content": "Risikoübersicht anzeigen",
-			"title": "Filter"
-		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Name des DSB",
 		"dpo_opinion": "Gutachten des DSB",
 		"dpo_status": "Feststellung des DSB",
@@ -1395,8 +1399,25 @@
 		"pia_author": "Name des Bearbeiters",
 		"pia_name": "DSFA",
 		"pia_validator": "Name des Bestätigers",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Zurück zur vorherigen Seite",
 		"rejection_reason": "Ablehnungsgrund",
+		"revision": {
+			"current_version": "TO TRANSLATE - Current version",
+			"pia_version": "TO TRANSLATE - PIA versions",
+			"restore_version": "TO TRANSLATE - Restore this version",
+			"revision": "TO TRANSLATE - Versions and revision",
+			"save": "TO TRANSLATE - Create a new version",
+			"show": "TO TRANSLATE - Display the {{length}} versions"
+		},
 		"risks_cartography_title": "Risikokartierung",
 		"risks_overview_title": "Risikokübersicht",
 		"title": "Information zur DSFA"
@@ -1424,23 +1445,5 @@
 		},
 		"validated_pia_with_signature": "Bestätigt",
 		"waiting_for_signature": "Warten auf die Unterschrift der DSFA"
-	},
-	"date": {
-		"january": "TO TRANSLATE - January",
-		"february": "TO TRANSLATE - February",
-		"march": "TO TRANSLATE - March",
-		"april": "TO TRANSLATE - April",
-		"may": "TO TRANSLATE - May",
-		"june": "TO TRANSLATE - June",
-		"july": "TO TRANSLATE - July",
-		"august": "TO TRANSLATE - August",
-		"september": "TO TRANSLATE - September",
-		"october": "TO TRANSLATE - October",
-		"november": "TO TRANSLATE - November",
-		"december": "TO TRANSLATE - December",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier in this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier in this week"
 	}
 }

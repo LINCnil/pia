@@ -6,14 +6,14 @@
     margin-bottom: 15px;
     color: $pia-gray;
     border-bottom: 2px solid $pia-gray;
-    font-size: 1.35em;
+    font-size: 1.8rem;
     i {
       font-size: 25px;
     }
   }
   &-box {
     background-color: $pia-green;
-    box-shadow: 2px 1px 18px 1px #c2c2c2;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     color: #fff;
     padding: 10px;
     margin-bottom: 5px;
@@ -26,17 +26,28 @@
       font-size: 1.4rem;
     }
     &-content {
-      max-height: 200px;
-      overflow-y: scroll;
+      max-height: 150px;
+      overflow-y: auto;
+      padding-right: 8px;
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+      &::-webkit-scrollbar-track {
+        border: 1px solid #fff;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #fff;
+      }
       &-revision {
         h5 {
           text-transform: uppercase;
           padding-bottom: 10px;
           border-bottom: 1px solid white;
+          margin-top: 5px;
           margin-bottom: 5px;
           font-size: 1.2rem;
         }
-        ul { 
+        ul {
           margin: 0px;
           padding-left: 0px;
           list-style: none;
@@ -50,7 +61,7 @@
             }
             &:hover {
               a {
-                display: inline;
+                display: block;
               }
             }
           }
@@ -72,8 +83,9 @@
     cursor: pointer;
     text-align: center;
     margin: 5px 0px;
-    padding-top: 10px;
+    padding-top: 6px;
     padding-bottom: 10px;
+    height: 26px;
     background-color: $pia-green;
     font-size: 1.4rem;
     width:100%;
