@@ -46,7 +46,7 @@ registerLocaleData(localePL, "pl");
 registerLocaleData(localePT, "pt");
 registerLocaleData(localeRO, "ro");
 registerLocaleData(localeSL, "sl");
-registerLocaleData(localeSV, "sV");
+registerLocaleData(localeSV, "sv");
 
 import { PiaTranslateLoader } from "./pia-translate-loader";
 
