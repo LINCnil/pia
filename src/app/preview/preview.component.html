@@ -5,8 +5,8 @@
   <!-- Preview navigation -->
   <div class="row">
 
-    <div *ngIf="this._piaService.pia.is_example === 1" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.help.title' | translate }} > {{ 'header.current_pias' | translate }} >{{ 'header.help.pia_example_link' | translate }}</div>
-    <div *ngIf="this._piaService.pia.is_example === 0" class="pia-breadcrumb small-12 medium-12 columns">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }} > {{ this._piaService.pia.name }}</div>
+    <div *ngIf="this._piaService.pia.is_example === 1" class="pia-breadcrumb hide-for-print small-12 medium-12 columns">{{ 'header.help.title' | translate }} > {{ 'header.current_pias' | translate }} >{{ 'header.help.pia_example_link' | translate }}</div>
+    <div *ngIf="this._piaService.pia.is_example === 0" class="pia-breadcrumb hide-for-print small-12 medium-12 columns">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }} > {{ this._piaService.pia.name }}</div>
 
     <nav class="small-12 medium-3 columns hide-for-print">
       <div class="pia-leftSidebarBlock pia-fullPreviewBlock-section">
@@ -90,8 +90,7 @@
                 </div>
               </div>
             </div>
-            {{ _piaService.pia.fromArchives }}
-            <a *ngIf="_piaService.pia.status === 0 && !fromArchives" routerLink="/entry/{{_piaService.pia.id}}/section/1/item/1" class="btn pia-previewBlock">
+            <a *ngIf="!fromArchives || _piaService.pia.is_example === 1" routerLink="/entry/{{_piaService.pia.id}}/section/1/item/1" class="btn pia-previewBlock">
               <i class="fa fa-pencil"></i>
               <div>{{ 'homepage.cards.item.edit_pia' | translate }}</div>
             </a>

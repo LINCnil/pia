@@ -3,10 +3,13 @@
         position: relative;
         .pia-tooltip-text {
             z-index: 999;
-            min-width: 70px;
+            width: 70px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
             display: none;
             position: absolute;
-            top: 110%;
+            top: 100%;
             left: 50%;
             margin-left: -35px;
             background-color: $pia-green;

@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Tegyen megjegyzést",
 		"send": "Küldés"
 	},
+	"date": {
+		"april": "TO TRANSLATE - April",
+		"august": "TO TRANSLATE - August",
+		"december": "TO TRANSLATE - December",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+		"february": "TO TRANSLATE - February",
+		"january": "TO TRANSLATE - January",
+		"july": "TO TRANSLATE - July",
+		"june": "TO TRANSLATE - June",
+		"march": "TO TRANSLATE - March",
+		"may": "TO TRANSLATE - May",
+		"november": "TO TRANSLATE - November",
+		"october": "TO TRANSLATE - October",
+		"september": "TO TRANSLATE - September",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday"
+	},
 	"errors": {
 		"content": "Amennyiben más problémákkal találkozik, vagy a szoftver fejlesztésre irányuló javaslatai vannak, azt az alábbi űrlap visszaküldésével jelezheti:  <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Az oldal nem található."
@@ -74,20 +92,26 @@
 		"placeholder_improvable1": "A rendelkezésre álló információ alapján további intézkedések szükségesek az adatvédelem javítása érdekében az adatkezelés során.",
 		"placeholder_improvable2": "Megjegyzés bevitele.",
 		"placeholder_to_correct": "A megadott információk nem alkalmasak az értékelés elvégzéséhez. Vissza kell küldeni a szerkesztőnek, hogy javítsa ki az eredeti kitöltést .",
-		"status": {
-			"0": "Elintézés alatt",
-			"1": "Javítandó",
-			"2": "Javítható",
-			"3": "Elfogadható"
-		},
+		"status": [
+			"Elintézés alatt",
+			"Javítandó",
+			"Javítható",
+			"Elfogadható"
+		],
 		"title": "Véleményezés",
 		"to_correct": "Visszaküldés javításra"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-    "archives": "TO TRANSLATE - PIA Archives",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"help": {
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual",
+			"pia_example_link": "DPIA-példa",
+			"title": "Segítség"
+		},
+		"homepage_link": "TO TRANSLATE - My PIAs",
 		"knowledge_base_link": "Tudásbázis",
 		"languages": {
 			"cnil_translations": "A CNIL által biztosított fordítások",
@@ -112,24 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
-		"logo_subtitle": "",
+		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Adatvédelmi hatásvizsgálat",
-		"pia_example_link": "DPIA-példa",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
-		"help": {
-			"title": "Segítség",
-			"pia_example_link": "TO TRANSLATE - PIA example",
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual"
-		},
+		"structures": "PIA templates",
 		"tools": {
-      "url_setting": "TO TRANSLATE - Server URL configuration",
 			"about": "Rólunk",
 			"accessibility": "Hozzáférés látássérülteknek (erős színkontraszt, daltonizmus)",
 			"settings": "Beállítások",
-			"title": "Eszköztár"
+			"title": "Eszköztár",
+			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -174,54 +192,54 @@
 		"title": "Segítség"
 	},
 	"homepage": {
-    "search_filter": "TO TRANSLATE - Search",
 		"cards": {
 			"author": "Szerkesztés",
+			"category": "TO TRANSLATE - Category",
 			"creation_status": "Létrehozás",
 			"date": "Dátum",
 			"evaluation": "Véleményezés",
 			"import_pia": "DPIA importálása",
-			"import_structure": "TO BE TRANSLATED - Importer modèle",
+			"import_structure": "TO TRANSLATE - Import template",
 			"item": {
 				"consult_pia": "Áttekintése",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Szerkesztése",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
 					"action_plan": "Intézkedési terv megmutatása",
+					"archive": "TO TRANSLATE - Archive",
 					"duplicate": "Másolat készítése",
 					"export": "Exportálás",
 					"more_options": "További lehetőségek",
 					"pia": "DPIA megmutatása",
-					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Új DPIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "TO TRANSLATE - New template",
 			"or": "Vagy",
 			"pia_name": "DPIA",
 			"placeholder_author": "Vezetéknév, utónév",
+			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Vezetéknév, utónév",
 			"placeholder_import_pia": "DPIA importálása",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_import_structure": "TO TRANSLATE - Import template",
 			"placeholder_new_pia": "Új DPIA",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"placeholder_new_structure": "TO TRANSLATE - New template",
 			"placeholder_pia_name": "DPIA címe",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
 			"placeholder_start": "Minden mezőt ki kell tölteni",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
-			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
-      "placeholder_validation": "Vezetéknév, utónév",
-      "placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_structure": "TO TRANSLATE - Default template",
+			"placeholder_structure_name": "TO TRANSLATE - Template's title",
+			"placeholder_validation": "Vezetéknév, utónév",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Start",
 			"status": "Állapot",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "TO TRANSLATE - Template",
+			"structure_name": "TO TRANSLATE - Template's name",
 			"title_close_creation": "Bezárás",
-      "validation": "Jóváhagyás",
-      "category": "TO TRANSLATE - Category"
+      "validation": "Jóváhagyás"
 		},
 		"filters": {
 			"assessor": "Véleményező",
@@ -229,6 +247,7 @@
 			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Kezdjen hozzá! Kattintson az Új DPIA-ra az DPIA elindításához",
 			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"category": "TO TRANSLATE - Category",
 			"date": "Dátum",
 			"import_pia": "DPIA importálása",
 			"import_structure": "TO BE TRANSLATED - Importer modèle",
@@ -242,37 +261,37 @@
 			"sort": "Válogatás",
 			"sort_by": "Válogatás valami szerint",
 			"status": "Státusz",
-      "validator": "Jóváhagyó",
-      "category": "TO TRANSLATE - Category"
+      "validator": "Jóváhagyó"
 		},
 		"lists": {
 			"column_actions": "Műveletek",
 			"column_author": "Szerkesztő neve",
+			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Létrehozás",
 			"column_evaluation": "Véleményező neve",
       "column_pia": "DPIA",
-      "column_category": "TO TRANSLATE - Category",
 			"column_progression": "Előrehaladás",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Állapot",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "TO TRANSLATE - Template",
+			"column_structure_name": "TO TRANSLATE - Template",
 			"column_updated_at": "Legutóbb megnyitott hatásvizsgálat",
 			"column_validation": "Jóváhagyó neve",
 			"item": {
 				"tools": {
 					"action_plan": "Intézkedési terv megmutatása",
+					"archive": "TO TRANSLATE - Archive",
 					"consult": "Konzultáció",
 					"duplicate": "Másolat készítése",
 					"edit": "Szerkesztés",
 					"export": "Exportálás",
 					"pia": "DPIA megmutatása",
-					"remove": "TO TRANSLATE - Permanently delete",
-          "archive": "TO TRANSLATE - Archive",
-          "unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Hozzáadás",
@@ -282,9 +301,9 @@
 			"example": "Példa",
 			"general_measure": "Fizikai biztonságvédelem",
 			"measure_on_data": "Logikai biztonságvédelem",
+			"method": "TO TRANSLATE - Methodology",
 			"organizational_measure": "Szervezeti védelmi intézkedések",
-			"principle": "Útmutatás",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Útmutatás"
 		},
 		"filters": {
 			"all": "Mind",
@@ -399,11 +418,6 @@
 				"name": "Az adatok véletlen vagy jogellenes megváltoztatásának veszélyei",
 				"source": "DPIAF Összekapcsolt tárgyak, 43. és 44. o. WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Válasszon a „Tervezett vagy meglévő intézkedések” c. rész lehetőségei közül, amelyeket, ha szükséges, kitölthet.",
 				"name": "Intézkedések",
@@ -635,6 +649,11 @@
 				"name": "Adattovábbítás",
 				"source": "DPIAF által összekapcsolt tárgyak 18. o."
 			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+			},
 			"PIA_ORG_AUD": {
 				"description": "Van-e arra nézve elv és eljárás, hogy olyan szervezetet kell bevonni, amely képes az általa kezelt személyes adatok védelmét ellátni?",
 				"name": "Felügyelet",
@@ -857,6 +876,10 @@
 			"review_section": "Szakasz áttekintése"
 		},
 		"archive": "Archiválás",
+		"archive_pia": {
+			"archive": "TO TRANSLATE - Archive PIA",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "Ez a rész készen áll véleményzésre."
 		},
@@ -898,6 +921,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Figyelmeztetés:</span><br>legalább egy intézkedést meg kell adni: nincs törlési lehetőség."
 		},
+		"recover_version": {
+			"continue": "Folytatás",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"title": "TO TRANSLATE - Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "<span class='strong'>DPIA elutasítva,</span><br>Több mezőt is ki kell javítani. Visszatérés az értékelésmódba a javításokhoz."
 		},
@@ -912,18 +940,10 @@
 			"keep": "Intézkedés megtartása",
 			"remove": "Az intézkedés eltávolítása"
 		},
-    "remove_pia": {
+		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "A DPIA eltávolítása"
     },
-    "archive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?",
-			"archive": "TO TRANSLATE - Archive PIA"
-    },
-    "unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
-		},
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
 			"keep": "TO BE TRANSLATED - Annuler",
@@ -944,6 +964,10 @@
 			"content": "A hatásvizsgálat jóváhagyása megtörtént."
 		},
 		"start_evaluation": "Véleményezés kezdése",
+		"unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "TO BE TRANSLATED - Connection impossible."
 		},
@@ -991,6 +1015,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Csatolás",
+			"download": "TO TRANSLATE - Download the attachment",
 			"remove": "Eltávolítás",
 			"title": "Mellékletek"
 		},
@@ -1027,24 +1052,24 @@
 			},
 			"validate_pia": "Hatásvizsgálat jóváhagyása"
 		},
-		"statuses": {
-			"0": "Folyamatban lévő",
-			"1": "Elutasítva",
-			"2": "Előzetes jóváhagyás",
-			"3": "Végleges (aláírt) jóváhagyás",
-			"4": "Archiválva",
-			"5": "Jóváhagyásra vár"
-		}
+		"statuses": [
+			"Folyamatban lévő",
+			"Elutasítva",
+			"Előzetes jóváhagyás",
+			"Végleges (aláírt) jóváhagyás",
+			"Archiválva",
+			"Jóváhagyásra vár"
+		]
 	},
 	"questions": {
 		"edit": "Kérdés szerkesztése",
-		"gauges": {
-			"0": "(n/a)",
-			"1": "Elhanyagolható",
-			"2": "Korlátozott",
-			"3": "Jelentős",
-			"4": "Maximális"
-		},
+		"gauges": [
+			"(n/a)",
+			"Elhanyagolható",
+			"Korlátozott",
+			"Jelentős",
+			"Maximális"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1317,29 +1342,6 @@
 		"update": "URL frissítése"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-			"individual_to_download": "TO TRANSLATE - Download",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
-			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)"
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Alapelvek",
 			"implementation_date": "Végrehajtás várható dátuma",
@@ -1349,16 +1351,29 @@
 			"risks": "Kockázatok",
 			"title": "Intézkedési terv"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"individual_to_download": "TO TRANSLATE - Download",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Mellékletek.",
 		"concerned_people_name": "Az érintettek véleménye.",
 		"concerned_people_opinion": "Az érintettek véleménye.",
 		"concerned_people_searched_opinion": "Érintettek véleményének kikérése.",
 		"concerned_people_status": "Az érintettek státusza.",
 		"concerned_people_unsearched_opinion_comment": "Azon ok megjelölése, ami alapján az érintettek véleményének kikérésére nem került sor.",
-		"content_choice": {
-			"0": "Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
-			"1": "Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
-		},
+		"content_choice": [
+			"Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
+			"Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
+		],
 		"creation_date": "Létrehozás dátuma.",
 		"csv_action_plan_comment": "Intézkedési terv vélemények",
 		"csv_evaluation_comment": "Értékelés vélemények",
@@ -1367,17 +1382,7 @@
 		"csv_people_in_charge": "Felelős személy",
 		"csv_section": "Szakasz",
 		"csv_title_object": "Cím",
-		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
-			"action_plan_content": "Intézkedési terv megjelenítése",
-			"context_content": "Szakasz megjelenítése (Szövegkörnyezet)",
-			"main_content": "Szakasz megjelenítése (DPIA információk)",
-			"principles_content": "Szakasz megjelenítése (Alapelvek)",
-			"risks_cartography_content": "Kockázatok feltérképezésének megjelenítése",
-			"risks_content": "Szakasz megjelenítése (Kockázatok)",
-			"risks_overview_content": "Kockázatok áttekintésének megjelenítése",
-			"title": "Szűrők megjelenítése"
-		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Adatvédelmi tisztviselő neve",
 		"dpo_opinion": "Adatvédelmi tisztviselő véleménye",
 		"dpo_status": "Adatvédelmi tisztviselő státusza",
@@ -1394,8 +1399,25 @@
 		"pia_author": "Szerző neve",
 		"pia_name": "DPIA",
 		"pia_validator": "Jóváhagyó neve",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Vissza az előző oldalra",
 		"rejection_reason": "Elutasítás oka.",
+		"revision": {
+			"current_version": "TO TRANSLATE - Current version",
+			"pia_version": "TO TRANSLATE - PIA versions",
+			"restore_version": "TO TRANSLATE - Restore this version",
+			"revision": "TO TRANSLATE - Versions and revision",
+			"save": "TO TRANSLATE - Create a new version",
+			"show": "TO TRANSLATE - Display the {{length}} versions"
+		},
 		"risks_cartography_title": "A kockázatok feltérképezése",
 		"risks_overview_title": "A kockázatok áttekintése",
 		"title": "DPIA-információ"
@@ -1423,23 +1445,5 @@
 		},
 		"validated_pia_with_signature": "Jóváhagyva",
 		"waiting_for_signature": "A DPIA aláírásra vár"
-	},
-	"date": {
-		"january": "TO TRANSLATE - January",
-		"february": "TO TRANSLATE - February",
-		"march": "TO TRANSLATE - March",
-		"april": "TO TRANSLATE - April",
-		"may": "TO TRANSLATE - May",
-		"june": "TO TRANSLATE - June",
-		"july": "TO TRANSLATE - July",
-		"august": "TO TRANSLATE - August",
-		"september": "TO TRANSLATE - September",
-		"october": "TO TRANSLATE - October",
-		"november": "TO TRANSLATE - November",
-		"december": "TO TRANSLATE - December",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier in this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier in this week"
 	}
 }

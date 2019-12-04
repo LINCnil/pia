@@ -153,18 +153,10 @@ body.pia-contrast {
             color: $pia-green-dark;
           }
           progress {
-            &:before, &:after {
-              background-color: $pia-green-dark !important;
-            }
-          }
-          progress {
             appearance: none;
             -moz-appearance: none;
             -webkit-appearance: none;
             color: $pia-green-dark;
-            &:after {
-              color: $pia-green-dark !important;
-            }
             &::-moz-progress-bar {
               background: $pia-green-dark;
             }
@@ -909,36 +901,41 @@ body.pia-contrast {
     }
   }
 
+  /* Revisions  */
+  .pia-revisions {
+    &-box,
+    &-new {
+      background-color: $pia-green-dark !important;
+    }
+  }
+
+  /* Print and exports */
   .pia-exportBlock {
-    &-print,
-    &-full {
-      &:active {
-        background-color: $pia-green-dark;
-      }
-    }
-    &-print,
-    &-full,
-    &-individual {
-      &:focus,
-      &:hover {
-        border-top-color: $pia-green-dark;
-        background-color: $pia-green-dark;
+    &-print {
+      button {
+        background-color: $pia-green-dark !important;
       }
     }
     &-individual {
-      &.activeMenu {
-        background-color: transparent;
-        .pia-exportBlock-individual-description {
-          > div {
-            color: $pia-green-dark !important;
+      .btn-green {
+        &:disabled {
+          color: $pia-gray-dark !important;
+          &:focus,
+          &:hover,
+          &:active {
+            color: $pia-gray-dark !important;
           }
         }
-        > div {
-          &:first-child {
-            div {
-              color: $pia-green-dark;
-            }
-          }
+        color: $pia-green-dark !important;
+        &:focus,
+        &:hover,
+        &:active {
+          color: #fff !important;
+        }
+      }
+      &-links {
+        input:checked + label::before {
+          background-color: $pia-green-dark !important;
         }
       }
     }

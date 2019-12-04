@@ -5,7 +5,7 @@
   padding: 0 10px;
   cursor: pointer;
   white-space: nowrap;
-  overflow: hidden;
+  /* overflow: hidden; */
   &-title {
     width: 250px !important;
   }
@@ -17,7 +17,7 @@
     }
   }
   div[contenteditable] {
-    max-width: 128px;
+    max-width: 200px;
     cursor: text;
     white-space: nowrap;
     overflow: hidden;
@@ -38,15 +38,16 @@
       color: $pia-green;
       font-size: 1.8rem;
       margin: 0 4px;
+      width: 18px;
     }
   }
   &-attachment {
     vertical-align: middle;
-    display: inline-block;
     width: 10%;
+    margin-top: -16px;
+    float: right;
     position: relative;
     cursor: pointer;
-    margin: auto 0 auto auto;
     ul {
       display: none;
       position: absolute;

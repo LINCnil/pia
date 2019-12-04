@@ -113,18 +113,20 @@ export class PreviewComponent implements OnInit {
 
     /**
      * Save revision as selection in revision service
-     * And open modal, wait confirmation
+     * and open a modal, waiting for confirmation
      * @param {number} piaId
      */
     onSelectedRevision(piaId) {
+      localStorage.setItem('revision-date-id', piaId);
       this._revisionService.prepareRevision(piaId);
       this._modalsService.openModal('revision-selection');
     }
 
     /**
-     * On modal confirmation, replace current pia version by selected revion
+     * On modal confirmation, replace current pia version by selected revision
      */
     async loadPiaRevision() {
+      localStorage.removeItem('revision-date-id');
       this.onNewRevision();
       this.revisionOverlay = true;
       this._revisionService.loadRevision();
