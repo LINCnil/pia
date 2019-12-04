@@ -153,7 +153,7 @@
       </div>
 
       <!-- PIA list -->
-      <app-card-item *ngFor="let pia of _piaService.pias | filterForUser : searchText; let i=index" [pia]="pia" [previousPia]="i > 0 ? _piaService.pias[i-1] : null"></app-card-item>
+      <app-card-item *ngFor="let pia of _piaService.pias | filterForUser : searchText; let i=index"  (piaEvent)="piaChange($event)" [pia]="pia" [previousPia]="i > 0 ? _piaService.pias[i-1] : null"></app-card-item>
     </div>
 
     <!-- "List" mode -->
@@ -242,4 +242,4 @@
     </ng-template>
   </div>
 </div>
-<app-modals></app-modals>
+<app-modals (continueEvent)="refreshContent()"></app-modals>

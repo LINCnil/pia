@@ -101,6 +101,8 @@ export class PiaService {
       pia.author_name = piaForm.value.author_name;
       pia.evaluator_name = piaForm.value.evaluator_name;
       pia.validator_name = piaForm.value.validator_name;
+      pia.created_at = new Date();
+      pia.updated_at = new Date();
       const structure_id = piaForm.value.structure;
       if (structure_id && structure_id > 0) {
         const structure = new Structure();
@@ -224,6 +226,14 @@ export class PiaService {
     pia.get(piaID).then(() => {
       pia.is_archive = 1;
       pia.update();
+
+      let index = this.pias.findIndex(item => item.id === piaID);
+      if (index !== -1 ) {
+        this.pias[index] = pia;
+
+        this.pias.splice(index, 1);
+
+      }
     });
 
     // Removes the PIA from the view.

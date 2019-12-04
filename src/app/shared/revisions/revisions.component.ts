@@ -35,7 +35,7 @@ function slugify(string) {
 export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() currentVersion: Date;
   @Input() revisions: Array<any>;
-  @Input() recover: boolean = false;
+  @Input() title: boolean = true;
   @Output('newRevisionQuery') newRevisionEmitter = new EventEmitter();
   @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
 
@@ -67,9 +67,8 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
 
   generateDates(changes) {
     this.revisionsGroupByMonth = {}
-    if (changes.revisions.currentValue) {
+    if (changes.revisions && changes.revisions.currentValue) {
       changes.revisions.currentValue.forEach((obj) => {
-
         // Determite key and translate it
 
         let temp = slugify(new RelativeDate(obj.created_at).simple());

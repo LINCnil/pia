@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewChecked, Input, Output, EventEmitter } from '@angular/core';
 
 import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
 import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
@@ -29,9 +29,8 @@ export class PreviewComponent implements OnInit {
   pia: any;
   allData: object;
   fromArchives = false;
-
+  @Input() onlyData = false;
   public revisions = null;
-  public currentVersion: Date;
   public revisionOverlay = false;
 
   constructor(public _actionPlanService: ActionPlanService,
@@ -63,7 +62,6 @@ export class PreviewComponent implements OnInit {
       this._revisionService.getAll(this.pia.id)
       .then((resp) => {
         this.revisions = resp;
-        this.currentVersion = this.pia.updated_at;
       });
 
     });

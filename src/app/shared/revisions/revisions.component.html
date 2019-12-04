@@ -1,5 +1,5 @@
-<div class="pia-revisions hide-for-print" [ngClass]="{'readOnly': !recover}">
-  <div class="pia-revisions-title" *ngIf="recover">
+<div class="pia-revisions hide-for-print">
+  <div class="pia-revisions-title" *ngIf="title">
     <i class="fa fa-history"></i> {{ 'summary.revision.revision' | translate }}
   </div>
   <div class="pia-revisions-box" *ngIf="revisions">
@@ -20,7 +20,7 @@
         <ul>
           <li *ngFor="let revision of revisionsGroupByMonth[date].reverse()">
             <i class="fa fa-circle-o"></i> {{ revision.created_at  | date:dateFormat }}
-            <a *ngIf="recover" href="javascript;" (click)="onRevisionSelection(revision.id, $event)">{{ 'summary.revision.restore_version' | translate }}</a>
+            <a href="javascript;" (click)="onRevisionSelection(revision.id, $event)">{{ 'summary.revision.restore_version' | translate }}</a>
           </li>
         </ul>
       </div>
