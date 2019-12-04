@@ -13,9 +13,9 @@
       }
     }
     &-scroll {
-      position: fixed;
-      top: 0;
-      bottom: 0;
+      // position: fixed;
+      // top: 0;
+      // bottom: 0;
       .pia-knowledgeBaseBlock-list {
         overflow-y: scroll;
       }
@@ -35,7 +35,7 @@
     }
     &-searchForm {
       position: relative;
-      padding-top: 17px;
+      // padding-top: 17px;
       margin-bottom: 2rem;
       form {
         margin: 0;

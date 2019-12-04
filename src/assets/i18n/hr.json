@@ -141,7 +141,7 @@
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Procjena učinka na privatnost",
-		"structures": "PIA template",
+		"structures": "PIA templates",
 		"tools": {
 			"about": "O programu",
 			"accessibility": "Pristupačnost za slabovidne osobe (boje visokog kontrasta, daltonizam)",
@@ -202,6 +202,7 @@
 			"import_structure": "Uvezi obrazac",
 			"item": {
 				"consult_pia": "Pogledaj",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Uredi",
 				"edit_structure": "Uredi obrazac",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Izvezi",
 					"more_options": "Više opcija",
 					"pia": "Prikaži<br>PUP",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -231,14 +232,14 @@
 			"placeholder_start": "Sva polja moraju biti popunjena",
 			"placeholder_structure": "Zadani obrazac",
 			"placeholder_structure_name": "Naziv obrasca",
-			"placeholder_validation": "Ime, prezime",
+      "placeholder_validation": "Ime, prezime",
 			"sector_name": "Pridruženi sektor",
 			"start": "Početak",
 			"status": "Status",
 			"structure": "Obrazac",
 			"structure_name": "Naziv obrasca",
 			"title_close_creation": "Zatvori",
-			"validation": "Potvrda"
+      "validation": "Potvrda"
 		},
 		"filters": {
 			"assessor": "Recenzentu",
@@ -260,7 +261,7 @@
 			"sort": "Sortiraj",
 			"sort_by": "po",
 			"status": "Statusu",
-			"validator": "Potvrditelju"
+      "validator": "Potvrditelju"
 		},
 		"lists": {
 			"column_actions": "Radnje",
@@ -268,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Stvoren",
 			"column_evaluation": "Pregled",
-			"column_pia": "PUP",
+      "column_pia": "PUP",
 			"column_progression": "Napredak",
 			"column_sector_name": "Pridruženi sektor",
 			"column_status": "Status",
@@ -285,7 +286,7 @@
 					"edit": "Uredi",
 					"export": "Izvezi",
 					"pia": "Prikaži PUP",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
@@ -942,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Ukloni ovaj PUP"
-		},
+    },
 		"remove_question": {
 			"content": "Jeste li sigurni da želite obrisati pitanje?",
 			"keep": "Poništi",

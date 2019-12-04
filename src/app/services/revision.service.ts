@@ -12,6 +12,8 @@ export class RevisionService {
   private revisionDb: ApplicationDb;
   public currentVersion: Date;
   public revisionSelected: Revision;
+  protected serverUrl: string;
+
   constructor(public _piaService: PiaService) {
     this.revisionDb = new ApplicationDb(201911191636, 'revision');
   }
@@ -26,17 +28,33 @@ export class RevisionService {
         const piaExport = JSON.parse(response.export);
         await this._piaService.replacePiaByExport(piaExport)
           .then(() => {
-            console.log('reload');
-            setTimeout(() => {
-              location.reload();
-            }, 2000);
+            if (this.serverUrl) { // TODO: CHECK IT
+
+            } else {
+              setTimeout(() => {
+                location.reload();
+              }, 2000);
+            }
           });
       });
   }
 
   async getAll(piaId: number) {
+    const items = [];
     return new Promise((resolve, reject) => {
-      this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
+      if (this.serverUrl) { // TODO: CHECK IT
+        fetch(this.revisionDb.getServerUrl(), {
+          mode: 'cors'
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result);
+        }).catch ((error) => {
+          console.error('Request failed', error);
+          reject();
+        });
+      } else {
+        this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
           const index = response.index('index1').getAll(IDBKeyRange.only(piaId));
           index.onsuccess = (res: any) => {
             resolve(res.target.result);
@@ -45,15 +63,38 @@ export class RevisionService {
             reject(err);
           };
         });
+      }
     });
   }
 
   async add(piaExport, piaId) {
     return new Promise((resolve, reject) => {
-      this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
-
-          let revision = new Revision(piaExport, piaId, new Date());
-
+      const revision = new Revision(piaExport, piaId, new Date());
+      if (this.serverUrl) { // TODO: CHECK IT
+        const formData = new FormData();
+        for (const d in revision) {
+          if (revision.hasOwnProperty(d)) {
+            let value = revision[d];
+            if (d === 'structure_data') {
+              value = JSON.stringify(value);
+            }
+            formData.append('revision[' + d + ']', value);
+          }
+        }
+        fetch(this.revisionDb.getServerUrl(), {
+          method: 'POST',
+          body: formData,
+          mode : 'cors'
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result.id);
+        }).catch((error) => {
+          console.error('Request failed', error);
+          reject();
+        });
+      } else {
+        this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
           const evt = response.add(revision);
 
           evt.onerror = (event: any) => {
@@ -66,8 +107,8 @@ export class RevisionService {
               id: event.target.result}
             );
           };
-
         });
+      }
     });
   }
 }

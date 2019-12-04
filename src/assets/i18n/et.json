@@ -202,6 +202,7 @@
 			"import_structure": "Impordi mõjuhinnang",
 			"item": {
 				"consult_pia": "TO TRANSLATE - Consult",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "TO TRANSLATE - Edit",
 				"edit_structure": "Toimeta mõjuhinnagut",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Ekspordi",
 					"more_options": "Rohkem valikuid",
 					"pia": "Näita<br>mõjuhinnagut",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -231,14 +232,14 @@
 			"placeholder_start": "Kõik väljad peavad olema täidetud",
 			"placeholder_structure": "Mõjuhinangu põhi",
 			"placeholder_structure_name": "Põhja nimi",
-			"placeholder_validation": "Eesnimi, perenimi",
+      "placeholder_validation": "Eesnimi, perenimi",
 			"sector_name": "Kaasatud sektor",
 			"start": "Alusta",
 			"status": "Seisund",
 			"structure": "Põhi",
 			"structure_name": "Põhja nimi",
 			"title_close_creation": "Sulge",
-			"validation": "Kinnitamine"
+      "validation": "Kinnitamine"
 		},
 		"filters": {
 			"assessor": "Hindaja",
@@ -260,7 +261,7 @@
 			"sort": "Sorteeri",
 			"sort_by": "Sorteerimis valikud",
 			"status": "Seisund",
-			"validator": "Kinnitaja"
+      "validator": "Kinnitaja"
 		},
 		"lists": {
 			"column_actions": "Tegevused",
@@ -268,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Loodud",
 			"column_evaluation": "Ülevaade",
-			"column_pia": "Mõjuhinnang",
+      "column_pia": "Mõjuhinnang",
 			"column_progression": "Kulg",
 			"column_sector_name": "Kaasatud sektor",
 			"column_status": "Seisund",
@@ -285,7 +286,7 @@
 					"edit": "Toimeta",
 					"export": "Ekspordi",
 					"pia": "Näita mõjuhinnagut",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
@@ -942,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Eemalda see mõjuhinnang"
-		},
+    },
 		"remove_question": {
 			"content": "Kas soovite küsimuse kustutada?",
 			"keep": "Tühista",

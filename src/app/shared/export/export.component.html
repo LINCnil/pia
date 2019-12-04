@@ -1,6 +1,6 @@
 
 <div class="pia-exportBlock hide-for-print">
-  <div class="pia-exportBlock-title">
+  <div class="pia-exportBlock-title" *ngIf="!editMode">
     <i class="fa fa-download"></i> {{ 'summary.actions.print_and_download' | translate }}
   </div>
   <!-- Print -->
@@ -41,7 +41,7 @@
           </label>
         </li>
       </ul>
-      <button (click)="onDownload()" class="btn-green" [disabled]="exportSelected.length < 1">
+      <button (click)="launchDownload()" class="btn-green" [disabled]="exportSelected.length < 1">
         {{ 'summary.actions.individual_to_download' | translate }}
       </button>
     </div>

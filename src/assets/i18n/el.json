@@ -202,6 +202,7 @@
 			"import_structure": "Εισαγωγή υποδείγματος",
 			"item": {
 				"consult_pia": "Συμβουλευθείτε την",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Επεξεργασία",
 				"edit_structure": "Επεξεργασία υποδείγματος",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Εξαγωγή",
 					"more_options": "Περισσότερες επιλογές",
 					"pia": "Εμφάνιση<br>ΕΑ",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -231,14 +232,14 @@
 			"placeholder_start": "Όλα τα πεδία πρέπει να συμπληρωθούν",
 			"placeholder_structure": "Προεπιλεγμένο υπόδειγμα",
 			"placeholder_structure_name": "Τίτλος υποδείγματος",
-			"placeholder_validation": "Όνομα, επίθετο",
+      "placeholder_validation": "Όνομα, επίθετο",
 			"sector_name": "Σχετικός τομέας",
 			"start": "Έναρξη",
 			"status": "Κατάσταση",
 			"structure": "Υπόδειγμα",
 			"structure_name": "Όνομα υποδείγματος",
 			"title_close_creation": "Κλείσιμο",
-			"validation": "Επικύρωση"
+      "validation": "Επικύρωση"
 		},
 		"filters": {
 			"assessor": "Αξιολογητής",
@@ -260,7 +261,7 @@
 			"sort": "Ταξινόμηση",
 			"sort_by": "κατά",
 			"status": "Κατάσταση",
-			"validator": "Επικυρών"
+      "validator": "Επικυρών"
 		},
 		"lists": {
 			"column_actions": "Ενέργειες",
@@ -268,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Δημιουργία",
 			"column_evaluation": "Αξιολόγηση",
-			"column_pia": "ΕΑ",
+      "column_pia": "ΕΑ",
 			"column_progression": "Πρόοδος",
 			"column_sector_name": "Σχετικός τομέας",
 			"column_status": "Κατάσταση",
@@ -285,7 +286,7 @@
 					"edit": "Επεξεργασία",
 					"export": "Εξαγωγή",
 					"pia": "Εμφάνιση ΕΑ",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
@@ -942,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Αφαίρεση αυτής της ΕΑ"
-		},
+    },
 		"remove_question": {
 			"content": "Είστε βέβαιοι ότι θέλετε να διαγράψετε το ερώτημα;",
 			"keep": "Ακύρωση",

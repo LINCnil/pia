@@ -17,7 +17,7 @@
     }
   }
   div[contenteditable] {
-    max-width: 128px;
+    max-width: 200px;
     cursor: text;
     white-space: nowrap;
     overflow: hidden;
@@ -38,6 +38,7 @@
       color: $pia-green;
       font-size: 1.8rem;
       margin: 0 4px;
+      width: 18px;
     }
   }
   &-attachment {

@@ -18,7 +18,10 @@ import { RevisionService } from '../services/revision.service';
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.scss'],
+  styleUrls: [
+    './entry.component.scss',
+    './entry-content/action-plan/action-plan.component.scss'
+  ],
   providers: [PiaService, RevisionService]
 })
 export class EntryComponent implements OnInit, OnDestroy, DoCheck {
@@ -28,11 +31,10 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   questions: any;
   measureToRemoveFromTags: string;
   subscription: Subscription;
-
-
+  public sideView = 'knowledge';
   public revisions = null;
-  public currentVersion: Date;
   public pia = null;
+  public download = false;
 
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
@@ -53,6 +55,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     await this._piaService.getPIA();
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;
+    } else {
+      this._appDataService.resetDataNav();
     }
     this.data = this._appDataService.dataNav;
 
@@ -173,6 +177,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
       this._actionPlanService.data = this.data;
       this._actionPlanService.pia = this._piaService.pia;
+      this._actionPlanService.listActionPlan();
 
       this.pia = this._piaService.pia;
 
@@ -180,7 +185,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       this._revisionService.getAll(this.pia.id)
       .then((resp) => {
         this.revisions = resp;
-        this.currentVersion = this.pia.updated_at;
       });
 
     });

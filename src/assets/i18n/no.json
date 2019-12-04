@@ -90,7 +90,7 @@
 		"improvable": "Improvable",
 		"placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
 		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-		"placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
+		"placeholder_improvable2": "TO TRANSLATE - Enter your comments.",
 		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
 		"status": [
 			"Pending",
@@ -141,7 +141,7 @@
 		},
 		"logo_subtitle": "Vurdering av personvernkonsekvenser",
 		"logo_title": "PIA",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "PIA templates",
 		"tools": {
 			"about": "Om",
 			"accessibility": "Tilgjengelighet for synshemmede (høykontrastfarger, daltonisme)",
@@ -199,11 +199,12 @@
 			"date": "Dato",
 			"evaluation": "Saksbehandling",
 			"import_pia": "Importer PIA",
-			"import_structure": "TO BE TRANSLATED - Import template",
+			"import_structure": "TO TRANSLATE - Import template",
 			"item": {
-				"consult_pia": "TO BE TRANSLATED - Consult",
+				"consult_pia": "TO TRANSLATE - Consult",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Regiger",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
 					"action_plan": "Vis<br>handlingsplan",
 					"archive": "TO TRANSLATE - Archive",
@@ -211,34 +212,34 @@
 					"export": "Eksporter",
 					"more_options": "Flere valg",
 					"pia": "Vis<br>PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Ny PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "TO TRANSLATE - New template",
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Fornavn, etternavn",
 			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Fornavn, etternavn",
 			"placeholder_import_pia": "Importer PIA",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_import_structure": "TO TRANSLATE - Import template",
 			"placeholder_new_pia": "Ny PIA",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"placeholder_new_structure": "TO TRANSLATE - New template",
 			"placeholder_pia_name": "PIA-tittel",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
 			"placeholder_start": "Alle felt må fylles ut",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
-			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+			"placeholder_structure": "TO TRANSLATE - Default template",
+			"placeholder_structure_name": "TO TRANSLATE - Template's title",
 			"placeholder_validation": "Fornavn, etternavn",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Start",
 			"status": "Status",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "TO TRANSLATE - Template",
+			"structure_name": "TO TRANSLATE - Template's name",
 			"title_close_creation": "Lukk",
-			"validation": "Forankring"
+      "validation": "Forankring"
 		},
 		"filters": {
 			"assessor": "Saksbehandler",
@@ -260,7 +261,7 @@
 			"sort": "Sorter",
 			"sort_by": "etter",
 			"status": "Status",
-			"validator": "Ansvarlig"
+      "validator": "Ansvarlig"
 		},
 		"lists": {
 			"column_actions": "Handlinger",
@@ -268,12 +269,12 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Opprettet",
 			"column_evaluation": "Evaluer",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Fremgang",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Status",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "TO TRANSLATE - Template",
+			"column_structure_name": "TO TRANSLATE - Template",
 			"column_updated_at": "Sist åpnet",
 			"column_validation": "Valider",
 			"item": {
@@ -285,7 +286,7 @@
 					"edit": "Rediger",
 					"export": "Eksporter",
 					"pia": "Vis PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

@@ -202,6 +202,7 @@
 			"import_structure": "Importar modelo",
 			"item": {
 				"consult_pia": "Consultar",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Editar",
 				"edit_structure": "Editar modelo",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Exportar",
 					"more_options": "Mais opções",
 					"pia": "Exibir análise <br>PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -231,14 +232,14 @@
 			"placeholder_start": "Todos os campos devem estar prenchidos",
 			"placeholder_structure": "Modelo predefinido",
 			"placeholder_structure_name": "Título do modelo",
-			"placeholder_validation": "Primeiro Nome, último nome",
+      "placeholder_validation": "Primeiro Nome, último nome",
 			"sector_name": "Sector associado",
 			"start": "Início",
 			"status": "Estado",
 			"structure": "Modelo",
 			"structure_name": "Nome do modelo",
 			"title_close_creation": "Fechar",
-			"validation": "Validação"
+      "validation": "Validação"
 		},
 		"filters": {
 			"assessor": "Revisor",
@@ -260,7 +261,7 @@
 			"sort": "Ordem",
 			"sort_by": "Por",
 			"status": "Estado",
-			"validator": "Validador"
+      "validator": "Validador"
 		},
 		"lists": {
 			"column_actions": "Ações",
@@ -268,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Criado",
 			"column_evaluation": "Revisão",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Progresso",
 			"column_sector_name": "Sector associado",
 			"column_status": "Estado",
@@ -285,7 +286,7 @@
 					"edit": "Editar",
 					"export": "Exportar",
 					"pia": "Exibir análise PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
@@ -942,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Remover esta análise PIA"
-		},
+    },
 		"remove_question": {
 			"content": "Tem a certeza que deseja apagar a pergunta ?",
 			"keep": "Cancelar",

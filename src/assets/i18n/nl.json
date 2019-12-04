@@ -202,6 +202,7 @@
 			"import_structure": "Sjabloon importeren",
 			"item": {
 				"consult_pia": "Raadplegen",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Aanpassen",
 				"edit_structure": "Sjabloon aanpassen",
 				"tools": {
@@ -211,7 +212,7 @@
 					"export": "Exporteren",
 					"more_options": "Meer opties",
 					"pia": "PIA<br>tonen",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
@@ -231,14 +232,14 @@
 			"placeholder_start": "Alle velden moeten worden ingevuld",
 			"placeholder_structure": "Standaardsjabloon",
 			"placeholder_structure_name": "Naam sjabloon",
-			"placeholder_validation": "Voornaam achternaam",
+      "placeholder_validation": "Voornaam achternaam",
 			"sector_name": "Verwante sector",
 			"start": "Beginnen",
 			"status": "Status",
 			"structure": "Sjabloon",
 			"structure_name": "Naam van het sjabloon",
 			"title_close_creation": "Sluiten",
-			"validation": "Valideren"
+      "validation": "Valideren"
 		},
 		"filters": {
 			"assessor": "Reviewer",
@@ -260,7 +261,7 @@
 			"sort": "Sorteren",
 			"sort_by": "op",
 			"status": "Status",
-			"validator": "Validator"
+      "validator": "Validator"
 		},
 		"lists": {
 			"column_actions": "Acties",
@@ -268,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Gemaakt",
 			"column_evaluation": "Reviewen",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Voortgang",
 			"column_sector_name": "Verwante sector",
 			"column_status": "Status",
@@ -285,7 +286,7 @@
 					"edit": "Aanpassen",
 					"export": "Exporteren",
 					"pia": "PIA tonen",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}

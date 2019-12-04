@@ -90,7 +90,7 @@
 		"improvable": "Vylepšitelné",
 		"placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
 		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-		"placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
+		"placeholder_improvable2": "TO TRANSLATE - Enter your comments.",
 		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
 		"status": [
 			"Čeká",
@@ -141,13 +141,13 @@
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Posouzení dopadů na soukromí",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "TO TRANSLATE - PIA templates",
 		"tools": {
-			"about": "O nás",
-			"accessibility": "Dostupnost pro zrakově postižené (barvy s vysokým kontrastem, daltonismem)",
-			"settings": "TO TRANSLATE - Settings",
-			"title": "Nástroje",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+      "about": "O nás",
+      "accessibility": "Dostupnost pro zrakově postižené (barvy s vysokým kontrastem, daltonismem)",
+      "settings": "TO TRANSLATE - Settings",
+      "title": "Nástroje",
+      "url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -199,11 +199,12 @@
 			"date": "Datum",
 			"evaluation": "Posouzení",
 			"import_pia": "Importovat PIA",
-			"import_structure": "TO BE TRANSLATED - Import template",
+			"import_structure": "TO TRANSLATE - Import template",
 			"item": {
-				"consult_pia": "TO BE TRANSLATED - Consult",
+				"consult_pia": "TO TRANSLATE - Consult",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Upravit",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
 					"action_plan": "Zobrazit<br>akční plán",
 					"archive": "TO TRANSLATE - Archive",
@@ -211,34 +212,34 @@
 					"export": "Exportovat",
 					"more_options": "Více voleb",
 					"pia": "Zobrazit<br>PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Nová PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "TO TRANSLATE - New template",
 			"or": "nebo",
 			"pia_name": "PIA",
 			"placeholder_author": "Křestní jméno, Příjmení",
 			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Křestní jméno, Příjmení",
 			"placeholder_import_pia": "Importovat PIA",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_import_structure": "TO TRANSLATE - Import template",
 			"placeholder_new_pia": "Nová PIA",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"placeholder_new_structure": "TO TRANSLATE - New template",
 			"placeholder_pia_name": "PIA název",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
 			"placeholder_start": "Všechna pole musí být vyplněna",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
-			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+			"placeholder_structure": "TO TRANSLATE - Default template",
+			"placeholder_structure_name": "TO TRANSLATE - Template's title",
 			"placeholder_validation": "Křestní jméno, Příjmení",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Start",
 			"status": "Stav",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "TO TRANSLATE - Template",
+			"structure_name": "TO TRANSLATE - Template's name",
 			"title_close_creation": "Zavřít",
-			"validation": "Validation"
+      "validation": "Validation"
 		},
 		"filters": {
 			"assessor": "Posuzovatel",
@@ -260,7 +261,7 @@
 			"sort": "Seřadit",
 			"sort_by": "podle",
 			"status": "Stavu",
-			"validator": "Validátora"
+      "validator": "Validátora"
 		},
 		"lists": {
 			"column_actions": "Akce",
@@ -268,12 +269,12 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Vytvořeno",
 			"column_evaluation": "Posouzení",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Postup",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Stav",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "TO TRANSLATE - Template",
+			"column_structure_name": "TO TRANSLATE - Template",
 			"column_updated_at": "Naposledy otevřeno",
 			"column_validation": "Validace",
 			"item": {
@@ -285,7 +286,7 @@
 					"edit": "Upravit",
 					"export": "Exportovat",
 					"pia": "Zobrazit PIA",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
@@ -942,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Odstranit tuto PIA"
-		},
+    },
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
 			"keep": "TO BE TRANSLATED - Annuler",

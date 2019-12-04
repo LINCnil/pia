@@ -180,13 +180,14 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   async refreshContent() {
     const pia = new Pia();
-    const data: any = await pia.getAllActives();
-    this._piaService.pias = data;
-    this._piaService.calculProgress();
-    this.sortOrder = localStorage.getItem('sortOrder');
-    this.sortValue = localStorage.getItem('sortValue');
-    setTimeout(() => {
-      this.sortPia();
+    setTimeout(async () => {
+      await pia.getAllActives().then((data: Array<Pia>) => {
+        this._piaService.pias = data;
+        this._piaService.calculProgress();
+        this.sortOrder = localStorage.getItem('sortOrder');
+        this.sortValue = localStorage.getItem('sortValue');
+        this.sortPia();
+      });
     }, 200);
   }
 

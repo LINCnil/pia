@@ -141,7 +141,7 @@
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Tietosuojaa koskeva vaikutustenarviointi",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "PIA templates",
 		"tools": {
 			"about": "Tietoa ohjelmasta",
 			"accessibility": "Visuaaliset helppokäyttöisyysasetukset (suuri kontrasti, värisokeus)",
@@ -199,11 +199,12 @@
 			"date": "Päiväys",
 			"evaluation": "Tarkasta",
 			"import_pia": "Tuo vaikutustenarviointi",
-			"import_structure": "TO BE TRANSLATED - Import template",
+			"import_structure": "TO TRANSLATE - Import template",
 			"item": {
 				"consult_pia": "TO TRANSLATE - Consult",
+				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "TO TRANSLATE - Edit",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
 					"action_plan": "Näytä<br>toimintasuunnitelma",
 					"archive": "TO TRANSLATE - Archive",
@@ -211,34 +212,34 @@
 					"export": "Vie",
 					"more_options": "Lisää valintoja",
 					"pia": "Näytä<br>Tietosuojaa koskeva vaikutustenarviointi",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Uusi vaikutustenarviointi",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "TO TRANSLATE - New template",
 			"or": "tai",
 			"pia_name": "Tietosuojaa koskeva vaikutustenarviointi",
 			"placeholder_author": "Etunimi, sukunimi",
 			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Etunimi, sukunimi",
 			"placeholder_import_pia": "Tuo vaikutustenarviointi",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_import_structure": "TO TRANSLATE - Import template",
 			"placeholder_new_pia": "Uusi vaikutustenarviointi",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"placeholder_new_structure": "TO TRANSLATE - New template",
 			"placeholder_pia_name": "Vaikutustenarvioinnin otsikko",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
 			"placeholder_start": "Kaikki kentät tulee täyttää",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
-			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+			"placeholder_structure": "TO TRANSLATE - Default template",
+			"placeholder_structure_name": "TO TRANSLATE - Template's title",
 			"placeholder_validation": "Etunimi, sukunimi",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Aloita",
 			"status": "Tila",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "TO TRANSLATE - Template",
+			"structure_name": "TO TRANSLATE - Template's name",
 			"title_close_creation": "Sulje",
-			"validation": "Validointi"
+      "validation": "Validointi"
 		},
 		"filters": {
 			"assessor": "Tarkastaja",
@@ -260,7 +261,7 @@
 			"sort": "Lajittele",
 			"sort_by": "kriteeri",
 			"status": "Tila",
-			"validator": "Hyväksyjä"
+      "validator": "Hyväksyjä"
 		},
 		"lists": {
 			"column_actions": "Toiminnat",
@@ -268,12 +269,12 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Luotu",
 			"column_evaluation": "Tarkasta",
-			"column_pia": "Tietosuojaa koskeva vaikutustenarviointi",
+      "column_pia": "Tietosuojaa koskeva vaikutustenarviointi",
 			"column_progression": "Edistyminen",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Tila",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "TO TRANSLATE - Template",
+			"column_structure_name": "TO TRANSLATE - Template",
 			"column_updated_at": "Viimeksi avattu",
 			"column_validation": "Validointi",
 			"item": {
@@ -285,7 +286,7 @@
 					"edit": "Muokkaa",
 					"export": "Vie",
 					"pia": "Näytä vaikutustenarviointi",
-					"remove": "TO TRANSLATE - Permanently delete",
+					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
@@ -942,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Poista tämä tietosuojaa koskeva vaikutustenarviointi"
-		},
+    },
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
 			"keep": "TO BE TRANSLATED - Annuler",
