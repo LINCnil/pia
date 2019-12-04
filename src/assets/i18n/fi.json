@@ -239,7 +239,7 @@
 			"structure": "TO TRANSLATE - Template",
 			"structure_name": "TO TRANSLATE - Template's name",
 			"title_close_creation": "Sulje",
-			"validation": "Validointi"
+      "validation": "Validointi"
 		},
 		"filters": {
 			"assessor": "Tarkastaja",
@@ -261,7 +261,7 @@
 			"sort": "Lajittele",
 			"sort_by": "kriteeri",
 			"status": "Tila",
-			"validator": "Hyväksyjä"
+      "validator": "Hyväksyjä"
 		},
 		"lists": {
 			"column_actions": "Toiminnat",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Luotu",
 			"column_evaluation": "Tarkasta",
-			"column_pia": "Tietosuojaa koskeva vaikutustenarviointi",
+      "column_pia": "Tietosuojaa koskeva vaikutustenarviointi",
 			"column_progression": "Edistyminen",
 			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Tila",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Poista tämä tietosuojaa koskeva vaikutustenarviointi"
-		},
+    },
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
 			"keep": "TO BE TRANSLATED - Annuler",

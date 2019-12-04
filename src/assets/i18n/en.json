@@ -232,14 +232,14 @@
 			"placeholder_start": "All fields must be filled",
 			"placeholder_structure": "Default template",
 			"placeholder_structure_name": "Template's title",
-			"placeholder_validation": "Firstname, lastname",
+      "placeholder_validation": "Firstname, lastname",
 			"sector_name": "Sector",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Template",
 			"structure_name": "Template's name",
 			"title_close_creation": "Close",
-			"validation": "Validation"
+      "validation": "Validation"
 		},
 		"filters": {
 			"assessor": "Reviewer",
@@ -261,7 +261,7 @@
 			"sort": "Sort",
 			"sort_by": "by",
 			"status": "Status",
-			"validator": "Validator"
+      "validator": "Validator"
 		},
 		"lists": {
 			"column_actions": "Actions",
@@ -269,7 +269,7 @@
 			"column_category": "Category",
 			"column_creation": "Created",
 			"column_evaluation": "Review",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Progress",
 			"column_sector_name": "Associated sector",
 			"column_status": "Status",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Remove this PIA"
-		},
+    },
 		"remove_question": {
 			"content": "Are you sure you want to delete the question?",
 			"keep": "Cancel",

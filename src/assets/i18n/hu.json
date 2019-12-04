@@ -239,7 +239,7 @@
 			"structure": "TO TRANSLATE - Template",
 			"structure_name": "TO TRANSLATE - Template's name",
 			"title_close_creation": "Bezárás",
-			"validation": "Jóváhagyás"
+      "validation": "Jóváhagyás"
 		},
 		"filters": {
 			"assessor": "Véleményező",
@@ -261,7 +261,7 @@
 			"sort": "Válogatás",
 			"sort_by": "Válogatás valami szerint",
 			"status": "Státusz",
-			"validator": "Jóváhagyó"
+      "validator": "Jóváhagyó"
 		},
 		"lists": {
 			"column_actions": "Műveletek",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Létrehozás",
 			"column_evaluation": "Véleményező neve",
-			"column_pia": "DPIA",
+      "column_pia": "DPIA",
 			"column_progression": "Előrehaladás",
 			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Állapot",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "A DPIA eltávolítása"
-		},
+    },
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
 			"keep": "TO BE TRANSLATED - Annuler",

@@ -239,7 +239,7 @@
 			"structure": "Plantilla",
 			"structure_name": "Nombre de la plantilla",
 			"title_close_creation": "Cerrar",
-			"validation": "Validado por"
+      "validation": "Validado por"
 		},
 		"filters": {
 			"assessor": "Revisado por",
@@ -261,7 +261,7 @@
 			"sort": "Ordenar",
 			"sort_by": "por",
 			"status": "Estado",
-			"validator": "Validado por"
+      "validator": "Validado por"
 		},
 		"lists": {
 			"column_actions": "Acciones",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Creado",
 			"column_evaluation": "Revisado por",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Progreso",
 			"column_sector_name": "Sector asociado",
 			"column_status": "Estado",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Eliminar este PIA"
-		},
+    },
 		"remove_question": {
 			"content": "¿Quiere eliminar la pregunta?",
 			"keep": "Mantener",

@@ -11,7 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 import { RevisionService } from 'src/app/services/revision.service';
 import { ModalsService } from '../modals/modals.service';
-import { Pia } from '../entry/pia.model';
 
 @Component({
   selector: 'app-preview',

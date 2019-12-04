@@ -232,14 +232,14 @@
 			"placeholder_start": "Alle felter skal fyldes",
 			"placeholder_structure": "Standard skabelon",
 			"placeholder_structure_name": "Skabelon titel",
-			"placeholder_validation": "Fornavn, efternavn",
+      "placeholder_validation": "Fornavn, efternavn",
 			"sector_name": "Tilhørende sektion",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Skabelon",
 			"structure_name": "Titel på skabelon",
 			"title_close_creation": "Luk",
-			"validation": "Validation"
+      "validation": "Validation"
 		},
 		"filters": {
 			"assessor": "Analytiker",
@@ -261,7 +261,7 @@
 			"sort": "Sortere",
 			"sort_by": "ved",
 			"status": "Status",
-			"validator": "Godkender"
+      "validator": "Godkender"
 		},
 		"lists": {
 			"column_actions": "Aktioner",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Skabt",
 			"column_evaluation": "Evaluere",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Progression",
 			"column_sector_name": "Tilhørende sektion",
 			"column_status": "Status",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Slet denne PIA"
-		},
+    },
 		"remove_question": {
 			"content": "Er du sikker på at du vil slette spørgsmålet?",
 			"keep": "Behold",

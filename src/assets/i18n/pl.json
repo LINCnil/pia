@@ -232,14 +232,14 @@
 			"placeholder_start": "Należy wypełnić wszystkie pola",
 			"placeholder_structure": "Domyślny szablon",
 			"placeholder_structure_name": "Tytuł szablonu",
-			"placeholder_validation": "Imię, nazwisko",
+      "placeholder_validation": "Imię, nazwisko",
 			"sector_name": "Sektor",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Szablon",
 			"structure_name": "Nazwa szablonu",
 			"title_close_creation": "Zamknięcie",
-			"validation": "Zatwierdzenie"
+      "validation": "Zatwierdzenie"
 		},
 		"filters": {
 			"assessor": "Oceniającego",
@@ -261,7 +261,7 @@
 			"sort": "Sortowanie",
 			"sort_by": "według",
 			"status": "Statusu",
-			"validator": "Zatwierdzającego"
+      "validator": "Zatwierdzającego"
 		},
 		"lists": {
 			"column_actions": "Działania",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Utworzenie",
 			"column_evaluation": "Ocena",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Postęp",
 			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Status",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Usuń PIA"
-		},
+    },
 		"remove_question": {
 			"content": "Czy na pewno chcesz usunąć pytanie?",
 			"keep": "Zachowaj",

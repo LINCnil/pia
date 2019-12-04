@@ -232,14 +232,14 @@
 			"placeholder_start": "Tous les champs doivent être remplis",
 			"placeholder_structure": "Modèle par défaut",
 			"placeholder_structure_name": "Intitulé du modèle",
-			"placeholder_validation": "Prénom, nom",
+      "placeholder_validation": "Prénom, nom",
 			"sector_name": "Secteur associé",
 			"start": "Commencer",
 			"status": "Statut",
 			"structure": "Modèle",
 			"structure_name": "Nom du modèle",
 			"title_close_creation": "Fermer",
-			"validation": "Validation"
+      "validation": "Validation"
 		},
 		"filters": {
 			"assessor": "Évaluateur",
@@ -261,7 +261,7 @@
 			"sort": "Trier",
 			"sort_by": "par",
 			"status": "Statut",
-			"validator": "Validateur"
+      "validator": "Validateur"
 		},
 		"lists": {
 			"column_actions": "Actions",
@@ -269,7 +269,7 @@
 			"column_category": "Catégorie",
 			"column_creation": "Création",
 			"column_evaluation": "Évaluation",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Progression",
 			"column_sector_name": "Secteur associé",
 			"column_status": "Statut",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer définitivement ce PIA ?",
 			"remove": "Supprimer ce PIA"
-		},
+    },
 		"remove_question": {
 			"content": "Souhaitez-vous supprimer la question ?",
 			"keep": "Annuler",
@@ -979,6 +979,11 @@
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
+		},
+		"revision": {
+			"title": "Réviser le PIA",
+			"message": "En continuant, vous allez mettre à jour l'analyse. Celle-ci perdra son statut de validation et il sera nécessaire de la valider à nouveau une fois les changements effectués.<br><br>La version actuellement validée sera archivée.",
+			"continue": "Continuer"
 		}
 	},
 	"opinions": {

@@ -239,7 +239,7 @@
 			"structure": "TO TRANSLATE - Template",
 			"structure_name": "TO TRANSLATE - Template's name",
 			"title_close_creation": "Lukk",
-			"validation": "Forankring"
+      "validation": "Forankring"
 		},
 		"filters": {
 			"assessor": "Saksbehandler",
@@ -261,7 +261,7 @@
 			"sort": "Sorter",
 			"sort_by": "etter",
 			"status": "Status",
-			"validator": "Ansvarlig"
+      "validator": "Ansvarlig"
 		},
 		"lists": {
 			"column_actions": "Handlinger",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Opprettet",
 			"column_evaluation": "Evaluer",
-			"column_pia": "PIA",
+      "column_pia": "PIA",
 			"column_progression": "Fremgang",
 			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Status",

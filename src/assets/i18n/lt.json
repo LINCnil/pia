@@ -232,14 +232,14 @@
 			"placeholder_start": "Turi būti užpildyti visi laukai",
 			"placeholder_structure": "Standartinis šablonas",
 			"placeholder_structure_name": "Šablono pavadinimas",
-			"placeholder_validation": "Vardas, Pavardė",
+      "placeholder_validation": "Vardas, Pavardė",
 			"sector_name": "Susijęs sektorius",
 			"start": "Start",
 			"status": "Statusas",
 			"structure": "Šablonas",
 			"structure_name": "Šablono pavadinimas",
 			"title_close_creation": "Uždaryti",
-			"validation": "Tvirtinimas"
+      "validation": "Tvirtinimas"
 		},
 		"filters": {
 			"assessor": "Tikrintoją",
@@ -261,7 +261,7 @@
 			"sort": "Rūšiuoti",
 			"sort_by": "pagal",
 			"status": "Statusą",
-			"validator": "Tvirtintoją"
+      "validator": "Tvirtintoją"
 		},
 		"lists": {
 			"column_actions": "Veiksmai",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Sukurtas",
 			"column_evaluation": "Tikrinimas",
-			"column_pia": "PDAV",
+      "column_pia": "PDAV",
 			"column_progression": "Progresas",
 			"column_sector_name": "Susijęs sektorius",
 			"column_status": "Statusas",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Ištrinti šį PDAV"
-		},
+    },
 		"remove_question": {
 			"content": "Ar tikrai norite ištrinti klausimą?",
 			"keep": "Atsisakyti",
