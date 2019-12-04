@@ -10,6 +10,7 @@ import { Structure } from 'src/app/structures/structure.model';
 
 import { AppDataService } from 'src/app/services/app-data.service';
 import { ModalsService } from 'src/app/modals/modals.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
 
 @Injectable()
 export class PiaService {
@@ -21,7 +22,14 @@ export class PiaService {
 
   constructor(private _router: Router, private route: ActivatedRoute,
               public _appDataService: AppDataService,
-              private _modalsService: ModalsService) {
+              private _modalsService: ModalsService,
+              public _sidStatusService: SidStatusService) {
+    if (this.pia.structure_data) {
+      this._appDataService.dataNav = this.pia.structure_data;
+    } else {
+      this._appDataService.resetDataNav();
+    }
+
     this.data = this._appDataService.dataNav;
   }
 
