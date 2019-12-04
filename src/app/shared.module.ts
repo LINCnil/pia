@@ -25,6 +25,7 @@ import localePL from '@angular/common/locales/pl';
 import localePT from '@angular/common/locales/pt';
 import localeRO from '@angular/common/locales/ro';
 import localeSL from '@angular/common/locales/sl';
+import localeSV from '@angular/common/locales/sv';
 
 registerLocaleData(localeEN, 'en');
 // registerLocaleData(localeCZ, 'cz');
@@ -45,6 +46,7 @@ registerLocaleData(localePL, 'pl');
 registerLocaleData(localePT, 'pt');
 registerLocaleData(localeRO, 'ro');
 registerLocaleData(localeSL, 'sl');
+registerLocaleData(localeSV, 'sv');
 
 import { PiaTranslateLoader } from './pia-translate-loader';
 
