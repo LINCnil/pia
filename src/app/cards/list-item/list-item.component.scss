@@ -7,7 +7,10 @@
   white-space: nowrap;
   /* overflow: hidden; */
   &-title {
-    width: 250px !important;
+    width: 270px !important;
+    div:first-child {
+      width: 230px !important;
+    }
   }
   &:first-child {
     div[contenteditable] {
@@ -17,7 +20,6 @@
     }
   }
   div[contenteditable] {
-    max-width: 200px;
     cursor: text;
     white-space: nowrap;
     overflow: hidden;
@@ -42,11 +44,9 @@
     }
   }
   &-attachment {
-    vertical-align: middle;
-    width: 10%;
-    margin-top: -16px;
-    float: right;
-    position: relative;
+    position: absolute;
+    right: 10px;
+    top: 4px;
     cursor: pointer;
     ul {
       display: none;

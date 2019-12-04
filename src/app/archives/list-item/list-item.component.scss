@@ -7,8 +7,11 @@
   white-space: nowrap;
   /* overflow: hidden; */
   &-title {
-    div {
+    div:first-child {
       width: 250px !important;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
   &:first-child {
@@ -32,11 +35,9 @@
     }
   }
   &-attachment {
-    vertical-align: middle;
-    width: 10%;
-    margin-top: -16px;
-    float: right;
-    position: relative;
+    position: absolute;
+    right: 10px;
+    top: 4px;
     cursor: pointer;
     ul {
       display: none;
@@ -68,11 +69,5 @@
         display: block;
       }
     }
-  }
-  div {
-    max-width: 200px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    /* overflow: hidden; */
   }
 }
