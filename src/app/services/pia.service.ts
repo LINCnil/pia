@@ -473,7 +473,7 @@ export class PiaService {
   }
 
 
-  async replacePiaByExport(piaExport) {
+  async replacePiaByExport(piaExport, resetOption) {
     const pia = new Pia();
     pia.id = piaExport.pia.id;
     pia.name = piaExport.pia.name;
@@ -493,6 +493,7 @@ export class PiaService {
     pia.dpos_names = piaExport.pia.dpos_names;
     pia.people_names = piaExport.pia.people_names;
     pia.updated_at = new Date();
+    pia.status = resetOption ? 0 : piaExport.status;
     /* Structure import if there is a specific one associated to this PIA */
     if (piaExport.pia.structure_id) {
       pia.structure_id = piaExport.pia.structure_id;
@@ -588,12 +589,12 @@ export class PiaService {
               count++;
               oldIdToNewId[measure.id] = id;
               if (count === piaExport.measures.length) {
-                await this.importEvaluations(piaExport, pia.id, false, oldIdToNewId);
+                await this.importEvaluations(piaExport, pia.id, false, oldIdToNewId, resetOption);
               }
             });
           }
         } else {
-          await this.importEvaluations(piaExport, pia.id, false);
+          await this.importEvaluations(piaExport, pia.id, false, null, resetOption);
         }
 
         // update comment /!\ You have to delete
@@ -623,13 +624,13 @@ export class PiaService {
    * @param {boolean} is_duplicate - Is a duplicated PIA?
    * @param {Array<any>} [oldIdToNewId] - Array to generate new id for special item.
    */
-  private async importEvaluations(data: any, pia_id: number, is_duplicate: boolean, oldIdToNewId?: Array<any>) {
+  private async importEvaluations(data: any, pia_id: number, is_duplicate: boolean, oldIdToNewId?: Array<any>, resetStatut?: Boolean) {
     if (!is_duplicate) {
       // Create evaluations
       for (const evaluation of data.evaluations) {
         const evaluationModel = new Evaluation();
         evaluationModel.pia_id = pia_id;
-        evaluationModel.status = evaluation.status;
+        evaluationModel.status = resetStatut ? 0 : evaluation.status;
         let reference_to = evaluation.reference_to;
         if (reference_to.startsWith('3.1') && oldIdToNewId) {
           const ref = reference_to.split('.')

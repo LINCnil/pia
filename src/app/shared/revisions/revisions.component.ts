@@ -42,7 +42,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   subscription: Subscription;
   public opened: Boolean = false;
   subject = new Subject();
-  public revisionsGroupByMonth;
+  public revisionsGroupByMonth = {};
   public revisionsGroupByMonthInArray;
   public objectKeys = Object.entries;
   dateFormat: String;
@@ -66,7 +66,6 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   generateDates(changes) {
-    this.revisionsGroupByMonth = {}
     if (changes.revisions && changes.revisions.currentValue) {
       changes.revisions.currentValue.forEach((obj) => {
         // Determite key and translate it
@@ -84,7 +83,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
         if (this.revisionsGroupByMonth[key])  {
           this.revisionsGroupByMonth[key].push(obj);
         } else {
-          this.revisionsGroupByMonth[key] = []
+          this.revisionsGroupByMonth[key] = [];
           this.revisionsGroupByMonth[key].push(obj);
         }
       });
