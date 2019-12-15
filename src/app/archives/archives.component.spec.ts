@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ArchivesComponent } from './archives.component';
+import { ArchivesComponent } from "./archives.component";
 
-describe('ArchivesComponent', () => {
+describe("ArchivesComponent", () => {
   let component: ArchivesComponent;
   let fixture: ComponentFixture<ArchivesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArchivesComponent ]
-    })
-    .compileComponents();
+      declarations: [ArchivesComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ArchivesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,4 +1,4 @@
-@import '../../../../assets/stylesheets/variables';
+@import "../../../../assets/stylesheets/variables";
 .pia {
   &-commentsBlock {
     &-count {
@@ -25,7 +25,7 @@
       }
     }
     &-infos {
-      border-top: 1px solid #3EE095;
+      border-top: 1px solid #3ee095;
       padding-top: 10px;
       padding-bottom: 7px;
       display: flex;
@@ -69,7 +69,7 @@
       }
     }
     .pia-commentBtnSubmit {
-      margin: 10px  0 5px auto;
+      margin: 10px 0 5px auto;
       display: flex;
     }
   }

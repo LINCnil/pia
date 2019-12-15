@@ -1,4 +1,4 @@
-@import '../../../assets/stylesheets/variables';
+@import "../../../assets/stylesheets/variables";
 
 .pia-listsBlock-item {
   position: relative;
@@ -23,10 +23,13 @@
     cursor: text;
     white-space: nowrap;
     overflow: hidden;
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       outline: 1px dotted $pia-green;
     }
-    &:focus, &:active {
+    &:focus,
+    &:active {
       background-color: #fff;
     }
   }
@@ -73,7 +76,9 @@
         }
       }
     }
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       ul {
         display: block;
       }

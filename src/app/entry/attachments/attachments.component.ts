@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, Input } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
 
-import { Pia } from '../pia.model';
+import { Pia } from "../pia.model";
 
-import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { AttachmentsService } from "src/app/entry/attachments/attachments.service";
 
 @Component({
-  selector: 'app-attachments',
-  templateUrl: './attachments.component.html',
-  styleUrls: ['./attachments.component.scss']
+  selector: "app-attachments",
+  templateUrl: "./attachments.component.html",
+  styleUrls: ["./attachments.component.scss"]
 })
 export class AttachmentsComponent implements OnInit {
   @Input() isPreview: boolean;
@@ -16,15 +16,16 @@ export class AttachmentsComponent implements OnInit {
   attachmentForm: FormGroup;
   dispplayAttachmentButton = false;
 
-  constructor(public _attachmentsService: AttachmentsService) { }
+  constructor(public _attachmentsService: AttachmentsService) {}
 
   ngOnInit() {
     this.attachmentForm = new FormGroup({
-      attachment_file: new FormControl('', [])
+      attachment_file: new FormControl("", [])
     });
     this._attachmentsService.pia = this.pia;
     this._attachmentsService.listAttachments();
-    this.dispplayAttachmentButton = (this.pia.status !== 2 && this.pia.status !== 3);
+    this.dispplayAttachmentButton =
+      this.pia.status !== 2 && this.pia.status !== 3;
   }
 
   /**
@@ -35,7 +36,9 @@ export class AttachmentsComponent implements OnInit {
       return false;
     } else {
       this._attachmentsService.pia_signed = 0;
-       const attachment = <HTMLInputElement> document.querySelector('[formcontrolname="attachment_file"]');
+      const attachment = <HTMLInputElement>(
+        document.querySelector('[formcontrolname="attachment_file"]')
+      );
       attachment.click();
     }
   }
@@ -45,6 +48,6 @@ export class AttachmentsComponent implements OnInit {
    * @param {event} event - Any kind of event.
    */
   uploadAttachement(event: Event) {
-    this._attachmentsService.upload((<HTMLInputElement> event.target).files[0]);
+    this._attachmentsService.upload((<HTMLInputElement>event.target).files[0]);
   }
 }

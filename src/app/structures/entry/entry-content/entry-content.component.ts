@@ -1,26 +1,25 @@
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute, Params } from "@angular/router";
+import { Component, OnInit, Input, OnChanges, OnDestroy } from "@angular/core";
 
-import 'rxjs/add/operator/map';
-import { Subscription } from 'rxjs';
+import "rxjs/add/operator/map";
+import { Subscription } from "rxjs";
 
-import { AppDataService } from 'src/app/services/app-data.service';
-import { AnswerStructureService } from 'src/app/services/answer-structure.service';
-import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
-import { ModalsService } from 'src/app/modals/modals.service';
-import { StructureService } from 'src/app/services/structure.service';
-import { PaginationService } from 'src/app/entry/entry-content/pagination.service';
-import { TranslateService } from '@ngx-translate/core';
-import { SidStatusService } from 'src/app/services/sid-status.service';
-import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { AppDataService } from "src/app/services/app-data.service";
+import { AnswerStructureService } from "src/app/services/answer-structure.service";
+import { MeasureService } from "src/app/entry/entry-content/measures/measures.service";
+import { ModalsService } from "src/app/modals/modals.service";
+import { StructureService } from "src/app/services/structure.service";
+import { PaginationService } from "src/app/entry/entry-content/pagination.service";
+import { TranslateService } from "@ngx-translate/core";
+import { SidStatusService } from "src/app/services/sid-status.service";
+import { KnowledgeBaseService } from "src/app/entry/knowledge-base/knowledge-base.service";
 
 @Component({
-  selector: 'app-entry-content',
-  templateUrl: './entry-content.component.html',
-  styleUrls: ['./entry-content.component.scss'],
+  selector: "app-entry-content",
+  templateUrl: "./entry-content.component.html",
+  styleUrls: ["./entry-content.component.scss"],
   providers: [StructureService]
 })
-
 export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
   @Input() section: any;
   @Input() item: any;
@@ -29,17 +28,19 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
   // subscriptionMeasure: Subscription;
   subscriptionQuestion: Subscription;
 
-  constructor(private _router: Router,
-              private _appDataService: AppDataService,
-              private _activatedRoute: ActivatedRoute,
-              public _measureService: MeasureService,
-              private _modalsService: ModalsService,
-              public _structureService: StructureService,
-              public _sidStatusService: SidStatusService,
-              public _paginationService: PaginationService,
-              private _translateService: TranslateService,
-              private _answerStructureService: AnswerStructureService,
-              private _knowledgeBaseService: KnowledgeBaseService) { }
+  constructor(
+    private _router: Router,
+    private _appDataService: AppDataService,
+    private _activatedRoute: ActivatedRoute,
+    public _measureService: MeasureService,
+    private _modalsService: ModalsService,
+    public _structureService: StructureService,
+    public _sidStatusService: SidStatusService,
+    public _paginationService: PaginationService,
+    private _translateService: TranslateService,
+    private _answerStructureService: AnswerStructureService,
+    private _knowledgeBaseService: KnowledgeBaseService
+  ) {}
 
   ngOnInit() {
     // Reset measures no longer addable from KB when switching Structure
@@ -56,8 +57,9 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
       }
     );*/
 
-    this.subscriptionQuestion = this._answerStructureService.questionToRemove.subscribe((index) => {
-      this.questions.splice(index, 1);
+    this.subscriptionQuestion = this._answerStructureService.questionToRemove.subscribe(
+      index => {
+        this.questions.splice(index, 1);
       }
     );
   }
@@ -66,7 +68,10 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
     await this._structureService.getStructure();
     this._paginationService.dataNav = this._structureService.structure.data;
 
-    const sectionId = parseInt(this._activatedRoute.snapshot.params.section_id, 10);
+    const sectionId = parseInt(
+      this._activatedRoute.snapshot.params.section_id,
+      10
+    );
     const itemId = parseInt(this._activatedRoute.snapshot.params.item_id, 10);
 
     this._paginationService.setPagination(sectionId, itemId);
@@ -77,9 +82,11 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
    */
   async addQuestion() {
     this._structureService.getStructure().then(() => {
-      this._answerStructureService.addQuestion(this._structureService.structure, this.section, this.item).then((question: any) => {
-        this.questions.push(question);
-      });
+      this._answerStructureService
+        .addQuestion(this._structureService.structure, this.section, this.item)
+        .then((question: any) => {
+          this.questions.push(question);
+        });
     });
   }
 
@@ -88,9 +95,11 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
    */
   async addMeasure() {
     this._structureService.getStructure().then(() => {
-      this._answerStructureService.addMeasure(this._structureService.structure, this.section, this.item).then((measure: any) => {
-        this.item.answers.push(measure);
-      });
+      this._answerStructureService
+        .addMeasure(this._structureService.structure, this.section, this.item)
+        .then((measure: any) => {
+          this.item.answers.push(measure);
+        });
     });
   }
 
@@ -101,15 +110,18 @@ export class EntryContentComponent implements OnInit, OnChanges, OnDestroy {
    * @param {number} status_end - To status.
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
-    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end);
+    const goto_section_item = this._paginationService.getNextSectionItem(
+      status_start,
+      status_end
+    );
 
     this._router.navigate([
-      'structures',
-      'entry',
+      "structures",
+      "entry",
       this._structureService.structure.id,
-      'section',
+      "section",
       goto_section_item[0],
-      'item',
+      "item",
       goto_section_item[1]
     ]);
   }

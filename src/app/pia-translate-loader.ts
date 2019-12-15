@@ -1,85 +1,85 @@
-import cz from 'src/assets/i18n/cz.json';
-import de from 'src/assets/i18n/de.json';
-import dk from 'src/assets/i18n/dk.json';
-import el from 'src/assets/i18n/el.json';
-import en from 'src/assets/i18n/en.json';
-import es from 'src/assets/i18n/es.json';
-import et from 'src/assets/i18n/et.json';
-import fi from 'src/assets/i18n/fi.json';
-import fr from 'src/assets/i18n/fr.json';
-import hr from 'src/assets/i18n/hr.json';
-import hu from 'src/assets/i18n/hu.json';
-import it from 'src/assets/i18n/it.json';
-import lt from 'src/assets/i18n/lt.json';
-import nl from 'src/assets/i18n/nl.json';
-import no from 'src/assets/i18n/no.json';
-import pl from 'src/assets/i18n/pl.json';
-import pt from 'src/assets/i18n/pt.json';
-import ro from 'src/assets/i18n/ro.json';
-import sl from 'src/assets/i18n/sl.json';
+import cz from "src/assets/i18n/cz.json";
+import de from "src/assets/i18n/de.json";
+import dk from "src/assets/i18n/dk.json";
+import el from "src/assets/i18n/el.json";
+import en from "src/assets/i18n/en.json";
+import es from "src/assets/i18n/es.json";
+import et from "src/assets/i18n/et.json";
+import fi from "src/assets/i18n/fi.json";
+import fr from "src/assets/i18n/fr.json";
+import hr from "src/assets/i18n/hr.json";
+import hu from "src/assets/i18n/hu.json";
+import it from "src/assets/i18n/it.json";
+import lt from "src/assets/i18n/lt.json";
+import nl from "src/assets/i18n/nl.json";
+import no from "src/assets/i18n/no.json";
+import pl from "src/assets/i18n/pl.json";
+import pt from "src/assets/i18n/pt.json";
+import ro from "src/assets/i18n/ro.json";
+import sl from "src/assets/i18n/sl.json";
 
-import { TranslateLoader } from '@ngx-translate/core';
-import { Observable } from 'rxjs/Observable';
+import { TranslateLoader } from "@ngx-translate/core";
+import { Observable } from "rxjs/Observable";
 
 export class PiaTranslateLoader implements TranslateLoader {
   public getTranslation(lang: string): Observable<any> {
     return Observable.create(observer => {
       switch (lang) {
-        case 'cz':
+        case "cz":
           observer.next(cz);
           break;
-        case 'de':
+        case "de":
           observer.next(de);
           break;
-        case 'dk':
+        case "dk":
           observer.next(dk);
           break;
-        case 'el':
+        case "el":
           observer.next(el);
           break;
-        case 'en':
+        case "en":
           observer.next(en);
           break;
-        case 'es':
+        case "es":
           observer.next(es);
           break;
-        case 'et':
+        case "et":
           observer.next(et);
           break;
-        case 'fi':
+        case "fi":
           observer.next(fi);
           break;
-        case 'fr':
+        case "fr":
           observer.next(fr);
           break;
-        case 'hr':
+        case "hr":
           observer.next(hr);
           break;
-        case 'hu':
+        case "hu":
           observer.next(hu);
           break;
-        case 'it':
+        case "it":
           observer.next(it);
           break;
-        case 'lt':
+        case "lt":
           observer.next(lt);
           break;
-        case 'nl':
+        case "nl":
           observer.next(nl);
           break;
-        case 'no':
+        case "no":
           observer.next(no);
           break;
-        case 'pl':
+        case "pl":
           observer.next(pl);
           break;
-        case 'pt':
+        case "pt":
           observer.next(pt);
           break;
-        case 'ro':
+        case "ro":
           observer.next(ro);
           break;
-        case 'sl':
+        case "sl":
           observer.next(sl);
           break;
         default:

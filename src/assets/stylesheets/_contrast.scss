@@ -2,24 +2,32 @@
 body.pia-contrast {
   /* buttons */
   .btn {
-    &-inactive, &[disabled] {
+    &-inactive,
+    &[disabled] {
       color: $pia-gray-dark;
       border-color: $pia-gray-dark;
-      &:focus, &:hover {
+      &:focus,
+      &:hover {
         color: $pia-gray-dark;
         background-color: transparent;
       }
     }
     &-white {
       color: $pia-green-dark;
-      &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+      &:focus,
+      &:hover,
+      &.btn-active,
+      &.btn-active[disabled] {
         color: $pia-green-dark;
       }
     }
     &-green {
       color: $pia-green-dark;
       border-color: $pia-green-dark;
-      &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+      &:focus,
+      &:hover,
+      &.btn-active,
+      &.btn-active[disabled] {
         background-color: $pia-green-dark;
         color: #fff;
       }
@@ -27,7 +35,10 @@ body.pia-contrast {
     &-blue {
       color: $pia-blue;
       border-color: $pia-blue;
-      &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+      &:focus,
+      &:hover,
+      &.btn-active,
+      &.btn-active[disabled] {
         background-color: $pia-blue;
         color: #fff;
       }
@@ -35,16 +46,22 @@ body.pia-contrast {
     &-red {
       color: $pia-red-dark;
       border-color: $pia-red-dark;
-      &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+      &:focus,
+      &:hover,
+      &.btn-active,
+      &.btn-active[disabled] {
         background-color: $pia-red-dark;
         color: #fff;
       }
     }
   }
-  .btn-pending-validation, .btn-pending-validation[disabled] {
+  .btn-pending-validation,
+  .btn-pending-validation[disabled] {
     color: $pia-blue;
     border-color: $pia-blue;
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       color: $pia-blue;
     }
   }
@@ -72,14 +89,18 @@ body.pia-contrast {
   .pia-navigationBlock {
     &-list {
       > li > a {
-        &:focus, &:hover, &:active {
+        &:focus,
+        &:hover,
+        &:active {
           background-color: $pia-green-dark !important;
         }
       }
     }
     &-dropdown,
     &-company {
-      &:focus, &:hover, &:active {
+      &:focus,
+      &:hover,
+      &:active {
         > a {
           background-color: $pia-green-dark !important;
         }
@@ -104,14 +125,18 @@ body.pia-contrast {
     &-filters-btn {
       border-color: $pia-green-dark;
       color: $pia-green-dark;
-      &:focus, &:hover, &:active {
+      &:focus,
+      &:hover,
+      &:active {
         background-color: $pia-green-dark;
         border-color: $pia-green-dark;
         color: #fff;
       }
     }
     &-filters {
-      &:focus, &:hover, &:active {
+      &:focus,
+      &:hover,
+      &:active {
         .pia-filtersBlock-filters-btn {
           background-color: $pia-green-dark !important;
         }
@@ -131,14 +156,14 @@ body.pia-contrast {
   .pia-cardsBlock {
     &.pia-doingBlock {
       .pia-cardsBlock-header-title {
-       border-bottom-color: $pia-red-dark;
-       color: $pia-red-dark;
+        border-bottom-color: $pia-red-dark;
+        color: $pia-red-dark;
       }
     }
     &.pia-archiveBlock {
       .pia-cardsBlock-header-title {
-       border-bottom-color: $pia-green-dark;
-       color: $pia-green-dark;
+        border-bottom-color: $pia-green-dark;
+        color: $pia-green-dark;
       }
     }
     &-item {
@@ -273,7 +298,6 @@ body.pia-contrast {
     }
   }
 
-
   /* entry-content */
   .pia-entryContentBlock {
     .pia-status-info {
@@ -286,7 +310,8 @@ body.pia-contrast {
         div:first-child {
           background-color: $pia-green-dark;
         }
-        h1, h2 {
+        h1,
+        h2 {
           color: $pia-green-dark;
         }
       }
@@ -301,7 +326,8 @@ body.pia-contrast {
         div:first-child {
           background-color: $pia-red-dark !important;
         }
-        h1, h2 {
+        h1,
+        h2 {
           color: $pia-red-dark !important;
         }
       }
@@ -334,7 +360,8 @@ body.pia-contrast {
       }
       // footer for validation page
       &-validationTools {
-        > a, button {
+        > a,
+        button {
           i {
             color: $pia-green-dark !important;
           }
@@ -351,7 +378,8 @@ body.pia-contrast {
     }
     // content for action plan page
     &-content {
-      &-measures, &-risks {
+      &-measures,
+      &-risks {
         h2 {
           background-color: $pia-red-dark !important;
         }
@@ -385,7 +413,7 @@ body.pia-contrast {
       li {
         &::before {
           content: "";
-          border-top: solid 1px $pia-gray-dark  !important;
+          border-top: solid 1px $pia-gray-dark !important;
           color: $pia-gray-dark !important;
         }
       }
@@ -401,7 +429,10 @@ body.pia-contrast {
             border-color: $pia-green-dark !important;
           }
           a {
-            &:focus, &:hover, &:active, &.active {
+            &:focus,
+            &:hover,
+            &:active,
+            &.active {
               background-color: $pia-green-dark !important;
             }
           }
@@ -431,7 +462,10 @@ body.pia-contrast {
             border-color: $pia-red-dark !important;
           }
           a {
-            &:focus, &:hover, &:active, &.active {
+            &:focus,
+            &:hover,
+            &:active,
+            &.active {
               background-color: $pia-red-dark !important;
             }
           }
@@ -470,7 +504,6 @@ body.pia-contrast {
       }
     }
   }
-
 
   /* knowledge-base */
   .pia-knowledgeBaseBlock {
@@ -518,16 +551,17 @@ body.pia-contrast {
           }
         }
         > div {
-         .pia-icon-hand {
-           background-position: -78px -20px;
-         }
+          .pia-icon-hand {
+            background-position: -78px -20px;
+          }
         }
       }
     }
   }
 
   /* measures AND questions */
-  .pia-measureBlock, .pia-questionBlock {
+  .pia-measureBlock,
+  .pia-questionBlock {
     &.approved {
       border-color: $pia-gray-dark;
     }
@@ -692,7 +726,8 @@ body.pia-contrast {
 
   /* cartography */
   .pia-cartographyBlock {
-    &-abscisses, &-ordinates {
+    &-abscisses,
+    &-ordinates {
       div {
         color: $pia-gray-dark !important;
       }
@@ -746,16 +781,17 @@ body.pia-contrast {
       border-bottom: 1px solid $pia-green-dark;
     }
     form {
-     input {
-       color: $pia-gray-dark !important;
-     }
+      input {
+        color: $pia-gray-dark !important;
+      }
     }
   }
 
   /* DPO & people opinions page */
   .pia-ValidationDPO {
     .pia-entryContentBlock-content {
-      &-DPO, &-people {
+      &-DPO,
+      &-people {
         &-reasons {
           border-bottom: 1px solid $pia-green-dark !important;
         }
@@ -789,12 +825,13 @@ body.pia-contrast {
       &:before {
         border-bottom: 16px solid $pia-green-dark !important;
       }
-      .mce-widget, .mce-btn {
+      .mce-widget,
+      .mce-btn {
         background-color: $pia-green-dark !important;
       }
     }
   }
-  app-editor{
+  app-editor {
     border-bottom: $pia-green-dark solid 0.3rem !important;
   }
 
@@ -839,7 +876,8 @@ body.pia-contrast {
           color: $pia-green-dark !important;
         }
         progress {
-          &:before, &:after {
+          &:before,
+          &:after {
             background-color: $pia-green-dark !important;
           }
         }

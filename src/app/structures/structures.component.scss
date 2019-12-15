@@ -1,4 +1,4 @@
-@import '../../assets/stylesheets/variables';
+@import "../../assets/stylesheets/variables";
 
 // New PIA
 .pia-newBlock {
@@ -13,22 +13,26 @@
     color: $pia-green;
     height: 440px;
     width: 274px;
-    &-new, &-import {
+    &-new,
+    &-import {
       &-title {
         padding-bottom: 10px;
       }
       &-btn {
         padding-left: 18px;
-        .fa-folder-open, .fa-upload {
-            font-size: 7rem;
-            margin-right: 30px;
+        .fa-folder-open,
+        .fa-upload {
+          font-size: 7rem;
+          margin-right: 30px;
         }
         .fa-upload {
-            margin-right: 40px;
+          margin-right: 40px;
         }
-        .fa-folder-open, .fa-upload, button {
-            display: inline-block;
-            vertical-align: top;
+        .fa-folder-open,
+        .fa-upload,
+        button {
+          display: inline-block;
+          vertical-align: top;
         }
       }
     }
@@ -45,7 +49,7 @@
     width: 300px;
     height: 200px;
     border-radius: 10px;
-    box-shadow: 0px 0px 18px 2px rgba(212,212,212,1);
+    box-shadow: 0px 0px 18px 2px rgba(212, 212, 212, 1);
     top: 110px;
     right: -323px;
     .pia-icon-small-arrow {
@@ -110,16 +114,17 @@
       border: 1px solid $pia-green;
       border-radius: 20px;
       color: $pia-green !important;
-      font-size: 1.30rem;
+      font-size: 1.3rem;
       transition: all ease 0.5s;
-      outline-style:none;
-      box-shadow:none;
+      outline-style: none;
+      box-shadow: none;
       position: relative;
       padding-left: 30px;
       &::placeholder {
         color: $pia-green;
       }
-      &:focus, &.typed {
+      &:focus,
+      &.typed {
         width: 350px;
         border: 0px;
         border: 1px solid $pia-green;
@@ -134,7 +139,8 @@
   &-filtersBlock {
     position: relative;
     margin: 8px 0 40px 0;
-    &-left, &-right {
+    &-left,
+    &-right {
       width: 50%;
       display: inline-block;
       vertical-align: middle;
@@ -142,7 +148,8 @@
     &-right {
       text-align: right;
     }
-    &-switch, &-filters {
+    &-switch,
+    &-filters {
       display: inline-block;
       vertical-align: middle;
     }
@@ -165,7 +172,8 @@
         margin-left: 4px;
         margin-top: -2px;
       }
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background: $pia-green;
         border-color: $pia-green;
         color: #fff;
@@ -212,7 +220,10 @@
             text-decoration: none;
             color: #000;
           }
-          &:focus, &:hover, &:active, .active {
+          &:focus,
+          &:hover,
+          &:active,
+          .active {
             background-color: $pia-blue;
             a {
               color: #ffffff !important;
@@ -233,7 +244,9 @@
         .pia-icon-scroll-green {
           margin-left: 35px;
         }
-        &:focus, &:hover, &:active {
+        &:focus,
+        &:hover,
+        &:active {
           + .pia-filtersBlock-filters-list {
             display: block;
           }
@@ -254,14 +267,15 @@
     }
     &-hint {
       position: relative;
-      display:inline-block;
+      display: inline-block;
       vertical-align: middle;
       background-color: #fff;
       border-radius: 10px;
       padding: 3px 24px 5px 26px;
       margin-left: 10px;
       div {
-        span, p {
+        span,
+        p {
           display: inline-block;
           vertical-align: middle;
         }
@@ -292,7 +306,6 @@
   }
 }
 
-
 // Edit PIA
 .pia-editBlock {
   border-color: $pia-green;
@@ -315,13 +328,13 @@
   transition: transform 1s;
 }
 #cardsSwitch .back {
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
 }
 #cardsSwitch.flipped .back {
-  transform: rotateY( 0deg );
+  transform: rotateY(0deg);
 }
 #cardsSwitch.flipped .front {
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
 }
 
 // List PIA
@@ -372,7 +385,7 @@
       span {
         border-left: solid 1px $pia-white;
         &:last-child {
-            padding-left: 13px;
+          padding-left: 13px;
         }
       }
       &:first-child span:first-of-type {
@@ -381,7 +394,7 @@
     }
   }
 }
-.pia-cardsBlock-item-form input{
+.pia-cardsBlock-item-form input {
   padding-bottom: 0;
 }
 .app-list-item {

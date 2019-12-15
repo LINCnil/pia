@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
-import { Measure } from './measure.model';
+import { Measure } from "./measure.model";
 
-import { ModalsService } from 'src/app/modals/modals.service';
-import { TranslateService } from '@ngx-translate/core';
-import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
-import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { ModalsService } from "src/app/modals/modals.service";
+import { TranslateService } from "@ngx-translate/core";
+import { KnowledgeBaseService } from "src/app/entry/knowledge-base/knowledge-base.service";
+import { GlobalEvaluationService } from "src/app/services/global-evaluation.service";
 
 @Injectable()
 export class MeasureService {
@@ -15,10 +15,12 @@ export class MeasureService {
   measureToAdd: any;
   pia_id: number;
 
-  constructor(private _translateService: TranslateService,
-              private _modalsService: ModalsService,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _globalEvaluationService: GlobalEvaluationService) {}
+  constructor(
+    private _translateService: TranslateService,
+    private _modalsService: ModalsService,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _globalEvaluationService: GlobalEvaluationService
+  ) {}
 
   /**
    * List the measures.
@@ -41,20 +43,24 @@ export class MeasureService {
    * Allows an user to remove a measure ("RISKS" section).
    */
   removeMeasure() {
-    const measure_id = parseInt(localStorage.getItem('measure-id'), 10);
+    const measure_id = parseInt(localStorage.getItem("measure-id"), 10);
     const measure = new Measure();
     measure.pia_id = this.pia_id;
 
     measure.get(measure_id).then(() => {
       this.behaviorSubject.next(measure.title);
-      this._knowledgeBaseService.toHide = this._knowledgeBaseService.toHide.filter(item => item !== measure.title);
+      this._knowledgeBaseService.toHide = this._knowledgeBaseService.toHide.filter(
+        item => item !== measure.title
+      );
     });
 
     /* Removing from DB */
     measure.delete(measure_id);
 
     /* Removing the measure from the view */
-    const measureToRemove = document.querySelector('.pia-measureBlock[data-id="' + measure_id + '"]');
+    const measureToRemove = document.querySelector(
+      '.pia-measureBlock[data-id="' + measure_id + '"]'
+    );
     measureToRemove.remove();
 
     // Deletes from the array.
@@ -63,7 +69,7 @@ export class MeasureService {
       this.measures.splice(index, 1);
     }
 
-    localStorage.removeItem('measure-id');
+    localStorage.removeItem("measure-id");
     this._modalsService.closeModal();
   }
 
@@ -76,16 +82,18 @@ export class MeasureService {
   addNewMeasure(pia: any, measureTitle?: string, measurePlaceholder?: string) {
     const newMeasureRecord = new Measure();
     newMeasureRecord.pia_id = pia.id;
-    newMeasureRecord.title = '';
+    newMeasureRecord.title = "";
     if (measureTitle) {
-      this._translateService.get(measureTitle).subscribe(val => this.measureToAdd = val);
+      this._translateService
+        .get(measureTitle)
+        .subscribe(val => (this.measureToAdd = val));
       newMeasureRecord.title = this.measureToAdd;
     }
-    newMeasureRecord.content = '';
+    newMeasureRecord.content = "";
     if (measurePlaceholder) {
       newMeasureRecord.placeholder = measurePlaceholder;
     } else {
-      newMeasureRecord.placeholder = 'measures.default_placeholder';
+      newMeasureRecord.placeholder = "measures.default_placeholder";
     }
     newMeasureRecord.create().then((entry: number) => {
       this._globalEvaluationService.validate();

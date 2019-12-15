@@ -1,22 +1,33 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import * as FileSaver from 'file-saver';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Input,
+  EventEmitter,
+  Output
+} from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
+import * as FileSaver from "file-saver";
 
-import { Pia } from 'src/app/entry/pia.model';
-import { Attachment } from 'src/app/entry/attachments/attachment.model';
+import { Pia } from "src/app/entry/pia.model";
+import { Attachment } from "src/app/entry/attachments/attachment.model";
 
-import { ModalsService } from 'src/app/modals/modals.service';
-import { PiaService } from 'src/app/services/pia.service';
-import { TranslateService } from '@ngx-translate/core';
+import { ModalsService } from "src/app/modals/modals.service";
+import { PiaService } from "src/app/services/pia.service";
+import { TranslateService } from "@ngx-translate/core";
 
 declare const require: any;
 
 @Component({
-  selector: 'app-card-item',
-  templateUrl: './card-item.component.html',
-  styleUrls: ['./card-item.component.scss', './card-item_edit.component.scss',
-    './card-item_doing.component.scss'],
+  selector: "app-card-item",
+  templateUrl: "./card-item.component.html",
+  styleUrls: [
+    "./card-item.component.scss",
+    "./card-item_edit.component.scss",
+    "./card-item_doing.component.scss"
+  ]
 })
 export class CardItemComponent implements OnInit {
   @Input() pia: any;
@@ -25,25 +36,36 @@ export class CardItemComponent implements OnInit {
   piaForm: FormGroup;
   attachments: any;
 
-  @ViewChild('piaName') private piaName: ElementRef;
-  @ViewChild('piaCategory') private piaCategory: ElementRef;
-  @ViewChild('piaAuthorName') private piaAuthorName: ElementRef;
-  @ViewChild('piaEvaluatorName') private piaEvaluatorName: ElementRef;
-  @ViewChild('piaValidatorName') private piaValidatorName: ElementRef;
+  @ViewChild("piaName") private piaName: ElementRef;
+  @ViewChild("piaCategory") private piaCategory: ElementRef;
+  @ViewChild("piaAuthorName") private piaAuthorName: ElementRef;
+  @ViewChild("piaEvaluatorName") private piaEvaluatorName: ElementRef;
+  @ViewChild("piaValidatorName") private piaValidatorName: ElementRef;
 
-  constructor(private router: Router,
-              private _modalsService: ModalsService,
-              public _piaService: PiaService,
-              private _translateService: TranslateService) { }
+  constructor(
+    private router: Router,
+    private _modalsService: ModalsService,
+    public _piaService: PiaService,
+    private _translateService: TranslateService
+  ) {}
 
   ngOnInit() {
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: false }),
       category: new FormControl({ value: this.pia.category, disabled: false }),
-      author_name: new FormControl({ value: this.pia.author_name, disabled: false }),
-      evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: false }),
-      validator_name: new FormControl({ value: this.pia.validator_name, disabled: false })
+      author_name: new FormControl({
+        value: this.pia.author_name,
+        disabled: false
+      }),
+      evaluator_name: new FormControl({
+        value: this.pia.evaluator_name,
+        disabled: false
+      }),
+      validator_name: new FormControl({
+        value: this.pia.validator_name,
+        disabled: false
+      })
     });
 
     const attachmentModel = new Attachment();
@@ -56,7 +78,6 @@ export class CardItemComponent implements OnInit {
         }
       });
     });
-
   }
 
   /**
@@ -64,7 +85,7 @@ export class CardItemComponent implements OnInit {
    */
   async generateZip() {
     setTimeout(() => {
-      const JSZip = require('jszip');
+      const JSZip = require("jszip");
       const zip = new JSZip();
       /* Attachments */
       this.addAttachmentsToZip(zip).then((zip2: any) => {
@@ -72,11 +93,11 @@ export class CardItemComponent implements OnInit {
         this._piaService.export(this.pia.id).then((data: any) => {
           zip2.file("pia.json", data, { binary: true });
           /* Save as .zip */
-          zip2.generateAsync({ type: 'blob' }).then(blobContent => {
-            FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+          zip2.generateAsync({ type: "blob" }).then(blobContent => {
+            FileSaver.saveAs(blobContent, "pia-" + this.pia.name + ".zip");
           });
         });
-      })
+      });
     }, 500);
   }
 
@@ -87,9 +108,13 @@ export class CardItemComponent implements OnInit {
   async addAttachmentsToZip(zip) {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
-        const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
-        const folderName = this._translateService.instant('summary.attachments');
-        zip.file(folderName + '/' + attachment.name, byteCharacters1, { binary: true });
+        const byteCharacters1 = atob((attachment.file as any).split(",")[1]);
+        const folderName = this._translateService.instant(
+          "summary.attachments"
+        );
+        zip.file(folderName + "/" + attachment.name, byteCharacters1, {
+          binary: true
+        });
       });
       resolve(zip);
     });
@@ -99,7 +124,7 @@ export class CardItemComponent implements OnInit {
    * Focuse PIA name field.
    */
   piaNameFocusIn() {
-    this.piaForm.controls['name'].enable();
+    this.piaForm.controls["name"].enable();
     this.piaName.nativeElement.focus();
   }
 
@@ -107,11 +132,11 @@ export class CardItemComponent implements OnInit {
    * Disabls PIA name field and saves data.
    */
   piaNameFocusOut() {
-    let userText = this.piaForm.controls['name'].value;
+    let userText = this.piaForm.controls["name"].value;
     if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      userText = userText.replace(/^\s+/, "").replace(/\s+$/, "");
     }
-    if (userText !== '') {
+    if (userText !== "") {
       this.pia.name = this.piaForm.value.name;
       this.pia.update();
       this.piaEvent.emit(this.pia);
@@ -129,11 +154,11 @@ export class CardItemComponent implements OnInit {
    * Disable PIA author name field and saves data.
    */
   piaAuthorNameFocusOut() {
-    let userText = this.piaForm.controls['author_name'].value;
+    let userText = this.piaForm.controls["author_name"].value;
     if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      userText = userText.replace(/^\s+/, "").replace(/\s+$/, "");
     }
-    if (userText !== '') {
+    if (userText !== "") {
       this.pia.author_name = this.piaForm.value.author_name;
       this.pia.update();
       this.piaEvent.emit(this.pia);
@@ -151,11 +176,11 @@ export class CardItemComponent implements OnInit {
    * Disable PIA evaluator name field and saves data.
    */
   piaEvaluatorNameFocusOut() {
-    let userText = this.piaForm.controls['evaluator_name'].value;
+    let userText = this.piaForm.controls["evaluator_name"].value;
     if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      userText = userText.replace(/^\s+/, "").replace(/\s+$/, "");
     }
-    if (userText !== '') {
+    if (userText !== "") {
       this.pia.evaluator_name = this.piaForm.value.evaluator_name;
       this.pia.update();
       this.piaEvent.emit(this.pia);
@@ -175,9 +200,9 @@ export class CardItemComponent implements OnInit {
   piaValidatorNameFocusOut() {
     let userText = this.piaForm.value.validator_name;
     if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      userText = userText.replace(/^\s+/, "").replace(/\s+$/, "");
     }
-    if (userText !== '') {
+    if (userText !== "") {
       this.pia.validator_name = this.piaForm.value.validator_name;
       this.pia.update();
       this.piaEvent.emit(this.pia);
@@ -197,9 +222,9 @@ export class CardItemComponent implements OnInit {
   piaCategoryFocusOut() {
     let userText = this.piaForm.value.category;
     if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+      userText = userText.replace(/^\s+/, "").replace(/\s+$/, "");
     }
-    if (userText !== '') {
+    if (userText !== "") {
       this.pia.category = this.piaForm.value.category;
       this.pia.update();
       this.piaEvent.emit(this.pia);
@@ -211,8 +236,7 @@ export class CardItemComponent implements OnInit {
    * @param {string} id - The PIA id.
    */
   archivePia(id: string) {
-    localStorage.setItem('pia-to-archive-id', id);
-    this._modalsService.openModal('modal-archive-pia');
+    localStorage.setItem("pia-to-archive-id", id);
+    this._modalsService.openModal("modal-archive-pia");
   }
-
 }

@@ -1,4 +1,4 @@
-import { ApplicationDb } from '../../../application.db';
+import { ApplicationDb } from "../../../application.db";
 
 export class Comment extends ApplicationDb {
   public id: number;
@@ -6,7 +6,7 @@ export class Comment extends ApplicationDb {
   public for_measure: boolean;
 
   constructor() {
-    super(201709122303, 'comment');
+    super(201709122303, "comment");
   }
 
   async create() {
@@ -23,28 +23,31 @@ export class Comment extends ApplicationDb {
         const formData = new FormData();
         for (const d in data) {
           if (data.hasOwnProperty(d) && data[d]) {
-            formData.append('comment[' + d + ']', data[d]);
+            formData.append("comment[" + d + "]", data[d]);
           }
         }
         fetch(this.getServerUrl(), {
-          method: 'POST',
+          method: "POST",
           body: formData,
-          mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result.id);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+          mode: "cors"
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result.id);
+          })
+          .catch(error => {
+            console.error("Request failed", error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
@@ -57,24 +60,27 @@ export class Comment extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl(),{
-          mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        fetch(this.getServerUrl(), {
+          mode: "cors"
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error("Request failed", error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index('index2');
+          const index1 = this.objectStore.index("index2");
           const evt = index1.openCursor(IDBKeyRange.only(pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -83,7 +89,7 @@ export class Comment extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });
@@ -93,20 +99,25 @@ export class Comment extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
-          mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        fetch(this.getServerUrl() + "?reference_to=" + this.reference_to, {
+          mode: "cors"
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error("Request failed", error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index('index1');
-          const evt = index1.openCursor(IDBKeyRange.only([this.pia_id, this.reference_to]));
+          const index1 = this.objectStore.index("index1");
+          const evt = index1.openCursor(
+            IDBKeyRange.only([this.pia_id, this.reference_to])
+          );
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
@@ -130,23 +141,26 @@ export class Comment extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+          mode: "cors"
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error("Request failed", error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index('index2');
+          const index1 = this.objectStore.index("index2");
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -155,7 +169,7 @@ export class Comment extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });

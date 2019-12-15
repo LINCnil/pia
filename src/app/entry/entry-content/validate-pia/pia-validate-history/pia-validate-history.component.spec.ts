@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PiaValidateHistoryComponent } from './pia-validate-history.component';
+import { PiaValidateHistoryComponent } from "./pia-validate-history.component";
 
-describe('PiaValidateHistoryComponent', () => {
+describe("PiaValidateHistoryComponent", () => {
   let component: PiaValidateHistoryComponent;
   let fixture: ComponentFixture<PiaValidateHistoryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PiaValidateHistoryComponent ]
-    })
-    .compileComponents();
+      declarations: [PiaValidateHistoryComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('PiaValidateHistoryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(component).toBeTruthy();
   });
 });

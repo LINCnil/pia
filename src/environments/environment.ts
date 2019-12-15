@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  name: 'development',
+  name: "development",
   production: false,
-  version: 'de DEV'
+  version: "de DEV"
 };
 
 /*

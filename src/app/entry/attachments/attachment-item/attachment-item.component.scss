@@ -1,4 +1,4 @@
-@import '../../../../assets/stylesheets/variables';
+@import "../../../../assets/stylesheets/variables";
 .pia {
   &-attachmentsBlock {
     &-item {
@@ -44,7 +44,7 @@
         bottom: 0;
         padding: 2%;
         text-align: center;
-        background-color: rgba(0,0,0,0.8);
+        background-color: rgba(0, 0, 0, 0.8);
         z-index: 9999;
         vertical-align: middle;
         img {

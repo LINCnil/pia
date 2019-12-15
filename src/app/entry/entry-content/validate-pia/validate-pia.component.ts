@@ -1,30 +1,31 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, ElementRef } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
 
-import { PiaService } from 'src/app/services/pia.service';
-import { ModalsService } from 'src/app/modals/modals.service';
-import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
-import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
-import { TranslateService } from '@ngx-translate/core';
+import { PiaService } from "src/app/services/pia.service";
+import { ModalsService } from "src/app/modals/modals.service";
+import { AttachmentsService } from "src/app/entry/attachments/attachments.service";
+import { ActionPlanService } from "src/app/entry/entry-content/action-plan//action-plan.service";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
-  selector: 'app-validate-pia',
-  templateUrl: './validate-pia.component.html',
-  styleUrls: ['./validate-pia.component.scss'],
+  selector: "app-validate-pia",
+  templateUrl: "./validate-pia.component.html",
+  styleUrls: ["./validate-pia.component.scss"],
   providers: [PiaService]
 })
 export class ValidatePIAComponent implements OnInit {
-
   data: { sections: any };
   validateForm: FormGroup;
   attachment: any;
 
-  constructor(private el: ElementRef,
-              private _modalsService: ModalsService,
-              public _attachmentsService: AttachmentsService,
-              private _actionPlanService: ActionPlanService,
-              private _translateService: TranslateService,
-              public _piaService: PiaService ) { }
+  constructor(
+    private el: ElementRef,
+    private _modalsService: ModalsService,
+    public _attachmentsService: AttachmentsService,
+    private _actionPlanService: ActionPlanService,
+    private _translateService: TranslateService,
+    public _piaService: PiaService
+  ) {}
 
   ngOnInit() {
     this.validateForm = new FormGroup({
@@ -34,10 +35,18 @@ export class ValidatePIAComponent implements OnInit {
       validateStatus4: new FormControl()
     });
     this._piaService.getPIA().then(() => {
-      this.validateForm.controls['validateStatus1'].patchValue(this._piaService.pia.status > 1);
-      this.validateForm.controls['validateStatus2'].patchValue(this._piaService.pia.status > 1);
-      this.validateForm.controls['validateStatus3'].patchValue(this._piaService.pia.status > 1);
-      this.validateForm.controls['validateStatus4'].patchValue(this._piaService.pia.status > 1);
+      this.validateForm.controls["validateStatus1"].patchValue(
+        this._piaService.pia.status > 1
+      );
+      this.validateForm.controls["validateStatus2"].patchValue(
+        this._piaService.pia.status > 1
+      );
+      this.validateForm.controls["validateStatus3"].patchValue(
+        this._piaService.pia.status > 1
+      );
+      this.validateForm.controls["validateStatus4"].patchValue(
+        this._piaService.pia.status > 1
+      );
 
       this._attachmentsService.updateSignedAttachmentsList();
       this._actionPlanService.listActionPlan();
@@ -48,7 +57,9 @@ export class ValidatePIAComponent implements OnInit {
    * Open the dialog box to select an attachment to upload
    */
   addAttachment() {
-    const attachment: any = document.querySelector('[formcontrolname="attachment_file"]');
+    const attachment: any = document.querySelector(
+      '[formcontrolname="attachment_file"]'
+    );
     this._attachmentsService.pia_signed = 1;
     attachment.click();
   }
@@ -66,8 +77,8 @@ export class ValidatePIAComponent implements OnInit {
    * @param {number} id - Attachment id.
    */
   removeAttachment(id: number) {
-    localStorage.setItem('attachment-id', id.toString());
-    this._modalsService.openModal('modal-remove-attachment');
+    localStorage.setItem("attachment-id", id.toString());
+    this._modalsService.openModal("modal-remove-attachment");
   }
 
   /**
@@ -75,11 +86,15 @@ export class ValidatePIAComponent implements OnInit {
    * @param {any} event - Any Event.
    */
   lockStatus(event: any) {
-    if (this._piaService.pia.status > 1  || this._piaService.pia.is_example === 1) {
+    if (
+      this._piaService.pia.status > 1 ||
+      this._piaService.pia.is_example === 1
+    ) {
       return false;
     } else {
-      const clickedRadioButton = event.target || event.srcElement || event.currentTarget;
-      clickedRadioButton.setAttribute('disabled', true);
+      const clickedRadioButton =
+        event.target || event.srcElement || event.currentTarget;
+      clickedRadioButton.setAttribute("disabled", true);
       this.checkValidationFormStatus();
     }
   }
@@ -90,7 +105,7 @@ export class ValidatePIAComponent implements OnInit {
   simplePIAValidation() {
     this._piaService.pia.status = 2;
     this._piaService.pia.update().then(() => {
-      this._modalsService.openModal('modal-simple-pia-validation');
+      this._modalsService.openModal("modal-simple-pia-validation");
     });
   }
 
@@ -100,7 +115,7 @@ export class ValidatePIAComponent implements OnInit {
   signedPIAValidation() {
     this._piaService.pia.status = 3;
     this._piaService.pia.update().then(() => {
-      this._modalsService.openModal('modal-signed-pia-validation');
+      this._modalsService.openModal("modal-signed-pia-validation");
     });
   }
 
@@ -110,18 +125,22 @@ export class ValidatePIAComponent implements OnInit {
    */
   private checkValidationFormStatus() {
     let allBtnChecked = true;
-    const radioButtons = document.querySelectorAll('.pia-entryContentBlock-content-list-confirm input');
-    const simpleValidationBtn = document.getElementById('pia-simple-validation');
-    const signValidationBtn = document.getElementById('pia-sign-validation');
+    const radioButtons = document.querySelectorAll(
+      ".pia-entryContentBlock-content-list-confirm input"
+    );
+    const simpleValidationBtn = document.getElementById(
+      "pia-simple-validation"
+    );
+    const signValidationBtn = document.getElementById("pia-sign-validation");
 
-    [].forEach.call(radioButtons, function (currentRadioBtn) {
+    [].forEach.call(radioButtons, function(currentRadioBtn) {
       if (!currentRadioBtn.checked) {
         allBtnChecked = false;
       }
     });
     if (allBtnChecked) {
-      simpleValidationBtn.removeAttribute('disabled');
-      signValidationBtn.removeAttribute('disabled');
+      simpleValidationBtn.removeAttribute("disabled");
+      signValidationBtn.removeAttribute("disabled");
     }
   }
 }

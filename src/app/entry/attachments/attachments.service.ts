@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-import { Attachment } from './attachment.model';
+import { Attachment } from "./attachment.model";
 
-import { ModalsService } from 'src/app/modals/modals.service';
+import { ModalsService } from "src/app/modals/modals.service";
 
 @Injectable()
 export class AttachmentsService {
-
   attachments: any[];
   signedAttachments: any[] = [];
   attachment_signed: any;
   pia: any;
   pia_signed = 0;
 
-  constructor(private _modalsService: ModalsService) { }
+  constructor(private _modalsService: ModalsService) {}
 
   /**
    * List all attachments.
@@ -49,10 +48,14 @@ export class AttachmentsService {
         // If we have some signed attachments :
         if (this.signedAttachments && this.signedAttachments.length > 0) {
           this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
-          if (this.signedAttachments[0] && this.signedAttachments[0].file && this.signedAttachments[0].file.length > 0) {
-             // Store the latest signed attachment only if file isn't empty
+          if (
+            this.signedAttachments[0] &&
+            this.signedAttachments[0].file &&
+            this.signedAttachments[0].file.length > 0
+          ) {
+            // Store the latest signed attachment only if file isn't empty
             this.attachment_signed = this.signedAttachments[0];
-             // Remove it from the signed attachments array so that we get the oldest
+            // Remove it from the signed attachments array so that we get the oldest
             this.signedAttachments.splice(0, 1);
           }
         }
@@ -76,7 +79,7 @@ export class AttachmentsService {
       attachment.mime_type = attachment_file.type;
       attachment.pia_id = this.pia.id;
       attachment.pia_signed = this.pia_signed;
-      attachment.comment = '';
+      attachment.comment = "";
       attachment.create().then((id: number) => {
         attachment.id = id;
         this.attachments.unshift(attachment);
@@ -89,7 +92,7 @@ export class AttachmentsService {
         // To refresh signed attachments on validation page
         this.updateSignedAttachmentsList();
       });
-    }
+    };
   }
 
   /**
@@ -100,17 +103,19 @@ export class AttachmentsService {
     const attachment = new Attachment();
     attachment.pia_id = this.pia.id;
     attachment.find(id).then((entry: any) => {
-      fetch(entry.file,{
-        mode: 'cors'
-      }).then(res => res.blob()).then(blob => {
-        const a = <any>document.createElement('a');
-        a.href = window.URL.createObjectURL(blob);
-        a.download = entry.name;
-        const event = new MouseEvent('click', {
-          view: window
+      fetch(entry.file, {
+        mode: "cors"
+      })
+        .then(res => res.blob())
+        .then(blob => {
+          const a = <any>document.createElement("a");
+          a.href = window.URL.createObjectURL(blob);
+          a.download = entry.name;
+          const event = new MouseEvent("click", {
+            view: window
+          });
+          a.dispatchEvent(event);
         });
-        a.dispatchEvent(event);
-      });
     });
   }
 
@@ -120,7 +125,7 @@ export class AttachmentsService {
    */
   removeAttachment(comment: string) {
     if (comment && comment.length > 0) {
-      const attachmentId = parseInt(localStorage.getItem('attachment-id'), 10);
+      const attachmentId = parseInt(localStorage.getItem("attachment-id"), 10);
 
       // Remove from DB by erasing only the "file" field
       const attachment = new Attachment();
@@ -133,16 +138,18 @@ export class AttachmentsService {
       if (index !== -1) {
         this.attachments.splice(index, 1);
       }
-      if (this.attachment_signed && this.attachment_signed.id === attachmentId) {
+      if (
+        this.attachment_signed &&
+        this.attachment_signed.id === attachmentId
+      ) {
         this.attachment_signed.comment = comment;
         this.attachment_signed.file = null;
         this.signedAttachments.unshift(this.attachment_signed);
         this.attachment_signed = null;
       }
 
-      localStorage.removeItem('attachment-id');
+      localStorage.removeItem("attachment-id");
       this._modalsService.closeModal();
     }
   }
-
 }

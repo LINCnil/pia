@@ -1,4 +1,4 @@
-@import '../../assets/stylesheets/variables';
+@import "../../assets/stylesheets/variables";
 .pia-entryContentBlock {
   &-header {
     div:first-child {
@@ -13,7 +13,7 @@
         text-align: center;
         padding-top: 5px;
       }
-      i{
+      i {
         font-size: 2rem;
       }
       a {
@@ -36,7 +36,9 @@
     }
   }
   &-content {
-    &-fundamental, &-measures, &-risks {
+    &-fundamental,
+    &-measures,
+    &-risks {
       color: $pia-dark-black;
       h2 {
         color: #fff;
@@ -50,7 +52,8 @@
         background-color: $pia-blue;
       }
     }
-    &-measures, &-risks {
+    &-measures,
+    &-risks {
       background-color: transparent;
       h2 {
         background-color: $pia-red;
@@ -71,20 +74,19 @@
             font-weight: normal;
             align-self: center;
           }
-          i{
+          i {
             color: $pia-gray;
             font-size: 20px;
           }
           button {
             align-self: center;
-
           }
         }
         > div {
           font-size: 1.4rem;
         }
         &-comment {
-          margin:  0 50px;
+          margin: 0 50px;
           padding-bottom: 20px;
           font-size: 1.4rem;
           border-bottom: solid $pia-green 1px;

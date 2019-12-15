@@ -1,12 +1,12 @@
-@import '../../../assets/stylesheets/variables';
+@import "../../../assets/stylesheets/variables";
 
 .pia {
-    &-doingBlock {
-        .pia-cardsBlock {
-            &-header-title {
-                border-bottom-color: $pia-red;
-                color: $pia-red;
-            }
-        }
+  &-doingBlock {
+    .pia-cardsBlock {
+      &-header-title {
+        border-bottom-color: $pia-red;
+        color: $pia-red;
+      }
     }
+  }
 }

@@ -1,24 +1,31 @@
-import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnDestroy,
+  Output,
+  EventEmitter
+} from "@angular/core";
+import { Router } from "@angular/router";
+import { Subscription } from "rxjs";
+import { FormControl, FormGroup } from "@angular/forms";
 
-import { Pia } from 'src/app/entry/pia.model';
-import { Structure } from 'src/app/structures/structure.model';
+import { Pia } from "src/app/entry/pia.model";
+import { Structure } from "src/app/structures/structure.model";
 
-import { ModalsService } from './modals.service';
-import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
-import { PiaService } from 'src/app/services/pia.service';
-import { ArchiveService } from 'src/app/services/archive.service';
-import { StructureService } from 'src/app/services/structure.service';
-import { AnswerStructureService } from 'src/app/services/answer-structure.service';
-import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { ModalsService } from "./modals.service";
+import { MeasureService } from "src/app/entry/entry-content/measures/measures.service";
+import { PiaService } from "src/app/services/pia.service";
+import { ArchiveService } from "src/app/services/archive.service";
+import { StructureService } from "src/app/services/structure.service";
+import { AnswerStructureService } from "src/app/services/answer-structure.service";
+import { AttachmentsService } from "src/app/entry/attachments/attachments.service";
+import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 
 @Component({
-  selector: 'app-modals',
-  templateUrl: './modals.component.html',
-  styleUrls: ['./modals.component.scss'],
+  selector: "app-modals",
+  templateUrl: "./modals.component.html",
+  styleUrls: ["./modals.component.scss"],
   providers: [PiaService, ArchiveService, StructureService]
 })
 export class ModalsComponent implements OnInit, OnDestroy {
@@ -45,13 +52,19 @@ export class ModalsComponent implements OnInit, OnDestroy {
     public _measuresService: MeasureService,
     public _attachmentsService: AttachmentsService,
     private _translateService: TranslateService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy' : this.dateFormat = 'MM-dd-yy'
-    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy' : this.dateFormat = 'MM-dd-yy'
-    });
+    this._translateService.currentLang === "fr"
+      ? (this.dateFormat = "dd/MM/yy")
+      : (this.dateFormat = "MM-dd-yy");
+    this.subscription = this._translateService.onLangChange.subscribe(
+      (event: LangChangeEvent) => {
+        this._translateService.currentLang === "fr"
+          ? (this.dateFormat = "dd/MM/yy")
+          : (this.dateFormat = "MM-dd-yy");
+      }
+    );
     const structure = new Structure();
     structure.getAll().then((data: any) => {
       this._structureService.structures = data;
@@ -82,7 +95,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
    */
   returnToHomepage() {
     this._modalsService.closeModal();
-    this.router.navigate(['/home']);
+    this.router.navigate(["/home"]);
   }
 
   /**
@@ -91,7 +104,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
    */
   onSubmit() {
     this._piaService.saveNewPia(this.piaForm).then((id: number) => {
-      this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
+      this.router.navigate(["entry", id, "section", 1, "item", 1]);
     });
   }
 
@@ -105,15 +118,19 @@ export class ModalsComponent implements OnInit, OnDestroy {
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this._piaService.data;
     const p = structure.create();
-    p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
+    p.then(id =>
+      this.router.navigate(["structures", "entry", id, "section", 1, "item", 1])
+    );
   }
 
   /**
    * Focuses out from the comment attachment field.
    */
   attachmentCommentFocusOut() {
-    if (this.removeAttachmentForm.controls['comment'].value &&
-        this.removeAttachmentForm.controls['comment'].value.length > 0) {
+    if (
+      this.removeAttachmentForm.controls["comment"].value &&
+      this.removeAttachmentForm.controls["comment"].value.length > 0
+    ) {
       this.enableSubmit = false;
     }
   }

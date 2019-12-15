@@ -1,4 +1,4 @@
-@import '../../../assets/stylesheets/variables';
+@import "../../../assets/stylesheets/variables";
 .pia {
   &-knowledgeBaseBlock {
     &-none {
@@ -87,7 +87,8 @@
       padding-bottom: 18px;
       border-top: solid 1px $pia-green;
       position: relative;
-      &-accordion, &-definition {
+      &-accordion,
+      &-definition {
         display: inline-block;
         vertical-align: middle;
       }
@@ -98,7 +99,8 @@
       &-definition {
         position: relative;
         width: 90%;
-        button, p {
+        button,
+        p {
           display: inline-block;
           vertical-align: top;
         }
