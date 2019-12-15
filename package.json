@@ -11,7 +11,7 @@
     "e2e": "cypress open --config watchForFileChanges=false",
     "prod": "ng build --prod --build-optimizer",
     "clean": "rimraf ./dist/",
-    "format:write": "prettier src/**/*.{ts,json,md,scss} --write",
+    "format:write": "prettier src/**/*.{html,ts,json,md,scss} --write",
     "format:test": "prettier src/**/*.{ts,json,md,scss} --list-different",
     "compodoc": "compodoc -p src/tsconfig.app.json"
   },

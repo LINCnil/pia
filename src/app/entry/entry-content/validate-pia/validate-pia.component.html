@@ -1,103 +1,247 @@
 <div class="container pia-validationBlock ">
   <div class="pia-entryContentBlock-content">
     <div class="pia-entryContentBlock-content-list">
-      <p>({{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}})</p>
-      <p>{{ 'validation_page.responsible' | translate }}<span class="blue">{{_piaService.pia.validator_name}}</span>.</p>
-      <p>{{ 'validation_page.after_reading' | translate }}<span class="blue">{{_piaService.pia.name}}</span></p>
+      <p>({{ _piaService.pia.updated_at | date: "dd/MM/yyyy" }})</p>
+      <p>
+        {{ "validation_page.responsible" | translate
+        }}<span class="blue">{{ _piaService.pia.validator_name }}</span
+        >.
+      </p>
+      <p>
+        {{ "validation_page.after_reading" | translate
+        }}<span class="blue">{{ _piaService.pia.name }}</span>
+      </p>
       <form [formGroup]="validateForm" novalidate>
-        <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
-          <input type="checkbox" formControlName="validateStatus1" (click)="lockStatus($event)" id="checkbox-1" value="1">
+        <div
+          class="pia-entryContentBlock-content-list-confirm"
+          [ngClass]="{ validate: _piaService.pia.status > 1 }"
+        >
+          <input
+            type="checkbox"
+            formControlName="validateStatus1"
+            (click)="lockStatus($event)"
+            id="checkbox-1"
+            value="1"
+          />
           <label for="checkbox-1">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
             </span>
-            <span class="pia-list-confirm-desc">{{ 'validation_page.confirmation1' | translate }}</span>
+            <span class="pia-list-confirm-desc">{{
+              "validation_page.confirmation1" | translate
+            }}</span>
           </label>
         </div>
-        <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
-          <input type="checkbox" formControlName="validateStatus2" (click)="lockStatus($event)" id="checkbox-2" value="2">
+        <div
+          class="pia-entryContentBlock-content-list-confirm"
+          [ngClass]="{ validate: _piaService.pia.status > 1 }"
+        >
+          <input
+            type="checkbox"
+            formControlName="validateStatus2"
+            (click)="lockStatus($event)"
+            id="checkbox-2"
+            value="2"
+          />
           <label for="checkbox-2">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
             </span>
-            <span class="pia-list-confirm-desc">{{ 'validation_page.confirmation2' | translate }}</span>
+            <span class="pia-list-confirm-desc">{{
+              "validation_page.confirmation2" | translate
+            }}</span>
           </label>
         </div>
-        <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
-          <input type="checkbox" formControlName="validateStatus3" (click)="lockStatus($event)" id="checkbox-3" value="3">
+        <div
+          class="pia-entryContentBlock-content-list-confirm"
+          [ngClass]="{ validate: _piaService.pia.status > 1 }"
+        >
+          <input
+            type="checkbox"
+            formControlName="validateStatus3"
+            (click)="lockStatus($event)"
+            id="checkbox-3"
+            value="3"
+          />
           <label for="checkbox-3">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
             </span>
-            <span class="pia-list-confirm-desc">{{ 'validation_page.confirmation3' | translate }}</span>
+            <span class="pia-list-confirm-desc">{{
+              "validation_page.confirmation3" | translate
+            }}</span>
           </label>
         </div>
-        <div class="pia-entryContentBlock-content-list-confirm" [ngClass]="{'validate': _piaService.pia.status > 1}">
-          <input type="checkbox" formControlName="validateStatus4" (click)="lockStatus($event)" id="checkbox-4" value="4">
+        <div
+          class="pia-entryContentBlock-content-list-confirm"
+          [ngClass]="{ validate: _piaService.pia.status > 1 }"
+        >
+          <input
+            type="checkbox"
+            formControlName="validateStatus4"
+            (click)="lockStatus($event)"
+            id="checkbox-4"
+            value="4"
+          />
           <label for="checkbox-4">
             <span class="pia-list-confirm-icon">
               <i class="fa fa-circle" aria-hidden="true"></i>
               <i class="fa fa-check" aria-hidden="true"></i>
             </span>
-            <span class="pia-list-confirm-desc">{{ 'validation_page.confirmation4' | translate }}</span>
+            <span class="pia-list-confirm-desc">{{
+              "validation_page.confirmation4" | translate
+            }}</span>
           </label>
         </div>
         <div class="pia-entryContentBlock-content-btn-valid">
-          <a [ngClass]="{'disabled-validation': _piaService.pia.is_example === 1}" routerLink="/entry/{{_piaService.pia.id}}/section/4/item/5" class="btn btn-red" [innerHTML]="'validation_page.button.rejection' | translate"></a>
-          <button type="submit" class="btn btn-blue" [ngClass]="{'btn-active': _piaService.pia.status === 2, 'disabled-validation': _piaService.pia.is_example === 1}" (click)="simplePIAValidation()" id="pia-simple-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.simple_validation' | translate"></button>
-          <button type="submit" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 3, 'disabled-validation': _piaService.pia.is_example === 1}" (click)="signedPIAValidation()" id="pia-sign-validation" [disabled]="_piaService.pia.status <= 1" [innerHTML]="'validation_page.button.signed_validation' | translate"></button>
+          <a
+            [ngClass]="{
+              'disabled-validation': _piaService.pia.is_example === 1
+            }"
+            routerLink="/entry/{{ _piaService.pia.id }}/section/4/item/5"
+            class="btn btn-red"
+            [innerHTML]="'validation_page.button.rejection' | translate"
+          ></a>
+          <button
+            type="submit"
+            class="btn btn-blue"
+            [ngClass]="{
+              'btn-active': _piaService.pia.status === 2,
+              'disabled-validation': _piaService.pia.is_example === 1
+            }"
+            (click)="simplePIAValidation()"
+            id="pia-simple-validation"
+            [disabled]="_piaService.pia.status <= 1"
+            [innerHTML]="'validation_page.button.simple_validation' | translate"
+          ></button>
+          <button
+            type="submit"
+            class="btn btn-red"
+            [ngClass]="{
+              'btn-active': _piaService.pia.status === 3,
+              'disabled-validation': _piaService.pia.is_example === 1
+            }"
+            (click)="signedPIAValidation()"
+            id="pia-sign-validation"
+            [disabled]="_piaService.pia.status <= 1"
+            [innerHTML]="'validation_page.button.signed_validation' | translate"
+          ></button>
         </div>
-        <p style="margin-top:6px;">{{ 'validation_page.mandatory_fields' | translate }}</p>
+        <p style="margin-top:6px;">
+          {{ "validation_page.mandatory_fields" | translate }}
+        </p>
       </form>
 
       <!-- Display adequate text according to the signed attachment available or not -->
-      <div class="pia-entryContentBlock-content-status" *ngIf="_piaService.pia.status === 3">
-        <ng-container *ngIf="!_attachmentsService.attachment_signed; else piaSignedAndValidated">
-          <p>{{ 'validation_page.waiting_for_signature' | translate }}</p>
+      <div
+        class="pia-entryContentBlock-content-status"
+        *ngIf="_piaService.pia.status === 3"
+      >
+        <ng-container
+          *ngIf="
+            !_attachmentsService.attachment_signed;
+            else piaSignedAndValidated
+          "
+        >
+          <p>{{ "validation_page.waiting_for_signature" | translate }}</p>
           <i class="fa fa-cog" aria-hidden="true"></i>
         </ng-container>
         <ng-template #piaSignedAndValidated>
           <i class="fa fa fa-check-square-o" aria-hidden="true"></i>
-          <p>{{ 'validation_page.validated_pia_with_signature' | translate }}</p>
+          <p>
+            {{ "validation_page.validated_pia_with_signature" | translate }}
+          </p>
         </ng-template>
       </div>
-
     </div>
   </div>
 
-  <button [ngClass]="{'disabled-validation': _piaService.pia.is_example === 1}" type="button" (click)="addAttachment()" *ngIf="_piaService.pia.status === 3" class="pia-entryContentBlock-submitAttachmentButton btn btn-red">{{ 'validation_page.add_signed_pia' | translate }}</button>
+  <button
+    [ngClass]="{ 'disabled-validation': _piaService.pia.is_example === 1 }"
+    type="button"
+    (click)="addAttachment()"
+    *ngIf="_piaService.pia.status === 3"
+    class="pia-entryContentBlock-submitAttachmentButton btn btn-red"
+  >
+    {{ "validation_page.add_signed_pia" | translate }}
+  </button>
 
   <div>
     <app-pia-validate-history></app-pia-validate-history>
   </div>
 
   <div class="pia-entryContentBlock-footer">
-
     <!-- Attachments block -->
-    <div class="pia-entryContentBlock-footer-validationAttachments" *ngIf="_piaService.pia.status === 3 && (_attachmentsService.attachment_signed || (_attachmentsService.signedAttachments && _attachmentsService.signedAttachments.length > 0))">
+    <div
+      class="pia-entryContentBlock-footer-validationAttachments"
+      *ngIf="
+        _piaService.pia.status === 3 &&
+        (_attachmentsService.attachment_signed ||
+          (_attachmentsService.signedAttachments &&
+            _attachmentsService.signedAttachments.length > 0))
+      "
+    >
       <!-- Last signed attachment -->
       <div *ngIf="_attachmentsService.attachment_signed">
-        <h2>{{ 'validation_page.latest_signed_attachment' | translate }}</h2>
+        <h2>{{ "validation_page.latest_signed_attachment" | translate }}</h2>
         <div>
           <span class="pia-icons pia-icon-file-pdf-blue"></span>
-          <a href="javascript:;" (click)="downloadAttachment(_attachmentsService.attachment_signed.id)">{{_attachmentsService.attachment_signed.name}}</a>
-          <button *ngIf="_piaService.pia.status !== 4" type="button" class="btn" (click)="removeAttachment(_attachmentsService.attachment_signed.id)" title="{{ 'validation_page.remove_attachment' | translate }}"><span class="pia-icons pia-icon-close"></span></button>
+          <a
+            href="javascript:;"
+            (click)="
+              downloadAttachment(_attachmentsService.attachment_signed.id)
+            "
+            >{{ _attachmentsService.attachment_signed.name }}</a
+          >
+          <button
+            *ngIf="_piaService.pia.status !== 4"
+            type="button"
+            class="btn"
+            (click)="removeAttachment(_attachmentsService.attachment_signed.id)"
+            title="{{ 'validation_page.remove_attachment' | translate }}"
+          >
+            <span class="pia-icons pia-icon-close"></span>
+          </button>
         </div>
       </div>
 
       <!-- Previous signed attachments history -->
-      <div *ngIf="_attachmentsService.signedAttachments && _attachmentsService.signedAttachments.length > 0" class="pia-entryContentBlock-footer-validationAttachments-history">
-        <h2>{{ 'validation_page.signed_attachments_history' | translate }}</h2>
-        <div *ngFor="let signed_attachment of _attachmentsService.signedAttachments;let i=index">
+      <div
+        *ngIf="
+          _attachmentsService.signedAttachments &&
+          _attachmentsService.signedAttachments.length > 0
+        "
+        class="pia-entryContentBlock-footer-validationAttachments-history"
+      >
+        <h2>{{ "validation_page.signed_attachments_history" | translate }}</h2>
+        <div
+          *ngFor="
+            let signed_attachment of _attachmentsService.signedAttachments;
+            let i = index
+          "
+        >
           <span class="pia-icons pia-icon-file-pdf-blue"></span>
-          <a href="javascript:;" (click)="downloadAttachment(signed_attachment.id)" *ngIf="signed_attachment.file && signed_attachment.file.length > 0; else signedAttachmentName">{{signed_attachment.name}}</a>
+          <a
+            href="javascript:;"
+            (click)="downloadAttachment(signed_attachment.id)"
+            *ngIf="
+              signed_attachment.file && signed_attachment.file.length > 0;
+              else signedAttachmentName
+            "
+            >{{ signed_attachment.name }}</a
+          >
           <ng-template #signedAttachmentName>
-            <span><del>{{signed_attachment.name}}</del></span>
+            <span
+              ><del>{{ signed_attachment.name }}</del></span
+            >
           </ng-template>
-          <div *ngIf="signed_attachment.comment" [innerHTML]="signed_attachment.comment|nl2br"></div>
+          <div
+            *ngIf="signed_attachment.comment"
+            [innerHTML]="signed_attachment.comment | nl2br"
+          ></div>
         </div>
       </div>
     </div>
@@ -107,6 +251,5 @@
       <a routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i><p>{{ 'validation_page.tools.dashboard' | translate }}</p></a>
       <a routerLink="/preview/{{_piaService.pia.id}}"><i class="fa fa-file-text-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.display_pia' | translate }}</p></a>
     </div> -->
-
   </div>
 </div>

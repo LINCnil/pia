@@ -1,48 +1,82 @@
-
 <div class="pia-exportBlock hide-for-print">
   <div class="pia-exportBlock-title" *ngIf="!editMode">
-    <i class="fa fa-download"></i> {{ 'summary.actions.print_and_download' | translate }}
+    <i class="fa fa-download"></i>
+    {{ "summary.actions.print_and_download" | translate }}
   </div>
   <!-- Print -->
   <div class="pia-exportBlock-print">
-    <button onclick="print()">{{ 'summary.actions.print' | translate }}</button>
+    <button onclick="print()">{{ "summary.actions.print" | translate }}</button>
   </div>
 
   <!-- Individual exports -->
   <div class="pia-exportBlock-individual">
     <div class="pia-exportBlock-individual-description">
-      <div>{{ 'summary.actions.individual_download' | translate }}</div>
+      <div>{{ "summary.actions.individual_download" | translate }}</div>
     </div>
     <div class="pia-exportBlock-individual-links">
-      <div>{{ 'summary.actions.individual_download_select' | translate }}</div>
+      <div>{{ "summary.actions.individual_download_select" | translate }}</div>
       <ul>
         <li>
-          <input type="checkbox" (change)="onSelectDownload('doc', $event.target.checked)" name="doc" value="doc" id="doc">
+          <input
+            type="checkbox"
+            (change)="onSelectDownload('doc', $event.target.checked)"
+            name="doc"
+            value="doc"
+            id="doc"
+          />
           <label for="doc">
-            <span>{{ 'summary.actions.individual_download_doc' | translate }}</span>
+            <span>{{
+              "summary.actions.individual_download_doc" | translate
+            }}</span>
           </label>
         </li>
         <li>
-          <input type="checkbox" (change)="onSelectDownload('images', $event.target.checked)" name="images" value="images" id="images">
+          <input
+            type="checkbox"
+            (change)="onSelectDownload('images', $event.target.checked)"
+            name="images"
+            value="images"
+            id="images"
+          />
           <label for="images">
-            <span>{{ 'summary.actions.individual_download_images' | translate }}</span>
+            <span>{{
+              "summary.actions.individual_download_images" | translate
+            }}</span>
           </label>
         </li>
         <li>
-          <input type="checkbox" (change)="onSelectDownload('csv', $event.target.checked)" name="csv" value="csv" id="csv">
+          <input
+            type="checkbox"
+            (change)="onSelectDownload('csv', $event.target.checked)"
+            name="csv"
+            value="csv"
+            id="csv"
+          />
           <label for="csv">
-            <span>{{ 'summary.action_plan.title' | translate }}</span>
+            <span>{{ "summary.action_plan.title" | translate }}</span>
           </label>
         </li>
         <li>
-          <input type="checkbox" (change)="onSelectDownload('json', $event.target.checked)" name="json" value="json" id="json">
+          <input
+            type="checkbox"
+            (change)="onSelectDownload('json', $event.target.checked)"
+            name="json"
+            value="json"
+            id="json"
+          />
           <label for="json">
-            <span>{{ 'summary.actions.individual_download_json' | translate }}</span>
+            <span>{{
+              "summary.actions.individual_download_json" | translate
+            }}</span>
           </label>
         </li>
       </ul>
-      <button (click)="launchDownload()" class="btn-green" [disabled]="exportSelected.length < 1">
-        {{ 'summary.actions.individual_to_download' | translate }}
+      <button
+        (click)="launchDownload()"
+        class="btn-green"
+        [disabled]="exportSelected.length < 1"
+      >
+        {{ "summary.actions.individual_to_download" | translate }}
       </button>
     </div>
   </div>
