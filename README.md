@@ -22,7 +22,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 First you need to rename the file `src/environments/environment.prod.ts.example` to `src/environments/environment.prod.ts`.
 Then set the version number inside this file.
-And use the command `ng build --prod --build-optimizer --sourcemaps` or `yarn prod` for a production build.
+And use the command `ng build --prod --build-optimizer` or `yarn prod` for a production build.
 
 If you have memory issue while building try this command: `node --max-old-space-size=1024 node_modules/@angular/cli/bin/ng build --prod`
 
