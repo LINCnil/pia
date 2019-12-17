@@ -4696,7 +4696,7 @@ html-entities@^1.2.0, html-entities@^1.2.1:
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
   integrity sha1-DfKTUfByEWNRXfueVUPl9u7VFi8=
 
-html2canvas@^1.0.0-alpha.12:
+html2canvas@1.0.0-rc.1:
   version "1.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/html2canvas/-/html2canvas-1.0.0-rc.1.tgz#422222d21332d05ca55d86954e5f413e17fae6fb"
   integrity sha512-ImguLJ3goQnY0P6z7n6VqBZ+ViS77Hv6J7iYXBxvdb3NWz3s8/mqr4/Lj0OlMUb3ID+qCQ1BPLIBuRMqhgqvYg==

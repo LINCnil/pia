@@ -11,7 +11,7 @@
     "e2e": "cypress open --config watchForFileChanges=false",
     "prod": "ng build --prod --build-optimizer",
     "clean": "rimraf ./dist/",
-    "format:write": "prettier src/**/*.{html,ts,json,md,scss} --write",
+    "format:write": "prettier src/**/*.{ts,json,md,scss} --write",
     "format:test": "prettier src/**/*.{ts,json,md,scss} --list-different",
     "compodoc": "compodoc -p src/tsconfig.app.json"
   },
@@ -44,7 +44,7 @@
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.5.3",
-    "html2canvas": "^1.0.0-alpha.12",
+    "html2canvas": "1.0.0-rc.1",
     "jszip": "^3.2.2",
     "ng2-pdfjs-viewer": "^5.0.1",
     "ngx-chips": "2.0.0-beta.0",
