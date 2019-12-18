@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from '@angular/core';
 
-import { Attachment } from "src/app/entry/attachments/attachment.model";
+import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
-import { ModalsService } from "src/app/modals/modals.service";
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Component({
   selector: `.app-list-item`,
-  templateUrl: "./list-item.component.html",
-  styleUrls: ["./list-item.component.scss"],
+  templateUrl: './list-item.component.html',
+  styleUrls: ['./list-item.component.scss'],
   providers: []
 })
 export class ListItemComponent implements OnInit {
@@ -22,7 +22,7 @@ export class ListItemComponent implements OnInit {
     attachmentModel.pia_id = this.archivedPia.id;
     attachmentModel.findAll().then((entries: any) => {
       entries.forEach(element => {
-        if (element["file"] && element["file"].length) {
+        if (element['file'] && element['file'].length) {
           this.attachments.push(element);
         }
       });
@@ -34,8 +34,8 @@ export class ListItemComponent implements OnInit {
    * @param {string} id - The archived PIA id.
    */
   unarchive(id: string) {
-    localStorage.setItem("pia-to-unarchive-id", id);
-    this._modalsService.openModal("modal-unarchive-pia");
+    localStorage.setItem('pia-to-unarchive-id', id);
+    this._modalsService.openModal('modal-unarchive-pia');
   }
 
   /**
@@ -43,7 +43,7 @@ export class ListItemComponent implements OnInit {
    * @param {string} id - The archived PIA id.
    */
   remove(id: string) {
-    localStorage.setItem("pia-to-remove-id", id);
-    this._modalsService.openModal("modal-remove-archived-pia");
+    localStorage.setItem('pia-to-remove-id', id);
+    this._modalsService.openModal('modal-remove-archived-pia');
   }
 }

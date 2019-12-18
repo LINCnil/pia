@@ -1,17 +1,17 @@
-import { Component, OnInit, ElementRef, OnDestroy, Input } from "@angular/core";
-import { Router, ActivatedRoute, Params } from "@angular/router";
-import { Subscription } from "rxjs";
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 
-import { Pia } from "../entry/pia.model";
+import { Pia } from '../entry/pia.model';
 
-import { ModalsService } from "src/app/modals/modals.service";
-import { PiaService } from "src/app/services/pia.service";
-import { ArchiveService } from "src/app/services/archive.service";
+import { ModalsService } from 'src/app/modals/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { ArchiveService } from 'src/app/services/archive.service';
 
 @Component({
-  selector: "app-archives",
-  templateUrl: "./archives.component.html",
-  styleUrls: ["./archives.component.scss"],
+  selector: 'app-archives',
+  templateUrl: './archives.component.html',
+  styleUrls: ['./archives.component.scss'],
   providers: [PiaService, ArchiveService]
 })
 export class ArchivesComponent implements OnInit, OnDestroy {
@@ -19,7 +19,7 @@ export class ArchivesComponent implements OnInit, OnDestroy {
   sortOrder: string;
   sortValue: string;
   viewStyle: { view: string };
-  view: "archive";
+  view: 'archive';
   paramsSubscribe: Subscription;
   searchText: string;
 
@@ -33,13 +33,13 @@ export class ArchivesComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.sortOrder = localStorage.getItem("sortOrder");
-    this.sortValue = localStorage.getItem("sortValue");
+    this.sortOrder = localStorage.getItem('sortOrder');
+    this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {
-      this.sortOrder = "up";
-      this.sortValue = "updated_at";
-      localStorage.setItem("sortOrder", this.sortOrder);
-      localStorage.setItem("sortValue", this.sortValue);
+      this.sortOrder = 'up';
+      this.sortValue = 'updated_at';
+      localStorage.setItem('sortOrder', this.sortOrder);
+      localStorage.setItem('sortValue', this.sortValue);
     }
     this.refreshContent();
 
@@ -49,7 +49,7 @@ export class ArchivesComponent implements OnInit, OnDestroy {
     this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
       this.viewStyle.view = params.view;
     });
-    if (localStorage.getItem("homepageDisplayMode") === "list") {
+    if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
       this.viewOnCard();
@@ -57,7 +57,7 @@ export class ArchivesComponent implements OnInit, OnDestroy {
   }
 
   onCleanSearch() {
-    this.searchText = "";
+    this.searchText = '';
   }
 
   ngOnDestroy() {
@@ -70,19 +70,19 @@ export class ArchivesComponent implements OnInit, OnDestroy {
    */
   sortBy(fieldToSort: string) {
     this.sortValue = fieldToSort;
-    this.sortOrder = this.sortOrder === "down" ? "up" : "down";
+    this.sortOrder = this.sortOrder === 'down' ? 'up' : 'down';
     this.sortArchive();
-    localStorage.setItem("sortValue", this.sortValue);
-    localStorage.setItem("sortOrder", this.sortOrder);
+    localStorage.setItem('sortValue', this.sortValue);
+    localStorage.setItem('sortOrder', this.sortOrder);
   }
 
   /**
    * Display elements in list view.
    */
   viewOnList() {
-    this.viewStyle.view = "list";
-    localStorage.setItem("homepageDisplayMode", this.viewStyle.view);
-    this.router.navigate(["archives", "list"]);
+    this.viewStyle.view = 'list';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    this.router.navigate(['archives', 'list']);
     this.refreshContent();
   }
 
@@ -90,9 +90,9 @@ export class ArchivesComponent implements OnInit, OnDestroy {
    * Display elements in card view.
    */
   viewOnCard() {
-    this.viewStyle.view = "card";
-    localStorage.setItem("homepageDisplayMode", this.viewStyle.view);
-    this.router.navigate(["archives", "card"]);
+    this.viewStyle.view = 'card';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    this.router.navigate(['archives', 'card']);
     this.refreshContent();
   }
 
@@ -105,8 +105,8 @@ export class ArchivesComponent implements OnInit, OnDestroy {
       await pia.getAllArchives().then((data: Array<Pia>) => {
         this._archiveService.archivedPias = data;
         this._archiveService.calculProgress();
-        this.sortOrder = localStorage.getItem("sortOrder");
-        this.sortValue = localStorage.getItem("sortValue");
+        this.sortOrder = localStorage.getItem('sortOrder');
+        this.sortValue = localStorage.getItem('sortValue');
         this.sortArchive();
       });
     }, 200);
@@ -120,11 +120,11 @@ export class ArchivesComponent implements OnInit, OnDestroy {
     this._archiveService.archivedPias.sort((a, b) => {
       let firstValue = a[this.sortValue];
       let secondValue = b[this.sortValue];
-      if (this.sortValue === "updated_at" || this.sortValue === "created_at") {
+      if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
         firstValue = new Date(a[this.sortValue]);
         secondValue = new Date(b[this.sortValue]);
       }
-      if (this.sortValue === "name") {
+      if (this.sortValue === 'name') {
         return firstValue.localeCompare(secondValue);
       } else {
         if (firstValue < secondValue) {
@@ -136,7 +136,7 @@ export class ArchivesComponent implements OnInit, OnDestroy {
         return 0;
       }
     });
-    if (this.sortOrder === "up") {
+    if (this.sortOrder === 'up') {
       this._archiveService.archivedPias.reverse();
     }
   }

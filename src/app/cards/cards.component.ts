@@ -1,19 +1,19 @@
-import { Component, OnInit, ElementRef, OnDestroy, Input } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
-import { Router, ActivatedRoute, Params } from "@angular/router";
-import { Subscription } from "rxjs";
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 
-import { Pia } from "../entry/pia.model";
-import { Structure } from "src/app/structures/structure.model";
+import { Pia } from '../entry/pia.model';
+import { Structure } from 'src/app/structures/structure.model';
 
-import { ModalsService } from "src/app/modals/modals.service";
-import { PiaService } from "src/app/services/pia.service";
-import { StructureService } from "src/app/services/structure.service";
+import { ModalsService } from 'src/app/modals/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
-  selector: "app-cards",
-  templateUrl: "./cards.component.html",
-  styleUrls: ["./cards.component.scss"],
+  selector: 'app-cards',
+  templateUrl: './cards.component.html',
+  styleUrls: ['./cards.component.scss'],
   providers: [PiaService, StructureService]
 })
 export class CardsComponent implements OnInit, OnDestroy {
@@ -24,7 +24,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   sortOrder: string;
   sortValue: string;
   viewStyle: { view: string };
-  view: "card";
+  view: 'card';
   paramsSubscribe: Subscription;
   searchText: string;
 
@@ -43,13 +43,13 @@ export class CardsComponent implements OnInit, OnDestroy {
       this._structureService.structures = data;
     });
 
-    this.sortOrder = localStorage.getItem("sortOrder");
-    this.sortValue = localStorage.getItem("sortValue");
+    this.sortOrder = localStorage.getItem('sortOrder');
+    this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {
-      this.sortOrder = "up";
-      this.sortValue = "updated_at";
-      localStorage.setItem("sortOrder", this.sortOrder);
-      localStorage.setItem("sortValue", this.sortValue);
+      this.sortOrder = 'up';
+      this.sortValue = 'updated_at';
+      localStorage.setItem('sortOrder', this.sortOrder);
+      localStorage.setItem('sortValue', this.sortValue);
     }
     this.refreshContent();
     this.piaForm = new FormGroup({
@@ -66,18 +66,18 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
       this.viewStyle.view = params.view;
     });
-    if (localStorage.getItem("homepageDisplayMode") === "list") {
+    if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
       this.viewOnCard();
     }
     this.importPiaForm = new FormGroup({
-      import_file: new FormControl("", [])
+      import_file: new FormControl('', [])
     });
   }
 
   onCleanSearch() {
-    this.searchText = "";
+    this.searchText = '';
   }
 
   ngOnDestroy() {
@@ -103,11 +103,11 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   newPIA() {
     this.newPia = new Pia();
-    const cardsToSwitch = document.getElementById("cardsSwitch");
-    cardsToSwitch.classList.toggle("flipped");
-    const rocketToHide = document.getElementById("pia-rocket");
+    const cardsToSwitch = document.getElementById('cardsSwitch');
+    cardsToSwitch.classList.toggle('flipped');
+    const rocketToHide = document.getElementById('pia-rocket');
     if (rocketToHide) {
-      rocketToHide.style.display = "none";
+      rocketToHide.style.display = 'none';
     }
   }
 
@@ -115,8 +115,8 @@ export class CardsComponent implements OnInit, OnDestroy {
    * Inverse the order of the list.
    */
   reversePIA() {
-    const cardsToSwitchReverse = document.getElementById("cardsSwitch");
-    cardsToSwitchReverse.classList.remove("flipped");
+    const cardsToSwitchReverse = document.getElementById('cardsSwitch');
+    cardsToSwitchReverse.classList.remove('flipped');
   }
 
   /**
@@ -127,7 +127,7 @@ export class CardsComponent implements OnInit, OnDestroy {
     if (event) {
       this._piaService.import(event.target.files[0]);
     } else {
-      this.el.nativeElement.querySelector("#import_file").click();
+      this.el.nativeElement.querySelector('#import_file').click();
     }
   }
 
@@ -137,7 +137,7 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   onSubmit() {
     this._piaService.saveNewPia(this.piaForm).then((id: number) => {
-      this.router.navigate(["entry", id, "section", 1, "item", 1]);
+      this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
     });
   }
 
@@ -147,19 +147,19 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   sortBy(fieldToSort: string) {
     this.sortValue = fieldToSort;
-    this.sortOrder = this.sortOrder === "down" ? "up" : "down";
+    this.sortOrder = this.sortOrder === 'down' ? 'up' : 'down';
     this.sortPia();
-    localStorage.setItem("sortValue", this.sortValue);
-    localStorage.setItem("sortOrder", this.sortOrder);
+    localStorage.setItem('sortValue', this.sortValue);
+    localStorage.setItem('sortOrder', this.sortOrder);
   }
 
   /**
    * Display elements in list view.
    */
   viewOnList() {
-    this.viewStyle.view = "list";
-    localStorage.setItem("homepageDisplayMode", this.viewStyle.view);
-    this.router.navigate(["home", "list"]);
+    this.viewStyle.view = 'list';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    this.router.navigate(['home', 'list']);
     this.refreshContent();
   }
 
@@ -167,8 +167,8 @@ export class CardsComponent implements OnInit, OnDestroy {
    * Display elements in card view.
    */
   viewOnCard() {
-    this.viewStyle.view = "card";
-    localStorage.setItem("homepageDisplayMode", this.viewStyle.view);
+    this.viewStyle.view = 'card';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
     // this.router.navigate(['home', 'card']);
     this.refreshContent();
   }
@@ -182,8 +182,8 @@ export class CardsComponent implements OnInit, OnDestroy {
       await pia.getAllActives().then((data: Array<Pia>) => {
         this._piaService.pias = data;
         this._piaService.calculProgress();
-        this.sortOrder = localStorage.getItem("sortOrder");
-        this.sortValue = localStorage.getItem("sortValue");
+        this.sortOrder = localStorage.getItem('sortOrder');
+        this.sortValue = localStorage.getItem('sortValue');
         this.sortPia();
       });
     }, 200);
@@ -196,15 +196,15 @@ export class CardsComponent implements OnInit, OnDestroy {
     this._piaService.pias.sort((a, b) => {
       let firstValue = a[this.sortValue];
       let secondValue = b[this.sortValue];
-      if (this.sortValue === "updated_at" || this.sortValue === "created_at") {
+      if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
         firstValue = new Date(a[this.sortValue]);
         secondValue = new Date(b[this.sortValue]);
       }
       if (
-        this.sortValue === "name" ||
-        this.sortValue === "author_name" ||
-        this.sortValue === "evaluator_name" ||
-        this.sortValue === "validator_name"
+        this.sortValue === 'name' ||
+        this.sortValue === 'author_name' ||
+        this.sortValue === 'evaluator_name' ||
+        this.sortValue === 'validator_name'
       ) {
         return firstValue.localeCompare(secondValue);
       } else {
@@ -217,7 +217,7 @@ export class CardsComponent implements OnInit, OnDestroy {
         return 0;
       }
     });
-    if (this.sortOrder === "up") {
+    if (this.sortOrder === 'up') {
       this._piaService.pias.reverse();
     }
   }

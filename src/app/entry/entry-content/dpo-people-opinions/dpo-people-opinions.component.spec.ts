@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DPOPeopleOpinionsComponent } from "./dpo-people-opinions.component";
+import { DPOPeopleOpinionsComponent } from './dpo-people-opinions.component';
 
-describe("DPOPeopleOpinionsComponent", () => {
+describe('DPOPeopleOpinionsComponent', () => {
   let component: DPOPeopleOpinionsComponent;
   let fixture: ComponentFixture<DPOPeopleOpinionsComponent>;
 
@@ -18,7 +18,7 @@ describe("DPOPeopleOpinionsComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should be created", () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

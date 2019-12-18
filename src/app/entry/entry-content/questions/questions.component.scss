@@ -1,4 +1,4 @@
-@import "../../../../assets/stylesheets/variables";
+@import '../../../../assets/stylesheets/variables';
 .pia {
   &-questionBlock {
     position: relative;
@@ -13,7 +13,7 @@
       cursor: pointer;
       &:before {
         position: absolute;
-        content: "";
+        content: '';
         top: -4px;
         right: -4px;
         left: -4px;

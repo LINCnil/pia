@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ValidatePIAComponent } from "./validate-pia.component";
+import { ValidatePIAComponent } from './validate-pia.component';
 
-describe("ValidatePIAComponent", () => {
+describe('ValidatePIAComponent', () => {
   let component: ValidatePIAComponent;
   let fixture: ComponentFixture<ValidatePIAComponent>;
 
@@ -18,7 +18,7 @@ describe("ValidatePIAComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should be created", () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -412,7 +412,7 @@ body.pia-contrast {
     &-list {
       li {
         &::before {
-          content: "";
+          content: '';
           border-top: solid 1px $pia-gray-dark !important;
           color: $pia-gray-dark !important;
         }

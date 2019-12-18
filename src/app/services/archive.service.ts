@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { Pia } from "src/app/entry/pia.model";
-import { Answer } from "src/app/entry/entry-content/questions/answer.model";
-import { Measure } from "src/app/entry/entry-content/measures/measure.model";
+import { Pia } from 'src/app/entry/pia.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 
-import { ModalsService } from "src/app/modals/modals.service";
-import { AppDataService } from "src/app/services/app-data.service";
+import { ModalsService } from 'src/app/modals/modals.service';
+import { AppDataService } from 'src/app/services/app-data.service';
 
 @Injectable()
 export class ArchiveService {
@@ -23,7 +23,7 @@ export class ArchiveService {
    * Sends back an archived PIA to an active PIA
    */
   unarchivePia() {
-    const id = parseInt(localStorage.getItem("pia-to-unarchive-id"), 10);
+    const id = parseInt(localStorage.getItem('pia-to-unarchive-id'), 10);
 
     // Update the PIA in DB.
     const pia = new Pia();
@@ -34,8 +34,8 @@ export class ArchiveService {
 
     // Deletes the PIA from the view
     if (
-      localStorage.getItem("homepageDisplayMode") &&
-      localStorage.getItem("homepageDisplayMode") === "list"
+      localStorage.getItem('homepageDisplayMode') &&
+      localStorage.getItem('homepageDisplayMode') === 'list'
     ) {
       document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
     } else {
@@ -44,7 +44,7 @@ export class ArchiveService {
         .remove();
     }
 
-    localStorage.removeItem("pia-to-unarchive-id");
+    localStorage.removeItem('pia-to-unarchive-id');
     this._modalsService.closeModal();
   }
 
@@ -52,7 +52,7 @@ export class ArchiveService {
    * Allows an user to definitely remove an archived PIA
    */
   removeArchivedPia() {
-    const id = parseInt(localStorage.getItem("pia-to-remove-id"), 10);
+    const id = parseInt(localStorage.getItem('pia-to-remove-id'), 10);
 
     // Removes from DB
     const archivedPia = new Pia();
@@ -60,8 +60,8 @@ export class ArchiveService {
 
     // Deletes the PIA from the view
     if (
-      localStorage.getItem("homepageDisplayMode") &&
-      localStorage.getItem("homepageDisplayMode") === "list"
+      localStorage.getItem('homepageDisplayMode') &&
+      localStorage.getItem('homepageDisplayMode') === 'list'
     ) {
       document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
     } else {
@@ -70,7 +70,7 @@ export class ArchiveService {
         .remove();
     }
 
-    localStorage.removeItem("pia-to-remove-id");
+    localStorage.removeItem('pia-to-remove-id');
     this._modalsService.closeModal();
   }
 

@@ -1,4 +1,4 @@
-@import "../../../assets/stylesheets/variables";
+@import '../../../assets/stylesheets/variables';
 .pia {
   &-knowledgeBaseBlock {
     &-none {
@@ -70,7 +70,7 @@
         font-style: italic;
         font-size: 1rem;
         &::before {
-          content: " - ";
+          content: ' - ';
         }
         &.active {
           color: $pia-blue;

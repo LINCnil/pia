@@ -1,4 +1,4 @@
-@import "../../../assets/stylesheets/variables";
+@import '../../../assets/stylesheets/variables';
 .pia-exportBlock {
   &-title {
     padding-bottom: 5px;
@@ -52,7 +52,7 @@
         li {
           clear: both;
           margin-bottom: 10px;
-          input[type="checkbox"] {
+          input[type='checkbox'] {
             float: left !important;
             margin-top: 4px;
           }
@@ -108,7 +108,7 @@
         }
       }
       label::before {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 3px;

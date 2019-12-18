@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { ApplicationDb } from "../application.db";
+import { Injectable } from '@angular/core';
+import { ApplicationDb } from '../application.db';
 
-import { Revision } from "../models/revision.model";
+import { Revision } from '../models/revision.model';
 
-import { PiaService } from "./pia.service";
+import { PiaService } from './pia.service';
 
 @Injectable()
 export class RevisionService {
@@ -13,7 +13,7 @@ export class RevisionService {
   protected serverUrl: string;
 
   constructor(public _piaService: PiaService) {
-    this.revisionDb = new ApplicationDb(201911191636, "revision");
+    this.revisionDb = new ApplicationDb(201911191636, 'revision');
   }
 
   prepareRevision(id) {
@@ -43,7 +43,7 @@ export class RevisionService {
       if (this.serverUrl) {
         // TODO: CHECK IT
         fetch(this.revisionDb.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -52,13 +52,13 @@ export class RevisionService {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
           const index = response
-            .index("index1")
+            .index('index1')
             .getAll(IDBKeyRange.only(piaId));
           index.onsuccess = (res: any) => {
             resolve(res.target.result);
@@ -80,16 +80,16 @@ export class RevisionService {
         for (const d in revision) {
           if (revision.hasOwnProperty(d)) {
             let value = revision[d];
-            if (d === "structure_data") {
+            if (d === 'structure_data') {
               value = JSON.stringify(value);
             }
-            formData.append("revision[" + d + "]", value);
+            formData.append('revision[' + d + ']', value);
           }
         }
         fetch(this.revisionDb.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData,
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -98,7 +98,7 @@ export class RevisionService {
             resolve(result.id);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {

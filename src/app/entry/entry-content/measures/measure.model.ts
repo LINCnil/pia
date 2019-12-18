@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../../../application.db";
+import { ApplicationDb } from '../../../application.db';
 
 export class Measure extends ApplicationDb {
   public id: number;
@@ -7,7 +7,7 @@ export class Measure extends ApplicationDb {
   public placeholder: string;
 
   constructor() {
-    super(201707071818, "measure");
+    super(201707071818, 'measure');
   }
 
   async create() {
@@ -23,12 +23,12 @@ export class Measure extends ApplicationDb {
       if (this.serverUrl) {
         const formData = new FormData();
         for (let d in data) {
-          formData.append("measure[" + d + "]", data[d]);
+          formData.append('measure[' + d + ']', data[d]);
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData,
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -37,7 +37,7 @@ export class Measure extends ApplicationDb {
             resolve(result.id);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
@@ -64,12 +64,12 @@ export class Measure extends ApplicationDb {
         if (this.serverUrl) {
           const formData = new FormData();
           for (let d in entry) {
-            formData.append("measure[" + d + "]", entry[d]);
+            formData.append('measure[' + d + ']', entry[d]);
           }
-          fetch(this.getServerUrl() + "/" + this.id, {
-            method: "PATCH",
+          fetch(this.getServerUrl() + '/' + this.id, {
+            method: 'PATCH',
             body: formData,
-            mode: "cors"
+            mode: 'cors'
           })
             .then(response => {
               return response.json();
@@ -78,7 +78,7 @@ export class Measure extends ApplicationDb {
               resolve();
             })
             .catch(error => {
-              console.error("Request failed", error);
+              console.error('Request failed', error);
               reject();
             });
         } else {
@@ -118,7 +118,7 @@ export class Measure extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -127,12 +127,12 @@ export class Measure extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index1");
+          const index1 = this.objectStore.index('index1');
           const evt = index1.openCursor(IDBKeyRange.only(pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
@@ -157,7 +157,7 @@ export class Measure extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -166,12 +166,12 @@ export class Measure extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index1");
+          const index1 = this.objectStore.index('index1');
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);

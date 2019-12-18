@@ -1,4 +1,4 @@
-@import "../../../../assets/stylesheets/variables";
+@import '../../../../assets/stylesheets/variables';
 
 // Action plan graph
 .pia-entryContentBlock {
@@ -35,7 +35,7 @@
       &-measures {
         position: relative;
         &:after {
-          content: "";
+          content: '';
           position: absolute;
           background: linear-gradient(
             to top,

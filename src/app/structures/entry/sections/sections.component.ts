@@ -1,14 +1,14 @@
-import { Component, OnInit, Input, Output } from "@angular/core";
-import "rxjs/add/operator/map";
+import { Component, OnInit, Input, Output } from '@angular/core';
+import 'rxjs/add/operator/map';
 
-import { AppDataService } from "src/app/services/app-data.service";
-import { SidStatusService } from "src/app/services/sid-status.service";
-import { StructureService } from "src/app/services/structure.service";
+import { AppDataService } from 'src/app/services/app-data.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
-  selector: "app-sections",
-  templateUrl: "./sections.component.html",
-  styleUrls: ["./sections.component.scss"],
+  selector: 'app-sections',
+  templateUrl: './sections.component.html',
+  styleUrls: ['./sections.component.scss'],
   providers: [StructureService]
 })
 export class SectionsComponent implements OnInit {

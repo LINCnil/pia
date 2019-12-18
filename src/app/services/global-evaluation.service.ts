@@ -1,10 +1,10 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { Answer } from "../entry/entry-content/questions/answer.model";
-import { Evaluation } from "../entry/entry-content/evaluations/evaluation.model";
-import { Measure } from "../entry/entry-content/measures/measure.model";
-import { Pia } from "../entry/pia.model";
+import { Answer } from '../entry/entry-content/questions/answer.model';
+import { Evaluation } from '../entry/entry-content/evaluations/evaluation.model';
+import { Measure } from '../entry/entry-content/measures/measure.model';
+import { Pia } from '../entry/pia.model';
 
 @Injectable()
 export class GlobalEvaluationService {
@@ -29,11 +29,11 @@ export class GlobalEvaluationService {
    * @returns {Promise}
    */
   async validate(callSubject = true) {
-    this.reference_to = this.section.id + "." + this.item.id;
+    this.reference_to = this.section.id + '.' + this.item.id;
     return new Promise(async (resolve, reject) => {
       if (
-        this.item.evaluation_mode === "item" ||
-        this.item.evaluation_mode === "question"
+        this.item.evaluation_mode === 'item' ||
+        this.item.evaluation_mode === 'question'
       ) {
         await this.answersVerification();
         await this.evaluationsVerification();
@@ -46,7 +46,7 @@ export class GlobalEvaluationService {
             status: this.status
           });
         }
-      } else if (this.reference_to === "4.3") {
+      } else if (this.reference_to === '4.3') {
         this.dpoValidation();
         this.behaviorSubject.next({
           reference_to: this.reference_to,
@@ -65,7 +65,7 @@ export class GlobalEvaluationService {
    */
   async prepareForEvaluation() {
     return new Promise(async (resolve, reject) => {
-      if (this.item.evaluation_mode === "item") {
+      if (this.item.evaluation_mode === 'item') {
         await this.createOrUpdateEvaluation();
         await this.validate();
         resolve();
@@ -94,7 +94,7 @@ export class GlobalEvaluationService {
    */
   async validateAllEvaluation() {
     return new Promise((resolve, reject) => {
-      if (this.item.evaluation_mode === "item") {
+      if (this.item.evaluation_mode === 'item') {
         const evaluation = new Evaluation();
         evaluation
           .getByReference(this.pia.id, this.reference_to)
@@ -152,7 +152,7 @@ export class GlobalEvaluationService {
    * Cancel evaluation and return in edit mode.
    */
   cancelForEvaluation() {
-    if (this.item.evaluation_mode === "item") {
+    if (this.item.evaluation_mode === 'item') {
       this.deleteEvaluationInDb(this.reference_to).then(() => {
         this.validate();
       });
@@ -175,7 +175,7 @@ export class GlobalEvaluationService {
    * Cancel validation and return in evaluation mode.
    */
   cancelValidation() {
-    if (this.item.evaluation_mode === "item") {
+    if (this.item.evaluation_mode === 'item') {
       const evaluation = new Evaluation();
       evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
         evaluation.global_status = 1;
@@ -279,10 +279,10 @@ export class GlobalEvaluationService {
     let reference_to = this.reference_to;
     if (this.item.is_measure) {
       // For measure
-      reference_to += "." + answerOrMeasure.id;
+      reference_to += '.' + answerOrMeasure.id;
     } else {
       // For question
-      reference_to += "." + answerOrMeasure.reference_to;
+      reference_to += '.' + answerOrMeasure.reference_to;
     }
     return reference_to;
   }
@@ -493,11 +493,11 @@ export class GlobalEvaluationService {
 
     if (question.length === 1) {
       const answer_type = question[0].answer_type;
-      if (answer_type === "gauge") {
+      if (answer_type === 'gauge') {
         valid = text && text.length > 0 && gauge > 0;
-      } else if (answer_type === "list") {
+      } else if (answer_type === 'list') {
         valid = list && list.length > 0;
-      } else if (answer_type === "text") {
+      } else if (answer_type === 'text') {
         valid = text && text.length > 0;
       }
     }
@@ -518,20 +518,20 @@ export class GlobalEvaluationService {
         evaluation.evaluation_comment.length > 0
       );
     } else if (evaluation.status === 2) {
-      if (this.item.evaluation_mode === "question") {
+      if (this.item.evaluation_mode === 'question') {
         return (
           evaluation.action_plan_comment &&
           evaluation.action_plan_comment.length > 0
         );
       }
       if (
-        this.item.evaluation_mode === "item" &&
+        this.item.evaluation_mode === 'item' &&
         this.item.evaluation_with_gauge === true
       ) {
         if (
           evaluation.gauges &&
-          evaluation.gauges["x"] > 0 &&
-          evaluation.gauges["y"] > 0 &&
+          evaluation.gauges['x'] > 0 &&
+          evaluation.gauges['y'] > 0 &&
           evaluation.action_plan_comment &&
           evaluation.action_plan_comment.length > 0
         ) {
@@ -610,7 +610,7 @@ export class GlobalEvaluationService {
     let count = 0;
     this.evaluations = [];
     return new Promise((resolve, reject) => {
-      if (this.item.evaluation_mode === "item") {
+      if (this.item.evaluation_mode === 'item') {
         const evaluationModel = new Evaluation();
         evaluationModel
           .getByReference(this.pia.id, this.reference_to)
@@ -628,7 +628,7 @@ export class GlobalEvaluationService {
               evaluationModel
                 .getByReference(
                   this.pia.id,
-                  this.reference_to + "." + measure.id
+                  this.reference_to + '.' + measure.id
                 )
                 .then((result: any) => {
                   count++;
@@ -644,7 +644,7 @@ export class GlobalEvaluationService {
             resolve();
           }
         });
-      } else if (this.item.evaluation_mode === "question") {
+      } else if (this.item.evaluation_mode === 'question') {
         this.item.questions.forEach(question => {
           const answerModel = new Answer();
           answerModel
@@ -655,7 +655,7 @@ export class GlobalEvaluationService {
                 evaluationModel
                   .getByReference(
                     this.pia.id,
-                    this.reference_to + "." + answerModel.reference_to
+                    this.reference_to + '.' + answerModel.reference_to
                   )
                   .then((result2: any) => {
                     count++;

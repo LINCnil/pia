@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../application.db";
+import { ApplicationDb } from '../application.db';
 
 export class Structure extends ApplicationDb {
   public id: number;
@@ -8,7 +8,7 @@ export class Structure extends ApplicationDb {
   public is_example = false;
 
   constructor() {
-    super(201808011000, "structure");
+    super(201808011000, 'structure');
     this.created_at = new Date();
   }
 
@@ -60,16 +60,16 @@ export class Structure extends ApplicationDb {
         for (const d in data) {
           if (data.hasOwnProperty(d)) {
             let value = data[d];
-            if (d === "data") {
+            if (d === 'data') {
               value = JSON.stringify(value);
             }
-            formData.append("structure[" + d + "]", value);
+            formData.append('structure[' + d + ']', value);
           }
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData,
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -78,7 +78,7 @@ export class Structure extends ApplicationDb {
             resolve(result.id);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
@@ -115,16 +115,16 @@ export class Structure extends ApplicationDb {
           for (const d in entry) {
             if (entry.hasOwnProperty(d)) {
               let value = entry[d];
-              if (d === "data") {
+              if (d === 'data') {
                 value = JSON.stringify(value);
               }
-              formData.append("structure[" + d + "]", value);
+              formData.append('structure[' + d + ']', value);
             }
           }
-          fetch(this.getServerUrl() + "/" + entry.id, {
-            method: "PATCH",
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
             body: formData,
-            mode: "cors"
+            mode: 'cors'
           })
             .then(response => {
               return response.json();
@@ -133,7 +133,7 @@ export class Structure extends ApplicationDb {
               resolve();
             })
             .catch(error => {
-              console.error("Request failed", error);
+              console.error('Request failed', error);
               reject();
             });
         } else {

@@ -1,4 +1,4 @@
-@import "../../assets/stylesheets/variables";
+@import '../../assets/stylesheets/variables';
 .pia {
   &-modalBlock {
     opacity: 0;
@@ -248,7 +248,7 @@
   position: relative;
   &:hover {
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       top: 8px;
       right: 8px;

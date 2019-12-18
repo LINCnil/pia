@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../application.db";
+import { ApplicationDb } from '../application.db';
 
 export class Pia extends ApplicationDb {
   public id: number;
@@ -27,7 +27,7 @@ export class Pia extends ApplicationDb {
   public structure_data: { sections: any };
 
   constructor() {
-    super(201910230914, "pia");
+    super(201910230914, 'pia');
     this.created_at = new Date();
   }
 
@@ -92,7 +92,7 @@ export class Pia extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -101,12 +101,12 @@ export class Pia extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index4 = this.objectStore.index("index4");
+          const index4 = this.objectStore.index('index4');
           const evt = index4.openCursor(IDBKeyRange.only(structure_id));
           evt.onerror = (event: any) => {
             console.error(event);
@@ -180,7 +180,7 @@ export class Pia extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -189,12 +189,12 @@ export class Pia extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index5 = this.objectStore.index("index5");
+          const index5 = this.objectStore.index('index5');
           const evt = index5.openCursor(IDBKeyRange.only(1));
           evt.onerror = (event: any) => {
             console.error(event);
@@ -244,10 +244,10 @@ export class Pia extends ApplicationDb {
       people_names: this.people_names,
       concerned_people_searched_opinion: this.concerned_people_searched_opinion,
       concerned_people_searched_content: this.concerned_people_searched_content,
-      structure_id: this.structure_id ? this.structure_id : "",
+      structure_id: this.structure_id ? this.structure_id : '',
       structure_name: this.structure_name,
       structure_sector_name: this.structure_sector_name,
-      structure_data: this.structure_data ? this.structure_data : ""
+      structure_data: this.structure_data ? this.structure_data : ''
     };
 
     return new Promise((resolve, reject) => {
@@ -256,16 +256,16 @@ export class Pia extends ApplicationDb {
         for (const d in data) {
           if (data.hasOwnProperty(d)) {
             let value = data[d];
-            if (d === "structure_data") {
+            if (d === 'structure_data') {
               value = JSON.stringify(value);
             }
-            formData.append("pia[" + d + "]", value);
+            formData.append('pia[' + d + ']', value);
           }
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData,
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -274,7 +274,7 @@ export class Pia extends ApplicationDb {
             resolve(result.id);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
@@ -321,26 +321,26 @@ export class Pia extends ApplicationDb {
         entry.people_names = this.people_names;
         entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
         entry.concerned_people_searched_content = this.concerned_people_searched_content;
-        entry.structure_id = this.structure_id ? this.structure_id : "";
+        entry.structure_id = this.structure_id ? this.structure_id : '';
         entry.structure_name = this.structure_name;
         entry.structure_sector_name = this.structure_sector_name;
-        entry.structure_data = this.structure_data ? this.structure_data : "";
+        entry.structure_data = this.structure_data ? this.structure_data : '';
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
           for (const d in entry) {
             if (entry.hasOwnProperty(d)) {
               let value = entry[d];
-              if (d === "structure_data") {
+              if (d === 'structure_data') {
                 value = JSON.stringify(value);
               }
-              formData.append("pia[" + d + "]", value);
+              formData.append('pia[' + d + ']', value);
             }
           }
-          fetch(this.getServerUrl() + "/" + entry.id, {
-            method: "PATCH",
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
             body: formData,
-            mode: "cors"
+            mode: 'cors'
           })
             .then(response => {
               return response.json();
@@ -349,7 +349,7 @@ export class Pia extends ApplicationDb {
               resolve();
             })
             .catch(error => {
-              console.error("Request failed", error);
+              console.error('Request failed', error);
               reject();
             });
         } else {
@@ -380,16 +380,16 @@ export class Pia extends ApplicationDb {
         for (const d in entry) {
           if (entry.hasOwnProperty(d)) {
             let value = entry[d];
-            if (d === "structure_data") {
+            if (d === 'structure_data') {
               value = JSON.stringify(value);
             }
-            formData.append("pia[" + d + "]", value);
+            formData.append('pia[' + d + ']', value);
           }
         }
-        fetch(this.getServerUrl() + "/" + entry.id, {
-          method: "PATCH",
+        fetch(this.getServerUrl() + '/' + entry.id, {
+          method: 'PATCH',
           body: formData,
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -398,7 +398,7 @@ export class Pia extends ApplicationDb {
             resolve();
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
@@ -465,8 +465,8 @@ export class Pia extends ApplicationDb {
   async getPiaExample() {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + "/" + "example", {
-          mode: "cors"
+        fetch(this.getServerUrl() + '/' + 'example', {
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -475,12 +475,12 @@ export class Pia extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index3 = this.objectStore.index("index3");
+          const index3 = this.objectStore.index('index3');
           const evt = index3.get(IDBKeyRange.only(1));
           evt.onerror = (event: any) => {
             console.error(event);
@@ -543,9 +543,9 @@ export class Pia extends ApplicationDb {
    */
   getPeopleSearchStatus(status: boolean) {
     if (status === true) {
-      return "summary.people_search_status_ok";
+      return 'summary.people_search_status_ok';
     } else {
-      return "summary.people_search_status_nok";
+      return 'summary.people_search_status_nok';
     }
   }
 

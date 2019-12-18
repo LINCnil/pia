@@ -1,4 +1,4 @@
-@import "../../assets/stylesheets/variables";
+@import '../../assets/stylesheets/variables';
 
 // New PIA
 .pia-newBlock {
@@ -7,7 +7,7 @@
     padding-right: 0;
   }
   &-item {
-    background: url("../../assets/images/pia-bg.png") repeat center center;
+    background: url('../../assets/images/pia-bg.png') repeat center center;
     padding: 70px 40px;
     font-size: 1.9rem;
     color: $pia-green;

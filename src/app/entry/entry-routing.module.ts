@@ -1,11 +1,11 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { EntryComponent } from "src/app/entry/entry.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { EntryComponent } from 'src/app/entry/entry.component';
 
 const routes: Routes = [
-  { path: "entry/:id", component: EntryComponent },
+  { path: 'entry/:id', component: EntryComponent },
   {
-    path: "entry/:id/section/:section_id/item/:item_id",
+    path: 'entry/:id/section/:section_id/item/:item_id',
     component: EntryComponent
   }
 ];

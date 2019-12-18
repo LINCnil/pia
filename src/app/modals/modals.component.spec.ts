@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalsComponent } from "./modals.component";
+import { ModalsComponent } from './modals.component';
 
-describe("ModalsComponent", () => {
+describe('ModalsComponent', () => {
   let component: ModalsComponent;
   let fixture: ComponentFixture<ModalsComponent>;
 
@@ -18,7 +18,7 @@ describe("ModalsComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should be created", () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

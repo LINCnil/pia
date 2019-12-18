@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../../../application.db";
+import { ApplicationDb } from '../../../application.db';
 
 export class Answer extends ApplicationDb {
   public id: number;
@@ -6,7 +6,7 @@ export class Answer extends ApplicationDb {
   public answer_type: string;
 
   constructor() {
-    super(201707071818, "answer");
+    super(201707071818, 'answer');
   }
 
   async create() {
@@ -20,9 +20,9 @@ export class Answer extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: this.setFormData(data),
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -32,7 +32,7 @@ export class Answer extends ApplicationDb {
             resolve();
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
@@ -57,10 +57,10 @@ export class Answer extends ApplicationDb {
         entry.data = this.data;
         entry.updated_at = new Date();
         if (this.serverUrl) {
-          fetch(this.getServerUrl() + "/" + this.id, {
-            method: "PATCH",
+          fetch(this.getServerUrl() + '/' + this.id, {
+            method: 'PATCH',
             body: this.setFormData(entry),
-            mode: "cors"
+            mode: 'cors'
           })
             .then(response => {
               return response.json();
@@ -69,7 +69,7 @@ export class Answer extends ApplicationDb {
               resolve();
             })
             .catch(error => {
-              console.error("Request failed", error);
+              console.error('Request failed', error);
               reject();
             });
         } else {
@@ -100,7 +100,7 @@ export class Answer extends ApplicationDb {
                   if (data[d].hasOwnProperty(d2)) {
                     if (data[d][d2][d3]) {
                       formData.append(
-                        "answer[" + d + "][" + d2 + "][]",
+                        'answer[' + d + '][' + d2 + '][]',
                         data[d][d2][d3]
                       );
                     }
@@ -108,14 +108,14 @@ export class Answer extends ApplicationDb {
                 }
               } else {
                 if (data[d][d2]) {
-                  formData.append("answer[" + d + "][" + d2 + "]", data[d][d2]);
+                  formData.append('answer[' + d + '][' + d2 + ']', data[d][d2]);
                 }
               }
             }
           }
         } else {
           if (data[d]) {
-            formData.append("answer[" + d + "]", data[d]);
+            formData.append('answer[' + d + ']', data[d]);
           }
         }
       }
@@ -142,8 +142,8 @@ export class Answer extends ApplicationDb {
     this.reference_to = reference_to;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + "?reference_to=" + this.reference_to, {
-          mode: "cors"
+        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -161,12 +161,12 @@ export class Answer extends ApplicationDb {
             }
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index1");
+          const index1 = this.objectStore.index('index1');
           const evt = index1.get(
             IDBKeyRange.only([this.pia_id, this.reference_to])
           );
@@ -198,7 +198,7 @@ export class Answer extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -207,12 +207,12 @@ export class Answer extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index2");
+          const index1 = this.objectStore.index('index2');
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
@@ -238,7 +238,7 @@ export class Answer extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -247,12 +247,12 @@ export class Answer extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index2 = this.objectStore.index("index2");
+          const index2 = this.objectStore.index('index2');
           const evt = index2.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);

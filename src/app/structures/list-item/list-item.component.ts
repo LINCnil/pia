@@ -1,14 +1,14 @@
-import { Component, Input, OnInit, EventEmitter, Output } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import { Structure } from "src/app/structures/structure.model";
-import { ModalsService } from "src/app/modals/modals.service";
-import { StructureService } from "src/app/services/structure.service";
+import { Structure } from 'src/app/structures/structure.model';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
   selector: `.app-list-item`,
-  templateUrl: "./list-item.component.html",
-  styleUrls: ["./list-item.component.scss"],
+  templateUrl: './list-item.component.html',
+  styleUrls: ['./list-item.component.scss'],
   providers: [StructureService]
 })
 export class ListItemComponent implements OnInit {
@@ -41,8 +41,8 @@ export class ListItemComponent implements OnInit {
    * @param {string} id - The Structure id.
    */
   remove(id: string) {
-    localStorage.setItem("structure-id", id);
-    this._modalsService.openModal("modal-remove-structure");
+    localStorage.setItem('structure-id', id);
+    this._modalsService.openModal('modal-remove-structure');
   }
 
   /**

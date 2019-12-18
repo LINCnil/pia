@@ -1,26 +1,26 @@
-import { Component, OnInit, OnDestroy, DoCheck } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
-import { Subscription } from "rxjs";
+import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
-import { Answer } from "src/app/entry/entry-content/questions/answer.model";
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
 
-import { KnowledgeBaseService } from "src/app/entry/knowledge-base/knowledge-base.service";
-import { MeasureService } from "src/app/entry/entry-content/measures/measures.service";
-import { ActionPlanService } from "src/app/entry/entry-content/action-plan//action-plan.service";
-import { PiaService } from "src/app/services/pia.service";
-import { ModalsService } from "src/app/modals/modals.service";
-import { AppDataService } from "src/app/services/app-data.service";
-import { SidStatusService } from "src/app/services/sid-status.service";
-import { GlobalEvaluationService } from "src/app/services/global-evaluation.service";
-import { RevisionService } from "../services/revision.service";
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { RevisionService } from '../services/revision.service';
 
 @Component({
-  selector: "app-entry",
-  templateUrl: "./entry.component.html",
+  selector: 'app-entry',
+  templateUrl: './entry.component.html',
   styleUrls: [
-    "./entry.component.scss",
-    "./entry-content/action-plan/action-plan.component.scss"
+    './entry.component.scss',
+    './entry-content/action-plan/action-plan.component.scss'
   ],
   providers: [PiaService, RevisionService]
 })
@@ -37,7 +37,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   questions: any;
   measureToRemoveFromTags: string;
   subscription: Subscription;
-  public sideView = "knowledge";
+  public sideView = 'knowledge';
   public revisions = null;
   public pia = null;
   public download = false;
@@ -97,7 +97,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
             itemsQuestions.push(
               item.questions.filter(question => {
                 return (
-                  question.answer_type === "list" &&
+                  question.answer_type === 'list' &&
                   question.is_measure === true
                 );
               })
@@ -183,7 +183,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
             });
           }
           if (displayModal) {
-            this._modalsService.openModal("pia-declare-measures");
+            this._modalsService.openModal('pia-declare-measures');
           }
         }
 
@@ -193,7 +193,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
           this.item.id === 2 &&
           !this._sidStatusService.verifEnableActionPlan()
         ) {
-          this._modalsService.openModal("pia-action-plan-no-evaluation");
+          this._modalsService.openModal('pia-action-plan-no-evaluation');
         }
 
         /* Modal for dpo page if all evaluations are not done yet */
@@ -202,7 +202,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
           this.item.id === 3 &&
           !this._sidStatusService.enableDpoValidation
         ) {
-          this._modalsService.openModal("pia-dpo-missing-evaluations");
+          this._modalsService.openModal('pia-dpo-missing-evaluations');
         }
       });
 
@@ -220,13 +220,13 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
     // Update on knowledge base (scroll / content / search field)
     const knowledgeBaseScroll = document.querySelector(
-      ".pia-knowledgeBaseBlock-list"
+      '.pia-knowledgeBaseBlock-list'
     );
     const knowledgeBaseContent = document.querySelector(
-      ".pia-knowledgeBaseBlock-searchForm input"
+      '.pia-knowledgeBaseBlock-searchForm input'
     ) as HTMLInputElement;
     knowledgeBaseScroll.scrollTop = 0;
-    knowledgeBaseContent.value = "";
+    knowledgeBaseContent.value = '';
 
     this._knowledgeBaseService.q = null;
     this._knowledgeBaseService.loadByItem(this.item);

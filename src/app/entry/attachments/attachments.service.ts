@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { Attachment } from "./attachment.model";
+import { Attachment } from './attachment.model';
 
-import { ModalsService } from "src/app/modals/modals.service";
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Injectable()
 export class AttachmentsService {
@@ -79,7 +79,7 @@ export class AttachmentsService {
       attachment.mime_type = attachment_file.type;
       attachment.pia_id = this.pia.id;
       attachment.pia_signed = this.pia_signed;
-      attachment.comment = "";
+      attachment.comment = '';
       attachment.create().then((id: number) => {
         attachment.id = id;
         this.attachments.unshift(attachment);
@@ -104,14 +104,14 @@ export class AttachmentsService {
     attachment.pia_id = this.pia.id;
     attachment.find(id).then((entry: any) => {
       fetch(entry.file, {
-        mode: "cors"
+        mode: 'cors'
       })
         .then(res => res.blob())
         .then(blob => {
-          const a = <any>document.createElement("a");
+          const a = <any>document.createElement('a');
           a.href = window.URL.createObjectURL(blob);
           a.download = entry.name;
-          const event = new MouseEvent("click", {
+          const event = new MouseEvent('click', {
             view: window
           });
           a.dispatchEvent(event);
@@ -125,7 +125,7 @@ export class AttachmentsService {
    */
   removeAttachment(comment: string) {
     if (comment && comment.length > 0) {
-      const attachmentId = parseInt(localStorage.getItem("attachment-id"), 10);
+      const attachmentId = parseInt(localStorage.getItem('attachment-id'), 10);
 
       // Remove from DB by erasing only the "file" field
       const attachment = new Attachment();
@@ -148,7 +148,7 @@ export class AttachmentsService {
         this.attachment_signed = null;
       }
 
-      localStorage.removeItem("attachment-id");
+      localStorage.removeItem('attachment-id');
       this._modalsService.closeModal();
     }
   }

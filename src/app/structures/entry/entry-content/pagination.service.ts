@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { SidStatusService } from "src/app/services/sid-status.service";
+import { SidStatusService } from 'src/app/services/sid-status.service';
 
 @Injectable()
 export class PaginationService {
@@ -35,7 +35,7 @@ export class PaginationService {
         this.previousLink.push(sectionId);
         this.previousLink.push(itemId - 1);
         this.previousLink.push(
-          this.dataNav["sections"][sectionId - 1]["items"][itemId - 2].title
+          this.dataNav['sections'][sectionId - 1]['items'][itemId - 2].title
         );
       } else {
         // 2.x, 3.x, 4.x
@@ -44,16 +44,16 @@ export class PaginationService {
           this.previousLink.push(sectionId); // Same section id
           this.previousLink.push(itemId - 1); // Prev item id
           this.previousLink.push(
-            this.dataNav["sections"][sectionId - 1]["items"][itemId - 2].title
+            this.dataNav['sections'][sectionId - 1]['items'][itemId - 2].title
           ); // Prev item title
         } else {
           // 2.1, 3.1, 4.1
           this.previousLink.push(sectionId - 1); // Prev section id
-          const previousSectionLength = this.dataNav["sections"][sectionId - 2][
-            "items"
+          const previousSectionLength = this.dataNav['sections'][sectionId - 2][
+            'items'
           ].length;
-          const lastPreviousItem = this.dataNav["sections"][sectionId - 2][
-            "items"
+          const lastPreviousItem = this.dataNav['sections'][sectionId - 2][
+            'items'
           ][previousSectionLength - 1];
           this.previousLink.push(lastPreviousItem.id); // Prev item id (which is the last item of the previous section)
           this.previousLink.push(lastPreviousItem.title); // Prev item title
@@ -61,23 +61,23 @@ export class PaginationService {
       }
     }
     if (this.hasNextLink) {
-      const currentSectionLength = this.dataNav["sections"][sectionId - 1][
-        "items"
+      const currentSectionLength = this.dataNav['sections'][sectionId - 1][
+        'items'
       ].length;
-      const currentSectionLastItemId = this.dataNav["sections"][sectionId - 1][
-        "items"
+      const currentSectionLastItemId = this.dataNav['sections'][sectionId - 1][
+        'items'
       ][currentSectionLength - 1].id;
       if (itemId !== currentSectionLastItemId) {
         // Not the last item from the current section
         this.nextLink.push(sectionId); // Same section id
         this.nextLink.push(itemId + 1); // Next item id
         this.nextLink.push(
-          this.dataNav["sections"][sectionId - 1]["items"][itemId].title
+          this.dataNav['sections'][sectionId - 1]['items'][itemId].title
         ); // Next item title
       } else {
         // last item from the current section
         this.nextLink.push(sectionId + 1); // Next section id
-        const firstNextItem = this.dataNav["sections"][sectionId]["items"][0];
+        const firstNextItem = this.dataNav['sections'][sectionId]['items'][0];
         this.nextLink.push(firstNextItem.id); // Next item id (which is the first item of the next section)
         this.nextLink.push(firstNextItem.title); // Next item title
       }
@@ -103,9 +103,9 @@ export class PaginationService {
         this._sidStatusService.itemStatus.hasOwnProperty(el) &&
         this._sidStatusService.itemStatus[el] >= status_start &&
         this._sidStatusService.itemStatus[el] < status_end &&
-        el !== "4.3"
+        el !== '4.3'
       ) {
-        const reference_to = el.split(".");
+        const reference_to = el.split('.');
         goto_section = reference_to[0];
         goto_item = reference_to[1];
         break;

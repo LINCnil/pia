@@ -25,18 +25,18 @@ export class RelativeDate {
 
   private getMonthString(month) {
     return {
-      0: "january",
-      1: "february",
-      2: "march",
-      3: "april",
-      4: "may",
-      5: "june",
-      6: "july",
-      7: "august",
-      8: "september",
-      9: "october",
-      10: "november",
-      11: "december"
+      0: 'january',
+      1: 'february',
+      2: 'march',
+      3: 'april',
+      4: 'may',
+      5: 'june',
+      6: 'july',
+      7: 'august',
+      8: 'september',
+      9: 'october',
+      10: 'november',
+      11: 'december'
     }[month];
   }
 
@@ -49,32 +49,32 @@ export class RelativeDate {
 
   public complete() {
     return this.s <= 1
-      ? "just now"
+      ? 'just now'
       : this.m < 1
-      ? this.approx(this.s) + " seconds ago"
+      ? this.approx(this.s) + ' seconds ago'
       : this.m <= 1
-      ? "a minute ago"
+      ? 'a minute ago'
       : this.h < 1
-      ? this.approx(this.m) + " minutes ago"
+      ? this.approx(this.m) + ' minutes ago'
       : this.h <= 1
-      ? "an hour ago"
+      ? 'an hour ago'
       : this.d < 1
-      ? this.approx(this.h) + " hours ago"
+      ? this.approx(this.h) + ' hours ago'
       : this.d <= 1
-      ? "yesterday"
+      ? 'yesterday'
       : this.w < 1
-      ? this.approx(this.d) + " days ago"
+      ? this.approx(this.d) + ' days ago'
       : this.w <= 1
-      ? "last week"
+      ? 'last week'
       : this.M < 1
-      ? this.approx(this.w) + " weeks ago"
+      ? this.approx(this.w) + ' weeks ago'
       : this.M <= 1
-      ? "last month"
+      ? 'last month'
       : this.y < 1
-      ? this.approx(this.M) + " months ago"
+      ? this.approx(this.M) + ' months ago'
       : this.y <= 1
-      ? "a year ago"
-      : this.approx(this.y) + " years ago";
+      ? 'a year ago'
+      : this.approx(this.y) + ' years ago';
   }
 
   public simple() {
@@ -84,18 +84,18 @@ export class RelativeDate {
 
     if (this.w < 1) {
       // Last 7 days
-      res = "Earlier in this month";
+      res = 'Earlier in this month';
 
       // Current week
       if (
         this.getMonday(new Date()).getDate() ===
         this.getMonday(this.strDate).getDate()
       ) {
-        res = "Earlier in this week";
+        res = 'Earlier in this week';
 
         // Today
         if (date.getDate() === today.getDate()) {
-          res = "today";
+          res = 'today';
         }
 
         // Yesterday
@@ -103,17 +103,17 @@ export class RelativeDate {
           date.getDate() ===
           new Date(new Date().setDate(new Date().getDate() - 1)).getDate()
         ) {
-          res = "yesterday";
+          res = 'yesterday';
         }
       }
     } else if (this.M < 1 && date.getMonth() === today.getMonth()) {
       // Last Month
-      res = "Earlier in this month";
+      res = 'Earlier in this month';
     } else {
       // Other Month + Full year
       res =
         this.getMonthString(new Date(this.strDate).getMonth()) +
-        " " +
+        ' ' +
         new Date(this.strDate).getFullYear();
     }
 

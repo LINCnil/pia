@@ -5,20 +5,20 @@ import {
   Output,
   EventEmitter,
   ElementRef
-} from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
-import { MeasureService } from "src/app/entry/entry-content/measures/measures.service";
-import { KnowledgeBaseService } from "./knowledge-base.service";
-import { PiaService } from "src/app/services/pia.service";
-import { StructureService } from "src/app/services/structure.service";
-import { AnswerStructureService } from "src/app/services/answer-structure.service";
-import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
+import { KnowledgeBaseService } from './knowledge-base.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { StructureService } from 'src/app/services/structure.service';
+import { AnswerStructureService } from 'src/app/services/answer-structure.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
-  selector: "app-knowledge-base",
-  templateUrl: "./knowledge-base.component.html",
-  styleUrls: ["./knowledge-base.component.scss"],
+  selector: 'app-knowledge-base',
+  templateUrl: './knowledge-base.component.html',
+  styleUrls: ['./knowledge-base.component.scss'],
   providers: [PiaService, StructureService]
 })
 export class KnowledgeBaseComponent implements OnInit {
@@ -44,19 +44,19 @@ export class KnowledgeBaseComponent implements OnInit {
     });
     window.onscroll = function(ev) {
       if (window.innerWidth > 640) {
-        const el: any = document.querySelector(".pia-knowledgeBaseBlock");
-        const el2 = document.querySelector(".pia-knowledgeBaseBlock-list");
+        const el: any = document.querySelector('.pia-knowledgeBaseBlock');
+        const el2 = document.querySelector('.pia-knowledgeBaseBlock-list');
         if (el && el2) {
           el2.setAttribute(
-            "style",
-            "height:" + (window.innerHeight - 350) + "px"
+            'style',
+            'height:' + (window.innerHeight - 350) + 'px'
           );
           if (window.scrollY >= 100) {
-            el.setAttribute("style", "width:283px;");
-            el.classList.add("pia-knowledgeBaseBlock-scroll");
+            el.setAttribute('style', 'width:283px;');
+            el.classList.add('pia-knowledgeBaseBlock-scroll');
           } else {
-            el.setAttribute("style", "width:auto;");
-            el.classList.remove("pia-knowledgeBaseBlock-scroll");
+            el.setAttribute('style', 'width:auto;');
+            el.classList.remove('pia-knowledgeBaseBlock-scroll');
           }
         }
       }
@@ -70,10 +70,10 @@ export class KnowledgeBaseComponent implements OnInit {
     this._knowledgeBaseService.translateService = this._translateService;
     this._knowledgeBaseService.q = this.searchForm.value.q;
     const filterBlock = this.el.nativeElement.querySelector(
-      ".pia-knowledgeBaseBlock-filters"
+      '.pia-knowledgeBaseBlock-filters'
     );
     if (filterBlock) {
-      filterBlock.querySelector("button").click();
+      filterBlock.querySelector('button').click();
     }
     this._knowledgeBaseService.search();
   }
@@ -94,7 +94,7 @@ export class KnowledgeBaseComponent implements OnInit {
         const title = this._translateService.instant(event.name);
         const measure = {
           title: title,
-          content: ""
+          content: ''
         };
         this._structureService.structure.data.sections
           .filter(s => s.id === 3)[0]

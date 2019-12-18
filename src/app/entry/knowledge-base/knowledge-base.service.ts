@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import "rxjs/add/operator/map";
-import { HttpClient } from "@angular/common/http";
-import piakb from "src/assets/files/pia_knowledge-base.json";
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
+import piakb from 'src/assets/files/pia_knowledge-base.json';
 
 @Injectable()
 export class KnowledgeBaseService {
@@ -32,11 +32,11 @@ export class KnowledgeBaseService {
    * @param {*} [linkKnowledgeBase] - Link knowledge base.
    */
   search(filter?: string, event?: any, linkKnowledgeBase?: any) {
-    this.filter = filter && filter.length > 0 ? filter : "";
+    this.filter = filter && filter.length > 0 ? filter : '';
     this.linkKnowledgeBase =
       linkKnowledgeBase && linkKnowledgeBase.length > 0
         ? linkKnowledgeBase
-        : "";
+        : '';
     this.knowledgeBaseData = this.previousKnowledgeBaseData;
     this.specificSearch();
     if (this.knowledgeBaseData && this.filter && this.filter.length > 0) {
@@ -69,7 +69,7 @@ export class KnowledgeBaseService {
         kbSlugs = item.link_knowledge_base;
       } else if (item.is_measure) {
         const kbSlugs2 = this.knowledgeBaseData.filter(kbItem => {
-          return kbItem.filters.startsWith("measure.");
+          return kbItem.filters.startsWith('measure.');
         });
         kbSlugs2.forEach(element => {
           kbSlugs.push(element.slug);
@@ -102,10 +102,10 @@ export class KnowledgeBaseService {
    */
   switchSelectedElement(event: any) {
     if (event) {
-      event.target.parentNode.querySelectorAll("button").forEach(element => {
-        element.classList.remove("active");
+      event.target.parentNode.querySelectorAll('button').forEach(element => {
+        element.classList.remove('active');
       });
-      event.target.classList.add("active");
+      event.target.classList.add('active');
     }
   }
 
@@ -130,7 +130,7 @@ export class KnowledgeBaseService {
    */
   private specificSearch() {
     if (this.q && this.q.length > 0) {
-      const re = new RegExp(this.q, "i");
+      const re = new RegExp(this.q, 'i');
       this.knowledgeBaseData = this.knowledgeBaseData.filter(
         item2 =>
           this.translateService.instant(item2.name).match(re) ||

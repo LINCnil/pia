@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverviewRisksComponent } from "./overview-risks.component";
+import { OverviewRisksComponent } from './overview-risks.component';
 
-describe("OverviewRisksComponent", () => {
+describe('OverviewRisksComponent', () => {
   let component: OverviewRisksComponent;
   let fixture: ComponentFixture<OverviewRisksComponent>;
 
@@ -18,7 +18,7 @@ describe("OverviewRisksComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should be created", () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

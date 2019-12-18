@@ -1,10 +1,10 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { CardsComponent } from "./cards.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { CardsComponent } from './cards.component';
 
 const routes: Routes = [
-  { path: "home", component: CardsComponent },
-  { path: "home/:view", component: CardsComponent }
+  { path: 'home', component: CardsComponent },
+  { path: 'home/:view', component: CardsComponent }
 ];
 
 @NgModule({

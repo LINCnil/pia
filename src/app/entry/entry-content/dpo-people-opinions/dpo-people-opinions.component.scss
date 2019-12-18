@@ -1,4 +1,4 @@
-@import "../../../../assets/stylesheets/variables";
+@import '../../../../assets/stylesheets/variables';
 
 // DPO and people opinions page
 .pia-ValidationDPO {
@@ -45,7 +45,7 @@
         }
         &-treatment {
           > div {
-            input[type="radio"] {
+            input[type='radio'] {
               display: none;
             }
             input:checked + label {

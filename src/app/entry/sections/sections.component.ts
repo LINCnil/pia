@@ -1,19 +1,19 @@
-import { Component, OnInit, Input } from "@angular/core";
-import "rxjs/add/operator/map";
+import { Component, OnInit, Input } from '@angular/core';
+import 'rxjs/add/operator/map';
 
-import { Evaluation } from "src/app/entry/entry-content/evaluations/evaluation.model";
-import { Measure } from "src/app/entry/entry-content/measures/measure.model";
-import { Answer } from "src/app/entry/entry-content/questions/answer.model";
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
 
-import { AppDataService } from "src/app/services/app-data.service";
-import { SidStatusService } from "src/app/services/sid-status.service";
-import { PiaService } from "src/app/services/pia.service";
-import { GlobalEvaluationService } from "src/app/services/global-evaluation.service";
+import { AppDataService } from 'src/app/services/app-data.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Component({
-  selector: "app-sections",
-  templateUrl: "./sections.component.html",
-  styleUrls: ["./sections.component.scss"],
+  selector: 'app-sections',
+  templateUrl: './sections.component.html',
+  styleUrls: ['./sections.component.scss'],
   providers: [PiaService]
 })
 export class SectionsComponent implements OnInit {

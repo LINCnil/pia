@@ -1,18 +1,18 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input } from '@angular/core';
 
-import { Pia } from "src/app/entry/pia.model";
-import { Attachment } from "src/app/entry/attachments/attachment.model";
+import { Pia } from 'src/app/entry/pia.model';
+import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
-import { ModalsService } from "src/app/modals/modals.service";
-import { TranslateService } from "@ngx-translate/core";
+import { ModalsService } from 'src/app/modals/modals.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: "app-card-item",
-  templateUrl: "./card-item.component.html",
+  selector: 'app-card-item',
+  templateUrl: './card-item.component.html',
   styleUrls: [
-    "./card-item.component.scss",
-    "./card-item_edit.component.scss",
-    "./card-item_doing.component.scss"
+    './card-item.component.scss',
+    './card-item_edit.component.scss',
+    './card-item_doing.component.scss'
   ],
   providers: []
 })
@@ -32,7 +32,7 @@ export class CardItemComponent implements OnInit {
     attachmentModel.pia_id = this.archivedPia.id;
     attachmentModel.findAll().then((entries: any) => {
       entries.forEach(element => {
-        if (element["file"] && element["file"].length) {
+        if (element['file'] && element['file'].length) {
           this.attachments.push(element);
         }
       });
@@ -44,8 +44,8 @@ export class CardItemComponent implements OnInit {
    * @param {string} id - The archived PIA id.
    */
   unarchive(id: string) {
-    localStorage.setItem("pia-to-unarchive-id", id);
-    this._modalsService.openModal("modal-unarchive-pia");
+    localStorage.setItem('pia-to-unarchive-id', id);
+    this._modalsService.openModal('modal-unarchive-pia');
   }
 
   /**
@@ -53,7 +53,7 @@ export class CardItemComponent implements OnInit {
    * @param {string} id - The archived PIA id.
    */
   remove(id: string) {
-    localStorage.setItem("pia-to-remove-id", id);
-    this._modalsService.openModal("modal-remove-archived-pia");
+    localStorage.setItem('pia-to-remove-id', id);
+    this._modalsService.openModal('modal-remove-archived-pia');
   }
 }

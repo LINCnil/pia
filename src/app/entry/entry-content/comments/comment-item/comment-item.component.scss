@@ -1,4 +1,4 @@
-@import "../../../../../assets/stylesheets/variables";
+@import '../../../../../assets/stylesheets/variables';
 .pia {
   &-commentsBlock {
     &-content {
@@ -25,7 +25,7 @@
         color: $pia-gray;
         font-size: 1rem;
         &:before {
-          content: " | ";
+          content: ' | ';
           margin: 0 5px;
         }
       }

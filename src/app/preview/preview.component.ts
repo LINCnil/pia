@@ -6,26 +6,26 @@ import {
   Input,
   Output,
   EventEmitter
-} from "@angular/core";
+} from '@angular/core';
 
-import { Answer } from "src/app/entry/entry-content/questions/answer.model";
-import { Measure } from "src/app/entry/entry-content/measures/measure.model";
-import { Evaluation } from "src/app/entry/entry-content/evaluations/evaluation.model";
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 
-import { ActionPlanService } from "src/app/entry/entry-content/action-plan//action-plan.service";
-import { PiaService } from "src/app/services/pia.service";
-import { AppDataService } from "src/app/services/app-data.service";
-import { TranslateService } from "@ngx-translate/core";
-import { AttachmentsService } from "src/app/entry/attachments/attachments.service";
-import { RevisionService } from "src/app/services/revision.service";
-import { ModalsService } from "../modals/modals.service";
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { TranslateService } from '@ngx-translate/core';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { RevisionService } from 'src/app/services/revision.service';
+import { ModalsService } from '../modals/modals.service';
 
 @Component({
-  selector: "app-preview",
-  templateUrl: "./preview.component.html",
+  selector: 'app-preview',
+  templateUrl: './preview.component.html',
   styleUrls: [
-    "./preview.component.scss",
-    "../entry/entry-content/action-plan/action-plan.component.scss"
+    './preview.component.scss',
+    '../entry/entry-content/action-plan/action-plan.component.scss'
   ],
   providers: [PiaService, RevisionService, ModalsService]
 })
@@ -81,10 +81,10 @@ export class PreviewComponent implements OnInit {
   ngAfterViewChecked() {
     // scroll spy
     const sections = document.querySelectorAll(
-      ".pia-fullPreviewBlock-headline-title h2"
+      '.pia-fullPreviewBlock-headline-title h2'
     ) as NodeListOf<HTMLElement>;
     const menus = document.querySelectorAll(
-      ".pia-sectionBlock-body li a"
+      '.pia-sectionBlock-body li a'
     ) as NodeListOf<HTMLElement>;
     window.onscroll = () => {
       const scrollPosition =
@@ -92,9 +92,9 @@ export class PreviewComponent implements OnInit {
       sections.forEach(s => {
         if (s.offsetTop < scrollPosition + 100) {
           menus.forEach(l => {
-            l.classList.remove("active");
+            l.classList.remove('active');
             if (l.innerText === s.innerText) {
-              l.setAttribute("class", "active");
+              l.setAttribute('class', 'active');
             }
           });
         }
@@ -122,16 +122,16 @@ export class PreviewComponent implements OnInit {
    * @param {number} piaId
    */
   onSelectedRevision(piaId) {
-    localStorage.setItem("revision-date-id", piaId);
+    localStorage.setItem('revision-date-id', piaId);
     this._revisionService.prepareRevision(piaId);
-    this._modalsService.openModal("revision-selection");
+    this._modalsService.openModal('revision-selection');
   }
 
   /**
    * On modal confirmation, replace current pia version by selected revision
    */
   async loadPiaRevision() {
-    localStorage.removeItem("revision-date-id");
+    localStorage.removeItem('revision-date-id');
     this.onNewRevision();
     this.revisionOverlay = true;
     this._revisionService.loadRevision();
@@ -145,10 +145,10 @@ export class PreviewComponent implements OnInit {
    */
   getAnchor(event, text) {
     event.preventDefault();
-    const allSubtitles = document.querySelectorAll("h2");
+    const allSubtitles = document.querySelectorAll('h2');
     allSubtitles.forEach.call(allSubtitles, (el, i) => {
       if (el.innerText === this._translateService.instant(text)) {
-        el.parentNode.scrollIntoView({ behavior: "instant" });
+        el.parentNode.scrollIntoView({ behavior: 'instant' });
       }
     });
   }
@@ -169,22 +169,22 @@ export class PreviewComponent implements OnInit {
    * @private
    */
   private prepareDpoData() {
-    const el = { title: "summary.title", data: [] };
+    const el = { title: 'summary.title', data: [] };
     if (this.pia.dpos_names && this.pia.dpos_names.length > 0) {
       el.data.push({
-        title: "summary.dpo_name",
+        title: 'summary.dpo_name',
         content: this.pia.dpos_names
       });
     }
     if (this.pia.dpo_status && this.pia.dpo_status.length > 0) {
       el.data.push({
-        title: "summary.dpo_status",
+        title: 'summary.dpo_status',
         content: this.pia.getOpinionsStatus(this.pia.dpo_status.toString())
       });
     }
     if (this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
       el.data.push({
-        title: "summary.dpo_opinion",
+        title: 'summary.dpo_opinion',
         content: this.pia.dpo_opinion
       });
     }
@@ -192,20 +192,20 @@ export class PreviewComponent implements OnInit {
     // Searched opinion for concerned people
     if (this.pia.concerned_people_searched_opinion === true) {
       el.data.push({
-        title: "summary.concerned_people_searched_opinion",
+        title: 'summary.concerned_people_searched_opinion',
         content: this.pia.getPeopleSearchStatus(
           this.pia.concerned_people_searched_opinion
         )
       });
       if (this.pia.people_names && this.pia.people_names.length > 0) {
         el.data.push({
-          title: "summary.concerned_people_name",
+          title: 'summary.concerned_people_name',
           content: this.pia.people_names
         });
       }
       if (this.pia.concerned_people_status >= 0) {
         el.data.push({
-          title: "summary.concerned_people_status",
+          title: 'summary.concerned_people_status',
           content: this.pia.getOpinionsStatus(
             this.pia.concerned_people_status.toString()
           )
@@ -216,7 +216,7 @@ export class PreviewComponent implements OnInit {
         this.pia.concerned_people_opinion.length > 0
       ) {
         el.data.push({
-          title: "summary.concerned_people_opinion",
+          title: 'summary.concerned_people_opinion',
           content: this.pia.concerned_people_opinion
         });
       }
@@ -225,7 +225,7 @@ export class PreviewComponent implements OnInit {
     // Unsearched opinion for concerned people
     if (this.pia.concerned_people_searched_opinion === false) {
       el.data.push({
-        title: "summary.concerned_people_searched_opinion",
+        title: 'summary.concerned_people_searched_opinion',
         content: this.pia.getPeopleSearchStatus(
           this.pia.concerned_people_searched_opinion
         )
@@ -235,7 +235,7 @@ export class PreviewComponent implements OnInit {
         this.pia.concerned_people_searched_content.length > 0
       ) {
         el.data.push({
-          title: "summary.concerned_people_unsearched_opinion_comment",
+          title: 'summary.concerned_people_unsearched_opinion_comment',
           content: this.pia.concerned_people_searched_content
         });
       }
@@ -246,13 +246,13 @@ export class PreviewComponent implements OnInit {
       this.pia.applied_adjustements.length > 0
     ) {
       el.data.push({
-        title: "summary.modification_made",
+        title: 'summary.modification_made',
         content: this.pia.applied_adjustements
       });
     }
     if (this.pia.rejected_reason && this.pia.rejected_reason.length > 0) {
       el.data.push({
-        title: "summary.rejection_reason",
+        title: 'summary.rejection_reason',
         content: this.pia.rejected_reason
       });
     }
@@ -271,7 +271,7 @@ export class PreviewComponent implements OnInit {
       this.allData[section.id] = {};
       section.items.forEach(async item => {
         this.allData[section.id][item.id] = {};
-        const ref = section.id.toString() + "." + item.id.toString();
+        const ref = section.id.toString() + '.' + item.id.toString();
 
         // Measure
         if (item.is_measure) {
@@ -283,11 +283,11 @@ export class PreviewComponent implements OnInit {
             /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
               let evaluation = null;
-              if (item.evaluation_mode === "question") {
+              if (item.evaluation_mode === 'question') {
                 evaluation = await this.getEvaluation(
                   section.id,
                   item.id,
-                  ref + "." + measure.id
+                  ref + '.' + measure.id
                 );
               }
               this.allData[section.id][item.id].push({
@@ -318,14 +318,14 @@ export class PreviewComponent implements OnInit {
                 content.push(answerModel.data.text);
               }
               if (answerModel.data.list && answerModel.data.list.length > 0) {
-                content.push(answerModel.data.list.join(", "));
+                content.push(answerModel.data.list.join(', '));
               }
               if (content.length > 0) {
-                if (item.evaluation_mode === "question") {
+                if (item.evaluation_mode === 'question') {
                   const evaluation = await this.getEvaluation(
                     section.id,
                     item.id,
-                    ref + "." + question.id
+                    ref + '.' + question.id
                   );
                   this.allData[section.id][item.id][
                     question.id
@@ -333,14 +333,14 @@ export class PreviewComponent implements OnInit {
                 }
                 this.allData[section.id][item.id][
                   question.id
-                ].content = content.join(", ");
+                ].content = content.join(', ');
               }
             }
           });
         }
-        if (item.evaluation_mode === "item") {
+        if (item.evaluation_mode === 'item') {
           const evaluation = await this.getEvaluation(section.id, item.id, ref);
-          this.allData[section.id][item.id]["evaluation_item"] = evaluation;
+          this.allData[section.id][item.id]['evaluation_item'] = evaluation;
         }
       });
     });
@@ -371,7 +371,7 @@ export class PreviewComponent implements OnInit {
           gauges: {
             riskName: {
               value: this._translateService.instant(
-                "sections." + section_id + ".items." + item_id + ".title"
+                'sections.' + section_id + '.items.' + item_id + '.title'
               )
             },
             seriousness: evaluationModel.gauges

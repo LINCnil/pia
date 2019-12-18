@@ -1,22 +1,22 @@
-import { Component, ElementRef, OnInit } from "@angular/core";
-import { Renderer2 } from "@angular/core";
-import { environment } from "../../environments/environment";
-import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { Renderer2 } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
-import { Pia } from "src/app/entry/pia.model";
+import { Pia } from 'src/app/entry/pia.model';
 
-import { TranslateService } from "@ngx-translate/core";
-import { PiaService } from "src/app/services/pia.service";
-import { ModalsService } from "src/app/modals/modals.service";
-import { LanguagesService } from "src/app/services/languages.service";
+import { TranslateService } from '@ngx-translate/core';
+import { PiaService } from 'src/app/services/pia.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
-import piaExample from "src/assets/files/2018-02-21-pia-example.json";
+import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
 
 @Component({
-  selector: "app-header",
-  templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
   providers: [PiaService]
 })
 export class HeaderComponent implements OnInit {
@@ -41,15 +41,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     const displayMessage = document.querySelector(
-      ".pia-closeFullScreenModeAlertBlock"
+      '.pia-closeFullScreenModeAlertBlock'
     );
     window.screenTop === 0 && window.screenY === 0
-      ? displayMessage.classList.remove("hide")
-      : displayMessage.classList.add("hide");
+      ? displayMessage.classList.remove('hide')
+      : displayMessage.classList.add('hide');
     window.onresize = () => {
       window.screenTop === 0 && window.screenY === 0
-        ? displayMessage.classList.remove("hide")
-        : displayMessage.classList.add("hide");
+        ? displayMessage.classList.remove('hide')
+        : displayMessage.classList.add('hide');
     };
     this.appVersion = environment.version;
     this.pia_is_example = false;
@@ -61,10 +61,10 @@ export class HeaderComponent implements OnInit {
         this.loadPiaExample();
       }
     });
-    if (this._router.url.indexOf("/structures/") > -1) {
+    if (this._router.url.indexOf('/structures/') > -1) {
       this.isStructureHeader = true;
     }
-    if (this._router.url.indexOf("/archives/") > -1) {
+    if (this._router.url.indexOf('/archives/') > -1) {
       this.isArchiveHeader = true;
     }
   }
@@ -74,7 +74,7 @@ export class HeaderComponent implements OnInit {
    * @param {any} event - Any kind of event.
    */
   changeContrast(event: any) {
-    localStorage.setItem("increaseContrast", event.target.checked);
+    localStorage.setItem('increaseContrast', event.target.checked);
     this.updateContrast();
   }
 
@@ -83,11 +83,11 @@ export class HeaderComponent implements OnInit {
    * @private
    */
   private updateContrast() {
-    this.increaseContrast = localStorage.getItem("increaseContrast");
-    if (this.increaseContrast === "true") {
-      this.renderer.addClass(document.body, "pia-contrast");
+    this.increaseContrast = localStorage.getItem('increaseContrast');
+    if (this.increaseContrast === 'true') {
+      this.renderer.addClass(document.body, 'pia-contrast');
     } else {
-      this.renderer.removeClass(document.body, "pia-contrast");
+      this.renderer.removeClass(document.body, 'pia-contrast');
     }
   }
 
@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit {
         this.pia_example = entry;
       } else {
         this._piaService
-          .importData(piaExample, "EXAMPLE", false, true)
+          .importData(piaExample, 'EXAMPLE', false, true)
           .then(() => {
             pia.getPiaExample().then((entry2: any) => {
               this.pia_example = entry2;

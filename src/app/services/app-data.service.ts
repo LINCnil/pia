@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import piaArchitecture from "src/assets/files/pia_architecture.json";
+import piaArchitecture from 'src/assets/files/pia_architecture.json';
 
 @Injectable()
 export class AppDataService {

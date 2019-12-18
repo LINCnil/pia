@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { TranslateService } from "@ngx-translate/core";
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class LanguagesService {
@@ -13,35 +13,35 @@ export class LanguagesService {
    */
   initLanguages() {
     this._translateService.addLangs([
-      "en",
-      "cz",
-      "de",
-      "dk",
-      "el",
-      "es",
-      "et",
-      "fi",
-      "fr",
-      "hr",
-      "hu",
-      "it",
-      "lt",
-      "nl",
-      "no",
-      "pl",
-      "pt",
-      "ro",
-      "sl",
-      "sv"
+      'en',
+      'cz',
+      'de',
+      'dk',
+      'el',
+      'es',
+      'et',
+      'fi',
+      'fr',
+      'hr',
+      'hu',
+      'it',
+      'lt',
+      'nl',
+      'no',
+      'pl',
+      'pt',
+      'ro',
+      'sl',
+      'sv'
     ]);
-    this._translateService.setDefaultLang("fr");
+    this._translateService.setDefaultLang('fr');
   }
 
   /**
    * Get the current language or set it
    */
   getOrSetCurrentLanguage() {
-    let language = localStorage.getItem("userLanguage");
+    let language = localStorage.getItem('userLanguage');
     // If there is already a language choosen
     if (language && language.length > 0) {
       this._translateService.use(language);
@@ -52,7 +52,7 @@ export class LanguagesService {
         /en|cz|de|dk|el|es|et|fi|fr|hr|hu|it|lt|nl|no|pl|pt|ro|sl|sv/
       )
         ? browserLang
-        : "fr";
+        : 'fr';
       this._translateService.use(language);
     }
     this.selectedLanguage = language;
@@ -63,7 +63,7 @@ export class LanguagesService {
    * @param {string} selectedLanguage
    */
   updateCurrentLanguage(selectedLanguage: string) {
-    localStorage.setItem("userLanguage", selectedLanguage);
+    localStorage.setItem('userLanguage', selectedLanguage);
     this._translateService.use(selectedLanguage);
     this.selectedLanguage = selectedLanguage;
   }

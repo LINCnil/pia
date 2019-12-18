@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KnowledgeBaseComponent } from "./knowledge-base.component";
+import { KnowledgeBaseComponent } from './knowledge-base.component';
 
-describe("KnowledgeBaseComponent", () => {
+describe('KnowledgeBaseComponent', () => {
   let component: KnowledgeBaseComponent;
   let fixture: ComponentFixture<KnowledgeBaseComponent>;
 
@@ -18,7 +18,7 @@ describe("KnowledgeBaseComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should be created", () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

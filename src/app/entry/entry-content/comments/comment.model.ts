@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../../../application.db";
+import { ApplicationDb } from '../../../application.db';
 
 export class Comment extends ApplicationDb {
   public id: number;
@@ -6,7 +6,7 @@ export class Comment extends ApplicationDb {
   public for_measure: boolean;
 
   constructor() {
-    super(201709122303, "comment");
+    super(201709122303, 'comment');
   }
 
   async create() {
@@ -23,13 +23,13 @@ export class Comment extends ApplicationDb {
         const formData = new FormData();
         for (const d in data) {
           if (data.hasOwnProperty(d) && data[d]) {
-            formData.append("comment[" + d + "]", data[d]);
+            formData.append('comment[' + d + ']', data[d]);
           }
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData,
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -38,7 +38,7 @@ export class Comment extends ApplicationDb {
             resolve(result.id);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
@@ -61,7 +61,7 @@ export class Comment extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -70,12 +70,12 @@ export class Comment extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index2");
+          const index1 = this.objectStore.index('index2');
           const evt = index1.openCursor(IDBKeyRange.only(pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
@@ -99,8 +99,8 @@ export class Comment extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + "?reference_to=" + this.reference_to, {
-          mode: "cors"
+        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -109,12 +109,12 @@ export class Comment extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index1");
+          const index1 = this.objectStore.index('index1');
           const evt = index1.openCursor(
             IDBKeyRange.only([this.pia_id, this.reference_to])
           );
@@ -141,7 +141,7 @@ export class Comment extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -150,12 +150,12 @@ export class Comment extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index2");
+          const index1 = this.objectStore.index('index2');
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);

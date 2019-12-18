@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Subscription } from "rxjs";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
-import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
-  selector: "app-help",
-  templateUrl: "./help.component.html",
-  styleUrls: ["./help.component.scss"]
+  selector: 'app-help',
+  templateUrl: './help.component.html',
+  styleUrls: ['./help.component.scss']
 })
 export class HelpComponent implements OnInit, OnDestroy {
   public tableOfTitles = [];
@@ -22,19 +22,19 @@ export class HelpComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const language = this._translateService.currentLang;
-    let fileTranslation = language === "fr" ? "fr" : "en";
+    let fileTranslation = language === 'fr' ? 'fr' : 'en';
     let file = `./assets/files/pia_help_${fileTranslation}.html`;
 
-    this.httpClient.get(file, { responseType: "text" }).subscribe(res => {
+    this.httpClient.get(file, { responseType: 'text' }).subscribe(res => {
       this.content = res;
       this.getSectionList();
     });
 
     this.helpSubscription = this._translateService.onLangChange.subscribe(
       (event: LangChangeEvent) => {
-        fileTranslation = event["lang"] === "fr" ? "fr" : "en";
+        fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
         file = `./assets/files/pia_help_${fileTranslation}.html`;
-        this.httpClient.get(file, { responseType: "text" }).subscribe(res => {
+        this.httpClient.get(file, { responseType: 'text' }).subscribe(res => {
           this.content = res;
           this.getSectionList();
         });
@@ -43,14 +43,14 @@ export class HelpComponent implements OnInit, OnDestroy {
 
     window.onscroll = function(ev) {
       if (window.innerWidth > 640) {
-        const el: any = document.querySelector(".pia-help-section");
+        const el: any = document.querySelector('.pia-help-section');
         if (el) {
           if (window.scrollY >= 100) {
-            el.setAttribute("style", "width:283px;");
-            el.classList.add("pia-help-section-scroll");
+            el.setAttribute('style', 'width:283px;');
+            el.classList.add('pia-help-section-scroll');
           } else {
-            el.setAttribute("style", "width:auto;");
-            el.classList.remove("pia-help-section-scroll");
+            el.setAttribute('style', 'width:auto;');
+            el.classList.remove('pia-help-section-scroll');
           }
         }
       }
@@ -69,7 +69,7 @@ export class HelpComponent implements OnInit, OnDestroy {
   getAnchor(event, text) {
     event.preventDefault();
     this.activeElement = text;
-    const allSubtitles = document.querySelectorAll("h3");
+    const allSubtitles = document.querySelectorAll('h3');
     [].forEach.call(allSubtitles, (el, i) => {
       if (el.innerText === this.activeElement) {
         el.scrollIntoView();
@@ -82,17 +82,17 @@ export class HelpComponent implements OnInit, OnDestroy {
    */
   getSectionList() {
     this.tableOfTitles = [];
-    const lines = this.content.split("\n");
+    const lines = this.content.split('\n');
     let tt = [];
     lines.forEach(line => {
       line = line.trim();
-      if (line.startsWith("<h3>")) {
-        tt[1].push(line.replace(/<(\/?)h3>/g, "").trim());
-      } else if (line.startsWith("<h2>")) {
+      if (line.startsWith('<h3>')) {
+        tt[1].push(line.replace(/<(\/?)h3>/g, '').trim());
+      } else if (line.startsWith('<h2>')) {
         if (tt.length > 0) {
           this.tableOfTitles.push(tt);
         }
-        tt = [line.replace(/<(\/?)h2>/g, "").trim(), []];
+        tt = [line.replace(/<(\/?)h2>/g, '').trim(), []];
       }
     });
     if (tt.length > 0) {

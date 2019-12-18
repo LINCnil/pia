@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs/Subject";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
-import { Structure } from "src/app/structures/structure.model";
-import { ModalsService } from "src/app/modals/modals.service";
+import { Structure } from 'src/app/structures/structure.model';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Injectable()
 export class AnswerStructureService {
@@ -23,11 +23,11 @@ export class AnswerStructureService {
         (questions.length + 1).toString();
       const question = {
         id: parseInt(question_id, 10),
-        title: "",
+        title: '',
         link_knowledge_base: [],
-        placeholder: "",
-        answer_type: "text",
-        answer: "",
+        placeholder: '',
+        answer_type: 'text',
+        answer: '',
         active: true
       };
       structure.data.sections
@@ -44,8 +44,8 @@ export class AnswerStructureService {
   async addMeasure(structure: Structure, section: any, item: any) {
     return new Promise((resolve, reject) => {
       const measure = {
-        title: "",
-        content: ""
+        title: '',
+        content: ''
       };
       structure.data.sections
         .filter(s => s.id === section.id)[0]
@@ -58,7 +58,7 @@ export class AnswerStructureService {
   }
 
   removeMeasure() {
-    const sid = localStorage.getItem("measure-id").split(",");
+    const sid = localStorage.getItem('measure-id').split(',');
 
     const section_id = parseInt(sid[0], 10);
     const item_id = parseInt(sid[1], 10);
@@ -69,13 +69,13 @@ export class AnswerStructureService {
       .answers.splice(measure_id, 1);
     this.structure.update().then(() => {
       this.measureToRemove.next(measure_id);
-      localStorage.removeItem("measure-id");
+      localStorage.removeItem('measure-id');
       this._modalsService.closeModal();
     });
   }
 
   removeQuestion() {
-    const sid = localStorage.getItem("question-id").split(",");
+    const sid = localStorage.getItem('question-id').split(',');
     const section_id = parseInt(sid[0], 10);
     const item_id = parseInt(sid[1], 10);
     const question_id = parseInt(sid[2], 10);
@@ -91,7 +91,7 @@ export class AnswerStructureService {
       this.structure.update();
       this.questionToRemove.next(index);
     }
-    localStorage.removeItem("question-id");
+    localStorage.removeItem('question-id');
     this._modalsService.closeModal();
   }
 }

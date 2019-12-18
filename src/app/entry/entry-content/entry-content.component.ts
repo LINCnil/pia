@@ -1,23 +1,23 @@
-import { Router, ActivatedRoute, Params } from "@angular/router";
-import { Component, OnInit, Input, OnChanges } from "@angular/core";
-import "rxjs/add/operator/map";
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import 'rxjs/add/operator/map';
 
-import { Answer } from "src/app/entry/entry-content/questions/answer.model";
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
 
-import { AppDataService } from "src/app/services/app-data.service";
-import { MeasureService } from "src/app/entry/entry-content/measures/measures.service";
-import { ModalsService } from "src/app/modals/modals.service";
-import { PiaService } from "src/app/services/pia.service";
-import { PaginationService } from "src/app/entry/entry-content/pagination.service";
-import { TranslateService } from "@ngx-translate/core";
-import { SidStatusService } from "src/app/services/sid-status.service";
-import { GlobalEvaluationService } from "src/app/services/global-evaluation.service";
-import { KnowledgeBaseService } from "src/app/entry/knowledge-base/knowledge-base.service";
+import { AppDataService } from 'src/app/services/app-data.service';
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { PaginationService } from 'src/app/entry/entry-content/pagination.service';
+import { TranslateService } from '@ngx-translate/core';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
 
 @Component({
-  selector: "app-entry-content",
-  templateUrl: "./entry-content.component.html",
-  styleUrls: ["./entry-content.component.scss"],
+  selector: 'app-entry-content',
+  templateUrl: './entry-content.component.html',
+  styleUrls: ['./entry-content.component.scss'],
   providers: [PiaService]
 })
 export class EntryContentComponent implements OnInit, OnChanges {
@@ -54,7 +54,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
       this._piaService.pia.update();
 
       if (this._piaService.pia.is_archive === 1) {
-        this._router.navigate(["home"]);
+        this._router.navigate(['home']);
       }
     });
   }
@@ -82,17 +82,17 @@ export class EntryContentComponent implements OnInit, OnChanges {
         if (
           this._sidStatusService.itemStatus.hasOwnProperty(el) &&
           this._sidStatusService.itemStatus[el] < 4 &&
-          el !== "4.3"
+          el !== '4.3'
         ) {
           isPiaFullyEdited = false;
         }
       }
       if (isPiaFullyEdited) {
         this.goToNextSectionItem(4, 5);
-        this._modalsService.openModal("completed-edition");
+        this._modalsService.openModal('completed-edition');
       } else {
         this.goToNextSectionItem(0, 4);
-        this._modalsService.openModal("ask-for-evaluation");
+        this._modalsService.openModal('ask-for-evaluation');
       }
     });
   }
@@ -110,17 +110,17 @@ export class EntryContentComponent implements OnInit, OnChanges {
           if (
             this._sidStatusService.itemStatus.hasOwnProperty(el) &&
             this._sidStatusService.itemStatus[el] !== 7 &&
-            el !== "4.3"
+            el !== '4.3'
           ) {
             isPiaFullyEvaluated = false;
           }
         }
         if (isPiaFullyEvaluated) {
-          this._modalsService.openModal("completed-evaluation");
+          this._modalsService.openModal('completed-evaluation');
         } else if (toFix) {
-          this._modalsService.openModal("validate-evaluation-to-correct");
+          this._modalsService.openModal('validate-evaluation-to-correct');
         } else {
-          this._modalsService.openModal("validate-evaluation");
+          this._modalsService.openModal('validate-evaluation');
         }
       });
   }
@@ -138,11 +138,11 @@ export class EntryContentComponent implements OnInit, OnChanges {
     );
 
     this._router.navigate([
-      "entry",
+      'entry',
       this._piaService.pia.id,
-      "section",
+      'section',
       goto_section_item[0],
-      "item",
+      'item',
       goto_section_item[1]
     ]);
   }
@@ -152,7 +152,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   cancelAskForEvaluation() {
     this._globalEvaluationService.cancelForEvaluation();
-    this._modalsService.openModal("back-to-edition");
+    this._modalsService.openModal('back-to-edition');
   }
 
   /**
@@ -160,6 +160,6 @@ export class EntryContentComponent implements OnInit, OnChanges {
    */
   cancelValidateEvaluation() {
     this._globalEvaluationService.cancelValidation();
-    this._modalsService.openModal("back-to-evaluation");
+    this._modalsService.openModal('back-to-evaluation');
   }
 }

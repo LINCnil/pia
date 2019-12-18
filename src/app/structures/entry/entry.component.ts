@@ -1,22 +1,22 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
-import { Subscription } from "rxjs";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
-import { KnowledgeBaseService } from "src/app/entry/knowledge-base/knowledge-base.service";
-import { MeasureService } from "src/app/entry/entry-content/measures/measures.service";
-import { ActionPlanService } from "src/app/entry/entry-content/action-plan//action-plan.service";
-import { StructureService } from "src/app/services/structure.service";
-import { AnswerStructureService } from "src/app/services/answer-structure.service";
-import { ModalsService } from "src/app/modals/modals.service";
-import { AppDataService } from "src/app/services/app-data.service";
-import { SidStatusService } from "src/app/services/sid-status.service";
-import { GlobalEvaluationService } from "src/app/services/global-evaluation.service";
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
+import { StructureService } from 'src/app/services/structure.service';
+import { AnswerStructureService } from 'src/app/services/answer-structure.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Component({
-  selector: "app-entry",
-  templateUrl: "./entry.component.html",
-  styleUrls: ["./entry.component.scss"],
+  selector: 'app-entry',
+  templateUrl: './entry.component.html',
+  styleUrls: ['./entry.component.scss'],
   providers: [StructureService]
 })
 export class EntryComponent implements OnInit, OnDestroy {
@@ -110,13 +110,13 @@ export class EntryComponent implements OnInit, OnDestroy {
 
       // Update on knowledge base (scroll / content / search field)
       const knowledgeBaseScroll = document.querySelector(
-        ".pia-knowledgeBaseBlock-list"
+        '.pia-knowledgeBaseBlock-list'
       );
       const knowledgeBaseContent = document.querySelector(
-        ".pia-knowledgeBaseBlock-searchForm input"
+        '.pia-knowledgeBaseBlock-searchForm input'
       ) as HTMLInputElement;
       knowledgeBaseScroll.scrollTop = 0;
-      knowledgeBaseContent.value = "";
+      knowledgeBaseContent.value = '';
 
       this._knowledgeBaseService.q = null;
       this._knowledgeBaseService.loadByItem(this.item);

@@ -1,21 +1,21 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
-import { Evaluation } from "src/app/entry/entry-content/evaluations/evaluation.model";
-import { Measure } from "src/app/entry/entry-content/measures/measure.model";
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 
-import { TranslateService } from "@ngx-translate/core";
-import { LanguagesService } from "src/app/services/languages.service";
+import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'src/app/services/languages.service';
 
-import { FormatTheDate } from "../../../tools";
+import { FormatTheDate } from '../../../tools';
 
 @Injectable()
 export class ActionPlanService {
   data: any;
   pia: any;
   risks = {
-    "3.2": null,
-    "3.3": null,
-    "3.4": null
+    '3.2': null,
+    '3.3': null,
+    '3.4': null
   };
   measures = [];
   results = [];
@@ -52,7 +52,7 @@ export class ActionPlanService {
     section[0].items.forEach(item => {
       item.questions.forEach(q => {
         const evaluation = new Evaluation();
-        const referenceTo = "2." + item.id + "." + q.id;
+        const referenceTo = '2.' + item.id + '.' + q.id;
         evaluation.getByReference(this.pia.id, referenceTo).then(() => {
           if (evaluation.status > 0) {
             if (
@@ -71,14 +71,14 @@ export class ActionPlanService {
             if (title1) {
               title1 = false;
               this.csvRows.push({
-                title: this._translateService.instant("action_plan.principles")
+                title: this._translateService.instant('action_plan.principles')
               });
             }
             this.csvRows.push({
-              blank: " ",
+              blank: ' ',
               short_title: q.short_title
                 ? this._translateService.instant(q.short_title)
-                : "",
+                : '',
               action_plan_comment: this.filterText(
                 evaluation.action_plan_comment
               ),
@@ -114,7 +114,7 @@ export class ActionPlanService {
     measure.findAll().then((entries: any) => {
       entries.forEach(m => {
         const evaluation2 = new Evaluation();
-        const referenceTo = "3.1." + m.id;
+        const referenceTo = '3.1.' + m.id;
         this.measures[referenceTo] = null;
         evaluation2.getByReference(this.pia.id, referenceTo).then(() => {
           if (evaluation2.status > 0) {
@@ -135,14 +135,14 @@ export class ActionPlanService {
             if (title2) {
               title2 = false;
               this.csvRows.push({
-                title: this._translateService.instant("action_plan.measures")
+                title: this._translateService.instant('action_plan.measures')
               });
             }
             this.csvRows.push({
-              blank: " ",
+              blank: ' ',
               short_title: m.title
                 ? this._translateService.instant(m.title)
-                : "",
+                : '',
               action_plan_comment: this.filterText(
                 evaluation2.action_plan_comment
               ),
@@ -174,9 +174,9 @@ export class ActionPlanService {
     });
 
     let title3 = true;
-    let shortTitle = "";
+    let shortTitle = '';
     const evaluation3 = new Evaluation();
-    evaluation3.getByReference(this.pia.id, "3.2").then(() => {
+    evaluation3.getByReference(this.pia.id, '3.2').then(() => {
       if (evaluation3.status > 0) {
         if (
           evaluation3.action_plan_comment &&
@@ -184,8 +184,8 @@ export class ActionPlanService {
         ) {
           this.risksActionPlan32Ready = true;
         }
-        shortTitle = this._translateService.instant("action_plan.risk1");
-        this.risks["3.2"] = {
+        shortTitle = this._translateService.instant('action_plan.risk1');
+        this.risks['3.2'] = {
           status: evaluation3.status,
           short_title: shortTitle,
           action_plan_comment: evaluation3.action_plan_comment,
@@ -195,11 +195,11 @@ export class ActionPlanService {
         if (title3) {
           title3 = false;
           this.csvRows.push({
-            title: this._translateService.instant("action_plan.risk1")
+            title: this._translateService.instant('action_plan.risk1')
           });
         }
         this.csvRows.push({
-          blank: " ",
+          blank: ' ',
           short_title: shortTitle,
           action_plan_comment: this.filterText(evaluation3.action_plan_comment),
           evaluation_comment: this.filterText(evaluation3.evaluation_comment),
@@ -218,7 +218,7 @@ export class ActionPlanService {
 
     let title4 = true;
     const evaluation4 = new Evaluation();
-    evaluation4.getByReference(this.pia.id, "3.3").then(() => {
+    evaluation4.getByReference(this.pia.id, '3.3').then(() => {
       if (evaluation4.status > 0) {
         if (
           evaluation4.action_plan_comment &&
@@ -226,8 +226,8 @@ export class ActionPlanService {
         ) {
           this.risksActionPlan33Ready = true;
         }
-        shortTitle = this._translateService.instant("action_plan.risk2");
-        this.risks["3.3"] = {
+        shortTitle = this._translateService.instant('action_plan.risk2');
+        this.risks['3.3'] = {
           status: evaluation4.status,
           short_title: shortTitle,
           action_plan_comment: evaluation4.action_plan_comment,
@@ -237,11 +237,11 @@ export class ActionPlanService {
         if (title4) {
           title4 = false;
           this.csvRows.push({
-            title: this._translateService.instant("action_plan.risk2")
+            title: this._translateService.instant('action_plan.risk2')
           });
         }
         this.csvRows.push({
-          blank: " ",
+          blank: ' ',
           short_title: shortTitle,
           action_plan_comment: this.filterText(evaluation4.action_plan_comment),
           evaluation_comment: this.filterText(evaluation4.evaluation_comment),
@@ -260,7 +260,7 @@ export class ActionPlanService {
 
     let title5 = true;
     const evaluation5 = new Evaluation();
-    evaluation5.getByReference(this.pia.id, "3.4").then(() => {
+    evaluation5.getByReference(this.pia.id, '3.4').then(() => {
       if (evaluation5.status > 0) {
         if (
           evaluation5.action_plan_comment &&
@@ -268,8 +268,8 @@ export class ActionPlanService {
         ) {
           this.risksActionPlan34Ready = true;
         }
-        shortTitle = this._translateService.instant("action_plan.risk3");
-        this.risks["3.4"] = {
+        shortTitle = this._translateService.instant('action_plan.risk3');
+        this.risks['3.4'] = {
           status: evaluation5.status,
           short_title: shortTitle,
           action_plan_comment: evaluation5.action_plan_comment,
@@ -279,11 +279,11 @@ export class ActionPlanService {
         if (title5) {
           title5 = false;
           this.csvRows.push({
-            title: this._translateService.instant("action_plan.risk3")
+            title: this._translateService.instant('action_plan.risk3')
           });
         }
         this.csvRows.push({
-          blank: " ",
+          blank: ' ',
           short_title: shortTitle,
           action_plan_comment: this.filterText(evaluation5.action_plan_comment),
           evaluation_comment: this.filterText(evaluation5.evaluation_comment),
@@ -316,12 +316,12 @@ export class ActionPlanService {
           data = new Intl.DateTimeFormat(locale).format(newDate);
         }
       } else {
-        const divElement = document.createElement("div");
+        const divElement = document.createElement('div');
         divElement.innerHTML = data;
         data = divElement.innerText;
       }
     } else {
-      data = "";
+      data = '';
     }
     return data;
   }

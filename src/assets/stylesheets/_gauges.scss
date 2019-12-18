@@ -97,7 +97,7 @@
 }
 
 // Input with range (gauges)
-input[type="range"] {
+input[type='range'] {
   /* Removes default webkit styles */
   -webkit-appearance: none;
   /* Fix for FF unable to apply focus style bug */
@@ -111,13 +111,13 @@ input[type="range"] {
   }
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
+input[type='range']::-webkit-slider-runnable-track {
   height: 3px;
   background-color: #999;
   border: none;
   border-radius: 3px;
 }
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 2px solid #fff;
   height: 22px;
@@ -129,20 +129,20 @@ input[type="range"]::-webkit-slider-thumb {
   z-index: 999;
   cursor: pointer;
 }
-input[type="range"]:focus {
+input[type='range']:focus {
   outline: none;
 }
-input[type="range"]:focus::-webkit-slider-runnable-track {
+input[type='range']:focus::-webkit-slider-runnable-track {
   background: #ccc;
 }
 
-input[type="range"]::-moz-range-track {
+input[type='range']::-moz-range-track {
   height: 5px;
   background: transparent;
   border: none;
   border-radius: 3px;
 }
-input[type="range"]::-moz-range-thumb {
+input[type='range']::-moz-range-thumb {
   border: 2px solid #fff;
   height: 22px;
   width: 22px;
@@ -155,12 +155,12 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Hides the outline behind the border. */
-input[type="range"]:-moz-focusring {
+input[type='range']:-moz-focusring {
   outline: 1px solid white;
   outline-offset: -1px;
 }
 
-input[type="range"]::-ms-track {
+input[type='range']::-ms-track {
   height: 5px;
 
   /* Leaves room for the larger thumb to overflow with a transparent border. */
@@ -171,7 +171,7 @@ input[type="range"]::-ms-track {
   color: transparent;
 }
 
-input[type="range"]::-ms-thumb {
+input[type='range']::-ms-thumb {
   border: 2px solid #fff;
   height: 22px;
   width: 22px;

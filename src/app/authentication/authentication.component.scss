@@ -1,4 +1,4 @@
-@import "../../assets/stylesheets/variables";
+@import '../../assets/stylesheets/variables';
 .pia {
   &-closeFullScreenModeAlertBlock {
     color: #fff;
@@ -59,7 +59,7 @@
         top: 0;
         bottom: 0;
         left: -5px;
-        content: "";
+        content: '';
         background-color: $pia-green;
         width: 10px;
         transform: skewX(-10deg);
@@ -146,7 +146,7 @@
         padding-top: 1px;
       }
     }
-    button[type="submit"] {
+    button[type='submit'] {
       display: block;
       margin-top: 20px;
       margin-left: auto;

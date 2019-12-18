@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs/Subject";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
-import { GlobalEvaluationService } from "src/app/services/global-evaluation.service";
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
 @Injectable()
 export class SidStatusService {
@@ -10,7 +10,7 @@ export class SidStatusService {
   sidStatusIcon: any;
   itemStatus: any;
   structureStatus: any;
-  defaultIcon = "fa-pencil-square-o";
+  defaultIcon = 'fa-pencil-square-o';
   enablePiaValidation: boolean;
   piaIsRefused: boolean;
   enableDpoValidation: boolean;
@@ -18,20 +18,20 @@ export class SidStatusService {
 
   constructor(private _globalEvaluationService: GlobalEvaluationService) {
     this.specialIcon = {
-      "3.5": "fa-line-chart",
-      "4.1": "fa-line-chart",
-      "4.2": "fa-calendar-check-o"
+      '3.5': 'fa-line-chart',
+      '4.1': 'fa-line-chart',
+      '4.2': 'fa-calendar-check-o'
     };
     this.sidStatusIcon = {
-      0: "fa-pencil-square-o",
-      1: "fa-pencil-square-o",
-      2: "fa-pencil-square-o",
-      3: "fa-pencil-square-o",
-      4: ["fa-pencil-square-o", "pia-fa-valid"],
-      5: "fa-cog",
-      6: "fa-cog",
-      7: ["fa-cog", "pia-fa-valid"],
-      8: "fa-check-square-o"
+      0: 'fa-pencil-square-o',
+      1: 'fa-pencil-square-o',
+      2: 'fa-pencil-square-o',
+      3: 'fa-pencil-square-o',
+      4: ['fa-pencil-square-o', 'pia-fa-valid'],
+      5: 'fa-cog',
+      6: 'fa-cog',
+      7: ['fa-cog', 'pia-fa-valid'],
+      8: 'fa-check-square-o'
     };
     this.itemStatus = {};
     this.structureStatus = {};
@@ -55,21 +55,21 @@ export class SidStatusService {
    * @param {*} item - The item.
    */
   setSidStatus(piaService: any, section: any, item: any) {
-    const reference_to = section.id + "." + item.id;
+    const reference_to = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
     const globalEvaluationService = new GlobalEvaluationService();
     globalEvaluationService.pia = piaService.pia;
     globalEvaluationService.section = section;
     globalEvaluationService.item = item;
     if (
-      item.evaluation_mode === "item" ||
-      item.evaluation_mode === "question" ||
-      reference_to === "4.3"
+      item.evaluation_mode === 'item' ||
+      item.evaluation_mode === 'question' ||
+      reference_to === '4.3'
     ) {
       globalEvaluationService
         .validate(false)
         .then((obj: { reference_to: string; status: number }) => {
-          if (reference_to === "4.3") {
+          if (reference_to === '4.3') {
             this.enablePiaValidation =
               globalEvaluationService.enablePiaValidation;
             this.piaIsRefused = globalEvaluationService.piaIsRefused;
@@ -108,13 +108,13 @@ export class SidStatusService {
    * @param {*} item - The item.
    */
   removeSidStatus(piaService: any, section: any, item: any) {
-    const sid = section.id + "." + item.id;
+    const sid = section.id + '.' + item.id;
     if (!this.noIconFor.includes(sid)) {
       this.itemStatus[sid] = 0;
       // TODO the code below isn't useful
       piaService.getPIA().then(() => {
         // Special behaviour for DPO page
-        if (sid === "4.3") {
+        if (sid === '4.3') {
           // Nothing to do
         } else {
           this.itemStatus[sid] = 0;
@@ -151,7 +151,7 @@ export class SidStatusService {
       if (
         this.itemStatus.hasOwnProperty(el) &&
         this.itemStatus[el] >= 7 &&
-        el !== "4.3"
+        el !== '4.3'
       ) {
         count++;
       }

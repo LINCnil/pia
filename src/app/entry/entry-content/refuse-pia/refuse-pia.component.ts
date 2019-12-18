@@ -1,16 +1,16 @@
-import { Component, ElementRef, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { ModalsService } from "src/app/modals/modals.service";
-import { PiaService } from "src/app/services/pia.service";
-import { SidStatusService } from "src/app/services/sid-status.service";
-import { TranslateService } from "@ngx-translate/core";
+import { ModalsService } from 'src/app/modals/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: "app-refuse-pia",
-  templateUrl: "./refuse-pia.component.html",
-  styleUrls: ["./refuse-pia.component.scss"]
+  selector: 'app-refuse-pia',
+  templateUrl: './refuse-pia.component.html',
+  styleUrls: ['./refuse-pia.component.scss']
 })
 export class RefusePIAComponent implements OnInit {
   rejectionReasonForm: FormGroup;
@@ -41,10 +41,10 @@ export class RefusePIAComponent implements OnInit {
         this._piaService.pia.rejected_reason &&
         this._piaService.pia.rejected_reason.length > 0
       ) {
-        this.rejectionReasonForm.controls["rejectionReason"].patchValue(
+        this.rejectionReasonForm.controls['rejectionReason'].patchValue(
           this._piaService.pia.rejected_reason
         );
-        this.rejectionReasonForm.controls["rejectionReason"].disable();
+        this.rejectionReasonForm.controls['rejectionReason'].disable();
         this.showRejectionReasonButtons = true;
       }
 
@@ -54,22 +54,22 @@ export class RefusePIAComponent implements OnInit {
         this._piaService.pia.applied_adjustements.length > 0 &&
         this._piaService.pia.rejected_reason.length > 0
       ) {
-        this.modificationsMadeForm.controls["modificationsMade"].patchValue(
+        this.modificationsMadeForm.controls['modificationsMade'].patchValue(
           this._piaService.pia.applied_adjustements
         );
-        this.modificationsMadeForm.controls["modificationsMade"].disable();
+        this.modificationsMadeForm.controls['modificationsMade'].disable();
         if (this._piaService.pia.status === 1) {
           this.showResendValidationButton = true;
         }
       }
 
       // Textareas auto resize
-      const rejectionTextarea = document.getElementById("pia-refuse-reason");
+      const rejectionTextarea = document.getElementById('pia-refuse-reason');
       if (rejectionTextarea) {
         this.autoTextareaResize(null, rejectionTextarea);
       }
       const modificationsTextarea = document.getElementById(
-        "pia-refuse-modifications"
+        'pia-refuse-modifications'
       );
       if (modificationsTextarea) {
         this.autoTextareaResize(null, modificationsTextarea);
@@ -81,7 +81,7 @@ export class RefusePIAComponent implements OnInit {
    * Display the modal to abandon the PIA.
    */
   abandon() {
-    this._modalsService.openModal("modal-abandon-pia");
+    this._modalsService.openModal('modal-abandon-pia');
   }
 
   /**
@@ -93,14 +93,14 @@ export class RefusePIAComponent implements OnInit {
       this._piaService.cancelAllValidatedEvaluation().then(() => {
         this._sidStatusService.refusePia(this._piaService).then(() => {
           this.router.navigate([
-            "entry",
+            'entry',
             this._piaService.pia.id,
-            "section",
+            'section',
             1,
-            "item",
+            'item',
             1
           ]);
-          this._modalsService.openModal("modal-refuse-pia");
+          this._modalsService.openModal('modal-refuse-pia');
         });
       });
     });
@@ -113,8 +113,8 @@ export class RefusePIAComponent implements OnInit {
     if (this._piaService.pia.status === 1) {
       return false;
     } else {
-      this.rejectionReasonForm.controls["rejectionReason"].enable();
-      document.getElementById("pia-refuse-reason").focus();
+      this.rejectionReasonForm.controls['rejectionReason'].enable();
+      document.getElementById('pia-refuse-reason').focus();
     }
   }
 
@@ -122,14 +122,14 @@ export class RefusePIAComponent implements OnInit {
    * Executes functionnalities when losing focus from rejection reason field.
    */
   rejectionReasonFocusOut() {
-    let userText = this.rejectionReasonForm.controls["rejectionReason"].value;
+    let userText = this.rejectionReasonForm.controls['rejectionReason'].value;
     if (userText) {
-      userText = userText.replace(/^\s+/, "").replace(/\s+$/, "");
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.rejected_reason = userText;
     this._piaService.pia.update().then(() => {
       if (userText && userText.length > 0) {
-        this.rejectionReasonForm.controls["rejectionReason"].disable();
+        this.rejectionReasonForm.controls['rejectionReason'].disable();
         this.showRejectionReasonButtons = true;
       } else {
         this.showRejectionReasonButtons = false;
@@ -144,8 +144,8 @@ export class RefusePIAComponent implements OnInit {
     if (this._piaService.pia.status !== 1) {
       return false;
     } else {
-      this.modificationsMadeForm.controls["modificationsMade"].enable();
-      document.getElementById("pia-refuse-modifications").focus();
+      this.modificationsMadeForm.controls['modificationsMade'].enable();
+      document.getElementById('pia-refuse-modifications').focus();
     }
   }
 
@@ -153,27 +153,27 @@ export class RefusePIAComponent implements OnInit {
    * Executes functionnalities when losing focus from modifications made field.
    */
   modificationsMadeFocusOut() {
-    let userText = this.modificationsMadeForm.controls["modificationsMade"]
+    let userText = this.modificationsMadeForm.controls['modificationsMade']
       .value;
     const resendButton = this.el.nativeElement.querySelector(
-      ".pia-entryContentBlock-footer > button"
+      '.pia-entryContentBlock-footer > button'
     );
     if (userText) {
-      userText = userText.replace(/^\s+/, "").replace(/\s+$/, "");
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this._piaService.pia.applied_adjustements = userText;
     this._piaService.pia.update().then(() => {
       if (userText && userText.length > 0) {
-        this.modificationsMadeForm.controls["modificationsMade"].disable();
+        this.modificationsMadeForm.controls['modificationsMade'].disable();
         this.showResendValidationButton = true;
       } else {
         this.showResendValidationButton = false;
       }
       if (resendButton) {
         if (userText) {
-          resendButton.removeAttribute("disabled");
+          resendButton.removeAttribute('disabled');
         } else {
-          resendButton.setAttribute("disabled", true);
+          resendButton.setAttribute('disabled', true);
         }
       }
     });
@@ -189,10 +189,10 @@ export class RefusePIAComponent implements OnInit {
       textarea = event.target;
     }
     if (textarea.clientHeight < textarea.scrollHeight) {
-      textarea.style.height = textarea.scrollHeight + "px";
+      textarea.style.height = textarea.scrollHeight + 'px';
       if (textarea.clientHeight < textarea.scrollHeight) {
         textarea.style.height =
-          textarea.scrollHeight * 2 - textarea.clientHeight + "px";
+          textarea.scrollHeight * 2 - textarea.clientHeight + 'px';
       }
     }
   }

@@ -6,22 +6,22 @@ import {
   Renderer2,
   OnDestroy,
   NgZone
-} from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/filter";
+} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 
-import { KnowledgeBaseService } from "src/app/entry/knowledge-base/knowledge-base.service";
-import { ModalsService } from "src/app/modals/modals.service";
-import { GlobalEvaluationService } from "src/app/services/global-evaluation.service";
-import { StructureService } from "src/app/services/structure.service";
-import { SidStatusService } from "src/app/services/sid-status.service";
+import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { StructureService } from 'src/app/services/structure.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
 
 @Component({
-  selector: "app-questions",
-  templateUrl: "./questions.component.html",
-  styleUrls: ["./questions.component.scss"],
+  selector: 'app-questions',
+  templateUrl: './questions.component.html',
+  styleUrls: ['./questions.component.scss'],
   providers: [StructureService]
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
@@ -48,7 +48,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._globalEvaluationService.answerEditionEnabled = true;
-    this.elementId = "pia-question-content-" + this.question.id;
+    this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new FormGroup({
       title: new FormControl(),
       gauge: new FormControl(0),
@@ -58,15 +58,15 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
     if (
       this.question.title &&
-      !this.question.title.startsWith("section") &&
+      !this.question.title.startsWith('section') &&
       this.question.title.length > 0
     ) {
-      this.questionForm.controls["title"].patchValue(this.question.title);
-      this.questionForm.controls["title"].disable();
+      this.questionForm.controls['title'].patchValue(this.question.title);
+      this.questionForm.controls['title'].disable();
       this.editTitle = false;
     }
 
-    this.questionForm.controls["text"].patchValue(this.question.answer);
+    this.questionForm.controls['text'].patchValue(this.question.answer);
   }
 
   ngOnDestroy() {
@@ -75,10 +75,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   removeQuestion() {
     localStorage.setItem(
-      "question-id",
+      'question-id',
       [this.section.id, this.item.id, this.question.id].toString()
     );
-    this._modalsService.openModal("remove-question");
+    this._modalsService.openModal('remove-question');
   }
 
   /**
@@ -89,9 +89,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       return;
     }
     this.editTitle = true;
-    this.questionForm.controls["title"].enable();
+    this.questionForm.controls['title'].enable();
     const questionTitleTextarea = document.getElementById(
-      "pia-questionBlock-title-" + this.question.id
+      'pia-questionBlock-title-' + this.question.id
     );
     setTimeout(() => {
       questionTitleTextarea.focus();
@@ -105,9 +105,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {event} event - Any Event.
    */
   questionTitleFocusOut(event: Event) {
-    let userText = this.questionForm.controls["title"].value;
+    let userText = this.questionForm.controls['title'].value;
     if (userText) {
-      userText = userText.replace(/^\s+/, "").replace(/\s+$/, "");
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
       this.editTitle = false;
     }
 
@@ -120,7 +120,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.questionForm.value.title &&
       this.questionForm.value.title.length > 0
     ) {
-      this.questionForm.controls["title"].disable();
+      this.questionForm.controls['title'].disable();
     }
   }
 
@@ -132,11 +132,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       return;
     }
     const questionTitleTextarea = document.getElementById(
-      "pia-questionBlock-title-" + this.question.id
+      'pia-questionBlock-title-' + this.question.id
     );
-    const questionTitle = this.questionForm.controls["title"].value;
+    const questionTitle = this.questionForm.controls['title'].value;
     if (questionTitleTextarea && !questionTitle) {
-      questionTitleTextarea.classList.add("pia-required");
+      questionTitleTextarea.classList.add('pia-required');
       questionTitleTextarea.focus();
     } else if (this._globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
@@ -147,9 +147,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Disables question field + shows edit button + save data.
    */
   questionContentFocusOut() {
-    let userText = this.questionForm.controls["text"].value;
+    let userText = this.questionForm.controls['text'].value;
     if (userText) {
-      userText = userText.replace(/^\s+/, "").replace(/\s+$/, "");
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
 
     this._ngZone.run(() => {
@@ -164,12 +164,12 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {*} event - Any Event.
    */
   displayQuestion(event: any) {
-    const accordeon = this.el.nativeElement.querySelector(".pia-accordeon");
-    accordeon.classList.toggle("pia-icon-accordeon-down");
+    const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
+    accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector(
-      ".pia-questionBlock-displayer"
+      '.pia-questionBlock-displayer'
     );
-    displayer.classList.toggle("close");
+    displayer.classList.toggle('close');
   }
 
   /**
@@ -178,28 +178,28 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   loadEditor() {
     this._knowledgeBaseService.placeholder = this.question.placeholder;
     this._knowledgeBaseService.search(
-      "",
-      "",
+      '',
+      '',
       this.question.link_knowledge_base
     );
     tinymce.init({
       branding: false,
       menubar: false,
       statusbar: false,
-      plugins: "autoresize lists",
+      plugins: 'autoresize lists',
       forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: "body {background-color:#eee!important;}",
-      selector: "#" + this.elementId,
+      content_style: 'body {background-color:#eee!important;}',
+      selector: '#' + this.elementId,
       toolbar:
-        "undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent",
-      skin_url: "assets/skins/lightgray",
+        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      skin_url: 'assets/skins/lightgray',
       setup: editor => {
         this.editor = editor;
-        editor.on("focusout", () => {
-          this.questionForm.controls["text"].patchValue(editor.getContent());
+        editor.on('focusout', () => {
+          this.questionForm.controls['text'].patchValue(editor.getContent());
           this.questionContentFocusOut();
           this.closeEditor();
         });

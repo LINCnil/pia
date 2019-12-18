@@ -1,19 +1,19 @@
-import { Component, OnInit, ElementRef, OnDestroy, Input } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
-import { Router, ActivatedRoute, Params } from "@angular/router";
-import { Subscription } from "rxjs";
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 
-import { Structure } from "./structure.model";
+import { Structure } from './structure.model';
 
-import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
-import { StructureService } from "src/app/services/structure.service";
-import { ModalsService } from "src/app/modals/modals.service";
-import { AppDataService } from "src/app/services/app-data.service";
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { StructureService } from 'src/app/services/structure.service';
+import { ModalsService } from 'src/app/modals/modals.service';
+import { AppDataService } from 'src/app/services/app-data.service';
 
 @Component({
-  selector: "app-structures",
-  templateUrl: "./structures.component.html",
-  styleUrls: ["./structures.component.scss"],
+  selector: 'app-structures',
+  templateUrl: './structures.component.html',
+  styleUrls: ['./structures.component.scss'],
   providers: [StructureService]
 })
 export class StructuresComponent implements OnInit, OnDestroy {
@@ -24,7 +24,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
   sortOrder: string;
   sortValue: string;
   viewStyle: { view: string };
-  view: "structure";
+  view: 'structure';
   paramsSubscribe: Subscription;
   structExampleSubscribe: Subscription;
   searchText: string;
@@ -40,13 +40,13 @@ export class StructuresComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.sortOrder = localStorage.getItem("sortOrder");
-    this.sortValue = localStorage.getItem("sortValue");
+    this.sortOrder = localStorage.getItem('sortOrder');
+    this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {
-      this.sortOrder = "up";
-      this.sortValue = "updated_at";
-      localStorage.setItem("sortOrder", this.sortOrder);
-      localStorage.setItem("sortValue", this.sortValue);
+      this.sortOrder = 'up';
+      this.sortValue = 'updated_at';
+      localStorage.setItem('sortOrder', this.sortOrder);
+      localStorage.setItem('sortValue', this.sortValue);
     }
     this.refreshContent();
     this.structureForm = new FormGroup({
@@ -59,13 +59,13 @@ export class StructuresComponent implements OnInit, OnDestroy {
     this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
       this.viewStyle.view = params.view;
     });
-    if (localStorage.getItem("homepageDisplayMode") === "list") {
+    if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
       this.viewOnCard();
     }
     this.importStructureForm = new FormGroup({
-      import_file: new FormControl("", [])
+      import_file: new FormControl('', [])
     });
 
     this.structExampleSubscribe = this._translateService.onLangChange.subscribe(
@@ -81,7 +81,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
   }
 
   onCleanSearch() {
-    this.searchText = "";
+    this.searchText = '';
   }
 
   /**
@@ -103,11 +103,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
    */
   newStruct() {
     this.newStructure = new Structure();
-    const cardsToSwitch = document.getElementById("cardsSwitch");
-    cardsToSwitch.classList.toggle("flipped");
-    const rocketToHide = document.getElementById("pia-rocket");
+    const cardsToSwitch = document.getElementById('cardsSwitch');
+    cardsToSwitch.classList.toggle('flipped');
+    const rocketToHide = document.getElementById('pia-rocket');
     if (rocketToHide) {
-      rocketToHide.style.display = "none";
+      rocketToHide.style.display = 'none';
     }
   }
 
@@ -115,8 +115,8 @@ export class StructuresComponent implements OnInit, OnDestroy {
    * Inverse the order of the list.
    */
   reverseStruct() {
-    const cardsToSwitchReverse = document.getElementById("cardsSwitch");
-    cardsToSwitchReverse.classList.remove("flipped");
+    const cardsToSwitchReverse = document.getElementById('cardsSwitch');
+    cardsToSwitchReverse.classList.remove('flipped');
   }
 
   /**
@@ -127,7 +127,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
     if (event) {
       this._structureService.importStructure(event.target.files[0]);
     } else {
-      this.el.nativeElement.querySelector("#import_file").click();
+      this.el.nativeElement.querySelector('#import_file').click();
     }
   }
 
@@ -142,7 +142,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
     structure.data = this._appDataService.dataNav;
     const p = structure.create();
     p.then(id =>
-      this.router.navigate(["structures", "entry", id, "section", 1, "item", 1])
+      this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1])
     );
   }
 
@@ -152,19 +152,19 @@ export class StructuresComponent implements OnInit, OnDestroy {
    */
   sortBy(fieldToSort: string) {
     this.sortValue = fieldToSort;
-    this.sortOrder = this.sortOrder === "down" ? "up" : "down";
+    this.sortOrder = this.sortOrder === 'down' ? 'up' : 'down';
     this.sortStructure();
-    localStorage.setItem("sortValue", this.sortValue);
-    localStorage.setItem("sortOrder", this.sortOrder);
+    localStorage.setItem('sortValue', this.sortValue);
+    localStorage.setItem('sortOrder', this.sortOrder);
   }
 
   /**
    * Display elements in list view.
    */
   viewOnList() {
-    this.viewStyle.view = "list";
-    localStorage.setItem("homepageDisplayMode", this.viewStyle.view);
-    this.router.navigate(["structures", "list"]);
+    this.viewStyle.view = 'list';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    this.router.navigate(['structures', 'list']);
     this.refreshContent();
   }
 
@@ -172,9 +172,9 @@ export class StructuresComponent implements OnInit, OnDestroy {
    * Display elements in card view.
    */
   viewOnCard() {
-    this.viewStyle.view = "card";
-    localStorage.setItem("homepageDisplayMode", this.viewStyle.view);
-    this.router.navigate(["structures", "card"]);
+    this.viewStyle.view = 'card';
+    localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    this.router.navigate(['structures', 'card']);
     this.refreshContent();
   }
 
@@ -192,8 +192,8 @@ export class StructuresComponent implements OnInit, OnDestroy {
         });
 
       this._structureService.structures = data;
-      this.sortOrder = localStorage.getItem("sortOrder");
-      this.sortValue = localStorage.getItem("sortValue");
+      this.sortOrder = localStorage.getItem('sortOrder');
+      this.sortValue = localStorage.getItem('sortValue');
       this.sortStructure();
     }, 200);
   }
@@ -206,11 +206,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
     this._structureService.structures.sort((a, b) => {
       let firstValue = a[this.sortValue];
       let secondValue = b[this.sortValue];
-      if (this.sortValue === "updated_at" || this.sortValue === "created_at") {
+      if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
         firstValue = new Date(a[this.sortValue]);
         secondValue = new Date(b[this.sortValue]);
       }
-      if (this.sortValue === "name" || this.sortValue === "sector_name") {
+      if (this.sortValue === 'name' || this.sortValue === 'sector_name') {
         return firstValue.localeCompare(secondValue);
       } else {
         if (firstValue < secondValue) {
@@ -222,7 +222,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
         return 0;
       }
     });
-    if (this.sortOrder === "up") {
+    if (this.sortOrder === 'up') {
       this._structureService.structures.reverse();
     }
   }

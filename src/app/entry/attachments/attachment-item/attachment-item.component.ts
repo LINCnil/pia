@@ -1,16 +1,16 @@
-import { Component, ViewChild, OnInit, Input, ElementRef } from "@angular/core";
+import { Component, ViewChild, OnInit, Input, ElementRef } from '@angular/core';
 
-import { ModalsService } from "src/app/modals/modals.service";
-import { AttachmentsService } from "src/app/entry/attachments/attachments.service";
+import { ModalsService } from 'src/app/modals/modals.service';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 
-import { DomSanitizer } from "@angular/platform-browser";
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
-  selector: "app-attachment-item",
-  templateUrl: "./attachment-item.component.html",
-  styleUrls: ["./attachment-item.component.scss"]
+  selector: 'app-attachment-item',
+  templateUrl: './attachment-item.component.html',
+  styleUrls: ['./attachment-item.component.scss']
 })
 export class AttachmentItemComponent implements OnInit {
-  @ViewChild("pdfViewerAutoLoad") pdfViewerAutoLoad;
+  @ViewChild('pdfViewerAutoLoad') pdfViewerAutoLoad;
 
   @Input() isPreview: boolean;
   @Input() attachment: any;
@@ -31,8 +31,8 @@ export class AttachmentItemComponent implements OnInit {
    * @param {string} id - Unique id of the attachment to be deleted.
    */
   removeAttachment(id: string) {
-    localStorage.setItem("attachment-id", id);
-    this._modalsService.openModal("modal-remove-attachment");
+    localStorage.setItem('attachment-id', id);
+    this._modalsService.openModal('modal-remove-attachment');
   }
 
   /**
@@ -49,25 +49,25 @@ export class AttachmentItemComponent implements OnInit {
   previewAttachment(show: boolean) {
     if (!this.isPreview) {
       const elPreview = this.el.nativeElement.querySelector(
-        ".pia-attachmentsBlock-item-preview"
+        '.pia-attachmentsBlock-item-preview'
       );
-      const embed = elPreview.querySelector("#iframe");
-      const img = elPreview.querySelector("img");
+      const embed = elPreview.querySelector('#iframe');
+      const img = elPreview.querySelector('img');
 
-      elPreview.classList.add("hide");
+      elPreview.classList.add('hide');
       // embed.classList.add('hide');
-      img.classList.add("hide");
+      img.classList.add('hide');
 
       if (show) {
-        if (this.attachment.mime_type.endsWith("pdf")) {
+        if (this.attachment.mime_type.endsWith('pdf')) {
           // embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
           // embed.classList.remove('hide');
-          const data = this.attachment.file.split(";base64,")[1];
+          const data = this.attachment.file.split(';base64,')[1];
           // base64 string
           var base64str = data;
 
           // decode base64 string, remove space for IE compatibility
-          var binary = atob(base64str.replace(/\s/g, ""));
+          var binary = atob(base64str.replace(/\s/g, ''));
           var len = binary.length;
           var buffer = new ArrayBuffer(len);
           var view = new Uint8Array(buffer);
@@ -75,15 +75,15 @@ export class AttachmentItemComponent implements OnInit {
             view[i] = binary.charCodeAt(i);
           }
 
-          let blob = new Blob([view], { type: "application/pdf" });
+          let blob = new Blob([view], { type: 'application/pdf' });
           this.fileUrl = URL.createObjectURL(blob);
 
-          elPreview.classList.remove("hide");
+          elPreview.classList.remove('hide');
           // this.downloadAttachment();
-        } else if (this.attachment.mime_type.startsWith("image")) {
-          img.setAttribute("src", this.attachment.file);
-          img.classList.remove("hide");
-          elPreview.classList.remove("hide");
+        } else if (this.attachment.mime_type.startsWith('image')) {
+          img.setAttribute('src', this.attachment.file);
+          img.classList.remove('hide');
+          elPreview.classList.remove('hide');
         } else {
           this.downloadAttachment();
         }

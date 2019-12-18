@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../../../application.db";
+import { ApplicationDb } from '../../../application.db';
 
 export class Evaluation extends ApplicationDb {
   public id: number;
@@ -12,7 +12,7 @@ export class Evaluation extends ApplicationDb {
   public global_status = 0; // 0: No evaluation, 1: Evaluation started, 2: Evaluation completed
 
   constructor() {
-    super(201707071818, "evaluation");
+    super(201707071818, 'evaluation');
   }
 
   async create() {
@@ -34,9 +34,9 @@ export class Evaluation extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: this.setFormData(data),
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -45,7 +45,7 @@ export class Evaluation extends ApplicationDb {
             resolve(result.id);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
@@ -79,10 +79,10 @@ export class Evaluation extends ApplicationDb {
         entry.global_status = this.global_status;
         entry.updated_at = new Date();
         if (this.serverUrl) {
-          fetch(this.getServerUrl() + "/" + this.id, {
-            method: "PATCH",
+          fetch(this.getServerUrl() + '/' + this.id, {
+            method: 'PATCH',
             body: this.setFormData(entry),
-            mode: "cors"
+            mode: 'cors'
           })
             .then(response => {
               return response.json();
@@ -91,7 +91,7 @@ export class Evaluation extends ApplicationDb {
               resolve();
             })
             .catch(error => {
-              console.error("Request failed", error);
+              console.error('Request failed', error);
               reject();
             });
         } else {
@@ -114,14 +114,14 @@ export class Evaluation extends ApplicationDb {
     const formData = new FormData();
     for (const d in data) {
       if (data.hasOwnProperty(d) && data[d]) {
-        if (d === "gauges") {
+        if (d === 'gauges') {
           for (const dd in data[d]) {
             if (data[d].hasOwnProperty(dd) && data[d][dd]) {
-              formData.append("evaluation[" + d + "][" + dd + "]", data[d][dd]);
+              formData.append('evaluation[' + d + '][' + dd + ']', data[d][dd]);
             }
           }
         } else {
-          formData.append("evaluation[" + d + "]", data[d]);
+          formData.append('evaluation[' + d + ']', data[d]);
         }
       }
     }
@@ -135,8 +135,8 @@ export class Evaluation extends ApplicationDb {
       this.reference_to = reference_to;
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
-          fetch(this.getServerUrl() + "?reference_to=" + this.reference_to, {
-            mode: "cors"
+          fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
+            mode: 'cors'
           })
             .then(response => {
               return response.json();
@@ -164,12 +164,12 @@ export class Evaluation extends ApplicationDb {
               }
             })
             .catch(error => {
-              console.error("Request failed", error);
+              console.error('Request failed', error);
               reject();
             });
         } else {
           this.getObjectStore().then(() => {
-            const index1 = this.objectStore.index("index1");
+            const index1 = this.objectStore.index('index1');
             const evt = index1.get(
               IDBKeyRange.only([this.pia_id, this.reference_to])
             );
@@ -235,7 +235,7 @@ export class Evaluation extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -244,12 +244,12 @@ export class Evaluation extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index2");
+          const index1 = this.objectStore.index('index2');
           const evt = index1.openCursor(IDBKeyRange.only(pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
@@ -274,7 +274,7 @@ export class Evaluation extends ApplicationDb {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
-          mode: "cors"
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -283,12 +283,12 @@ export class Evaluation extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index2");
+          const index1 = this.objectStore.index('index2');
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
@@ -313,8 +313,8 @@ export class Evaluation extends ApplicationDb {
     this.reference_to = reference_to;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + "?reference_to=" + this.reference_to, {
-          mode: "cors"
+        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -327,12 +327,12 @@ export class Evaluation extends ApplicationDb {
             }
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index1");
+          const index1 = this.objectStore.index('index1');
           const evt = index1.get(
             IDBKeyRange.only([this.pia_id, this.reference_to])
           );
@@ -361,8 +361,8 @@ export class Evaluation extends ApplicationDb {
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + "?reference_to=" + reference_to, {
-          mode: "cors"
+        fetch(this.getServerUrl() + '?reference_to=' + reference_to, {
+          mode: 'cors'
         })
           .then(response => {
             return response.json();
@@ -375,12 +375,12 @@ export class Evaluation extends ApplicationDb {
             }
           })
           .catch(error => {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
         this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index("index1");
+          const index1 = this.objectStore.index('index1');
           const evt = index1.get(IDBKeyRange.only([this.pia_id, reference_to]));
           evt.onerror = (event: any) => {
             console.error(event);
@@ -400,6 +400,6 @@ export class Evaluation extends ApplicationDb {
   }
 
   getStatusName() {
-    return "evaluations.status." + this.status;
+    return 'evaluations.status.' + this.status;
   }
 }

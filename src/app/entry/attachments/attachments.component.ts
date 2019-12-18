@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
-import { Pia } from "../pia.model";
+import { Pia } from '../pia.model';
 
-import { AttachmentsService } from "src/app/entry/attachments/attachments.service";
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 
 @Component({
-  selector: "app-attachments",
-  templateUrl: "./attachments.component.html",
-  styleUrls: ["./attachments.component.scss"]
+  selector: 'app-attachments',
+  templateUrl: './attachments.component.html',
+  styleUrls: ['./attachments.component.scss']
 })
 export class AttachmentsComponent implements OnInit {
   @Input() isPreview: boolean;
@@ -20,7 +20,7 @@ export class AttachmentsComponent implements OnInit {
 
   ngOnInit() {
     this.attachmentForm = new FormGroup({
-      attachment_file: new FormControl("", [])
+      attachment_file: new FormControl('', [])
     });
     this._attachmentsService.pia = this.pia;
     this._attachmentsService.listAttachments();

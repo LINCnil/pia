@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators
-} from "@angular/forms";
+} from '@angular/forms';
 
-import { ModalsService } from "src/app/modals/modals.service";
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Component({
-  selector: "app-settings",
-  templateUrl: "./settings.component.html",
-  styleUrls: ["./settings.component.scss"]
+  selector: 'app-settings',
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
   settingsForm: FormGroup;
@@ -20,10 +20,10 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
     this.settingsForm = this.fb.group({
       id: 1,
-      server_url: ["", Validators.required]
+      server_url: ['', Validators.required]
     });
     this.settingsForm.patchValue({
-      server_url: localStorage.getItem("server_url")
+      server_url: localStorage.getItem('server_url')
     });
   }
 
@@ -33,30 +33,30 @@ export class SettingsComponent implements OnInit {
   onSubmit() {
     /* Set it back to empty if server mode is disabled */
     if (
-      this.settingsForm.controls["server_url"].value === null ||
-      this.settingsForm.controls["server_url"].value.length <= 0
+      this.settingsForm.controls['server_url'].value === null ||
+      this.settingsForm.controls['server_url'].value.length <= 0
     ) {
-      localStorage.removeItem("server_url");
-      this._modalsService.openModal("modal-update-server-url-ok");
+      localStorage.removeItem('server_url');
+      this._modalsService.openModal('modal-update-server-url-ok');
     } else {
       const serverUrl = this.settingsForm.value.server_url.trim();
-      fetch(serverUrl + "/pias", {
-        mode: "cors"
+      fetch(serverUrl + '/pias', {
+        mode: 'cors'
       })
         .then(response => {
           return response.ok;
         })
         .then((ok: boolean) => {
           if (ok) {
-            localStorage.setItem("server_url", serverUrl);
-            this._modalsService.openModal("modal-update-server-url-ok");
+            localStorage.setItem('server_url', serverUrl);
+            this._modalsService.openModal('modal-update-server-url-ok');
           } else {
-            this._modalsService.openModal("modal-update-server-url-nok");
+            this._modalsService.openModal('modal-update-server-url-nok');
           }
         })
         .catch(error => {
-          console.error("Request failed", error);
-          this._modalsService.openModal("modal-update-server-url-nok");
+          console.error('Request failed', error);
+          this._modalsService.openModal('modal-update-server-url-nok');
         });
     }
   }

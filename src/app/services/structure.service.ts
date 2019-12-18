@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
-import structureExampleFr from "src/assets/files/2018-11-21-structure-example-fr.json";
-import structureExampleEn from "src/assets/files/2018-11-21-structure-example-en.json";
+import structureExampleFr from 'src/assets/files/2018-11-21-structure-example-fr.json';
+import structureExampleEn from 'src/assets/files/2018-11-21-structure-example-en.json';
 
-import { Structure } from "src/app/structures/structure.model";
-import { Pia } from "src/app/entry/pia.model";
+import { Structure } from 'src/app/structures/structure.model';
+import { Pia } from 'src/app/entry/pia.model';
 
-import { ModalsService } from "src/app/modals/modals.service";
-import { LanguagesService } from "src/app/services/languages.service";
+import { ModalsService } from 'src/app/modals/modals.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Injectable()
 export class StructureService {
@@ -51,7 +51,7 @@ export class StructureService {
   async loadExample() {
     return new Promise((resolve, reject) => {
       const exampleStructLanguage =
-        this._languagesService.selectedLanguage === "fr"
+        this._languagesService.selectedLanguage === 'fr'
           ? structureExampleFr
           : structureExampleEn;
       const structureExample = new Structure();
@@ -96,7 +96,7 @@ export class StructureService {
    * Allows an user to remove a Structure.
    */
   removeStructure() {
-    const id = parseInt(localStorage.getItem("structure-id"), 10);
+    const id = parseInt(localStorage.getItem('structure-id'), 10);
 
     // Removes from DB.
     const structure = new Structure();
@@ -112,8 +112,8 @@ export class StructureService {
 
     // Deletes the PIA from the view.
     if (
-      localStorage.getItem("homepageDisplayMode") &&
-      localStorage.getItem("homepageDisplayMode") === "list"
+      localStorage.getItem('homepageDisplayMode') &&
+      localStorage.getItem('homepageDisplayMode') === 'list'
     ) {
       document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
     } else {
@@ -122,7 +122,7 @@ export class StructureService {
         .remove();
     }
 
-    localStorage.removeItem("structure-id");
+    localStorage.removeItem('structure-id');
     this._modalsService.closeModal();
   }
 
@@ -133,7 +133,7 @@ export class StructureService {
   async duplicateStructure(id: number) {
     return new Promise((resolve, reject) => {
       this.exportStructureData(id).then(data => {
-        this.importStructureData(data, "COPY", true).then(structure => {
+        this.importStructureData(data, 'COPY', true).then(structure => {
           resolve(structure);
         });
       });
@@ -157,7 +157,7 @@ export class StructureService {
         });
       } else {
         const exampleStructLanguage =
-          this._languagesService.selectedLanguage === "fr"
+          this._languagesService.selectedLanguage === 'fr'
             ? structureExampleFr
             : structureExampleEn;
         resolve(exampleStructLanguage);
@@ -173,12 +173,12 @@ export class StructureService {
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
-      if (!("structure" in data) || !("dbVersion" in data.structure)) {
-        this._modalsService.openModal("import-wrong-structure-file");
+      if (!('structure' in data) || !('dbVersion' in data.structure)) {
+        this._modalsService.openModal('import-wrong-structure-file');
         return;
       }
       const structure = new Structure();
-      structure.name = "(" + prefix + ") " + data.structure.name;
+      structure.name = '(' + prefix + ') ' + data.structure.name;
       structure.sector_name = data.structure.sector_name;
       structure.data = data.structure.data;
 
@@ -206,13 +206,13 @@ export class StructureService {
   exportStructure(id: number) {
     const date = new Date().getTime();
     this.exportStructureData(id).then(data => {
-      const a = document.getElementById("pia-exportBlock");
+      const a = document.getElementById('pia-exportBlock');
       const url =
-        "data:text/json;charset=utf-8," +
+        'data:text/json;charset=utf-8,' +
         encodeURIComponent(JSON.stringify(data));
-      a.setAttribute("href", url);
-      a.setAttribute("download", date + "_export_structure_" + id + ".json");
-      const event = new MouseEvent("click", {
+      a.setAttribute('href', url);
+      a.setAttribute('download', date + '_export_structure_' + id + '.json');
+      const event = new MouseEvent('click', {
         view: window
       });
       a.dispatchEvent(event);
@@ -226,10 +226,10 @@ export class StructureService {
   async importStructure(file: any) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.readAsText(file, "UTF-8");
+      reader.readAsText(file, 'UTF-8');
       reader.onload = (event: any) => {
         const jsonFile = JSON.parse(event.target.result);
-        this.importStructureData(jsonFile, "IMPORT", false).then(structure => {
+        this.importStructureData(jsonFile, 'IMPORT', false).then(structure => {
           this.structures.push(structure);
         });
       };

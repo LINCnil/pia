@@ -1,4 +1,4 @@
-import { ApplicationDb } from "../../application.db";
+import { ApplicationDb } from '../../application.db';
 
 export class Attachment extends ApplicationDb {
   public id: number;
@@ -9,7 +9,7 @@ export class Attachment extends ApplicationDb {
   public comment: string;
 
   constructor() {
-    super(201708291502, "attachment");
+    super(201708291502, 'attachment');
   }
 
   async create() {
@@ -29,13 +29,13 @@ export class Attachment extends ApplicationDb {
         const formData = new FormData();
         for (const d in data) {
           if (data.hasOwnProperty(d)) {
-            formData.append("attachment[" + d + "]", data[d]);
+            formData.append('attachment[' + d + ']', data[d]);
           }
         }
         fetch(this.getServerUrl(), {
-          method: "POST",
+          method: 'POST',
           body: formData,
-          mode: "cors"
+          mode: 'cors'
         })
           .then(function(response) {
             return response.json();
@@ -44,7 +44,7 @@ export class Attachment extends ApplicationDb {
             resolve(result.id);
           })
           .catch(function(error) {
-            console.error("Request failed", error);
+            console.error('Request failed', error);
             reject();
           });
       } else {
@@ -70,13 +70,13 @@ export class Attachment extends ApplicationDb {
           const formData = new FormData();
           for (const d in entry) {
             if (entry.hasOwnProperty(d)) {
-              formData.append("attachment[" + d + "]", entry[d]);
+              formData.append('attachment[' + d + ']', entry[d]);
             }
           }
-          fetch(this.getServerUrl() + "/" + entry.id, {
-            method: "PATCH",
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
             body: formData,
-            mode: "cors"
+            mode: 'cors'
           })
             .then(response => {
               return response.json();
@@ -85,7 +85,7 @@ export class Attachment extends ApplicationDb {
               resolve();
             })
             .catch(error => {
-              console.error("Request failed", error);
+              console.error('Request failed', error);
               reject();
             });
         } else {
@@ -111,7 +111,7 @@ export class Attachment extends ApplicationDb {
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
           fetch(this.getServerUrl(), {
-            mode: "cors"
+            mode: 'cors'
           })
             .then(function(response) {
               return response.json();
@@ -120,11 +120,11 @@ export class Attachment extends ApplicationDb {
               resolve(result);
             })
             .catch(function(error) {
-              console.error("Request failed", error);
+              console.error('Request failed', error);
               reject();
             });
         } else {
-          const index1 = this.objectStore.index("index1");
+          const index1 = this.objectStore.index('index1');
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);

@@ -5,32 +5,32 @@ import {
   Output,
   EventEmitter,
   SimpleChanges
-} from "@angular/core";
-import * as FileSaver from "file-saver";
-import * as html2canvas from "html2canvas";
-import { saveSvgAsPng, svgAsPngUri } from "save-svg-as-png";
-import { PiaService } from "src/app/services/pia.service";
-import { AttachmentsService } from "src/app/entry/attachments/attachments.service";
-import { AppDataService } from "src/app/services/app-data.service";
-import { ActionPlanService } from "src/app/entry/entry-content/action-plan/action-plan.service";
-import { TranslateService } from "@ngx-translate/core";
+} from '@angular/core';
+import * as FileSaver from 'file-saver';
+import * as html2canvas from 'html2canvas';
+import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png';
+import { PiaService } from 'src/app/services/pia.service';
+import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { ActionPlanService } from 'src/app/entry/entry-content/action-plan/action-plan.service';
+import { TranslateService } from '@ngx-translate/core';
 declare const require: any;
 
 function slugify(text) {
   return text
     .toString()
     .toLowerCase()
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/[^\w\-]+/g, "") // Remove all non-word chars
-    .replace(/\-\-+/g, "-") // Replace multiple - with single -
-    .replace(/^-+/, "") // Trim - from start of text
-    .replace(/-+$/, ""); // Trim - from end of text
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, ''); // Trim - from end of text
 }
 
 @Component({
-  selector: "app-export",
-  templateUrl: "./export.component.html",
-  styleUrls: ["./export.component.scss"]
+  selector: 'app-export',
+  templateUrl: './export.component.html',
+  styleUrls: ['./export.component.scss']
 })
 export class ExportComponent implements OnInit {
   pia: any;
@@ -100,40 +100,40 @@ export class ExportComponent implements OnInit {
     if (this.exportSelected) {
       if (this.exportSelected.length > 1) {
         // download by selection
-        await this.generateExportsZip("pia-full-content", this.exportSelected);
+        await this.generateExportsZip('pia-full-content', this.exportSelected);
       } else {
         // download only one element
-        const fileTitle = "pia-" + slugify(this.pia.name);
+        const fileTitle = 'pia-' + slugify(this.pia.name);
         switch (this.exportSelected[0]) {
-          case "doc": // Only doc
-            await this.generateDocx("pia-full-content");
+          case 'doc': // Only doc
+            await this.generateDocx('pia-full-content');
             break;
-          case "images": // Only images
+          case 'images': // Only images
             await this.downloadAllGraphsAsImages();
             break;
-          case "json": // Only json
+          case 'json': // Only json
             this._piaService.export(this.pia.id).then((json: any) => {
-              let downloadLink = document.createElement("a");
+              let downloadLink = document.createElement('a');
               document.body.appendChild(downloadLink);
               if (navigator.msSaveOrOpenBlob) {
-                window.navigator.msSaveBlob(json, fileTitle + ".json");
+                window.navigator.msSaveBlob(json, fileTitle + '.json');
               } else {
                 downloadLink.href = json;
-                downloadLink.download = fileTitle + ".json";
+                downloadLink.download = fileTitle + '.json';
                 downloadLink.click();
               }
             });
             break;
-          case "csv": // Only csv
+          case 'csv': // Only csv
             const csvName =
               fileTitle +
-              "-" +
+              '-' +
               slugify(
-                this._translateService.instant("summary.action_plan.title")
+                this._translateService.instant('summary.action_plan.title')
               ) +
-              ".csv";
+              '.csv';
             const blob = this.csvToBlob(csvName);
-            let downloadLink = document.createElement("a");
+            let downloadLink = document.createElement('a');
             document.body.appendChild(downloadLink);
 
             if (navigator.msSaveOrOpenBlob) {
@@ -161,45 +161,45 @@ export class ExportComponent implements OnInit {
    */
   async generateExportsZip(element, exports: Array<string>) {
     // await setTimeout(async () => {
-    const zipName = "pia-" + slugify(this.pia.name) + ".zip";
-    const JSZip = require("jszip");
+    const zipName = 'pia-' + slugify(this.pia.name) + '.zip';
+    const JSZip = require('jszip');
     const zip = new JSZip();
 
     // Attach export files
     await this.addAttachmentsToZip(zip).then(async (zip2: any) => {
-      if (exports.includes("doc")) {
+      if (exports.includes('doc')) {
         // Doc
         const dataDoc = await this.prepareDocFile(element);
-        zip2.file("Doc/" + dataDoc.filename, dataDoc.blob);
+        zip2.file('Doc/' + dataDoc.filename, dataDoc.blob);
       }
 
-      if (exports.includes("json")) {
+      if (exports.includes('json')) {
         // Json
-        zip2.file("pia-" + slugify(this.pia.name) + ".json", this.piaJson, {
+        zip2.file('pia-' + slugify(this.pia.name) + '.json', this.piaJson, {
           binary: true
         });
       }
 
-      if (exports.includes("csv")) {
+      if (exports.includes('csv')) {
         // Csv
         const fileTitle = this._translateService.instant(
-          "summary.action_plan.title"
+          'summary.action_plan.title'
         );
         const blob = this.csvToBlob(fileTitle);
-        zip2.file("CSV/" + slugify(fileTitle) + ".csv", blob, { binary: true });
+        zip2.file('CSV/' + slugify(fileTitle) + '.csv', blob, { binary: true });
       }
 
-      if (exports.includes("images")) {
+      if (exports.includes('images')) {
         // images
         await this.addImagesToZip(zip2).then(async (zip3: any) => {
           // Launch Download
-          await zip3.generateAsync({ type: "blob" }).then(blobContent => {
+          await zip3.generateAsync({ type: 'blob' }).then(blobContent => {
             FileSaver.saveAs(blobContent, zipName);
           });
         });
       } else {
         // Launch Download
-        await zip2.generateAsync({ type: "blob" }).then(blobContent => {
+        await zip2.generateAsync({ type: 'blob' }).then(blobContent => {
           FileSaver.saveAs(blobContent, zipName);
         });
       }
@@ -216,21 +216,21 @@ export class ExportComponent implements OnInit {
     // Convert Object to JSON
     var jsonObject = JSON.stringify(items);
     var csv = this.convertToCSV(jsonObject);
-    var exportedFilenmae = fileTitle + ".csv" || "export.csv";
-    var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
+    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     return blob;
   }
 
   convertToCSV(objArray) {
-    var array = typeof objArray != "object" ? JSON.parse(objArray) : objArray;
-    var str = "";
+    var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    var str = '';
     for (var i = 0; i < array.length; i++) {
-      var line = "";
+      var line = '';
       for (var index in array[i]) {
-        if (line != "") line += ",";
+        if (line != '') line += ',';
         line += array[i][index];
       }
-      str += line + "\r\n";
+      str += line + '\r\n';
     }
     return str;
   }
@@ -240,22 +240,22 @@ export class ExportComponent implements OnInit {
    */
   prepareCsv() {
     this.csvOptions = {
-      fieldSeparator: ";",
+      fieldSeparator: ';',
       quoteStrings: '"',
-      decimalseparator: ".",
+      decimalseparator: '.',
       showLabels: true,
       showTitle: false,
       useBom: true,
       removeNewLines: true,
       headers: [
-        `"${this._translateService.instant("summary.csv_section")}"`,
-        `"${this._translateService.instant("summary.csv_title_object")}"`,
+        `"${this._translateService.instant('summary.csv_section')}"`,
+        `"${this._translateService.instant('summary.csv_title_object')}"`,
         `"${this._translateService.instant(
-          "summary.csv_action_plan_comment"
+          'summary.csv_action_plan_comment'
         )}"`,
-        `"${this._translateService.instant("summary.csv_evaluation_comment")}"`,
-        `"${this._translateService.instant("summary.csv_implement_date")}"`,
-        `"${this._translateService.instant("summary.csv_people_in_charge")}"`
+        `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
+        `"${this._translateService.instant('summary.csv_implement_date')}"`,
+        `"${this._translateService.instant('summary.csv_people_in_charge')}"`
       ]
     };
     this.csvContent = this._actionPlanService.csvRows;
@@ -263,19 +263,19 @@ export class ExportComponent implements OnInit {
 
   csvToBlob(fileTitle) {
     const headers = {
-      section: `"${this._translateService.instant("summary.csv_section")}"`,
-      title: `"${this._translateService.instant("summary.csv_title_object")}"`,
+      section: `"${this._translateService.instant('summary.csv_section')}"`,
+      title: `"${this._translateService.instant('summary.csv_title_object')}"`,
       action_plan_comment: `"${this._translateService.instant(
-        "summary.csv_action_plan_comment"
+        'summary.csv_action_plan_comment'
       )}"`,
       evaluation_comment: `"${this._translateService.instant(
-        "summary.csv_evaluation_comment"
+        'summary.csv_evaluation_comment'
       )}"`,
       csv_implement_date: `"${this._translateService.instant(
-        "summary.csv_implement_date"
+        'summary.csv_implement_date'
       )}"`,
       csv_people_in_charge: `"${this._translateService.instant(
-        "summary.csv_people_in_charge"
+        'summary.csv_people_in_charge'
       )}"`
     };
 
@@ -283,41 +283,41 @@ export class ExportComponent implements OnInit {
     this.csvContent.forEach(item => {
       const itemData = {};
       if (item.title) {
-        itemData["title"] = `"${item.title}"`;
+        itemData['title'] = `"${item.title}"`;
       }
       if (item.blank) {
-        itemData["blank"] = `"${item.blank}"`;
+        itemData['blank'] = `"${item.blank}"`;
       }
       if (item.short_title) {
-        itemData["short_title"] = `"${item.short_title}"`;
+        itemData['short_title'] = `"${item.short_title}"`;
       }
       if (item.action_plan_comment) {
         itemData[
-          "action_plan_comment"
+          'action_plan_comment'
         ] = `"${item.action_plan_comment}"`
-          .replace(/,/g, "")
-          .replace(/\n/g, " ");
+          .replace(/,/g, '')
+          .replace(/\n/g, ' ');
       }
       if (item.evaluation_comment) {
-        itemData["evaluation_comment"] = `"${item.evaluation_comment}"`
-          .replace(/,/g, "")
-          .replace(/\n/g, " ");
+        itemData['evaluation_comment'] = `"${item.evaluation_comment}"`
+          .replace(/,/g, '')
+          .replace(/\n/g, ' ');
       }
       if (item.evaluation_date) {
-        itemData["evaluation_date"] = `"${item.evaluation_date}"`;
+        itemData['evaluation_date'] = `"${item.evaluation_date}"`;
       }
       if (item.evaluation_charge) {
-        itemData["evaluation_charge"] = `"${item.evaluation_charge}"`;
+        itemData['evaluation_charge'] = `"${item.evaluation_charge}"`;
       }
 
       csvContentFormatted.push({
-        title: itemData["title"],
-        blank: itemData["blank"],
-        short_title: itemData["short_title"],
-        action_plan_comment: itemData["action_plan_comment"],
-        evaluation_comment: itemData["evaluation_comment"],
-        evaluation_date: itemData["evaluation_date"],
-        evaluation_charge: itemData["evaluation_charge"]
+        title: itemData['title'],
+        blank: itemData['blank'],
+        short_title: itemData['short_title'],
+        action_plan_comment: itemData['action_plan_comment'],
+        evaluation_comment: itemData['evaluation_comment'],
+        evaluation_date: itemData['evaluation_date'],
+        evaluation_charge: itemData['evaluation_charge']
       });
     });
 
@@ -334,7 +334,7 @@ export class ExportComponent implements OnInit {
     return new Promise((resolve, reject) => {
       this.prepareDocFile(element).then(dataDoc => {
         setTimeout(() => {
-          const downloadLink = document.createElement("a");
+          const downloadLink = document.createElement('a');
           document.body.appendChild(downloadLink);
           if (navigator.msSaveOrOpenBlob) {
             navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
@@ -354,32 +354,32 @@ export class ExportComponent implements OnInit {
    * Prepare .doc file
    */
   async prepareDocFile(element) {
-    const risksCartography = document.querySelector("#risksCartographyImg");
-    const actionPlanOverview = document.querySelector("#actionPlanOverviewImg");
-    const risksOverview = document.querySelector("#risksOverviewSvg");
+    const risksCartography = document.querySelector('#risksCartographyImg');
+    const actionPlanOverview = document.querySelector('#actionPlanOverviewImg');
+    const risksOverview = document.querySelector('#risksOverviewSvg');
 
     if (risksCartography && actionPlanOverview && risksOverview) {
-      document.querySelector("#risksCartographyImg").remove();
-      document.querySelector("#actionPlanOverviewImg").remove();
-      document.querySelector("#risksOverviewSvg").remove();
+      document.querySelector('#risksCartographyImg').remove();
+      document.querySelector('#actionPlanOverviewImg').remove();
+      document.querySelector('#risksOverviewSvg').remove();
     }
 
     const preHtml =
       "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
-    const postHtml = "</body></html>";
+    const postHtml = '</body></html>';
     const html =
       preHtml + document.getElementById(element).innerHTML + postHtml;
-    const blob = new Blob(["\ufeff", html], {
-      type: "application/msword"
+    const blob = new Blob(['\ufeff', html], {
+      type: 'application/msword'
     });
     const risksCartographyContainer = document.querySelector(
-      ".pia-risksCartographyContainer"
+      '.pia-risksCartographyContainer'
     );
     const actionPlanOverviewContainer = document.querySelector(
-      ".pia-actionPlanGraphBlockContainer"
+      '.pia-actionPlanGraphBlockContainer'
     );
     const risksOverviewContainer = document.querySelector(
-      ".pia-risksOverviewBlock"
+      '.pia-risksOverviewBlock'
     );
     if (risksCartographyContainer) {
       risksCartographyContainer.appendChild(risksCartography);
@@ -392,10 +392,10 @@ export class ExportComponent implements OnInit {
     }
     return {
       url:
-        "data:application/vnd.ms-word;charset=utf-8," +
+        'data:application/vnd.ms-word;charset=utf-8,' +
         encodeURIComponent(html),
       blob,
-      filename: "pia.doc"
+      filename: 'pia.doc'
     };
   }
   /****************************** END DOC EXPORT ********************************/
@@ -408,11 +408,11 @@ export class ExportComponent implements OnInit {
     return new Promise(async (resolve, reject) => {
       this._attachmentsService.attachments.forEach(attachment => {
         if (attachment.file && attachment.file.length > 0) {
-          const byteCharacters1 = atob((attachment.file as any).split(",")[1]);
+          const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
           const folderName = this._translateService.instant(
-            "summary.attachments"
+            'summary.attachments'
           );
-          zip.file(folderName + "/" + attachment.name, byteCharacters1, {
+          zip.file(folderName + '/' + attachment.name, byteCharacters1, {
             binary: true
           });
         }
@@ -426,11 +426,11 @@ export class ExportComponent implements OnInit {
    * @private
    */
   async downloadAllGraphsAsImages() {
-    const JSZip = require("jszip");
+    const JSZip = require('jszip');
     const zip = new JSZip();
     this.addImagesToZip(zip).then((zip2: any) => {
-      zip2.generateAsync({ type: "blob" }).then(blobContent => {
-        FileSaver.saveAs(blobContent, "pia-images.zip");
+      zip2.generateAsync({ type: 'blob' }).then(blobContent => {
+        FileSaver.saveAs(blobContent, 'pia-images.zip');
       });
     });
   }
@@ -446,18 +446,18 @@ export class ExportComponent implements OnInit {
       const risksOverviewImg = await this.getRisksOverviewImgForZip();
 
       const byteCharacters1 = atob(
-        (actionPlanOverviewImg as any).split(",")[1]
+        (actionPlanOverviewImg as any).split(',')[1]
       );
-      const byteCharacters2 = atob((risksCartographyImg as any).split(",")[1]);
-      const byteCharacters3 = atob((risksOverviewImg as any).split(",")[1]);
+      const byteCharacters2 = atob((risksCartographyImg as any).split(',')[1]);
+      const byteCharacters3 = atob((risksOverviewImg as any).split(',')[1]);
 
-      zip.file("Images/actionPlanOverview.png", byteCharacters1, {
+      zip.file('Images/actionPlanOverview.png', byteCharacters1, {
         binary: true
       });
-      zip.file("Images/risksCartography.png", byteCharacters2, {
+      zip.file('Images/risksCartography.png', byteCharacters2, {
         binary: true
       });
-      zip.file("Images/risksOverview.png", byteCharacters3, { binary: true });
+      zip.file('Images/risksOverview.png', byteCharacters3, { binary: true });
 
       resolve(zip);
     });
@@ -471,7 +471,7 @@ export class ExportComponent implements OnInit {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const actionPlanOverviewImg = document.querySelector(
-          "#actionPlanOverviewImg"
+          '#actionPlanOverviewImg'
         );
         if (actionPlanOverviewImg) {
           html2canvas(actionPlanOverviewImg, { scale: 1.4 }).then(canvas => {
@@ -493,7 +493,7 @@ export class ExportComponent implements OnInit {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const risksCartographyImg = document.querySelector(
-          "#risksCartographyImg"
+          '#risksCartographyImg'
         );
         if (risksCartographyImg) {
           html2canvas(risksCartographyImg, { scale: 1.4 }).then(canvas => {
@@ -514,7 +514,7 @@ export class ExportComponent implements OnInit {
   async getRisksOverviewImgForZip() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const mysvg = document.getElementById("risksOverviewSvg");
+        const mysvg = document.getElementById('risksOverviewSvg');
         if (mysvg) {
           svgAsPngUri(mysvg, {}, uri => {
             resolve(uri);
