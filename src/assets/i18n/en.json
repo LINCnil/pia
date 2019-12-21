@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
 		"placeholder_improvable2": "Enter your comments.",
 		"placeholder_to_correct": "The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-		"status": {
-			"0": "Pending",
-			"1": "To correct",
-			"2": "Improvable",
-			"3": "Acceptable"
-		},
+		"status": [
+			"Pending",
+			"To correct",
+			"Improvable",
+			"Acceptable"
+		],
 		"title": "Evaluation",
 		"to_correct": "To correct"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Validate PIA"
 		},
-		"statuses": {
-			"0": "In progress",
-			"1": "Rejected",
-			"2": "Simple validation",
-			"3": "Signed validation",
-			"4": "Archived",
-			"5": "Waiting for validation"
-		}
+		"statuses": [
+			"In progress",
+			"Rejected",
+			"Simple validation",
+			"Signed validation",
+			"Archived",
+			"Waiting for validation"
+		]
 	},
 	"questions": {
 		"edit": "Edit question",
-		"gauges": {
-			"0": "(Undefined)",
-			"1": "Negligible",
-			"2": "Limited",
-			"3": "Important",
-			"4": "Maximum"
-		},
+		"gauges": [
+			"(Undefined)",
+			"Negligible",
+			"Limited",
+			"Important",
+			"Maximum"
+		],
 		"placeholder_title": "Question title (mandatory)",
 		"remove": "Delete question"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Search of concerned people opinion",
 		"concerned_people_status": "Concerned people statuses",
 		"concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-		"content_choice": {
-			"0": "The treatment should not be used.",
-			"1": "The treatment could be implemented."
-		},
+		"content_choice": [
+			"The treatment should not be used.",
+			"The treatment could be implemented."
+		],
 		"creation_date": "Creation date",
 		"csv_action_plan_comment": "Action plan comment",
 		"csv_evaluation_comment": "Evaluation comment",

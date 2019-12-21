@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
 		"placeholder_improvable2": "TO TRANSLATE - Enter your comments.",
 		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-		"status": {
-			"0": "Pending",
-			"1": "To correct",
-			"2": "Improvable",
-			"3": "Acceptable"
-		},
+		"status": [
+			"Pending",
+			"To correct",
+			"Improvable",
+			"Acceptable"
+		],
 		"title": "Evaluation",
 		"to_correct": "To correct"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Valider PIA"
 		},
-		"statuses": {
-			"0": "Pågår",
-			"1": "Avvist",
-			"2": "Enkel validering",
-			"3": "Signert validation",
-			"4": "Arkrivert",
-			"5": "Avventer validering"
-		}
+		"statuses": [
+			"Pågår",
+			"Avvist",
+			"Enkel validering",
+			"Signert validation",
+			"Arkrivert",
+			"Avventer validering"
+		]
 	},
 	"questions": {
 		"edit": "Edit question",
-		"gauges": {
-			"0": "(Undefined)",
-			"1": "Negligible",
-			"2": "Limited",
-			"3": "Important",
-			"4": "Maximum"
-		},
+		"gauges": [
+			"(Undefined)",
+			"Negligible",
+			"Limited",
+			"Important",
+			"Maximum"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Search of concerned people opinion",
 		"concerned_people_status": "Concerned people statuses",
 		"concerned_people_unsearched_opinion_comment": "Reason why concerned people opinion wasn't requested",
-		"content_choice": {
-			"0": "The treatment should not be used.",
-			"1": "The treatment could be implemented."
-		},
+		"content_choice": [
+			"The treatment should not be used.",
+			"The treatment could be implemented."
+		],
 		"creation_date": "Creation date",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",

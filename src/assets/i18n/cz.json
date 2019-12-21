@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
 		"placeholder_improvable2": "TO TRANSLATE - Enter your comments.",
 		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-		"status": {
-			"0": "Čeká",
-			"1": "Opravit",
-			"2": "Vylepšit",
-			"3": "Přijato"
-		},
+		"status": [
+			"Čeká",
+			"Opravit",
+			"Vylepšit",
+			"Přijato"
+		],
 		"title": "Hodnocení",
 		"to_correct": "Opravit"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Ověřit PIA"
 		},
-		"statuses": {
-			"0": "Probíhá",
-			"1": "Odmítnuto",
-			"2": "Jednoduché ověření",
-			"3": "Podepsané ověření",
-			"4": "Archivováno",
-			"5": "Čekání na ověření"
-		}
+		"statuses": [
+			"Probíhá",
+			"Odmítnuto",
+			"Jednoduché ověření",
+			"Podepsané ověření",
+			"Archivováno",
+			"Čekání na ověření"
+		]
 	},
 	"questions": {
 		"edit": "Upravit otázku",
-		"gauges": {
-			"0": "(Nedefinováno)",
-			"1": "Zanedbatelné",
-			"2": "Omezeno",
-			"3": "Důležité",
-			"4": "Maximální"
-		},
+		"gauges": [
+			"(Nedefinováno)",
+			"Zanedbatelné",
+			"Omezeno",
+			"Důležité",
+			"Maximální"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Hledání názoru dotčených osob",
 		"concerned_people_status": "Stavy dotčených osob",
 		"concerned_people_unsearched_opinion_comment": "Důvod, proč nebyl požadován zájem osob",
-		"content_choice": {
-			"0": "Léčba by neměla být prováděna.",
-			"1": "Léčba by mohla být provedena."
-		},
+		"content_choice": [
+			"Léčba by neměla být prováděna.",
+			"Léčba by mohla být provedena."
+		],
 		"creation_date": "Datum vytvoření",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",

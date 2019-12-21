@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Entrez vos commentaires pour expliquer quelles mesures additionnelles sont à ajouter afin d'améliorer la protection des données du traitement.",
 		"placeholder_improvable2": "Entrez vos commentaires.",
 		"placeholder_to_correct": "Entrez vos commentaires pour expliquer pourquoi les informations fournies ne sont pas suffisantes pour pouvoir les évaluer. Cette partie sera renvoyée en édition pour enrichir la proposition initiale.",
-		"status": {
-			"0": "En attente",
-			"1": "À corriger",
-			"2": "Améliorable",
-			"3": "Acceptable"
-		},
+		"status": [
+			"En attente",
+			"À corriger",
+			"Améliorable",
+			"Acceptable"
+		],
 		"title": "Évaluation",
 		"to_correct": "À corriger"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Valider le PIA"
 		},
-		"statuses": {
-			"0": "En cours",
-			"1": "Refusé",
-			"2": "Validation simple",
-			"3": "Validation avec signature",
-			"4": "Archivé",
-			"5": "En attente de validation"
-		}
+		"statuses": [
+			"En cours",
+			"Refusé",
+			"Validation simple",
+			"Validation avec signature",
+			"Archivé",
+			"En attente de validation"
+		]
 	},
 	"questions": {
 		"edit": "Éditer la question",
-		"gauges": {
-			"0": "(Non définie)",
-			"1": "Négligeable",
-			"2": "Limitée",
-			"3": "Importante",
-			"4": "Maximale"
-		},
+		"gauges": [
+			"(Non définie)",
+			"Négligeable",
+			"Limitée",
+			"Importante",
+			"Maximale"
+		],
 		"placeholder_title": "Titre de la question (obligatoire)",
 		"remove": "Supprimer la question"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Recherche de l'avis des personnes concernées",
 		"concerned_people_status": "Statuts des personnes concernées",
 		"concerned_people_unsearched_opinion_comment": "Raison pour laquelle l'avis des personnes concernées n'a pas été demandé",
-		"content_choice": {
-			"0": "Le traitement ne devrait pas être mis en oeuvre.",
-			"1": "Le traitement pourrait être mis en oeuvre."
-		},
+		"content_choice": [
+			"Le traitement ne devrait pas être mis en oeuvre.",
+			"Le traitement pourrait être mis en oeuvre."
+		],
 		"creation_date": "Date de création",
 		"csv_action_plan_comment": "Commentaires du plan d'actions",
 		"csv_evaluation_comment": "Commentaires d'évaluation",

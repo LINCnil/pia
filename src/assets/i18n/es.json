@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Según la información disponible, medidas adicionales son a implementarse para mejorar la protección de datos del proceso.",
 		"placeholder_improvable2": "Introduzca sus comentarios",
 		"placeholder_to_correct": "La información proporcionada no es suficiente para evaluarlos correctamente. Enviar al editor para mejorar la comunicación original. ",
-		"status": {
-			"0": "Pendiente",
-			"1": "Para corregir",
-			"2": "Mejorable",
-			"3": "Aceptable"
-		},
+		"status": [
+			"Pendiente",
+			"Para corregir",
+			"Mejorable",
+			"Aceptable"
+		],
 		"title": "Evaluación",
 		"to_correct": "Para corregir"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Validar PIA"
 		},
-		"statuses": {
-			"0": "En progreso",
-			"1": "Rechazado",
-			"2": "Validado",
-			"3": "Validado y confirmado",
-			"4": "Archivado",
-			"5": "Validación pendiente"
-		}
+		"statuses": [
+			"En progreso",
+			"Rechazado",
+			"Validado",
+			"Validado y confirmado",
+			"Archivado",
+			"Validación pendiente"
+		]
 	},
 	"questions": {
 		"edit": "Corrija la pregunta",
-		"gauges": {
-			"0": "(Indefinido)",
-			"1": "Insignificante",
-			"2": "Limitado",
-			"3": "Importante",
-			"4": "Máximo"
-		},
+		"gauges": [
+			"(Indefinido)",
+			"Insignificante",
+			"Limitado",
+			"Importante",
+			"Máximo"
+		],
 		"placeholder_title": "Título de la pregunta (obligatorio)",
 		"remove": "Eliminar la pregunta"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Búsqueda de la opinión en cuestión de la gente",
 		"concerned_people_status": "Estados en cuestión de la gente",
 		"concerned_people_unsearched_opinion_comment": "Razone por las que una opinión en cuestión de la gente no fue pedida",
-		"content_choice": {
-			"0": "El tratamiento no debería utilizarse.",
-			"1": "El tratamiento podría ser puesto en ejecución."
-		},
+		"content_choice": [
+			"El tratamiento no debería utilizarse.",
+			"El tratamiento podría ser puesto en ejecución."
+		],
 		"creation_date": "Fecha de creación",
 		"csv_action_plan_comment": "Comentario sobre el plan de acción",
 		"csv_evaluation_comment": "Comentario sobre la evaluación",

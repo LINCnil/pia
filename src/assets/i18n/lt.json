@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Atsižvelgiant į turimą informaciją, reikėtų imtis papildomų priemonių, siekiant pagerinti tvarkomų asmens  duomenų apsaugą.",
 		"placeholder_improvable2": "Pateikite savo komentarą.",
 		"placeholder_to_correct": "Pateiktos informacijos nepakanka įvertinimui. PDAV grąžinimas jo rengėjui tobulinimui, būtina atsižvelgti į pateiktas pastabas.",
-		"status": {
-			"0": "Nebaigtas",
-			"1": "Taisytinas",
-			"2": "Tobulintinas",
-			"3": "Tinkamas"
-		},
+		"status": [
+			"Nebaigtas",
+			"Taisytinas",
+			"Tobulintinas",
+			"Tinkamas"
+		],
 		"title": "Vertinimas",
 		"to_correct": "Taisytinas"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Tvirtinti PDAV"
 		},
-		"statuses": {
-			"0": "Vykdomas",
-			"1": "Atmestas",
-			"2": "Preliminarus patvirtinimas",
-			"3": "Galutinis patvirtinimas",
-			"4": "Suarchyvuota",
-			"5": "Laukiama patvirtinimo"
-		}
+		"statuses": [
+			"Vykdomas",
+			"Atmestas",
+			"Preliminarus patvirtinimas",
+			"Galutinis patvirtinimas",
+			"Suarchyvuota",
+			"Laukiama patvirtinimo"
+		]
 	},
 	"questions": {
 		"edit": "Redaguoti klausimą",
-		"gauges": {
-			"0": "(Nenustatytas)",
-			"1": "Nedidelis",
-			"2": "Ribotas",
-			"3": "Reikšmingas",
-			"4": "Maksimalus"
-		},
+		"gauges": [
+			"(Nenustatytas)",
+			"Nedidelis",
+			"Ribotas",
+			"Reikšmingas",
+			"Maksimalus"
+		],
 		"placeholder_title": "Klausimo pavadinimas",
 		"remove": "Ištrinti klausimą"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Duomenų subjektų nuomonė",
 		"concerned_people_status": "Duomenų subjektų statusas",
 		"concerned_people_unsearched_opinion_comment": "Priežastys, dėl kurių duomenų subjektų nuomonės nebuvo prašoma",
-		"content_choice": {
-			"0": "Tvarkymas neturėtų būti vykdomas.",
-			"1": "Tvarkymas gali būti vykdomas."
-		},
+		"content_choice": [
+			"Tvarkymas neturėtų būti vykdomas.",
+			"Tvarkymas gali būti vykdomas."
+		],
 		"creation_date": "Data",
 		"csv_action_plan_comment": "Komentaras veiksmų planui",
 		"csv_evaluation_comment": "Komentaro įvertinimas",

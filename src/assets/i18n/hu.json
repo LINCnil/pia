@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "A rendelkezésre álló információ alapján további intézkedések szükségesek az adatvédelem javítása érdekében az adatkezelés során.",
 		"placeholder_improvable2": "Megjegyzés bevitele.",
 		"placeholder_to_correct": "A megadott információk nem alkalmasak az értékelés elvégzéséhez. Vissza kell küldeni a szerkesztőnek, hogy javítsa ki az eredeti kitöltést .",
-		"status": {
-			"0": "Elintézés alatt",
-			"1": "Javítandó",
-			"2": "Javítható",
-			"3": "Elfogadható"
-		},
+		"status": [
+			"Elintézés alatt",
+			"Javítandó",
+			"Javítható",
+			"Elfogadható"
+		],
 		"title": "Véleményezés",
 		"to_correct": "Visszaküldés javításra"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Hatásvizsgálat jóváhagyása"
 		},
-		"statuses": {
-			"0": "Folyamatban lévő",
-			"1": "Elutasítva",
-			"2": "Előzetes jóváhagyás",
-			"3": "Végleges (aláírt) jóváhagyás",
-			"4": "Archiválva",
-			"5": "Jóváhagyásra vár"
-		}
+		"statuses": [
+			"Folyamatban lévő",
+			"Elutasítva",
+			"Előzetes jóváhagyás",
+			"Végleges (aláírt) jóváhagyás",
+			"Archiválva",
+			"Jóváhagyásra vár"
+		]
 	},
 	"questions": {
 		"edit": "Kérdés szerkesztése",
-		"gauges": {
-			"0": "(n/a)",
-			"1": "Elhanyagolható",
-			"2": "Korlátozott",
-			"3": "Jelentős",
-			"4": "Maximális"
-		},
+		"gauges": [
+			"(n/a)",
+			"Elhanyagolható",
+			"Korlátozott",
+			"Jelentős",
+			"Maximális"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Érintettek véleményének kikérése.",
 		"concerned_people_status": "Az érintettek státusza.",
 		"concerned_people_unsearched_opinion_comment": "Azon ok megjelölése, ami alapján az érintettek véleményének kikérésére nem került sor.",
-		"content_choice": {
-			"0": "Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
-			"1": "Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
-		},
+		"content_choice": [
+			"Az intézkedések megfelelőek, ennek következtében alkalmazhatóak.",
+			"Az intézkedések nem megfelelőek, ezért alkalmazásukra nem kerülhet sor."
+		],
 		"creation_date": "Létrehozás dátuma.",
 		"csv_action_plan_comment": "Intézkedési terv vélemények",
 		"csv_evaluation_comment": "Értékelés vélemények",

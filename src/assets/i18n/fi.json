@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Käytettävissä olevien tietojen perusteella henkilötietojen käsittelyn tietosuojaa on parannettava lisätoimenpiteillä.",
 		"placeholder_improvable2": "Kirjoita kommenttisi tähän.",
 		"placeholder_to_correct": "Annetut tiedot ovat liian puutteellisia arvioitaviksi. Palauta asiakirja muokkaajalle parannettavaksi.",
-		"status": {
-			"0": "Vireillä",
-			"1": "Korjattava",
-			"2": "Kehitettävä",
-			"3": "Hyväksyttävä"
-		},
+		"status": [
+			"Vireillä",
+			"Korjattava",
+			"Kehitettävä",
+			"Hyväksyttävä"
+		],
 		"title": "Arviointi",
 		"to_correct": "Korjattava"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Validoi vaikutustenarviointi"
 		},
-		"statuses": {
-			"0": "Käynnissä",
-			"1": "Hylätty",
-			"2": "Yksinkertainen validointi",
-			"3": "Allekirjoitettu validointi",
-			"4": "Arkistoitu",
-			"5": "Odottaa validointia"
-		}
+		"statuses": [
+			"Käynnissä",
+			"Hylätty",
+			"Yksinkertainen validointi",
+			"Allekirjoitettu validointi",
+			"Arkistoitu",
+			"Odottaa validointia"
+		]
 	},
 	"questions": {
 		"edit": "Muokkaa kysymystä",
-		"gauges": {
-			"0": "(Määrittelemätön)",
-			"1": "Vähäinen",
-			"2": "Rajattu",
-			"3": "Merkittävä",
-			"4": "Suurin"
-		},
+		"gauges": [
+			"(Määrittelemätön)",
+			"Vähäinen",
+			"Rajattu",
+			"Merkittävä",
+			"Suurin"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Asianomaisten mielipiteiden selvittäminen",
 		"concerned_people_status": "Asianomaisten tilat",
 		"concerned_people_unsearched_opinion_comment": "Syy, miksi asianomaisten mielipidettä ei ole kysytty",
-		"content_choice": {
-			"0": "Henkilötietojen käsittelyä ei pidä toteuttaa.",
-			"1": "Henkilötietojen käsittelyn voi toteuttaa."
-		},
+		"content_choice": [
+			"Henkilötietojen käsittelyä ei pidä toteuttaa.",
+			"Henkilötietojen käsittelyn voi toteuttaa."
+		],
 		"creation_date": "Laadintapäivä",
 		"csv_action_plan_comment": "Toimintasuunnitelman kommentti",
 		"csv_evaluation_comment": "Arvioinnin kommentti",

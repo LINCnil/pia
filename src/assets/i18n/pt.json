@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "De acordo com as informações disponíveis, devem ser implementadas medidas adicionais para melhorar a protecção dos dados do tratamento.",
 		"placeholder_improvable2": "Digite seus comentários.",
 		"placeholder_to_correct": "As informações fornecidas não são suficientes para avaliá-las corretamente. Envie de volta ao editor para melhorar a submissão original.",
-		"status": {
-			"0": "Pendente",
-			"1": "A corrigir",
-			"2": "Improvável",
-			"3": "Aceitável"
-		},
+		"status": [
+			"Pendente",
+			"A corrigir",
+			"Improvável",
+			"Aceitável"
+		],
 		"title": "Avaliação",
 		"to_correct": "A corrigir"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Validar análise PIA"
 		},
-		"statuses": {
-			"0": "Em progresso",
-			"1": "Rejeitado",
-			"2": "Validação simples",
-			"3": "Validação assinada",
-			"4": "Arquivado",
-			"5": "Aguarda validação"
-		}
+		"statuses": [
+			"Em progresso",
+			"Rejeitado",
+			"Validação simples",
+			"Validação assinada",
+			"Arquivado",
+			"Aguarda validação"
+		]
 	},
 	"questions": {
 		"edit": "Editar pergunta",
-		"gauges": {
-			"0": "(Indefinido)",
-			"1": "Insignificante",
-			"2": "Limitado",
-			"3": "Significativo",
-			"4": "Máximo"
-		},
+		"gauges": [
+			"(Indefinido)",
+			"Insignificante",
+			"Limitado",
+			"Significativo",
+			"Máximo"
+		],
 		"placeholder_title": "Título da pergunta (obrigatório)",
 		"remove": "Apagar a pergunta"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Procura da opinião de partes interessadas",
 		"concerned_people_status": "Status de pessoas em questão",
 		"concerned_people_unsearched_opinion_comment": "Razão pela qual a opinião de partes interessadas não foi pedida",
-		"content_choice": {
-			"0": "O tratamento não deve ser usado.",
-			"1": "O tratamento deve ser implementado."
-		},
+		"content_choice": [
+			"O tratamento não deve ser usado.",
+			"O tratamento deve ser implementado."
+		],
 		"creation_date": "Data de criação",
 		"csv_action_plan_comment": "Comentar o plano de acção",
 		"csv_evaluation_comment": "Comentar a avaliação",

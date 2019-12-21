@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Volgens de beschikbare informatie moeten aanvullende maatregelen worden genomen om de gegevensbescherming van de verwerking te verbeteren.",
 		"placeholder_improvable2": "Voer uw opmerkingen in.",
 		"placeholder_to_correct": "De verstrekte informatie is niet voldoende om ze goed te evalueren. Stuur terug naar de editor om de originele inzending te verbeteren.",
-		"status": {
-			"0": "Hangende",
-			"1": "Te corrigeren",
-			"2": "Verbeterbaar",
-			"3": "Aanvaardbaar"
-		},
+		"status": [
+			"Hangende",
+			"Te corrigeren",
+			"Verbeterbaar",
+			"Aanvaardbaar"
+		],
 		"title": "Evaluatie",
 		"to_correct": "Te corrigeren"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "PIA Valideren"
 		},
-		"statuses": {
-			"0": "In opmaak",
-			"1": "Afgekeurd",
-			"2": "Gevalideerd (eenvoudig)",
-			"3": "Gevalideerd (ondertekend)",
-			"4": "Gearchiveerd",
-			"5": "Wacht op validatie"
-		}
+		"statuses": [
+			"In opmaak",
+			"Afgekeurd",
+			"Gevalideerd (eenvoudig)",
+			"Gevalideerd (ondertekend)",
+			"Gearchiveerd",
+			"Wacht op validatie"
+		]
 	},
 	"questions": {
 		"edit": "Vraag bewerken",
-		"gauges": {
-			"0": "(Niet bepaald)",
-			"1": "Verwaarloosbaar",
-			"2": "Beperkt",
-			"3": "Belangrijk",
-			"4": "Maximaal"
-		},
+		"gauges": [
+			"(Niet bepaald)",
+			"Verwaarloosbaar",
+			"Beperkt",
+			"Belangrijk",
+			"Maximaal"
+		],
 		"placeholder_title": "Title van de vraag (verplicht)",
 		"remove": "De vraag verwijderen"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Zoeken naar de mening van betrokken mensen",
 		"concerned_people_status": "Statussen van betrokken mensen",
 		"concerned_people_unsearched_opinion_comment": "Reden waarom de mening van betrokken mensen niet werd gevraagd",
-		"content_choice": {
-			"0": "De verwerking mag niet gebeuren.",
-			"1": "De verwerking zou kunnen worden geïmplementeerd."
-		},
+		"content_choice": [
+			"De verwerking mag niet gebeuren.",
+			"De verwerking zou kunnen worden geïmplementeerd."
+		],
 		"creation_date": "Aanmaakdatum",
 		"csv_action_plan_comment": "Commentaar actieplan",
 		"csv_evaluation_comment": "Evaluatie commentaar",

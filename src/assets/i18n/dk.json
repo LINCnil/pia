@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Ifølge de foreliggende oplysninger skal yderligere foranstaltninger gennemføres for at databeskyttelsen i behandlingen er fyldestgørende.",
 		"placeholder_improvable2": "Skriv dine kommentarer.",
 		"placeholder_to_correct": "Oplysningerne er ikke fyldstgørende for en evalution. Send tilbage til redaktøren/forfatter af denne PIA, for at forbedre de oprindelige indsendte oplysninger.",
-		"status": {
-			"0": "Afventning",
-			"1": "Rette",
-			"2": "Forbedre",
-			"3": "Godkendt"
-		},
+		"status": [
+			"Afventning",
+			"Rette",
+			"Forbedre",
+			"Godkendt"
+		],
 		"title": "Evaluering",
 		"to_correct": "At rette"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Godkend PIA"
 		},
-		"statuses": {
-			"0": "Under behandling",
-			"1": "Afvist",
-			"2": "Simpel godkendelse",
-			"3": "Signered godkendelse",
-			"4": "Arkiveret",
-			"5": "Venter på godkendelse"
-		}
+		"statuses": [
+			"Under behandling",
+			"Afvist",
+			"Simpel godkendelse",
+			"Signered godkendelse",
+			"Arkiveret",
+			"Venter på godkendelse"
+		]
 	},
 	"questions": {
 		"edit": "Redigere spørgsmål",
-		"gauges": {
-			"0": "(Udefinet)",
-			"1": "Ubetydelig",
-			"2": "Betydelig",
-			"3": "Alvorlig",
-			"4": "Katastrofal"
-		},
+		"gauges": [
+			"(Udefinet)",
+			"Ubetydelig",
+			"Betydelig",
+			"Alvorlig",
+			"Katastrofal"
+		],
 		"placeholder_title": "Titel på spørgsmål (obligatorisk)",
 		"remove": "Slet spørgsmål"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Søger de berørte personers synspunkter",
 		"concerned_people_status": "Berørte personers status",
 		"concerned_people_unsearched_opinion_comment": "Hvorfor de pågældende personers synspunkt ikke blev efterspurgt",
-		"content_choice": {
-			"0": "Behandlingen bør ikke gennemføres.",
-			"1": "Behandlingen kan gennemføres."
-		},
+		"content_choice": [
+			"Behandlingen bør ikke gennemføres.",
+			"Behandlingen kan gennemføres."
+		],
 		"creation_date": "Dato for kreation",
 		"csv_action_plan_comment": "Handlingsplans kommentarer",
 		"csv_evaluation_comment": "Evaluations kommentarer",

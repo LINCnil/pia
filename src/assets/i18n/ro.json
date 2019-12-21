@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Conform informațiilor disponibile, trebuie puse în aplicare măsuri suplimentare pentru a îmbunătății protecția datelor în cadrul procesului de prelucrare.",
 		"placeholder_improvable2": "Introduceți comentariile dvs.",
 		"placeholder_to_correct": "Informațiile furnizate nu sunt suficiente pentru a fi evaluate în mod corespunzător. Retransmiteți-le către editor pentru îmbunătății informațiile prezentate inițial.",
-		"status": {
-			"0": "În așteptare",
-			"1": "De corectat",
-			"2": "De îmbunătățit",
-			"3": "Acceptabil"
-		},
+		"status": [
+			"În așteptare",
+			"De corectat",
+			"De îmbunătățit",
+			"Acceptabil"
+		],
 		"title": "Evaluare",
 		"to_correct": "De corectat"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "PIA Validate"
 		},
-		"statuses": {
-			"0": "In curs de desfășurare",
-			"1": "Respins",
-			"2": "Simple validation",
-			"3": "Signed validation",
-			"4": "Arhivat",
-			"5": "In așteptarea validării"
-		}
+		"statuses": [
+			"In curs de desfășurare",
+			"Respins",
+			"Simple validation",
+			"Signed validation",
+			"Arhivat",
+			"In așteptarea validării"
+		]
 	},
 	"questions": {
 		"edit": "Editați întrebarea",
-		"gauges": {
-			"0": "(Nedefinit)",
-			"1": "Neglijabil",
-			"2": "Limitat",
-			"3": "Important",
-			"4": "Maxim"
-		},
+		"gauges": [
+			"(Nedefinit)",
+			"Neglijabil",
+			"Limitat",
+			"Important",
+			"Maxim"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Căutați opinia persoanelor implicate",
 		"concerned_people_status": "Starea persoanelor implicate",
 		"concerned_people_unsearched_opinion_comment": "Motivul pentru care opinia persoanelor implicate nu a fost solicitată",
-		"content_choice": {
-			"0": "Soluțiile nu ar trebui utilizate.",
-			"1": "Soluțiile ar putea fi implementate."
-		},
+		"content_choice": [
+			"Soluțiile nu ar trebui utilizate.",
+			"Soluțiile ar putea fi implementate."
+		],
 		"creation_date": "Data creării",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",

@@ -92,12 +92,12 @@
 		"placeholder_improvable1": " Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
 		"placeholder_improvable2": "Geben Sie Ihre Kommentare ein.",
 		"placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend für eine vollständige Bewertung. Die DSFA wird zurück an den Bearbeiter verwiesen, um den ursprünglichen Vorschlag zu ergänzen.",
-		"status": {
-			"0": "unerledigt",
-			"1": "zu korrigieren",
-			"2": "verbesserungsfähig",
-			"3": "akzeptabel"
-		},
+		"status": [
+			"unerledigt",
+			"zu korrigieren",
+			"verbesserungsfähig",
+			"akzeptabel"
+		],
 		"title": "Bewertung",
 		"to_correct": "zu berichtigen"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "DSFA bestätigen"
 		},
-		"statuses": {
-			"0": "In Bearbeitung",
-			"1": "Abgelehnt",
-			"2": "Einfache Bestätigung",
-			"3": "Bestätigung per Unterschrift",
-			"4": "Archiviert",
-			"5": "Warten auf Bestätigung"
-		}
+		"statuses": [
+			"In Bearbeitung",
+			"Abgelehnt",
+			"Einfache Bestätigung",
+			"Bestätigung per Unterschrift",
+			"Archiviert",
+			"Warten auf Bestätigung"
+		]
 	},
 	"questions": {
 		"edit": "Frage bearbeiten",
-		"gauges": {
-			"0": "(Nicht definiert)",
-			"1": "Geringfügig",
-			"2": "Überschaubar",
-			"3": "Substantiell",
-			"4": "Groß"
-		},
+		"gauges": [
+			"(Nicht definiert)",
+			"Geringfügig",
+			"Überschaubar",
+			"Substantiell",
+			"Groß"
+		],
 		"placeholder_title": "Titel der Frage (erforderlich)",
 		"remove": "Löschen Sie die Frage"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Einholung der Meinung der Betroffenen",
 		"concerned_people_status": "Feststellungen der Betroffenen",
 		"concerned_people_unsearched_opinion_comment": "Grund, warum die Meinung der Betroffenen nicht erfragt wurde",
-		"content_choice": {
-			"0": "Die Verarbeitung sollte nicht durchgeführt werden.",
-			"1": "Die Verarbeitung kann umgesetzt werden."
-		},
+		"content_choice": [
+			"Die Verarbeitung sollte nicht durchgeführt werden.",
+			"Die Verarbeitung kann umgesetzt werden."
+		],
 		"creation_date": "Bearbeitungsdatum",
 		"csv_action_plan_comment": "Aktionsplankommentar",
 		"csv_evaluation_comment": "Bewertungskommentar",

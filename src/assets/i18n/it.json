@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Inserite i vostri commenti per spiegare quali misure ulteriori devono essere aggiunte per migliorare la protezione dei dati oggetto di trattamento.",
 		"placeholder_improvable2": "Inserire i commenti",
 		"placeholder_to_correct": "Inserite i vostri commenti per spiegare perchè le informazioni fornite non sono sufficienti ai fini della loro valutazione. Questa parte sarà riproposta per modifica al fine di integrare la presentazione iniziale",
-		"status": {
-			"0": "In sospeso",
-			"1": "Da correggere",
-			"2": "Migliorabile",
-			"3": "Accettabile"
-		},
+		"status": [
+			"In sospeso",
+			"Da correggere",
+			"Migliorabile",
+			"Accettabile"
+		],
 		"title": "Valutazione",
 		"to_correct": "Da correggere"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Validazione PIA"
 		},
-		"statuses": {
-			"0": "In corso",
-			"1": "Rifiutata",
-			"2": "Validata",
-			"3": "Validata e firmata",
-			"4": "Archiviata",
-			"5": "In attesa di convalida"
-		}
+		"statuses": [
+			"In corso",
+			"Rifiutata",
+			"Validata",
+			"Validata e firmata",
+			"Archiviata",
+			"In attesa di convalida"
+		]
 	},
 	"questions": {
 		"edit": "Modifica domanda",
-		"gauges": {
-			"0": "(Indefinito)",
-			"1": "Trascurabile",
-			"2": "Limitato",
-			"3": "Importante",
-			"4": "Massimo"
-		},
+		"gauges": [
+			"(Indefinito)",
+			"Trascurabile",
+			"Limitato",
+			"Importante",
+			"Massimo"
+		],
 		"placeholder_title": "Titolo della domanda (obbligatorio)",
 		"remove": "Eliminare la domanda"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Richiesta del parere degli interessati",
 		"concerned_people_status": "Posizione degli interessati",
 		"concerned_people_unsearched_opinion_comment": "Motivazione della mancata richiesta del parere degli interessati",
-		"content_choice": {
-			"0": "Il trattamento non dovrebbe essere implementato.",
-			"1": "Il trattamento può essere implementato."
-		},
+		"content_choice": [
+			"Il trattamento non dovrebbe essere implementato.",
+			"Il trattamento può essere implementato."
+		],
 		"creation_date": "Data di creazione",
 		"csv_action_plan_comment": "Commento sul piano di azione",
 		"csv_evaluation_comment": "Commento sulla valutazione",

@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Arvestades olemasolevat teavet on vaja rakendada täiendavaid meetmeid tagamaks andmeturve.",
 		"placeholder_improvable2": "Sisesta kommentaar.",
 		"placeholder_to_correct": "Esitatud teabest ei piisa hinnangu andmiseks. Saada täiendamiseks koostajale tagasi.",
-		"status": {
-			"0": "Ootel",
-			"1": "Saadetud täiendamiseks",
-			"2": "Täiendatava",
-			"3": "Vastuvõetav"
-		},
+		"status": [
+			"Ootel",
+			"Saadetud täiendamiseks",
+			"Täiendatava",
+			"Vastuvõetav"
+		],
 		"title": "Hinnang",
 		"to_correct": "Saadetud täiendamiseks"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Kinnita mõjuhinnang"
 		},
-		"statuses": {
-			"0": "Koostamisel",
-			"1": "Tagasilükatud",
-			"2": "Lihtne kinnitamine",
-			"3": "Allkirjastatud kinnitamine",
-			"4": "Arhiveeritud",
-			"5": "Ootab kinnitamist"
-		}
+		"statuses": [
+			"Koostamisel",
+			"Tagasilükatud",
+			"Lihtne kinnitamine",
+			"Allkirjastatud kinnitamine",
+			"Arhiveeritud",
+			"Ootab kinnitamist"
+		]
 	},
 	"questions": {
 		"edit": "Muuda küsimust",
-		"gauges": {
-			"0": "(Määratlemata)",
-			"1": "Ebaoluline",
-			"2": "Piiratud",
-			"3": "Oluline",
-			"4": "Maksimaalne"
-		},
+		"gauges": [
+			"(Määratlemata)",
+			"Ebaoluline",
+			"Piiratud",
+			"Oluline",
+			"Maksimaalne"
+		],
 		"placeholder_title": "Küsimus (kohustuslik)",
 		"remove": "Eemalda"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Puudutatud isikute arvamuse otsimine",
 		"concerned_people_status": "Puudutatud isikute staatused",
 		"concerned_people_unsearched_opinion_comment": "Põhjus miks puudutatud isikute arvamust ei ole küsitud",
-		"content_choice": {
-			"0": "Ravi ei tohiks kasutada",
-			"1": "Ravi võib rakendada"
-		},
+		"content_choice": [
+			"Ravi ei tohiks kasutada",
+			"Ravi võib rakendada"
+		],
 		"creation_date": "Loomise kuupäev",
 		"csv_action_plan_comment": "Kommenteeri tegevuskava",
 		"csv_evaluation_comment": "Kommenteeri hindamist",

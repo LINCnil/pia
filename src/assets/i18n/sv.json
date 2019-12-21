@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Ge en förklarande kommentar kring vilka ytterligare åtgärder som bör utföras för att ge ett tillräckligt skydd av personuppgifterna",
 		"placeholder_improvable2": "Skriv dina kommentarer.",
 		"placeholder_to_correct": "Ge en förklarande kommentar kring varför dessa åtgärder inte ger ett tillräckligt skydd av personuppgifterna. Återsändes till PIA-utföraren för att kompletteras med ytterligare åtgärder.",
-		"status": {
-			"0": "Ofärdigt",
-			"1": "Att korrigera",
-			"2": "Förbättringsbart",
-			"3": "Godkänt"
-		},
+		"status": [
+			"Ofärdigt",
+			"Att korrigera",
+			"Förbättringsbart",
+			"Godkänt"
+		],
 		"title": "Utvärdering",
 		"to_correct": "Att korrigera"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "TO TRANSLATE - Validate PIA"
 		},
-		"statuses": {
-			"0": "Under behandling",
-			"1": "Underkänd",
-			"2": "Enkelt godkännande (utan signatur)",
-			"3": "Signerat godkännande",
-			"4": "Arkiverad",
-			"5": "Väntar på godkännande"
-		}
+		"statuses": [
+			"Under behandling",
+			"Underkänd",
+			"Enkelt godkännande (utan signatur)",
+			"Signerat godkännande",
+			"Arkiverad",
+			"Väntar på godkännande"
+		]
 	},
 	"questions": {
 		"edit": "Redigera frågan",
-		"gauges": {
-			"0": "(Odefinierat)",
-			"1": "Obetydlig",
-			"2": "Begränsad",
-			"3": "Allvarlig",
-			"4": "Maximal"
-		},
+		"gauges": [
+			"(Odefinierat)",
+			"Obetydlig",
+			"Begränsad",
+			"Allvarlig",
+			"Maximal"
+		],
 		"placeholder_title": "Frågetitel (obligatorisk)",
 		"remove": "Radera frågan"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Inhämta berörda personers åsikt",
 		"concerned_people_status": "Berörda personers status",
 		"concerned_people_unsearched_opinion_comment": "Anledningen till att de berörda personernas åsikt inte begärdes",
-		"content_choice": {
-			"0": "Behandlingen bör inte genomföras",
-			"1": "Behandlingen kan genomföras"
-		},
+		"content_choice": [
+			"Behandlingen bör inte genomföras",
+			"Behandlingen kan genomföras"
+		],
 		"creation_date": "Skapandedatum",
 		"csv_action_plan_comment": "Kommentar till handlingsplanen",
 		"csv_evaluation_comment": "Kommentar till utvärderingen",

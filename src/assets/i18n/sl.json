@@ -92,12 +92,12 @@
 		"placeholder_improvable1": "Prema raspoloživim informacijama, potrebno je provesti dodatne mjere kako bi se poboljšala zaštita podataka obrade.",
 		"placeholder_improvable2": "Unesite svoje komentare.",
 		"placeholder_to_correct": "Dostavljene informacije nisu dovoljne njihovo ispravno procjenjivanje. Pošaljite natrag uređivaču kako bi poboljšao izvorni podnesak.",
-		"status": {
-			"0": "Rješava se",
-			"1": "Za ispraviti",
-			"2": "Može se poboljšati",
-			"3": "Prihvatljiv"
-		},
+		"status": [
+			"Rješava se",
+			"Za ispraviti",
+			"Može se poboljšati",
+			"Prihvatljiv"
+		],
 		"title": "Procjena",
 		"to_correct": "Za ispraviti"
 	},
@@ -1057,24 +1057,24 @@
 			},
 			"validate_pia": "Potvrdi  PUP"
 		},
-		"statuses": {
-			"0": "U tijeku",
-			"1": "Odbijen",
-			"2": "Jednostavna potvrda",
-			"3": "Potpisana potvrda",
-			"4": "Arhiviran",
-			"5": "Čeka na potvrdu"
-		}
+		"statuses": [
+			"U tijeku",
+			"Odbijen",
+			"Jednostavna potvrda",
+			"Potpisana potvrda",
+			"Arhiviran",
+			"Čeka na potvrdu"
+		]
 	},
 	"questions": {
 		"edit": "Uredi pitanje",
-		"gauges": {
-			"0": "(Nedefinirano)",
-			"1": "Zanemariv",
-			"2": "Ograničen",
-			"3": "Bitan",
-			"4": "Maksimalan"
-		},
+		"gauges": [
+			"(Nedefinirano)",
+			"Zanemariv",
+			"Ograničen",
+			"Bitan",
+			"Maksimalan"
+		],
 		"placeholder_title": "Question title (mandatory)",
 		"remove": "Delete question"
 	},
@@ -1375,10 +1375,10 @@
 		"concerned_people_searched_opinion": "Traženje mišljenja dotičnih osoba",
 		"concerned_people_status": "Statusi dotičnih osoba",
 		"concerned_people_unsearched_opinion_comment": "Razlog zašto nije zatraženo mišljenje dotične osobe",
-		"content_choice": {
-			"0": "Tretman se ne smije koristiti.",
-			"1": "Tretman bi se mogao provesti."
-		},
+		"content_choice": [
+			"Tretman se ne smije koristiti.",
+			"Tretman bi se mogao provesti."
+		],
 		"creation_date": "Datum stvaranja",
 		"csv_action_plan_comment": "Komentar akcijskog plana",
 		"csv_evaluation_comment": "Komentar procjene",
