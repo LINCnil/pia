@@ -36,11 +36,14 @@ export class CardItemComponent implements OnInit {
   piaForm: FormGroup;
   attachments: any;
 
-  @ViewChild('piaName') private piaName: ElementRef;
-  @ViewChild('piaCategory') private piaCategory: ElementRef;
-  @ViewChild('piaAuthorName') private piaAuthorName: ElementRef;
-  @ViewChild('piaEvaluatorName') private piaEvaluatorName: ElementRef;
-  @ViewChild('piaValidatorName') private piaValidatorName: ElementRef;
+  @ViewChild('piaName', { static: true }) private piaName: ElementRef;
+  @ViewChild('piaCategory', { static: true }) private piaCategory: ElementRef;
+  @ViewChild('piaAuthorName', { static: true })
+  private piaAuthorName: ElementRef;
+  @ViewChild('piaEvaluatorName', { static: true })
+  private piaEvaluatorName: ElementRef;
+  @ViewChild('piaValidatorName', { static: true })
+  private piaValidatorName: ElementRef;
 
   constructor(
     private router: Router,

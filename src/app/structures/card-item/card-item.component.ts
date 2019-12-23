@@ -31,8 +31,10 @@ export class CardItemComponent implements OnInit {
   @Output() structEvent = new EventEmitter<Structure>();
   structureForm: FormGroup;
 
-  @ViewChild('structureName') private structureName: ElementRef;
-  @ViewChild('structureSectorName') private structureSectorName: ElementRef;
+  @ViewChild('structureName', { static: true })
+  private structureName: ElementRef;
+  @ViewChild('structureSectorName', { static: true })
+  private structureSectorName: ElementRef;
 
   constructor(
     private router: Router,

@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./attachment-item.component.scss']
 })
 export class AttachmentItemComponent implements OnInit {
-  @ViewChild('pdfViewerAutoLoad') pdfViewerAutoLoad;
+  @ViewChild('pdfViewerAutoLoad', { static: false }) pdfViewerAutoLoad;
 
   @Input() isPreview: boolean;
   @Input() attachment: any;
