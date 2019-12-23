@@ -232,14 +232,14 @@
 			"placeholder_start": "Όλα τα πεδία πρέπει να συμπληρωθούν",
 			"placeholder_structure": "Προεπιλεγμένο υπόδειγμα",
 			"placeholder_structure_name": "Τίτλος υποδείγματος",
-      "placeholder_validation": "Όνομα, επίθετο",
+			"placeholder_validation": "Όνομα, επίθετο",
 			"sector_name": "Σχετικός τομέας",
 			"start": "Έναρξη",
 			"status": "Κατάσταση",
 			"structure": "Υπόδειγμα",
 			"structure_name": "Όνομα υποδείγματος",
 			"title_close_creation": "Κλείσιμο",
-      "validation": "Επικύρωση"
+			"validation": "Επικύρωση"
 		},
 		"filters": {
 			"assessor": "Αξιολογητής",
@@ -261,7 +261,7 @@
 			"sort": "Ταξινόμηση",
 			"sort_by": "κατά",
 			"status": "Κατάσταση",
-      "validator": "Επικυρών"
+			"validator": "Επικυρών"
 		},
 		"lists": {
 			"column_actions": "Ενέργειες",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Δημιουργία",
 			"column_evaluation": "Αξιολόγηση",
-      "column_pia": "ΕΑ",
+			"column_pia": "ΕΑ",
 			"column_progression": "Πρόοδος",
 			"column_sector_name": "Σχετικός τομέας",
 			"column_status": "Κατάσταση",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Αφαίρεση αυτής της ΕΑ"
-    },
+		},
 		"remove_question": {
 			"content": "Είστε βέβαιοι ότι θέλετε να διαγράψετε το ερώτημα;",
 			"keep": "Ακύρωση",
@@ -952,6 +952,11 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>διαγράψετε το υπόδειγμα;",
 			"remove": "Διαγραφή του υποδείγματος"
+		},
+		"revision": {
+			"continue": "",
+			"message": "",
+			"title": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Προσοχή,</span><br> παρακαλώ εισάγετε ένα σχόλιο διαφορετικό από το τελευταίο."

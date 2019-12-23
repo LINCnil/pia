@@ -232,14 +232,14 @@
 			"placeholder_start": "Sva polja moraju biti popunjena",
 			"placeholder_structure": "Zadani obrazac",
 			"placeholder_structure_name": "Naziv obrasca",
-      "placeholder_validation": "Ime, prezime",
+			"placeholder_validation": "Ime, prezime",
 			"sector_name": "Pridruženi sektor",
 			"start": "Početak",
 			"status": "Status",
 			"structure": "Obrazac",
 			"structure_name": "Naziv obrasca",
 			"title_close_creation": "Zatvori",
-      "validation": "Potvrda"
+			"validation": "Potvrda"
 		},
 		"filters": {
 			"assessor": "Recenzentu",
@@ -261,7 +261,7 @@
 			"sort": "Sortiraj",
 			"sort_by": "po",
 			"status": "Statusu",
-      "validator": "Potvrditelju"
+			"validator": "Potvrditelju"
 		},
 		"lists": {
 			"column_actions": "Radnje",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Stvoren",
 			"column_evaluation": "Pregled",
-      "column_pia": "PUP",
+			"column_pia": "PUP",
 			"column_progression": "Napredak",
 			"column_sector_name": "Pridruženi sektor",
 			"column_status": "Status",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Ukloni ovaj PUP"
-    },
+		},
 		"remove_question": {
 			"content": "Jeste li sigurni da želite obrisati pitanje?",
 			"keep": "Poništi",
@@ -952,6 +952,11 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
 			"remove": "Delete template"
+		},
+		"revision": {
+			"continue": "",
+			"message": "",
+			"title": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Upozorenje,</span><br> molimo unesite komentar koji se razlikuje od posljednje zabilježenog."

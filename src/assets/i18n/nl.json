@@ -232,14 +232,14 @@
 			"placeholder_start": "Alle velden moeten worden ingevuld",
 			"placeholder_structure": "Standaardsjabloon",
 			"placeholder_structure_name": "Naam sjabloon",
-      "placeholder_validation": "Voornaam achternaam",
+			"placeholder_validation": "Voornaam achternaam",
 			"sector_name": "Verwante sector",
 			"start": "Beginnen",
 			"status": "Status",
 			"structure": "Sjabloon",
 			"structure_name": "Naam van het sjabloon",
 			"title_close_creation": "Sluiten",
-      "validation": "Valideren"
+			"validation": "Valideren"
 		},
 		"filters": {
 			"assessor": "Reviewer",
@@ -261,7 +261,7 @@
 			"sort": "Sorteren",
 			"sort_by": "op",
 			"status": "Status",
-      "validator": "Validator"
+			"validator": "Validator"
 		},
 		"lists": {
 			"column_actions": "Acties",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Gemaakt",
 			"column_evaluation": "Reviewen",
-      "column_pia": "PIA",
+			"column_pia": "PIA",
 			"column_progression": "Voortgang",
 			"column_sector_name": "Verwante sector",
 			"column_status": "Status",
@@ -952,6 +952,11 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Opgelet!</span><br>Ben u zeker dat u <br>dit sjabloon wilt verwijderen?",
 			"remove": "Dit sjabloon verwijderen"
+		},
+		"revision": {
+			"continue": "",
+			"message": "",
+			"title": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Opgelet! </span> <br> Voer een andere opmerking in dan de laatst opgenomen."
