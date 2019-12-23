@@ -48,3 +48,4 @@ Thumbs.db
 # other
 src/environments/environment.prod.ts
 /cypress/videos/*
+/documentation
