@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { utf8Encode } from '@angular/compiler/src/util';
 
 import { Pia } from 'src/app/entry/pia.model';
 import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
@@ -667,8 +668,8 @@ export class PiaService {
    */
   async export(id: number) {
     return new Promise(async (resolve, reject) => {
-      this.exportData(id).then((data) => {
-        const finalData = JSON.stringify(data);
+      this.exportData(id).then(data => {
+        const finalData = utf8Encode(JSON.stringify(data));
         resolve(finalData);
       });
     });
