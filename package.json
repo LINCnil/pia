@@ -10,7 +10,21 @@
     "lint": "ng lint",
     "e2e": "cypress open --config watchForFileChanges=false",
     "prod": "ng build --prod --build-optimizer",
+    "clean": "rimraf ./dist/",
+    "format:write": "prettier src/**/*.{ts,json,md,scss} --write",
+    "format:test": "prettier src/**/*.{ts,json,md,scss} --list-different",
     "compodoc": "compodoc -p src/tsconfig.app.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -47,7 +61,9 @@
     "@angular/cli": "~8.3.21",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
-    "@compodoc/compodoc": "^1.1.6",
+    "@commitlint/cli": "^7.6.1",
+    "@commitlint/config-conventional": "^7.6.0",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~8.9.4",
@@ -61,7 +77,10 @@
     "karma-coverage-istanbul-reporter": "~2.0.6",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "protractor": "~5.4.0",
+    "rimraf": "^2.7.1",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.5.3"
