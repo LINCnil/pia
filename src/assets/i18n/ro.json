@@ -239,7 +239,7 @@
 			"structure": "TO TRANSLATE - Template",
 			"structure_name": "TO TRANSLATE - Template's name",
 			"title_close_creation": "Închide",
-      "validation": "Aprobare"
+			"validation": "Aprobare"
 		},
 		"filters": {
 			"assessor": "Evaluator",
@@ -261,7 +261,7 @@
 			"sort": "Sortare",
 			"sort_by": "după",
 			"status": "Stare",
-      "validator": "Aprobator"
+			"validator": "Aprobator"
 		},
 		"lists": {
 			"column_actions": "Acțiuni",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Creare",
 			"column_evaluation": "Evaluare",
-      "column_pia": "PIA",
+			"column_pia": "PIA",
 			"column_progression": "Progres",
 			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Stare",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Eliminați PIA"
-    },
+		},
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
 			"keep": "TO BE TRANSLATED - Annuler",
@@ -952,6 +952,11 @@
 		"remove_structure": {
 			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
+		},
+		"revision": {
+			"continue": "",
+			"message": "",
+			"title": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Atenție,</span><br>Introduceți un comentariu diferit de cel înregistrat anterior."

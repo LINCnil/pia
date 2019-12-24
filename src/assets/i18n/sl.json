@@ -953,6 +953,11 @@
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
 			"remove": "Delete template"
 		},
+		"revision": {
+			"continue": "",
+			"message": "",
+			"title": ""
+		},
 		"same_comment": {
 			"content": "<span class='strong'>Upozorenje,</span><br> molimo unesite komentar koji se razlikuje od posljednje zabilježenog."
 		},

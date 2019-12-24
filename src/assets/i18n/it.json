@@ -239,7 +239,7 @@
 			"structure": "Modello",
 			"structure_name": "Nome del modello",
 			"title_close_creation": "Chiudi",
-      "validation": "Validatore"
+			"validation": "Validatore"
 		},
 		"filters": {
 			"assessor": "Revisore",
@@ -261,7 +261,7 @@
 			"sort": "Ordina",
 			"sort_by": "per",
 			"status": "Stato",
-      "validator": "Validatore"
+			"validator": "Validatore"
 		},
 		"lists": {
 			"column_actions": "Azioni",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Creato",
 			"column_evaluation": "Revisore",
-      "column_pia": "PIA",
+			"column_pia": "PIA",
 			"column_progression": "Avanzamento",
 			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Stato",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Cancella questa PIA"
-    },
+		},
 		"remove_question": {
 			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
 			"keep": "TO BE TRANSLATED - Annuler",
@@ -952,6 +952,11 @@
 		"remove_structure": {
 			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
+		},
+		"revision": {
+			"continue": "",
+			"message": "",
+			"title": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Attenzione,</span><br>Inserire un commento diverso dall'ultimo inserito."

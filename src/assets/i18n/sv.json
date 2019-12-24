@@ -953,6 +953,11 @@
 			"content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br>radera denna mall?",
 			"remove": "Radera mallen"
 		},
+		"revision": {
+			"continue": "",
+			"message": "",
+			"title": ""
+		},
 		"same_comment": {
 			"content": "<span class='strong'>Varning,</span><br>Skriv en kommentar som skiljer sig från den senast sparade."
 		},

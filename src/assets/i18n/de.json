@@ -232,14 +232,14 @@
 			"placeholder_start": "Es müssen alle Felder ausgefüllt sein",
 			"placeholder_structure": "Standardvorlage",
 			"placeholder_structure_name": "Titel der Vorlage",
-      "placeholder_validation": "Vorname Nachname",
+			"placeholder_validation": "Vorname Nachname",
 			"sector_name": "Zugehöriger Abschnitt",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Vorlage",
 			"structure_name": "Name der Vorlage",
 			"title_close_creation": "Schließen",
-      "validation": "Bestätigender"
+			"validation": "Bestätigender"
 		},
 		"filters": {
 			"assessor": "Überprüft von",
@@ -261,7 +261,7 @@
 			"sort": "Sortieren",
 			"sort_by": "nach",
 			"status": "Status",
-      "validator": "Bestätigt von"
+			"validator": "Bestätigt von"
 		},
 		"lists": {
 			"column_actions": "Aktionen",
@@ -269,7 +269,7 @@
 			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Bearbeitet",
 			"column_evaluation": "Überprüft von",
-      "column_pia": "DSFA",
+			"column_pia": "DSFA",
 			"column_progression": "Fortschritt",
 			"column_sector_name": "Zugehöriger Abschnitt",
 			"column_status": "Status",
@@ -943,7 +943,7 @@
 		"remove_pia": {
 			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Diese DSFA entfernen"
-    },
+		},
 		"remove_question": {
 			"content": "Möchten Sie die Frage löschen?",
 			"keep": "Abbrechen",
@@ -952,6 +952,11 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Achtung,</span><br>Sind Sie sicher, dass Sie dieses Modell löschen wollen?",
 			"remove": "Diese Vorlage löschen"
+		},
+		"revision": {
+			"continue": "",
+			"message": "",
+			"title": ""
 		},
 		"same_comment": {
 			"content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
