@@ -26,7 +26,7 @@ export class RevisionService {
     this.revisionDb.find(this.revisionSelected)
       .then(async (response: Revision) => {
         const piaExport = JSON.parse(response.export);
-        await this._piaService.replacePiaByExport(piaExport)
+        await this._piaService.replacePiaByExport(piaExport, true)
           .then(() => {
             if (this.serverUrl) { // TODO: CHECK IT
 
