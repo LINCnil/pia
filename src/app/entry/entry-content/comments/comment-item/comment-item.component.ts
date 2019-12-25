@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-comment-item',
