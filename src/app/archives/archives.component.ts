@@ -14,7 +14,6 @@ import { ArchiveService } from 'src/app/services/archive.service';
   styleUrls: ['./archives.component.scss'],
   providers: [PiaService, ArchiveService]
 })
-
 export class ArchivesComponent implements OnInit, OnDestroy {
   @Input() archive: any;
   sortOrder: string;
@@ -24,12 +23,14 @@ export class ArchivesComponent implements OnInit, OnDestroy {
   paramsSubscribe: Subscription;
   searchText: string;
 
-  constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              public _piaService: PiaService,
-              public _archiveService: ArchiveService) { }
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _archiveService: ArchiveService
+  ) {}
 
   ngOnInit() {
     this.sortOrder = localStorage.getItem('sortOrder');
@@ -45,17 +46,14 @@ export class ArchivesComponent implements OnInit, OnDestroy {
     this.viewStyle = {
       view: this.route.snapshot.params.view
     };
-    this.paramsSubscribe = this.route.params.subscribe(
-      (params: Params) => {
-        this.viewStyle.view = params.view;
-      }
-    );
+    this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
+      this.viewStyle.view = params.view;
+    });
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
       this.viewOnCard();
     }
-
   }
 
   onCleanSearch() {

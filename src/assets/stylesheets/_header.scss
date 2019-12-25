@@ -23,7 +23,9 @@
           color: #fff;
           font-weight: 500;
           font-size: 1.38rem;
-          &:focus, &:hover, &:active {
+          &:focus,
+          &:hover,
+          &:active {
             background-color: $pia-green;
           }
         }
@@ -71,7 +73,8 @@
           > a {
             color: $pia-blue;
           }
-          > a, > ul {
+          > a,
+          > ul {
             background-color: #fff;
           }
           > ul {
@@ -81,7 +84,9 @@
               background-color: #fff;
               a {
                 display: block;
-                &:focus, &:hover, &:active {
+                &:focus,
+                &:hover,
+                &:active {
                   font-weight: 500 !important;
                 }
               }
@@ -103,7 +108,9 @@
             margin-left: 8px;
             float: right;
           }
-          &:focus, &:hover, &:active {
+          &:focus,
+          &:hover,
+          &:active {
             color: #fff !important;
             background-color: $pia-green;
             & + form {
@@ -114,7 +121,9 @@
             }
           }
         }
-        &:focus, &:hover, &:active {
+        &:focus,
+        &:hover,
+        &:active {
           > a {
             color: #fff !important;
             background-color: $pia-green;
@@ -227,7 +236,7 @@
               width: 16px;
               height: 16px;
               border: 1px solid $pia-gray-dark;
-              transition: all .3s;
+              transition: all 0.3s;
             }
             input:checked + label::before {
               background-color: $pia-green-dark;
@@ -306,7 +315,6 @@
           }
         }
       }
-
     }
   }
 }

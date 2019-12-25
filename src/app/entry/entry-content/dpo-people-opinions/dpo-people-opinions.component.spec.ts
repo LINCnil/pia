@@ -8,9 +8,8 @@ describe('DPOPeopleOpinionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DPOPeopleOpinionsComponent ]
-    })
-    .compileComponents();
+      declarations: [DPOPeopleOpinionsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

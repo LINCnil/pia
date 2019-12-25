@@ -1,68 +1,71 @@
 .pia {
-    &-tooltip {
-        position: relative;
-        .pia-tooltip-text {
-            z-index: 999;
-            width: 70px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -35px;
-            background-color: $pia-green;
-            padding: 3px 5px;
-            color: #fff;
-            font-size: 1rem;
-            text-align: center;
-            height: auto;
-            line-height: normal;
-            box-shadow: 1px 1px 3px 1px rgb(204, 202, 204);
-            &:before {
-                content: '';
-                position: absolute;
-                background: url("./assets/images/sprites.png") no-repeat center center transparent;
-                top: -4px;
-                left: 50%;
-                margin-left: -3.5px;
-                width: 7px;
-                height: 5px;
-                background-position: -371px -93px;
-            }
-        }
-        &:focus, &:hover, &:active {
-            .pia-tooltip-text {
-                display: block;
-            }
-        }
+  &-tooltip {
+    position: relative;
+    .pia-tooltip-text {
+      z-index: 999;
+      width: 70px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -35px;
+      background-color: $pia-green;
+      padding: 3px 5px;
+      color: #fff;
+      font-size: 1rem;
+      text-align: center;
+      height: auto;
+      line-height: normal;
+      box-shadow: 1px 1px 3px 1px rgb(204, 202, 204);
+      &:before {
+        content: '';
+        position: absolute;
+        background: url('./assets/images/sprites.png') no-repeat center center
+          transparent;
+        top: -4px;
+        left: 50%;
+        margin-left: -3.5px;
+        width: 7px;
+        height: 5px;
+        background-position: -371px -93px;
+      }
     }
-    &-progress {
-        display: inline-block;
-        vertical-align: top;
+    &:focus,
+    &:hover,
+    &:active {
+      .pia-tooltip-text {
+        display: block;
+      }
     }
+  }
+  &-progress {
+    display: inline-block;
+    vertical-align: top;
+  }
 }
 progress[value] {
-    color: $pia-green;
-    height: 12px;
-    width: 90px;
-    margin-top: 5px;
+  color: $pia-green;
+  height: 12px;
+  width: 90px;
+  margin-top: 5px;
+  background-color: #fff;
+  position: relative;
+  &::-webkit-progress-bar {
     background-color: #fff;
-    position: relative;
-    &::-webkit-progress-bar {
-        background-color: #fff;
-    }
-    &::-moz-progress-bar {
-        background-color: #fff;
-    }
-    &::-webkit-progress-value {
-        background-color: $pia-green;
-    }
-    &:after {
-        content: attr(value)'%';
-        position: absolute;
-        top: -5px;
-        right: -40px;
-    }
+  }
+  &::-moz-progress-bar {
+    background-color: #fff;
+  }
+  &::-webkit-progress-value {
+    background-color: $pia-green;
+  }
+  &:after {
+    content: attr(value) '%';
+    position: absolute;
+    top: -5px;
+    right: -40px;
+  }
 }

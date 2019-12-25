@@ -1,4 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -6,11 +14,16 @@ import { Structure } from 'src/app/structures/structure.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { StructureService } from 'src/app/services/structure.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-card-item',
   templateUrl: './card-item.component.html',
-  styleUrls: ['./card-item.component.scss', './card-item_edit.component.scss', './card-item_doing.component.scss'],
+  styleUrls: [
+    './card-item.component.scss',
+    './card-item_edit.component.scss',
+    './card-item_doing.component.scss'
+  ],
   providers: [StructureService]
 })
 export class CardItemComponent implements OnInit {
@@ -19,18 +32,29 @@ export class CardItemComponent implements OnInit {
   @Output() structEvent = new EventEmitter<Structure>();
   structureForm: FormGroup;
 
-  @ViewChild('structureName', { static: true }) private structureName: ElementRef;
-  @ViewChild('structureSectorName', { static: true }) private structureSectorName: ElementRef;
+  @ViewChild('structureName', { static: true })
+  private structureName: ElementRef;
+  @ViewChild('structureSectorName', { static: true })
+  private structureSectorName: ElementRef;
 
-  constructor(private router: Router,
-              private _modalsService: ModalsService,
-              public _structureService: StructureService) { }
+  constructor(
+    private router: Router,
+    private _modalsService: ModalsService,
+    public _structureService: StructureService,
+    public _languagesService: LanguagesService
+  ) {}
 
   ngOnInit() {
     this.structureForm = new FormGroup({
       id: new FormControl(this.structure.id),
-      name: new FormControl({ value: this.structure.name, disabled: this.structure.is_example }),
-      sector_name: new FormControl({ value: this.structure.sector_name, disabled: this.structure.is_example })
+      name: new FormControl({
+        value: this.structure.name,
+        disabled: this.structure.is_example
+      }),
+      sector_name: new FormControl({
+        value: this.structure.sector_name,
+        disabled: this.structure.is_example
+      })
     });
   }
 
@@ -107,8 +131,10 @@ export class CardItemComponent implements OnInit {
    * @param id structure ID
    */
   async duplicate(id: number) {
-    this._structureService.duplicateStructure(id).then((structure: Structure) => {
-      this.structEvent.emit(structure);
-    });
+    this._structureService
+      .duplicateStructure(id)
+      .then((structure: Structure) => {
+        this.structEvent.emit(structure);
+      });
   }
 }

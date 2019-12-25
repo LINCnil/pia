@@ -6,7 +6,7 @@ export class Evaluation extends ApplicationDb {
   public action_plan_comment: string;
   public evaluation_comment: string;
   public evaluation_date: Date;
-  public gauges: {x: number, y: number};
+  public gauges: { x: number; y: number };
   public estimated_implementation_date: Date;
   public person_in_charge: string;
   public global_status = 0; // 0: No evaluation, 1: Evaluation started, 2: Evaluation completed
@@ -17,39 +17,44 @@ export class Evaluation extends ApplicationDb {
 
   async create() {
     const data = {
-          status: this.status,
-          pia_id: this.pia_id,
-          reference_to: this.reference_to,
-          action_plan_comment: this.action_plan_comment,
-          evaluation_comment: this.evaluation_comment,
-          evaluation_date: this.evaluation_date,
-          gauges: this.gauges,
-          estimated_implementation_date: new Date(this.estimated_implementation_date),
-          person_in_charge: this.person_in_charge,
-          global_status: this.global_status,
-          created_at: new Date()
-        };
+      status: this.status,
+      pia_id: this.pia_id,
+      reference_to: this.reference_to,
+      action_plan_comment: this.action_plan_comment,
+      evaluation_comment: this.evaluation_comment,
+      evaluation_date: this.evaluation_date,
+      gauges: this.gauges,
+      estimated_implementation_date: new Date(
+        this.estimated_implementation_date
+      ),
+      person_in_charge: this.person_in_charge,
+      global_status: this.global_status,
+      created_at: new Date()
+    };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           method: 'POST',
           body: this.setFormData(data),
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result.id);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result.id);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
@@ -67,7 +72,9 @@ export class Evaluation extends ApplicationDb {
         entry.evaluation_comment = this.evaluation_comment;
         entry.evaluation_date = this.evaluation_date;
         entry.gauges = this.gauges;
-        entry.estimated_implementation_date = new Date(this.estimated_implementation_date);
+        entry.estimated_implementation_date = new Date(
+          this.estimated_implementation_date
+        );
         entry.person_in_charge = this.person_in_charge;
         entry.global_status = this.global_status;
         entry.updated_at = new Date();
@@ -76,21 +83,24 @@ export class Evaluation extends ApplicationDb {
             method: 'PATCH',
             body: this.setFormData(entry),
             mode: 'cors'
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            resolve();
-          }).catch((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve();
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
             evt.onerror = (event: any) => {
               console.error(event);
               reject(Error(event));
-            }
+            };
             evt.onsuccess = () => {
               resolve();
             };
@@ -127,39 +137,46 @@ export class Evaluation extends ApplicationDb {
         if (this.serverUrl) {
           fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
             mode: 'cors'
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            if (result) {
-              this.id = result.id;
-              this.status = result.status;
-              this.pia_id = parseInt(result.pia_id, 10);
-              this.reference_to = result.reference_to;
-              this.action_plan_comment = result.action_plan_comment;
-              this.evaluation_comment = result.evaluation_comment;
-              this.evaluation_date = result.evaluation_date;
-              this.gauges = result.gauges;
-              this.estimated_implementation_date = new Date(result.estimated_implementation_date);
-              this.person_in_charge = result.person_in_charge;
-              this.global_status = result.global_status;
-              this.created_at = new Date(result.created_at);
-              this.updated_at = new Date(result.updated_at);
-              resolve(this);
-            } else {
-              resolve(false);
-            }
-          }).catch((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              if (result) {
+                this.id = result.id;
+                this.status = result.status;
+                this.pia_id = parseInt(result.pia_id, 10);
+                this.reference_to = result.reference_to;
+                this.action_plan_comment = result.action_plan_comment;
+                this.evaluation_comment = result.evaluation_comment;
+                this.evaluation_date = result.evaluation_date;
+                this.gauges = result.gauges;
+                this.estimated_implementation_date = new Date(
+                  result.estimated_implementation_date
+                );
+                this.person_in_charge = result.person_in_charge;
+                this.global_status = result.global_status;
+                this.created_at = new Date(result.created_at);
+                this.updated_at = new Date(result.updated_at);
+                resolve(this);
+              } else {
+                resolve(false);
+              }
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           this.getObjectStore().then(() => {
             const index1 = this.objectStore.index('index1');
-            const evt = index1.get(IDBKeyRange.only([this.pia_id, this.reference_to]));
+            const evt = index1.get(
+              IDBKeyRange.only([this.pia_id, this.reference_to])
+            );
             evt.onerror = (event: any) => {
               console.error(event);
               reject(Error(event));
-            }
+            };
             evt.onsuccess = (event: any) => {
               const entry = event.target.result;
               if (entry) {
@@ -171,7 +188,9 @@ export class Evaluation extends ApplicationDb {
                 this.evaluation_comment = entry.evaluation_comment;
                 this.evaluation_date = entry.evaluation_date;
                 this.gauges = entry.gauges;
-                this.estimated_implementation_date = new Date(entry.estimated_implementation_date);
+                this.estimated_implementation_date = new Date(
+                  entry.estimated_implementation_date
+                );
                 this.person_in_charge = entry.person_in_charge;
                 this.global_status = entry.global_status;
                 this.created_at = new Date(entry.created_at);
@@ -180,7 +199,7 @@ export class Evaluation extends ApplicationDb {
               } else {
                 resolve(false);
               }
-            }
+            };
           });
         }
       });
@@ -199,7 +218,9 @@ export class Evaluation extends ApplicationDb {
         this.evaluation_comment = entry.evaluation_comment;
         this.evaluation_date = entry.evaluation_date;
         this.gauges = entry.gauges;
-        this.estimated_implementation_date = new Date(entry.estimated_implementation_date);
+        this.estimated_implementation_date = new Date(
+          entry.estimated_implementation_date
+        );
         this.person_in_charge = entry.person_in_charge;
         this.global_status = entry.global_status;
         this.created_at = new Date(entry.created_at);
@@ -209,21 +230,23 @@ export class Evaluation extends ApplicationDb {
     });
   }
 
-
   async findAllByPia(pia_id: number) {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl(),{
+        fetch(this.getServerUrl(), {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index2');
@@ -231,7 +254,7 @@ export class Evaluation extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -240,7 +263,7 @@ export class Evaluation extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });
@@ -252,14 +275,17 @@ export class Evaluation extends ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index2');
@@ -267,7 +293,7 @@ export class Evaluation extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -276,7 +302,7 @@ export class Evaluation extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });
@@ -289,26 +315,31 @@ export class Evaluation extends ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          if (result && result.length > 0) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            if (result && result.length > 0) {
+              resolve(true);
+            } else {
+              resolve(false);
+            }
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
-          const evt = index1.get(IDBKeyRange.only([this.pia_id, this.reference_to]));
+          const evt = index1.get(
+            IDBKeyRange.only([this.pia_id, this.reference_to])
+          );
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const entry = event.target.result;
             if (entry) {
@@ -316,30 +347,37 @@ export class Evaluation extends ApplicationDb {
             } else {
               resolve(false);
             }
-          }
+          };
         });
       }
     });
   }
 
-  async globalStatusByReference(pia_id: number, reference_to: any, global_status: number) {
+  async globalStatusByReference(
+    pia_id: number,
+    reference_to: any,
+    global_status: number
+  ) {
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '?reference_to=' + reference_to, {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          if (result) {
-            resolve((result.global_status === global_status));
-          } else {
-            resolve(false);
-          }
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            if (result) {
+              resolve(result.global_status === global_status);
+            } else {
+              resolve(false);
+            }
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
@@ -347,15 +385,15 @@ export class Evaluation extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const entry = event.target.result;
             if (entry) {
-              resolve((entry.global_status === global_status));
+              resolve(entry.global_status === global_status);
             } else {
               resolve(false);
             }
-          }
+          };
         });
       }
     });

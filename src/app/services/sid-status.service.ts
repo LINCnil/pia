@@ -17,7 +17,11 @@ export class SidStatusService {
   public subject = new Subject();
 
   constructor(private _globalEvaluationService: GlobalEvaluationService) {
-    this.specialIcon = { '3.5': 'fa-line-chart', '4.1': 'fa-line-chart', '4.2': 'fa-calendar-check-o' }
+    this.specialIcon = {
+      '3.5': 'fa-line-chart',
+      '4.1': 'fa-line-chart',
+      '4.2': 'fa-calendar-check-o'
+    };
     this.sidStatusIcon = {
       0: 'fa-pencil-square-o',
       1: 'fa-pencil-square-o',
@@ -34,12 +38,14 @@ export class SidStatusService {
     this.enablePiaValidation = false;
     this.piaIsRefused = false;
     this.enableDpoValidation = false;
-    this._globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string, status: number }) => {
-      if (obj.reference_to && obj.status > 0) {
-        this.itemStatus[obj.reference_to] = obj.status;
-        this.verifEnableDpo();
+    this._globalEvaluationService.behaviorSubject.subscribe(
+      (obj: { reference_to: string; status: number }) => {
+        if (obj.reference_to && obj.status > 0) {
+          this.itemStatus[obj.reference_to] = obj.status;
+          this.verifEnableDpo();
+        }
       }
-    });
+    );
   }
 
   /**
@@ -55,15 +61,22 @@ export class SidStatusService {
     globalEvaluationService.pia = piaService.pia;
     globalEvaluationService.section = section;
     globalEvaluationService.item = item;
-    if (item.evaluation_mode === 'item' || item.evaluation_mode === 'question' || reference_to === '4.3') {
-      globalEvaluationService.validate(false).then((obj: { reference_to: string, status: number }) => {
-        if (reference_to === '4.3') {
-          this.enablePiaValidation = globalEvaluationService.enablePiaValidation;
-          this.piaIsRefused = globalEvaluationService.piaIsRefused;
-        }
-        this.itemStatus[obj.reference_to] = obj.status;
-        this.verifEnableDpo();
-      });
+    if (
+      item.evaluation_mode === 'item' ||
+      item.evaluation_mode === 'question' ||
+      reference_to === '4.3'
+    ) {
+      globalEvaluationService
+        .validate(false)
+        .then((obj: { reference_to: string; status: number }) => {
+          if (reference_to === '4.3') {
+            this.enablePiaValidation =
+              globalEvaluationService.enablePiaValidation;
+            this.piaIsRefused = globalEvaluationService.piaIsRefused;
+          }
+          this.itemStatus[obj.reference_to] = obj.status;
+          this.verifEnableDpo();
+        });
     }
   }
 
@@ -135,7 +148,11 @@ export class SidStatusService {
     this.enableDpoValidation = false;
     let count = 0;
     for (const el in this.itemStatus) {
-      if (this.itemStatus.hasOwnProperty(el) && this.itemStatus[el] >= 7 && el !== '4.3') {
+      if (
+        this.itemStatus.hasOwnProperty(el) &&
+        this.itemStatus[el] >= 7 &&
+        el !== '4.3'
+      ) {
         count++;
       }
     }

@@ -29,9 +29,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 import { OverviewRisksComponent } from './entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from './errors/errors.component';
-import {
-    ActionPlanImplementationComponent
-  } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
+import { ActionPlanImplementationComponent } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 import { ListItemComponent } from './cards/list-item/list-item.component';
 import { AboutComponent } from './about/about.component';
 
@@ -78,7 +76,7 @@ import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overla
     PreviewComponent,
     ExportComponent,
     RevisionsComponent,
-    LoadingOverlayComponent,
+    LoadingOverlayComponent
   ],
   imports: [
     SharedModule,
@@ -91,4 +89,4 @@ import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overla
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

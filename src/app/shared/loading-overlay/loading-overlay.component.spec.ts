@@ -8,9 +8,8 @@ describe('LoadingOverlayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoadingOverlayComponent ]
-    })
-    .compileComponents();
+      declarations: [LoadingOverlayComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

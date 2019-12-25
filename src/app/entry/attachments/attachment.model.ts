@@ -15,14 +15,14 @@ export class Attachment extends ApplicationDb {
   async create() {
     this.created_at = new Date();
     const data = {
-          name: this.name,
-          mime_type: this.mime_type,
-          pia_id: this.pia_id,
-          pia_signed: this.pia_signed,
-          file: this.file,
-          comment: this.comment,
-          created_at: this.created_at
-        };
+      name: this.name,
+      mime_type: this.mime_type,
+      pia_id: this.pia_id,
+      pia_signed: this.pia_signed,
+      file: this.file,
+      comment: this.comment,
+      created_at: this.created_at
+    };
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
@@ -36,14 +36,17 @@ export class Attachment extends ApplicationDb {
           method: 'POST',
           body: formData,
           mode: 'cors'
-        }).then(function(response) {
-          return response.json();
-        }).then(function(result: any) {
-          resolve(result.id);
-        }).catch (function (error) {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(result: any) {
+            resolve(result.id);
+          })
+          .catch(function(error) {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         const evt = this.objectStore.add(data);
         evt.onsuccess = (event: any) => {
@@ -52,7 +55,7 @@ export class Attachment extends ApplicationDb {
         evt.onerror = (event: any) => {
           console.error(event);
           reject(Error(event));
-        }
+        };
       }
     });
   }
@@ -74,21 +77,24 @@ export class Attachment extends ApplicationDb {
             method: 'PATCH',
             body: formData,
             mode: 'cors'
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            resolve();
-          }).catch ((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve();
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
             evt.onerror = (event: any) => {
               console.error(event);
               reject(Error(event));
-            }
+            };
             evt.onsuccess = () => {
               resolve();
             };
@@ -104,23 +110,26 @@ export class Attachment extends ApplicationDb {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
-          fetch(this.getServerUrl(),{
+          fetch(this.getServerUrl(), {
             mode: 'cors'
-          }).then(function(response) {
-            return response.json();
-          }).then(function(result: any) {
-            resolve(result);
-          }).catch (function (error) {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(result: any) {
+              resolve(result);
+            })
+            .catch(function(error) {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           const index1 = this.objectStore.index('index1');
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -129,10 +138,9 @@ export class Attachment extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         }
       });
     }
   }
-
 }

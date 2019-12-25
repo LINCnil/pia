@@ -8,16 +8,8 @@ import { CardItemComponent } from './card-item/card-item.component';
 import { ListItemComponent } from './list-item/list-item.component';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    CommonModule,
-    ArchivesRoutingModule
-  ],
-  declarations: [
-    ArchivesComponent,
-    CardItemComponent,
-    ListItemComponent
-  ],
+  imports: [SharedModule, CommonModule, ArchivesRoutingModule],
+  declarations: [ArchivesComponent, CardItemComponent, ListItemComponent],
   providers: []
 })
-export class ArchivesModule { }
+export class ArchivesModule {}

@@ -12,15 +12,26 @@ import { StructureService } from 'src/app/services/structure.service';
   providers: [StructureService]
 })
 export class SectionsComponent implements OnInit {
-
-  @Input() section: { id: number, title: string, short_help: string, items: any };
-  @Input() item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  @Input() section: {
+    id: number;
+    title: string;
+    short_help: string;
+    items: any;
+  };
+  @Input() item: {
+    id: number;
+    title: string;
+    evaluation_mode: string;
+    short_help: string;
+    questions: any;
+  };
   data: { sections: any };
 
-  constructor(public _structureService: StructureService,
-              public _sidStatusService: SidStatusService,
-              private _appDataService: AppDataService) {
-  }
+  constructor(
+    public _structureService: StructureService,
+    public _sidStatusService: SidStatusService,
+    private _appDataService: AppDataService
+  ) {}
 
   async ngOnInit() {
     await this._structureService.getStructure();

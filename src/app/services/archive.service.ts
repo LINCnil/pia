@@ -12,8 +12,10 @@ export class ArchiveService {
   archivedPias = [];
   data: { sections: any };
 
-  constructor(private _modalsService: ModalsService,
-              public _appDataService: AppDataService) {
+  constructor(
+    private _modalsService: ModalsService,
+    public _appDataService: AppDataService
+  ) {
     this.data = this._appDataService.dataNav;
   }
 
@@ -31,10 +33,15 @@ export class ArchiveService {
     });
 
     // Deletes the PIA from the view
-    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+    if (
+      localStorage.getItem('homepageDisplayMode') &&
+      localStorage.getItem('homepageDisplayMode') === 'list'
+    ) {
       document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
     } else {
-      document.querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]').remove();
+      document
+        .querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]')
+        .remove();
     }
 
     localStorage.removeItem('pia-to-unarchive-id');
@@ -52,10 +59,15 @@ export class ArchiveService {
     archivedPia.delete(id);
 
     // Deletes the PIA from the view
-    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+    if (
+      localStorage.getItem('homepageDisplayMode') &&
+      localStorage.getItem('homepageDisplayMode') === 'list'
+    ) {
       document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
     } else {
-      document.querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]').remove();
+      document
+        .querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]')
+        .remove();
     }
 
     localStorage.removeItem('pia-to-remove-id');
@@ -89,9 +101,10 @@ export class ArchiveService {
       measure.findAll().then((measures: any) => {
         numberElementsToValidate += measures.length;
         numberElementsValidated += measures.length;
-        pia.progress = Math.round((100 / numberElementsToValidate) * numberElementsValidated);
+        pia.progress = Math.round(
+          (100 / numberElementsToValidate) * numberElementsValidated
+        );
       });
     });
   }
-
 }

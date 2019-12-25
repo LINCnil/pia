@@ -12,17 +12,21 @@ export class ModalsService {
   private revisionDb: ApplicationDb;
   public revisionDate: any;
 
-  constructor(private _router: Router,
-              private _paginationService: PaginationService) {}
+  constructor(
+    private _router: Router,
+    private _paginationService: PaginationService
+  ) {}
 
   /**
    * Opens a specific modal through its unique id.
    * @param {string} modal_id - Unique id of the modal which has to be opened.
    */
   openModal(modal_id: string) {
-    if (modal_id === 'pia-declare-measures' ||
-        modal_id === 'pia-action-plan-no-evaluation' ||
-        modal_id === 'pia-dpo-missing-evaluations') {
+    if (
+      modal_id === 'pia-declare-measures' ||
+      modal_id === 'pia-action-plan-no-evaluation' ||
+      modal_id === 'pia-dpo-missing-evaluations'
+    ) {
       const mainContent = document.querySelector('.pia-entryContentBlock');
       if (mainContent) {
         mainContent.classList.add('blur-content');
@@ -35,7 +39,7 @@ export class ModalsService {
     }
     const e = <HTMLElement>document.getElementById(modal_id);
     e.classList.add('open');
-    const gf = (<HTMLButtonElement>e.querySelector('.get-focus'));
+    const gf = <HTMLButtonElement>e.querySelector('.get-focus');
     if (gf) {
       gf.focus();
     }
@@ -66,7 +70,10 @@ export class ModalsService {
     modal.classList.remove('open');
     if (toAction && toAction.length > 0) {
       const goto = toAction.split('-');
-      const goto_section_item = this._paginationService.getNextSectionItem(parseInt(goto[0], 10), parseInt(goto[1], 10))
+      const goto_section_item = this._paginationService.getNextSectionItem(
+        parseInt(goto[0], 10),
+        parseInt(goto[1], 10)
+      );
 
       this._router.navigate([
         'entry',

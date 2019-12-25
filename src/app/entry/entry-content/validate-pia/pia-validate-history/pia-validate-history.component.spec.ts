@@ -8,9 +8,8 @@ describe('PiaValidateHistoryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PiaValidateHistoryComponent ]
-    })
-    .compileComponents();
+      declarations: [PiaValidateHistoryComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

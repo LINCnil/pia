@@ -63,8 +63,10 @@ export class Pia extends ApplicationDb {
             newPia.status = element.status;
             newPia.dpos_names = element.dpos_names;
             newPia.people_names = element.people_names;
-            newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
-            newPia.concerned_people_searched_content = element.concerned_people_searched_content;
+            newPia.concerned_people_searched_opinion =
+              element.concerned_people_searched_opinion;
+            newPia.concerned_people_searched_content =
+              element.concerned_people_searched_content;
             newPia.is_example = element.is_example;
             newPia.is_archive = element.is_archive;
             newPia.structure_id = element.structure_id;
@@ -91,14 +93,17 @@ export class Pia extends ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index4 = this.objectStore.index('index4');
@@ -106,7 +111,7 @@ export class Pia extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -115,7 +120,7 @@ export class Pia extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });
@@ -146,8 +151,10 @@ export class Pia extends ApplicationDb {
             newPia.status = element.status;
             newPia.dpos_names = element.dpos_names;
             newPia.people_names = element.people_names;
-            newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
-            newPia.concerned_people_searched_content = element.concerned_people_searched_content;
+            newPia.concerned_people_searched_opinion =
+              element.concerned_people_searched_opinion;
+            newPia.concerned_people_searched_content =
+              element.concerned_people_searched_content;
             newPia.is_example = element.is_example;
             newPia.is_archive = element.is_archive;
             newPia.structure_id = element.structure_id;
@@ -174,14 +181,17 @@ export class Pia extends ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index5 = this.objectStore.index('index5');
@@ -189,7 +199,7 @@ export class Pia extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -198,7 +208,7 @@ export class Pia extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });
@@ -234,10 +244,10 @@ export class Pia extends ApplicationDb {
       people_names: this.people_names,
       concerned_people_searched_opinion: this.concerned_people_searched_opinion,
       concerned_people_searched_content: this.concerned_people_searched_content,
-      structure_id: (this.structure_id ? this.structure_id : ''),
+      structure_id: this.structure_id ? this.structure_id : '',
       structure_name: this.structure_name,
       structure_sector_name: this.structure_sector_name,
-      structure_data: (this.structure_data ? this.structure_data : '')
+      structure_data: this.structure_data ? this.structure_data : ''
     };
 
     return new Promise((resolve, reject) => {
@@ -255,22 +265,25 @@ export class Pia extends ApplicationDb {
         fetch(this.getServerUrl(), {
           method: 'POST',
           body: formData,
-          mode : 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result.id);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+          mode: 'cors'
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result.id);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
@@ -308,10 +321,10 @@ export class Pia extends ApplicationDb {
         entry.people_names = this.people_names;
         entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
         entry.concerned_people_searched_content = this.concerned_people_searched_content;
-        entry.structure_id = (this.structure_id ? this.structure_id : '');
+        entry.structure_id = this.structure_id ? this.structure_id : '';
         entry.structure_name = this.structure_name;
         entry.structure_sector_name = this.structure_sector_name;
-        entry.structure_data = (this.structure_data ? this.structure_data : '')
+        entry.structure_data = this.structure_data ? this.structure_data : '';
         entry.updated_at = new Date();
         if (this.serverUrl) {
           const formData = new FormData();
@@ -328,21 +341,24 @@ export class Pia extends ApplicationDb {
             method: 'PATCH',
             body: formData,
             mode: 'cors'
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            resolve();
-          }).catch((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve();
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
             evt.onerror = (event: any) => {
               console.error(event);
               reject(Error(event));
-            }
+            };
             evt.onsuccess = () => {
               resolve();
             };
@@ -374,21 +390,24 @@ export class Pia extends ApplicationDb {
           method: 'PATCH',
           body: formData,
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve();
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve();
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.put(entry);
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = () => {
             resolve();
           };
@@ -425,8 +444,10 @@ export class Pia extends ApplicationDb {
           this.updated_at = new Date(entry.updated_at);
           this.dpos_names = entry.dpos_names;
           this.people_names = entry.people_names;
-          this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
-          this.concerned_people_searched_content = entry.concerned_people_searched_content;
+          this.concerned_people_searched_opinion =
+            entry.concerned_people_searched_opinion;
+          this.concerned_people_searched_content =
+            entry.concerned_people_searched_content;
           this.structure_id = entry.structure_id;
           this.structure_name = entry.structure_name;
           this.structure_sector_name = entry.structure_sector_name;
@@ -446,14 +467,17 @@ export class Pia extends ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '/' + 'example', {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index3 = this.objectStore.index('index3');
@@ -461,40 +485,42 @@ export class Pia extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
-              const entry = event.target.result;
-              if (entry) {
-                this.id = entry.id;
-                this.status = entry.status;
-                this.is_example = entry.is_example;
-                this.is_archive = entry.is_archive;
-                this.name = entry.name;
-                this.category = entry.category;
-                this.author_name = entry.author_name;
-                this.evaluator_name = entry.evaluator_name;
-                this.validator_name = entry.validator_name;
-                this.dpo_status = entry.dpo_status;
-                this.dpo_opinion = entry.dpo_opinion;
-                this.concerned_people_opinion = entry.concerned_people_opinion;
-                this.concerned_people_status = entry.concerned_people_status;
-                this.rejected_reason = entry.rejected_reason;
-                this.applied_adjustements = entry.applied_adjustements;
-                this.created_at = new Date(entry.created_at);
-                this.updated_at = new Date(entry.updated_at);
-                this.dpos_names = entry.dpos_names;
-                this.people_names = entry.people_names;
-                this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
-                this.concerned_people_searched_content = entry.concerned_people_searched_content;
-                this.structure_id = entry.structure_id;
-                this.structure_name = entry.structure_name;
-                this.structure_sector_name = entry.structure_sector_name;
-                this.structure_data = entry.structure_data;
-                resolve(entry);
-              } else {
-                resolve(false);
-              }
+            const entry = event.target.result;
+            if (entry) {
+              this.id = entry.id;
+              this.status = entry.status;
+              this.is_example = entry.is_example;
+              this.is_archive = entry.is_archive;
+              this.name = entry.name;
+              this.category = entry.category;
+              this.author_name = entry.author_name;
+              this.evaluator_name = entry.evaluator_name;
+              this.validator_name = entry.validator_name;
+              this.dpo_status = entry.dpo_status;
+              this.dpo_opinion = entry.dpo_opinion;
+              this.concerned_people_opinion = entry.concerned_people_opinion;
+              this.concerned_people_status = entry.concerned_people_status;
+              this.rejected_reason = entry.rejected_reason;
+              this.applied_adjustements = entry.applied_adjustements;
+              this.created_at = new Date(entry.created_at);
+              this.updated_at = new Date(entry.updated_at);
+              this.dpos_names = entry.dpos_names;
+              this.people_names = entry.people_names;
+              this.concerned_people_searched_opinion =
+                entry.concerned_people_searched_opinion;
+              this.concerned_people_searched_content =
+                entry.concerned_people_searched_content;
+              this.structure_id = entry.structure_id;
+              this.structure_name = entry.structure_name;
+              this.structure_sector_name = entry.structure_sector_name;
+              this.structure_data = entry.structure_data;
+              resolve(entry);
+            } else {
+              resolve(false);
             }
+          };
         });
       }
     });
@@ -545,6 +571,3 @@ export class Pia extends ApplicationDb {
     }
   }
 }
-
-
-

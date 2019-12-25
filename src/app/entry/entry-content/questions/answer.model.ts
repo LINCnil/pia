@@ -2,7 +2,7 @@ import { ApplicationDb } from '../../../application.db';
 
 export class Answer extends ApplicationDb {
   public id: number;
-  public data: { text: string, gauge: number, list: string[] };
+  public data: { text: string; gauge: number; list: string[] };
   public answer_type: string;
 
   constructor() {
@@ -12,33 +12,36 @@ export class Answer extends ApplicationDb {
   async create() {
     this.created_at = new Date();
     const data = {
-          pia_id: this.pia_id,
-          reference_to: this.reference_to,
-          data: this.data,
-          created_at: this.created_at
-        };
+      pia_id: this.pia_id,
+      reference_to: this.reference_to,
+      data: this.data,
+      created_at: this.created_at
+    };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           method: 'POST',
           body: this.setFormData(data),
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          this.id = result.id;
-          resolve();
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            this.id = result.id;
+            resolve();
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             this.id = event.target.result;
             resolve();
@@ -58,21 +61,24 @@ export class Answer extends ApplicationDb {
             method: 'PATCH',
             body: this.setFormData(entry),
             mode: 'cors'
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            resolve();
-          }).catch ((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve();
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
             evt.onerror = (event: any) => {
               console.error(event);
               reject(Error(event));
-            }
+            };
             evt.onsuccess = () => {
               resolve();
             };
@@ -93,7 +99,10 @@ export class Answer extends ApplicationDb {
                 for (const d3 in data[d][d2]) {
                   if (data[d].hasOwnProperty(d2)) {
                     if (data[d][d2][d3]) {
-                      formData.append('answer[' + d + '][' + d2 + '][]', data[d][d2][d3]);
+                      formData.append(
+                        'answer[' + d + '][' + d2 + '][]',
+                        data[d][d2][d3]
+                      );
                     }
                   }
                 }
@@ -133,29 +142,34 @@ export class Answer extends ApplicationDb {
     this.reference_to = reference_to;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to,{
+        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          if (result) {
-            this.id = result.id;
-            this.reference_to = result.reference_to;
-            this.data = result.data;
-            this.created_at = new Date(result.created_at);
-            this.updated_at = new Date(result.updated_at);
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            if (result) {
+              this.id = result.id;
+              this.reference_to = result.reference_to;
+              this.data = result.data;
+              this.created_at = new Date(result.created_at);
+              this.updated_at = new Date(result.updated_at);
+              resolve(true);
+            } else {
+              resolve(false);
+            }
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
-          const evt = index1.get(IDBKeyRange.only([this.pia_id, this.reference_to]));
+          const evt = index1.get(
+            IDBKeyRange.only([this.pia_id, this.reference_to])
+          );
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
@@ -183,16 +197,19 @@ export class Answer extends ApplicationDb {
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl(),{
+        fetch(this.getServerUrl(), {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index2');
@@ -200,7 +217,7 @@ export class Answer extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -209,7 +226,7 @@ export class Answer extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });
@@ -220,16 +237,19 @@ export class Answer extends ApplicationDb {
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl(),{
+        fetch(this.getServerUrl(), {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index2 = this.objectStore.index('index2');
@@ -237,7 +257,7 @@ export class Answer extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -246,7 +266,7 @@ export class Answer extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         });
       }
     });

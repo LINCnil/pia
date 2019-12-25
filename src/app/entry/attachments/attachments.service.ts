@@ -6,14 +6,13 @@ import { ModalsService } from 'src/app/modals/modals.service';
 
 @Injectable()
 export class AttachmentsService {
-
   attachments: any[];
   signedAttachments: any[] = [];
   attachment_signed: any;
   pia: any;
   pia_signed = 0;
 
-  constructor(private _modalsService: ModalsService) { }
+  constructor(private _modalsService: ModalsService) {}
 
   /**
    * List all attachments.
@@ -49,10 +48,14 @@ export class AttachmentsService {
         // If we have some signed attachments :
         if (this.signedAttachments && this.signedAttachments.length > 0) {
           this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
-          if (this.signedAttachments[0] && this.signedAttachments[0].file && this.signedAttachments[0].file.length > 0) {
-             // Store the latest signed attachment only if file isn't empty
+          if (
+            this.signedAttachments[0] &&
+            this.signedAttachments[0].file &&
+            this.signedAttachments[0].file.length > 0
+          ) {
+            // Store the latest signed attachment only if file isn't empty
             this.attachment_signed = this.signedAttachments[0];
-             // Remove it from the signed attachments array so that we get the oldest
+            // Remove it from the signed attachments array so that we get the oldest
             this.signedAttachments.splice(0, 1);
           }
         }
@@ -89,7 +92,7 @@ export class AttachmentsService {
         // To refresh signed attachments on validation page
         this.updateSignedAttachmentsList();
       });
-    }
+    };
   }
 
   /**
@@ -100,17 +103,19 @@ export class AttachmentsService {
     const attachment = new Attachment();
     attachment.pia_id = this.pia.id;
     attachment.find(id).then((entry: any) => {
-      fetch(entry.file,{
+      fetch(entry.file, {
         mode: 'cors'
-      }).then(res => res.blob()).then(blob => {
-        const a = <any>document.createElement('a');
-        a.href = window.URL.createObjectURL(blob);
-        a.download = entry.name;
-        const event = new MouseEvent('click', {
-          view: window
+      })
+        .then(res => res.blob())
+        .then(blob => {
+          const a = <any>document.createElement('a');
+          a.href = window.URL.createObjectURL(blob);
+          a.download = entry.name;
+          const event = new MouseEvent('click', {
+            view: window
+          });
+          a.dispatchEvent(event);
         });
-        a.dispatchEvent(event);
-      });
     });
   }
 
@@ -133,7 +138,10 @@ export class AttachmentsService {
       if (index !== -1) {
         this.attachments.splice(index, 1);
       }
-      if (this.attachment_signed && this.attachment_signed.id === attachmentId) {
+      if (
+        this.attachment_signed &&
+        this.attachment_signed.id === attachmentId
+      ) {
         this.attachment_signed.comment = comment;
         this.attachment_signed.file = null;
         this.signedAttachments.unshift(this.attachment_signed);
@@ -144,5 +152,4 @@ export class AttachmentsService {
       this._modalsService.closeModal();
     }
   }
-
 }

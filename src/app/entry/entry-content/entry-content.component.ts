@@ -20,7 +20,6 @@ import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-bas
   styleUrls: ['./entry-content.component.scss'],
   providers: [PiaService]
 })
-
 export class EntryContentComponent implements OnInit, OnChanges {
   @Input() section: any;
   @Input() item: any;
@@ -31,17 +30,19 @@ export class EntryContentComponent implements OnInit, OnChanges {
   userAnswersForThreats = [];
   userAnswersForSources = [];
 
-  constructor(private _router: Router,
-              private _appDataService: AppDataService,
-              private _activatedRoute: ActivatedRoute,
-              public _measureService: MeasureService,
-              private _modalsService: ModalsService,
-              public _piaService: PiaService,
-              public _sidStatusService: SidStatusService,
-              public _globalEvaluationService: GlobalEvaluationService,
-              public _paginationService: PaginationService,
-              private _translateService: TranslateService,
-              private _knowledgeBaseService: KnowledgeBaseService) { }
+  constructor(
+    private _router: Router,
+    private _appDataService: AppDataService,
+    private _activatedRoute: ActivatedRoute,
+    public _measureService: MeasureService,
+    private _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _sidStatusService: SidStatusService,
+    public _globalEvaluationService: GlobalEvaluationService,
+    public _paginationService: PaginationService,
+    private _translateService: TranslateService,
+    private _knowledgeBaseService: KnowledgeBaseService
+  ) {}
 
   ngOnInit() {
     // Reset measures no longer addable from KB when switching PIA
@@ -62,7 +63,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
     await this._piaService.getPIA();
     this._paginationService.dataNav = this._appDataService.dataNav;
 
-    const sectionId = parseInt(this._activatedRoute.snapshot.params.section_id, 10);
+    const sectionId = parseInt(
+      this._activatedRoute.snapshot.params.section_id,
+      10
+    );
     const itemId = parseInt(this._activatedRoute.snapshot.params.item_id, 10);
 
     this._paginationService.setPagination(sectionId, itemId);
@@ -75,7 +79,11 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._globalEvaluationService.prepareForEvaluation().then(() => {
       let isPiaFullyEdited = true;
       for (const el in this._sidStatusService.itemStatus) {
-        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
+        if (
+          this._sidStatusService.itemStatus.hasOwnProperty(el) &&
+          this._sidStatusService.itemStatus[el] < 4 &&
+          el !== '4.3'
+        ) {
           isPiaFullyEdited = false;
         }
       }
@@ -93,22 +101,28 @@ export class EntryContentComponent implements OnInit, OnChanges {
    * Allow an user to validate evaluation for a section.
    */
   validateEvaluation() {
-    this._globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
-      this.goToNextSectionItem(5, 7);
-      let isPiaFullyEvaluated = true;
-      for (const el in this._sidStatusService.itemStatus) {
-        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] !== 7 && el !== '4.3') {
-          isPiaFullyEvaluated = false;
+    this._globalEvaluationService
+      .validateAllEvaluation()
+      .then((toFix: boolean) => {
+        this.goToNextSectionItem(5, 7);
+        let isPiaFullyEvaluated = true;
+        for (const el in this._sidStatusService.itemStatus) {
+          if (
+            this._sidStatusService.itemStatus.hasOwnProperty(el) &&
+            this._sidStatusService.itemStatus[el] !== 7 &&
+            el !== '4.3'
+          ) {
+            isPiaFullyEvaluated = false;
+          }
         }
-      }
-      if (isPiaFullyEvaluated) {
-        this._modalsService.openModal('completed-evaluation');
-      } else if (toFix) {
-        this._modalsService.openModal('validate-evaluation-to-correct');
-      } else {
-        this._modalsService.openModal('validate-evaluation');
-      }
-    });
+        if (isPiaFullyEvaluated) {
+          this._modalsService.openModal('completed-evaluation');
+        } else if (toFix) {
+          this._modalsService.openModal('validate-evaluation-to-correct');
+        } else {
+          this._modalsService.openModal('validate-evaluation');
+        }
+      });
   }
 
   /**
@@ -118,7 +132,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
    * @param {number} status_end - To status.
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
-    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end);
+    const goto_section_item = this._paginationService.getNextSectionItem(
+      status_start,
+      status_end
+    );
 
     this._router.navigate([
       'entry',
@@ -145,5 +162,4 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._globalEvaluationService.cancelValidation();
     this._modalsService.openModal('back-to-evaluation');
   }
-
 }

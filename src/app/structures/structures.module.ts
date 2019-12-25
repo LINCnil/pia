@@ -14,11 +14,7 @@ import { QuestionsComponent } from './entry/entry-content/questions/questions.co
 import { MeasuresComponent } from './entry/entry-content/measures/measures.component';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    CommonModule,
-    StructuresRoutingModule
-  ],
+  imports: [SharedModule, CommonModule, StructuresRoutingModule],
   declarations: [
     StructuresComponent,
     CardItemComponent,
@@ -31,4 +27,4 @@ import { MeasuresComponent } from './entry/entry-content/measures/measures.compo
   ],
   providers: [AnswerStructureService]
 })
-export class StructuresModule { }
+export class StructuresModule {}

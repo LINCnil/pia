@@ -9,6 +9,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { StructureService } from 'src/app/services/structure.service';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-structures',
@@ -16,7 +17,6 @@ import { AppDataService } from 'src/app/services/app-data.service';
   styleUrls: ['./structures.component.scss'],
   providers: [StructureService]
 })
-
 export class StructuresComponent implements OnInit, OnDestroy {
   @Input() structure: any;
   newStructure: Structure;
@@ -30,13 +30,16 @@ export class StructuresComponent implements OnInit, OnDestroy {
   structExampleSubscribe: Subscription;
   searchText: string;
 
-  constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              private _appDataService: AppDataService,
-              public _structureService: StructureService,
-              private _translateService: TranslateService) { }
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    private _appDataService: AppDataService,
+    public _structureService: StructureService,
+    private _translateService: TranslateService,
+    public _languagesService: LanguagesService
+  ) {}
 
   ngOnInit() {
     this.sortOrder = localStorage.getItem('sortOrder');
@@ -55,11 +58,9 @@ export class StructuresComponent implements OnInit, OnDestroy {
     this.viewStyle = {
       view: this.route.snapshot.params.view
     };
-    this.paramsSubscribe = this.route.params.subscribe(
-      (params: Params) => {
-        this.viewStyle.view = params.view;
-      }
-    );
+    this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
+      this.viewStyle.view = params.view;
+    });
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
@@ -69,9 +70,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
       import_file: new FormControl('', [])
     });
 
-    this.structExampleSubscribe = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.refreshContent();
-    });
+    this.structExampleSubscribe = this._translateService.onLangChange.subscribe(
+      (event: LangChangeEvent) => {
+        this.refreshContent();
+      }
+    );
   }
 
   ngOnDestroy() {
@@ -90,8 +93,7 @@ export class StructuresComponent implements OnInit, OnDestroy {
   structChange(structure) {
     if (this._structureService.structures.includes(structure)) {
       this._structureService.structures.forEach(struct => {
-        if (struct.id === structure.id)
-        struct = structure;
+        if (struct.id === structure.id) struct = structure;
       });
     } else {
       this._structureService.structures.push(structure);
@@ -141,7 +143,9 @@ export class StructuresComponent implements OnInit, OnDestroy {
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this._appDataService.dataNav;
     const p = structure.create();
-    p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
+    p.then(id =>
+      this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1])
+    );
   }
 
   /**
@@ -183,9 +187,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
     const structure = new Structure();
     const data: any = await structure.getAll();
     setTimeout(() => {
-      this._structureService.loadExample().then((structureExample: Structure) => {
-        data.push(structureExample);
-      });
+      this._structureService
+        .loadExample()
+        .then((structureExample: Structure) => {
+          data.push(structureExample);
+        });
 
       this._structureService.structures = data;
       this.sortOrder = localStorage.getItem('sortOrder');

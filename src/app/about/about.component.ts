@@ -9,10 +9,9 @@ import { environment } from 'src/environments/environment';
 export class AboutComponent implements OnInit {
   appVersion: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.appVersion = environment.version;
   }
-
 }
