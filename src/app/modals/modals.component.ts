@@ -41,7 +41,6 @@ export class ModalsComponent implements OnInit, OnDestroy {
   structureForm: FormGroup;
   removeAttachmentForm: FormGroup;
   enableSubmit = true;
-  dateFormat: String;
 
   constructor(
     private router: Router,
@@ -57,15 +56,8 @@ export class ModalsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this._translateService.currentLang === 'fr'
-      ? (this.dateFormat = 'dd/MM/yy')
-      : (this.dateFormat = 'MM-dd-yy');
     this.subscription = this._translateService.onLangChange.subscribe(
-      (event: LangChangeEvent) => {
-        this._translateService.currentLang === 'fr'
-          ? (this.dateFormat = 'dd/MM/yy')
-          : (this.dateFormat = 'MM-dd-yy');
-      }
+      (event: LangChangeEvent) => {}
     );
     const structure = new Structure();
     structure.getAll().then((data: any) => {

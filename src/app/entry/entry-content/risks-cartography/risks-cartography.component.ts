@@ -40,6 +40,9 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     this.risk2Letter = this._translateService.instant(
       'cartography.risk2_modification'
     );
+    this.risk3Letter = this._translateService.instant(
+      'cartography.risk3_disappearance'
+    );
     this.subscription = this._translateService.onLangChange.subscribe(
       (event: LangChangeEvent) => {
         this.risk1Letter = this._translateService.instant(
@@ -275,7 +278,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       context.fillStyle = '#333';
       try {
         context.fillText(
-          '(D)',
+          this.risk3Letter,
           this.dataJSON['risk-disappearance']['author'].x - 8,
           this.dataJSON['risk-disappearance']['author'].y + 20
         );
