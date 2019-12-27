@@ -1371,7 +1371,7 @@
 			"individual_download_desc": "Bepaalde elementen van het verslag exporteren.",
 			"individual_download_doc": "Teksten (.doc)",
 			"individual_download_images": "Visuele elementen (.png) waaronder het risico-overzicht, de risico-mapping en het actieplan.",
-			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_json": "Analyse om te importeren in de PIA-tool (file.json)",
 			"individual_download_select": "Te exporteren elementen selecteren:",
 			"individual_to_download": "Downloaden",
 			"print": "Verslag afdrukken",
@@ -1424,12 +1424,12 @@
 		"previous_page": "Terug naar de vorige pagina",
 		"rejection_reason": "Reden van verwerping",
 		"revision": {
-			"current_version": "TO TRANSLATE - Current version",
-			"pia_version": "TO TRANSLATE - PIA versions",
-			"restore_version": "TO TRANSLATE - Restore this version",
-			"revision": "TO TRANSLATE - Versions and revision",
-			"save": "TO TRANSLATE - Create a new version",
-			"show": "TO TRANSLATE - Display the {{length}} versions"
+			"current_version": "Huidige versie",
+			"pia_version": "PIA-versies",
+			"restore_version": "Herstel deze versie",
+			"revision": "Versies en revisie",
+			"save": "Maak een nieuwe versie",
+			"show": "Toon {{length}} versie (s)"
 		},
 		"risks_cartography_title": "Risicokaart",
 		"risks_overview_title": "Overzicht risico's",
