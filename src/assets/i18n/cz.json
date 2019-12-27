@@ -89,10 +89,10 @@
 			"seriousness": "Pokud vezmeme v úvahu akční plán, jak přehodnotit <span class='red-highlight'>závažnost tohoto rizika </span> ({{value}})?"
 		},
 		"improvable": "Vylepšitelné",
-		"placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
-		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-		"placeholder_improvable2": "TO TRANSLATE - Enter your comments.",
-		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
+		"placeholder_acceptable": "Zadejte své připomínky a vysvětlete, jak jsou prováděná opatření dostatečná pro splnění požadavků na ochranu údajů.",
+		"placeholder_improvable1": "Zadejte své připomínky a vysvětlete, jaká další opatření je třeba přidat, aby se zvýšila ochrana údajů při zpracování.",
+		"placeholder_improvable2": "Zadejte své komentáře.",
+		"placeholder_to_correct": "Zadejte své komentáře, abyste vysvětlili, proč poskytnuté informace nestačí k jejich posouzení. Tato část bude vrácena k úpravám za účelem obohacení původního návrhu.",
 		"status": [
 			"Čeká",
 			"Opravit",
@@ -1087,17 +1087,17 @@
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
 	"rejection_page": {
-		"applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
-		"applied_adjustments_placeholder": "TO BE TRANSLATED - Describe the changes brought to the PIA.",
+		"applied_adjustments": "Byly provedeny změny",
+		"applied_adjustments_placeholder": "Popište změny v PIA.",
 		"button": {
-			"abandon_treatment": "TO BE TRANSLATED - Abandon processing",
-			"reject_pia": "TO BE TRANSLATED - Reject PIA",
-			"send_for_validation": "TO BE TRANSLATED - Resend for approval"
+			"abandon_treatment": "Přerušení léčby",
+			"reject_pia": "Odmítněte PIA",
+			"send_for_validation": "Návrat k ověření"
 		},
-		"previous_rejection": "TO BE TRANSLATED - Previous refusal",
-		"rejection_reason": "TO BE TRANSLATED - Refusal reason",
-		"rejection_reason_placeholder": "TO BE TRANSLATED - Describe the reasons for refusing the PIA.",
-		"title": "TO BE TRANSLATED - Validation history"
+		"previous_rejection": "Předchozí odmítnutí",
+		"rejection_reason": "Důvod odmítnutí",
+		"rejection_reason_placeholder": "Popište důvody odmítnutí ověření platnosti PIA.",
+		"title": "Historie ověření"
 	},
 	"sections": {
 		"1": {
@@ -1339,10 +1339,10 @@
 					"title": "Názory DPO-Pověřence osobních údajů a dotčených osob"
 				},
 				"4": {
-					"title": "TO BE TRANSLATED - Validate the PIA"
+					"title": "Ověřte PIA"
 				},
 				"5": {
-					"title": "TO BE TRANSLATED - Rejected PIA"
+					"title": "PIA odmítla"
 				}
 			},
 			"short_help": "Tato část vám umožňuje připravit a formalizovat ověření PIA.",

@@ -89,10 +89,10 @@
 			"seriousness": "Taking into account the action plan, how do you re-evaluate the <span class='red-highlight'>seriousness of this risk</span> ({{value}})?"
 		},
 		"improvable": "Improvable",
-		"placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
-		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-		"placeholder_improvable2": "TO TRANSLATE - Enter your comments.",
-		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
+		"placeholder_acceptable": "Skriv inn kommentarene dine for å forklare hvordan tiltakene som er iverksatt, er tilstrekkelige for å oppfylle kravene til databeskyttelse.",
+		"placeholder_improvable1": "Skriv inn kommentarene dine for å forklare hvilke tilleggstiltak som skal legges til for å forbedre databeskyttelsen av behandlingen.",
+		"placeholder_improvable2": "Skriv inn kommentarene dine.",
+		"placeholder_to_correct": "Skriv inn kommentarene dine for å forklare hvorfor informasjonen som gis ikke er tilstrekkelig til å vurdere den. Denne delen vil bli returnert for redigering for å berike det opprinnelige forslaget.",
 		"status": [
 			"Pending",
 			"To correct",
@@ -1087,17 +1087,17 @@
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
 	"rejection_page": {
-		"applied_adjustments": "TO BE TRANSLATED - Adjustments proposed",
-		"applied_adjustments_placeholder": "TO BE TRANSLATED - Describe the changes brought to the PIA.",
+		"applied_adjustments": "Endringer gjort",
+		"applied_adjustments_placeholder": "Beskriv endringene til PIA.",
 		"button": {
-			"abandon_treatment": "TO BE TRANSLATED - Abandon processing",
-			"reject_pia": "TO BE TRANSLATED - Reject PIA",
-			"send_for_validation": "TO BE TRANSLATED - Resend for approval"
+			"abandon_treatment": "Avbryt behandling",
+			"reject_pia": "Nekter PIA",
+			"send_for_validation": "Retur for validering"
 		},
-		"previous_rejection": "TO BE TRANSLATED - Previous refusal",
-		"rejection_reason": "TO BE TRANSLATED - Refusal reason",
-		"rejection_reason_placeholder": "TO BE TRANSLATED - Describe the reasons for refusing the PIA.",
-		"title": "TO BE TRANSLATED - Validation history"
+		"previous_rejection": "Tidligere avslag",
+		"rejection_reason": "Årsak til avslag",
+		"rejection_reason_placeholder": "Beskriv årsakene til å nekte å validere PIA.",
+		"title": "Valideringshistorie"
 	},
 	"sections": {
 		"1": {
@@ -1339,10 +1339,10 @@
 					"title": "DPO and concerned persons opinions"
 				},
 				"4": {
-					"title": "TO BE TRANSLATED - Validate the PIA"
+					"title": "Valider PIA"
 				},
 				"5": {
-					"title": "TO BE TRANSLATED - Rejected PIA"
+					"title": "PIA nektet"
 				}
 			},
 			"short_help": "This section allows you to prepare and formalise the PIA validation.",

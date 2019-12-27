@@ -1318,7 +1318,7 @@
 				},
 				"5": {
 					"short_help": "Denna visualisering gör att du kan skapa dig en övergripande bild av vilken verkan åtgärderna har på komponenterna i riskerna som de skall hantera.",
-					"title": "TO TRANSLATE - Risks overview"
+					"title": "Risköversikt"
 				}
 			},
 			"short_help": "Det här avsnittet låter dig bedöma dataskyddsriskerna med hänsyn till befintliga eller planerade kontroller.",
