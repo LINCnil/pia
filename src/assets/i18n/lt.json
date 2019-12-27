@@ -103,16 +103,16 @@
 		"to_correct": "Taisytinas"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Archyvuoti VIP",
+		"current_pias": "Aktyvūs VIP",
 		"exit_full_screen_mode": "Norėdami išeiti iš viso ekrano režimo, paspauskite F11.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Pranešti apie klaidą",
+			"manual": "Vartotojo vadovas",
 			"pia_example_link": "PDAV pavyzdys",
 			"title": "Pagalba"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Mano VIP",
 		"knowledge_base_link": "Pagalba",
 		"languages": {
 			"cnil_translations": "CNIL vertimas",
@@ -148,7 +148,7 @@
 			"accessibility": "Regėjimo sutrikimą turintiems (padidinto ryškumo spalvos, daltonismas)",
 			"settings": "Nustatymai",
 			"title": "Įrankiai",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Serverio URL konfigūracija"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Redagavimas",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorija",
 			"creation_status": "Sukūrimas",
 			"date": "Data",
 			"evaluation": "Tikrinimas",
@@ -210,18 +210,18 @@
 			"import_structure": "Importuoti šabloną",
 			"item": {
 				"consult_pia": "Peržiūrėti",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Peržiūrėkite modelį",
 				"edit_pia": "Redaguoti",
 				"edit_structure": "Redaguoti šabloną",
 				"tools": {
 					"action_plan": "Peržiūrėti<br>veiksmų planą",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archyvas",
 					"duplicate": "Daryti kopiją",
 					"export": "Eksportas",
 					"more_options": "Daugiau funkcijų",
 					"pia": "Atidaryti<br>PDAV",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Pašalinti",
+					"unarchive": "išpakuoti"
 				}
 			},
 			"new_pia": "Naujas PDAV",
@@ -229,7 +229,7 @@
 			"or": "arba",
 			"pia_name": "PDAV",
 			"placeholder_author": "Vardas, Pavardė",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategorija",
 			"placeholder_evaluation": "Vardas, Pavardė",
 			"placeholder_import_pia": "Importuoti PDAV",
 			"placeholder_import_structure": "Importuoti šabloną",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Tikrintoją",
 			"author": "Autorių",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Kortelės vaizdas",
 			"card_rocket_content": "Pradėti !<br><br> Tam, kad pradėti<br> spausk Naujas PDAV",
 			"card_rocket_content_structure": "Pradėk ! Tam, kad pradėti rengti <br>šabloną, spausk +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorija",
 			"date": "Datą",
 			"import_pia": "Importuoti PDAV",
 			"import_structure": "Importuoti šabloną",
-			"list": "TO TRANSLATE - List view",
+			"list": "Sarašas",
 			"list_rocket_content": "Pradėti ! Tam, kad pradėti <br>PDAV, spausk +",
 			"list_rocket_content_structure": "Pradėk ! Tam, kad pradėti rengti <br>šabloną, spausk +",
 			"name": "Pavadinimą",
@@ -295,7 +295,7 @@
 					"export": "Eksportuoti",
 					"pia": "Atidaryti PDAV",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "išpakuoti"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Archyvuoti",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Archyvuoti šį VIP",
+			"content": "<span class='strong'>Dėmesio,</span><br>ar tikrai norite<br>archyvuoti šį VIP?"
 		},
 		"ask_for_evaluation": {
 			"content": "Ši dalis paruošta peržiūrai."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Tęsti",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Tęsdami atkursite {{date}} šios analizės versiją. Atlikę analizę turėsite dar kartą patvirtinti.<br><br>Dabartinė versija bus archyvuojama.",
+			"title": "Atkurti seną versiją"
 		},
 		"refuse_pia": {
 			"content": "Kadangi atsisakėte tvirtinti PDAV, jis yra grąžintas tobulinimui."
@@ -949,7 +949,7 @@
 			"remove": "Ištrinti <br>šią priemonę"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Dėmesio,</span><br>ar tikrai norite<br>visam laikui ištrinti šį VIP?",
 			"remove": "Ištrinti šį PDAV"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Pradėti peržiūrą",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Dėmesio,</span><br>ar tikrai norite<br>išarchyvuoti šį VIP?",
+			"unarchive": "Išarchyvuokite šį VIP"
 		},
 		"update_server_url_nok": {
 			"content": "Nėra ryšio."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Pridėti",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Atsisiųskite priedą",
 			"remove": "Pašalinti",
 			"title": "Priedai"
 		},

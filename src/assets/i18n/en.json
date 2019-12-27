@@ -885,7 +885,7 @@
 		},
 		"archive": "Archive",
 		"archive_pia": {
-			"archive": "Archive PIA",
+			"archive": "Archive this PIA",
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
 		},
 		"ask_for_evaluation": {
@@ -979,7 +979,7 @@
 		"start_evaluation": "Start review",
 		"unarchive_pia": {
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "Unarchive PIA"
+			"unarchive": "Unarchive this PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Connection impossible."

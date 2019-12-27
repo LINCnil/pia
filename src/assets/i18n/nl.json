@@ -103,16 +103,16 @@
 		"to_correct": "Te corrigeren"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Gearchiveerde PIA's",
+		"current_pias": "Actieve PIA's",
 		"exit_full_screen_mode": "Druk F11 om het volledige scherm te sluiten.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Meld een bug",
+			"manual": "Handleiding",
 			"pia_example_link": "PIA-voorbeeld",
 			"title": "Help"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Mijn PIA's",
 		"knowledge_base_link": "Kennisbank",
 		"languages": {
 			"cnil_translations": "Vertalingen door de CNIL",
@@ -148,7 +148,7 @@
 			"accessibility": "Toegang voor slechtzienden (kleuren met hoog contrast, daltonisme)",
 			"settings": "Instellingen",
 			"title": "Tools",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Server URL configuratie"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Aanpassen",
-			"category": "TO TRANSLATE - Category",
+			"category": "Categorie",
 			"creation_status": "Creatie",
 			"date": "Datum",
 			"evaluation": "Reviewen",
@@ -210,18 +210,18 @@
 			"import_structure": "Sjabloon importeren",
 			"item": {
 				"consult_pia": "Raadplegen",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Bekijk het model",
 				"edit_pia": "Aanpassen",
 				"edit_structure": "Sjabloon aanpassen",
 				"tools": {
 					"action_plan": "Toon<br>actieplan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archief",
 					"duplicate": "Dupliceren",
 					"export": "Exporteren",
 					"more_options": "Meer opties",
 					"pia": "PIA<br>tonen",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Verwijderen",
+					"unarchive": "uitpakken"
 				}
 			},
 			"new_pia": "Nieuwe PIA",
@@ -229,7 +229,7 @@
 			"or": "of",
 			"pia_name": "PIA",
 			"placeholder_author": "Voornaam Achternaam",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Categorie",
 			"placeholder_evaluation": "Voornaam Achternaam",
 			"placeholder_import_pia": "PIA importeren",
 			"placeholder_import_structure": "Sjabloon importeren",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Reviewer",
 			"author": "Auteur",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Kaartweergave",
 			"card_rocket_content": "Aan de slag! <br> <br> Om een PIA te starten, <br> klikt u op Nieuwe PIA",
 			"card_rocket_content_structure": "Aan de slag!<br><br>Om een sjabloon <br>te starten, klikt u <br> op de +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Categorie",
 			"date": "Datum",
 			"import_pia": "PIA importeren",
 			"import_structure": "Sjabloon importeren",
-			"list": "TO TRANSLATE - List view",
+			"list": "Lijstweergave",
 			"list_rocket_content": "Aan de slag! Om een PIA te starten, klik op de +",
 			"list_rocket_content_structure": "Aan de slag! Om een sjabloon<br>te starten, klikt u op de +",
 			"name": "Naam",
@@ -295,7 +295,7 @@
 					"export": "Exporteren",
 					"pia": "PIA tonen",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "uitpakken"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Archief",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Archiveer deze PIA",
+			"content": "<span class='strong'>Let op,</span><br>Weet u zeker dat u<br>deze PIA wilt archiveren?"
 		},
 		"ask_for_evaluation": {
 			"content": "Dit gedeelte kan worden beoordeeld."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Vervolgen",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "U gaat door met het herstellen van de {{date}} versie van deze analyse. U moet de analyse opnieuw valideren zodra deze is voltooid.<br><br>De huidige versie wordt gearchiveerd.",
+			"title": "Herstel een oude versie"
 		},
 		"refuse_pia": {
 			"content": "Aangezien u de PIA hebt afgewezen, wordt deze ter beoordeling teruggestuurd om de vereiste wijzigingen aan te brengen."
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Start review",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Let op,</span><br>Weet u zeker dat u<br>de archivering van deze PIA ongedaan wilt maken?",
+			"unarchive": "Unarchiveer deze PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Verbinden mislukt."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Toevoegen",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Download de bijlage",
 			"remove": "Verwijderen",
 			"title": "Bijlagen"
 		},

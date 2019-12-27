@@ -103,16 +103,16 @@
 		"to_correct": "Saadetud täiendamiseks"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Arhiveeritud PIA-d",
+		"current_pias": "Aktiivsed PIA-d",
 		"exit_full_screen_mode": "Täisekraanirežiimist väljumiseks vajutage F11.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Teata veast",
+			"manual": "Kasutusjuhend",
 			"pia_example_link": "Mõjuhinnangu näidis",
 			"title": "Abi"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Minu PIA-d",
 		"knowledge_base_link": "Teadmiste pagas",
 		"languages": {
 			"cnil_translations": "CNIL’i  esitatud tõlge",
@@ -148,7 +148,7 @@
 			"accessibility": "Vaegnägijale",
 			"settings": "Seaded",
 			"title": "Tööriistad",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Serveri URL-i konfiguratsioon"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Toimeta",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategooria",
 			"creation_status": "Loomine",
 			"date": "Kuupäev",
 			"evaluation": "Ülevaade",
@@ -210,18 +210,18 @@
 			"import_structure": "Impordi mõjuhinnang",
 			"item": {
 				"consult_pia": "konsulteerima",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Vaadake mudelit",
 				"edit_pia": "Muuta",
 				"edit_structure": "Toimeta mõjuhinnagut",
 				"tools": {
 					"action_plan": "Näita<br>tegevuskava",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Arhiiv",
 					"duplicate": "Dubleeri",
 					"export": "Ekspordi",
 					"more_options": "Rohkem valikuid",
 					"pia": "Näita<br>mõjuhinnagut",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Eemalda",
+					"unarchive": "lahti pakkima"
 				}
 			},
 			"new_pia": "Uus mõjuhinnag",
@@ -229,7 +229,7 @@
 			"or": "või",
 			"pia_name": "Mõjuhinnang",
 			"placeholder_author": "Eesnimi, perenimi",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategooria",
 			"placeholder_evaluation": "Eesnimi, perenimi",
 			"placeholder_import_pia": "Impordi mõjuhinnang",
 			"placeholder_import_structure": "Impordi mõjuhinnang",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Hindaja",
 			"author": "Läbiviija",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Kaardivaade",
 			"card_rocket_content": "<br><br>uue alustamiseks vajuta Uus mõjuhinnag",
 			"card_rocket_content_structure": "<br><br>Alustamiseks<br>vajutage<br> nuppu +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategooria",
 			"date": "Kuupäev",
 			"import_pia": "Impordi mõjuhinnang",
 			"import_structure": "Impordi mõjuhinnang",
-			"list": "TO TRANSLATE - List view",
+			"list": "Loendivaade",
 			"list_rocket_content": "Uue <br>alustamiseks vajuta +",
 			"list_rocket_content_structure": "Alustamiseks<br>vajutage nuppu +",
 			"name": "Nimi",
@@ -295,7 +295,7 @@
 					"export": "Ekspordi",
 					"pia": "Näita mõjuhinnagut",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "lahti pakkima"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Arhiiv",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Arhiivige see PIA",
+			"content": "<span class='strong'>Tähelepanu!</span><br>Kas soovite kindlasti<br>selle PIA arhiivida?"
 		},
 		"ask_for_evaluation": {
 			"content": "See osa on valmis ülevaatamiseks."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Jätka",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Jätkates taastate selle analüüsi versiooni {{date}} . Kui see on lõpule viidud, peate analüüsi uuesti valideerima.<br><br>Praegune versioon arhiivitakse.",
+			"title": "Taastage vana versioon"
 		},
 		"refuse_pia": {
 			"content": "Kunas lükkasite mõjuhinnagu tagasi, siis tagastatakse see ülevaatamiseks ja muudatuste tegemiseks."
@@ -949,7 +949,7 @@
 			"remove": "Eemalda <br>see meede"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Tähelepanu!</span><br>Kas soovite kindlasti<br>selle PIA jäädavalt kustutada?",
 			"remove": "Eemalda see mõjuhinnang"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Alusta ülevaatamist",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Tähelepanu!</span><br>Kas olete kindel, et soovite<br>selle PIA arhiivida?",
+			"unarchive": "Selle PIA arhiivimine tühistatakse"
 		},
 		"update_server_url_nok": {
 			"content": "Ühendus puudub."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Lisa",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Laadige manus alla",
 			"remove": "Eemalda",
 			"title": "Manused"
 		},

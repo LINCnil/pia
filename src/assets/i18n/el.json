@@ -103,16 +103,16 @@
 		"to_correct": "Προς διόρθωση"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Αρχειοθετημένες PIA",
+		"current_pias": "Ενεργά PIA",
 		"exit_full_screen_mode": "Πατήστε F11 για έξοδο από την πλήρη οθόνη.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Αναφέρετε ένα σφάλμα",
+			"manual": "Εγχειρίδιο χρήστη",
 			"pia_example_link": "Παράδειγμα ΕΑ",
 			"title": "Βοήθεια"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Οι PIA μου",
 		"knowledge_base_link": "Βάση γνώσεων",
 		"languages": {
 			"cnil_translations": "Μεταφράσεις που παρείχε η CNIL",
@@ -148,7 +148,7 @@
 			"accessibility": "Προσβασιμότητα με προβλήματα όρασης (χρώματα υψηλής αντίθεσης, δαλτονισμός)",
 			"settings": "Ρυθμίσεις",
 			"title": "Εργαλεία",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Διαμόρφωση διευθύνσεων URL διακομιστή"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Επεξεργασία",
-			"category": "TO TRANSLATE - Category",
+			"category": "Κατηγορία",
 			"creation_status": "Δημιουργία",
 			"date": "Ημερομηνία",
 			"evaluation": "Αξιολόγηση",
@@ -210,18 +210,18 @@
 			"import_structure": "Εισαγωγή υποδείγματος",
 			"item": {
 				"consult_pia": "Συμβουλευθείτε την",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Δείτε το μοντέλο",
 				"edit_pia": "Επεξεργασία",
 				"edit_structure": "Επεξεργασία υποδείγματος",
 				"tools": {
 					"action_plan": "Εμφάνιση<br>σχεδίου δράσης",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Αρχείο",
 					"duplicate": "Διπλότυπο",
 					"export": "Εξαγωγή",
 					"more_options": "Περισσότερες επιλογές",
 					"pia": "Εμφάνιση<br>ΕΑ",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Αφαίρεση",
+					"unarchive": "ανοίγω τις αποσκευές"
 				}
 			},
 			"new_pia": "Νέα ΕΑ",
@@ -229,7 +229,7 @@
 			"or": "ή",
 			"pia_name": "ΕΑ",
 			"placeholder_author": "Όνομα, επίθετο",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Κατηγορία",
 			"placeholder_evaluation": "Όνομα, επίθετο",
 			"placeholder_import_pia": "Εισαγωγή ΕΑ",
 			"placeholder_import_structure": "Εισαγωγή υποδείγματος",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Αξιολογητής",
 			"author": "Συντάκτης",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Προβολή κάρτας",
 			"card_rocket_content": "Αρχίστε !<br><br>Για να ξεκινήσετε μια ΕΑ,<br> κάντε κλικ στο Νέα ΕΑ",
 			"card_rocket_content_structure": "Αρχίστε ! Για να ξεκινήσετε <br>ένα υπόδειγμα, κάντε κλικ στο +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Κατηγορία",
 			"date": "Ημερομηνία",
 			"import_pia": "Εισαγωγή ΕΑ",
 			"import_structure": "Εισαγωγή υποδείγματος",
-			"list": "TO TRANSLATE - List view",
+			"list": "Προβολή λίστας",
 			"list_rocket_content": "Αρχίστε ! Για να ξεκινήσετε <br>μια ΕΑ, κάντε κλικ στο +",
 			"list_rocket_content_structure": "Αρχίστε ! Για να ξεκινήσετε <br>ένα υπόδειγμα, κάντε κλικ στο +",
 			"name": "Όνομα",
@@ -295,7 +295,7 @@
 					"export": "Εξαγωγή",
 					"pia": "Εμφάνιση ΕΑ",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "ανοίγω τις αποσκευές"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Αρχειοθέτηση",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Αρχειοθετήστε αυτό το PIA",
+			"content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να<br>να αρχειοθετήσετε αυτό το PIA;"
 		},
 		"ask_for_evaluation": {
 			"content": "<span class='strong'>Συγχαρητήρια,</span><br>η υποενότητα είναι τώρα<br>διαθέσιμη για αξιολόγηση."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Συνέχεια",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Συνεχίζοντας, θα επαναφέρετε την έκδοση {{date}} αυτής της ανάλυσης. Θα πρέπει να επικυρώσετε την ανάλυση και πάλι αφού ολοκληρωθεί.<br><br>Η τρέχουσα έκδοση θα αρχειοθετηθεί.",
+			"title": "Επαναφέρετε μια παλιά έκδοση"
 		},
 		"refuse_pia": {
 			"content": "<span class='strong'>Απορριφθείσα ΕΑ,</span><br>Αρκετά πεδία πρέπει να διορθωθούν.<br>Επιστροφή στη λειτουργία αξιολόγησης<br>για να κάνετε διορθώσεις."
@@ -949,7 +949,7 @@
 			"remove": "Κατάργηση αυτού του <br>μέτρου"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να<br>διαγράψετε οριστικά αυτό το PIA;",
 			"remove": "Αφαίρεση αυτής της ΕΑ"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Έναρξη αξιολόγησης",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>να προσέχετε,</span><br>είστε βέβαιοι ότι θέλετε να<br>να ξετυσίπτε αυτό το PIA;",
+			"unarchive": "Καταργήστε την αρχειοθέτηση αυτού του PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Αδύνατη σύνδεση."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Προσθήκη",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Κάντε λήψη του συνημμένου",
 			"remove": "Αφαίρεση",
 			"title": "Συνημμένα"
 		},

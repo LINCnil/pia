@@ -103,16 +103,16 @@
 		"to_correct": "Korjattava"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Arkistoidut PIA: t",
+		"current_pias": "Aktiiviset PIA: t",
 		"exit_full_screen_mode": "Paina F11 poistuaksesi koko näytön tilasta.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Ilmoita virheestä",
+			"manual": "käyttöohje",
 			"pia_example_link": "Esimerkki vaikutustenarvioinnista",
 			"title": "Ohje"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Minun PIA",
 		"knowledge_base_link": "Tietopankki",
 		"languages": {
 			"cnil_translations": "CNIL:n tarjoamat käännökset",
@@ -148,7 +148,7 @@
 			"accessibility": "Visuaaliset helppokäyttöisyysasetukset (suuri kontrasti, värisokeus)",
 			"settings": "Asetukset",
 			"title": "Työkalut",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Palvelimen URL-osoitteen määritys"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Muokkaus",
-			"category": "TO TRANSLATE - Category",
+			"category": "Luokka",
 			"creation_status": "Luonti",
 			"date": "Päiväys",
 			"evaluation": "Tarkasta",
@@ -210,18 +210,18 @@
 			"import_structure": "Tuo malli",
 			"item": {
 				"consult_pia": "konsultoida",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Näytä malli",
 				"edit_pia": "muokata",
 				"edit_structure": "Muokkaa mallia",
 				"tools": {
 					"action_plan": "Näytä<br>toimintasuunnitelma",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "arkisto",
 					"duplicate": "Kahdenna",
 					"export": "Vie",
 					"more_options": "Lisää valintoja",
 					"pia": "Näytä<br>Tietosuojaa koskeva vaikutustenarviointi",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Poista",
+					"unarchive": "purkaa matkalaukku"
 				}
 			},
 			"new_pia": "Uusi vaikutustenarviointi",
@@ -229,7 +229,7 @@
 			"or": "tai",
 			"pia_name": "Tietosuojaa koskeva vaikutustenarviointi",
 			"placeholder_author": "Etunimi, sukunimi",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Luokka",
 			"placeholder_evaluation": "Etunimi, sukunimi",
 			"placeholder_import_pia": "Tuo vaikutustenarviointi",
 			"placeholder_import_structure": "Tuo malli",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Tarkastaja",
 			"author": "Laatija",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Kortinäkymä",
 			"card_rocket_content": "Aloitetaan!<br><br>Luo vaikutustenarviointi<br>  napsauttamalla Uusi vaikutustenarviointi -painiketta",
 			"card_rocket_content_structure": "Aloita!<br><br>Aloita<br>malli napsauttamalla<br> + -painiketta",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategoria",
 			"date": "Päiväys",
 			"import_pia": "Tuo vaikutustenarviointi",
 			"import_structure": "Tuo malli",
-			"list": "TO TRANSLATE - List view",
+			"list": "Listanäkymä",
 			"list_rocket_content": "Aloitetaan! Luo vaikutustenarviointi <br> napsauttamalla +-painiketta",
 			"list_rocket_content_structure": "Aloita! Aloita<br>malli napsauttamalla +",
 			"name": "Nimi",
@@ -295,7 +295,7 @@
 					"export": "Vie",
 					"pia": "Näytä vaikutustenarviointi",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "purkaa matkalaukku"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Arkistoi",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Arkistoi tämä PIA",
+			"content": "<span class='strong'>Huomio,</span><br>Haluatko varmasti<br>arkistoida tämän PIA: n?"
 		},
 		"ask_for_evaluation": {
 			"content": "<span class='strong'>Erinomaista,</span><br>tämä alaosio on nyt<br>valmis arvioitavaksi."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Jatka",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Jatkamalla palautat tämän analyysin {{date}} version. Sinun on vahvistettava analyysi uudelleen, kun se on valmis.<br><br>Nykyinen versio arkistoidaan.",
+			"title": "Palauta vanha versio"
 		},
 		"refuse_pia": {
 			"content": "<span class='strong'>Tietosuojaa koskeva vaikutustenarviointi on hylätty,</span><br>Useiden kenttien sisältöä on korjattava.<br>Palaa arviointitilaan<br>ja tee korjaukset."
@@ -949,7 +949,7 @@
 			"remove": "Poista tämä <br>toimenpide"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Huomio,</span><br>Haluatko varmasti<br>poistaa tämän PIA: n pysyvästi?",
 			"remove": "Poista tämä tietosuojaa koskeva vaikutustenarviointi"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Aloita tarkistaminen",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Huomio,</span><br>Haluatko varmasti<br>poistaa tämän PIA: n arkistoinnin?",
+			"unarchive": "Poista tämän PIA: n arkisto"
 		},
 		"update_server_url_nok": {
 			"content": "Yhteyden muodostaminen epäonnistui."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Lisää",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Lataa liite",
 			"remove": "Poista",
 			"title": "Liitteet"
 		},

@@ -103,16 +103,16 @@
 		"to_correct": "Att korrigera"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Arkiverade PIA: er",
+		"current_pias": "Aktiva PIA: er",
 		"exit_full_screen_mode": "Tryck på F11 för att lämna fullskärmsläge",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Rapportera ett fel",
+			"manual": "Användarmanual",
 			"pia_example_link": "Konsekvensanalysexempel",
 			"title": "Hjälp"
 		},
-		"homepage_link": "Hem",
+		"homepage_link": "Mina PIA",
 		"knowledge_base_link": "Kunskapsbas",
 		"languages": {
 			"cnil_translations": "Traductions fournies par la CNIL",
@@ -148,7 +148,7 @@
 			"accessibility": "Tillgänglighet för funktionsvariationer (skarpa kontrastfärger, anpassning till färgblindhet)",
 			"settings": "Inställningar",
 			"title": "Verktyg",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Server-URL-konfiguration"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Datainsamlare",
-			"category": "TO TRANSLATE - Category",
+			"category": "KAtegori",
 			"creation_status": "Skapa",
 			"date": "Datum",
 			"evaluation": "Utvärdera",
@@ -210,18 +210,18 @@
 			"import_structure": "Importera mall",
 			"item": {
 				"consult_pia": "Konsultera",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Visa modellen",
 				"edit_pia": "Redigera",
 				"edit_structure": "Redigera mall",
 				"tools": {
 					"action_plan": "Visa <br> åtgärdsplan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "arkiv",
 					"duplicate": "Duplicera",
 					"export": "Exportera",
 					"more_options": "Fler val",
 					"pia": "Visa <br>PIAn",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Ta bort",
+					"unarchive": "packa"
 				}
 			},
 			"new_pia": "Ny PIA",
@@ -229,7 +229,7 @@
 			"or": "eller",
 			"pia_name": "PIA",
 			"placeholder_author": "Förnamn, efternamn",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "KAtegori",
 			"placeholder_evaluation": "Förnamn, efternamn",
 			"placeholder_import_pia": "Importera PIA",
 			"placeholder_import_structure": "Importera mall",
@@ -252,10 +252,10 @@
 		"filters": {
 			"assessor": "Utvärderare",
 			"author": "Datainsamlare",
-			"card": "Kort",
+			"card": "Kortvy",
 			"card_rocket_content": "Starta! <br><br>För att börja<br>en PIA, klicka<br> på +",
 			"card_rocket_content_structure": "Starta! <br><br>För att börja<br>en mall, klicka<br> på +",
-			"category": "TO TRANSLATE - Category",
+			"category": "KAtegori",
 			"date": "Datum",
 			"import_pia": "Importera PIA",
 			"import_structure": "Importera en mall",
@@ -295,7 +295,7 @@
 					"export": "Exportera",
 					"pia": "Via PIA",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "packa"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Arkivera",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Arkivera denna PIA",
+			"content": "<span class='strong'>var försiktig,</span><br>är du säker på att du vill arkivera den här PIA-<br>?"
 		},
 		"ask_for_evaluation": {
 			"content": "Denna sektion är klar för att utvärderas"
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Fortsätt",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Fortsätter kommer du att återställa {{date}} -versionen av denna analys. Du måste validera analysen igen när den är klar.<br><br>Den aktuella versionen arkiveras.",
+			"title": "Återställ en gammal version"
 		},
 		"refuse_pia": {
 			"content": "Efter ditt underkännande sänds PIAn<br>tillbaka för utvärdering och för att utföra<br> nödvändiga kompletterande åtgärder."
@@ -949,7 +949,7 @@
 			"remove": "Radera denna <br>åtgärd"
 		},
 		"remove_pia": {
-			"content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br>radera denna PIA?",
+			"content": "<span class='strong'>akta dig,</span><br>är du säker på att du vill ta bort denna PIA för bra<br>?",
 			"remove": "Radera denna PIA"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Starta utvärderingen",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Uppmärksamhet,</span><br>Är du säker på att du vill<br>ta bort denna PIA?",
+			"unarchive": "Unarkivera denna PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Ingen uppkoppling."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Lägg till",
-			"download": "Ladda ner bilaga",
+			"download": "Ladda ner bilagan",
 			"remove": "Radera",
 			"title": "Bilagor"
 		},

@@ -103,16 +103,16 @@
 		"to_correct": "Visszaküldés javításra"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Archivált PIA-k",
+		"current_pias": "Aktív PIA-k",
 		"exit_full_screen_mode": "Nyomja meg az F11 gombot a teljes képernyős módból való kilépéshez.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Hiba jelentése",
+			"manual": "Felhasználói kézikönyv",
 			"pia_example_link": "DPIA-példa",
 			"title": "Segítség"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Saját PIA-k",
 		"knowledge_base_link": "Tudásbázis",
 		"languages": {
 			"cnil_translations": "A CNIL által biztosított fordítások",
@@ -148,7 +148,7 @@
 			"accessibility": "Hozzáférés látássérülteknek (erős színkontraszt, daltonizmus)",
 			"settings": "Beállítások",
 			"title": "Eszköztár",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Szerver URL-konfiguráció"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Szerkesztés",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategória",
 			"creation_status": "Létrehozás",
 			"date": "Dátum",
 			"evaluation": "Véleményezés",
@@ -210,18 +210,18 @@
 			"import_structure": "Importálási modell",
 			"item": {
 				"consult_pia": "Áttekintése",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Tekintse meg a modellt",
 				"edit_pia": "Szerkesztése",
 				"edit_structure": "Szerkessze a modellt",
 				"tools": {
 					"action_plan": "Intézkedési terv megmutatása",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archív",
 					"duplicate": "Másolat készítése",
 					"export": "Exportálás",
 					"more_options": "További lehetőségek",
 					"pia": "DPIA megmutatása",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Eltávolítás",
+					"unarchive": "kicsomagol"
 				}
 			},
 			"new_pia": "Új DPIA",
@@ -229,7 +229,7 @@
 			"or": "Vagy",
 			"pia_name": "DPIA",
 			"placeholder_author": "Vezetéknév, utónév",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategória",
 			"placeholder_evaluation": "Vezetéknév, utónév",
 			"placeholder_import_pia": "DPIA importálása",
 			"placeholder_import_structure": "Importálási modell",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Véleményező",
 			"author": "Szerző",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Kártya nézet",
 			"card_rocket_content": "Kezdjen hozzá! Kattintson az Új DPIA-ra az DPIA elindításához",
 			"card_rocket_content_structure": "Kezdje el!<br><br>A<br>modell elindításához kattintson a + gombra a<br> gombra",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategória",
 			"date": "Dátum",
 			"import_pia": "DPIA importálása",
 			"import_structure": "Importálási modell",
-			"list": "TO TRANSLATE - List view",
+			"list": "Lista nézet",
 			"list_rocket_content": "Kezdjen hozzá! Kattintson a + jelre az DPIA elindításához",
 			"list_rocket_content_structure": "Kezdje el! A<br>modell elindításához kattintson a + gombra",
 			"name": "Név",
@@ -295,7 +295,7 @@
 					"export": "Exportálás",
 					"pia": "DPIA megmutatása",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "kicsomagol"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Archiválás",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Archiválja ezt a PIA-t",
+			"content": "<span class='strong'>Figyelem,</span><br>Biztosan<br>szeretné archiválni ezt a PIA-t?"
 		},
 		"ask_for_evaluation": {
 			"content": "Ez a rész készen áll véleményzésre."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Folytatás",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Folytatva visszaállítja az elemzés {{date}} verzióját. A befejezés után újra ki kell hagynia az elemzést.<br><br>Az aktuális verzió archiválásra kerül.",
+			"title": "Helyreállítson egy régi verziót"
 		},
 		"refuse_pia": {
 			"content": "<span class='strong'>DPIA elutasítva,</span><br>Több mezőt is ki kell javítani. Visszatérés az értékelésmódba a javításokhoz."
@@ -949,7 +949,7 @@
 			"remove": "Az intézkedés eltávolítása"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Figyelem,</span><br>Biztos benne, hogy<br>véglegesen törli ezt a PIA-t?",
 			"remove": "A DPIA eltávolítása"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Véleményezés kezdése",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Figyelem,</span><br>Biztosan<br>kívánja archiválni ezt a PIA-t?",
+			"unarchive": "Távolítsa el ezt a PIA-t"
 		},
 		"update_server_url_nok": {
 			"content": "Nem lehet csatlakozni."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Csatolás",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Töltse le a mellékletet",
 			"remove": "Eltávolítás",
 			"title": "Mellékletek"
 		},

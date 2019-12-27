@@ -103,16 +103,16 @@
 		"to_correct": "Do poprawienia"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Zarchiwizowane PIA",
+		"current_pias": "Aktywne PIA",
 		"exit_full_screen_mode": "Naciśnij F11, aby wyjść z trybu pełnoekranowego.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Zgłoś błąd",
+			"manual": "instrukcja obsługi",
 			"pia_example_link": "Przykład PIA",
 			"title": "Pomoc"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Moje PIA",
 		"knowledge_base_link": "Baza wiedzy",
 		"languages": {
 			"cnil_translations": "Wersje przetłumaczone przez CNIL",
@@ -148,7 +148,7 @@
 			"accessibility": "Dostępność dla osób słabowidzących (kolory o mocnym kontraście, dopasowane do daltonizmu)",
 			"settings": "Ustawienia",
 			"title": "Narzędzia",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Konfiguracja adresu URL serwera"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Edytowanie",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategoria",
 			"creation_status": "Utworzenie",
 			"date": "Data",
 			"evaluation": "Ocena",
@@ -210,18 +210,18 @@
 			"import_structure": "Import szablonu",
 			"item": {
 				"consult_pia": "Konsultacja",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Zobacz model",
 				"edit_pia": "Edycja",
 				"edit_structure": "Edycja szablonu",
 				"tools": {
 					"action_plan": "Wyświetlenie<br>planu działania",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archiwum",
 					"duplicate": "Duplikacja",
 					"export": "Eksport",
 					"more_options": "Więcej opcji",
 					"pia": "Wyświetlenie<br>PIA",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "usunąć",
+					"unarchive": "rozpakować"
 				}
 			},
 			"new_pia": "Nowa PIA",
@@ -229,7 +229,7 @@
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Imię, nazwisko",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategoria",
 			"placeholder_evaluation": "Imię, nazwisko",
 			"placeholder_import_pia": "Import PIA",
 			"placeholder_import_structure": "Import szablonu",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Oceniającego",
 			"author": "Autora",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Widok karty",
 			"card_rocket_content": "Zaczynajmy!<br><br>By rozpocząć PIA,<br> należy kliknąć Nowa PIA",
 			"card_rocket_content_structure": "Zaczynajmy!<br><br> By rozpocząć <br>szablon, prosimy kliknąć<br> +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategoria",
 			"date": "Daty",
 			"import_pia": "Import PIA",
 			"import_structure": "Import szablonu",
-			"list": "TO TRANSLATE - List view",
+			"list": "Widok listy",
 			"list_rocket_content": "Zaczynajmy! By rozpocząć <br>PIA, prosimy kliknąć +",
 			"list_rocket_content_structure": "Zaczynajmy! By rozpocząć <br>szablon, prosimy kliknąć +",
 			"name": "Nazwiska",
@@ -295,7 +295,7 @@
 					"export": "Eksport",
 					"pia": "Wyświetlenie PIA",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "rozpakować"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Archiwizacja",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Zarchiwizuj tę PIA",
+			"content": "<span class='strong'>Uwaga,</span><br>Czy na pewno chcesz<br>zarchiwizować tę PIA?"
 		},
 		"ask_for_evaluation": {
 			"content": "Ta sekcja jest gotowa do sprawdzenia."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Dalsza praca",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Kontynuując, przywrócisz wersję tej analizy {{date}} . Po jej zakończeniu będziesz musiał ponownie zweryfikować analizę.<br><br>Aktualna wersja zostanie zarchiwizowana.",
+			"title": "Przywróć starą wersję"
 		},
 		"refuse_pia": {
 			"content": "Ponieważ odrzuciłeś PIA, zostaje ona odesłana do sprawdzenia w celu wprowadzenia wymaganych zmian."
@@ -949,7 +949,7 @@
 			"remove": "Usunięcie <br>środka"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Uwaga,</span><br>Czy na pewno chcesz<br>trwale usunąć tę PIA?",
 			"remove": "Usuń PIA"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Rozpoczęcie oceny",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Uwaga,</span><br>Czy na pewno chcesz<br>cofnąć archiwizację tej PIA?",
+			"unarchive": "Zarchiwizuj tę PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Połączenie niemożliwe."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Dodaj załącznik",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Pobierz załącznik",
 			"remove": "Usuń",
 			"title": "Załączniki"
 		},

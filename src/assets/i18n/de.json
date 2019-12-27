@@ -885,7 +885,7 @@
 		},
 		"archive": "Archivieren",
 		"archive_pia": {
-			"archive": "Archivieren Sie diese DSFA",
+			"archive": "Archivieren Sie diese PIA",
 			"content": "<span class='strong'>Warnung,</span><br>möchten Sie diese DSFA wirklich<br>archivieren?"
 		},
 		"ask_for_evaluation": {

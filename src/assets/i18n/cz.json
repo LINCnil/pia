@@ -103,16 +103,16 @@
 		"to_correct": "Opravit"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Archivované PIA",
+		"current_pias": "Aktivní PIA",
 		"exit_full_screen_mode": "Stisknutím klávesy F11 ukončíte režim celé obrazovky.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Nahlásit chybu",
+			"manual": "Uživatelská příručka",
 			"pia_example_link": "PIA příklad",
 			"title": "Nápověda"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Moje PIA",
 		"knowledge_base_link": "Znalostní báze",
 		"languages": {
 			"cnil_translations": "Překlady poskytované CNIL",
@@ -148,7 +148,7 @@
 			"accessibility": "Dostupnost pro zrakově postižené (barvy s vysokým kontrastem, daltonismem)",
 			"settings": "NASTAVENÍ",
 			"title": "Nástroje",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Konfigurace adresy URL serveru"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Upravil",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorie",
 			"creation_status": "Vytvořeno",
 			"date": "Datum",
 			"evaluation": "Posouzení",
@@ -210,18 +210,18 @@
 			"import_structure": "Importujte model",
 			"item": {
 				"consult_pia": "Konzultovat",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Prohlédněte si model",
 				"edit_pia": "Upravit",
 				"edit_structure": "Upravte model",
 				"tools": {
 					"action_plan": "Zobrazit<br>akční plán",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archiv",
 					"duplicate": "Duplikovat",
 					"export": "Exportovat",
 					"more_options": "Více voleb",
 					"pia": "Zobrazit<br>PIA",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Odstranit",
+					"unarchive": "rozbalit"
 				}
 			},
 			"new_pia": "Nová PIA",
@@ -229,7 +229,7 @@
 			"or": "nebo",
 			"pia_name": "PIA",
 			"placeholder_author": "Křestní jméno, Příjmení",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategorie",
 			"placeholder_evaluation": "Křestní jméno, Příjmení",
 			"placeholder_import_pia": "Importovat PIA",
 			"placeholder_import_structure": "Importujte model",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Posuzovatel",
 			"author": "Autora",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Pohled na kartu",
 			"card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA,<br> klikněte na Nová PIA",
 			"card_rocket_content_structure": "Začínáme!<br><br>Pro spuštění<br>modelu klikněte na<br> na +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorie",
 			"date": "Datumu",
 			"import_pia": "Importovat PIA",
 			"import_structure": "Importujte model",
-			"list": "TO TRANSLATE - List view",
+			"list": "Zobrazení seznamu",
 			"list_rocket_content": "Začínáme! Chcete-li zahájit PIA, klikněte na tlačítko +",
 			"list_rocket_content_structure": "Začínáme! Chcete-li zahájit<br>model, klikněte na +",
 			"name": "Názvu",
@@ -295,7 +295,7 @@
 					"export": "Exportovat",
 					"pia": "Zobrazit PIA",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "rozbalit"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Archivovat",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Archivujte tuto PIA",
+			"content": "<span class='strong'>Pozor,</span><br>Opravdu chcete<br>archivovat tuto PIA?"
 		},
 		"ask_for_evaluation": {
 			"content": "Hra je k dispozici<br>pro vyhodnocení."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Pokračovat",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Pokračováním obnovíte {{date}} verzi této analýzy. Jakmile bude analýza dokončena, budete ji muset znovu ověřit.<br><br>Aktuální verze bude archivována.",
+			"title": "Obnovte starou verzi"
 		},
 		"refuse_pia": {
 			"content": "Po odmítnutí je analýza<br> odeslána zpět k vyhodnocení, aby se<br>provedly nezbytné úpravy."
@@ -949,7 +949,7 @@
 			"remove": "Odebrat toto <br>opatření"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Pozor,</span><br>Opravdu chcete<br>trvale smazat tento PIA?",
 			"remove": "Odstranit tuto PIA"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Zahajte hodnocení",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Pozor,</span><br>Opravdu chcete<br>zrušit archivaci tohoto PIA?",
+			"unarchive": "Zrušte archivaci tohoto PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Nelze se připojit."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Přidat",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Stáhněte si přílohu",
 			"remove": "Odebrat",
 			"title": "Přílohy"
 		},

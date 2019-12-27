@@ -103,16 +103,16 @@
 		"to_correct": "At rette"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Arkiverede PIA'er",
+		"current_pias": "Aktive PIA'er",
 		"exit_full_screen_mode": "Tryk på F11 for at afslutte fuldskærmstilstand.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Rapporter en fejl",
+			"manual": "Brugermanual",
 			"pia_example_link": "PIA exempel",
 			"title": "Hjælp"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Mine PIA'er",
 		"knowledge_base_link": "Vidensbase",
 		"languages": {
 			"cnil_translations": "Oversættelser af CNILs",
@@ -148,7 +148,7 @@
 			"accessibility": "Øget tilgængelighed (høje kontrast farver, daltonism)",
 			"settings": "Konfiguration",
 			"title": "Værktøjer",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Server-URL-konfiguration"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Editing",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategori",
 			"creation_status": "Kreation",
 			"date": "Dato",
 			"evaluation": "Review",
@@ -210,18 +210,18 @@
 			"import_structure": "Importere skabelon",
 			"item": {
 				"consult_pia": "Konsultere",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Se modellen",
 				"edit_pia": "Redigere",
 				"edit_structure": "Redigere skabelon",
 				"tools": {
 					"action_plan": "Vis<br>handlingsplan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Arkiv",
 					"duplicate": "duplikere",
 					"export": "Exportere",
 					"more_options": "Flere optioner",
 					"pia": "Vis<br>PIA",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "fjern",
+					"unarchive": "udpakning"
 				}
 			},
 			"new_pia": "Ny PIA",
@@ -229,7 +229,7 @@
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Fornavn, efternavn",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategori",
 			"placeholder_evaluation": "Fornavn, efternavn",
 			"placeholder_import_pia": "Importere PIA",
 			"placeholder_import_structure": "Importere skabelon",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Analytiker",
 			"author": "Forfatter",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Kortvisning",
 			"card_rocket_content": "Begynd !<br><br>For at starte en PIA,<br> klik på Ny PIA",
 			"card_rocket_content_structure": "Begynd ! For at starte <br>en skabelon, klik på +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategori",
 			"date": "Dato",
 			"import_pia": "Importere PIA",
 			"import_structure": "Importere skabelon",
-			"list": "TO TRANSLATE - List view",
+			"list": "Listevisning",
 			"list_rocket_content": "Begynd ! For at starte <br>en PIA, klik på +",
 			"list_rocket_content_structure": "Begynd ! For at starte <br>en skabelon, klik på +",
 			"name": "Navn",
@@ -295,7 +295,7 @@
 					"export": "Exportere",
 					"pia": "Vis PIA",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "udpakning"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Arkiver",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Arkiver denne PIA",
+			"content": "<span class='strong'>Bemærk,</span><br>Er du sikker på, at du vil<br>arkivere denne PIA?"
 		},
 		"ask_for_evaluation": {
 			"content": "Denne sektion er klar til evaluering."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Fortsæt",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Fortsat vil du gendanne {{date}} versionen af denne analyse. Du bliver nødt til at validere analysen igen, når den er færdig.<br><br>Den aktuelle version arkiveres.",
+			"title": "Gendan en gammel version"
 		},
 		"refuse_pia": {
 			"content": "Efter din afvisning, returneres analysen til evaluering for at foretage de nødvendige ændringer."
@@ -949,7 +949,7 @@
 			"remove": "Slet denne<br>foranstaltning"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Bemærk,</span><br>Er du sikker på, at du vil<br>slette denne PIA permanent?",
 			"remove": "Slet denne PIA"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Start evaluering",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Bemærk,</span><br>Er du sikker på, at du vil<br>fjerne arkivering af denne PIA?",
+			"unarchive": "Fjern arkivering af denne PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Ingen forbindelse."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Tilføj",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Download vedhæftningen",
 			"remove": "Slet",
 			"title": "Vedhæftelser"
 		},

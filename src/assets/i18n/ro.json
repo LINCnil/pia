@@ -103,16 +103,16 @@
 		"to_correct": "De corectat"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "PIA-urile arhivate",
+		"current_pias": "PIA-uri active",
 		"exit_full_screen_mode": "Apăsați F11 pentru a ieși din modul ecran complet.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Raportați o eroare",
+			"manual": "Manual de utilizare",
 			"pia_example_link": "exemplu PIA",
 			"title": "Ajutor"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "PIA-urile mele",
 		"knowledge_base_link": "Baza de cunoaștere",
 		"languages": {
 			"cnil_translations": "Traduceri oferite de către CNIL",
@@ -148,7 +148,7 @@
 			"accessibility": "Accesibilitate deficiențe vizuale (contrast ridicat, daltonism)",
 			"settings": "Setări",
 			"title": "Instrumente",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Configurația URL a serverului"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Editare",
-			"category": "TO TRANSLATE - Category",
+			"category": "Categorie",
 			"creation_status": "Creare",
 			"date": "Dată",
 			"evaluation": "Evaluare",
@@ -210,18 +210,18 @@
 			"import_structure": "Model de import",
 			"item": {
 				"consult_pia": "Consultare",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Vizualizați modelul",
 				"edit_pia": "Editare",
 				"edit_structure": "Editează modelul",
 				"tools": {
 					"action_plan": "Afișare<br>plan de acțiune",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "arhivă",
 					"duplicate": "Creare<br>copie",
 					"export": "Export fișier",
 					"more_options": "Mai multe opțiuni",
 					"pia": "Afișare<br>PIA",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Elimina",
+					"unarchive": "despacheta"
 				}
 			},
 			"new_pia": "Creare PIA",
@@ -229,7 +229,7 @@
 			"or": "sau",
 			"pia_name": "PIA",
 			"placeholder_author": "Prenume, Nume",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Categorie",
 			"placeholder_evaluation": "Prenume, Nume",
 			"placeholder_import_pia": "Inserare PIA",
 			"placeholder_import_structure": "Model de import",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Evaluator",
 			"author": "Autor",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Vizualizare card",
 			"card_rocket_content": "Incepeți!<br><br>Pentru a iniția PIA,<br> accesați Creare PIA",
 			"card_rocket_content_structure": "Începeți!<br><br>Pentru a porni<br>un model, faceți clic pe<br> pe +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Categorie",
 			"date": "Dată",
 			"import_pia": "Inserare PIA",
 			"import_structure": "Model de import",
-			"list": "TO TRANSLATE - List view",
+			"list": "Vizualizare listă",
 			"list_rocket_content": "Incepeți ! Pentru a iniția <br>PIA, accesați +",
 			"list_rocket_content_structure": "Începeți! Pentru a porni un model<br>, faceți clic pe +",
 			"name": "Nume",
@@ -295,7 +295,7 @@
 					"export": "Export fișier",
 					"pia": "Afișare PIA",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "despacheta"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Arhivare",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Arhivați acest PIA",
+			"content": "<span class='strong'>fi atent,</span><br>ești sigur că vrei să arhivez acest<br>PIA?"
 		},
 		"ask_for_evaluation": {
 			"content": "<span class='strong'>Felicitări,</span><br>acestă secțiune este acum<br>disponibilă pentru evaluare."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Continua",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Continuând, veți restabili versiunea {{date}} a acestei analize. Va trebui să validați din nou analiza odată ce ați terminat.<br><br>Versiunea curentă va fi arhivată.",
+			"title": "Restaurați o versiune veche"
 		},
 		"refuse_pia": {
 			"content": "<span class='strong'>PIA respinsă,</span><br>Câteva câmpuri trebuie corectate.<br>Reveniți la modul de evaluare<br>pentru a face corecții."
@@ -949,7 +949,7 @@
 			"remove": "Elimină această <br>măsură"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Feriți-vă,</span><br>ești sigur că vrei să elimini această PIA pentru o<br>bună?",
 			"remove": "Eliminați PIA"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Începeți evaluarea",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Atenție,</span><br>Sunteți sigur că doriți să<br>nearhivați acest PIA?",
+			"unarchive": "Purtător de nerezolvat acest PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Imposibil de conectat."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Adăugare",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Descărcați atașamentul",
 			"remove": "Ștergere",
 			"title": "Fișiere atașate"
 		},

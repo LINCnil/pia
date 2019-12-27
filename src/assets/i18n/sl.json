@@ -103,16 +103,16 @@
 		"to_correct": "Za ispraviti"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Arhivirani PIA",
+		"current_pias": "Aktivne PIA",
 		"exit_full_screen_mode": "Pritisnite F11 za izhod iz celozaslonskega načina.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Prijavite napako",
+			"manual": "Uporabniški priročnik",
 			"pia_example_link": "Primjer PUP-a",
 			"title": "Pomoć"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Moje PIA",
 		"knowledge_base_link": "Baza znanja",
 		"languages": {
 			"cnil_translations": "Prijevodi od strane CNIL-a",
@@ -148,7 +148,7 @@
 			"accessibility": "Pristupačnost za slabovidne osobe (boje visokog kontrasta, daltonizam)",
 			"settings": "Postavke",
 			"title": "Alati",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Konfiguracija URL strežnika"
 		}
 	},
 	"help": {
@@ -202,7 +202,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Uređivanje",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorija",
 			"creation_status": "Stvaranje",
 			"date": "Datum",
 			"evaluation": "Pregled",
@@ -210,18 +210,18 @@
 			"import_structure": "Uvezi obrazac",
 			"item": {
 				"consult_pia": "Pogledaj",
-				"consult_structure": "TO TRANSLATE - Consult template",
+				"consult_structure": "Oglejte si model",
 				"edit_pia": "Uredi",
 				"edit_structure": "Uredi obrazac",
 				"tools": {
 					"action_plan": "Prikaži<br>akcijski plan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Arhiv",
 					"duplicate": "Stvori kopiju",
 					"export": "Izvezi",
 					"more_options": "Više opcija",
 					"pia": "Prikaži<br>PUP",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "odstrani",
+					"unarchive": "Rasteretiti"
 				}
 			},
 			"new_pia": "Novi PUP",
@@ -229,7 +229,7 @@
 			"or": "ili",
 			"pia_name": "PUP",
 			"placeholder_author": "Ime, prezime",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategorija",
 			"placeholder_evaluation": "Ime, prezime",
 			"placeholder_import_pia": "Uvezi PUP",
 			"placeholder_import_structure": "Uvezi obrazac",
@@ -252,14 +252,14 @@
 		"filters": {
 			"assessor": "Recenzentu",
 			"author": "Autoru",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Pogled s kartice",
 			"card_rocket_content": "Započnite!<br><br>Kako bi započeli s PUP-om,<br> kliknite na Novi PUP",
 			"card_rocket_content_structure": "Započnite! Kako bi započeli s <br>obrascem, kliknite na +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorija",
 			"date": "Datumu",
 			"import_pia": "Uvezi PUP",
 			"import_structure": "Uvezi obrazac",
-			"list": "TO TRANSLATE - List view",
+			"list": "Pogled seznama",
 			"list_rocket_content": "Započnite! Kako bi započeli s <br>PUP-om, kliknite na +",
 			"list_rocket_content_structure": "Započnite! Kako bi započeli s <br>obrascem, kliknite na +",
 			"name": "Imenu",
@@ -295,7 +295,7 @@
 					"export": "Izvezi",
 					"pia": "Prikaži PUP",
 					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"unarchive": "Rasteretiti"
 				}
 			}
 		},
@@ -885,8 +885,8 @@
 		},
 		"archive": "Arhiviraj",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Arhiviraj to PIA",
+			"content": "<span class='strong'>Pozor,</span><br>Ali ste prepričani, da želite<br>arhivirati PIA?"
 		},
 		"ask_for_evaluation": {
 			"content": "Ovaj odjeljak spreman je za pregled."
@@ -931,8 +931,8 @@
 		},
 		"recover_version": {
 			"continue": "Nastavi",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "V nadaljevanju boste obnovili {{date}} različico te analize. Ko bo končana, morate znova potrditi analizo.<br><br>Trenutna različica bo arhivirana.",
+			"title": "Obnovite staro različico"
 		},
 		"refuse_pia": {
 			"content": "Kako ste odbili PUP, on je ponovno poslan na pregled kako bi se izvršile potrebne promjene."
@@ -949,7 +949,7 @@
 			"remove": "Ukloni ovu <br>mjeru"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Pozor,</span><br>Ali ste prepričani, da želite<br>trajno izbrisati ta PIA?",
 			"remove": "Ukloni ovaj PUP"
 		},
 		"remove_question": {
@@ -978,8 +978,8 @@
 		},
 		"start_evaluation": "Započni pregled",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Pozor,</span><br>Ali ste prepričani, da želite<br>onemogočiti ta PIA?",
+			"unarchive": "Razveljavi to PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Vezu nije moguće ostvariti."
@@ -1028,7 +1028,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Dodaj",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Prenesite prilogo",
 			"remove": "Ukloni",
 			"title": "Prilozi"
 		},
