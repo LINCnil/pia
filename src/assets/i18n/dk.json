@@ -105,7 +105,7 @@
 	"header": {
 		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Tryk på F11 for at afslutte fuldskærmstilstand.",
 		"help": {
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "søge"
 	},
 	"knowledge_base": {
 		"add_measure": "Tilføj",
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Forventet dato for implementation",
 		"csv_people_in_charge": "Ansvarlig for gennemførelsen",
 		"csv_section": "Sektion",
-		"csv_title_object": "Titel",
+		"csv_title_object": "Titel på det pågældende objekt",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "DPO's navn",
 		"dpo_opinion": "DPO's holdning",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Afvis PIA",
 			"signed_validation": "Godkend PIA <br>(signatur)",
-			"simple_validation": "Godkend PIA <br>(direkte)"
+			"simple_validation": "Enkel validering"
 		},
 		"confirmation1": "Jeg bekræfter, at beskrivelsen af sammenhængen i min behandling er i overensstemmelse med virkeligheden.",
 		"confirmation2": "Jeg bekræfter, at jeg har noteret de eksisterende risici i henhold til de foranstaltninger, der i øjeblikket gennemføres eller planlægges.",

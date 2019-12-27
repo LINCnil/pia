@@ -105,7 +105,7 @@
 	"header": {
 		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Täisekraanirežiimist väljumiseks vajutage F11.",
 		"help": {
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
@@ -209,9 +209,9 @@
 			"import_pia": "Impordi mõjuhinnang",
 			"import_structure": "Impordi mõjuhinnang",
 			"item": {
-				"consult_pia": "TO TRANSLATE - Consult",
+				"consult_pia": "konsulteerima",
 				"consult_structure": "TO TRANSLATE - Consult template",
-				"edit_pia": "TO TRANSLATE - Edit",
+				"edit_pia": "Muuta",
 				"edit_structure": "Toimeta mõjuhinnagut",
 				"tools": {
 					"action_plan": "Näita<br>tegevuskava",
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "otsima"
 	},
 	"knowledge_base": {
 		"add_measure": "Lisa",
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Hinnanguline rakendamise kuupäev",
 		"csv_people_in_charge": "Vastutav isik",
 		"csv_section": "Jaotis",
-		"csv_title_object": "Pealkiri",
+		"csv_title_object": "Asjaomase objekti nimetus",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Mõjuhinnangu nimi",
 		"dpo_opinion": "Andmekaitsespetsialisti arvamus",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Lükkan tagasi",
 			"signed_validation": "Kinnitan <br>(allkiri)",
-			"simple_validation": "Kinnitan <br>(direct)"
+			"simple_validation": "Lihtne valideerimine"
 		},
 		"confirmation1": "Kinnitan, et mõjuhinnagus kirjeldatu on kooskõlas tegelikkusega.",
 		"confirmation2": "Kinniatn, et olen kursis olemasolevate ja/või planeeritavate toimingutega seotud sohtude ja riskidega.",

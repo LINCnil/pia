@@ -105,7 +105,7 @@
 	"header": {
 		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Norėdami išeiti iš viso ekrano režimo, paspauskite F11.",
 		"help": {
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
@@ -188,7 +188,7 @@
 				},
 				"title": "Žinomos problemos (LT - Bus išversta į lietuvių k. vėliau arba būtume dėkingi, jei patys prisidėtumėte prie vertimo)"
 			},
-			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+			"footer": "Jei susiduriate su kitomis problemomis arba turite pasiūlymų, kaip juos patobulinti, galite atsiųsti juos mums naudodami šią formą <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil -apija</a>."
 		},
 		"infografics": {
 			"display": "Peržiūrėkite proceso žemėlapį",
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Ieškoti"
 	},
 	"knowledge_base": {
 		"add_measure": "Įvesti",
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Planuojamas įgyvendinimo terminas",
 		"csv_people_in_charge": "Atsakingas asmuo",
 		"csv_section": "Dalis",
-		"csv_title_object": "Pavadinimas",
+		"csv_title_object": "Atitinkamo objekto pavadinimas",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "DPA vardas, pavardė",
 		"dpo_opinion": "DPA nuomonė",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Netvirtinti PDAV",
 			"signed_validation": "Tvirtinti PDAV <br>(pasirašant)",
-			"simple_validation": "Tvirtinti PDAV <br>(nepasirašant)"
+			"simple_validation": "Paprastas patvirtinimas"
 		},
 		"confirmation1": "Patvirtintu, kad PDAV aprašytas asmens duomenų tvarkymas atitinka tikrovę.",
 		"confirmation2": "Patvirtinu, kad man žinomos likusios rizikos, susijusios su planuojamomis arba jau įgyvendintomis priemonėmis.",

@@ -236,10 +236,10 @@
 			"placeholder_new_pia": "Nuova PIA",
 			"placeholder_new_structure": "Nuovo modello",
 			"placeholder_pia_name": "Nome della PIA",
-			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
+			"placeholder_sector_name": "Titolo del settore associato",
 			"placeholder_start": "Tutti i campi sono obbligatori",
 			"placeholder_structure": "Modello di base",
-			"placeholder_structure_name": "TO TRANSLATE - Template's title",
+			"placeholder_structure_name": "Titolo del modello",
 			"placeholder_validation": "Cognome, nome",
 			"sector_name": "Settore collegato",
 			"start": "Avvio",
@@ -254,18 +254,18 @@
 			"author": "Autore",
 			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Inizia! Per impostare <br>una PIA, clicca sul +",
-			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"card_rocket_content_structure": "Inizia!<br><br>Per avviare<br>un modello, fai clic su<br> sul +",
 			"category": "TO TRANSLATE - Category",
 			"date": "Data",
 			"import_pia": "Importa PIA",
-			"import_structure": "TO BE TRANSLATED - Importer modèle",
+			"import_structure": "Modello di importazione",
 			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Inizia! Per impostare <br>una PIA, clicca sul +",
-			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+			"list_rocket_content_structure": "Inizia! Per avviare<br>un modello, fai clic su +",
 			"name": "Nome",
 			"new_pia": "Nuova PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"new_structure": "Nuovo modello",
+			"sector_name": "Settore associato",
 			"sort": "Ordina",
 			"sort_by": "per",
 			"status": "Stato",
@@ -279,10 +279,10 @@
 			"column_evaluation": "Revisore",
 			"column_pia": "PIA",
 			"column_progression": "Avanzamento",
-			"column_sector_name": "TO TRANSLATE - Associated sector",
+			"column_sector_name": "Settore associato",
 			"column_status": "Stato",
-			"column_structure": "TO TRANSLATE - Template",
-			"column_structure_name": "TO TRANSLATE - Template",
+			"column_structure": "modello",
+			"column_structure_name": "modello",
 			"column_updated_at": "Cronologia",
 			"column_validation": "Validatore",
 			"item": {
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Cercare"
 	},
 	"knowledge_base": {
 		"add_measure": "Aggiungi",
@@ -918,10 +918,10 @@
 			"review_section": "Valuta una sezione"
 		},
 		"import_wrong_pia_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+			"content": "Il file importato non corrisponde a un file di tipo PIA"
 		},
 		"import_wrong_structure_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+			"content": "Il file importato non corrisponde a un file modello"
 		},
 		"modal_select_text_pia": {
 			"content": "I contenuti della PIA sono stati copiati negli appunti."
@@ -953,13 +953,13 @@
 			"remove": "Cancella questa PIA"
 		},
 		"remove_question": {
-			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
-			"keep": "TO BE TRANSLATED - Annuler",
-			"remove": "TO BE TRANSLATED - Supprimer"
+			"content": "Vuoi eliminare la domanda?",
+			"keep": "annullare",
+			"remove": "Rimuovere"
 		},
 		"remove_structure": {
-			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
-			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
+			"content": "<span class='strong'>Attenzione</span><br>Sei sicuro di voler rimuovere<br>questo modello?",
+			"remove": "Elimina questo modello"
 		},
 		"revision": {
 			"continue": "Continuare",
@@ -970,7 +970,7 @@
 			"content": "<span class='strong'>Attenzione,</span><br>Inserire un commento diverso dall'ultimo inserito."
 		},
 		"signed_pia_validation": {
-			"content": "<span class='strong'>La PIA è accettata</span><br>Terminare validazione della PIA allegando<br>il report firmato dal responsabile della validazione.",
+			"content": "Per finalizzare la convalida dell'analisi,<br>allega il rapporto firmato come allegato.",
 			"download_pia": "Scarica report PIA"
 		},
 		"simple_pia_validation": {
@@ -982,13 +982,13 @@
 			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"update_server_url_nok": {
-			"content": "TO BE TRANSLATED - Connection impossible."
+			"content": "Impossibile connettersi."
 		},
 		"update_server_url_ok": {
 			"content": "L'indirizzo del server è stato aggiornato."
 		},
 		"validate_evaluation": {
-			"content": "<span class='strong'>Congratulazioni,</span><br>la valutazione di questa sezione è conclusa.<br>Devono essere valutate anche le altre sezioni per poter accedere alla validazione della PIA."
+			"content": "La parte è pronta per la convalida dell'analisi<br>."
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Spiacente,<br>Diversi campi necessitano di correzioni.<br>Torna alla modalità modifica<br>per apportare correzioni."
@@ -1035,7 +1035,7 @@
 		"footer": {
 			"ask_evaluation": "Richiedi una revisione",
 			"mandatory_fields": "Tutti i campi sono obbligatori",
-			"structure_add_question": "TO BE TRANSLATED - Ajouter une question",
+			"structure_add_question": "Aggiungi domanda",
 			"subsection_validated": "Sezione rivista, in attesa di validazione finale",
 			"validate_evaluation": "Valida revisione"
 		},
@@ -1046,7 +1046,7 @@
 			"preview": "Anteprima"
 		},
 		"sections": {
-			"based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
+			"based_on_structure_name": "Basato sul modello:",
 			"homepage_link": "Torna al pannello di controllo",
 			"refuse_pia": "Rifiuta PIA",
 			"status": {
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Data stimata di implementazione",
 		"csv_people_in_charge": "Persona responsabile",
 		"csv_section": "Sezione",
-		"csv_title_object": "Titolo",
+		"csv_title_object": "Titolo dell'oggetto in questione",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Nome del DPO/RPD",
 		"dpo_opinion": "Parere del DPO/RPD",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Negare la validazione",
 			"signed_validation": "Validazione con firma <br>",
-			"simple_validation": "Validazione semplice <br>"
+			"simple_validation": "Convalida semplice"
 		},
 		"confirmation1": "Dichiaro che la descrizione del contesto del mio trattamento corrisponde alla realtà.",
 		"confirmation2": "Dichiaro di essere consapevole dei rischi esistenti in funzione delle misure attualmente implementate o previste.",

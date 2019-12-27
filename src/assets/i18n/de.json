@@ -970,7 +970,7 @@
 			"content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
 		},
 		"signed_pia_validation": {
-			"content": "<span class = 'strong'>Die DSFA wird akzeptiert</span><br>Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht an die zuständige Person anhängen.",
+			"content": "Um die Bestätigung der Analyse abzuschließen,<br>hängen Sie den signierten Bericht als Anhang an.",
 			"download_pia": "Laden Sie die DSFA herunter"
 		},
 		"simple_pia_validation": {
@@ -1051,13 +1051,13 @@
 			"refuse_pia": "DSFA ablehnen",
 			"status": {
 				"evaluation": {
-					"cancel": "die Überprüfungssanfrage zurückziehen.",
+					"cancel": " die Überprüfungsanfrage zurückziehen.",
 					"cancel_button": "Die Überprüfungssanfrage zurückziehen",
 					"content": "Die Überprüfung dieses Teils hat noch nicht begonnen. Wenn Sie den Inhalt im Bearbeitungsmodus bearbeiten möchten, müssen Sie ",
 					"title": "Warten auf Überprüfung"
 				},
 				"validation": {
-					"cancel": "die Bestätigungsanfrage zurückziehen.",
+					"cancel": " die Bestätigungsanfrage zurückziehen.",
 					"cancel_button": "Die Bestätigungsanfrage zurückziehen",
 					"content": "Die Bewertung dieses Teils ist abgeschlossen und wartet auf die endgültige Bestätigung der Analyse. Wenn Sie die Bewertungen ändern möchten, müssen Sie",
 					"title": "Warten auf Bestätigung"
@@ -1391,10 +1391,10 @@
 		"csv_action_plan_comment": "Aktionsplankommentar",
 		"csv_evaluation_comment": "Bewertungskommentar",
 		"csv_file_title": "Aktionsplan",
-		"csv_implement_date": "Geschätztes Umsetzungsdatum",
+		"csv_implement_date": "Voraussichtlicher Zeitpunkt der Umsetzung",
 		"csv_people_in_charge": "Verantwortlicher",
 		"csv_section": "Abschnitt",
-		"csv_title_object": "Titel",
+		"csv_title_object": "Titel des betreffenden Objekts",
 		"download_csv": "Aktionsplan (CSV-Datei)",
 		"dpo_name": "Name des DSB",
 		"dpo_opinion": "Gutachten des DSB",
@@ -1444,11 +1444,11 @@
 			"simple_validation": "Einfache Bestätigung"
 		},
 		"confirmation1": "Bestätige ich, dass der Kontext der Datenverarbeitung, so wie er in der DSFA beschrieben wurde, der Realität entspricht.",
-		"confirmation2": "Bestätige ich, dass mir die nach den aktuell umgesetzten oder geplanten Maßnahmen verbleibenden Risiken bewusst sind.",
-		"confirmation3": "Billige ich die angegebenen Korrekturmaßnahmen.",
+		"confirmation2": "Ich bestätige, dass ich die bestehenden Risiken aufgrund der aktuell umgesetzten oder geplanten Maßnahmen zur Kenntnis genommen habe.",
+		"confirmation3": "Ich bestätige die angegebenen Korrekturmaßnahmen.",
 		"confirmation4": "Verpflichte ich mich, die angegebenen Korrekturmaßnahmen so schnell wie möglich umzusetzen.",
 		"latest_signed_attachment": "Letzter hinzugefügter Anhang",
-		"mandatory_fields": "Alle Felder müssen markiert sein",
+		"mandatory_fields": "Alle Felder müssen angekreuzt sein",
 		"remove_attachment": "Anhang löschen",
 		"responsible": "Verantwortlich für die Bestätigung der DSFA: ",
 		"signed_attachments_history": "Historie der hinzugefügten Anhänge",

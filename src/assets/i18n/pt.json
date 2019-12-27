@@ -105,7 +105,7 @@
 	"header": {
 		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Pressione F11 para sair do modo de tela cheia.",
 		"help": {
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Procurar"
 	},
 	"knowledge_base": {
 		"add_measure": "Adicionar",
@@ -970,7 +970,7 @@
 			"content": "<span class='strong'>Atenção,</span> Por favor insira um comentário diferente do último gravado<br>."
 		},
 		"signed_pia_validation": {
-			"content": "<span class='strong'>A análise PIA é aceite</span><br> Finalize a validação da análise PIA anexando<br>o relatório assinado pela pessoa responsável.",
+			"content": "Para finalizar a validação da análise,<br>anexe o relatório assinado como um anexo.",
 			"download_pia": "Descarregar o relatório PIA"
 		},
 		"simple_pia_validation": {
@@ -988,7 +988,7 @@
 			"content": "O endereço do servidor foi atualizado."
 		},
 		"validate_evaluation": {
-			"content": "<span class='strong'>Parabéns</span><br>, terminou de avaliar esta secção. <br>Outras partes da ferramenta PIA também devem ser avaliadas para poder validar a análise PIA."
+			"content": "A peça está pronta para a validação<br>da análise."
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Lamento, <br>vários campos devem ser corrigidos. <br>Retornar ao modo de edição<br>para fazer correções."
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Data de implementação estimada",
 		"csv_people_in_charge": "Pessoa responsável",
 		"csv_section": "Secção",
-		"csv_title_object": "Título",
+		"csv_title_object": "Título do objeto em questão",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Nome do DPO",
 		"dpo_opinion": "Opinião do DPO",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Rejeitar análise PIA",
 			"signed_validation": "Aprovar análise PIA <br>(assinado)",
-			"simple_validation": "Aprovar análise PIA <br>(direto)"
+			"simple_validation": "Validação simples"
 		},
 		"confirmation1": "Eu atesto que o contexto do tratamento descrito na análise PIA é consistente com a realidade.",
 		"confirmation2": "Eu atesto que estou ciente dos riscos dependendo das medidas existentes ou planeadas.",

@@ -105,7 +105,7 @@
 	"header": {
 		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Nyomja meg az F11 gombot a teljes képernyős módból való kilépéshez.",
 		"help": {
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
@@ -142,7 +142,7 @@
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Adatvédelmi hatásvizsgálat",
-		"structures": "PIA templates",
+		"structures": "PIA modellek",
 		"tools": {
 			"about": "Rólunk",
 			"accessibility": "Hozzáférés látássérülteknek (erős színkontraszt, daltonizmus)",
@@ -188,7 +188,7 @@
 				},
 				"title": "Az ismert problémák"
 			},
-			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+			"footer": "Ha más problémákkal szembesül, vagy ha javítási javaslata van, akkor küldje el nekünk ezen az űrlapon keresztül: <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil -pia</a>."
 		},
 		"infografics": {
 			"display": "Tekintse meg a folyamattérképet",
@@ -207,12 +207,12 @@
 			"date": "Dátum",
 			"evaluation": "Véleményezés",
 			"import_pia": "DPIA importálása",
-			"import_structure": "TO TRANSLATE - Import template",
+			"import_structure": "Importálási modell",
 			"item": {
 				"consult_pia": "Áttekintése",
 				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Szerkesztése",
-				"edit_structure": "TO TRANSLATE - Edit template",
+				"edit_structure": "Szerkessze a modellt",
 				"tools": {
 					"action_plan": "Intézkedési terv megmutatása",
 					"archive": "TO TRANSLATE - Archive",
@@ -225,27 +225,27 @@
 				}
 			},
 			"new_pia": "Új DPIA",
-			"new_structure": "TO TRANSLATE - New template",
+			"new_structure": "Új modell",
 			"or": "Vagy",
 			"pia_name": "DPIA",
 			"placeholder_author": "Vezetéknév, utónév",
 			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Vezetéknév, utónév",
 			"placeholder_import_pia": "DPIA importálása",
-			"placeholder_import_structure": "TO TRANSLATE - Import template",
+			"placeholder_import_structure": "Importálási modell",
 			"placeholder_new_pia": "Új DPIA",
-			"placeholder_new_structure": "TO TRANSLATE - New template",
+			"placeholder_new_structure": "Új modell",
 			"placeholder_pia_name": "DPIA címe",
-			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
+			"placeholder_sector_name": "A társult ágazat címe",
 			"placeholder_start": "Minden mezőt ki kell tölteni",
-			"placeholder_structure": "TO TRANSLATE - Default template",
-			"placeholder_structure_name": "TO TRANSLATE - Template's title",
+			"placeholder_structure": "Alapértelmezett sablon",
+			"placeholder_structure_name": "Modell címe",
 			"placeholder_validation": "Vezetéknév, utónév",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"sector_name": "Társult ágazat",
 			"start": "Start",
 			"status": "Állapot",
-			"structure": "TO TRANSLATE - Template",
-			"structure_name": "TO TRANSLATE - Template's name",
+			"structure": "Modell",
+			"structure_name": "Modell neve",
 			"title_close_creation": "Bezárás",
 			"validation": "Jóváhagyás"
 		},
@@ -254,18 +254,18 @@
 			"author": "Szerző",
 			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Kezdjen hozzá! Kattintson az Új DPIA-ra az DPIA elindításához",
-			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"card_rocket_content_structure": "Kezdje el!<br><br>A<br>modell elindításához kattintson a + gombra a<br> gombra",
 			"category": "TO TRANSLATE - Category",
 			"date": "Dátum",
 			"import_pia": "DPIA importálása",
-			"import_structure": "TO BE TRANSLATED - Importer modèle",
+			"import_structure": "Importálási modell",
 			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Kezdjen hozzá! Kattintson a + jelre az DPIA elindításához",
-			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+			"list_rocket_content_structure": "Kezdje el! A<br>modell elindításához kattintson a + gombra",
 			"name": "Név",
 			"new_pia": "Új DPIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"new_structure": "Új modell",
+			"sector_name": "Társult ágazat",
 			"sort": "Válogatás",
 			"sort_by": "Válogatás valami szerint",
 			"status": "Státusz",
@@ -279,10 +279,10 @@
 			"column_evaluation": "Véleményező neve",
 			"column_pia": "DPIA",
 			"column_progression": "Előrehaladás",
-			"column_sector_name": "TO TRANSLATE - Associated sector",
+			"column_sector_name": "Társult ágazat",
 			"column_status": "Állapot",
-			"column_structure": "TO TRANSLATE - Template",
-			"column_structure_name": "TO TRANSLATE - Template",
+			"column_structure": "Modell",
+			"column_structure_name": "Modell",
 			"column_updated_at": "Legutóbb megnyitott hatásvizsgálat",
 			"column_validation": "Jóváhagyó neve",
 			"item": {
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "törekszik"
 	},
 	"knowledge_base": {
 		"add_measure": "Hozzáadás",
@@ -918,10 +918,10 @@
 			"review_section": "Szakasz áttekintése"
 		},
 		"import_wrong_pia_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+			"content": "Az importált fájl nem felel meg a PIA típusú fájlnak"
 		},
 		"import_wrong_structure_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+			"content": "Az importált fájl nem felel meg a sablon fájlnak"
 		},
 		"modal_select_text_pia": {
 			"content": "A DPIA tartalma a vágólapra másolva."
@@ -953,13 +953,13 @@
 			"remove": "A DPIA eltávolítása"
 		},
 		"remove_question": {
-			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
-			"keep": "TO BE TRANSLATED - Annuler",
-			"remove": "TO BE TRANSLATED - Supprimer"
+			"content": "Törli a kérdést?",
+			"keep": "Megszünteti",
+			"remove": "Eltávolítás"
 		},
 		"remove_structure": {
-			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
-			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
+			"content": "<span class='strong'>Figyelem,</span><br>Biztosan<br>törli ezt a modellt?",
+			"remove": "Törölje ezt a modellt"
 		},
 		"revision": {
 			"continue": "Folytatódik",
@@ -970,7 +970,7 @@
 			"content": "<span class='strong'>Figyelmeztetés:</span><br>kérjük, a legutóbbihoz képest más megjegyzést vigyen be."
 		},
 		"signed_pia_validation": {
-			"content": "<span class='strong'>A DPIA jóváhagyása megtörtént.</span><br>A jóváhagyás véglegesítéséhez csatolja a felelős vezető által aláírt jelentést.",
+			"content": "Az elemzés érvényesítésének véglegesítéséhez<br>csatolja az aláírt jelentést mellékletként.",
 			"download_pia": "A DPIA-jelentés letöltése "
 		},
 		"simple_pia_validation": {
@@ -982,7 +982,7 @@
 			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"update_server_url_nok": {
-			"content": "TO BE TRANSLATED - Connection impossible."
+			"content": "Nem lehet csatlakozni."
 		},
 		"update_server_url_ok": {
 			"content": "A szerver címét frissítették."
@@ -1035,7 +1035,7 @@
 		"footer": {
 			"ask_evaluation": "Véleményezés kérése",
 			"mandatory_fields": "Minden mezőt ki kell tölteni",
-			"structure_add_question": "TO BE TRANSLATED - Ajouter une question",
+			"structure_add_question": "Adjon hozzá kérdést",
 			"subsection_validated": "Rész véleményezve, jóváhagyásra vár",
 			"validate_evaluation": "Véleményezés befejezése"
 		},
@@ -1046,7 +1046,7 @@
 			"preview": "Előnézet"
 		},
 		"sections": {
-			"based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
+			"based_on_structure_name": "A modell alapján:",
 			"homepage_link": "Vissza a vezérlőpulthoz",
 			"refuse_pia": "Hatásvizsgálat elutasítása",
 			"status": {
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Teljesítés várható dátuma",
 		"csv_people_in_charge": "Felelős személy",
 		"csv_section": "Szakasz",
-		"csv_title_object": "Cím",
+		"csv_title_object": "Az érintett tárgy neve",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Adatvédelmi tisztviselő neve",
 		"dpo_opinion": "Adatvédelmi tisztviselő véleménye",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Jóváhagyás elutasítása",
 			"signed_validation": "Végleges jóváhagyás",
-			"simple_validation": "Előzetes jóváhagyás"
+			"simple_validation": "Egyszerű érvényesítés"
 		},
 		"confirmation1": "Igazolom, hogy az adatkezelés körülményeinek a leírása megfelel a valóságnak.",
 		"confirmation2": "Igazolom, hogy a kockázatokat a tervezett és meglévő intézkedések szerint vettem tekintetbe.",

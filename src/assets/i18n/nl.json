@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Zoeken"
 	},
 	"knowledge_base": {
 		"add_measure": "Toevoegen",
@@ -950,7 +950,7 @@
 		},
 		"remove_pia": {
 			"content": "<span class='strong'>Opgelet,</span><br>Weet u zeker dat u deze PIA wilt verwijderen?",
-			"remove": "TO TRANSLATE - Remove this PIA"
+			"remove": "Verwijder deze PIA"
 		},
 		"remove_question": {
 			"content": "Wilt u de vraag verwijderen?",
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Geschatte implementatiedatum",
 		"csv_people_in_charge": "Leidinggevende",
 		"csv_section": "Sectie",
-		"csv_title_object": "Titel",
+		"csv_title_object": "Titel van het betreffende object",
 		"download_csv": "Actieplan (.csv)",
 		"dpo_name": "naam DPO",
 		"dpo_opinion": "mening DPO",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "PIA verwerpen",
 			"signed_validation": "PIA valideren <br>(ondertekenen)",
-			"simple_validation": "PIA valideren <br>(eenvoudig)"
+			"simple_validation": "Eenvoudige validatie"
 		},
 		"confirmation1": "Ik erken ik dat de context van de verwerking beschreven in de PIA overeenstemt met de werkelijkheid.",
 		"confirmation2": "Ik erken ik dat ik bewust ben van de risico's gebaseerd op de bestaande en de te implementeren maatregelen.",

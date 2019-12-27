@@ -105,7 +105,7 @@
 	"header": {
 		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Apăsați F11 pentru a ieși din modul ecran complet.",
 		"help": {
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
@@ -120,7 +120,7 @@
 			"cz": "Česky",
 			"de": "Deutsch",
 			"dk": "Dansk",
-			"dpa_translations": "TO BE TRANSLATED - Translation revised by European DPA",
+			"dpa_translations": "Traducere revizuită de ADP european",
 			"el": "Ελληνικά",
 			"en": "English",
 			"es": "Español",
@@ -142,7 +142,7 @@
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Analiza impactului asupra confidențialității datelor",
-		"structures": "PIA templates",
+		"structures": "Modele PIA",
 		"tools": {
 			"about": "Despre",
 			"accessibility": "Accesibilitate deficiențe vizuale (contrast ridicat, daltonism)",
@@ -188,7 +188,7 @@
 				},
 				"title": "Probleme identificate"
 			},
-			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+			"footer": "Dacă întâmpinați alte probleme sau aveți sugestii de îmbunătățire, ne puteți trimite prin intermediul acestui formular <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil -pia</a>."
 		},
 		"infografics": {
 			"display": "Vizualizați harta procesului",
@@ -207,12 +207,12 @@
 			"date": "Dată",
 			"evaluation": "Evaluare",
 			"import_pia": "Inserare PIA",
-			"import_structure": "TO TRANSLATE - Import template",
+			"import_structure": "Model de import",
 			"item": {
 				"consult_pia": "Consultare",
 				"consult_structure": "TO TRANSLATE - Consult template",
 				"edit_pia": "Editare",
-				"edit_structure": "TO TRANSLATE - Edit template",
+				"edit_structure": "Editează modelul",
 				"tools": {
 					"action_plan": "Afișare<br>plan de acțiune",
 					"archive": "TO TRANSLATE - Archive",
@@ -225,27 +225,27 @@
 				}
 			},
 			"new_pia": "Creare PIA",
-			"new_structure": "TO TRANSLATE - New template",
+			"new_structure": "Model nou",
 			"or": "sau",
 			"pia_name": "PIA",
 			"placeholder_author": "Prenume, Nume",
 			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Prenume, Nume",
 			"placeholder_import_pia": "Inserare PIA",
-			"placeholder_import_structure": "TO TRANSLATE - Import template",
+			"placeholder_import_structure": "Model de import",
 			"placeholder_new_pia": "Creare PIA",
-			"placeholder_new_structure": "TO TRANSLATE - New template",
+			"placeholder_new_structure": "Model nou",
 			"placeholder_pia_name": "Titlu PIA",
-			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
+			"placeholder_sector_name": "Titlul sectorului asociat",
 			"placeholder_start": "Toate câmpurile trebuie completate",
-			"placeholder_structure": "TO TRANSLATE - Default template",
-			"placeholder_structure_name": "TO TRANSLATE - Template's title",
+			"placeholder_structure": "Șablon implicit",
+			"placeholder_structure_name": "Titlul modelului",
 			"placeholder_validation": "Prenume, Nume",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"sector_name": "Sector asociat",
 			"start": "Inițiere",
 			"status": "Stare",
-			"structure": "TO TRANSLATE - Template",
-			"structure_name": "TO TRANSLATE - Template's name",
+			"structure": "model",
+			"structure_name": "Numele modelului",
 			"title_close_creation": "Închide",
 			"validation": "Aprobare"
 		},
@@ -254,18 +254,18 @@
 			"author": "Autor",
 			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Incepeți!<br><br>Pentru a iniția PIA,<br> accesați Creare PIA",
-			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"card_rocket_content_structure": "Începeți!<br><br>Pentru a porni<br>un model, faceți clic pe<br> pe +",
 			"category": "TO TRANSLATE - Category",
 			"date": "Dată",
 			"import_pia": "Inserare PIA",
-			"import_structure": "TO BE TRANSLATED - Importer modèle",
+			"import_structure": "Model de import",
 			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Incepeți ! Pentru a iniția <br>PIA, accesați +",
-			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+			"list_rocket_content_structure": "Începeți! Pentru a porni un model<br>, faceți clic pe +",
 			"name": "Nume",
 			"new_pia": "Creare PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"new_structure": "Model nou",
+			"sector_name": "Sector asociat",
 			"sort": "Sortare",
 			"sort_by": "după",
 			"status": "Stare",
@@ -279,10 +279,10 @@
 			"column_evaluation": "Evaluare",
 			"column_pia": "PIA",
 			"column_progression": "Progres",
-			"column_sector_name": "TO TRANSLATE - Associated sector",
+			"column_sector_name": "Sector asociat",
 			"column_status": "Stare",
-			"column_structure": "TO TRANSLATE - Template",
-			"column_structure_name": "TO TRANSLATE - Template",
+			"column_structure": "model",
+			"column_structure_name": "model",
 			"column_updated_at": "Ultima accesare",
 			"column_validation": "Aprobare",
 			"item": {
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Cauta"
 	},
 	"knowledge_base": {
 		"add_measure": "Adăugare",
@@ -876,7 +876,7 @@
 	},
 	"modals": {
 		"abandon_pia": {
-			"additional_text": "TO BE TRANSLATED - Archiving is not definitive and the PIA can go back to it if needed.",
+			"additional_text": "Arhivarea nu este finală și puteți<br>relua analiza mai târziu, dacă este necesar.",
 			"content": "Sunteți sigur că doriți să renunțați<br>give up this treatment?"
 		},
 		"action_plan_no_evaluation": {
@@ -918,10 +918,10 @@
 			"review_section": "Évaluer une section"
 		},
 		"import_wrong_pia_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
+			"content": "Fișierul importat nu corespunde unui fișier de tip PIA"
 		},
 		"import_wrong_structure_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+			"content": "Fișierul importat nu se potrivește cu fișierul șabloane"
 		},
 		"modal_select_text_pia": {
 			"content": "Le contenu du Rapport PIA a été copié dans votre presse-papier."
@@ -953,13 +953,13 @@
 			"remove": "Eliminați PIA"
 		},
 		"remove_question": {
-			"content": "TO BE TRANSLATED - Souhaitez-vous supprimer la question ?",
-			"keep": "TO BE TRANSLATED - Annuler",
-			"remove": "TO BE TRANSLATED - Supprimer"
+			"content": "Doriți să ștergeți întrebarea?",
+			"keep": "Anula",
+			"remove": "Elimina"
 		},
 		"remove_structure": {
-			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
-			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
+			"content": "<span class='strong'>Avertisment,</span><br>Sunteți sigur că doriți să<br>ștergeți acest model?",
+			"remove": "Ștergeți acest model"
 		},
 		"revision": {
 			"continue": "Continua",
@@ -970,7 +970,7 @@
 			"content": "<span class='strong'>Atenție,</span><br>Introduceți un comentariu diferit de cel înregistrat anterior."
 		},
 		"signed_pia_validation": {
-			"content": "<span class='strong'>PIA este acceptată</span><br>Finalizați validarea PIA prin atașarea<br>unui raport semnat de către persoana responsabilă.",
+			"content": "Pentru a finaliza validarea analizei,<br>atașați raportul semnat ca atașament.",
 			"download_pia": "Descarcă raport PIA"
 		},
 		"simple_pia_validation": {
@@ -982,13 +982,13 @@
 			"unarchive": "TO TRANSLATE - Unarchive PIA"
 		},
 		"update_server_url_nok": {
-			"content": "TO BE TRANSLATED - Connection impossible."
+			"content": "Imposibil de conectat."
 		},
 		"update_server_url_ok": {
 			"content": "Adresa server-ului a fost actualizată."
 		},
 		"validate_evaluation": {
-			"content": "<span class='strong'>Felicitări,</span><br>ați finalizat evaluarea acestei secțiuni.<br>Alte secțiuni ale PIA trebuie, de asemenea, evaluate pentru a putea valida PIA."
+			"content": "Partea este gata pentru validarea<br>a analizei."
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Ne pare rău,<br>Câteva câmpuri trebuie corectate.<br>Reveniți la modul editare<br>pentru a face corecții."
@@ -1035,7 +1035,7 @@
 		"footer": {
 			"ask_evaluation": "Solicită evaluarea",
 			"mandatory_fields": "Toate câmpurile trebuie completate",
-			"structure_add_question": "TO BE TRANSLATED - Ajouter une question",
+			"structure_add_question": "Adăugați întrebări",
 			"subsection_validated": "Sub-secțiune evaluată, în așteptarea validării finale",
 			"validate_evaluation": "Validează evaluarea"
 		},
@@ -1046,7 +1046,7 @@
 			"preview": "Vizualizare"
 		},
 		"sections": {
-			"based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
+			"based_on_structure_name": "Pe baza modelului:",
 			"homepage_link": "Inapoi către Panou de comandă",
 			"refuse_pia": "PIA Respinse",
 			"status": {
@@ -1388,13 +1388,13 @@
 			"Soluțiile ar putea fi implementate."
 		],
 		"creation_date": "Data creării",
-		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
-		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
+		"csv_action_plan_comment": "Comentarii ale planului de acțiune",
+		"csv_evaluation_comment": "Comentarii de evaluare",
 		"csv_file_title": "action-plan",
-		"csv_implement_date": "TO BE TRANSLATED - Estimated implementation date",
-		"csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
-		"csv_section": "TO BE TRANSLATED - Section",
-		"csv_title_object": "TO BE TRANSLATED - Title",
+		"csv_implement_date": "Data estimată a implementării",
+		"csv_people_in_charge": "Responsabil de implementare",
+		"csv_section": "secțiune",
+		"csv_title_object": "Titlul obiectului în cauză",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Nume DPO",
 		"dpo_opinion": "Opinie DPO",
@@ -1431,8 +1431,8 @@
 			"save": "TO TRANSLATE - Create a new version",
 			"show": "TO TRANSLATE - Display the {{length}} versions"
 		},
-		"risks_cartography_title": "TO BE TRANSLATED - Risk mapping",
-		"risks_overview_title": "TO BE TRANSLATED - Risks overview",
+		"risks_cartography_title": "Cartografierea riscurilor",
+		"risks_overview_title": "Prezentare generală a riscurilor",
 		"title": "Informații PIA"
 	},
 	"validation_page": {
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Respinge PIA",
 			"signed_validation": "Aprobă PIA <br>(signed)",
-			"simple_validation": "Aprobă PIA <br>(direct)"
+			"simple_validation": "Validare simplă"
 		},
 		"confirmation1": "Atest faptul că contextul procesării descrise în PIA este în concordanță cu realitatea.",
 		"confirmation2": "Atest faptul că sunt conștient de riscuri în funcție de măsurile existente sau planificate.",

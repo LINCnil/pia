@@ -110,7 +110,7 @@
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
 			"pia_example_link": "Konsekvensanalysexempel",
-			"title": "TO TRANSLATE - Help"
+			"title": "Hjälp"
 		},
 		"homepage_link": "Hem",
 		"knowledge_base_link": "Kunskapsbas",
@@ -142,7 +142,7 @@
 		},
 		"logo_subtitle": "PIA - Konsekvensanalys",
 		"logo_title": "PIA - Konsekvensanalys",
-		"structures": "PIA - mallar",
+		"structures": "PIA-modeller",
 		"tools": {
 			"about": "Om",
 			"accessibility": "Tillgänglighet för funktionsvariationer (skarpa kontrastfärger, anpassning till färgblindhet)",
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Söka"
 	},
 	"knowledge_base": {
 		"add_measure": "Lägg till",
@@ -1063,7 +1063,7 @@
 					"title": "Väntar på godkännande"
 				}
 			},
-			"validate_pia": "TO TRANSLATE - Validate PIA"
+			"validate_pia": "Validera PIA"
 		},
 		"statuses": [
 			"Under behandling",
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Uppskattat genomförandedatum",
 		"csv_people_in_charge": "Ansvarig för genomförandet",
 		"csv_section": "Avsnitt",
-		"csv_title_object": "Titel",
+		"csv_title_object": "Objektets titel",
 		"download_csv": "Handlingsplan (.csv)",
 		"dpo_name": "DSO´s namn",
 		"dpo_opinion": "DSO´s åsikt",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Underkänn PIA",
 			"signed_validation": "Godkänn PIA <br>(signerad)",
-			"simple_validation": "Godkänn PIA <br>(direkt)"
+			"simple_validation": "Enkel validering"
 		},
 		"confirmation1": "Jag intygar att beskrivningen av behandlingen som dokumenteras i PIA överensstämmer med verkligheten.",
 		"confirmation2": "Jag intygar att jag är medveten om riskerna kopplade till befintliga eller planerade åtgärder.",

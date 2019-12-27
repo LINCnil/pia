@@ -105,7 +105,7 @@
 	"header": {
 		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Pritisnite F11 za izlaz iz načina cijelog zaslona.",
 		"help": {
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
@@ -142,7 +142,7 @@
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Procjena učinka na privatnost",
-		"structures": "PIA templates",
+		"structures": "PIA modeli",
 		"tools": {
 			"about": "O programu",
 			"accessibility": "Pristupačnost za slabovidne osobe (boje visokog kontrasta, daltonizam)",
@@ -188,7 +188,7 @@
 				},
 				"title": "Poznati problemi"
 			},
-			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+			"footer": "Ako naiđete na druge probleme ili imate prijedloge za poboljšanje, možete nam ih poslati putem ovog obrasca <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil -pia</a>."
 		},
 		"infografics": {
 			"display": "Pogledajte kartu procesa",
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "tražiti"
 	},
 	"knowledge_base": {
 		"add_measure": "Dodaj",
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Procijenjeni datum provedbe",
 		"csv_people_in_charge": "Odgovorna osoba",
 		"csv_section": "Odjeljak",
-		"csv_title_object": "Naslov",
+		"csv_title_object": "Naziv predmetnog objekta",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Ime SZP-a",
 		"dpo_opinion": "Mišljenje SZP-a",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Odbij PUP",
 			"signed_validation": "Odobri PUP <br>(uz potpis)",
-			"simple_validation": "Odobri PUP <br>(izravno)"
+			"simple_validation": "Jednostavno provjeravanje"
 		},
 		"confirmation1": "Potvrđujem da je kontekst obrade opisan u PUP-u u skladu sa stvarnosti.",
 		"confirmation2": "Potvrđujem da sam svjestan rizika, ovisno o postojećim ili planiranim mjerama.",

@@ -105,7 +105,7 @@
 	"header": {
 		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Naciśnij F11, aby wyjść z trybu pełnoekranowego.",
 		"help": {
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
@@ -236,7 +236,7 @@
 			"placeholder_new_pia": "Nowa PIA",
 			"placeholder_new_structure": "Nowy szablon",
 			"placeholder_pia_name": "Tytuł PIA",
-			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
+			"placeholder_sector_name": "Tytuł powiązanego sektora",
 			"placeholder_start": "Należy wypełnić wszystkie pola",
 			"placeholder_structure": "Domyślny szablon",
 			"placeholder_structure_name": "Tytuł szablonu",
@@ -265,7 +265,7 @@
 			"name": "Nazwiska",
 			"new_pia": "Nowa PIA",
 			"new_structure": "Nowy szablon",
-			"sector_name": "TO BE TRANSLATED - Secteur associé",
+			"sector_name": "Sektor powiązany",
 			"sort": "Sortowanie",
 			"sort_by": "według",
 			"status": "Statusu",
@@ -279,7 +279,7 @@
 			"column_evaluation": "Ocena",
 			"column_pia": "PIA",
 			"column_progression": "Postęp",
-			"column_sector_name": "TO TRANSLATE - Associated sector",
+			"column_sector_name": "Sektor powiązany",
 			"column_status": "Status",
 			"column_structure": "Szablon",
 			"column_structure_name": "Szablon",
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Szukać"
 	},
 	"knowledge_base": {
 		"add_measure": "Dodanie",
@@ -988,7 +988,7 @@
 			"content": "Adres serwera został zaktualizowany."
 		},
 		"validate_evaluation": {
-			"content": "<span class='strong'>Gratulacje,</span><br>ocena tej sekcji została zakończona.<br>Pozostałe sekcje również muszą zostać ocenione, aby móc zatwierdzić PIA"
+			"content": "Część jest gotowa do zatwierdzenia analizy<br>."
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Odesłano do edycji w celu naniesienia poprawek."
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Szacowana data wdrożenia",
 		"csv_people_in_charge": "Osoba odpowiedzialna",
 		"csv_section": "Sekcja",
-		"csv_title_object": "Tytuł",
+		"csv_title_object": "Tytuł przedmiotu",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Nazwisko IOD",
 		"dpo_opinion": "Opinia IOD",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Odrzuć PIA",
 			"signed_validation": "Zatwierdź PIA i podpisz",
-			"simple_validation": "Zatwierdź PIA"
+			"simple_validation": "Prosta walidacja"
 		},
 		"confirmation1": "Potwierdzam, że kontekst przetwarzania opisany w PIA jest zgodny z rzeczywistością.",
 		"confirmation2": "Potwierdzam, że mam świadomość ryzyk zależnych od obecnych bądź planowanych środków ochrony.",

@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Estimated implementation date",
 		"csv_people_in_charge": "Person in charge",
 		"csv_section": "Section",
-		"csv_title_object": "Title",
+		"csv_title_object": "Title of the object concerned",
 		"download_csv": "Action plan (.csv)",
 		"dpo_name": "DPO's name",
 		"dpo_opinion": "DPO's opinion",
@@ -1441,7 +1441,7 @@
 		"button": {
 			"rejection": "Reject PIA",
 			"signed_validation": "Approve PIA <br>(signed)",
-			"simple_validation": "Approve PIA <br>(direct)"
+			"simple_validation": "Simple validation"
 		},
 		"confirmation1": "I attest that the context of the processing described in the PIA is consistent with the reality.",
 		"confirmation2": "I attest that I am aware of the risks depending on the existing or planned measures.",

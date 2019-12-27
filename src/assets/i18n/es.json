@@ -254,14 +254,14 @@
 			"author": "Autor",
 			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "¡Comencemos! <br><br>Para iniciar un PIA, <br> clic en Nuevo PIA",
-			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"card_rocket_content_structure": "¡Comienza!<br><br>Para iniciar<br>un modelo, haga clic en<br> en el +",
 			"category": "TO TRANSLATE - Category",
 			"date": "Fecha",
 			"import_pia": "Importar PIA",
 			"import_structure": "Importar plantilla",
 			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "¡Comencemos! Para iniciar <br>un PIA, haga clic en el +",
-			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
+			"list_rocket_content_structure": "¡Comienza! Para iniciar<br>un modelo, haga clic en el +",
 			"name": "Nombre",
 			"new_pia": "Nuevo PIA",
 			"new_structure": "Nueva plantilla",
@@ -299,7 +299,7 @@
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Buscar"
 	},
 	"knowledge_base": {
 		"add_measure": "Añadir",
@@ -913,7 +913,7 @@
 		},
 		"dpo_missing_evaluations": {
 			"comment": "Inserte un comentario",
-			"content": "Debe.",
+			"content": "Complete la evaluación de análisis para acceder a la página DPO.",
 			"remove": "Eliminar",
 			"review_section": "Evaluar una sección"
 		},
@@ -921,7 +921,7 @@
 			"content": "El archivo importado no corresponde con un archivo de tipo PIA"
 		},
 		"import_wrong_structure_file": {
-			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
+			"content": "El archivo importado no coincide con un archivo de plantilla"
 		},
 		"modal_select_text_pia": {
 			"content": "El contenido del PIA se ha copiado al portapapeles."
@@ -958,7 +958,7 @@
 			"remove": "Eliminar"
 		},
 		"remove_structure": {
-			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
+			"content": "<span class='strong'>Advertencia,</span><br>¿Está seguro de que desea<br>eliminar este modelo?",
 			"remove": "Eliminar esta plantilla"
 		},
 		"revision": {
@@ -970,11 +970,11 @@
 			"content": "Advertencia,<br>Ingrese un comentario diferente al último registrado."
 		},
 		"signed_pia_validation": {
-			"content": "TO BE TRANSLATED - To approve the PIA, attach the signed report.",
+			"content": "Para finalizar la validación del análisis,<br>adjunte el informe firmado como un archivo adjunto.",
 			"download_pia": "Descargar el report"
 		},
 		"simple_pia_validation": {
-			"content": "TO BE TRANSLATED - You have approved the PIA."
+			"content": "Acaba de validar el análisis."
 		},
 		"start_evaluation": "Iniciar evaluación",
 		"unarchive_pia": {
@@ -988,7 +988,7 @@
 			"content": "La dirección del servidor ha sido actualizada."
 		},
 		"validate_evaluation": {
-			"content": "TO BE TRANSLATED - This section is ready for validating the PIA."
+			"content": "La parte está lista para<br>validación del análisis."
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Lo siento,<br>Se deben corregir varios campos. <br> Volver al modo de edición<br>para realizar correcciones"
@@ -1046,7 +1046,7 @@
 			"preview": "Vista Previa"
 		},
 		"sections": {
-			"based_on_structure_name": "TO BE TRANSLATED - Basé sur le modèle :",
+			"based_on_structure_name": "Basado en el modelo:",
 			"homepage_link": "Volver al Escritorio",
 			"refuse_pia": "Rechazar PIA",
 			"status": {
@@ -1394,7 +1394,7 @@
 		"csv_implement_date": "Fecha estimada de implementación",
 		"csv_people_in_charge": "Persona responsable",
 		"csv_section": "Sección",
-		"csv_title_object": "Título",
+		"csv_title_object": "Título del objeto en cuestión",
 		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Nombre de DPO",
 		"dpo_opinion": "Opinión de DPO",
@@ -1431,32 +1431,32 @@
 			"save": "TO TRANSLATE - Create a new version",
 			"show": "TO TRANSLATE - Display the {{length}} versions"
 		},
-		"risks_cartography_title": "TO BE TRANSLATED - Risk mapping",
-		"risks_overview_title": "TO BE TRANSLATED - Risks overview",
+		"risks_cartography_title": "Mapeo de riesgos",
+		"risks_overview_title": "Resumen de riesgos",
 		"title": "Información del PIA"
 	},
 	"validation_page": {
-		"add_signed_pia": "TO BE TRANSLATED - Add the signed PIA",
-		"after_reading": "TO BE TRANSLATED - After reading full PIA relating to the data processing linked to ",
+		"add_signed_pia": "Agregue el informe de PIA firmado",
+		"after_reading": "Después de la lectura completa de la PIA sobre el procesamiento de datos relacionados con la actividad de:",
 		"button": {
 			"rejection": "Rechazar PIA",
-			"signed_validation": "TO BE TRANSLATED - Approve PIA <br>(signed)",
-			"simple_validation": "TO BE TRANSLATED - Approve PIA <br>(direct)"
+			"signed_validation": "Haga que el gerente firme el PIA",
+			"simple_validation": "Validación simple"
 		},
-		"confirmation1": "TO BE TRANSLATED - I attest that the context of the processing described in the PIA is consistent with the reality.",
-		"confirmation2": "TO BE TRANSLATED - I attest that I am aware of the risks depending on the existing or planned measures.",
-		"confirmation3": "TO BE TRANSLATED - I ratify the corrective actions indicated in the action plan.",
-		"confirmation4": "TO BE TRANSLATED - I commit to implement as quickly as possible the indicated corrective actions.",
-		"latest_signed_attachment": "TO BE TRANSLATED - Last signed attachment",
+		"confirmation1": "Confirmo que la descripción del contexto de mi tratamiento es verdadera.",
+		"confirmation2": "Confirmo que he leído los riesgos existentes basados en las medidas implementadas o planeadas actualmente.",
+		"confirmation3": "Valido las medidas correctivas indicadas.",
+		"confirmation4": "Me comprometo a implementar las medidas correctivas indicadas lo antes posible.",
+		"latest_signed_attachment": "Último archivo adjunto firmado",
 		"mandatory_fields": "Todos los campos son obligatorios",
-		"remove_attachment": "TO BE TRANSLATED - Remove the attachment",
-		"responsible": "TO BE TRANSLATED - Person accountable for validating the PIA: ",
-		"signed_attachments_history": "TO BE TRANSLATED - Signed attachments history",
+		"remove_attachment": "Eliminar",
+		"responsible": "Responsable de validar el PIA:",
+		"signed_attachments_history": "Historial de archivos adjuntos firmados",
 		"tools": {
-			"dashboard": "TO BE TRANSLATED - Dashboard",
-			"display_pia": "TO BE TRANSLATED - Display report"
+			"dashboard": "bienvenida",
+			"display_pia": "Ver informe"
 		},
-		"validated_pia_with_signature": "TO BE TRANSLATED - Approved",
-		"waiting_for_signature": "TO BE TRANSLATED - Pending signed PIA"
+		"validated_pia_with_signature": "validado",
+		"waiting_for_signature": "Pendiente firma del informe PIA"
 	}
 }
