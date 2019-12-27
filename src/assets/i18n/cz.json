@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Akce",
 			"column_author": "Úpravy",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategorie",
 			"column_creation": "Vytvořeno",
 			"column_evaluation": "Posouzení",
 			"column_pia": "PIA",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Zobrazit akční plán",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archiv",
 					"consult": "Konzultovat",
 					"duplicate": "Duplikovat",
 					"edit": "Upravit",
 					"export": "Exportovat",
 					"pia": "Zobrazit PIA",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Odstranit",
 					"unarchive": "rozbalit"
 				}
 			}

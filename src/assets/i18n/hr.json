@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Radnje",
 			"column_author": "Uređivanje",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategorija",
 			"column_creation": "Stvoren",
 			"column_evaluation": "Pregled",
 			"column_pia": "PUP",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Prikaži akcijski plan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Arhiva",
 					"consult": "Pogledaj",
 					"duplicate": "Stvori kopiju",
 					"edit": "Uredi",
 					"export": "Izvezi",
 					"pia": "Prikaži PUP",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "ukloniti",
 					"unarchive": "raspakirati"
 				}
 			}

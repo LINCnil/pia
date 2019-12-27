@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Acțiuni",
 			"column_author": "Editare",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Categorie",
 			"column_creation": "Creare",
 			"column_evaluation": "Evaluare",
 			"column_pia": "PIA",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Afișare plan de acțiune",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "arhivă",
 					"consult": "Consultare",
 					"duplicate": "Creare<br>copie",
 					"edit": "Editare",
 					"export": "Export fișier",
 					"pia": "Afișare PIA",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Elimina",
 					"unarchive": "despacheta"
 				}
 			}

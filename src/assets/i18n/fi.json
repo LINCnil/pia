@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Toiminnat",
 			"column_author": "Muokkaus",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Luokka",
 			"column_creation": "Luotu",
 			"column_evaluation": "Tarkasta",
 			"column_pia": "Tietosuojaa koskeva vaikutustenarviointi",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Näytä toimintasuunnitelma",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "arkisto",
 					"consult": "Kysy neuvoa",
 					"duplicate": "Kahdenna",
 					"edit": "Muokkaa",
 					"export": "Vie",
 					"pia": "Näytä vaikutustenarviointi",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Poista",
 					"unarchive": "purkaa matkalaukku"
 				}
 			}

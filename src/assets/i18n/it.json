@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Azioni",
 			"column_author": "Autore",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "CATEGORIA",
 			"column_creation": "Creato",
 			"column_evaluation": "Revisore",
 			"column_pia": "PIA",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Mostra il piano d'azione",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "archivio",
 					"consult": "Visualizza",
 					"duplicate": "Crea una copia",
 					"edit": "Modifica",
 					"export": "Esporta",
 					"pia": "Mostra PIA",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Rimuovere",
 					"unarchive": "Disfare"
 				}
 			}

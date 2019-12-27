@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Tegevused",
 			"column_author": "Toimetamine",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategooria",
 			"column_creation": "Loodud",
 			"column_evaluation": "Ülevaade",
 			"column_pia": "Mõjuhinnang",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Näita tegevuskava",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Arhiiv",
 					"consult": "Konsulteeri",
 					"duplicate": "Dubleeri",
 					"edit": "Toimeta",
 					"export": "Ekspordi",
 					"pia": "Näita mõjuhinnagut",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Eemalda",
 					"unarchive": "lahti pakkima"
 				}
 			}

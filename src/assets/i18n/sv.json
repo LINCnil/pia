@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Alternativ",
 			"column_author": "Datainsamlare",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "KAtegori",
 			"column_creation": "Skapad",
 			"column_evaluation": "Utvärdering",
 			"column_pia": "PIA",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Visa åtgärdsplan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "arkiv",
 					"consult": "Konsultera",
 					"duplicate": "Duplicera",
 					"edit": "Redigera",
 					"export": "Exportera",
 					"pia": "Via PIA",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Ta bort",
 					"unarchive": "packa"
 				}
 			}

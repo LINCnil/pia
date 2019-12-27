@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Handlinger",
 			"column_author": "Rediger",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategori",
 			"column_creation": "Opprettet",
 			"column_evaluation": "Evaluer",
 			"column_pia": "PIA",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Vis handlingsplan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Arkiv",
 					"consult": "Rådføre",
 					"duplicate": "Dupliser",
 					"edit": "Rediger",
 					"export": "Eksporter",
 					"pia": "Vis PIA",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "remove",
 					"unarchive": "Pakk ut"
 				}
 			}

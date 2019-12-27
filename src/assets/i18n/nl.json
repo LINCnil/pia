@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Acties",
 			"column_author": "Aanpassen",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Categorie",
 			"column_creation": "Gemaakt",
 			"column_evaluation": "Reviewen",
 			"column_pia": "PIA",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Actieplan tonen",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archief",
 					"consult": "Raadplegen",
 					"duplicate": "Dupliceren",
 					"edit": "Aanpassen",
 					"export": "Exporteren",
 					"pia": "PIA tonen",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Verwijderen",
 					"unarchive": "uitpakken"
 				}
 			}

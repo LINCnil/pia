@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Műveletek",
 			"column_author": "Szerkesztő neve",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategória",
 			"column_creation": "Létrehozás",
 			"column_evaluation": "Véleményező neve",
 			"column_pia": "DPIA",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Intézkedési terv megmutatása",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archív",
 					"consult": "Konzultáció",
 					"duplicate": "Másolat készítése",
 					"edit": "Szerkesztés",
 					"export": "Exportálás",
 					"pia": "DPIA megmutatása",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Eltávolítás",
 					"unarchive": "kicsomagol"
 				}
 			}

@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Ενέργειες",
 			"column_author": "Σύνταξη",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Κατηγορία",
 			"column_creation": "Δημιουργία",
 			"column_evaluation": "Αξιολόγηση",
 			"column_pia": "ΕΑ",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Εμφάνιση σχεδίου δράσης",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Αρχείο",
 					"consult": "Συμβουλή",
 					"duplicate": "Δημιουργία διπλότυπου",
 					"edit": "Επεξεργασία",
 					"export": "Εξαγωγή",
 					"pia": "Εμφάνιση ΕΑ",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Αφαίρεση",
 					"unarchive": "ανοίγω τις αποσκευές"
 				}
 			}

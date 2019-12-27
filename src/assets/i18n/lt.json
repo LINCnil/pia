@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Veiksmai",
 			"column_author": "Redagavimas",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategorija",
 			"column_creation": "Sukurtas",
 			"column_evaluation": "Tikrinimas",
 			"column_pia": "PDAV",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Peržiūrėti veiksmų planą",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archyvas",
 					"consult": "Peržiūrėti",
 					"duplicate": "Kopijuoti",
 					"edit": "Redaguoti",
 					"export": "Eksportuoti",
 					"pia": "Atidaryti PDAV",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "Pašalinti",
 					"unarchive": "išpakuoti"
 				}
 			}

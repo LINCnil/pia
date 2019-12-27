@@ -274,7 +274,7 @@
 		"lists": {
 			"column_actions": "Aktioner",
 			"column_author": "Redigere",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategori",
 			"column_creation": "Skabt",
 			"column_evaluation": "Evaluere",
 			"column_pia": "PIA",
@@ -288,13 +288,13 @@
 			"item": {
 				"tools": {
 					"action_plan": "Vis handlingsplan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Arkiv",
 					"consult": "Konsultere",
 					"duplicate": "Duplikere",
 					"edit": "Redigere",
 					"export": "Exportere",
 					"pia": "Vis PIA",
-					"remove": "TO TRANSLATE - Delete",
+					"remove": "fjern",
 					"unarchive": "udpakning"
 				}
 			}
