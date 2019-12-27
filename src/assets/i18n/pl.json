@@ -309,7 +309,7 @@
 			"example": "Przykład",
 			"general_measure": "Środek ochrony fizycznej",
 			"measure_on_data": "Środek ochrony logicznej",
-			"method": "TO TRANSLATE - Methodology",
+			"method": "metodologia",
 			"organizational_measure": "Środek organizacyjny",
 			"principle": "Zasada"
 		},
@@ -537,8 +537,8 @@
 				"source": "PIA1 page 6"
 			},
 			"PIA_EX_DC": {
-				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data"
+				"description": "Dane dla systemu punktacji, wynik zastosowania punktacji ...",
+				"name": "Obliczone dane"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong>Dane identyfikacyjne</strong>: stan cywilny, wiek, narodowość, adres pocztowy, itd. <br><strong>Życie osobiste</strong>: stan cywilny, liczba dzieci, rodzaj mieszkania, długość zamieszkania w danym miejscu, itd. <br><strong>Życie zawodowe</strong>: zawód, wykształcenie i kompetencje zawodowe, miejsce pracy, długość stażu pracy, bezrobocie, itd. <br><strong>Dane połączeniowe</strong>: adresy IP, logi zdarzeń, itd.<br><strong>Dane lokalizacyjne</strong>: podróże, dane GP, dane GSM, itd.<br><strong>Inne</strong>: numer telefonu, adres email, itd.",

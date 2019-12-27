@@ -347,7 +347,7 @@
 				"source": "Datainspektionen"
 			},
 			"PIA_DEF_CHIF": {
-				"description": "TO TRANSLATE - Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
+				"description": "Kryptering av ett meddelande säkerställer att endast avsändaren och legitima mottagare av ett meddelande känner till innehållet. Det är typ av ett digitalt förseglat kuvert. När det är krypterat, avsaknad av den specifika nyckeln, är ett meddelande otillgängligt och oläsligt, vare sig det är av människor eller maskiner.<br>Det finns två huvudfamiljer för kryptering: symmetrisk kryptering och asymmetrisk kryptering.<br>- <strong>Symmetrisk kryptering</strong> gör det möjligt att kryptera och dekryptera innehåll med samma nyckel, som sedan kallas \"hemlig nyckel\". Symmetrisk kryptering är särskilt snabb, men kräver att avsändaren och mottagaren kommer överens om en gemensam hemlig nyckel eller överför den över en annan kanal. Detta måste väljas med omsorg, annars kan nyckeln återvinnas av fel personer, vilket inte längre skulle säkerställa meddelandets konfidentialitet.<br>- <strong>Asymmetrisk kryptering</strong> antar att den (framtida) mottagaren har ett par nycklar (privat nyckel, offentlig nyckel) och att han har sett till att potentiella emittenter har tillgång till hans offentliga nyckel. I detta fall använder avsändaren mottagarens offentliga nyckel för att kryptera meddelandet medan mottagaren använder sin privata nyckel för att dekryptera det. Bland dess fördelar kan den offentliga nyckeln vara känd för alla och publiceras. Men se upp: emittenter måste lita på den offentliga nyckelns ursprung och vara säker på att det är mottagarens. En annan stark punkt: inget behov av att dela samma hemliga nyckel! Asymmetrisk kryptering låter dig klara dig utan den är långsammare.",
 				"name": "Kryptering",
 				"source": "https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
 			},
@@ -598,7 +598,7 @@
 				"name": "Obetydlig sannolikhet"
 			},
 			"PIA_LGL_CONS": {
-				"description": "TO TRANSLATE - Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+				"description": "Det handlar om att tillåta ett fritt, specifikt och upplyst val; för att verifiera att en av de rättsliga grunderna för behandlingen är samtycke, som förutses i<a target=\"_blank\" href=\"https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2#Article6\">artikel 6 i RGPD</a> (rättslig skyldighet, skydd av liv, public service-uppdrag, kontrakt eller åtgärder som vidtagits med person, legitimt intresse).",
 				"name": "Inhämtande av samtycke",
 				"source": "Källa saknas"
 			},
@@ -831,7 +831,7 @@
 				"source": "Svensk källa saknas"
 			},
 			"PIA_TEC_PAP": {
-				"description": "TO TRANSLATE - Where paper documents containing data are used during the processing, indicate here how they are printed, stored, destroyed and exchanged.",
+				"description": "Politik angående pappersdokument som innehåller data används i samband med behandling. De beskriver hur de skrivs ut, lagras, förstörs och byts ut.",
 				"name": "Säkerhet för hantering av  pappersdokument",
 				"placeholder": "Ange här procedurerna och livscykeln för pappersdokument som innehåller personuppgifter.",
 				"source": "Svensk källa saknas"

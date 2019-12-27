@@ -309,7 +309,7 @@
 			"example": "Voorbeeld",
 			"general_measure": "Fysieke beveiligingsmaatregelen",
 			"measure_on_data": "Logische beveiligingsmaatregelen",
-			"method": "Methodologie",
+			"method": "methodologie",
 			"organizational_measure": "Organisatorische maatregelen",
 			"principle": "Principe"
 		},
@@ -538,7 +538,7 @@
 			},
 			"PIA_EX_DC": {
 				"description": "Data voor een score-systeem, resultaat van de toepassing van de score...",
-				"name": "Berekende data"
+				"name": "Berekende gegevens"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong> Identificatiegegevens </strong>: burgerlijke staat, identiteit, leeftijd, etc. <br> <strong> Persoonlijk leven </strong>: leefgewoonten, burgerlijke staat, enz. <br> <strong> Professioneel leven </strong>: cv, onderwijs en professionele training, onderscheidingen, etc. <br> <strong> Verbindingsgegevens </strong>: IP-adressen, gebeurtenislogboeken, enz. <br> <strong> Locatiegegevens </strong>: reizen, GPS-gegevens, GSM-gegevens, enz. <br> <strong> Overige </strong>: telefoonnummer, e-mailadres, etc.",

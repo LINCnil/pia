@@ -462,8 +462,8 @@
 				"source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
 			},
 			"PIA_DEF_MIND": {
-				"description": "TO BE TRANSLATED - Reduce the severity of risks by minimizing the data themselves, by taking measures aimed at reducing their sensitivity such as filtering and removing unnecessary data, pseudonymising data, etc.",
-				"name": "TO BE TRANSLATED - Minimization of data themselves",
+				"description": "Reduzca la gravedad de los riesgos minimizando los datos en sí mismos, mediante medidas destinadas a reducir su sensibilidad, por ejemplo, filtrando y eliminando datos innecesarios, seudonimizando los datos, etc.",
+				"name": "Minimización de los datos en sí.",
 				"source": "PIA3 p64"
 			},
 			"PIA_DEF_OPP": {

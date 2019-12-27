@@ -309,7 +309,7 @@
 			"example": "Pavyzdys",
 			"general_measure": "Fizinės (techninės) apsaugos priemonės",
 			"measure_on_data": "Loginės apsaugos priemonės",
-			"method": "TO TRANSLATE - Methodology",
+			"method": "metodika",
 			"organizational_measure": "Organizacinės apsaugos priemonės",
 			"principle": "Principas"
 		},
@@ -537,8 +537,8 @@
 				"source": "PIA1 page 6"
 			},
 			"PIA_EX_DC": {
-				"description": "TO BE TRANSLATED - Data for a score system, result of the application of the score....",
-				"name": "TO BE TRANSLATED - Calculated data"
+				"description": "Taškų sistemos duomenys, taškų taikymo rezultatas ...",
+				"name": "Apskaičiuoti duomenys"
 			},
 			"PIA_EX_DCPC": {
 				"description": "<strong>Identifikaciniai duomenys</strong> : vardas, pavardė, amžius,  pilietybė, gyv, vietos adresas, t.t. <br><strong>Asmens gyvenimas</strong> : pmoėgiai, įpročiai, šeimyninė padėtis, t.t. <br><strong>Profesinis gyvenimas </strong> : darbovietė, veiklos pobūdis, išsilavinimas, gyvenimo aprašymas (CV), išsilavinimas, mokymai, profesiniai pasiekimai, apdovanojimai, t.t. <br><strong>Ryšio duomenys </strong> : IP adresas, veiksmų žurnalas (angl. event logs), t.t.<br><strong>Geografinės vietos duomenys</strong> : keliavimo maršrutai, GPS duomenys, GPS duomenys, t.t.<br><strong>Kita informacija</strong> : telefono numeris, el. pašto adresas, t.t.",
