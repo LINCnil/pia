@@ -13,6 +13,7 @@
     "clean": "rimraf ./dist/",
     "format:write": "prettier src/**/*.{ts,json,md,scss} --write",
     "format:test": "prettier src/**/*.{ts,json,md,scss} --list-different",
+    "extract-i18n": "ngx-translate-extract --input src --output ./src/assets/i18n/ --clean --sort --format namespaced-json",
     "compodoc": "compodoc -p src/tsconfig.app.json"
   },
   "husky": {
@@ -61,6 +62,7 @@
     "@angular/cli": "~8.3.21",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
+    "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
     "@compodoc/compodoc": "^1.1.11",

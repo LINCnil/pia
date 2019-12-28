@@ -1,0 +1,526 @@
+{
+	"about": {
+		"contribute": "",
+		"description": "",
+		"licences": "",
+		"title": "",
+		"translators": "",
+		"translators_name": "",
+		"version_number": ""
+	},
+	"action_plan": {
+		"acceptable_measures": "",
+		"improvable_measures": "",
+		"measures": "",
+		"no_action_plan": "",
+		"placeholder_person_in_charge": "",
+		"principles": "",
+		"risk1": "",
+		"risk2": "",
+		"risk3": "",
+		"risks": "",
+		"title": ""
+	},
+	"authentication": {
+		"description": "",
+		"start": "",
+		"start_app": "",
+		"subtitle1": "",
+		"subtitle2": "",
+		"title": ""
+	},
+	"cartography": {
+		"important": "",
+		"legend1": "",
+		"legend2": "",
+		"legend3": "",
+		"legend4": "",
+		"legend5": "",
+		"likelihood_axe": "",
+		"limited": "",
+		"maximal": "",
+		"negligible": "",
+		"risk1_access": "",
+		"risk2_modification": "",
+		"seriousness_axe": ""
+	},
+	"comments": {
+		"comment": "",
+		"comments_count": "",
+		"new_comment": "",
+		"placeholder_new_comment": "",
+		"send": ""
+	},
+	"errors": {
+		"content": "",
+		"title": ""
+	},
+	"evaluations": {
+		"acceptable": "",
+		"action_plan_comment": "",
+		"evaluation_comment": "",
+		"gauges": {
+			"0": "",
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"likelihood": "",
+			"seriousness": ""
+		},
+		"improvable": "",
+		"placeholder_acceptable": "",
+		"placeholder_improvable1": "",
+		"placeholder_improvable2": "",
+		"placeholder_to_correct": "",
+		"title": "",
+		"to_correct": ""
+	},
+	"header": {
+		"archives": "",
+		"current_pias": "",
+		"exit_full_screen_mode": "",
+		"help": {
+			"issue_reporting": "",
+			"manual": "",
+			"pia_example_link": "",
+			"title": ""
+		},
+		"homepage_link": "",
+		"languages": {
+			"cnil_translations": "",
+			"community_translations": "",
+			"cz": "",
+			"de": "",
+			"dk": "",
+			"dpa_translations": "",
+			"el": "",
+			"en": "",
+			"es": "",
+			"et": "",
+			"fi": "",
+			"fr": "",
+			"hr": "",
+			"hu": "",
+			"it": "",
+			"lt": "",
+			"nl": "",
+			"no": "",
+			"official_translation": "",
+			"pl": "",
+			"pt": "",
+			"ro": "",
+			"sl": ""
+		},
+		"logo_subtitle": "",
+		"logo_title": "",
+		"structures": "",
+		"tools": {
+			"about": "",
+			"accessibility": "",
+			"settings": "",
+			"url_setting": ""
+		}
+	},
+	"help": {
+		"title": ""
+	},
+	"homepage": {
+		"cards": {
+			"author": "",
+			"category": "",
+			"date": "",
+			"evaluation": "",
+			"import_pia": "",
+			"import_structure": "",
+			"item": {
+				"consult_pia": "",
+				"consult_structure": "",
+				"edit_pia": "",
+				"edit_structure": "",
+				"tools": {
+					"archive": "",
+					"duplicate": "",
+					"export": "",
+					"remove": "",
+					"unarchive": ""
+				}
+			},
+			"new_pia": "",
+			"new_structure": "",
+			"or": "",
+			"pia_name": "",
+			"placeholder_author": "",
+			"placeholder_category": "",
+			"placeholder_evaluation": "",
+			"placeholder_import_pia": "",
+			"placeholder_import_structure": "",
+			"placeholder_new_pia": "",
+			"placeholder_new_structure": "",
+			"placeholder_pia_name": "",
+			"placeholder_sector_name": "",
+			"placeholder_start": "",
+			"placeholder_structure": "",
+			"placeholder_structure_name": "",
+			"placeholder_validation": "",
+			"sector_name": "",
+			"start": "",
+			"status": "",
+			"structure": "",
+			"structure_name": "",
+			"title_close_creation": "",
+			"validation": ""
+		},
+		"filters": {
+			"assessor": "",
+			"author": "",
+			"card": "",
+			"card_rocket_content": "",
+			"card_rocket_content_structure": "",
+			"category": "",
+			"date": "",
+			"import_pia": "",
+			"import_structure": "",
+			"list": "",
+			"list_rocket_content": "",
+			"list_rocket_content_structure": "",
+			"name": "",
+			"new_pia": "",
+			"new_structure": "",
+			"sector_name": "",
+			"sort": "",
+			"sort_by": "",
+			"status": "",
+			"validator": ""
+		},
+		"lists": {
+			"column_author": "",
+			"column_creation": "",
+			"column_evaluation": "",
+			"column_pia": "",
+			"column_sector_name": "",
+			"column_status": "",
+			"column_structure": "",
+			"column_structure_name": "",
+			"column_updated_at": "",
+			"column_validation": "",
+			"item": {
+				"tools": {
+					"archive": "",
+					"consult": "",
+					"duplicate": "",
+					"edit": "",
+					"export": "",
+					"remove": "",
+					"unarchive": ""
+				}
+			}
+		},
+		"search_filter": ""
+	},
+	"knowledge_base": {
+		"add_measure": "",
+		"add_measure_hint": "",
+		"filters": {
+			"all": "",
+			"definitions": "",
+			"general_measures": "",
+			"measures_on_data": "",
+			"no_result": "",
+			"organizational_measures": "",
+			"title": ""
+		},
+		"placeholder_add_measure": "",
+		"placeholder_help": "",
+		"search": "",
+		"title": ""
+	},
+	"measures": {
+		"add": "",
+		"placeholder_title": "",
+		"remove": ""
+	},
+	"misc": {
+		"display": ""
+	},
+	"modals": {
+		"abandon_pia": {
+			"additional_text": "",
+			"content": ""
+		},
+		"action_plan_no_evaluation": {
+			"content": "",
+			"review_section": ""
+		},
+		"archive": "",
+		"archive_pia": {
+			"archive": "",
+			"content": ""
+		},
+		"ask_for_evaluation": {
+			"content": ""
+		},
+		"back_to_edition": {
+			"content": ""
+		},
+		"back_to_evaluation": {
+			"content": ""
+		},
+		"back_to_home": "",
+		"cancel": "",
+		"close": "",
+		"completed_edition": {
+			"content": ""
+		},
+		"completed_evaluation": {
+			"content": ""
+		},
+		"continue": "",
+		"declare_measures": {
+			"content": "",
+			"declare": ""
+		},
+		"dpo_missing_evaluations": {
+			"content": ""
+		},
+		"import_wrong_pia_file": {
+			"content": ""
+		},
+		"import_wrong_structure_file": {
+			"content": ""
+		},
+		"not_enough_measures_to_remove": {
+			"content": ""
+		},
+		"recover_version": {
+			"continue": "",
+			"message": "",
+			"title": ""
+		},
+		"refuse_pia": {
+			"content": ""
+		},
+		"remove_attachment": {
+			"comment": "",
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_measure": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_pia": {
+			"content": "",
+			"remove": ""
+		},
+		"remove_question": {
+			"content": "",
+			"keep": "",
+			"remove": ""
+		},
+		"remove_structure": {
+			"content": "",
+			"remove": ""
+		},
+		"same_comment": {
+			"content": ""
+		},
+		"signed_pia_validation": {
+			"content": "",
+			"download_pia": ""
+		},
+		"simple_pia_validation": {
+			"content": ""
+		},
+		"unarchive_pia": {
+			"content": "",
+			"unarchive": ""
+		},
+		"update_server_url_nok": {
+			"content": ""
+		},
+		"update_server_url_ok": {
+			"content": ""
+		},
+		"validate_evaluation": {
+			"content": ""
+		},
+		"validate_evaluation_to_correct": {
+			"content": ""
+		}
+	},
+	"opinions": {
+		"content": "",
+		"dpo_lock": "",
+		"dpo_opinion": "",
+		"people_opinion": "",
+		"placeholder_concerned_people_name": "",
+		"placeholder_dpo_name": "",
+		"placeholder_dpo_opinion": "",
+		"placeholder_people_opinion": "",
+		"placeholder_search_content": "",
+		"treatment_lock": "",
+		"treatment_nok": "",
+		"treatment_ok": ""
+	},
+	"overview-risks": {
+		"important": "",
+		"limited": "",
+		"maximal": "",
+		"measures": "",
+		"negligible": "",
+		"potential_impacts": "",
+		"sources": "",
+		"threat": ""
+	},
+	"pia": {
+		"attachments": {
+			"add": "",
+			"download": "",
+			"remove": "",
+			"title": ""
+		},
+		"footer": {
+			"ask_evaluation": "",
+			"mandatory_fields": "",
+			"structure_add_question": "",
+			"subsection_validated": "",
+			"validate_evaluation": ""
+		},
+		"header": {
+			"display_action_plan": "",
+			"edition": "",
+			"evaluation": "",
+			"preview": ""
+		},
+		"sections": {
+			"based_on_structure_name": "",
+			"homepage_link": "",
+			"refuse_pia": "",
+			"status": {
+				"evaluation": {
+					"cancel": "",
+					"cancel_button": "",
+					"content": "",
+					"title": ""
+				},
+				"validation": {
+					"cancel": "",
+					"cancel_button": "",
+					"content": "",
+					"title": ""
+				}
+			},
+			"validate_pia": ""
+		},
+		"statuses": {
+			"5": ""
+		}
+	},
+	"question": {
+		"remove": ""
+	},
+	"questions": {
+		"gauges": {
+			"0": "",
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": ""
+		},
+		"placeholder_title": ""
+	},
+	"rejection_page": {
+		"applied_adjustments": "",
+		"applied_adjustments_placeholder": "",
+		"button": {
+			"abandon_treatment": "",
+			"reject_pia": "",
+			"send_for_validation": ""
+		},
+		"previous_rejection": "",
+		"rejection_reason": "",
+		"rejection_reason_placeholder": "",
+		"title": ""
+	},
+	"settings": {
+		"content": "",
+		"title": "",
+		"update": ""
+	},
+	"summary": {
+		"action_plan": {
+			"fundamental_principles": "",
+			"implementation_date": "",
+			"implementation_responsible": "",
+			"measures": "",
+			"no_action_plan": "",
+			"risks": "",
+			"title": ""
+		},
+		"actions": {
+			"individual_download": "",
+			"individual_download_doc": "",
+			"individual_download_images": "",
+			"individual_download_json": "",
+			"individual_download_select": "",
+			"individual_to_download": "",
+			"print": "",
+			"print_and_download": ""
+		},
+		"attachments": "",
+		"csv_action_plan_comment": "",
+		"csv_evaluation_comment": "",
+		"csv_implement_date": "",
+		"csv_people_in_charge": "",
+		"csv_section": "",
+		"csv_title_object": "",
+		"people_search_status_nok": "",
+		"people_search_status_ok": "",
+		"preview_dpo_opinion": "",
+		"preview_edition": "",
+		"preview_evaluation": "",
+		"preview_no_data": "",
+		"preview_status": "",
+		"preview_subtitle": "",
+		"preview_title": "",
+		"preview_validation": "",
+		"preview_validation_section": "",
+		"revision": {
+			"current_version": "",
+			"pia_version": "",
+			"restore_version": "",
+			"revision": "",
+			"save": "",
+			"show": ""
+		},
+		"risks_cartography_title": "",
+		"risks_overview_title": ""
+	},
+	"validation_page": {
+		"add_signed_pia": "",
+		"after_reading": "",
+		"button": {
+			"rejection": "",
+			"signed_validation": "",
+			"simple_validation": ""
+		},
+		"confirmation1": "",
+		"confirmation2": "",
+		"confirmation3": "",
+		"confirmation4": "",
+		"latest_signed_attachment": "",
+		"mandatory_fields": "",
+		"remove_attachment": "",
+		"responsible": "",
+		"signed_attachments_history": "",
+		"tools": {
+			"dashboard": "",
+			"display_pia": ""
+		},
+		"validated_pia_with_signature": "",
+		"waiting_for_signature": ""
+	}
+}
