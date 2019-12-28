@@ -44,7 +44,7 @@
     "d3": "^4.10.2",
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
-    "foundation-sites": "^6.5.3",
+    "foundation-sites": "^6.6.1",
     "html2canvas": "1.0.0-rc.1",
     "jszip": "^3.2.2",
     "ng2-pdfjs-viewer": "^5.0.1",
