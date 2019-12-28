@@ -1,4 +1,10 @@
-import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  OnInit,
+  OnDestroy,
+  ElementRef
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 
@@ -21,7 +27,8 @@ export class HelpComponent implements OnInit, OnDestroy {
 
   constructor(
     private httpClient: HttpClient,
-    private _translateService: TranslateService
+    private _translateService: TranslateService,
+    private el: ElementRef
   ) {}
 
   ngOnInit() {
@@ -134,33 +141,27 @@ export class HelpComponent implements OnInit, OnDestroy {
     }
   }
 
-  printPdf() {
-    const data = document.getElementById('infografics_file');
-
-    this.httpClient
-      .get(data.textContent, { responseType: 'arraybuffer' })
-      .subscribe((file: ArrayBuffer) => {
-        const mediaType = 'application/pdf';
-        const blob = new Blob([file], { type: mediaType });
-        const filename = 'Infografics DPIA.pdf';
-        const a = <any>document.createElement('a');
-        a.href = window.URL.createObjectURL(blob);
-        a.download = filename;
-        const event = new MouseEvent('click', {
-          view: window
-        });
-        a.dispatchEvent(event);
-      });
-  }
-
   /**
    * Display or hide the Infografics.
    * @memberof HelpComponent
    */
-  toggleInfograficsContent(el) {
-    const el2 = document.getElementById('infografics_file');
+  toggleInfograficsContent(show: boolean) {
+    const elPreview = this.el.nativeElement.querySelector(
+      '.pia-helpBlock-preview'
+    );
+    const embed = elPreview.querySelector('#iframe');
+    const img = elPreview.querySelector('img');
 
-    this.pdfSrc = el2.textContent;
-    this.displayInfografics = !this.displayInfografics;
+    if (show) {
+      const el2 = document.getElementById('infografics_file');
+      this.pdfSrc = el2.textContent;
+      this.displayInfografics = true;
+      elPreview.classList.remove('hide');
+      img.classList.add('hide');
+    } else {
+      img.classList.remove('hide');
+      elPreview.classList.add('hide');
+      this.displayInfografics = false;
+    }
   }
 }
