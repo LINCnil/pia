@@ -419,9 +419,6 @@
 			"5": ""
 		}
 	},
-	"question": {
-		"remove": ""
-	},
 	"questions": {
 		"gauges": {
 			"0": "",
@@ -430,7 +427,8 @@
 			"3": "",
 			"4": ""
 		},
-		"placeholder_title": ""
+		"placeholder_title": "",
+		"remove": ""
 	},
 	"rejection_page": {
 		"applied_adjustments": "",
