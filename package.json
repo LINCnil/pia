@@ -40,7 +40,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^1.1.0",
     "angular2-csv": "git+https://github.com/dauledk/angular2-csv.git",
-    "core-js": "^2.6.9",
+    "core-js": "^3.6.1",
     "d3": "^4.10.2",
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
