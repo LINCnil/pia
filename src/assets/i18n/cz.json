@@ -54,20 +54,8 @@
 		"send": "Send"
 	},
 	"date": {
-		"april": "duben",
-		"august": "srpen",
-		"december": "prosinec",
 		"earlier-in-this-month": "Začátkem tohoto měsíce",
 		"earlier-in-this-week": "Začátkem tohoto týdne",
-		"february": "Únor",
-		"january": "leden",
-		"july": "červenec",
-		"june": "červen",
-		"march": "Mars",
-		"may": "květen",
-		"november": "listopad",
-		"october": "říjen",
-		"september": "září",
 		"today": "Dnes",
 		"yesterday": "Včera"
 	},

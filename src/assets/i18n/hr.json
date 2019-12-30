@@ -54,20 +54,8 @@
 		"send": "Pošalji"
 	},
 	"date": {
-		"april": "travanj",
-		"august": "kolovoz",
-		"december": "prosinac",
 		"earlier-in-this-month": "Ranije ovog mjeseca",
 		"earlier-in-this-week": "Ranije ovog tjedna",
-		"february": "veljača",
-		"january": "siječanj",
-		"july": "srpanj",
-		"june": "lipanj",
-		"march": "Mars",
-		"may": "svibanj",
-		"november": "studeni",
-		"october": "listopad",
-		"september": "rujan",
 		"today": "danas",
 		"yesterday": "jučer"
 	},

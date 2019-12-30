@@ -54,20 +54,8 @@
 		"send": "Send"
 	},
 	"date": {
-		"april": "april",
-		"august": "august",
-		"december": "desember",
 		"earlier-in-this-month": "Tidligere denne måneden",
 		"earlier-in-this-week": "Tidligere denne uken",
-		"february": "februar",
-		"january": "januar",
-		"july": "juli",
-		"june": "juni",
-		"march": "mars",
-		"may": "mai",
-		"november": "november",
-		"october": "oktober",
-		"september": "september",
 		"today": "I dag",
 		"yesterday": "I går"
 	},

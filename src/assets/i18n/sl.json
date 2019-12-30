@@ -54,20 +54,8 @@
 		"send": "Pošalji"
 	},
 	"date": {
-		"april": "April",
-		"august": "Avgust",
-		"december": "December",
 		"earlier-in-this-month": "V začetku tega meseca",
 		"earlier-in-this-week": "V začetku tega tedna",
-		"february": "Februar",
-		"january": "Januar",
-		"july": "Julij",
-		"june": "Junij",
-		"march": "Mars",
-		"may": "Maj",
-		"november": "November",
-		"october": "Oktober",
-		"september": "September",
 		"today": "Danes",
 		"yesterday": "Včeraj"
 	},

@@ -54,20 +54,8 @@
 		"send": "Αποστολή"
 	},
 	"date": {
-		"april": "Απρίλιος",
-		"august": "Αύγουστος",
-		"december": "Δεκέμβριος",
 		"earlier-in-this-month": "Νωρίτερα αυτό το μήνα",
 		"earlier-in-this-week": "Νωρίτερα αυτή την εβδομάδα",
-		"february": "Φεβρουάριος",
-		"january": "Ιανουάριος",
-		"july": "Ιούλιος",
-		"june": "Ιούνιος",
-		"march": "Άρης",
-		"may": "Μάιος",
-		"november": "Νοέμβριος",
-		"october": "Οκτώβριος",
-		"september": "Σεπτέμβριος",
 		"today": "σήμερα",
 		"yesterday": "εχθές"
 	},

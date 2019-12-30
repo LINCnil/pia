@@ -54,20 +54,8 @@
 		"send": "Siųsti"
 	},
 	"date": {
-		"april": "Balandis",
-		"august": "Rugpjūtis",
-		"december": "gruodis",
 		"earlier-in-this-month": "Anksčiau šį mėnesį",
 		"earlier-in-this-week": "Anksčiau šią savaitę",
-		"february": "vasaris",
-		"january": "sausis",
-		"july": "liepa",
-		"june": "birželis",
-		"march": "Marsas",
-		"may": "gegužės",
-		"november": "lapkritis",
-		"october": "spalis",
-		"september": "rugsėjis",
 		"today": "Šiandien",
 		"yesterday": "Vakar"
 	},

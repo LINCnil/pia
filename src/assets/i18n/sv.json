@@ -54,20 +54,8 @@
 		"send": "Skicka"
 	},
 	"date": {
-		"april": "april",
-		"august": "augusti",
-		"december": "december",
 		"earlier-in-this-month": "Tidigare denna månad",
 		"earlier-in-this-week": "Tidigare denna vecka",
-		"february": "februari",
-		"january": "januari",
-		"july": "juli",
-		"june": "juni",
-		"march": "Mars",
-		"may": "Maj",
-		"november": "november",
-		"october": "oktober",
-		"september": "september",
 		"today": "I dag",
 		"yesterday": "I går"
 	},

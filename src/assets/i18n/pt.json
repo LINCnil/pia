@@ -54,20 +54,8 @@
 		"send": "Enviar"
 	},
 	"date": {
-		"april": "abril",
-		"august": "Agosto",
-		"december": "dezembro",
 		"earlier-in-this-month": "No início deste mês",
 		"earlier-in-this-week": "No início desta semana",
-		"february": "fevereiro",
-		"january": "janeiro",
-		"july": "Julho",
-		"june": "Junho",
-		"march": "marte",
-		"may": "maio",
-		"november": "novembro",
-		"october": "outubro",
-		"september": "setembro",
 		"today": "Hoje",
 		"yesterday": "Ontem"
 	},

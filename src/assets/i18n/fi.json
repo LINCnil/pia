@@ -54,20 +54,8 @@
 		"send": "Lähetä"
 	},
 	"date": {
-		"april": "huhtikuu",
-		"august": "elokuu",
-		"december": "joulukuu",
 		"earlier-in-this-month": "Aiemmin tässä kuussa",
 		"earlier-in-this-week": "Aiemmin tällä viikolla",
-		"february": "helmikuu",
-		"january": "tammikuu",
-		"july": "heinäkuu",
-		"june": "kesäkuu",
-		"march": "Mars",
-		"may": "toukokuu",
-		"november": "marraskuu",
-		"october": "lokakuu",
-		"september": "syyskuu",
 		"today": "tänään",
 		"yesterday": "Eilen"
 	},

@@ -16,6 +16,7 @@ import { Pia } from 'src/app/entry/pia.model';
 import { Revision } from 'src/app/models/revision.model';
 import { Subject, iif } from 'rxjs';
 import { RelativeDate } from '../RelativeDate.class';
+import { DatePipe } from '@angular/common';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from '../../services/pia.service';
@@ -87,7 +88,12 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
           temp =
             this._translateService.instant('date.' + temp[0]) + ' ' + temp[1];
         } else {
-          temp = this._translateService.instant('date.' + temp);
+          if (temp == 'translate-month') {
+            temp = new DatePipe(this._translateService.currentLang).transform(
+              obj.created_at,
+              'MMMM y'
+            );
+          } else temp = this._translateService.instant('date.' + temp);
         }
         const key = temp;
 

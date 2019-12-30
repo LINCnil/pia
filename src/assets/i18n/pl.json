@@ -54,20 +54,8 @@
 		"send": "Wstaw komentarz"
 	},
 	"date": {
-		"april": "Kwiecień",
-		"august": "Sierpień",
-		"december": "Grudzień",
 		"earlier-in-this-month": "Wcześniej w tym miesiącu",
 		"earlier-in-this-week": "Wcześniej w tym tygodniu",
-		"february": "Luty",
-		"january": "Styczeń",
-		"july": "lipiec",
-		"june": "Czerwiec",
-		"march": "Mars",
-		"may": "Maj",
-		"november": "Listopad",
-		"october": "Październik",
-		"september": "Wrzesień",
 		"today": "Dzisiaj",
 		"yesterday": "Wczoraj"
 	},

@@ -54,20 +54,8 @@
 		"send": "Küldés"
 	},
 	"date": {
-		"april": "Április",
-		"august": "Augusztus",
-		"december": "December",
 		"earlier-in-this-month": "A hónap elején",
 		"earlier-in-this-week": "A hét elején",
-		"february": "Február",
-		"january": "Január",
-		"july": "Július",
-		"june": "Június",
-		"march": "Mars",
-		"may": "Május",
-		"november": "November",
-		"october": "Október",
-		"september": "Szeptember",
 		"today": "ma",
 		"yesterday": "Tegnap"
 	},

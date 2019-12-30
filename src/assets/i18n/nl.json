@@ -54,20 +54,8 @@
 		"send": "Verzenden"
 	},
 	"date": {
-		"april": "april",
-		"august": "augustus",
-		"december": "december",
 		"earlier-in-this-month": "Eerder deze maand",
 		"earlier-in-this-week": "Eerder deze week",
-		"february": "februari",
-		"january": "Januari ",
-		"july": "Juli",
-		"june": "Juni",
-		"march": "Mars",
-		"may": "mei",
-		"november": "november",
-		"october": "oktober",
-		"september": "september",
 		"today": "Vandaag",
 		"yesterday": "Gisteren"
 	},

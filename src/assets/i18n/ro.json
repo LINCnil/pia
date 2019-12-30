@@ -54,20 +54,8 @@
 		"send": "Trimitere"
 	},
 	"date": {
-		"april": "aprilie",
-		"august": "august",
-		"december": "decembrie",
 		"earlier-in-this-month": "La începutul acestei luni",
 		"earlier-in-this-week": "La începutul acestei săptămâni",
-		"february": "februarie",
-		"january": "ianuarie",
-		"july": "iulie",
-		"june": "iunie",
-		"march": "Marte",
-		"may": "mai",
-		"november": "noiembrie",
-		"october": "octombrie",
-		"september": "septembrie",
 		"today": "Astăzi",
 		"yesterday": "Ieri"
 	},

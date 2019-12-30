@@ -54,20 +54,8 @@
 		"send": "Saada"
 	},
 	"date": {
-		"april": "Aprill",
-		"august": "august",
-		"december": "Detsember",
 		"earlier-in-this-month": "Selle kuu alguses",
 		"earlier-in-this-week": "Selle nädala alguses",
-		"february": "Veebruar",
-		"january": "Jaanuar",
-		"july": "Juuli",
-		"june": "Juuni",
-		"march": "Marss",
-		"may": "Mai",
-		"november": "November",
-		"october": "Oktoober",
-		"september": "September",
 		"today": "täna",
 		"yesterday": "Eile"
 	},
