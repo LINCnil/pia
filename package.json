@@ -40,7 +40,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "angular2-csv": "git+https://github.com/dauledk/angular2-csv.git",
-    "core-js": "^3.6.2",
+    "core-js": "^3.6.3",
     "d3": "^5.15.0",
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
@@ -70,8 +70,8 @@
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~13.1.6",
     "codelyzer": "^5.2.1",
-    "cypress": "^3.8.1",
-    "husky": "^4.0.6",
+    "cypress": "^3.8.2",
+    "husky": "^4.0.7",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.4.1",
@@ -83,7 +83,7 @@
     "pretty-quick": "^2.0.1",
     "protractor": "~5.4.0",
     "rimraf": "^3.0.0",
-    "ts-node": "~8.6.0",
+    "ts-node": "~8.6.2",
     "tslint": "~5.20.1",
     "typescript": "~3.5.3"
   }
