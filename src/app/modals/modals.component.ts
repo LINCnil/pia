@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnDestroy,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -14,6 +21,7 @@ import { StructureService } from 'src/app/services/structure.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-modals',
@@ -33,7 +41,6 @@ export class ModalsComponent implements OnInit, OnDestroy {
   structureForm: FormGroup;
   removeAttachmentForm: FormGroup;
   enableSubmit = true;
-  dateFormat: String;
 
   constructor(
     private router: Router,
@@ -44,14 +51,14 @@ export class ModalsComponent implements OnInit, OnDestroy {
     public _answerStructureService: AnswerStructureService,
     public _measuresService: MeasureService,
     public _attachmentsService: AttachmentsService,
-    private _translateService: TranslateService
-  ) { }
+    private _translateService: TranslateService,
+    public _languagesService: LanguagesService
+  ) {}
 
   ngOnInit() {
-    this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy' : this.dateFormat = 'MM-dd-yy'
-    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy' : this.dateFormat = 'MM-dd-yy'
-    });
+    this.subscription = this._translateService.onLangChange.subscribe(
+      (event: LangChangeEvent) => {}
+    );
     const structure = new Structure();
     structure.getAll().then((data: any) => {
       this._structureService.structures = data;
@@ -105,15 +112,19 @@ export class ModalsComponent implements OnInit, OnDestroy {
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this._piaService.data;
     const p = structure.create();
-    p.then((id) => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
+    p.then(id =>
+      this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1])
+    );
   }
 
   /**
    * Focuses out from the comment attachment field.
    */
   attachmentCommentFocusOut() {
-    if (this.removeAttachmentForm.controls['comment'].value &&
-        this.removeAttachmentForm.controls['comment'].value.length > 0) {
+    if (
+      this.removeAttachmentForm.controls['comment'].value &&
+      this.removeAttachmentForm.controls['comment'].value.length > 0
+    ) {
       this.enableSubmit = false;
     }
   }
