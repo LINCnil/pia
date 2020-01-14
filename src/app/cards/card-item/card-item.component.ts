@@ -1,4 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Input,
+  EventEmitter,
+  Output
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
@@ -9,14 +17,18 @@ import { Attachment } from 'src/app/entry/attachments/attachment.model';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 declare const require: any;
 
 @Component({
   selector: 'app-card-item',
   templateUrl: './card-item.component.html',
-  styleUrls: ['./card-item.component.scss', './card-item_edit.component.scss',
-    './card-item_doing.component.scss'],
+  styleUrls: [
+    './card-item.component.scss',
+    './card-item_edit.component.scss',
+    './card-item_doing.component.scss'
+  ]
 })
 export class CardItemComponent implements OnInit {
   @Input() pia: any;
@@ -27,23 +39,38 @@ export class CardItemComponent implements OnInit {
 
   @ViewChild('piaName', { static: true }) private piaName: ElementRef;
   @ViewChild('piaCategory', { static: true }) private piaCategory: ElementRef;
-  @ViewChild('piaAuthorName', { static: true }) private piaAuthorName: ElementRef;
-  @ViewChild('piaEvaluatorName', { static: true }) private piaEvaluatorName: ElementRef;
-  @ViewChild('piaValidatorName', { static: true }) private piaValidatorName: ElementRef;
+  @ViewChild('piaAuthorName', { static: true })
+  private piaAuthorName: ElementRef;
+  @ViewChild('piaEvaluatorName', { static: true })
+  private piaEvaluatorName: ElementRef;
+  @ViewChild('piaValidatorName', { static: true })
+  private piaValidatorName: ElementRef;
 
-  constructor(private router: Router,
-              private _modalsService: ModalsService,
-              public _piaService: PiaService,
-              private _translateService: TranslateService) { }
+  constructor(
+    private router: Router,
+    private _modalsService: ModalsService,
+    public _piaService: PiaService,
+    private _translateService: TranslateService,
+    public _languagesService: LanguagesService
+  ) {}
 
   ngOnInit() {
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: false }),
       category: new FormControl({ value: this.pia.category, disabled: false }),
-      author_name: new FormControl({ value: this.pia.author_name, disabled: false }),
-      evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: false }),
-      validator_name: new FormControl({ value: this.pia.validator_name, disabled: false })
+      author_name: new FormControl({
+        value: this.pia.author_name,
+        disabled: false
+      }),
+      evaluator_name: new FormControl({
+        value: this.pia.evaluator_name,
+        disabled: false
+      }),
+      validator_name: new FormControl({
+        value: this.pia.validator_name,
+        disabled: false
+      })
     });
 
     const attachmentModel = new Attachment();
@@ -51,12 +78,11 @@ export class CardItemComponent implements OnInit {
     attachmentModel.pia_id = this.pia.id;
     attachmentModel.findAll().then((entries: any) => {
       entries.forEach(element => {
-        if (element["file"] && element["file"].length) {
+        if (element['file'] && element['file'].length) {
           this.attachments.push(element);
         }
       });
     });
-
   }
 
   /**
@@ -70,13 +96,13 @@ export class CardItemComponent implements OnInit {
       this.addAttachmentsToZip(zip).then((zip2: any) => {
         /* JSON */
         this._piaService.export(this.pia.id).then((data: any) => {
-          zip2.file("pia.json", data, { binary: true });
+          zip2.file('pia.json', data, { binary: true });
           /* Save as .zip */
           zip2.generateAsync({ type: 'blob' }).then(blobContent => {
             FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
           });
         });
-      })
+      });
     }, 500);
   }
 
@@ -88,8 +114,12 @@ export class CardItemComponent implements OnInit {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
         const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
-        const folderName = this._translateService.instant('summary.attachments');
-        zip.file(folderName + '/' + attachment.name, byteCharacters1, { binary: true });
+        const folderName = this._translateService.instant(
+          'summary.attachments'
+        );
+        zip.file(folderName + '/' + attachment.name, byteCharacters1, {
+          binary: true
+        });
       });
       resolve(zip);
     });
@@ -214,5 +244,4 @@ export class CardItemComponent implements OnInit {
     localStorage.setItem('pia-to-archive-id', id);
     this._modalsService.openModal('modal-archive-pia');
   }
-
 }
