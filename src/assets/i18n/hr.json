@@ -5,7 +5,7 @@
 		"licences": "Licence biblioteka:",
 		"title": "O alatu za PUP pia",
 		"translators": "Softver za PUP trenutno je dostupan na osamnaest jezika. Inačice na francuskom i engleskom jeziku omogućio je CNIL. Druge inačice rezultat su doprinosa sljedećih pojedinaca:",
-		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
+		"translators_name": "<ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German  : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> ;</li><li>Swedish : Per von Bahr <a target=\"_blank\" href=\"https://www.soprasteria.se\">(Sopra Steria AB)</a> .</li></ul>",
 		"version_number": "Verzija broj"
 	},
 	"action_plan": {
@@ -43,6 +43,7 @@
 		"negligible": "Nizak",
 		"risk1_access": "(I)",
 		"risk2_modification": "(U)",
+		"risk3_disappearance": "(P)",
 		"seriousness_axe": "Ozbiljnost rizika"
 	},
 	"comments": {
@@ -53,22 +54,10 @@
 		"send": "Pošalji"
 	},
 	"date": {
-		"april": "TO TRANSLATE - April",
-		"august": "TO TRANSLATE - August",
-		"december": "TO TRANSLATE - December",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
-		"february": "TO TRANSLATE - February",
-		"january": "TO TRANSLATE - January",
-		"july": "TO TRANSLATE - July",
-		"june": "TO TRANSLATE - June",
-		"march": "TO TRANSLATE - March",
-		"may": "TO TRANSLATE - May",
-		"november": "TO TRANSLATE - November",
-		"october": "TO TRANSLATE - October",
-		"september": "TO TRANSLATE - September",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday"
+		"earlier-in-this-month": "Ranije ovog mjeseca",
+		"earlier-in-this-week": "Ranije ovog tjedna",
+		"today": "danas",
+		"yesterday": "jučer"
 	},
 	"errors": {
 		"content": "IAko naiđete na druge probleme ili ako imate prijedloge za poboljšanje, <br> možete ih poslati putem ovog obrasca:: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
@@ -188,6 +177,13 @@
 				"title": "Poznati problemi"
 			},
 			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+		},
+		"infografics": {
+			"display": "Pogledajte kartu procesa",
+			"file": "./pia_docs/180409_fiche_risque_en_cmjk.pdf",
+			"guide": "Pokažite PIA vodiče CNIL-a",
+			"hide": "Sakrij kartu procesa",
+			"title": "Pregled obveza i metoda"
 		},
 		"title": "Pomoć"
 	},
@@ -954,9 +950,9 @@
 			"remove": "Delete template"
 		},
 		"revision": {
-			"continue": "",
-			"message": "",
-			"title": ""
+			"continue": "Nastaviti",
+			"message": "Nastavljajući, ažurirat ćete analizu. Taj će status izgubiti status valjanosti i bit će ga potrebno ponovno potvrditi nakon što su promjene napravljene.<br><br>Trenutačno će se arhivirati verzija.",
+			"title": "Pregledajte PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Upozorenje,</span><br> molimo unesite komentar koji se razlikuje od posljednje zabilježenog."
