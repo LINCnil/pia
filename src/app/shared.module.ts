@@ -69,7 +69,7 @@ import { SidStatusService } from 'src/app/services/sid-status.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
-import { SafeHtmlPipe, Nl2brPipe, FormatTheDate } from './tools';
+import { SafeHtmlPipe, Nl2brPipe, FormatTheDate, FilterForUser } from './tools';
 
 const providersList: any = [
   AppDataService,
@@ -111,7 +111,8 @@ const providersList: any = [
     SafeHtmlPipe,
     Nl2brPipe,
     TagInputModule,
-    FormatTheDate
+    FormatTheDate,
+    FilterForUser
   ],
   declarations: [
     HeaderComponent,
@@ -120,7 +121,8 @@ const providersList: any = [
     KnowledgeBaseItemComponent,
     SafeHtmlPipe,
     Nl2brPipe,
-    FormatTheDate
+    FormatTheDate,
+    FilterForUser
   ],
   providers: providersList
 })

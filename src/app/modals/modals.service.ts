@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { ApplicationDb } from '../application.db';
+
+import { Revision } from '../models/revision.model';
+
 import { PaginationService } from 'src/app/entry/entry-content/pagination.service';
 
 @Injectable()
 export class ModalsService {
+  private revisionDb: ApplicationDb;
+  public revisionDate: any;
 
   constructor(private _router: Router,
               private _paginationService: PaginationService) {}
@@ -32,6 +38,15 @@ export class ModalsService {
     const gf = (<HTMLButtonElement>e.querySelector('.get-focus'));
     if (gf) {
       gf.focus();
+    }
+
+    /* Opening special modal with revision date */
+    const id = parseInt(localStorage.getItem('revision-date-id'), 10);
+    if (id) {
+      this.revisionDb = new ApplicationDb(201911191636, 'revision');
+      this.revisionDb.find(id).then(async (response: Revision) => {
+        this.revisionDate = response.created_at;
+      });
     }
   }
 

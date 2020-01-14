@@ -46,7 +46,7 @@
     &-content {
       margin-left: -220px;
       width: 440px;
-      box-shadow: 15px 15px 205px -35px black;
+      box-shadow: 15px 15px 130px -35px black;
       text-align: center;
       color: $pia-blue;
       font-style: italic;
@@ -67,8 +67,12 @@
     }
     &-removeQuestion,
     &-removeMeasure,
+    &-archivePIA,
+    &-unarchivePIA,
     &-removePIA,
-    &-removeAttachment {
+    &-removeStructure,
+    &-removeAttachment,
+    &-recoverVersion {
       p {
         margin-bottom: 30px;
       }

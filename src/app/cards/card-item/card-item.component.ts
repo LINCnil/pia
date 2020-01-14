@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
@@ -21,13 +21,15 @@ declare const require: any;
 export class CardItemComponent implements OnInit {
   @Input() pia: any;
   @Input() previousPia: any;
+  @Output() piaEvent = new EventEmitter<Pia>();
   piaForm: FormGroup;
   attachments: any;
 
-  @ViewChild('piaName') private piaName: ElementRef;
-  @ViewChild('piaAuthorName') private piaAuthorName: ElementRef;
-  @ViewChild('piaEvaluatorName') private piaEvaluatorName: ElementRef;
-  @ViewChild('piaValidatorName') private piaValidatorName: ElementRef;
+  @ViewChild('piaName', { static: true }) private piaName: ElementRef;
+  @ViewChild('piaCategory', { static: true }) private piaCategory: ElementRef;
+  @ViewChild('piaAuthorName', { static: true }) private piaAuthorName: ElementRef;
+  @ViewChild('piaEvaluatorName', { static: true }) private piaEvaluatorName: ElementRef;
+  @ViewChild('piaValidatorName', { static: true }) private piaValidatorName: ElementRef;
 
   constructor(private router: Router,
               private _modalsService: ModalsService,
@@ -38,6 +40,7 @@ export class CardItemComponent implements OnInit {
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: false }),
+      category: new FormControl({ value: this.pia.category, disabled: false }),
       author_name: new FormControl({ value: this.pia.author_name, disabled: false }),
       evaluator_name: new FormControl({ value: this.pia.evaluator_name, disabled: false }),
       validator_name: new FormControl({ value: this.pia.validator_name, disabled: false })
@@ -93,7 +96,7 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Focuses pia name field.
+   * Focuse PIA name field.
    */
   piaNameFocusIn() {
     this.piaForm.controls['name'].enable();
@@ -101,7 +104,7 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
-   * Disables pia name field and saves data.
+   * Disabls PIA name field and saves data.
    */
   piaNameFocusOut() {
     let userText = this.piaForm.controls['name'].value;
@@ -109,23 +112,21 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.name = this.piaForm.value.name;
-        pia.update();
-      });
+      this.pia.name = this.piaForm.value.name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
     }
   }
 
   /**
-   * Focuses pia author name field.
+   * Focuse PIA author name field.
    */
   piaAuthorNameFocusIn() {
     this.piaAuthorName.nativeElement.focus();
   }
 
   /**
-   * Disables pia author name field and saves data.
+   * Disable PIA author name field and saves data.
    */
   piaAuthorNameFocusOut() {
     let userText = this.piaForm.controls['author_name'].value;
@@ -133,23 +134,21 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.author_name = this.piaForm.value.author_name;
-        pia.update();
-      });
+      this.pia.author_name = this.piaForm.value.author_name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
     }
   }
 
   /**
-   * Focuses pia evaluator name field.
+   * Focus PIA evaluator name field.
    */
   piaEvaluatorNameFocusIn() {
     this.piaEvaluatorName.nativeElement.focus();
   }
 
   /**
-   * Disables pia evaluator name field and saves data.
+   * Disable PIA evaluator name field and saves data.
    */
   piaEvaluatorNameFocusOut() {
     let userText = this.piaForm.controls['evaluator_name'].value;
@@ -157,23 +156,21 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.evaluator_name = this.piaForm.value.evaluator_name;
-        pia.update();
-      });
+      this.pia.evaluator_name = this.piaForm.value.evaluator_name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
     }
   }
 
   /**
-   * Focuses pia validator name field.
+   * Focus PIA validator name field.
    */
   piaValidatorNameFocusIn() {
     this.piaValidatorName.nativeElement.focus();
   }
 
   /**
-   * Disables pia validator name field and saves data.
+   * Disable PIA validator name field and saves data.
    */
   piaValidatorNameFocusOut() {
     let userText = this.piaForm.value.validator_name;
@@ -181,21 +178,41 @@ export class CardItemComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      const pia = new Pia();
-      pia.get(this.piaForm.value.id).then(() => {
-        pia.validator_name = this.piaForm.value.validator_name;
-        pia.update();
-      });
+      this.pia.validator_name = this.piaForm.value.validator_name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
     }
   }
 
   /**
-   * Deletes a PIA with a given id.
+   * Focus PIA category field.
+   */
+  piaCategoryFocusIn() {
+    this.piaCategory.nativeElement.focus();
+  }
+
+  /**
+   * Disable PIA category field and saves data.
+   */
+  piaCategoryFocusOut() {
+    let userText = this.piaForm.value.category;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    if (userText !== '') {
+      this.pia.category = this.piaForm.value.category;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
+    }
+  }
+
+  /**
+   * Archive a PIA with a given id.
    * @param {string} id - The PIA id.
    */
-  removePia(id: string) {
-    localStorage.setItem('pia-id', id);
-    this._modalsService.openModal('modal-remove-pia');
+  archivePia(id: string) {
+    localStorage.setItem('pia-to-archive-id', id);
+    this._modalsService.openModal('modal-archive-pia');
   }
 
 }

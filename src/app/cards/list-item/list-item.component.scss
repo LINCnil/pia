@@ -4,6 +4,14 @@
   position: relative;
   padding: 0 10px;
   cursor: pointer;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  &-title {
+    width: 270px !important;
+    div:first-child {
+      width: 230px !important;
+    }
+  }
   &:first-child {
     div[contenteditable] {
       vertical-align: middle;
@@ -13,6 +21,8 @@
   }
   div[contenteditable] {
     cursor: text;
+    white-space: nowrap;
+    overflow: hidden;
     &:focus, &:hover, &:active {
       outline: 1px dotted $pia-green;
     }
@@ -28,17 +38,16 @@
     justify-content: space-around;
     a {
       color: $pia-green;
-      font-size: 2rem;
-      margin: 0 2px;
+      font-size: 1.8rem;
+      margin: 0 4px;
+      width: 18px;
     }
   }
   &-attachment {
-    vertical-align: middle;
-    display: inline-block;
-    width: 10%;
-    position: relative;
+    position: absolute;
+    right: 10px;
+    top: 4px;
     cursor: pointer;
-    margin: auto 0 auto auto;
     ul {
       display: none;
       position: absolute;

@@ -13,12 +13,16 @@ import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { RevisionService } from '../services/revision.service';
 
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.scss'],
-  providers: [PiaService]
+  styleUrls: [
+    './entry.component.scss',
+    './entry-content/action-plan/action-plan.component.scss'
+  ],
+  providers: [PiaService, RevisionService]
 })
 export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   section: { id: number, title: string, short_help: string, items: any };
@@ -27,6 +31,11 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   questions: any;
   measureToRemoveFromTags: string;
   subscription: Subscription;
+  public sideView = 'knowledge';
+  public revisions = null;
+  public revisionOverlay = false;
+  public pia = null;
+  public download = false;
 
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
@@ -34,9 +43,10 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
               private _appDataService: AppDataService,
               private _sidStatusService: SidStatusService,
               private _knowledgeBaseService: KnowledgeBaseService,
-              private _piaService: PiaService,
+              public _piaService: PiaService,
               private _actionPlanService: ActionPlanService,
               private _globalEvaluationService: GlobalEvaluationService,
+              public _revisionService: RevisionService,
               private _measureService: MeasureService) { }
 
   async ngOnInit() {
@@ -46,6 +56,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     await this._piaService.getPIA();
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;
+    } else {
+      this._appDataService.resetDataNav();
     }
     this.data = this._appDataService.dataNav;
 
@@ -166,6 +178,16 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
       this._actionPlanService.data = this.data;
       this._actionPlanService.pia = this._piaService.pia;
+      this._actionPlanService.listActionPlan();
+
+      this.pia = this._piaService.pia;
+
+      // Load PIA's revisions
+      this._revisionService.getAll(this.pia.id)
+      .then((resp) => {
+        this.revisions = resp;
+      });
+
     });
 
     // Update on knowledge base (scroll / content / search field)
@@ -178,4 +200,44 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     this._knowledgeBaseService.loadByItem(this.item);
     this._knowledgeBaseService.placeholder = null;
   }
+
+  /********** REVISIONS ACTIONS ***********/
+    /**
+     * Create a new Revision record in indexDB
+     */
+    onNewRevision() {
+      this._piaService.export(this._piaService.pia.id)
+        .then((exportResult) => {
+          this._revisionService.add(exportResult, this._piaService.pia.id)
+            .then((resp) => {
+              // because ngOnchanges no detect simply array push
+              this.revisions.push(resp);
+              this.revisions = this.revisions.slice();
+            });
+        });
+    }
+
+    /**
+     * Save revision as selection in revision service
+     * and open a modal, waiting for confirmation
+     * @param {number} piaId
+     */
+    onSelectedRevision(piaId) {
+      localStorage.setItem('revision-date-id', piaId);
+      this._revisionService.prepareRevision(piaId);
+      this._modalsService.openModal('revision-selection');
+    }
+
+
+    /**
+     * On modal confirmation, replace current pia version by selected revision
+     */
+    async loadPiaRevision() {
+      localStorage.removeItem('revision-date-id');
+      this.onNewRevision();
+      this.revisionOverlay = true;
+      this._revisionService.loadRevision();
+    }
+    
+  /********** END REVISIONS ACTIONS ***********/
 }

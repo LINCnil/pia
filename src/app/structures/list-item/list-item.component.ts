@@ -20,8 +20,7 @@ export class ListItemComponent implements OnInit {
               public _structureService: StructureService,
               private _modalsService: ModalsService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   /**
    * Focuses out field and update Structure.
@@ -32,6 +31,7 @@ export class ListItemComponent implements OnInit {
     const text = event.target.innerText;
     this.structure[attribute] = text;
     this.structure.update();
+    this.structEvent.emit(this.structure);
   }
 
   /**

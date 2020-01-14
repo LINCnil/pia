@@ -51,6 +51,10 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._piaService.getPIA().then(() => {
       this._piaService.pia.updated_at = new Date();
       this._piaService.pia.update();
+
+      if (this._piaService.pia.is_archive === 1) {
+        this._router.navigate(['home']);
+      }
     });
   }
 

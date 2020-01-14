@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { Pia } from 'src/app/entry/pia.model';
@@ -8,37 +9,49 @@ import { Structure } from 'src/app/structures/structure.model';
 import { ModalsService } from './modals.service';
 import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { ArchiveService } from 'src/app/services/archive.service';
 import { StructureService } from 'src/app/services/structure.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-modals',
   templateUrl: './modals.component.html',
   styleUrls: ['./modals.component.scss'],
-  providers: [PiaService, StructureService]
+  providers: [PiaService, ArchiveService, StructureService]
 })
-export class ModalsComponent implements OnInit {
+export class ModalsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   @Input() structure: any;
+  @Output() continueEvent = new EventEmitter();
+
+  subscription: Subscription;
   newPia: Pia;
   newStructure: Structure;
   piaForm: FormGroup;
   structureForm: FormGroup;
   removeAttachmentForm: FormGroup;
   enableSubmit = true;
+  dateFormat: String;
 
   constructor(
     private router: Router,
     public _modalsService: ModalsService,
     public _piaService: PiaService,
+    public _archiveService: ArchiveService,
     public _structureService: StructureService,
     public _answerStructureService: AnswerStructureService,
     public _measuresService: MeasureService,
-    public _attachmentsService: AttachmentsService
+    public _attachmentsService: AttachmentsService,
+    private _translateService: TranslateService
   ) { }
 
   ngOnInit() {
+    this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy' : this.dateFormat = 'MM-dd-yy'
+    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this._translateService.currentLang === 'fr' ? this.dateFormat = 'dd/MM/yy' : this.dateFormat = 'MM-dd-yy'
+    });
     const structure = new Structure();
     structure.getAll().then((data: any) => {
       this._structureService.structures = data;
@@ -50,6 +63,7 @@ export class ModalsComponent implements OnInit {
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl(),
+      category: new FormControl(),
       structure: new FormControl([])
     });
     this.structureForm = new FormGroup({
@@ -102,5 +116,9 @@ export class ModalsComponent implements OnInit {
         this.removeAttachmentForm.controls['comment'].value.length > 0) {
       this.enableSubmit = false;
     }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

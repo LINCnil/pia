@@ -70,17 +70,22 @@ body.pia-contrast {
 
   /* header */
   .pia-navigationBlock {
+    &-list {
+      > li > a {
+        &:focus, &:hover, &:active {
+          background-color: $pia-green-dark !important;
+        }
+      }
+    }
+    &-dropdown,
     &-company {
       &:focus, &:hover, &:active {
         > a {
           background-color: $pia-green-dark !important;
         }
       }
-      > a {
-        &:focus, &:hover, &:active {
-          background-color: $pia-green-dark !important;
-        }
-      }
+    }
+    &-company {
       form {
         border-color: $pia-gray-dark !important;
         fieldset {
@@ -90,9 +95,6 @@ body.pia-contrast {
           }
         }
       }
-    }
-    &-structures {
-      background-color: $pia-green-dark;
     }
   }
 
@@ -151,18 +153,10 @@ body.pia-contrast {
             color: $pia-green-dark;
           }
           progress {
-            &:before, &:after {
-              background-color: $pia-green-dark !important;
-            }
-          }
-          progress {
             appearance: none;
             -moz-appearance: none;
             -webkit-appearance: none;
             color: $pia-green-dark;
-            &:after {
-              color: $pia-green-dark !important;
-            }
             &::-moz-progress-bar {
               background: $pia-green-dark;
             }
@@ -878,40 +872,6 @@ body.pia-contrast {
         }
       }
     }
-    &-exports {
-      &-print,
-      &-full {
-        &:active {
-          background-color: $pia-green-dark;
-        }
-      }
-      &-print,
-      &-full,
-      &-individual {
-        &:focus,
-        &:hover {
-          border-top-color: $pia-green-dark;
-          background-color: $pia-green-dark;
-        }
-      }
-      &-individual {
-        &.activeMenu {
-          background-color: transparent;
-          .pia-fullPreviewBlock-exports-individual-description {
-            > div {
-              color: $pia-green-dark !important;
-            }
-          }
-          > div {
-            &:first-child {
-              div {
-                color: $pia-green-dark;
-              }
-            }
-          }
-        }
-      }
-    }
   }
 
   .green-highlight {
@@ -919,5 +879,65 @@ body.pia-contrast {
   }
   .red-highlight {
     color: $pia-red-dark !important;
+  }
+
+  /* Breadcrumb */
+  .pia-breadcrumb {
+    color: $pia-gray-dark;
+  }
+
+  /* Search bar */
+  .pia-searchInput {
+    .search-icon,
+    .search-close {
+      color: $pia-green-dark !important;
+    }
+    input.btn.btn-search {
+      border: 1px solid $pia-green-dark !important;
+      color: $pia-green-dark !important;
+      &::placeholder {
+        color: $pia-green-dark !important;
+      }
+    }
+  }
+
+  /* Revisions  */
+  .pia-revisions {
+    &-box,
+    &-new {
+      background-color: $pia-green-dark !important;
+    }
+  }
+
+  /* Print and exports */
+  .pia-exportBlock {
+    &-print {
+      button {
+        background-color: $pia-green-dark !important;
+      }
+    }
+    &-individual {
+      .btn-green {
+        &:disabled {
+          color: $pia-gray-dark !important;
+          &:focus,
+          &:hover,
+          &:active {
+            color: $pia-gray-dark !important;
+          }
+        }
+        color: $pia-green-dark !important;
+        &:focus,
+        &:hover,
+        &:active {
+          color: #fff !important;
+        }
+      }
+      &-links {
+        input:checked + label::before {
+          background-color: $pia-green-dark !important;
+        }
+      }
+    }
   }
 }

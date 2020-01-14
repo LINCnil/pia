@@ -57,6 +57,8 @@ export class ApplicationDb {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
             } else if (this.tableName === 'attachment') {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
+            } else if (this.tableName === 'revision') {
+              objectStore.createIndex('index1', 'pia_id', { unique: false });
             }
           }
           if (event.oldVersion !== this.dbVersion) {
@@ -81,6 +83,11 @@ export class ApplicationDb {
                 objectStore.createIndex('index4', 'structure_id', { unique: false });
               }
             }
+            if (this.dbVersion === 201910230914 || event.oldVersion === 0) {
+              if (this.tableName === 'pia') {
+                objectStore.createIndex('index5', 'is_archive', { unique: false });
+              }
+            }
           }
         }
       };
@@ -99,7 +106,7 @@ export class ApplicationDb {
     };
     return new Promise((resolve, reject) => {
       this.objectStore = db.transaction(this.tableName, 'readwrite').objectStore(this.tableName);
-      resolve();
+      resolve(this.objectStore);
     });
   }
 
@@ -215,10 +222,10 @@ export class ApplicationDb {
 
   /**
    * Return the server URL.
-   * @protected
+   * @public
    * @returns {string} - An URL.
    */
-  protected getServerUrl() {
+  public getServerUrl() {
     let prefix = '/pias';
     let id = this.pia_id;
     if (this.tableName === 'structure') {

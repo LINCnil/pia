@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Laissez un commentaire",
 		"send": "Envoyer"
 	},
+	"date": {
+		"april": "Avril",
+		"august": "Août",
+		"december": "Décembre",
+		"earlier-in-this-month": "Plus tôt ce mois-ci",
+		"earlier-in-this-week": "Plus tôt cette semaine",
+		"february": "Février",
+		"january": "Janvier",
+		"july": "Juillet",
+		"june": "Juin",
+		"march": "Mars",
+		"may": "Mai",
+		"november": "Novembre",
+		"october": "Octobre",
+		"september": "Septembre",
+		"today": "Aujourd'hui",
+		"yesterday": "Hier"
+	},
 	"errors": {
 		"content": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration,<br>vous pouvez nous les faire remonter via ce formulaire : <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Page introuvable."
@@ -74,18 +92,26 @@
 		"placeholder_improvable1": "Entrez vos commentaires pour expliquer quelles mesures additionnelles sont à ajouter afin d'améliorer la protection des données du traitement.",
 		"placeholder_improvable2": "Entrez vos commentaires.",
 		"placeholder_to_correct": "Entrez vos commentaires pour expliquer pourquoi les informations fournies ne sont pas suffisantes pour pouvoir les évaluer. Cette partie sera renvoyée en édition pour enrichir la proposition initiale.",
-		"status": {
-			"0": "En attente",
-			"1": "À corriger",
-			"2": "Améliorable",
-			"3": "Acceptable"
-		},
+		"status": [
+			"En attente",
+			"À corriger",
+			"Améliorable",
+			"Acceptable"
+		],
 		"title": "Évaluation",
 		"to_correct": "À corriger"
 	},
 	"header": {
-    "exit_full_screen_mode": "Appuyer sur F11 pour quitter le mode plein écran.",
-		"homepage_link": "Accueil",
+		"archives": "PIAs Archivés",
+		"current_pias": "PIAs Actifs",
+		"exit_full_screen_mode": "Appuyer sur F11 pour quitter le mode plein écran.",
+		"help": {
+			"issue_reporting": "Signaler un bug",
+			"manual": "Manuel d'utilisation",
+			"pia_example_link": "Exemple de PIA",
+			"title": "Aide"
+		},
+		"homepage_link": "Mes PIAs",
 		"knowledge_base_link": "Base de connaissances",
 		"languages": {
 			"cnil_translations": "Traductions fournies par la CNIL",
@@ -110,18 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Analyse d'impact sur la protection des données",
-		"pia_example_link": "Exemple de PIA",
 		"structures": "Modèles de PIA",
 		"tools": {
 			"about": "À propos",
 			"accessibility": "Accessibilité malvoyants (couleurs à contraste fort, adapté daltonisme)",
-			"help": "Aide",
 			"settings": "Paramètres",
-			"title": "Outils"
+			"title": "Outils",
+			"url_setting": "Configuration URL serveur"
 		}
 	},
 	"help": {
@@ -168,6 +194,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Saisie",
+			"category": "Catégorie",
 			"creation_status": "Création",
 			"date": "Date",
 			"evaluation": "Évaluation",
@@ -175,15 +202,18 @@
 			"import_structure": "Importer modèle",
 			"item": {
 				"consult_pia": "Consulter",
+				"consult_structure": "Consulter le modèle",
 				"edit_pia": "Éditer",
 				"edit_structure": "Éditer le modèle",
 				"tools": {
 					"action_plan": "Afficher le<br>plan d'action",
+					"archive": "Archiver",
 					"duplicate": "Dupliquer",
 					"export": "Exporter",
 					"more_options": "Plus d'options",
 					"pia": "Afficher le<br>PIA",
-					"remove": "Supprimer"
+					"remove": "Supprimer",
+					"unarchive": "Désarchiver"
 				}
 			},
 			"new_pia": "Nouveau PIA",
@@ -191,6 +221,7 @@
 			"or": "ou",
 			"pia_name": "PIA",
 			"placeholder_author": "Prénom, nom",
+			"placeholder_category": "Catégorie",
 			"placeholder_evaluation": "Prénom, nom",
 			"placeholder_import_pia": "Importer PIA",
 			"placeholder_import_structure": "Importer modèle",
@@ -213,13 +244,14 @@
 		"filters": {
 			"assessor": "Évaluateur",
 			"author": "Éditeur",
-			"card": "carte",
+			"card": "Affichage carte",
 			"card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +",
 			"card_rocket_content_structure": "Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"category": "Catégorie",
 			"date": "Date",
 			"import_pia": "Importer PIA",
 			"import_structure": "Importer modèle",
-			"list": "liste",
+			"list": "Affichage liste",
 			"list_rocket_content": "Lancez-vous ! Pour commencer<br>un PIA, cliquez sur le +",
 			"list_rocket_content_structure": "Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
 			"name": "Nom",
@@ -234,6 +266,7 @@
 		"lists": {
 			"column_actions": "Actions",
 			"column_author": "Saisie",
+			"column_category": "Catégorie",
 			"column_creation": "Création",
 			"column_evaluation": "Évaluation",
 			"column_pia": "PIA",
@@ -242,20 +275,23 @@
 			"column_status": "Statut",
 			"column_structure": "Modèle",
 			"column_structure_name": "Modèle",
-			"column_updated_at": "Ouvert le",
+			"column_updated_at": "Modifié le",
 			"column_validation": "Validation",
 			"item": {
 				"tools": {
 					"action_plan": "Afficher le plan d'action",
+					"archive": "Archiver",
 					"consult": "Consulter",
 					"duplicate": "Dupliquer",
 					"edit": "Éditer",
 					"export": "Exporter",
 					"pia": "Afficher le PIA",
-					"remove": "Supprimer"
+					"remove": "Supprimer",
+					"unarchive": "Désarchiver"
 				}
 			}
-		}
+		},
+		"search_filter": "Chercher"
 	},
 	"knowledge_base": {
 		"add_measure": "Ajouter",
@@ -265,9 +301,9 @@
 			"example": "Exemple",
 			"general_measure": "Mesure générale de sécurité du système",
 			"measure_on_data": "Mesure sur les données",
+			"method": "Méthodologie",
 			"organizational_measure": "Mesure organisationnelle",
-			"principle": "Principe",
-      "method": "Méthodologie"
+			"principle": "Principe"
 		},
 		"filters": {
 			"all": "Tout",
@@ -380,11 +416,6 @@
 			"PIA_DEF_MENM": {
 				"description": "<strong>Menaces concernant : </strong><br>- <strong>Les matériels</strong> qui ont été modifiés (ajout d'un matériel incompatible, retrait d'un indispensable, etc.)<br>- <strong>Les logiciels</strong> utilisés de manière inadaptée ou modifiés (erreur de manipulation, modifications inopportunes, etc.)<br>- <strong>Les canaux informatiques</strong> qui sont utilisés de manière inadaptée (réémission de flux intercepté, etc.)<br>- <strong>Les personnes</strong> surchargées ou détournées (tâche non maîtrisée, perturbation des conditions de travail, influence, etc.)<br>- Les documents papier qui ont été modifiés (modification de document, remplacement par un faux, etc.)<br>- <strong>Les canaux papier</strong> qui ont été modifiés (échange de parapheur, envoi de courriers contradictoires, etc.)",
 				"name": "Menaces pouvant conduire à une modification illégitime aux données",
-				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
-			},
-      "PIA_METHOD_MES": {
-				"description": "Les mesures initiales sont les mesures prévues à l'origine, avant l'analyse faite par l’évaluateur. Les mesures complémentaires ou correctrices préconisées par l’évaluateur seront énoncées dans le plan d’action et permettront de procéder à une deuxième évaluation de la gravité et de la vraisemblance.",
-				"name": "Mesures initiales et mesures correctrices",
 				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
 			},
 			"PIA_DEF_MES": {
@@ -618,6 +649,11 @@
 				"name": "Transferts",
 				"source": "WIKI Transferts_:_respect_des_obligations_en_mati%C3%A8re_de_transfert_de_donn%C3%A9es_en_dehors_de_l%E2%80%99Union_europ%C3%A9enne et PIAF Objets connectés p17"
 			},
+			"PIA_METHOD_MES": {
+				"description": "Les mesures initiales sont les mesures prévues à l'origine, avant l'analyse faite par l’évaluateur. Les mesures complémentaires ou correctrices préconisées par l’évaluateur seront énoncées dans le plan d’action et permettront de procéder à une deuxième évaluation de la gravité et de la vraisemblance.",
+				"name": "Mesures initiales et mesures correctrices",
+				"source": "WIKI Menaces_pouvant_mener_à_une_modification_non_désirées_de_données"
+			},
 			"PIA_ORG_AUD": {
 				"description": "Existence de mesures permettant de disposer d’une vision globale et à jour de l’état de protection des données et de la conformité au RGPD (contrôler la conformité des traitements, objectifs et indicateurs, responsabilités, etc.).",
 				"name": "Superviser la protection de la vie privée",
@@ -840,6 +876,10 @@
 			"review_section": "Évaluer une section"
 		},
 		"archive": "Archiver",
+		"archive_pia": {
+			"archive": "Archiver ce PIA",
+			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>archiver ce PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "La partie est disponible<br>pour évaluation."
 		},
@@ -881,6 +921,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Attention,</span><br>Au moins une mesure doit être renseignée : suppression impossible."
 		},
+		"recover_version": {
+			"continue": "Continuer",
+			"message": "En continuant, vous allez restaurer la version du {{date}} de cette analyse. Vous devrez valider à nouveau l'analyse une fois celle-ci terminée.<br><br>La version actuelle sera archivée.",
+			"title": "Restaurer une ancienne version"
+		},
 		"refuse_pia": {
 			"content": "Suite à votre refus, l'analyse est<br> renvoyée en évaluation pour effectuer<br>les modifications nécessaires."
 		},
@@ -896,7 +941,7 @@
 			"remove": "Supprimer cette <br>mesure"
 		},
 		"remove_pia": {
-			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce PIA ?",
+			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer définitivement ce PIA ?",
 			"remove": "Supprimer ce PIA"
 		},
 		"remove_question": {
@@ -907,6 +952,11 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "Supprimer ce modèle"
+		},
+		"revision": {
+			"continue": "Continuer",
+			"message": "En continuant, vous allez mettre à jour l'analyse. Celle-ci perdra son statut de validation et il sera nécessaire de la valider à nouveau une fois les changements effectués.<br><br>La version actuellement validée sera archivée.",
+			"title": "Réviser le PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Attention,</span><br>Veuillez saisir un commentaire différent du dernier enregistré."
@@ -919,6 +969,10 @@
 			"content": "Vous venez de valider l'analyse."
 		},
 		"start_evaluation": "Commencer l'évaluation",
+		"unarchive_pia": {
+			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>désarchiver ce PIA ?",
+			"unarchive": "Désarchiver ce PIA"
+		},
 		"update_server_url_nok": {
 			"content": "Connexion impossible."
 		},
@@ -966,9 +1020,9 @@
 	"pia": {
 		"attachments": {
 			"add": "Ajouter",
+			"download": "Télécharger la pièce jointe",
 			"remove": "Supprimer",
-			"title": "Pièces jointes",
-			"download": "Télécharger la pièce jointe"
+			"title": "Pièces jointes"
 		},
 		"footer": {
 			"ask_evaluation": "Demander l'évaluation",
@@ -989,13 +1043,13 @@
 			"refuse_pia": "PIA refusé",
 			"status": {
 				"evaluation": {
-					"cancel": "annuler la demande d'évaluation.",
+					"cancel": " annuler la demande d'évaluation.",
 					"cancel_button": "Annuler la demande d'évaluation",
 					"content": "L'évaluation de cette partie n'a pas encore commencé. Si vous souhaitez modifier les contenus en mode édition, il faut",
 					"title": "En attente d'évaluation"
 				},
 				"validation": {
-					"cancel": "annuler la demande de validation.",
+					"cancel": " annuler la demande de validation.",
 					"cancel_button": "Annuler la demande de validation",
 					"content": "L'évaluation de cette partie est terminée et en attente de validation finale de l'analyse. Si vous souhaitez modifier les évaluations, il faut",
 					"title": "En attente de validation"
@@ -1003,24 +1057,24 @@
 			},
 			"validate_pia": "Valider le PIA"
 		},
-		"statuses": {
-			"0": "En cours",
-			"1": "Refusé",
-			"2": "Validation simple",
-			"3": "Validation avec signature",
-			"4": "Archivé",
-			"5": "En attente de validation"
-		}
+		"statuses": [
+			"En cours",
+			"Refusé",
+			"Validation simple",
+			"Validation avec signature",
+			"Archivé",
+			"En attente de validation"
+		]
 	},
 	"questions": {
 		"edit": "Éditer la question",
-		"gauges": {
-			"0": "(Non définie)",
-			"1": "Négligeable",
-			"2": "Limitée",
-			"3": "Importante",
-			"4": "Maximale"
-		},
+		"gauges": [
+			"(Non définie)",
+			"Négligeable",
+			"Limitée",
+			"Importante",
+			"Maximale"
+		],
 		"placeholder_title": "Titre de la question (obligatoire)",
 		"remove": "Supprimer la question"
 	},
@@ -1293,27 +1347,6 @@
 		"update": "Mettre à jour l'URL"
 	},
 	"summary": {
-    "preview_title": "Aperçu de l'analyse",
-    "preview_subtitle": "Informations générales",
-    "preview_edition": "Saisie",
-    "preview_evaluation": "Évaluation",
-    "preview_validation": "Validation",
-    "preview_status": "Statut",
-    "preview_validation_section": "Validation",
-    "preview_dpo_opinion": "Avis du DPD et des personnes concernées",
-    "preview_no_data": "Aucune information à afficher.",
-    "actions": {
-      "print_and_download": "Impression et téléchargement",
-      "print": "Imprimer l'analyse",
-      "complete_download": "Télécharger l'ensemble de l'analyse",
-      "complete_download_desc": "Exporte dans une archive .zip les contenus de l'analyse (.doc et images), les pièces-jointes associées et le plan d'action au format .csv.",
-      "individual_download": "Télécharger des éléments de l'analyse",
-      "individual_download_desc": "Exporte des éléments spécifiques de l'analyse.",
-      "individual_download_select": "Sélectionnez les éléments à exporter :",
-      "individual_download_doc": "Contenus textuels (fichier .doc)",
-      "individual_download_images": "Éléments visuels (fichiers .png) : vue d'ensemble des risques, cartographie des risques, plan d'action."
-    },
-    "download_csv": "Plan d'action (fichier .csv)",
 		"action_plan": {
 			"fundamental_principles": "Principes fondamentaux",
 			"implementation_date": "Date prévue de mise en œuvre",
@@ -1323,16 +1356,29 @@
 			"risks": "Risques",
 			"title": "Plan d'action"
 		},
+		"actions": {
+			"complete_download": "Télécharger l'ensemble de l'analyse",
+			"complete_download_desc": "Exporte dans une archive .zip les contenus de l'analyse (.doc et images), les pièces-jointes associées et le plan d'action au format .csv.",
+			"individual_download": "Téléchargement",
+			"individual_download_desc": "Exporte des éléments spécifiques de l'analyse.",
+			"individual_download_doc": "Contenus textuels (fichier .doc)",
+			"individual_download_images": "Éléments visuels (fichiers .png) : vue d'ensemble des risques, cartographie des risques, plan d'action",
+			"individual_download_json": "Analyse à importer dans l'outil PIA (fichier.json)",
+			"individual_download_select": "Sélectionnez les éléments à exporter :",
+			"individual_to_download": "Télécharger",
+			"print": "Imprimer l'analyse",
+			"print_and_download": "Impression et téléchargement"
+		},
 		"attachments": "Pièces jointes",
 		"concerned_people_name": "Noms des personnes concernées",
 		"concerned_people_opinion": "Opinions des personnes concernées",
 		"concerned_people_searched_opinion": "Recherche de l'avis des personnes concernées",
 		"concerned_people_status": "Statuts des personnes concernées",
 		"concerned_people_unsearched_opinion_comment": "Raison pour laquelle l'avis des personnes concernées n'a pas été demandé",
-		"content_choice": {
-			"0": "Le traitement ne devrait pas être mis en oeuvre.",
-			"1": "Le traitement pourrait être mis en oeuvre."
-		},
+		"content_choice": [
+			"Le traitement ne devrait pas être mis en oeuvre.",
+			"Le traitement pourrait être mis en oeuvre."
+		],
 		"creation_date": "Date de création",
 		"csv_action_plan_comment": "Commentaires du plan d'actions",
 		"csv_evaluation_comment": "Commentaires d'évaluation",
@@ -1341,17 +1387,7 @@
 		"csv_people_in_charge": "Responsable de la mise en oeuvre",
 		"csv_section": "Section",
 		"csv_title_object": "Titre de l'objet concerné",
-		"display_filters": {
-      "check_all": "Activer / désactiver l'ensemble des filtres d'affichage",
-			"action_plan_content": " Afficher le plan d'action",
-			"context_content": "Afficher la section \"Contexte\"",
-			"main_content": "Afficher la section \"Informations du PIA\"",
-			"principles_content": "Afficher la section \"Principes fondamentaux\"",
-			"risks_cartography_content": "Afficher la cartographie des risques",
-			"risks_content": "Afficher la section \"Risques\"",
-			"risks_overview_content": "Afficher la vue d'ensemble des risques",
-			"title": "Filtres d'affichage"
-		},
+		"download_csv": "Plan d'action (fichier .csv)",
 		"dpo_name": "Nom du DPD",
 		"dpo_opinion": "Opinion du DPD",
 		"dpo_status": "Statut du DPD",
@@ -1368,8 +1404,25 @@
 		"pia_author": "Nom de l'auteur",
 		"pia_name": "Nom du PIA",
 		"pia_validator": "Nom du validateur",
+		"preview_dpo_opinion": "Avis du DPD et des personnes concernées",
+		"preview_edition": "Saisie",
+		"preview_evaluation": "Évaluation",
+		"preview_no_data": "Aucune information à afficher.",
+		"preview_status": "Statut",
+		"preview_subtitle": "Informations générales",
+		"preview_title": "Aperçu de l'analyse",
+		"preview_validation": "Validation",
+		"preview_validation_section": "Validation",
 		"previous_page": "Retour à la page précédente",
 		"rejection_reason": "Raison du refus",
+		"revision": {
+			"current_version": "Version actuelle",
+			"pia_version": "Versions du PIA",
+			"restore_version": "Restaurer cette version",
+			"revision": "Versions et révision",
+			"save": "Créer une nouvelle version",
+			"show": "Afficher les {{length}} version(s)"
+		},
 		"risks_cartography_title": "Cartographie des risques",
 		"risks_overview_title": "Vue d'ensemble des risques",
 		"title": "Informations du PIA"

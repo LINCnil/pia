@@ -3,9 +3,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import { Structure } from './structure.model';
+
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { StructureService } from 'src/app/services/structure.service';
-import { Structure } from './structure.model';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 
@@ -23,10 +24,11 @@ export class StructuresComponent implements OnInit, OnDestroy {
   importStructureForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'structure';
   paramsSubscribe: Subscription;
   structExampleSubscribe: Subscription;
+  searchText: string;
 
   constructor(private router: Router,
               private el: ElementRef,
@@ -77,12 +79,23 @@ export class StructuresComponent implements OnInit, OnDestroy {
     this.structExampleSubscribe.unsubscribe();
   }
 
+  onCleanSearch() {
+    this.searchText = '';
+  }
+
   /**
    * On structure change.
    * @param {any} structure - Any Structure.
    */
   structChange(structure) {
-    this._structureService.structures.push(structure);
+    if (this._structureService.structures.includes(structure)) {
+      this._structureService.structures.forEach(struct => {
+        if (struct.id === structure.id)
+        struct = structure;
+      });
+    } else {
+      this._structureService.structures.push(structure);
+    }
   }
 
   /**
@@ -169,15 +182,14 @@ export class StructuresComponent implements OnInit, OnDestroy {
   async refreshContent() {
     const structure = new Structure();
     const data: any = await structure.getAll();
-
-    this._structureService.loadExample().then((structureExample: Structure) => {
-      data.push(structureExample);
-    });
-
-    this._structureService.structures = data;
-    this.sortOrder = localStorage.getItem('sortOrder');
-    this.sortValue = localStorage.getItem('sortValue');
     setTimeout(() => {
+      this._structureService.loadExample().then((structureExample: Structure) => {
+        data.push(structureExample);
+      });
+
+      this._structureService.structures = data;
+      this.sortOrder = localStorage.getItem('sortOrder');
+      this.sortValue = localStorage.getItem('sortValue');
       this.sortStructure();
     }, 200);
   }

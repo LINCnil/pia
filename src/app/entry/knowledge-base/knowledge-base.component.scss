@@ -13,14 +13,13 @@
       }
     }
     &-scroll {
-      position: fixed;
-      top: 0;
-      bottom: 0;
+      // position: fixed;
+      // top: 0;
+      // bottom: 0;
       .pia-knowledgeBaseBlock-list {
         overflow-y: scroll;
       }
     }
-    padding-top: 10px;
     &-header {
       color: $pia-gray;
       border-bottom: solid 1px $pia-gray;
@@ -36,7 +35,7 @@
     }
     &-searchForm {
       position: relative;
-      padding-top: 17px;
+      // padding-top: 17px;
       margin-bottom: 2rem;
       form {
         margin: 0;
