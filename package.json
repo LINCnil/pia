@@ -71,7 +71,7 @@
     "@types/node": "~13.1.6",
     "codelyzer": "^5.2.1",
     "cypress": "^3.8.2",
-    "husky": "^4.0.7",
+    "husky": "^4.0.10",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.4.1",
