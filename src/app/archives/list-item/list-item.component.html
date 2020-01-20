@@ -25,7 +25,7 @@
     </ul>
   </div>
 </td>
-<td class="pia-listsBlock-item"><time *ngIf="archivedPia.updated_at && archivedPia.updated_at.toString() !== 'Invalid Date'">{{ archivedPia.updated_at | date: 'dd/MM/yyyy' }}</time></td>
+<td class="pia-listsBlock-item"><time *ngIf="archivedPia.updated_at && archivedPia.updated_at.toString() !== 'Invalid Date'">{{ archivedPia.updated_at | date: "shortDate":"":_languagesService.selectedLanguage }}</time></td>
 <td class="pia-listsBlock-item"><div>{{ archivedPia.author_name }}</div></td>
 <td class="pia-listsBlock-item"><div>{{ archivedPia.evaluator_name }}</div></td>
 <td class="pia-listsBlock-item"><div>{{ archivedPia.validator_name }}</div></td>

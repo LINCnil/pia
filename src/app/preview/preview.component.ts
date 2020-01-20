@@ -1,4 +1,12 @@
-import { Component, ElementRef, OnInit, AfterViewChecked, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  AfterViewChecked,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
 import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
@@ -11,6 +19,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 import { RevisionService } from 'src/app/services/revision.service';
 import { ModalsService } from '../modals/modals.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-preview',
@@ -33,17 +42,19 @@ export class PreviewComponent implements OnInit {
   public revisions = null;
   public revisionOverlay = false;
 
-  constructor(public _actionPlanService: ActionPlanService,
-              private el: ElementRef,
-              private _translateService: TranslateService,
-              public _piaService: PiaService,
-              private _appDataService: AppDataService,
-              public _attachmentsService: AttachmentsService,
-              public _revisionService: RevisionService,
-              public _modalsService: ModalsService) { }
+  constructor(
+    public _actionPlanService: ActionPlanService,
+    private el: ElementRef,
+    private _translateService: TranslateService,
+    public _piaService: PiaService,
+    private _appDataService: AppDataService,
+    public _attachmentsService: AttachmentsService,
+    public _revisionService: RevisionService,
+    public _modalsService: ModalsService,
+    public _languagesService: LanguagesService
+  ) {}
 
   async ngOnInit() {
-
     this.content = [];
     this.dataNav = this._appDataService.dataNav;
 
@@ -59,25 +70,27 @@ export class PreviewComponent implements OnInit {
       }
 
       // Load PIA's revisions
-      this._revisionService.getAll(this.pia.id)
-      .then((resp) => {
+      this._revisionService.getAll(this.pia.id).then(resp => {
         this.revisions = resp;
       });
-
     });
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;
     }
     this.data = this._appDataService.dataNav;
-
   }
 
   ngAfterViewChecked() {
     // scroll spy
-    const sections = document.querySelectorAll('.pia-fullPreviewBlock-headline-title h2') as NodeListOf<HTMLElement>;
-    const menus = document.querySelectorAll('.pia-sectionBlock-body li a') as NodeListOf<HTMLElement>;
+    const sections = document.querySelectorAll(
+      '.pia-fullPreviewBlock-headline-title h2'
+    ) as NodeListOf<HTMLElement>;
+    const menus = document.querySelectorAll(
+      '.pia-sectionBlock-body li a'
+    ) as NodeListOf<HTMLElement>;
     window.onscroll = () => {
-      const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollPosition =
+        document.documentElement.scrollTop || document.body.scrollTop;
       sections.forEach(s => {
         if (s.offsetTop < scrollPosition + 100) {
           menus.forEach(l => {
@@ -91,46 +104,41 @@ export class PreviewComponent implements OnInit {
     };
   }
 
-
   /********** REVISIONS ACTIONS ***********/
-    /**
-     * Create a new Revision record in indexDB
-     */
-    onNewRevision() {
-      this._piaService.export(this.pia.id)
-        .then((exportResult) => {
-          this._revisionService.add(exportResult, this.pia.id)
-            .then((resp) => {
-              // because ngOnchanges no detect simply array push
-              this.revisions.push(resp);
-              this.revisions = this.revisions.slice();
-            });
-        });
+  /**
+   * Create a new Revision record in indexDB
+   */
+  onNewRevision() {
+    this._piaService.export(this.pia.id).then(exportResult => {
+      this._revisionService.add(exportResult, this.pia.id).then(resp => {
+        // because ngOnchanges no detect simply array push
+        this.revisions.push(resp);
+        this.revisions = this.revisions.slice();
+      });
+    });
+  }
 
-    }
+  /**
+   * Save revision as selection in revision service
+   * and open a modal, waiting for confirmation
+   * @param {number} piaId
+   */
+  onSelectedRevision(piaId) {
+    localStorage.setItem('revision-date-id', piaId);
+    this._revisionService.prepareRevision(piaId);
+    this._modalsService.openModal('revision-selection');
+  }
 
-    /**
-     * Save revision as selection in revision service
-     * and open a modal, waiting for confirmation
-     * @param {number} piaId
-     */
-    onSelectedRevision(piaId) {
-      localStorage.setItem('revision-date-id', piaId);
-      this._revisionService.prepareRevision(piaId);
-      this._modalsService.openModal('revision-selection');
-    }
-
-    /**
-     * On modal confirmation, replace current pia version by selected revision
-     */
-    async loadPiaRevision() {
-      localStorage.removeItem('revision-date-id');
-      this.onNewRevision();
-      this.revisionOverlay = true;
-      this._revisionService.loadRevision();
-    }
+  /**
+   * On modal confirmation, replace current pia version by selected revision
+   */
+  async loadPiaRevision() {
+    localStorage.removeItem('revision-date-id');
+    this.onNewRevision();
+    this.revisionOverlay = true;
+    this._revisionService.loadRevision();
+  }
   /********** END REVISIONS ACTIONS ***********/
-
 
   /**
    * Jump to the title/subtitle clicked.
@@ -146,7 +154,6 @@ export class PreviewComponent implements OnInit {
       }
     });
   }
-
 
   /**
    * Prepare and display the PIA information
@@ -188,7 +195,9 @@ export class PreviewComponent implements OnInit {
     if (this.pia.concerned_people_searched_opinion === true) {
       el.data.push({
         title: 'summary.concerned_people_searched_opinion',
-        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+        content: this.pia.getPeopleSearchStatus(
+          this.pia.concerned_people_searched_opinion
+        )
       });
       if (this.pia.people_names && this.pia.people_names.length > 0) {
         el.data.push({
@@ -199,10 +208,15 @@ export class PreviewComponent implements OnInit {
       if (this.pia.concerned_people_status >= 0) {
         el.data.push({
           title: 'summary.concerned_people_status',
-          content: this.pia.getOpinionsStatus(this.pia.concerned_people_status.toString())
+          content: this.pia.getOpinionsStatus(
+            this.pia.concerned_people_status.toString()
+          )
         });
       }
-      if (this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
+      if (
+        this.pia.concerned_people_opinion &&
+        this.pia.concerned_people_opinion.length > 0
+      ) {
         el.data.push({
           title: 'summary.concerned_people_opinion',
           content: this.pia.concerned_people_opinion
@@ -214,9 +228,14 @@ export class PreviewComponent implements OnInit {
     if (this.pia.concerned_people_searched_opinion === false) {
       el.data.push({
         title: 'summary.concerned_people_searched_opinion',
-        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+        content: this.pia.getPeopleSearchStatus(
+          this.pia.concerned_people_searched_opinion
+        )
       });
-      if (this.pia.concerned_people_searched_content && this.pia.concerned_people_searched_content.length > 0) {
+      if (
+        this.pia.concerned_people_searched_content &&
+        this.pia.concerned_people_searched_content.length > 0
+      ) {
         el.data.push({
           title: 'summary.concerned_people_unsearched_opinion_comment',
           content: this.pia.concerned_people_searched_content
@@ -224,7 +243,10 @@ export class PreviewComponent implements OnInit {
       }
     }
 
-    if (this.pia.applied_adjustements && this.pia.applied_adjustements.length > 0) {
+    if (
+      this.pia.applied_adjustements &&
+      this.pia.applied_adjustements.length > 0
+    ) {
       el.data.push({
         title: 'summary.modification_made',
         content: this.pia.applied_adjustements
@@ -246,36 +268,41 @@ export class PreviewComponent implements OnInit {
    * @private
    */
   private async getJsonInfo() {
-    this.allData = {}
-    this._piaService.data.sections.forEach(async (section) => {
+    this.allData = {};
+    this._piaService.data.sections.forEach(async section => {
       this.allData[section.id] = {};
-      section.items.forEach(async (item) => {
-        this.allData[section.id][item.id] = {}
+      section.items.forEach(async item => {
+        this.allData[section.id][item.id] = {};
         const ref = section.id.toString() + '.' + item.id.toString();
 
         // Measure
         if (item.is_measure) {
-          this.allData[section.id][item.id] = []
+          this.allData[section.id][item.id] = [];
           const measuresModel = new Measure();
           measuresModel.pia_id = this.pia.id;
           const entries: any = await measuresModel.findAll();
-          entries.forEach(async (measure) => {
+          entries.forEach(async measure => {
             /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
               let evaluation = null;
               if (item.evaluation_mode === 'question') {
-                evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
+                evaluation = await this.getEvaluation(
+                  section.id,
+                  item.id,
+                  ref + '.' + measure.id
+                );
               }
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
                 evaluation: evaluation
-              })
+              });
             }
           });
-        } else if (item.questions) { // Question
-          item.questions.forEach(async (question) => {
-            this.allData[section.id][item.id][question.id] = {}
+        } else if (item.questions) {
+          // Question
+          item.questions.forEach(async question => {
+            this.allData[section.id][item.id][question.id] = {};
             const answerModel = new Answer();
             await answerModel.getByReferenceAndPia(this.pia.id, question.id);
 
@@ -283,7 +310,11 @@ export class PreviewComponent implements OnInit {
             if (answerModel.data) {
               const content = [];
               if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                content.push(this._translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
+                content.push(
+                  this._translateService.instant(
+                    this.pia.getGaugeName(answerModel.data.gauge)
+                  )
+                );
               }
               if (answerModel.data.text && answerModel.data.text.length > 0) {
                 content.push(answerModel.data.text);
@@ -293,10 +324,18 @@ export class PreviewComponent implements OnInit {
               }
               if (content.length > 0) {
                 if (item.evaluation_mode === 'question') {
-                  const evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + question.id);
-                  this.allData[section.id][item.id][question.id].evaluation = evaluation;
+                  const evaluation = await this.getEvaluation(
+                    section.id,
+                    item.id,
+                    ref + '.' + question.id
+                  );
+                  this.allData[section.id][item.id][
+                    question.id
+                  ].evaluation = evaluation;
                 }
-                this.allData[section.id][item.id][question.id].content = content.join(', ')
+                this.allData[section.id][item.id][
+                  question.id
+                ].content = content.join(', ');
               }
             }
           });
@@ -317,25 +356,34 @@ export class PreviewComponent implements OnInit {
    * @param {string} ref - The reference.
    * @returns {Promise}
    */
-  private async getEvaluation(section_id: string, item_id: string, ref: string) {
+  private async getEvaluation(
+    section_id: string,
+    item_id: string,
+    ref: string
+  ) {
     return new Promise(async (resolve, reject) => {
       let evaluation = null;
       const evaluationModel = new Evaluation();
       const exist = await evaluationModel.getByReference(this.pia.id, ref);
       if (exist) {
         evaluation = {
-          'title': evaluationModel.getStatusName(),
-          'action_plan_comment': evaluationModel.action_plan_comment,
-          'evaluation_comment': evaluationModel.evaluation_comment,
-          'gauges': {
-            'riskName': { value: this._translateService.instant('sections.' + section_id + '.items.' + item_id + '.title') },
-            'seriousness': evaluationModel.gauges ? evaluationModel.gauges.x : null,
-            'likelihood': evaluationModel.gauges ? evaluationModel.gauges.y : null
+          title: evaluationModel.getStatusName(),
+          action_plan_comment: evaluationModel.action_plan_comment,
+          evaluation_comment: evaluationModel.evaluation_comment,
+          gauges: {
+            riskName: {
+              value: this._translateService.instant(
+                'sections.' + section_id + '.items.' + item_id + '.title'
+              )
+            },
+            seriousness: evaluationModel.gauges
+              ? evaluationModel.gauges.x
+              : null,
+            likelihood: evaluationModel.gauges ? evaluationModel.gauges.y : null
           }
         };
       }
       resolve(evaluation);
     });
   }
-
 }
