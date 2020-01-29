@@ -984,6 +984,9 @@
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
+		},
+		"general_error": {
+			"content": "Une erreur est survenue.<br>veuillez nous excuser pour ce désagrément."
 		}
 	},
 	"opinions": {

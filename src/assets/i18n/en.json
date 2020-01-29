@@ -984,6 +984,9 @@
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
+		},
+		"general_error": {
+			"content": "All our apologies an error has occurred."
 		}
 	},
 	"opinions": {
