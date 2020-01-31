@@ -77,11 +77,11 @@ export class RelativeDate {
     let res: string = null;
 
     if (this.w < 1) { // Last 7 days
-      res = 'early in current month';
+      res = 'Earlier in this month';
 
       // Current week
       if (this.getMonday(new Date()).getDate() === this.getMonday(this.strDate).getDate()) {
-        res = 'early in current week';
+        res = 'Earlier in this week';
 
         // Today
         if (date.getDate() === today.getDate()) {
@@ -94,8 +94,8 @@ export class RelativeDate {
         }
       }
 
-    } else if (this.M < 1) { // Current Month
-      res = 'early in current month';
+    } else if (this.M < 1 && (date.getMonth() === today.getMonth())) { // Last Month
+      res = 'Earlier in this month';
     } else { // Other Month + Full year
       res = this.getMonthString(new Date(this.strDate).getMonth()) + ' ' + new Date(this.strDate).getFullYear();
     }
