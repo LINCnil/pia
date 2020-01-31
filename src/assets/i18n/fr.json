@@ -1436,5 +1436,23 @@
 		},
 		"validated_pia_with_signature": "Validé",
 		"waiting_for_signature": "En attente de la signature du rapport PIA"
+	},
+	"date": {
+		"january": "Janvier",
+		"february": "Février",
+		"march": "Mars",
+		"april": "Avril",
+		"may": "Mai",
+		"june": "Juin",
+		"july": "Juillet",
+		"august": "Aout",
+		"september": "Septembre",
+		"october": "Octobre",
+		"november": "Novembre",
+		"december": "Décembre",
+		"today": "Aujourd'hui",
+		"yesterday": "Hier",
+		"earlier-in-this-month": "Plutôt ce mois-ci",
+		"earlier-in-this-week": "Plutôt cette semaine"
 	}
 }
