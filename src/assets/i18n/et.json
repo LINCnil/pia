@@ -905,6 +905,9 @@
 			"remove": "Eemalda",
 			"review_section": "Vaadake jaotis üle"
 		},
+		"general_error": {
+			"content": "Ilmnes viga.<br>vabandage meid ebamugavuste pärast."
+		},
 		"import_wrong_pia_file": {
 			"content": "Imporditu ei vasta mõjuhinnangu failile"
 		},

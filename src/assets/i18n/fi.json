@@ -905,6 +905,9 @@
 			"remove": "Poista",
 			"review_section": "Tarkista osio"
 		},
+		"general_error": {
+			"content": "Tapahtui virhe.<br>anteeksi meille tästä haitasta."
+		},
 		"import_wrong_pia_file": {
 			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
 		},

@@ -905,6 +905,9 @@
 			"remove": "Remove",
 			"review_section": "Review a section"
 		},
+		"general_error": {
+			"content": "All our apologies an error has occurred."
+		},
 		"import_wrong_pia_file": {
 			"content": "The imported file doesn't correspond to a PIA report file."
 		},
@@ -980,9 +983,6 @@
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Sorry,<br>Several fields must be corrected.<br>Return to edition mode<br>to make corrections."
-		},
-		"general_error": {
-			"content": "All our apologies an error has occurred."
 		}
 	},
 	"opinions": {

@@ -905,6 +905,9 @@
 			"remove": "Ištrinti",
 			"review_section": "Peržiūra"
 		},
+		"general_error": {
+			"content": "Įvyko klaida.<br>atleisk mums dėl šių nepatogumų."
+		},
 		"import_wrong_pia_file": {
 			"content": "Importuotas failas skiriasi nuo PDAV ataskaitos failo"
 		},

@@ -905,6 +905,9 @@
 			"remove": "Slet",
 			"review_section": "Evaluere sektionen"
 		},
+		"general_error": {
+			"content": "Der opstod en fejl.<br>undskyld os for denne ulempe."
+		},
 		"import_wrong_pia_file": {
 			"content": "Den importerede fil relaterer ikke til en PIA rapport fil"
 		},
