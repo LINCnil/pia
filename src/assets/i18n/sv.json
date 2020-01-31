@@ -905,6 +905,9 @@
 			"remove": "Radera",
 			"review_section": "Utvärdera en sektion"
 		},
+		"general_error": {
+			"content": "Ett fel har inträffat.<br>ursäkta oss för detta besvär. "
+		},
 		"import_wrong_pia_file": {
 			"content": "Den importerade filen är inte en korrekt PIA-fil"
 		},

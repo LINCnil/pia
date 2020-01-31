@@ -905,6 +905,9 @@
 			"remove": "Entfernen",
 			"review_section": "Überprüfen Sie einen Abschnitt"
 		},
+		"general_error": {
+			"content": "Ein Fehler ist aufgetreten.<br>Bitte entschuldigen Sie die Unannehmlichkeiten."
+		},
 		"import_wrong_pia_file": {
 			"content": "Die importierte Datei entspricht nicht dem Dateityp einer DSFA."
 		},

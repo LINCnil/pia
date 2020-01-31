@@ -905,6 +905,9 @@
 			"remove": "Verwijderen",
 			"review_section": "Controleer een sectie"
 		},
+		"general_error": {
+			"content": "Er is een fout opgetreden.<br>excuseer ons voor dit ongemak."
+		},
 		"import_wrong_pia_file": {
 			"content": "Het geïmporteerde bestand stemt niet overeen met een bestand van het type PIA"
 		},

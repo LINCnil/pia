@@ -905,6 +905,9 @@
 			"remove": "Eltávolítás",
 			"review_section": "Szakasz áttekintése"
 		},
+		"general_error": {
+			"content": "Hiba történt.<br>kérem, bocsásson meg minket a kellemetlenségért."
+		},
 		"import_wrong_pia_file": {
 			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
 		},

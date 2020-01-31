@@ -905,6 +905,9 @@
 			"remove": "Remove",
 			"review_section": "Review a section"
 		},
+		"general_error": {
+			"content": "All our apologies an error has occurred."
+		},
 		"import_wrong_pia_file": {
 			"content": "The imported file doesn't correspond to a PIA report file."
 		},

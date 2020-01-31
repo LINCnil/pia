@@ -905,6 +905,9 @@
 			"remove": "Cancella",
 			"review_section": "Valuta una sezione"
 		},
+		"general_error": {
+			"content": "Si è verificato un errore<br>ti preghiamo di scusarci per questo inconveniente."
+		},
 		"import_wrong_pia_file": {
 			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
 		},

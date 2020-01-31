@@ -905,6 +905,9 @@
 			"remove": "Eliminar",
 			"review_section": "Evaluar una sección"
 		},
+		"general_error": {
+			"content": "Ha ocurrido un error<br>disculpe las molestias."
+		},
 		"import_wrong_pia_file": {
 			"content": "El archivo importado no corresponde con un archivo de tipo PIA"
 		},

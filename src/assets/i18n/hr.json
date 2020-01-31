@@ -905,6 +905,9 @@
 			"remove": "Ukloni",
 			"review_section": "Pregledajte odjeljak"
 		},
+		"general_error": {
+			"content": "Došlo je do pogreške.<br>izvinite nas zbog ove neugodnosti."
+		},
 		"import_wrong_pia_file": {
 			"content": "Uvezena datoteka ne odgovara datoteci izvještaja PUP-a"
 		},

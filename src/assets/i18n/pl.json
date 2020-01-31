@@ -905,6 +905,9 @@
 			"remove": "Usunięcie",
 			"review_section": "Przegląd sekcji"
 		},
+		"general_error": {
+			"content": "Wystąpił błąd.<br>przepraszam za tę niedogodność."
+		},
 		"import_wrong_pia_file": {
 			"content": "Zaimportowany plik nie odpowiada plikowi PIA"
 		},

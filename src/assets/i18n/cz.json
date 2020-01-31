@@ -905,6 +905,9 @@
 			"remove": "Odebrat",
 			"review_section": "TO BE TRANSLATED - Review a section"
 		},
+		"general_error": {
+			"content": "Došlo k chybě.<br>prosím omluvte nás za tyto nepříjemnosti."
+		},
 		"import_wrong_pia_file": {
 			"content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
 		},
