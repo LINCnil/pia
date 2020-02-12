@@ -39,7 +39,7 @@ export class PiaService {
 
   /**
    * Get the PIA.
-   * @return {Promise}
+   * @return - Return a new Promise
    */
   async getPIA() {
     return new Promise((resolve, reject) => {
@@ -240,7 +240,7 @@ export class PiaService {
       pia.is_archive = 1;
       pia.update();
 
-      let index = this.pias.findIndex(item => item.id === piaID);
+      const index = this.pias.findIndex(item => item.id === piaID);
       if (index !== -1) {
         this.pias[index] = pia;
 
@@ -269,7 +269,7 @@ export class PiaService {
 
   /**
    * Cancel all validated evaluations.
-   * @returns {Promise}
+   * @returns - Return a new Promise
    */
   async cancelAllValidatedEvaluation() {
     return new Promise((resolve, reject) => {
@@ -310,7 +310,7 @@ export class PiaService {
 
   /**
    * Allow an user to duplicate a PIA.
-   * @param {number} id - The PIA id.
+   * @param id - The PIA id.
    */
   duplicate(id: number) {
     this.exportData(id).then(data => {
@@ -320,8 +320,8 @@ export class PiaService {
 
   /**
    * Allow an user to export a PIA.
-   * @param {number} id - The PIA id.
-   * @returns {Promise}
+   * @param id - The PIA id.
+   * @returns - Return a new Promise
    */
   exportData(id: number) {
     return new Promise((resolve, reject) => {
@@ -365,10 +365,10 @@ export class PiaService {
 
   /**
    * Allow an user to import a PIA.
-   * @param {*} data - Data PIA.
-   * @param {string} prefix - A title prefix.
-   * @param {boolean} is_duplicate - Is a duplicate PIA?
-   * @param {boolean} [is_example] - Is the PIA example?
+   * @param data - Data PIA.
+   * @param prefix - A title prefix.
+   * @param is_duplicate - Is a duplicate PIA?
+   * @param [is_example] - Is the PIA example?
    */
   async importData(
     data: any,
@@ -435,61 +435,13 @@ export class PiaService {
       }
     }
 
-    pia.create().then((pia_id: number) => {
-      pia.id = pia_id;
-      // Create answers
-      data.answers.forEach(answer => {
-        const answerModel = new Answer();
-        answerModel.pia_id = pia_id;
-        answerModel.reference_to = answer.reference_to;
-        answerModel.data = answer.data;
-        answerModel.created_at = new Date(answer.created_at);
-        if (answer.updated_at) {
-          answerModel.updated_at = new Date(answer.updated_at);
-        }
-        answerModel.create();
-      });
+    pia.create().then((piaId: number) => {
+      pia.id = piaId;
 
-      if (data.measures.length > 0) {
-        let count = 0;
-        const oldIdToNewId = [];
-        // Create measures
-        data.measures.forEach(measure => {
-          const measureModel = new Measure();
-          measureModel.title = measure.title;
-          measureModel.pia_id = pia_id;
-          measureModel.content = measure.content;
-          measureModel.placeholder = measure.placeholder;
-          measureModel.created_at = new Date(measure.created_at);
-          if (measure.updated_at) {
-            measureModel.updated_at = new Date(measure.updated_at);
-          }
-          measureModel.create().then((id: number) => {
-            count++;
-            oldIdToNewId[measure.id] = id;
-            if (count === data.measures.length) {
-              this.importEvaluations(data, pia_id, is_duplicate, oldIdToNewId);
-            }
-          });
-        });
-      } else {
-        this.importEvaluations(data, pia_id, is_duplicate);
-      }
-
+      this.importAnswers(data.answers, piaId);
+      this.importMeasures(data, piaId, is_duplicate);
       if (!is_duplicate) {
-        // Create comments
-        data.comments.forEach(comment => {
-          const commentModel = new Comment();
-          commentModel.pia_id = pia_id;
-          commentModel.description = comment.description;
-          commentModel.reference_to = comment.reference_to;
-          commentModel.for_measure = comment.for_measure;
-          commentModel.created_at = new Date(comment.created_at);
-          if (comment.updated_at) {
-            commentModel.updated_at = new Date(comment.updated_at);
-          }
-          commentModel.create();
-        });
+        this.importComments(data.comments, piaId);
       }
 
       this.pias.push(pia);
@@ -531,148 +483,37 @@ export class PiaService {
     await pia
       .update() // update pia storage
       .then(async () => {
-        console.log('finish pia');
-
         // DELETE EVERY ANSWERS, MEASURES AND COMMENT
-        const answerMachine = new Answer();
-        await answerMachine
-          .findAllByPia(pia.id)
-          .then(async (response: Array<Answer>) => {
-            for (const c of response) {
-              await answerMachine.delete(c.id).then(() => {
-                console.log('finish delete answer: ' + c.id);
-              });
-            }
-          });
-
-        const commentMachine = new Comment();
-        await commentMachine
-          .findAllByPia(pia.id)
-          .then(async (response: Array<Comment>) => {
-            for (const c of response) {
-              await commentMachine.delete(c.id).then(() => {
-                console.log('finish delete comment: ' + c.id);
-              });
-            }
-          });
-
-        const measureMachine = new Measure();
-        await measureMachine
-          .findAllByPia(pia.id)
-          .then(async (response: Array<Comment>) => {
-            for (const c of response) {
-              await measureMachine.delete(c.id).then(() => {
-                console.log('finish delete measure: ' + c.id);
-              });
-            }
-          });
-
-        const evaluationMachine = new Evaluation();
-        await evaluationMachine
-          .findAllByPia(pia.id)
-          .then(async (response: Array<Comment>) => {
-            for (const c of response) {
-              await evaluationMachine.delete(c.id).then(() => {
-                console.log('finish delete evaluation: ' + c.id);
-              });
-            }
-          });
+        this.destroyData(pia.id);
 
         // CREATE NEW ANSWERS, MEASURES AND COMMENT
-        // update answers
-        for (const answer of piaExport.answers) {
-          const answerModel = new Answer();
-          answerModel.pia_id = pia.id;
-          answerModel.reference_to = answer.reference_to;
-          answerModel.data = answer.data;
-          answerModel.created_at = new Date(answer.created_at);
-          if (answer.updated_at) {
-            answerModel.updated_at = new Date(answer.updated_at);
-          }
-          await answerModel.create().then(() => {
-            console.log('finish create answer');
-          });
-        }
-
-        // update measures
-        if (piaExport.measures.length > 0) {
-          let count = 0;
-          const oldIdToNewId = [];
-          // Create measures
-          for (const measure of piaExport.measures) {
-            const measureModel = new Measure();
-            measureModel.title = measure.title;
-            measureModel.pia_id = pia.id;
-            measureModel.content = measure.content;
-            measureModel.placeholder = measure.placeholder;
-            measureModel.created_at = new Date(measure.created_at);
-            if (measure.updated_at) {
-              measureModel.updated_at = new Date(measure.updated_at);
-            }
-            await measureModel.create().then(async (id: number) => {
-              console.log('finish create measure');
-              count++;
-              oldIdToNewId[measure.id] = id;
-              if (count === piaExport.measures.length) {
-                await this.importEvaluations(
-                  piaExport,
-                  pia.id,
-                  false,
-                  oldIdToNewId,
-                  resetOption
-                );
-              }
-            });
-          }
-        } else {
-          await this.importEvaluations(
-            piaExport,
-            pia.id,
-            false,
-            null,
-            resetOption
-          );
-        }
-
-        // update comment /!\ You have to delete
-        for (const comment of piaExport.comments) {
-          const commentModel = new Comment();
-          commentModel.pia_id = pia.id;
-          commentModel.description = comment.description;
-          commentModel.reference_to = comment.reference_to;
-          commentModel.for_measure = comment.for_measure;
-          commentModel.created_at = new Date(comment.created_at);
-          if (comment.updated_at) {
-            commentModel.updated_at = new Date(comment.updated_at);
-          }
-          await commentModel.create().then(() => {
-            console.log('finish create comment');
-          });
-        }
+        this.importAnswers(piaExport.answers, pia.id);
+        this.importMeasures(piaExport, pia.id, false);
+        this.importComments(piaExport.comments, pia.id);
       });
   }
 
   /**
    * Import all evaluations.
-   * @private
-   * @param {*} data - Data PIA.
-   * @param {number} pia_id - The PIA id.
-   * @param {boolean} is_duplicate - Is a duplicated PIA?
-   * @param {Array<any>} [oldIdToNewId] - Array to generate new id for special item.
+   * @param data - Data PIA.
+   * @param pia_id - The PIA id.
+   * @param is_duplicate - Is a duplicated PIA?
+   * @param [oldIdToNewId] - Array to generate new id for special item.
+   * @param resetStatus - Used to erase the PIA status
    */
   private async importEvaluations(
     data: any,
     pia_id: number,
     is_duplicate: boolean,
     oldIdToNewId?: Array<any>,
-    resetStatut?: Boolean
+    resetStatus?: boolean
   ) {
     if (!is_duplicate) {
       // Create evaluations
       for (const evaluation of data.evaluations) {
         const evaluationModel = new Evaluation();
         evaluationModel.pia_id = pia_id;
-        evaluationModel.status = resetStatut ? 0 : evaluation.status;
+        evaluationModel.status = resetStatus ? 0 : evaluation.status;
         let reference_to = evaluation.reference_to;
         if (reference_to.startsWith('3.1') && oldIdToNewId) {
           const ref = reference_to.split('.');
@@ -709,7 +550,7 @@ export class PiaService {
 
   /**
    * Make a JSON from the PIA data
-   * @param {number} id - The PIA id.
+   * @param id - The PIA id.
    */
   async export(id: number) {
     return new Promise(async (resolve, reject) => {
@@ -722,7 +563,7 @@ export class PiaService {
 
   /**
    * Import the PIA from file.
-   * @param {*} file - The exported PIA file.
+   * @param file - The exported PIA file.
    */
   async import(file: any) {
     const reader = new FileReader();
@@ -736,5 +577,126 @@ export class PiaService {
         console.error('Unable to parse JSON file.');
       }
     };
+  }
+
+  /**
+   * Destroy all PIA data (answers, comments, measure, evaluations)
+   * @param piaId - The PIA id
+   */
+  private async destroyData(piaId: number) {
+    const answer = new Answer();
+    await answer.findAllByPia(piaId).then(async (response: Array<Answer>) => {
+      for (const c of response) {
+        await answer.delete(c.id);
+      }
+    });
+
+    const comment = new Comment();
+    await comment.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+      for (const c of response) {
+        await comment.delete(c.id);
+      }
+    });
+
+    const measure = new Measure();
+    await measure.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+      for (const c of response) {
+        await measure.delete(c.id);
+      }
+    });
+
+    const evaluation = new Evaluation();
+    await evaluation
+      .findAllByPia(piaId)
+      .then(async (response: Array<Comment>) => {
+        for (const c of response) {
+          await evaluation.delete(c.id);
+        }
+      });
+  }
+
+  /**
+   * Import all answers
+   * @param answers - The list of answers
+   * @param piaId - The PIA id
+   */
+  private async importAnswers(answers: any, piaId: number) {
+    answers.forEach(answer => {
+      const answerModel = new Answer();
+      answerModel.pia_id = piaId;
+      answerModel.reference_to = answer.reference_to;
+      answerModel.data = answer.data;
+      answerModel.created_at = new Date(answer.created_at);
+      if (answer.updated_at) {
+        answerModel.updated_at = new Date(answer.updated_at);
+      }
+      answerModel.create();
+    });
+  }
+
+  /**
+   * Import all measures
+   * @param data - The entire PIA with evaluations
+   * @param piaId - The PIA id
+   * @param isDuplicate - To know if it's a duplication action
+   * @param resetStatus - To know if we need to reset the status
+   */
+  private async importMeasures(
+    data: any,
+    piaId: number,
+    isDuplicate: boolean,
+    resetStatus?: boolean
+  ) {
+    if (data.measures.length > 0) {
+      let count = 0;
+      const oldIdToNewId = [];
+      // Create measures
+      data.measures.forEach(measure => {
+        const measureModel = new Measure();
+        measureModel.title = measure.title;
+        measureModel.pia_id = piaId;
+        measureModel.content = measure.content;
+        measureModel.placeholder = measure.placeholder;
+        measureModel.created_at = new Date(measure.created_at);
+        if (measure.updated_at) {
+          measureModel.updated_at = new Date(measure.updated_at);
+        }
+        measureModel.create().then((id: number) => {
+          count++;
+          oldIdToNewId[measure.id] = id;
+          if (count === data.measures.length) {
+            this.importEvaluations(
+              data,
+              piaId,
+              isDuplicate,
+              oldIdToNewId,
+              resetStatus
+            );
+          }
+        });
+      });
+    } else {
+      this.importEvaluations(data, piaId, isDuplicate, null, resetStatus);
+    }
+  }
+
+  /**
+   * Import all comments
+   * @param comments - The list of comments
+   * @param piaId - The PIA id
+   */
+  private async importComments(comments: any, piaId: number) {
+    comments.forEach(comment => {
+      const commentModel = new Comment();
+      commentModel.pia_id = piaId;
+      commentModel.description = comment.description;
+      commentModel.reference_to = comment.reference_to;
+      commentModel.for_measure = comment.for_measure;
+      commentModel.created_at = new Date(comment.created_at);
+      if (comment.updated_at) {
+        commentModel.updated_at = new Date(comment.updated_at);
+      }
+      commentModel.create();
+    });
   }
 }
