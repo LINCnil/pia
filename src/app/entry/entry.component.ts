@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 
 import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Revision } from '../models/revision.model';
 
 import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
 import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
@@ -140,9 +141,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
   /**
    * Get the current Section and Item and initialize others information.
-   * @private
-   * @param {number} sectionId - The section id.
-   * @param {number} itemId - The item id.
+   * @param sectionId - The section id.
+   * @param itemId - The item id.
    */
   private async getSectionAndItem(sectionId: number, itemId: number) {
     if (this._piaService.pia.structure_data) {
@@ -214,7 +214,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       this.pia = this._piaService.pia;
 
       // Load PIA's revisions
-      this._revisionService.getAll(this.pia.id).then(resp => {
+      const revision = new Revision();
+      revision.findAllByPia(this.pia.id).then(resp => {
         this.revisions = resp;
       });
     });
@@ -255,12 +256,15 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   /**
    * Save revision as selection in revision service
    * and open a modal, waiting for confirmation
-   * @param {number} piaId
+   * @param revisionId - The revision id
    */
-  onSelectedRevision(piaId) {
-    localStorage.setItem('revision-date-id', piaId);
-    this._revisionService.prepareRevision(piaId);
-    this._modalsService.openModal('revision-selection');
+  onSelectedRevision(revisionId: number) {
+    this._revisionService
+      .prepareLoadRevision(revisionId, this._piaService.pia.id)
+      .then((createdAt: Date) => {
+        this._modalsService.revisionDate = createdAt;
+        this._modalsService.openModal('revision-selection');
+      });
   }
 
   /**

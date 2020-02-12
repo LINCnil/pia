@@ -450,47 +450,49 @@ export class PiaService {
   }
 
   async replacePiaByExport(piaExport, resetOption) {
-    const pia = new Pia();
-    pia.id = piaExport.pia.id;
-    pia.name = piaExport.pia.name;
-    pia.category = piaExport.pia.category;
-    pia.author_name = piaExport.pia.author_name;
-    pia.evaluator_name = piaExport.pia.evaluator_name;
-    pia.validator_name = piaExport.pia.validator_name;
-    pia.dpo_status = piaExport.pia.dpo_status;
-    pia.dpo_opinion = piaExport.pia.dpo_opinion;
-    pia.concerned_people_opinion = piaExport.pia.concerned_people_opinion;
-    pia.concerned_people_status = piaExport.pia.concerned_people_status;
-    pia.concerned_people_searched_opinion =
-      piaExport.pia.concerned_people_searched_opinion;
-    pia.concerned_people_searched_content =
-      piaExport.pia.concerned_people_searched_content;
-    pia.rejected_reason = piaExport.pia.rejected_reason;
-    pia.applied_adjustements = piaExport.pia.applied_adjustements;
-    pia.created_at = piaExport.pia.created_at;
-    pia.dpos_names = piaExport.pia.dpos_names;
-    pia.people_names = piaExport.pia.people_names;
-    pia.updated_at = new Date();
-    pia.status = resetOption ? 0 : piaExport.status;
-    /* Structure import if there is a specific one associated to this PIA */
-    if (piaExport.pia.structure_id) {
-      pia.structure_id = piaExport.pia.structure_id;
-      pia.structure_data = piaExport.pia.structure_data;
-      pia.structure_name = piaExport.pia.structure_name;
-      pia.structure_sector_name = piaExport.pia.structure_sector_name;
-    }
+    return new Promise(async resolve => {
+      const pia = new Pia();
+      pia.id = piaExport.pia.id;
+      pia.name = piaExport.pia.name;
+      pia.category = piaExport.pia.category;
+      pia.author_name = piaExport.pia.author_name;
+      pia.evaluator_name = piaExport.pia.evaluator_name;
+      pia.validator_name = piaExport.pia.validator_name;
+      pia.dpo_status = piaExport.pia.dpo_status;
+      pia.dpo_opinion = piaExport.pia.dpo_opinion;
+      pia.concerned_people_opinion = piaExport.pia.concerned_people_opinion;
+      pia.concerned_people_status = piaExport.pia.concerned_people_status;
+      pia.concerned_people_searched_opinion =
+        piaExport.pia.concerned_people_searched_opinion;
+      pia.concerned_people_searched_content =
+        piaExport.pia.concerned_people_searched_content;
+      pia.rejected_reason = piaExport.pia.rejected_reason;
+      pia.applied_adjustements = piaExport.pia.applied_adjustements;
+      pia.created_at = piaExport.pia.created_at;
+      pia.dpos_names = piaExport.pia.dpos_names;
+      pia.people_names = piaExport.pia.people_names;
+      pia.updated_at = new Date();
+      pia.status = resetOption ? 0 : piaExport.status;
+      /* Structure import if there is a specific one associated to this PIA */
+      if (piaExport.pia.structure_id) {
+        pia.structure_id = piaExport.pia.structure_id;
+        pia.structure_data = piaExport.pia.structure_data;
+        pia.structure_name = piaExport.pia.structure_name;
+        pia.structure_sector_name = piaExport.pia.structure_sector_name;
+      }
 
-    await pia
-      .update() // update pia storage
-      .then(async () => {
-        // DELETE EVERY ANSWERS, MEASURES AND COMMENT
-        this.destroyData(pia.id);
-
-        // CREATE NEW ANSWERS, MEASURES AND COMMENT
-        this.importAnswers(piaExport.answers, pia.id);
-        this.importMeasures(piaExport, pia.id, false);
-        this.importComments(piaExport.comments, pia.id);
-      });
+      pia
+        .update() // update pia storage
+        .then(async () => {
+          // DELETE EVERY ANSWERS, MEASURES AND COMMENT
+          await this.destroyData(pia.id);
+          // CREATE NEW ANSWERS, MEASURES AND COMMENT
+          await this.importAnswers(piaExport.answers, pia.id);
+          await this.importMeasures(piaExport, pia.id, false);
+          await this.importComments(piaExport.comments, pia.id);
+          resolve();
+        });
+    });
   }
 
   /**

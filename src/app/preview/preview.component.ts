@@ -11,6 +11,7 @@ import {
 import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
 import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
+import { Revision } from '../models/revision.model';
 
 import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
 import { PiaService } from 'src/app/services/pia.service';
@@ -30,7 +31,7 @@ import { LanguagesService } from 'src/app/services/languages.service';
   ],
   providers: [PiaService, RevisionService, ModalsService]
 })
-export class PreviewComponent implements OnInit {
+export class PreviewComponent implements OnInit, AfterViewChecked {
   public activeElement: string;
   data: { sections: any };
   content: any[];
@@ -70,7 +71,8 @@ export class PreviewComponent implements OnInit {
       }
 
       // Load PIA's revisions
-      this._revisionService.getAll(this.pia.id).then(resp => {
+      const revision = new Revision();
+      revision.findAllByPia(this.pia.id).then(resp => {
         this.revisions = resp;
       });
     });
@@ -106,7 +108,7 @@ export class PreviewComponent implements OnInit {
 
   /********** REVISIONS ACTIONS ***********/
   /**
-   * Create a new Revision record in indexDB
+   * Create a new Revision record in indexedDB
    */
   onNewRevision() {
     this._piaService.export(this.pia.id).then(exportResult => {
@@ -121,12 +123,15 @@ export class PreviewComponent implements OnInit {
   /**
    * Save revision as selection in revision service
    * and open a modal, waiting for confirmation
-   * @param {number} piaId
+   * @param - The Revision id
    */
-  onSelectedRevision(piaId) {
-    localStorage.setItem('revision-date-id', piaId);
-    this._revisionService.prepareRevision(piaId);
-    this._modalsService.openModal('revision-selection');
+  onSelectedRevision(revisionId) {
+    this._revisionService
+      .prepareLoadRevision(revisionId, this._piaService.pia.id)
+      .then((createdAt: Date) => {
+        this._modalsService.revisionDate = createdAt;
+        this._modalsService.openModal('revision-selection');
+      });
   }
 
   /**
