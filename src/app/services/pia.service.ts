@@ -121,15 +121,8 @@ export class PiaService {
             }
           } else if (item.questions) {
             item.questions.forEach(question => {
-              if (
-                question.answer &&
-                question.answer.length > 0 &&
-                question.answer.title &&
-                question.answer.title.length <= 0
-              ) {
-                const index = item.questions.findIndex(
-                  q => q.id === question.id
-                );
+              if (question.answer && question.answer.length > 0 && question.answer.title && question.answer.title.length <= 0) {
+                const index = item.questions.findIndex(q => q.id === question.id);
                 item.questions.splice(index, 1);
               }
             });
@@ -143,9 +136,7 @@ export class PiaService {
   async structureCreateMeasures(pia: Pia, id: any) {
     return new Promise((resolve, reject) => {
       // Record the structures Measures
-      const structures_measures = pia.structure_data.sections
-        .filter(s => s.id === 3)[0]
-        .items.filter(i => i.id === 1)[0].answers;
+      const structures_measures = pia.structure_data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers;
       let i = 0;
       if (structures_measures.length > 0) {
         for (const m in structures_measures) {
@@ -227,17 +218,10 @@ export class PiaService {
     });
 
     // Removes the PIA from the view.
-    if (
-      localStorage.getItem('homepageDisplayMode') &&
-      localStorage.getItem('homepageDisplayMode') === 'list'
-    ) {
-      document
-        .querySelector('.app-list-item[data-id="' + piaID + '"]')
-        .remove();
+    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+      document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
     } else {
-      document
-        .querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]')
-        .remove();
+      document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
     }
 
     localStorage.removeItem('pia-to-archive-id');
@@ -348,12 +332,7 @@ export class PiaService {
    * @param is_duplicate - Is a duplicate PIA?
    * @param [is_example] - Is the PIA example?
    */
-  async importData(
-    data: any,
-    prefix: string,
-    is_duplicate: boolean,
-    is_example?: boolean
-  ) {
+  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
     if (!('pia' in data) || !('dbVersion' in data.pia)) {
       this._modalsService.openModal('import-wrong-pia-file');
       return;
@@ -368,10 +347,8 @@ export class PiaService {
     pia.dpo_opinion = data.pia.dpo_opinion;
     pia.concerned_people_opinion = data.pia.concerned_people_opinion;
     pia.concerned_people_status = data.pia.concerned_people_status;
-    pia.concerned_people_searched_opinion =
-      data.pia.concerned_people_searched_opinion;
-    pia.concerned_people_searched_content =
-      data.pia.concerned_people_searched_content;
+    pia.concerned_people_searched_opinion = data.pia.concerned_people_searched_opinion;
+    pia.concerned_people_searched_content = data.pia.concerned_people_searched_content;
     pia.rejected_reason = data.pia.rejected_reason;
     pia.applied_adjustements = data.pia.applied_adjustements;
     pia.created_at = data.pia.created_at;
@@ -440,10 +417,8 @@ export class PiaService {
       pia.dpo_opinion = piaExport.pia.dpo_opinion;
       pia.concerned_people_opinion = piaExport.pia.concerned_people_opinion;
       pia.concerned_people_status = piaExport.pia.concerned_people_status;
-      pia.concerned_people_searched_opinion =
-        piaExport.pia.concerned_people_searched_opinion;
-      pia.concerned_people_searched_content =
-        piaExport.pia.concerned_people_searched_content;
+      pia.concerned_people_searched_opinion = piaExport.pia.concerned_people_searched_opinion;
+      pia.concerned_people_searched_content = piaExport.pia.concerned_people_searched_content;
       pia.rejected_reason = piaExport.pia.rejected_reason;
       pia.applied_adjustements = piaExport.pia.applied_adjustements;
       pia.created_at = piaExport.pia.created_at;
@@ -481,13 +456,7 @@ export class PiaService {
    * @param [oldIdToNewId] - Array to generate new id for special item.
    * @param resetStatus - Used to erase the PIA status
    */
-  private async importEvaluations(
-    data: any,
-    pia_id: number,
-    is_duplicate: boolean,
-    oldIdToNewId?: Array<any>,
-    resetStatus?: boolean
-  ) {
+  private async importEvaluations(data: any, pia_id: number, is_duplicate: boolean, oldIdToNewId?: Array<any>, resetStatus?: boolean) {
     if (!is_duplicate) {
       // Create evaluations
       for (const evaluation of data.evaluations) {
@@ -505,15 +474,11 @@ export class PiaService {
         evaluationModel.action_plan_comment = evaluation.action_plan_comment;
         evaluationModel.evaluation_comment = evaluation.evaluation_comment;
         if (evaluation.evaluation_date) {
-          evaluationModel.evaluation_date = new Date(
-            evaluation.evaluation_date
-          );
+          evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
         }
         evaluationModel.gauges = evaluation.gauges;
         if (evaluation.estimated_implementation_date) {
-          evaluationModel.estimated_implementation_date = new Date(
-            evaluation.estimated_implementation_date
-          );
+          evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
         }
         evaluationModel.person_in_charge = evaluation.person_in_charge;
         evaluationModel.global_status = evaluation.global_status;
@@ -565,6 +530,7 @@ export class PiaService {
    */
   private async destroyData(piaId: number) {
     const answer = new Answer();
+    answer.pia_id = piaId;
     await answer.findAllByPia(piaId).then(async (response: Array<Answer>) => {
       for (const c of response) {
         await answer.delete(c.id);
@@ -572,6 +538,7 @@ export class PiaService {
     });
 
     const comment = new Comment();
+    comment.pia_id = piaId;
     await comment.findAllByPia(piaId).then(async (response: Array<Comment>) => {
       for (const c of response) {
         await comment.delete(c.id);
@@ -579,6 +546,7 @@ export class PiaService {
     });
 
     const measure = new Measure();
+    measure.pia_id = piaId;
     await measure.findAllByPia(piaId).then(async (response: Array<Comment>) => {
       for (const c of response) {
         await measure.delete(c.id);
@@ -586,13 +554,12 @@ export class PiaService {
     });
 
     const evaluation = new Evaluation();
-    await evaluation
-      .findAllByPia(piaId)
-      .then(async (response: Array<Comment>) => {
-        for (const c of response) {
-          await evaluation.delete(c.id);
-        }
-      });
+    evaluation.pia_id = piaId;
+    await evaluation.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+      for (const c of response) {
+        await evaluation.delete(c.id);
+      }
+    });
   }
 
   /**
@@ -621,12 +588,7 @@ export class PiaService {
    * @param isDuplicate - To know if it's a duplication action
    * @param resetStatus - To know if we need to reset the status
    */
-  private async importMeasures(
-    data: any,
-    piaId: number,
-    isDuplicate: boolean,
-    resetStatus?: boolean
-  ) {
+  private async importMeasures(data: any, piaId: number, isDuplicate: boolean, resetStatus?: boolean) {
     if (data.measures.length > 0) {
       let count = 0;
       const oldIdToNewId = [];
@@ -645,13 +607,7 @@ export class PiaService {
           count++;
           oldIdToNewId[measure.id] = id;
           if (count === data.measures.length) {
-            this.importEvaluations(
-              data,
-              piaId,
-              isDuplicate,
-              oldIdToNewId,
-              resetStatus
-            );
+            this.importEvaluations(data, piaId, isDuplicate, oldIdToNewId, resetStatus);
           }
         });
       });
