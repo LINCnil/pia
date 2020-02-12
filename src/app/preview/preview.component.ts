@@ -61,7 +61,6 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
 
     this._piaService.getPIA().then(() => {
       this.pia = this._piaService.pia;
-      this._piaService.calculPiaProgress(this.pia);
       this.showPia();
       this._attachmentsService.pia = this.pia;
       this._attachmentsService.listAttachments();
