@@ -21,14 +21,14 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from '../../services/pia.service';
 
-function slugify(string) {
+function slugify(data) {
   const a =
     'àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹńňñòóöôœøṕŕřßşśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;';
   const b =
     'aaaaaaaaacccddeeeeeeegghiiiiilmnnnnooooooprrsssssttuuuuuuuuuwxyyzzz------';
   const p = new RegExp(a.split('').join('|'), 'g');
 
-  return string
+  return data
     .toString()
     .toLowerCase()
     .replace(/\s+/g, '-') // Replace spaces with -
@@ -49,12 +49,12 @@ function slugify(string) {
 export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() currentVersion: Date;
   @Input() revisions: Array<any>;
-  @Input() title: boolean = true;
+  @Input() title = true;
   @Output('newRevisionQuery') newRevisionEmitter = new EventEmitter();
   @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
 
   subscription: Subscription;
-  public opened: Boolean = false;
+  public opened = false;
   subject = new Subject();
   public revisionsGroupByMonth = {};
   public revisionsGroupByMonthInArray;
@@ -88,12 +88,14 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
           temp =
             this._translateService.instant('date.' + temp[0]) + ' ' + temp[1];
         } else {
-          if (temp == 'translate-month') {
+          if (temp === 'translate-month') {
             temp = new DatePipe(this._translateService.currentLang).transform(
               obj.created_at,
               'MMMM y'
             );
-          } else temp = this._translateService.instant('date.' + temp);
+          } else {
+            temp = this._translateService.instant('date.' + temp);
+          }
         }
         const key = temp;
 
@@ -116,9 +118,9 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     this.newRevisionEmitter.emit();
   }
 
-  onRevisionSelection(revision, event: Event) {
+  onRevisionSelection(revisionId: number, event: Event) {
     // emit revision selection
-    this.selectedRevisionEmitter.emit(revision);
+    this.selectedRevisionEmitter.emit(revisionId);
     event.preventDefault();
   }
 
