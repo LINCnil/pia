@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 
@@ -19,10 +19,7 @@ import { RevisionService } from '../services/revision.service';
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
-  styleUrls: [
-    './entry.component.scss',
-    './entry-content/action-plan/action-plan.component.scss'
-  ],
+  styleUrls: ['./entry.component.scss', './entry-content/action-plan/action-plan.component.scss'],
   providers: [PiaService, RevisionService]
 })
 export class EntryComponent implements OnInit, OnDestroy, DoCheck {
@@ -55,7 +52,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     private _actionPlanService: ActionPlanService,
     private _globalEvaluationService: GlobalEvaluationService,
     public _revisionService: RevisionService,
-    private _measureService: MeasureService
+    private _measureService: MeasureService,
+    private router: Router
   ) {}
 
   async ngOnInit() {
@@ -63,19 +61,24 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     let itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
     await this._piaService.getPIA();
-    if (this._piaService.pia.structure_data) {
-      this._appDataService.dataNav = this._piaService.pia.structure_data;
-    } else {
-      this._appDataService.resetDataNav();
-    }
-    this.data = this._appDataService.dataNav;
 
-    this.route.params.subscribe((params: Params) => {
-      sectionId = parseInt(params.section_id, 10);
-      itemId = parseInt(params.item_id, 10);
-      this.getSectionAndItem(sectionId, itemId);
-      window.scroll(0, 0);
-    });
+    if (!sectionId || !itemId) {
+      this.router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1]);
+    } else {
+      if (this._piaService.pia.structure_data) {
+        this._appDataService.dataNav = this._piaService.pia.structure_data;
+      } else {
+        this._appDataService.resetDataNav();
+      }
+      this.data = this._appDataService.dataNav;
+
+      this.route.params.subscribe((params: Params) => {
+        sectionId = parseInt(params.section_id, 10);
+        itemId = parseInt(params.item_id, 10);
+        this.getSectionAndItem(sectionId, itemId);
+        window.scroll(0, 0);
+      });
+    }
 
     // Suscribe to measure service messages
     this.subscription = this._measureService.behaviorSubject.subscribe(val => {
@@ -84,10 +87,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   ngDoCheck() {
-    if (
-      this.measureToRemoveFromTags &&
-      this.measureToRemoveFromTags.length > 0
-    ) {
+    if (this.measureToRemoveFromTags && this.measureToRemoveFromTags.length > 0) {
       const measureName = this.measureToRemoveFromTags;
       this.measureToRemoveFromTags = null;
 
@@ -98,10 +98,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
           if (item.questions) {
             itemsQuestions.push(
               item.questions.filter(question => {
-                return (
-                  question.answer_type === 'list' &&
-                  question.is_measure === true
-                );
+                return question.answer_type === 'list' && question.is_measure === true;
               })
             );
           }
@@ -109,27 +106,19 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       });
 
       // Keep only questions with measures lists
-      const listQuestions = itemsQuestions.filter(
-        v => Object.keys(v).length !== 0
-      );
+      const listQuestions = itemsQuestions.filter(v => Object.keys(v).length !== 0);
 
       // For each of these questions, get their respective answer
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
           const answer = new Answer();
-          answer
-            .getByReferenceAndPia(this._piaService.pia.id, q.id)
-            .then(() => {
-              if (
-                answer.data &&
-                answer.data.list.length > 0 &&
-                answer.data.list.includes(measureName)
-              ) {
-                const index = answer.data.list.indexOf(measureName);
-                answer.data.list.splice(index, 1);
-                answer.update();
-              }
-            });
+          answer.getByReferenceAndPia(this._piaService.pia.id, q.id).then(() => {
+            if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
+              const index = answer.data.list.indexOf(measureName);
+              answer.data.list.splice(index, 1);
+              answer.update();
+            }
+          });
         });
       });
     }
@@ -172,10 +161,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       this._measureService.listMeasures(this._piaService.pia.id).then(() => {
         /* Modal for risks if no measures yet */
         let displayModal = true;
-        if (
-          this.section.id === 3 &&
-          (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)
-        ) {
+        if (this.section.id === 3 && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
           if (this._measureService.measures.length > 0) {
             this._measureService.measures.forEach(element => {
               if (element.title && element.title.length > 0) {
@@ -189,20 +175,12 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
         }
 
         /* Modal for action plan if no evaluations yet */
-        if (
-          this.section.id === 4 &&
-          this.item.id === 2 &&
-          !this._sidStatusService.verifEnableActionPlan()
-        ) {
+        if (this.section.id === 4 && this.item.id === 2 && !this._sidStatusService.verifEnableActionPlan()) {
           this._modalsService.openModal('pia-action-plan-no-evaluation');
         }
 
         /* Modal for dpo page if all evaluations are not done yet */
-        if (
-          this.section.id === 4 &&
-          this.item.id === 3 &&
-          !this._sidStatusService.enableDpoValidation
-        ) {
+        if (this.section.id === 4 && this.item.id === 3 && !this._sidStatusService.enableDpoValidation) {
           this._modalsService.openModal('pia-dpo-missing-evaluations');
         }
       });
@@ -221,12 +199,8 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     });
 
     // Update on knowledge base (scroll / content / search field)
-    const knowledgeBaseScroll = document.querySelector(
-      '.pia-knowledgeBaseBlock-list'
-    );
-    const knowledgeBaseContent = document.querySelector(
-      '.pia-knowledgeBaseBlock-searchForm input'
-    ) as HTMLInputElement;
+    const knowledgeBaseScroll = document.querySelector('.pia-knowledgeBaseBlock-list');
+    const knowledgeBaseContent = document.querySelector('.pia-knowledgeBaseBlock-searchForm input') as HTMLInputElement;
     if (knowledgeBaseContent) {
       knowledgeBaseScroll.scrollTop = 0;
       knowledgeBaseContent.value = '';
@@ -243,13 +217,11 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
    */
   onNewRevision() {
     this._piaService.export(this._piaService.pia.id).then(exportResult => {
-      this._revisionService
-        .add(exportResult, this._piaService.pia.id)
-        .then(resp => {
-          // because ngOnchanges no detect simply array push
-          this.revisions.push(resp);
-          this.revisions = this.revisions.slice();
-        });
+      this._revisionService.add(exportResult, this._piaService.pia.id).then(resp => {
+        // because ngOnchanges no detect simply array push
+        this.revisions.push(resp);
+        this.revisions = this.revisions.slice();
+      });
     });
   }
 
@@ -259,12 +231,10 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
    * @param revisionId - The revision id
    */
   onSelectedRevision(revisionId: number) {
-    this._revisionService
-      .prepareLoadRevision(revisionId, this._piaService.pia.id)
-      .then((createdAt: Date) => {
-        this._modalsService.revisionDate = createdAt;
-        this._modalsService.openModal('revision-selection');
-      });
+    this._revisionService.prepareLoadRevision(revisionId, this._piaService.pia.id).then((createdAt: Date) => {
+      this._modalsService.revisionDate = createdAt;
+      this._modalsService.openModal('revision-selection');
+    });
   }
 
   /**

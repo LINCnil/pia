@@ -20,14 +20,7 @@ export class RevisionService {
       revision.get(this.revisionSelected).then(() => {
         const piaExport = JSON.parse(revision.export);
         this.piaService.replacePiaByExport(piaExport, true).then(() => {
-          this.router.navigate([
-            'entry',
-            this.piaService.pia.id,
-            'section',
-            1,
-            'item',
-            1
-          ]);
+          this.router.navigate(['entry', this.piaService.pia.id]);
           resolve();
         });
       });
