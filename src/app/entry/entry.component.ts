@@ -274,7 +274,9 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     localStorage.removeItem('revision-date-id');
     this.onNewRevision();
     this.revisionOverlay = true;
-    this._revisionService.loadRevision();
+    this._revisionService.loadRevision().then(() => {
+      this.revisionOverlay = false;
+    });
   }
 
   /********** END REVISIONS ACTIONS ***********/

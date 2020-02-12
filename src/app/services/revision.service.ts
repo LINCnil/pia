@@ -2,23 +2,34 @@ import { Injectable } from '@angular/core';
 
 import { Revision } from '../models/revision.model';
 import { PiaService } from './pia.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class RevisionService {
   public revisionSelected: number;
 
-  constructor(public piaService: PiaService) {}
+  constructor(public piaService: PiaService, private router: Router) {}
 
   /**
    * Load a new revision
    */
   async loadRevision() {
-    const revision = new Revision();
-    revision.pia_id = this.piaService.pia.id;
-    revision.get(this.revisionSelected).then(() => {
-      const piaExport = JSON.parse(revision.export);
-      this.piaService.replacePiaByExport(piaExport, true).then(() => {
-        location.reload();
+    return new Promise(resolve => {
+      const revision = new Revision();
+      revision.pia_id = this.piaService.pia.id;
+      revision.get(this.revisionSelected).then(() => {
+        const piaExport = JSON.parse(revision.export);
+        this.piaService.replacePiaByExport(piaExport, true).then(() => {
+          this.router.navigate([
+            'entry',
+            this.piaService.pia.id,
+            'section',
+            1,
+            'item',
+            1
+          ]);
+          resolve();
+        });
       });
     });
   }

@@ -140,7 +140,9 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     localStorage.removeItem('revision-date-id');
     this.onNewRevision();
     this.revisionOverlay = true;
-    this._revisionService.loadRevision();
+    this._revisionService.loadRevision().then(() => {
+      this.revisionOverlay = false;
+    });
   }
   /********** END REVISIONS ACTIONS ***********/
 
