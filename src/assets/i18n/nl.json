@@ -199,6 +199,7 @@
 			"item": {
 				"consult_pia": "Raadplegen",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Aanpassen",
 				"edit_structure": "Sjabloon aanpassen",
 				"tools": {

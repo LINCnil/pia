@@ -19,23 +19,21 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   @ViewChild('DpoNames', { static: false }) private elementRef1: ElementRef;
   @ViewChild('PeopleNames', { static: false }) private elementRef2: ElementRef;
 
-  constructor(private el: ElementRef,
-              public _sidStatusService: SidStatusService,
-              public _piaService: PiaService) { }
+  constructor(private el: ElementRef, public _sidStatusService: SidStatusService, public _piaService: PiaService) {}
 
   ngOnInit() {
     this.DPOForm = new FormGroup({
-      DPOStatus : new FormControl(),
-      DPOOpinion : new FormControl(),
-      DPONames : new FormControl()
+      DPOStatus: new FormControl(),
+      DPOOpinion: new FormControl(),
+      DPONames: new FormControl()
     });
     this.searchedOpinionsForm = new FormGroup({
-      searchStatus : new FormControl(),
-      searchContent : new FormControl()
+      searchStatus: new FormControl(),
+      searchContent: new FormControl()
     });
     this.peopleForm = new FormGroup({
-      peopleStatus : new FormControl(),
-      peopleOpinion : new FormControl(),
+      peopleStatus: new FormControl(),
+      peopleOpinion: new FormControl(),
       peopleNames: new FormControl()
     });
 
@@ -135,7 +133,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.DPOForm.controls['DPOOpinion'].patchValue(null);
     }
     this._piaService.pia.update().then(() => {
-      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      this._sidStatusService.setSidStatus(this._piaService.pia, { id: 4 }, { id: 3 });
       if (this.DPOForm.value.DPONames && this.DPOForm.value.DPONames.length > 0) {
         this.DPOForm.controls['DPONames'].disable();
       }
@@ -159,7 +157,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   dpoStatusFocusOut() {
     this._piaService.pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
     this._piaService.pia.update().then(() => {
-      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      this._sidStatusService.setSidStatus(this._piaService.pia, { id: 4 }, { id: 3 });
     });
   }
 
@@ -185,7 +183,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this._piaService.pia.dpo_opinion = userText;
     this._piaService.pia.update().then(() => {
-      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      this._sidStatusService.setSidStatus(this._piaService.pia, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.DPOForm.controls['DPOOpinion'].disable();
       }
@@ -218,7 +216,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         this.displayPeopleSearchContent = true;
       }
       this._piaService.pia.update().then(() => {
-        this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+        this._sidStatusService.setSidStatus(this._piaService.pia, { id: 4 }, { id: 3 });
       });
     }
   }
@@ -245,7 +243,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this._piaService.pia.concerned_people_searched_content = userText;
     this._piaService.pia.update().then(() => {
-      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      this._sidStatusService.setSidStatus(this._piaService.pia, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.searchedOpinionsForm.controls['searchContent'].disable();
       }
@@ -280,7 +278,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.controls['peopleStatus'].patchValue(null);
     }
     this._piaService.pia.update().then(() => {
-      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      this._sidStatusService.setSidStatus(this._piaService.pia, { id: 4 }, { id: 3 });
       if (this.peopleForm.value.peopleNames && this.peopleForm.value.peopleNames.length > 0) {
         this.peopleForm.controls['peopleNames'].disable();
       }
@@ -305,7 +303,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     if (this.peopleForm.value.peopleStatus && this.peopleForm.value.peopleStatus >= 0) {
       this._piaService.pia.concerned_people_status = parseInt(this.peopleForm.value.peopleStatus, 10);
       this._piaService.pia.update().then(() => {
-        this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+        this._sidStatusService.setSidStatus(this._piaService.pia, { id: 4 }, { id: 3 });
       });
     }
   }
@@ -332,7 +330,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this._piaService.pia.concerned_people_opinion = userText;
     this._piaService.pia.update().then(() => {
-      this._sidStatusService.setSidStatus(this._piaService, { id: 4 }, { id: 3 });
+      this._sidStatusService.setSidStatus(this._piaService.pia, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.peopleForm.controls['peopleOpinion'].disable();
       }
@@ -351,7 +349,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     if (textarea.clientHeight < textarea.scrollHeight) {
       textarea.style.height = textarea.scrollHeight + 'px';
       if (textarea.clientHeight < textarea.scrollHeight) {
-        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+        textarea.style.height = textarea.scrollHeight * 2 - textarea.clientHeight + 'px';
       }
     }
   }
