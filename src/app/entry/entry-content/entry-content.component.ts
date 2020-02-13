@@ -20,7 +20,6 @@ import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-bas
   styleUrls: ['./entry-content.component.scss'],
   providers: [PiaService]
 })
-
 export class EntryContentComponent implements OnInit, OnChanges {
   @Input() section: any;
   @Input() item: any;
@@ -31,17 +30,19 @@ export class EntryContentComponent implements OnInit, OnChanges {
   userAnswersForThreats = [];
   userAnswersForSources = [];
 
-  constructor(private _router: Router,
-              private _appDataService: AppDataService,
-              private _activatedRoute: ActivatedRoute,
-              public _measureService: MeasureService,
-              private _modalsService: ModalsService,
-              public _piaService: PiaService,
-              public _sidStatusService: SidStatusService,
-              public _globalEvaluationService: GlobalEvaluationService,
-              public _paginationService: PaginationService,
-              private _translateService: TranslateService,
-              private _knowledgeBaseService: KnowledgeBaseService) { }
+  constructor(
+    private _router: Router,
+    private _appDataService: AppDataService,
+    private _activatedRoute: ActivatedRoute,
+    public _measureService: MeasureService,
+    private _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _sidStatusService: SidStatusService,
+    public _globalEvaluationService: GlobalEvaluationService,
+    public _paginationService: PaginationService,
+    private _translateService: TranslateService,
+    private _knowledgeBaseService: KnowledgeBaseService
+  ) {}
 
   ngOnInit() {
     // Reset measures no longer addable from KB when switching PIA
@@ -65,7 +66,9 @@ export class EntryContentComponent implements OnInit, OnChanges {
     const sectionId = parseInt(this._activatedRoute.snapshot.params.section_id, 10);
     const itemId = parseInt(this._activatedRoute.snapshot.params.item_id, 10);
 
-    this._paginationService.setPagination(sectionId, itemId);
+    if (sectionId && itemId) {
+      this._paginationService.setPagination(sectionId, itemId);
+    }
   }
 
   /**
@@ -120,14 +123,7 @@ export class EntryContentComponent implements OnInit, OnChanges {
   private goToNextSectionItem(status_start: number, status_end: number) {
     const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end);
 
-    this._router.navigate([
-      'entry',
-      this._piaService.pia.id,
-      'section',
-      goto_section_item[0],
-      'item',
-      goto_section_item[1]
-    ]);
+    this._router.navigate(['entry', this._piaService.pia.id, 'section', goto_section_item[0], 'item', goto_section_item[1]]);
   }
 
   /**
@@ -145,5 +141,4 @@ export class EntryContentComponent implements OnInit, OnChanges {
     this._globalEvaluationService.cancelValidation();
     this._modalsService.openModal('back-to-evaluation');
   }
-
 }

@@ -199,6 +199,7 @@
 			"item": {
 				"consult_pia": "Peržiūrėti",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Redaguoti",
 				"edit_structure": "Redaguoti šabloną",
 				"tools": {

@@ -199,6 +199,7 @@
 			"item": {
 				"consult_pia": "Konsultera",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Redigera",
 				"edit_structure": "Redigera mall",
 				"tools": {

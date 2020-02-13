@@ -6,14 +6,14 @@ import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { SidStatusService } from './sid-status.service';
 
 @Injectable()
 export class ArchiveService {
   archivedPias = [];
   data: { sections: any };
 
-  constructor(private _modalsService: ModalsService,
-              public _appDataService: AppDataService) {
+  constructor(private _modalsService: ModalsService, public _appDataService: AppDataService, public _sidStatusService: SidStatusService) {
     this.data = this._appDataService.dataNav;
   }
 
@@ -68,30 +68,15 @@ export class ArchiveService {
     });
   }
 
-  calculPiaProgress(pia: Pia) {
-    let numberElementsToValidate = 1;
+  async calculPiaProgress(pia) {
+    pia.progress = 0.0;
+    if (pia.status > 0) {
+      pia.progress += 4;
+    }
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
-        if (item.questions) {
-          numberElementsToValidate += item.questions.length;
-        }
-      });
-    });
-    const answer = new Answer();
-    let numberElementsValidated = 0;
-    answer.findAllByPia(pia.id).then((answers: any) => {
-      numberElementsValidated += answers.length;
-      if (pia.status > 1) {
-        numberElementsValidated += 1;
-      }
-      const measure = new Measure();
-      measure.pia_id = pia.id;
-      measure.findAll().then((measures: any) => {
-        numberElementsToValidate += measures.length;
-        numberElementsValidated += measures.length;
-        pia.progress = Math.round((100 / numberElementsToValidate) * numberElementsValidated);
+        this._sidStatusService.setSidStatus(pia, section, item);
       });
     });
   }
-
 }

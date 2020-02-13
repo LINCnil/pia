@@ -199,6 +199,7 @@
 			"item": {
 				"consult_pia": "Consultare",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Editare",
 				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {

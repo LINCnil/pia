@@ -198,7 +198,8 @@
 			"import_structure": "Importer modèle",
 			"item": {
 				"consult_pia": "Consulter",
-				"consult_structure": "Consulter le modèle",
+        "consult_structure": "Consulter le modèle",
+        "validate_pia": "Valider",
 				"edit_pia": "Éditer",
 				"edit_structure": "Éditer le modèle",
 				"tools": {

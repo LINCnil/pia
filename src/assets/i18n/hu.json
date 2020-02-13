@@ -199,6 +199,7 @@
 			"item": {
 				"consult_pia": "Áttekintése",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Szerkesztése",
 				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
