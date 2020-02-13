@@ -1,13 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-  OnChanges
-} from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { ModalsService } from 'src/app/modals/modals.service';
@@ -22,10 +13,8 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from '../../services/pia.service';
 
 function slugify(data) {
-  const a =
-    'àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹńňñòóöôœøṕŕřßşśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;';
-  const b =
-    'aaaaaaaaacccddeeeeeeegghiiiiilmnnnnooooooprrsssssttuuuuuuuuuwxyyzzz------';
+  const a = 'àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹńňñòóöôœøṕŕřßşśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;';
+  const b = 'aaaaaaaaacccddeeeeeeegghiiiiilmnnnnooooooprrsssssttuuuuuuuuuwxyyzzz------';
   const p = new RegExp(a.split('').join('|'), 'g');
 
   return data
@@ -60,39 +49,32 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   public revisionsGroupByMonthInArray;
   public objectKeys = Object.entries;
 
-  constructor(
-    private _translateService: TranslateService,
-    public _languagesService: LanguagesService
-  ) {}
+  constructor(private _translateService: TranslateService, public _languagesService: LanguagesService) {}
 
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
     // Update RevisionGroupByMonth on this.revisions changements
     this.generateDates(changes);
-    this.subscription = this._translateService.onLangChange.subscribe(
-      (event: LangChangeEvent) => {
-        this.generateDates(changes);
-      }
-    );
+    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.generateDates(changes);
+    });
   }
 
   generateDates(changes) {
     if (changes.revisions && changes.revisions.currentValue) {
       changes.revisions.currentValue.forEach(obj => {
         // Determite key and translate it
+        this.revisionsGroupByMonth = {};
+        this.revisionsGroupByMonthInArray = [];
 
         let temp = slugify(new RelativeDate(obj.created_at).simple());
         if (/\d/.test(temp)) {
           temp = temp.split('-');
-          temp =
-            this._translateService.instant('date.' + temp[0]) + ' ' + temp[1];
+          temp = this._translateService.instant('date.' + temp[0]) + ' ' + temp[1];
         } else {
           if (temp === 'translate-month') {
-            temp = new DatePipe(this._translateService.currentLang).transform(
-              obj.created_at,
-              'MMMM y'
-            );
+            temp = new DatePipe(this._translateService.currentLang).transform(obj.created_at, 'MMMM y');
           } else {
             temp = this._translateService.instant('date.' + temp);
           }
@@ -107,9 +89,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
           this.revisionsGroupByMonth[key].push(obj);
         }
       });
-      this.revisionsGroupByMonthInArray = Object.keys(
-        this.revisionsGroupByMonth
-      ); // Get Properties on array
+      this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth); // Get Properties on array
     }
   }
 
