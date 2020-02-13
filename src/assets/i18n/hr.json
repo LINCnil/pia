@@ -203,6 +203,7 @@
 			"item": {
 				"consult_pia": "Pogledaj",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Uredi",
 				"edit_structure": "Uredi obrazac",
 				"tools": {

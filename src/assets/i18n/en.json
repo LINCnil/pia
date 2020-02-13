@@ -203,6 +203,7 @@
 			"item": {
 				"consult_pia": "Consult",
 				"consult_structure": "Consult template",
+        "validate_pia": "Validate",
 				"edit_pia": "Edit",
 				"edit_structure": "Edit template",
 				"tools": {

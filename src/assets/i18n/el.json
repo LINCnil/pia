@@ -203,6 +203,7 @@
 			"item": {
 				"consult_pia": "Συμβουλευθείτε την",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Επεξεργασία",
 				"edit_structure": "Επεξεργασία υποδείγματος",
 				"tools": {

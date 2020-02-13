@@ -203,6 +203,7 @@
 			"item": {
 				"consult_pia": "TO TRANSLATE - Consult",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "TO TRANSLATE - Edit",
 				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
