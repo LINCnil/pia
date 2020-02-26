@@ -68,7 +68,7 @@
     "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~3.5.7",
     "@types/jasminewd2": "~2.0.8",
-    "@types/node": "~13.7.4",
+    "@types/node": "~13.7.6",
     "codelyzer": "^5.2.1",
     "cypress": "^4.0.2",
     "husky": "^4.2.3",
