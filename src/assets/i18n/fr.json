@@ -924,7 +924,7 @@
 		},
 		"recover_version": {
 			"continue": "Continuer",
-			"message": "En continuant, vous allez restaurer la version du {{date}} de cette analyse. Vous devrez valider à nouveau l'analyse une fois celle-ci terminée.<br><br>La version actuelle sera archivée.",
+			"message": "En continuant, vous allez restaurer la version du {{date}} de cette analyse.<br><br>La version actuelle sera sauvegardée.",
 			"title": "Restaurer une ancienne version"
 		},
 		"refuse_pia": {
@@ -953,11 +953,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "Supprimer ce modèle"
-		},
-		"revision": {
-			"continue": "Continuer",
-			"message": "En continuant, vous allez mettre à jour l'analyse. Celle-ci perdra son statut de validation et il sera nécessaire de la valider à nouveau une fois les changements effectués.<br><br>La version actuellement validée sera archivée.",
-			"title": "Réviser le PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Attention,</span><br>Veuillez saisir un commentaire différent du dernier enregistré."
