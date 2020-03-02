@@ -56,18 +56,22 @@
           padding-left: 0px;
           list-style: none;
           li {
+            cursor: pointer;
             font-size: 1.4rem;
+            &:hover,
+            &:focus,
+            &:active {
+              font-weight: 500;
+            }
             i {
               margin-right: 5px;
             }
             a {
-              color: white;
               display: none;
             }
-            &:hover {
-              a {
-                display: block;
-              }
+            &.revision-active a {
+              color: white;
+              display: block;
             }
           }
         }

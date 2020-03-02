@@ -404,7 +404,7 @@ export class PiaService {
     });
   }
 
-  async replacePiaByExport(piaExport, resetOption) {
+  async replacePiaByExport(piaExport, resetOption, updateOption) {
     return new Promise(async resolve => {
       const pia = new Pia();
       pia.id = piaExport.pia.id;
@@ -434,17 +434,21 @@ export class PiaService {
         pia.structure_sector_name = piaExport.pia.structure_sector_name;
       }
 
-      pia
-        .update() // update pia storage
-        .then(async () => {
-          // DELETE EVERY ANSWERS, MEASURES AND COMMENT
-          await this.destroyData(pia.id);
-          // CREATE NEW ANSWERS, MEASURES AND COMMENT
-          await this.importAnswers(piaExport.answers, pia.id);
-          await this.importMeasures(piaExport, pia.id, false);
-          await this.importComments(piaExport.comments, pia.id);
-          resolve();
-        });
+      if (updateOption) {
+        pia
+          .update() // update pia storage
+          .then(async () => {
+            // DELETE EVERY ANSWERS, MEASURES AND COMMENT
+            await this.destroyData(pia.id);
+            // CREATE NEW ANSWERS, MEASURES AND COMMENT
+            await this.importAnswers(piaExport.answers, pia.id);
+            await this.importMeasures(piaExport, pia.id, false);
+            await this.importComments(piaExport.comments, pia.id);
+            resolve();
+          });
+      } else {
+        resolve();
+      }
     });
   }
 
