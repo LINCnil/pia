@@ -46,7 +46,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   public opened = false;
   subject = new Subject();
   public revisionsGroupByMonth = {};
-  public revisionsGroupByMonthInArray;
+  public revisionsGroupByMonthInArray = [];
   public objectKeys = Object.entries;
 
   constructor(private _translateService: TranslateService, public _languagesService: LanguagesService) {}
@@ -63,10 +63,11 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
 
   generateDates(changes) {
     if (changes.revisions && changes.revisions.currentValue) {
+      this.revisionsGroupByMonth = {};
+      this.revisionsGroupByMonthInArray = [];
+
       changes.revisions.currentValue.forEach(obj => {
         // Determite key and translate it
-        this.revisionsGroupByMonth = {};
-        this.revisionsGroupByMonthInArray = [];
 
         let temp = slugify(new RelativeDate(obj.created_at).simple());
         if (/\d/.test(temp)) {
@@ -80,7 +81,6 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
           }
         }
         const key = temp;
-
         // Group by key
         if (this.revisionsGroupByMonth[key]) {
           this.revisionsGroupByMonth[key].push(obj);
