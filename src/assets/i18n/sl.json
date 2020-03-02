@@ -924,7 +924,7 @@
 		},
 		"recover_version": {
 			"continue": "Nastavi",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
 			"title": "TO TRANSLATE - Restore a previous version"
 		},
 		"refuse_pia": {
@@ -953,11 +953,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
 			"remove": "Delete template"
-		},
-		"revision": {
-			"continue": "",
-			"message": "",
-			"title": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Upozorenje,</span><br> molimo unesite komentar koji se razlikuje od posljednje zabilježenog."
