@@ -40,6 +40,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   public revisionOverlay = false;
   public pia = null;
   public download = false;
+  public preview;
 
   constructor(
     private route: ActivatedRoute,
@@ -247,6 +248,14 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     this._revisionService.loadRevision().then(() => {
       this.revisionOverlay = false;
     });
+  }
+
+  onPreviewRevision(id) {
+    /* console.log('search revision for preview', id);
+    this._revisionService.revisionSelected = id;
+    this._revisionService.getRevisionById(id).then(revisionExport => {
+      console.log('revision', revisionExport);
+    }); */
   }
 
   /********** END REVISIONS ACTIONS ***********/

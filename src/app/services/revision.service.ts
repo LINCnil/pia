@@ -19,10 +19,24 @@ export class RevisionService {
       revision.pia_id = this.piaService.pia.id;
       revision.get(this.revisionSelected).then(() => {
         const piaExport = JSON.parse(revision.export);
-        this.piaService.replacePiaByExport(piaExport, true).then(() => {
+        this.piaService.replacePiaByExport(piaExport, true, true).then(() => {
           this.router.navigate(['entry', this.piaService.pia.id]);
           resolve();
         });
+      });
+    });
+  }
+
+  /**
+   * Load a new revision
+   */
+  async getRevisionById(id) {
+    return new Promise(resolve => {
+      const revision = new Revision();
+      revision.pia_id = this.piaService.pia.id;
+      revision.get(this.revisionSelected).then(() => {
+        const piaExport = JSON.parse(revision.export);
+        resolve(piaExport);
       });
     });
   }
