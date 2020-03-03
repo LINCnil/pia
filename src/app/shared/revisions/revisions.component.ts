@@ -41,6 +41,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() title = true;
   @Output('newRevisionQuery') newRevisionEmitter = new EventEmitter();
   @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
+  @Output('peviewRevisionQuery') previewRevisionEmitter = new EventEmitter();
 
   subscription: Subscription;
   public opened = false;
@@ -48,6 +49,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   public revisionsGroupByMonth = {};
   public revisionsGroupByMonthInArray = [];
   public objectKeys = Object.entries;
+  public activeRevision: any = null;
 
   constructor(private _translateService: TranslateService, public _languagesService: LanguagesService) {}
 
@@ -96,6 +98,31 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   newRevision() {
     // emit revision query
     this.newRevisionEmitter.emit();
+  }
+
+  previewRevision(revisionId: number, event: Event) {
+    document.querySelectorAll('.pia-revisions-box-content-revision-item').forEach(revision => {
+      if (revision.classList.contains('revision-active')) {
+        revision.querySelector('.fa').classList.toggle('fa-circle-o');
+        revision.querySelector('.fa').classList.toggle('fa-circle');
+        revision.classList.remove('revision-active');
+      }
+    });
+
+    const displayRevisionData =  document.querySelector('.pia-revisions-box-content-revision-item[revision-id="' + revisionId + '"]');
+    if (displayRevisionData) {
+      /* Update circle design */
+      const circle = displayRevisionData.querySelector('.fa');
+      if (circle) {
+        circle.classList.toggle('fa-circle-o');
+        circle.classList.toggle('fa-circle');
+      }
+      /* Display data */
+       displayRevisionData.classList.toggle('revision-active');
+    }
+
+    this.activeRevision = revisionId;
+    this.previewRevisionEmitter.emit(this.activeRevision);
   }
 
   onRevisionSelection(revisionId: number, event: Event) {
