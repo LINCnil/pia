@@ -210,7 +210,8 @@
 					"pia": "DSFA<br>anzeigen",
 					"remove": "Entfernen",
 					"unarchive": "Dearchivieren"
-				}
+				},
+				"validate_pia": "Bestätigen"
 			},
 			"new_pia": "Neue DSFA",
 			"new_structure": "Neue Vorlage",
@@ -951,11 +952,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Achtung,</span><br>Sind Sie sicher, dass Sie dieses Modell löschen wollen?",
 			"remove": "Diese Vorlage löschen"
-		},
-		"revision": {
-			"continue": "Fortsetzen",
-			"message": "Wenn Sie fortfahren, aktualisieren Sie die Analyse. Diese verliert ihren Bestätigungsstatus und muss nach den vorgenommenen Änderungen erneut bestätigt werden.<br><br>Die aktuell bestätigte Version wird archiviert.",
-			"title": "Überarbeiten Sie die DSFA"
 		},
 		"same_comment": {
 			"content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."

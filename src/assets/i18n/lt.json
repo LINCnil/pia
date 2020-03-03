@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "Peržiūrėti",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Redaguoti",
 				"edit_structure": "Redaguoti šabloną",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Atidaryti<br>PDAV",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Patvirtinti"
 			},
 			"new_pia": "Naujas PDAV",
 			"new_structure": "Naujas šablonas",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Įspėjimas,</span><br>ar tikrai norite <br>ištrinti šabloną?",
 			"remove": "Ištrinti šabloną"
-		},
-		"revision": {
-			"continue": "Tęsti",
-			"message": "Tęsdami, atnaujinsite analizę. Šis praras patvirtinimo būseną ir, atlikus pakeitimus, jį reikės dar kartą patvirtinti.<br><br>Šiuo metu patvirtinta versija bus archyvuojama.",
-			"title": "Peržiūrėkite VIP"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Įspėjimas,</span><br>Įveskite kitą nei prieš tai buvusį komentarą."

@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "Áttekintése",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Szerkesztése",
 				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "DPIA megmutatása",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Validate"
 			},
 			"new_pia": "Új DPIA",
 			"new_structure": "TO TRANSLATE - New template",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
-		},
-		"revision": {
-			"continue": "Folytatódik",
-			"message": "Folytatva frissíti az elemzést. Ez elveszíti érvényesítési állapotát, és a végrehajtott módosítások után újra jóvá kell hagynia.<br><br>A jelenleg érvényes verzió archiválásra kerül.",
-			"title": "Vizsgálja felül a PIA-t"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Figyelmeztetés:</span><br>kérjük, a legutóbbihoz képest más megjegyzést vigyen be."

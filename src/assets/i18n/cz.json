@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "TO TRANSLATE - Consult",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Upravit",
 				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Zobrazit<br>PIA",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Potvrdit"
 			},
 			"new_pia": "Nová PIA",
 			"new_structure": "TO TRANSLATE - New template",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
-		},
-		"revision": {
-			"continue": "Pokračovat",
-			"message": "Pokračujte v aktualizaci analýzy. Ten ztratí svůj stav ověření a po provedení změn bude nutné jej znovu ověřit.<br><br>Aktuálně ověřená verze bude archivována.",
-			"title": "Upravte PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Upozornění,</span><br>Prosím zadejte komentář odlišný od posledního zaznamenaného."

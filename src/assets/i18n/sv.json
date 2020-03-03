@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "Konsultera",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Redigera",
 				"edit_structure": "Redigera mall",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Visa <br>PIAn",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Validate"
 			},
 			"new_pia": "Ny PIA",
 			"new_structure": "Ny mall",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br>radera denna mall?",
 			"remove": "Radera mallen"
-		},
-		"revision": {
-			"continue": "Fortsätta",
-			"message": "Fortsätter kommer du att uppdatera analysen. Den här kommer att förlora sin valideringsstatus och det kommer att bli nödvändigt att validera den igen när ändringarna har gjorts.<br><br>Den nu validerade versionen kommer att arkiveras.",
-			"title": "Revidera PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Varning,</span><br>Skriv en kommentar som skiljer sig från den senast sparade."

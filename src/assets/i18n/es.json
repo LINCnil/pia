@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "Consultar PIA",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Modificar PIA",
 				"edit_structure": "Editar plantilla",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Mostrar<br>PIA",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Validar"
 			},
 			"new_pia": "Nuevo PIA",
 			"new_structure": "Nueva plantilla",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "Eliminar esta plantilla"
-		},
-		"revision": {
-			"continue": "Seguir",
-			"message": "Continuando, actualizará el análisis. Este perderá su estado de validación y será necesario validarlo nuevamente una vez que se realicen los cambios.<br><br>La versión validada actualmente se archivará.",
-			"title": "Revisar el PIA"
 		},
 		"same_comment": {
 			"content": "Advertencia,<br>Ingrese un comentario diferente al último registrado."

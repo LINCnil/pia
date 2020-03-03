@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "Συμβουλευθείτε την",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Επεξεργασία",
 				"edit_structure": "Επεξεργασία υποδείγματος",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Εμφάνιση<br>ΕΑ",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Επικύρωση"
 			},
 			"new_pia": "Νέα ΕΑ",
 			"new_structure": "Νέο υπόδειγμα",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Προσοχή,</span><br>Είστε βέβαιοι ότι θέλετε να <br>διαγράψετε το υπόδειγμα;",
 			"remove": "Διαγραφή του υποδείγματος"
-		},
-		"revision": {
-			"continue": "συνεχίσετε",
-			"message": "Συνεχίζοντας, θα ενημερώσετε την ανάλυση. Αυτός θα χάσει την κατάσταση επικύρωσης και θα είναι απαραίτητο να το επικυρώσει και πάλι μετά τις αλλαγές που έγιναν.<br><br>Η τρέχουσα έκδοση που θα επικυρωθεί θα αρχειοθετηθεί.",
-			"title": "Αναθεωρήστε το PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Προσοχή,</span><br> παρακαλώ εισάγετε ένα σχόλιο διαφορετικό από το τελευταίο."

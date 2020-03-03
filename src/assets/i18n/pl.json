@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "Konsultacja",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Edycja",
 				"edit_structure": "Edycja szablonu",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Wyświetlenie<br>PIA",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Uprawomocnić"
 			},
 			"new_pia": "Nowa PIA",
 			"new_structure": "Nowy szablon",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Uwaga,</span><br>Czy na pewno chcesz<br>usunąć szablon?",
 			"remove": "Usunięcie szablonu"
-		},
-		"revision": {
-			"continue": "Kontynuować",
-			"message": "Kontynuując, zaktualizujesz analizę. Ten utraci status sprawdzania poprawności i po dokonaniu zmian konieczne będzie jego ponowne sprawdzenie.<br><br>Aktualnie sprawdzona wersja zostanie zarchiwizowana.",
-			"title": "Sprawdź PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Uwaga</span><br>Należy wprowadzić inny komentarz niż ostatnio zarejestrowany."

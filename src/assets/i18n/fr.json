@@ -198,8 +198,7 @@
 			"import_structure": "Importer modèle",
 			"item": {
 				"consult_pia": "Consulter",
-        "consult_structure": "Consulter le modèle",
-        "validate_pia": "Valider",
+				"consult_structure": "Consulter le modèle",
 				"edit_pia": "Éditer",
 				"edit_structure": "Éditer le modèle",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Afficher le<br>PIA",
 					"remove": "Supprimer",
 					"unarchive": "Désarchiver"
-				}
+				},
+				"validate_pia": "Valider"
 			},
 			"new_pia": "Nouveau PIA",
 			"new_structure": "Nouveau modèle",

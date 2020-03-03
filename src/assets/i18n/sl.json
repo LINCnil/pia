@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "Pogledaj",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Uredi",
 				"edit_structure": "Uredi obrazac",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Prikaži<br>PUP",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Preveri"
 			},
 			"new_pia": "Novi PUP",
 			"new_structure": "Novi obrazac",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Warning,</span><br>Are you sure you want<br>to delete the template?",
 			"remove": "Delete template"
-		},
-		"revision": {
-			"continue": "Naprej",
-			"message": "Nadaljevanje boste posodobili analizo. Ta bo izgubil status veljavnosti in ga bo potrebno ponovno potrditi, ko bodo izvedene spremembe.<br><br>Trenutno potrjena različica bo arhivirana.",
-			"title": "Revizija PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Upozorenje,</span><br> molimo unesite komentar koji se razlikuje od posljednje zabilježenog."

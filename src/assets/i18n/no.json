@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "TO TRANSLATE - Consult",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Regiger",
 				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Vis<br>PIA",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Validere"
 			},
 			"new_pia": "Ny PIA",
 			"new_structure": "TO TRANSLATE - New template",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
-		},
-		"revision": {
-			"continue": "Fortsette",
-			"message": "Fortsetter vil du oppdatere analysen. Denne vil miste valideringsstatusen, og det vil være nødvendig å validere den igjen når endringene er gjort.<br><br>Den for øyeblikket validerte versjonen blir arkivert.",
-			"title": "Revider PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Warning,</span><br>Please enter a comment different from the last recorded."

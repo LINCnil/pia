@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "TO TRANSLATE - Consult",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "TO TRANSLATE - Edit",
 				"edit_structure": "Toimeta mõjuhinnagut",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Näita<br>mõjuhinnagut",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Valideerima"
 			},
 			"new_pia": "Uus mõjuhinnag",
 			"new_structure": "Uus mõjuhinnag",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Hoiatus,</span><br>Kas olete kindel, et soovite<br>seda kustutada?",
 			"remove": "Kustuta"
-		},
-		"revision": {
-			"continue": "Jätkama",
-			"message": "Jätkates värskendate analüüsi. See kaotab oma valideerimisoleku ja pärast tehtud muudatuste tegemist tuleb see uuesti kinnitada.<br><br>Praegu kinnitatud versioon arhiivitakse.",
-			"title": "Vaadake üle PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Hoiatus,</span><br>Palun sisestage kommentaar, mis erineb viimasest kirjapandust."

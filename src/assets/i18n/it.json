@@ -199,7 +199,6 @@
 			"item": {
 				"consult_pia": "Visualizza PIA",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Modifica PIA",
 				"edit_structure": "Edita modello",
 				"tools": {
@@ -211,7 +210,8 @@
 					"pia": "Mostra<br>PIA",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Convalidare"
 			},
 			"new_pia": "Nuova PIA",
 			"new_structure": "Nuovo modello",
@@ -952,11 +952,6 @@
 		"remove_structure": {
 			"content": "TO BE TRANSLATED - <span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "TO BE TRANSLATED - Supprimer ce modèle"
-		},
-		"revision": {
-			"continue": "Continuare",
-			"message": "Continuando, aggiornerai l'analisi. Questo perderà il suo stato di convalida e sarà necessario convalidarlo nuovamente una volta apportate le modifiche.<br><br>La versione attualmente convalidata verrà archiviata.",
-			"title": "Rivedi il PIA"
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Attenzione,</span><br>Inserire un commento diverso dall'ultimo inserito."
