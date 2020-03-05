@@ -47,7 +47,7 @@
     "foundation-sites": "^6.6.1",
     "html2canvas": "1.0.0-rc.1",
     "jszip": "^3.2.2",
-    "ng2-pdfjs-viewer": "^5.0.7",
+    "ng2-pdfjs-viewer": "^5.0.5",
     "ngx-chips": "2.1.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.5.4",
