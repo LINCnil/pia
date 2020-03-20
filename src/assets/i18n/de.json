@@ -567,7 +567,7 @@
 				"name": "Schweregrad: groß"
 			},
 			"PIA_EX_IMPN": {
-				"description": "Die Betroffenen werden nicht gar nicht beeinträchtigt oder haben einige temporäre Unannehmlichkeiten, die sie ohne Schwierigkeiten überwinden können.<br> Beispiele für Auswirkungen:<br> - Körperlich: flüchtige Kopfschmerzen<br>- materiell: Zeitverschwendung, durch Wiederholung von Formalitäten oder durch Warten auf deren Durchführung, Empfang von Spam-Mails, Verwendung öffentlich zugänglicher Daten für gezielte Werbung etc.,<br>- psychisch: einfaches Ärgernis, Gefühl des Eindringens ins Privatleben ohne wirklichen Schaden (Werbung) usw.",
+				"description": "Die Betroffenen werden gar nicht beeinträchtigt oder haben einige temporäre Unannehmlichkeiten, die sie ohne Schwierigkeiten überwinden können.<br> Beispiele für Auswirkungen:<br> - Körperlich: flüchtige Kopfschmerzen<br>- materiell: Zeitverschwendung, durch Wiederholung von Formalitäten oder durch Warten auf deren Durchführung, Empfang von Spam-Mails, Verwendung öffentlich zugänglicher Daten für gezielte Werbung etc.,<br>- psychisch: einfaches Ärgernis, Gefühl des Eindringens ins Privatleben ohne wirklichen Schaden (Werbung) usw.",
 				"name": "Schweregrad: geringfügig"
 			},
 			"PIA_EX_NHUM": {
@@ -1112,7 +1112,7 @@
 					"questions": {
 						"1": {
 							"placeholder": "Listen Sie die gesammelten und verarbeiteten Daten auf. Definieren Sie je Datenkategorie die Speicherdauer, die Empfänger und die zugriffsberechtigten Personen.",
-							"title": "Welche Daten werden verarbeitetet?"
+							"title": "Welche Daten werden verarbeitet?"
 						},
 						"2": {
 							"placeholder": "Präsentieren und beschreiben Sie die Funktionsweise und den Ablauf der Datenverarbeitung (von der Datensammlung bis zur Datenlöschung, sowie die verschiedenen Verarbeitungsschritte, Speicherung, etc.) zum Beispiel mit Hilfe eines Diagramm der Datenflüsse (fügen Sie es als Anhang hinzu) und einer detaillierten Beschreibung der Prozesse.",
