@@ -43,6 +43,7 @@
 		"negligible": "Verwaarloosbaar",
 		"risk1_access": "(I)",
 		"risk2_modification": "(U)",
+		"risk3_disappearance": "(D)",
 		"seriousness_axe": "Ernst van het risico"
 	},
 	"comments": {

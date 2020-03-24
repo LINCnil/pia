@@ -43,6 +43,7 @@
 		"negligible": "Nizak",
 		"risk1_access": "(I)",
 		"risk2_modification": "(U)",
+		"risk3_disappearance": "(P)",
 		"seriousness_axe": "Ozbiljnost rizika"
 	},
 	"comments": {

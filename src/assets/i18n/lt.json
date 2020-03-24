@@ -43,6 +43,7 @@
 		"negligible": "Nežymus",
 		"risk1_access": "(NP)",
 		"risk2_modification": "(NDP)",
+		"risk3_disappearance": "(DP)",
 		"seriousness_axe": "Rizikos dydis"
 	},
 	"comments": {

@@ -43,6 +43,7 @@
 		"negligible": "Obetydlig",
 		"risk1_access": "(O)",
 		"risk2_modification": "(I)",
+		"risk3_disappearance": "(F)",
 		"seriousness_axe": "Riskens allvarlighetsgrad"
 	},
 	"comments": {

@@ -43,6 +43,7 @@
 		"negligible": "Zanedbatelné",
 		"risk1_access": "(NPU)",
 		"risk2_modification": "(NMD)",
+		"risk3_disappearance": "(ZD)",
 		"seriousness_axe": "Vážnost rizika"
 	},
 	"comments": {

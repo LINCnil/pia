@@ -43,6 +43,7 @@
 		"negligible": "Insignificante",
 		"risk1_access": "(I)",
 		"risk2_modification": "(IN)",
+		"risk3_disappearance": "(D)",
 		"seriousness_axe": "Gravidade de risco"
 	},
 	"comments": {

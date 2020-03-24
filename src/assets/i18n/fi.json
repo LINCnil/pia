@@ -43,6 +43,7 @@
 		"negligible": "Vähäinen",
 		"risk1_access": "(L)",
 		"risk2_modification": "(E)",
+		"risk3_disappearance": "(T)",
 		"seriousness_axe": "Riskin vakavuus"
 	},
 	"comments": {

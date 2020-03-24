@@ -43,6 +43,7 @@
 		"negligible": "Pomijalne",
 		"risk1_access": "(D)",
 		"risk2_modification": "(M)",
+		"risk3_disappearance": "(Z)",
 		"seriousness_axe": "Istotność ryzyka"
 	},
 	"comments": {
