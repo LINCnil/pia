@@ -178,6 +178,13 @@
 			},
 			"footer": "Als u andere problemen tegenkomt of suggesties heeft voor verbetering, kunt u deze via dit formulier terugsturen: <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
+		"infografics": {
+			"display": "Bekijk de proceskaart",
+			"file": "./pia_docs/180409_fiche_risque_en_cmjk.pdf",
+			"guide": "Toon de PIA-gidsen van de CNIL",
+			"hide": "Verberg de procesmap",
+			"title": "Overzicht van verplichtingen en methode"
+		},
 		"title": "Help"
 	},
 	"homepage": {

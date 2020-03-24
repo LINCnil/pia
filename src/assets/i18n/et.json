@@ -178,6 +178,13 @@
 			},
 			"footer": "Ettepanekud ja probleemi kirjeldused palun sisetage siia <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
+		"infografics": {
+			"display": "Vaadake protsessikaarti",
+			"file": "./pia_docs/180409_fiche_risque_en_cmjk.pdf",
+			"guide": "Näidake CNIL-i PIA juhendeid",
+			"hide": "Peida protsessikaart",
+			"title": "Ülevaade kohustustest ja meetodist"
+		},
 		"title": "Abi"
 	},
 	"homepage": {

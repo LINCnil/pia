@@ -178,6 +178,13 @@
 			},
 			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
+		"infografics": {
+			"display": "Tarkastele prosessikarttaa",
+			"file": "./pia_docs/180409_fiche_risque_en_cmjk.pdf",
+			"guide": "Näytä CNIL: n PIA-oppaat",
+			"hide": "Piilota prosessikartta",
+			"title": "Yleiskatsaus velvoitteisiin ja menetelmiin"
+		},
 		"title": "Ohje"
 	},
 	"homepage": {

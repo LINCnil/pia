@@ -23,6 +23,48 @@
       </aside>
     </div>
     <div class="small-12 medium-9 columns">
+      <div class="pia-helpBlock-content">
+        <h2>{{ "help.infografics.title" | translate }}</h2>
+        <p></p>
+        <button
+          class="btn btn-blue"
+          (click)="toggleInfograficsContent(true )"
+        >
+          <div>
+            {{ "help.infografics.display" | translate }}
+          </div>
+        </button>
+        &nbsp;
+        <button
+          class="btn btn-blue"
+          onclick="window.open('https://www.cnil.fr/en/privacy-impact-assessment-pia','_blank')"
+        >
+          {{ "help.infografics.guide" | translate }}
+        </button>
+        <p hidden id="infografics_file">
+          {{ "help.infografics.file" | translate }}
+        </p>
+      </div>
+      <p></p>
+
+      <div class="pia-helpBlock-preview hide" >
+        <img src="" class="hide">
+        <button  (click)="toggleInfograficsContent(false )" class="pia-icons pia-icon-close-big" title="{{ 'help.infografics.hide' | translate }}"></button>
+        <div
+          style="width:80%; height:100%; margin:auto;"
+          *ngIf="displayInfografics"
+        >
+          <ng2-pdfjs-viewer
+            [pdfSrc]="pdfSrc"
+            [openFile]="false"
+            [viewBookmark]="false"
+            zoom = "auto"
+          >
+          </ng2-pdfjs-viewer>
+        </div>
+      </div>
+
+      <h1></h1>
       <div class="pia-helpBlock-content" [innerHTML]="content"></div>
     </div>
   </div>

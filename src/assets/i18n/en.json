@@ -178,6 +178,13 @@
 			},
 			"footer": "If you have any other problems or suggestions for improvement, you can visit our <a target=\"_blank\" href=\"https://github.com/LINCnil/pia\">Github resository</a> and submit an issue or a pull request."
 		},
+		"infografics": {
+			"display": "Show process map",
+			"file": "./pia_docs/180409_fiche_risque_en_cmjk.pdf",
+			"guide": "Show PIA Guides of the CNIL",
+			"hide": "Hide process map",
+			"title": "An overview of the requirements and methodology"
+		},
 		"title": "Help"
 	},
 	"homepage": {
