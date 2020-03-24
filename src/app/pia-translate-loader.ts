@@ -17,13 +17,14 @@ import pl from 'src/assets/i18n/pl.json';
 import pt from 'src/assets/i18n/pt.json';
 import ro from 'src/assets/i18n/ro.json';
 import sl from 'src/assets/i18n/sl.json';
+import sv from 'src/assets/i18n/sv.json';
 
 import { TranslateLoader } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
 
 export class PiaTranslateLoader implements TranslateLoader {
   public getTranslation(lang: string): Observable<any> {
-    return Observable.create(observer => {
+    return Observable.create((observer) => {
       switch (lang) {
         case 'cz':
           observer.next(cz);
@@ -81,6 +82,9 @@ export class PiaTranslateLoader implements TranslateLoader {
           break;
         case 'sl':
           observer.next(sl);
+          break;
+        case 'sv':
+          observer.next(sv);
           break;
         default:
           observer.next(fr);
