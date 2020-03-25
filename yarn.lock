@@ -6606,10 +6606,10 @@ karma-coverage-istanbul-reporter@~2.1.1:
     istanbul-api "^2.1.6"
     minimatch "^3.0.4"
 
-karma-jasmine-html-reporter@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/karma-jasmine-html-reporter/-/karma-jasmine-html-reporter-1.5.2.tgz#a846b703dbe5c8d803481e68636eb93346dc5966"
-  integrity sha512-ILBPsXqQ3eomq+oaQsM311/jxsypw5/d0LnZXj26XkfThwq7jZ55A2CFSKJVA5VekbbOGvMyv7d3juZj0SeTxA==
+karma-jasmine-html-reporter@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/karma-jasmine-html-reporter/-/karma-jasmine-html-reporter-1.5.3.tgz#c724078436ed7b7d17a47e79164af36eed2d2713"
+  integrity sha512-ci0VrjuCaFj+9d1tYlTE3KIPUCp0rz874zWWU3JgCMqGIyw5ke+BXWFPOAGAqUdCJcrMwneyvp1zFXA74MiPUA==
 
 karma-jasmine@~3.1.1:
   version "3.1.1"
@@ -9035,7 +9035,7 @@ request@^2.83.0, request@^2.87.0, request@^2.88.0:
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
 
-"request@github:cypress-io/request#b5af0d1fa47eec97ba980cde90a13e69a2afcd16":
+request@cypress-io/request#b5af0d1fa47eec97ba980cde90a13e69a2afcd16:
   version "2.88.1"
   resolved "https://codeload.github.com/cypress-io/request/tar.gz/b5af0d1fa47eec97ba980cde90a13e69a2afcd16"
   dependencies:
