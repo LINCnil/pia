@@ -77,7 +77,7 @@
 		},
 		"improvable": "verbesserungsfähig",
 		"placeholder_acceptable": "Soweit aus den zur Verfügung gestellten Informationen ersichtlich, reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
-		"placeholder_improvable1": " Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
+		"placeholder_improvable1": "Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
 		"placeholder_improvable2": "Geben Sie Ihre Kommentare ein.",
 		"placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend für eine vollständige Bewertung. Die DSFA wird zurück an den Bearbeiter verwiesen, um den ursprünglichen Vorschlag zu ergänzen.",
 		"status": [
@@ -949,7 +949,7 @@
 			"content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
 		},
 		"signed_pia_validation": {
-			"content": "<span class = 'strong'>Die DSFA wird akzeptiert</span><br>Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht an die zuständige Person anhängen.",
+			"content": "Um die Bestätigung der Analyse abzuschließen,<br>hängen Sie den signierten Bericht als Anhang an.",
 			"download_pia": "Laden Sie die DSFA herunter"
 		},
 		"simple_pia_validation": {
@@ -1373,7 +1373,7 @@
 		"csv_implement_date": "Geschätztes Umsetzungsdatum",
 		"csv_people_in_charge": "Verantwortlicher",
 		"csv_section": "Abschnitt",
-		"csv_title_object": "Titel",
+		"csv_title_object": "Titel des betreffenden Objekts",
 		"download_csv": "Aktionsplan (CSV-Datei)",
 		"dpo_name": "Name des DSB",
 		"dpo_opinion": "Gutachten des DSB",
@@ -1427,7 +1427,7 @@
 		"confirmation3": "Billige ich die angegebenen Korrekturmaßnahmen.",
 		"confirmation4": "Verpflichte ich mich, die angegebenen Korrekturmaßnahmen so schnell wie möglich umzusetzen.",
 		"latest_signed_attachment": "Letzter hinzugefügter Anhang",
-		"mandatory_fields": "Alle Felder müssen markiert sein",
+		"mandatory_fields": "Alle Felder müssen angekreuzt sein",
 		"remove_attachment": "Anhang löschen",
 		"responsible": "Verantwortlich für die Bestätigung der DSFA: ",
 		"signed_attachments_history": "Historie der hinzugefügten Anhänge",
