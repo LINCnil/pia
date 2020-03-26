@@ -1084,10 +1084,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@biesbjerg/ngx-translate-extract@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-6.0.1.tgz#09adb55a7094751320118b068dea1a06dad251f3"
-  integrity sha512-6wcPef0+q6+IOUyEMGSdm10gKcQ5Uq5wfm0muaY6cjeHFARrHjhAWXYKukvkm3smSbVGe+An8R0ctiMNazlkQA==
+"@biesbjerg/ngx-translate-extract@^6.0.3":
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-6.0.3.tgz#9efae5376f007e1f871818e17cd9911adf9318dd"
+  integrity sha512-FWpToi3s4X631vBsOqZ52d1f96g5p4fKLRqPUhHeYVuQskHV4pVCwXg83gio/FoiHeHtiPIvLy8bQqqoFnxEVA==
   dependencies:
     "@angular/compiler" "^9.0.7"
     "@phenomnomnominal/tsquery" "^4.0.0"
