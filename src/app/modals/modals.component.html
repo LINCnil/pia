@@ -37,7 +37,7 @@
     <p [innerHTML]="'modals.signed_pia_validation.content' | translate"></p>
     <i class="fa fa-check icon-green" aria-hidden="true"></i>
     <div class="pia-modalBlock-buttons-choice">
-      <a routerLink="/preview/{{_piaService.pia.id}}" class="btn btn-green get-focus" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
+      <a *ngIf="revision === null" routerLink="/preview/{{_piaService.pia.id}}" class="btn btn-green get-focus" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
     </div>
   </div>
 </div>
@@ -334,6 +334,13 @@
       <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
       <button tabindex="2" class="btn btn-green get-focus" (click)="continueEvent.emit(); _modalsService.closeModal()" type="button">{{ 'modals.recover_version.continue' | translate }}</button>
     </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock fullsize" id="revision-preview-selection">
+  <div class="pia-modalBlock-content pia-modalBlock-recoverVersion bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <app-revision-preview [revision]="revisionPreview"></app-revision-preview>
   </div>
 </div>
 

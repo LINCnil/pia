@@ -1,11 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  OnDestroy,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -34,6 +27,8 @@ export class ModalsComponent implements OnInit, OnDestroy {
   @Input() structure: any;
   @Output() continueEvent = new EventEmitter();
 
+  @Input() revisionPreview: any;
+
   subscription: Subscription;
   newPia: Pia;
   newStructure: Structure;
@@ -56,9 +51,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.subscription = this._translateService.onLangChange.subscribe(
-      (event: LangChangeEvent) => {}
-    );
+    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {});
     const structure = new Structure();
     structure.getAll().then((data: any) => {
       this._structureService.structures = data;
@@ -112,19 +105,14 @@ export class ModalsComponent implements OnInit, OnDestroy {
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this._piaService.data;
     const p = structure.create();
-    p.then(id =>
-      this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1])
-    );
+    p.then(id => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
   }
 
   /**
    * Focuses out from the comment attachment field.
    */
   attachmentCommentFocusOut() {
-    if (
-      this.removeAttachmentForm.controls['comment'].value &&
-      this.removeAttachmentForm.controls['comment'].value.length > 0
-    ) {
+    if (this.removeAttachmentForm.controls['comment'].value && this.removeAttachmentForm.controls['comment'].value.length > 0) {
       this.enableSubmit = false;
     }
   }
