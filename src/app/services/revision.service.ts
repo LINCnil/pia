@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Revision } from '../models/revision.model';
 import { PiaService } from './pia.service';
 import { Router } from '@angular/router';
+import { utf8Encode } from '@angular/compiler/src/util';
 
 @Injectable()
 export class RevisionService {
@@ -70,6 +71,15 @@ export class RevisionService {
       revision.pia_id = piaId;
       revision.get(revisionId).then(() => {
         resolve(revision.created_at);
+      });
+    });
+  }
+
+  async export(id: number) {
+    return new Promise(async (resolve, reject) => {
+      this.piaService.exportData(id).then(data => {
+        const finalData = JSON.stringify(data);
+        resolve(finalData);
       });
     });
   }

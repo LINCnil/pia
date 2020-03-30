@@ -217,7 +217,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
    * Create a new Revision record in indexDB
    */
   onNewRevision() {
-    this._piaService.export(this._piaService.pia.id).then(exportResult => {
+    this._revisionService.export(this._piaService.pia.id).then(exportResult => {
       this._revisionService.add(exportResult, this._piaService.pia.id).then(resp => {
         // because ngOnchanges no detect simply array push
         this.revisions.push(resp);
