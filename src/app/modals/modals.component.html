@@ -37,7 +37,7 @@
     <p [innerHTML]="'modals.signed_pia_validation.content' | translate"></p>
     <i class="fa fa-check icon-green" aria-hidden="true"></i>
     <div class="pia-modalBlock-buttons-choice">
-      <a *ngIf="revision === null" routerLink="/preview/{{_piaService.pia.id}}" class="btn btn-green get-focus" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
+      <a *ngIf="revisionPreview === null" routerLink="/preview/{{_piaService.pia.id}}" class="btn btn-green get-focus" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
     </div>
   </div>
 </div>
