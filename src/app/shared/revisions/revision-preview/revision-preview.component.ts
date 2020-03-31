@@ -27,30 +27,30 @@ export class RevisionPreviewComponent implements OnInit {
     if (changes.revision && changes.revision.currentValue) {
       // CONSTRUC A NEW PIA FOR THE PREVIEW MODE
       this.pia = new Pia();
-      this.pia.id = changes.revision.currentValue.id;
-      this.pia.status = changes.revision.currentValue.status;
-      this.pia.name = changes.revision.currentValue.name;
-      this.pia.category = changes.revision.currentValue.category;
-      this.pia.author_name = changes.revision.currentValue.author_name;
-      this.pia.evaluator_name = changes.revision.currentValue.evaluator_name;
-      this.pia.validator_name = changes.revision.currentValue.validator_name;
-      this.pia.dpo_status = changes.revision.currentValue.dpo_status;
-      this.pia.dpo_opinion = changes.revision.currentValue.dpo_opinion;
-      this.pia.concerned_people_opinion = changes.revision.currentValue.concerned_people_opinion;
-      this.pia.concerned_people_status = changes.revision.currentValue.concerned_people_status;
-      this.pia.concerned_people_searched_opinion = changes.revision.currentValue.concerned_people_searched_opinion;
-      this.pia.concerned_people_searched_content = changes.revision.currentValue.concerned_people_searched_content;
-      this.pia.rejected_reason = changes.revision.currentValue.rejected_reason;
-      this.pia.applied_adjustements = changes.revision.currentValue.applied_adjustements;
-      this.pia.dpos_names = changes.revision.currentValue.dpos_names;
-      this.pia.people_names = changes.revision.currentValue.people_names;
-      this.pia.progress = changes.revision.currentValue.progress;
-      this.pia.is_example = changes.revision.currentValue.is_example;
-      this.pia.is_archive = changes.revision.currentValue.is_archive;
-      this.pia.structure_id = changes.revision.currentValue.structure_id;
-      this.pia.structure_name = changes.revision.currentValue.structure_name;
-      this.pia.structure_sector_name = changes.revision.currentValue.structure_sector_name;
-      this.pia.structure_data = changes.revision.currentValue.structure_data;
+      this.pia.id = changes.revision.currentValue.pia.id;
+      this.pia.status = changes.revision.currentValue.pia.status;
+      this.pia.name = changes.revision.currentValue.pia.name;
+      this.pia.category = changes.revision.currentValue.pia.category;
+      this.pia.author_name = changes.revision.currentValue.pia.author_name;
+      this.pia.evaluator_name = changes.revision.currentValue.pia.evaluator_name;
+      this.pia.validator_name = changes.revision.currentValue.pia.validator_name;
+      this.pia.dpo_status = changes.revision.currentValue.pia.dpo_status;
+      this.pia.dpo_opinion = changes.revision.currentValue.pia.dpo_opinion;
+      this.pia.concerned_people_opinion = changes.revision.currentValue.pia.concerned_people_opinion;
+      this.pia.concerned_people_status = changes.revision.currentValue.pia.concerned_people_status;
+      this.pia.concerned_people_searched_opinion = changes.revision.currentValue.pia.concerned_people_searched_opinion;
+      this.pia.concerned_people_searched_content = changes.revision.currentValue.pia.concerned_people_searched_content;
+      this.pia.rejected_reason = changes.revision.currentValue.pia.rejected_reason;
+      this.pia.applied_adjustements = changes.revision.currentValue.pia.applied_adjustements;
+      this.pia.dpos_names = changes.revision.currentValue.pia.dpos_names;
+      this.pia.people_names = changes.revision.currentValue.pia.people_names;
+      this.pia.progress = changes.revision.currentValue.pia.progress;
+      this.pia.is_example = changes.revision.currentValue.pia.is_example;
+      this.pia.is_archive = changes.revision.currentValue.pia.is_archive;
+      this.pia.structure_id = changes.revision.currentValue.pia.structure_id;
+      this.pia.structure_name = changes.revision.currentValue.pia.structure_name;
+      this.pia.structure_sector_name = changes.revision.currentValue.pia.structure_sector_name;
+      this.pia.structure_data = changes.revision.currentValue.pia.structure_data;
 
       if (this.pia.structure_data) {
         this._appDataService.dataNav = this.pia.structure_data;
