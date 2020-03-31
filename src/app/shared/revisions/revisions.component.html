@@ -20,7 +20,7 @@
         <ul>
           <li *ngFor="let revision of revisionsGroupByMonth[date]" class="pia-revisions-box-content-revision-item" [attr.revision-id]="revision.id">
             <span  (click)="previewRevision(revision.id, $event)"><i class="fa fa-circle-o"></i> {{ revision.created_at  | date: "short":"":_languagesService.selectedLanguage }}</span>
-            <a href="javascript;" (click)="onRevisionSelection(revision.id, $event)">{{ 'summary.revision.restore_version' | translate }}</a>
+            <!-- <a href="javascript;" (click)="onRevisionSelection(revision.id, $event)">{{ 'summary.revision.restore_version' | translate }}</a> -->
           </li>
         </ul>
       </div>
