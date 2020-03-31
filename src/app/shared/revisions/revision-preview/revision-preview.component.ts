@@ -6,6 +6,7 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 import { TranslateService } from '@ngx-translate/core';
+import { SidStatusService } from 'src/app/services/sid-status.service';
 
 @Component({
   selector: 'app-revision-preview',
@@ -19,7 +20,11 @@ export class RevisionPreviewComponent implements OnInit {
   allData: any;
   data: any;
 
-  constructor(private _translateService: TranslateService, public _appDataService: AppDataService) {}
+  constructor(
+    private _translateService: TranslateService,
+    public _appDataService: AppDataService,
+    public _sidStatusService: SidStatusService
+  ) {}
 
   ngOnInit() {}
 
@@ -44,7 +49,6 @@ export class RevisionPreviewComponent implements OnInit {
       this.pia.applied_adjustements = changes.revision.currentValue.pia.applied_adjustements;
       this.pia.dpos_names = changes.revision.currentValue.pia.dpos_names;
       this.pia.people_names = changes.revision.currentValue.pia.people_names;
-      this.pia.progress = changes.revision.currentValue.pia.progress;
       this.pia.is_example = changes.revision.currentValue.pia.is_example;
       this.pia.is_archive = changes.revision.currentValue.pia.is_archive;
       this.pia.structure_id = changes.revision.currentValue.pia.structure_id;
@@ -60,6 +64,17 @@ export class RevisionPreviewComponent implements OnInit {
 
       this.data = this._appDataService.dataNav;
       this.getJsonInfo();
+
+      // CALCUL PROGRESS BAR
+      this.pia.progress = 0.0;
+      if (this.pia.status > 0) {
+        this.pia.progress += 4;
+      }
+      this.data.sections.forEach((section: any) => {
+        section.items.forEach((item: any) => {
+          this._sidStatusService.setSidStatus(this.pia, section, item);
+        });
+      });
     }
   }
 
