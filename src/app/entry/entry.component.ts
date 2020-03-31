@@ -251,12 +251,10 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   onPreviewRevision(id) {
-    console.log('search revision for preview', id);
     this._revisionService.revisionSelected = id;
     this._revisionService.getRevisionById(id).then(revisionExport => {
-      console.log('revision', revisionExport);
       this.preview = revisionExport;
-      console.log(this.preview);
+      this.preview.id = id;
       this._modalsService.openModal('revision-preview-selection');
     });
   }

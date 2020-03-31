@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Pia } from 'src/app/entry/pia.model';
 import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
 
@@ -7,6 +7,8 @@ import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'src/app/services/sid-status.service';
+import { RevisionService } from 'src/app/services/revision.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 function slugify(text) {
   return text
@@ -30,11 +32,14 @@ export class RevisionPreviewComponent implements OnInit {
   pia: Pia;
   allData: any;
   data: any;
+  @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
 
   constructor(
     private _translateService: TranslateService,
     public _appDataService: AppDataService,
-    public _sidStatusService: SidStatusService
+    public _sidStatusService: SidStatusService,
+    public _revisionService: RevisionService,
+    public _modalsService: ModalsService
   ) {}
 
   ngOnInit() {}
@@ -205,5 +210,14 @@ export class RevisionPreviewComponent implements OnInit {
       downloadLink.download = fileTitle + '.json';
       downloadLink.click();
     }
+  }
+
+  public restoreRevision() {
+    this._modalsService.closeModal();
+    console.log('hello final');
+    this._revisionService.prepareLoadRevision(this.revision.id, this.pia.id).then((createdAt: Date) => {
+      this._modalsService.revisionDate = createdAt;
+      this._modalsService.openModal('revision-selection');
+    });
   }
 }
