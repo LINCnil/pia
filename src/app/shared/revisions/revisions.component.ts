@@ -86,12 +86,17 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
         // Group by key
         if (this.revisionsGroupByMonth[key]) {
           this.revisionsGroupByMonth[key].push(obj);
+          // ORDER DATE ARRAY
+          this.revisionsGroupByMonth[key].sort(function(a, b) {
+            return new Date(b.created_at) - new Date(a.created_at);
+          });
         } else {
           this.revisionsGroupByMonth[key] = [];
           this.revisionsGroupByMonth[key].push(obj);
         }
       });
       this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth); // Get Properties on array
+      console.log(this.revisionsGroupByMonth);
     }
   }
 
@@ -109,7 +114,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
       }
     });
 
-    const displayRevisionData =  document.querySelector('.pia-revisions-box-content-revision-item[revision-id="' + revisionId + '"]');
+    const displayRevisionData = document.querySelector('.pia-revisions-box-content-revision-item[revision-id="' + revisionId + '"]');
     if (displayRevisionData) {
       /* Update circle design */
       const circle = displayRevisionData.querySelector('.fa');
@@ -118,7 +123,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
         circle.classList.toggle('fa-circle');
       }
       /* Display data */
-       displayRevisionData.classList.toggle('revision-active');
+      displayRevisionData.classList.toggle('revision-active');
     }
 
     this.activeRevision = revisionId;
