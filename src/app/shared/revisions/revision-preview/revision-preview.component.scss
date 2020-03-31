@@ -2,6 +2,34 @@
 
 .pia {
   &-fullPreviewBlock {
+    &-data {
+      position: relative;
+    }
+    &-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      border-bottom: 3px solid #3c3b3d;
+      /* position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999; */
+      background-color: #fff;
+      button {
+        height: 56px;
+        cursor: pointer;
+        &:focus,
+        &:hover,
+        &:active {
+          div,
+          .fa {
+            font-weight: 600;
+          }
+        }
+      }
+    }
     &-content {
       padding: 0;
       max-width: 100%;
