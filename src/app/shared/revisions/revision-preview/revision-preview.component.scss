@@ -2,6 +2,10 @@
 
 .pia {
   &-fullPreviewBlock {
+    &-content {
+      padding: 0;
+      max-width: 100%;
+    }
     &-section {
       position: sticky;
       top: 0;
@@ -101,7 +105,6 @@
                 }
                 a {
                   &:hover,
-                  ,
                   &.active {
                     background-color: $pia-green;
                   }
