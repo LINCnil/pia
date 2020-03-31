@@ -8,6 +8,17 @@ import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.m
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, ''); // Trim - from end of text
+}
+
 @Component({
   selector: 'app-revision-preview',
   templateUrl: './revision-preview.component.html',
@@ -181,5 +192,18 @@ export class RevisionPreviewComponent implements OnInit {
       }
       resolve(evaluation);
     });
+  }
+
+  public exportJson() {
+    const fileTitle = 'pia-' + slugify(this.pia.name) + slugify(new Date(this.pia.created_at));
+    let downloadLink = document.createElement('a');
+    document.body.appendChild(downloadLink);
+    if (navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveBlob(this.revision, fileTitle + '.json');
+    } else {
+      downloadLink.href = this.revision;
+      downloadLink.download = fileTitle + '.json';
+      downloadLink.click();
+    }
   }
 }
