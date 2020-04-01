@@ -220,4 +220,8 @@ export class RevisionPreviewComponent implements OnInit {
       this._modalsService.openModal('revision-selection');
     });
   }
+
+  public print() {
+    window.print();
+  }
 }
