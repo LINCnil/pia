@@ -25,7 +25,7 @@ function slugify(text) {
   selector: 'app-revision-preview',
   templateUrl: './revision-preview.component.html',
   styleUrls: ['./revision-preview.component.scss'],
-  providers: [AppDataService]
+  providers: [AppDataService, SidStatusService, RevisionService, ModalsService, TranslateService]
 })
 export class RevisionPreviewComponent implements OnInit {
   @Input() revision: any;
