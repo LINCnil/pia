@@ -303,3 +303,19 @@
     font-size: inherit !important;
   }
 }
+
+@media print {
+  #revision-preview-selection {
+    margin: auto;
+    position: static;
+    background-color: white !important;
+    .pia-modalBlock-content {
+      width: 100%;
+      background-color: white !important;
+
+      top: 0%;
+      left: 0px;
+      margin: auto;
+    }
+  }
+}
