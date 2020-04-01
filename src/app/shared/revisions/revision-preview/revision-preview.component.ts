@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { RevisionService } from 'src/app/services/revision.service';
 import { ModalsService } from 'src/app/modals/modals.service';
+import { utf8Encode } from '@angular/compiler/src/util';
 
 function slugify(text) {
   return text
@@ -204,9 +205,9 @@ export class RevisionPreviewComponent implements OnInit {
     let downloadLink = document.createElement('a');
     document.body.appendChild(downloadLink);
     if (navigator.msSaveOrOpenBlob) {
-      window.navigator.msSaveBlob(this.revision, fileTitle + '.json');
+      window.navigator.msSaveBlob('data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.revision)), fileTitle + '.json');
     } else {
-      downloadLink.href = this.revision;
+      downloadLink.href = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.revision));
       downloadLink.download = fileTitle + '.json';
       downloadLink.click();
     }
