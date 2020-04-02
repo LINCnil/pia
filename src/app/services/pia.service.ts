@@ -407,7 +407,7 @@ export class PiaService {
     });
   }
 
-  async replacePiaByExport(piaExport, resetOption, updateOption) {
+  async replacePiaByExport(piaExport, resetOption, updateOption, dateExport) {
     return new Promise(async resolve => {
       const pia = new Pia();
       pia.id = piaExport.pia.id;
@@ -427,7 +427,7 @@ export class PiaService {
       pia.created_at = piaExport.pia.created_at;
       pia.dpos_names = piaExport.pia.dpos_names;
       pia.people_names = piaExport.pia.people_names;
-      pia.updated_at = new Date();
+      pia.updated_at = dateExport;
       pia.status = resetOption ? 0 : piaExport.status;
       /* Structure import if there is a specific one associated to this PIA */
       if (piaExport.pia.structure_id) {
@@ -439,7 +439,7 @@ export class PiaService {
 
       if (updateOption) {
         pia
-          .update() // update pia storage
+          .update(dateExport) // update pia storage
           .then(async () => {
             // DELETE EVERY ANSWERS, MEASURES AND COMMENT
             await this.destroyData(pia.id);
