@@ -19,7 +19,6 @@ export class RevisionService {
       const revision = new Revision();
       revision.pia_id = this.piaService.pia.id;
       revision.get(this.revisionSelected).then(() => {
-        console.log('revision', revision);
         const piaExport = JSON.parse(revision.export);
         this.piaService.replacePiaByExport(piaExport, true, true, revision.created_at).then(() => {
           this.router.navigate(['entry', this.piaService.pia.id]);
