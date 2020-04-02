@@ -26,7 +26,7 @@ function slugify(text) {
   selector: 'app-revision-preview',
   templateUrl: './revision-preview.component.html',
   styleUrls: ['./revision-preview.component.scss'],
-  providers: [AppDataService, SidStatusService, RevisionService, ModalsService, TranslateService]
+  providers: [AppDataService, SidStatusService, RevisionService, TranslateService]
 })
 export class RevisionPreviewComponent implements OnInit {
   @Input() revision: any;
@@ -217,7 +217,8 @@ export class RevisionPreviewComponent implements OnInit {
     this._modalsService.closeModal();
     console.log('hello final');
     this._revisionService.prepareLoadRevision(this.revision.id, this.pia.id).then((createdAt: Date) => {
-      this._modalsService.revisionDate = createdAt;
+      console.log(createdAt);
+      this._modalsService.revisionDate = new Date(createdAt);
       this._modalsService.openModal('revision-selection');
     });
   }
