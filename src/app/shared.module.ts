@@ -70,6 +70,7 @@ import { PaginationService } from 'src/app/entry/entry-content/pagination.servic
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { RevisionPreviewComponent } from './shared/revisions/revision-preview/revision-preview.component';
 
 import { SafeHtmlPipe, Nl2brPipe, FormatTheDate, FilterForUser } from './tools';
 
@@ -119,6 +120,7 @@ const providersList: any = [
   declarations: [
     HeaderComponent,
     ModalsComponent,
+    RevisionPreviewComponent,
     KnowledgeBaseComponent,
     KnowledgeBaseItemComponent,
     SafeHtmlPipe,

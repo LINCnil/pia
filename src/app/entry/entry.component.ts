@@ -217,7 +217,7 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
    * Create a new Revision record in indexDB
    */
   onNewRevision() {
-    this._piaService.export(this._piaService.pia.id).then(exportResult => {
+    this._revisionService.export(this._piaService.pia.id).then(exportResult => {
       this._revisionService.add(exportResult, this._piaService.pia.id).then(resp => {
         // because ngOnchanges no detect simply array push
         this.revisions.push(resp);
@@ -251,11 +251,12 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   onPreviewRevision(id) {
-    /* console.log('search revision for preview', id);
     this._revisionService.revisionSelected = id;
     this._revisionService.getRevisionById(id).then(revisionExport => {
-      console.log('revision', revisionExport);
-    }); */
+      this.preview = revisionExport;
+      this.preview.id = id;
+      this._modalsService.openModal('revision-preview-selection');
+    });
   }
 
   /********** END REVISIONS ACTIONS ***********/
