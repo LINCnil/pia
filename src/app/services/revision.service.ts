@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Revision } from '../models/revision.model';
 import { PiaService } from './pia.service';
 import { Router } from '@angular/router';
+import { utf8Encode } from '@angular/compiler/src/util';
 
 @Injectable()
 export class RevisionService {
@@ -19,7 +20,7 @@ export class RevisionService {
       revision.pia_id = this.piaService.pia.id;
       revision.get(this.revisionSelected).then(() => {
         const piaExport = JSON.parse(revision.export);
-        this.piaService.replacePiaByExport(piaExport, true, true).then(() => {
+        this.piaService.replacePiaByExport(piaExport, true, true, revision.created_at).then(() => {
           this.router.navigate(['entry', this.piaService.pia.id]);
           resolve();
         });
@@ -70,6 +71,16 @@ export class RevisionService {
       revision.pia_id = piaId;
       revision.get(revisionId).then(() => {
         resolve(revision.created_at);
+      });
+    });
+  }
+
+  async export(id: number) {
+    return new Promise(async (resolve, reject) => {
+      this.piaService.calculPiaProgress;
+      this.piaService.exportData(id).then(data => {
+        const finalData = JSON.stringify(data);
+        resolve(finalData);
       });
     });
   }

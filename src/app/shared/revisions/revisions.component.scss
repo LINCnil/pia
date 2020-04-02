@@ -57,7 +57,8 @@
           list-style: none;
           li {
             cursor: pointer;
-            font-size: 1.4rem;
+            padding: 4px 0px;
+            font-size: 1.5rem;
             &:hover,
             &:focus,
             &:active {
@@ -72,6 +73,7 @@
             &.revision-active a {
               color: white;
               display: block;
+              float: right;
             }
           }
         }

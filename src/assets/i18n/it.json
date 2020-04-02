@@ -1413,7 +1413,7 @@
 		"revision": {
 			"current_version": "TO TRANSLATE - Current version",
 			"pia_version": "TO TRANSLATE - PIA versions",
-			"restore_version": "TO TRANSLATE - Restore this version",
+			"restore_version": "TO TRANSLATE - Restoren",
 			"revision": "TO TRANSLATE - Versions and revision",
 			"save": "TO TRANSLATE - Create a new version",
 			"show": "TO TRANSLATE - Display the {{length}} versions"

@@ -43,6 +43,6 @@
     </div>
 </main>
 
-<app-modals (continueEvent)="loadPiaRevision()"></app-modals>
+<app-modals (continueEvent)="loadPiaRevision()" [revisionPreview]="preview"></app-modals>
 <app-preview [onlyData]="true" *ngIf="download"></app-preview>
 <app-loading-overlay [visibility]="download || revisionOverlay"></app-loading-overlay>
