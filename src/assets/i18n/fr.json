@@ -1406,7 +1406,7 @@
 		"revision": {
 			"current_version": "Version actuelle",
 			"pia_version": "Versions du PIA",
-			"restore_version": "Restaurer cette version",
+			"restore_version": "Restaurer",
 			"revision": "Versions et révision",
 			"save": "Créer une nouvelle version",
 			"show": "Afficher les {{length}} version(s)"
