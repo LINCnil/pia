@@ -1413,7 +1413,7 @@
 		"revision": {
 			"current_version": "Current version",
 			"pia_version": "PIA versions",
-			"restore_version": "Restore this version",
+			"restore_version": "Restore",
 			"revision": "Versions and revision",
 			"save": "Create a new version",
 			"show": "Display the {{length}} versions"

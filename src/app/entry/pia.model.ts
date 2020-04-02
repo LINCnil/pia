@@ -60,10 +60,8 @@ export class Pia extends ApplicationDb {
             newPia.status = element.status;
             newPia.dpos_names = element.dpos_names;
             newPia.people_names = element.people_names;
-            newPia.concerned_people_searched_opinion =
-              element.concerned_people_searched_opinion;
-            newPia.concerned_people_searched_content =
-              element.concerned_people_searched_content;
+            newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
+            newPia.concerned_people_searched_content = element.concerned_people_searched_content;
             newPia.is_example = element.is_example;
             newPia.is_archive = element.is_archive;
             newPia.structure_id = element.structure_id;
@@ -148,10 +146,8 @@ export class Pia extends ApplicationDb {
             newPia.status = element.status;
             newPia.dpos_names = element.dpos_names;
             newPia.people_names = element.people_names;
-            newPia.concerned_people_searched_opinion =
-              element.concerned_people_searched_opinion;
-            newPia.concerned_people_searched_content =
-              element.concerned_people_searched_content;
+            newPia.concerned_people_searched_opinion = element.concerned_people_searched_opinion;
+            newPia.concerned_people_searched_content = element.concerned_people_searched_content;
             newPia.is_example = element.is_example;
             newPia.is_archive = element.is_archive;
             newPia.structure_id = element.structure_id;
@@ -293,7 +289,7 @@ export class Pia extends ApplicationDb {
    * Update a PIA.
    * @returns {Promise} - Return new Promise
    */
-  async update() {
+  async update(date = null) {
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
         entry.name = this.name;
@@ -322,7 +318,7 @@ export class Pia extends ApplicationDb {
         entry.structure_name = this.structure_name;
         entry.structure_sector_name = this.structure_sector_name;
         entry.structure_data = this.structure_data ? this.structure_data : '';
-        entry.updated_at = new Date();
+        entry.updated_at = date ? date : new Date();
         if (this.serverUrl) {
           const formData = new FormData();
           for (const d in entry) {
@@ -441,10 +437,8 @@ export class Pia extends ApplicationDb {
           this.updated_at = new Date(entry.updated_at);
           this.dpos_names = entry.dpos_names;
           this.people_names = entry.people_names;
-          this.concerned_people_searched_opinion =
-            entry.concerned_people_searched_opinion;
-          this.concerned_people_searched_content =
-            entry.concerned_people_searched_content;
+          this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
+          this.concerned_people_searched_content = entry.concerned_people_searched_content;
           this.structure_id = entry.structure_id;
           this.structure_name = entry.structure_name;
           this.structure_sector_name = entry.structure_sector_name;
@@ -505,10 +499,8 @@ export class Pia extends ApplicationDb {
               this.updated_at = new Date(entry.updated_at);
               this.dpos_names = entry.dpos_names;
               this.people_names = entry.people_names;
-              this.concerned_people_searched_opinion =
-                entry.concerned_people_searched_opinion;
-              this.concerned_people_searched_content =
-                entry.concerned_people_searched_content;
+              this.concerned_people_searched_opinion = entry.concerned_people_searched_opinion;
+              this.concerned_people_searched_content = entry.concerned_people_searched_content;
               this.structure_id = entry.structure_id;
               this.structure_name = entry.structure_name;
               this.structure_sector_name = entry.structure_sector_name;
