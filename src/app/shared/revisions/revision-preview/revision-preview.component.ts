@@ -46,6 +46,7 @@ export class RevisionPreviewComponent implements OnInit {
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log('changement', changes.revision);
     if (changes.revision && changes.revision.currentValue) {
       // CONSTRUC A NEW PIA FOR THE PREVIEW MODE
       this.pia = new Pia();
@@ -83,7 +84,8 @@ export class RevisionPreviewComponent implements OnInit {
       this.getJsonInfo();
 
       // CALCUL PROGRESS BAR
-      this.pia.progress = 0.0;
+      this.pia.progress = changes.revision.currentValue.pia.progress;
+      /* this.pia.progress = 0.0;
       if (this.pia.status > 0) {
         this.pia.progress += 4;
       }
@@ -91,7 +93,7 @@ export class RevisionPreviewComponent implements OnInit {
         section.items.forEach((item: any) => {
           this._sidStatusService.setSidStatus(this.pia, section, item);
         });
-      });
+      });*/
     }
   }
 

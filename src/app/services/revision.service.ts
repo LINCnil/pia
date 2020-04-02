@@ -77,6 +77,7 @@ export class RevisionService {
 
   async export(id: number) {
     return new Promise(async (resolve, reject) => {
+      this.piaService.calculPiaProgress;
       this.piaService.exportData(id).then(data => {
         const finalData = JSON.stringify(data);
         resolve(finalData);

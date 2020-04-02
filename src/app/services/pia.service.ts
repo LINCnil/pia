@@ -297,7 +297,10 @@ export class PiaService {
       comment.pia_id = id;
       // const attachment = new Attachment();
       // attachment.pia_id = id;
+
       pia.get(id).then(() => {
+        // SET progress attribute
+        this.calculPiaProgress(pia);
         const data = {
           pia: pia,
           answers: null,
