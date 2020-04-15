@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-  <nav class="pia-navigationBlock" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader, 'pia-navigationBlock-archives' : isArchiveHeader }">
+  <nav class="pia-navigationBlock" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader, 'pia-navigationBlock-archives' : isArchiveHeader, 'pia-navigationBlock-knowledges' : isKnowledgeHeader}">
     <div class="container">
       <div class="row">
         <div class="small-12 medium-12 columns">
@@ -28,6 +28,9 @@
             </li>
             <li [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
               <a style="text-transform:uppercase;" routerLink="/structures">{{ 'header.structures' | translate }}</a>
+            </li>
+            <li [ngClass]="{'pia-navigationBlock-knowledges' : isKnowledgeHeader}">
+              <a style="text-transform:uppercase;" routerLink="/knowledges">{{ 'header.knowledges' | translate }}</a>
             </li>
           </ul>
           <ul class="pia-navigationBlock-list">
