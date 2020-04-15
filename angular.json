@@ -37,15 +37,14 @@
               "src/mstitle-150x150.png",
               "src/safari-pinned-tab.svg"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss", "node_modules/intro.js/introjs.css"],
             "scripts": [
               "node_modules/save-svg-as-png/lib/saveSvgAsPng.js",
               "node_modules/tinymce/tinymce.js",
               "node_modules/tinymce/themes/modern/theme.js",
               "node_modules/tinymce/plugins/lists/plugin.js",
-              "node_modules/tinymce/plugins/autoresize/plugin.js"
+              "node_modules/tinymce/plugins/autoresize/plugin.js",
+              "node_modules/intro.js/intro.js"
             ],
             "es5BrowserSupport": true
           },
@@ -100,26 +99,16 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -145,9 +134,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
