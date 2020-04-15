@@ -43,7 +43,7 @@ import { PreviewComponent } from './preview/preview.component';
 import { ExportComponent } from './shared/export/export.component';
 import { RevisionsComponent } from './shared/revisions/revisions.component';
 import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overlay.component';
-import { ListComponent } from './knowledges/list/list.component';
+import { IndexComponent } from './knowledges/index/index.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +78,7 @@ import { ListComponent } from './knowledges/list/list.component';
     ExportComponent,
     RevisionsComponent,
     LoadingOverlayComponent,
-    ListComponent
+    IndexComponent
   ],
   imports: [SharedModule, BrowserModule, BrowserAnimationsModule, StructuresModule, ArchivesModule, Angular2CsvModule, PdfJsViewerModule],
   bootstrap: [AppComponent]
