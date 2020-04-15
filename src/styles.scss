@@ -283,3 +283,40 @@ tag-input-form {
   border: 0px !important;
   box-shadow: none !important;
 }
+.introjs-tooltip {
+  background-color: $pia-green !important;
+  .introjs-arrow.left {
+    border-right-color: $pia-green !important;
+  }
+  .introjs-tooltiptext {
+    color: white;
+    text-align: center;
+    b {
+      text-transform: uppercase;
+    }
+  }
+  .introjs-button,
+  .introjs-nextbutton,
+  .introjs-skipbutton,
+  .introjs-prevbutton,
+  .introjs-disabled {
+    background: none !important;
+    border: 0px !important;
+    color: white !important;
+    text-transform: uppercase !important;
+    text-shadow: none !important;
+    &:hover {
+      border-color: none !important;
+      box-shadow: none !important;
+      text-decoration: underline;
+    }
+  }
+
+  .introjs-disabled {
+    display: none;
+  }
+}
+
+.introjs-helperNumberLayer {
+  display: none !important;
+}
