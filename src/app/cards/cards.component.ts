@@ -85,9 +85,18 @@ export class CardsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.paramsSubscribe.unsubscribe();
   }
+
   ngAfterViewInit() {
-    introJs().start();
+    // init INTRO JS in this component
+    introJs()
+      .setOption('nextLabel', 'SUIVANT')
+      .setOption('prevLabel', 'PRECEDENT')
+      .setOption('skipLabel', 'PASSER')
+      .setOption('doneLabel', 'TERMINER')
+      .setOption('showBullets', false)
+      .start();
   }
+
   /**
    * On PIA change.
    * @param {any} pia - Any PIA.
