@@ -2,6 +2,7 @@
 
 
 <div class="container pia-mainContainerBlock">
+
     <div class="row">
       <div class="small-12 medium-12 columns">
         <div class="pia-breadcrumb">{{ 'header.knowledges' | translate }}</div>
@@ -54,4 +55,32 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+        <!-- "Card" mode -->
+        <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
+            <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
+                <div class="pia-newBlock-item front" id="pia-new-card">
+                    <div class="pia-newBlock-item-new">
+                      <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_structure' | translate }}</div>
+                      <div class="pia-newBlock-item-new-btn">
+                        <i class="fa fa-folder-open" aria-hidden="true"></i>
+                        <button class="btn" (click)="newStruct()" type="button" title="{{ 'homepage.cards.placeholder_new_structure' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
+                      </div>
+                    </div>
+                    <span>{{ 'homepage.cards.or' | translate }}</span>
+                    <div class="pia-newBlock-item-import">
+                      <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.import_structure' | translate }}</div>
+                      <div class="pia-newBlock-item-import-btn">
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                        <button class="btn" (click)="importStruct()" type="button" title="{{ 'homepage.cards.placeholder_import_structure' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
 </div>
