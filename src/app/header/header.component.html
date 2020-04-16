@@ -26,10 +26,10 @@
                 <li><a routerLink="/archives">{{ 'header.archives' | translate }}</a></li>
               </ul>
             </li>
-            <li [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
+            <li class="pia-navigationBlock-noSub" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
               <a style="text-transform:uppercase;" routerLink="/structures">{{ 'header.structures' | translate }}</a>
             </li>
-            <li [ngClass]="{'pia-navigationBlock-knowledges' : isKnowledgeHeader}">
+            <li class="pia-navigationBlock-noSub" [ngClass]="{'pia-navigationBlock-knowledges' : isKnowledgeHeader}">
               <a style="text-transform:uppercase;" routerLink="/knowledges">{{ 'header.knowledges' | translate }}</a>
             </li>
           </ul>
