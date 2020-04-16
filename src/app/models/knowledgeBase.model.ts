@@ -6,7 +6,7 @@ export class KnowledgeBase extends ApplicationDb {
   public name: string;
   public author: string;
   public contributors: string;
-  public knowleges: Knowledge[];
+  public knowleges: Knowledge[] = [];
 
   constructor() {
     super(201911191636, 'knowledgeBase');
@@ -35,7 +35,7 @@ export class KnowledgeBase extends ApplicationDb {
    * Create a new Structure.
    * @returns - New Promise
    */
-  async save() {
+  async create() {
     const data = {
       knowleges: this.knowleges,
       created_at: new Date()

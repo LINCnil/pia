@@ -3,11 +3,13 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
+import { KnowledgesService } from 'src/app/services/knowledges.service';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
+  providers: [KnowledgesService]
 })
 export class IndexComponent implements OnInit {
   knowledgeBaseForm: FormGroup;
@@ -18,10 +20,22 @@ export class IndexComponent implements OnInit {
   view: 'knowledges';
   searchText: string;
   paramsSubscribe: Subscription;
+  knowledges: KnowledgeBase[] = [];
 
-  constructor(private router: Router, private el: ElementRef, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    private _knowledgesService: KnowledgesService
+  ) {}
 
   ngOnInit() {
+    this._knowledgesService
+      .getAll()
+      .then((result: KnowledgeBase[]) => {
+        this.knowledges = result;
+      })
+      .catch(() => {});
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {
@@ -110,7 +124,7 @@ export class IndexComponent implements OnInit {
     kb.name = this.knowledgeBaseForm.value.name;
     kb.author = this.knowledgeBaseForm.value.author;
     kb.contributors = this.knowledgeBaseForm.value.contributors;
-    kb.save().then((result: KnowledgeBase) => this.router.navigate(['knowledge', 'entry', result.id, 'section', 1, 'item', 1]));
+    kb.create().then((result: KnowledgeBase) => this.router.navigate(['knowledge', 'entry', result.id, 'section', 1, 'item', 1]));
   }
 
   /**
