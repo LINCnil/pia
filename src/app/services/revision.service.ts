@@ -53,7 +53,6 @@ export class RevisionService {
       revision.pia_id = piaId;
       revision.export = piaExport;
       revision.create().then((response: any) => {
-        console.log('piaExport', piaExport.pia.updated_at);
         this.piaService.pia.updated_at = new Date(); // Update current version's date
         // BETTER SOLUTION BUT REFRESH SCREEN:
         // this.router.navigate(['entry', this.piaService.pia.id]);

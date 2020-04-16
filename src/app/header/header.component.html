@@ -26,8 +26,8 @@
                 <li><a routerLink="/archives">{{ 'header.archives' | translate }}</a></li>
               </ul>
             </li>
-            <li class="pia-navigationBlock-structures">
-              <a routerLink="/structures">{{ 'header.structures' | translate }}</a>
+            <li [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
+              <a style="text-transform:uppercase;" routerLink="/structures">{{ 'header.structures' | translate }}</a>
             </li>
           </ul>
           <ul class="pia-navigationBlock-list">
