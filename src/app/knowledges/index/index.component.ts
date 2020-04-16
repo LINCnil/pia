@@ -20,7 +20,7 @@ export class IndexComponent implements OnInit {
   view: 'knowledges';
   searchText: string;
   paramsSubscribe: Subscription;
-  knowledges: KnowledgeBase[] = [];
+  knowledgeBases: Array<KnowledgeBase> = [];
 
   constructor(
     private router: Router,
@@ -30,12 +30,16 @@ export class IndexComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // GET ALL
     this._knowledgesService
       .getAll()
-      .then((result: KnowledgeBase[]) => {
-        this.knowledges = result;
+      .then((result: any) => {
+        console.log('result', result);
+        this.knowledgeBases = result;
       })
       .catch(() => {});
+
+    // INIT ORDER
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
     if (!this.sortOrder || !this.sortValue) {

@@ -87,11 +87,11 @@
                   <button class="btn" (click)="reverseStruct()" type="button" title="{{ 'homepage.cards.title_close_creation' | translate }}"><span class="pia-icons pia-icon-close"></span></button>
                   <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="knowledgeBaseForm">
                     <div>
-                      <label for="name">{{ 'homepage.cards.structure_name' | translate }}</label>
+                      <label for="name">{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</label>
                       <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_name' | translate }}" id="name" required>
                     </div>
                     <div>
-                      <label for="author">{{ 'homepage.cards.sector_name' | translate }}</label>
+                      <label for="author">{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</label>
                       <input formControlName="author" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_author' | translate }}" id="author" required>
                     </div>
                     <div>
@@ -123,9 +123,7 @@
           <!-- end first block -->
 
           <!-- cards -->
-            <div>
-              {{knowledges.length}}
-            </div>
+          <app-card *ngFor="let base of knowledgeBases" [base]="base"></app-card>
           <!-- end cards -->
         </div>
         

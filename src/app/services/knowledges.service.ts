@@ -13,7 +13,11 @@ export class KnowledgesService {
     return new Promise((resolve, reject) => {
       kbTemp
         .findAll()
-        .then((result: KnowledgeBase[]) => {
+        .then((response: any) => {
+          let result = [];
+          response.forEach(e => {
+            result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.knowleges, e.created_at));
+          });
           resolve(result);
         })
         .catch(error => {

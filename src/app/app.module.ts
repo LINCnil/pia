@@ -44,6 +44,7 @@ import { ExportComponent } from './shared/export/export.component';
 import { RevisionsComponent } from './shared/revisions/revisions.component';
 import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overlay.component';
 import { IndexComponent } from './knowledges/index/index.component';
+import { CardComponent } from './knowledges/card/card.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { IndexComponent } from './knowledges/index/index.component';
     ExportComponent,
     RevisionsComponent,
     LoadingOverlayComponent,
-    IndexComponent
+    IndexComponent,
+    CardComponent
   ],
   imports: [SharedModule, BrowserModule, BrowserAnimationsModule, StructuresModule, ArchivesModule, Angular2CsvModule, PdfJsViewerModule],
   bootstrap: [AppComponent]
