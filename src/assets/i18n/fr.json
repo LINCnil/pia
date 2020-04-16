@@ -241,7 +241,14 @@
 			"structure": "Modèle",
 			"structure_name": "Nom du modèle",
 			"title_close_creation": "Fermer",
-			"validation": "Validation"
+			"validation": "Validation",
+			"knowledges": {
+				"new": "Créer une base",
+				"import": "Importer une base",
+				"placeholder_name": "Nom de la base",
+				"placeholder_author": "Auteur",
+				"placeholder_contributors": "Contributeurs"
+			}
 		},
 		"filters": {
 			"assessor": "Évaluateur",

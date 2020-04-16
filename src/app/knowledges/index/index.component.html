@@ -57,29 +57,119 @@
     </div>
 
     <div class="row">
+
         <!-- "Card" mode -->
         <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
-            <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
-                <div class="pia-newBlock-item front" id="pia-new-card">
-                    <div class="pia-newBlock-item-new">
-                      <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_structure' | translate }}</div>
-                      <div class="pia-newBlock-item-new-btn">
-                        <i class="fa fa-folder-open" aria-hidden="true"></i>
-                        <button class="btn" (click)="newStruct()" type="button" title="{{ 'homepage.cards.placeholder_new_structure' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
-                      </div>
+          
+          <!-- first block -->
+          <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
+              <div class="pia-newBlock-item front" id="pia-new-card">
+                  <div class="pia-newBlock-item-new">
+                    <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.knowledges.new' | translate }}</div>
+                    <div class="pia-newBlock-item-new-btn">
+                      <i class="fa fa-folder-open" aria-hidden="true"></i>
+                      <button class="btn" (click)="newStruct()" type="button" title="{{ 'homepage.cards.knowledges.new' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
                     </div>
-                    <span>{{ 'homepage.cards.or' | translate }}</span>
-                    <div class="pia-newBlock-item-import">
-                      <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.import_structure' | translate }}</div>
-                      <div class="pia-newBlock-item-import-btn">
-                        <i class="fa fa-upload" aria-hidden="true"></i>
-                        <button class="btn" (click)="importStruct()" type="button" title="{{ 'homepage.cards.placeholder_import_structure' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
-                      </div>
+                  </div>
+                  <span>{{ 'homepage.cards.or' | translate }}</span>
+                  <div class="pia-newBlock-item-import">
+                    <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.knowledges.import' | translate }}</div>
+                    <div class="pia-newBlock-item-import-btn">
+                      <i class="fa fa-upload" aria-hidden="true"></i>
+                      <button class="btn" (click)="importStruct()" type="button" title="{{ 'homepage.cards.knowledges.import' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
                     </div>
-                </div>
-            </div>
+                  </div>
+              </div>
 
+              <!-- form -->
+              <div class="pia-cardsBlock pia-editBlock back">
+                <div class="pia-cardsBlock-item pia-editBlock-item">
+                  <button class="btn" (click)="reverseStruct()" type="button" title="{{ 'homepage.cards.title_close_creation' | translate }}"><span class="pia-icons pia-icon-close"></span></button>
+                  <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="knowledgeBaseForm">
+                    <div>
+                      <label for="name">{{ 'homepage.cards.structure_name' | translate }}</label>
+                      <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_name' | translate }}" id="name" required>
+                    </div>
+                    <div>
+                      <label for="author">{{ 'homepage.cards.sector_name' | translate }}</label>
+                      <input formControlName="author" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_author' | translate }}" id="author" required>
+                    </div>
+                    <div>
+                      <label for="contributor">{{ 'homepage.cards.sector_name' | translate }}</label>
+                      <input formControlName="contributors" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}" id="contributors" required>
+                    </div>
+                    <!-- <div class="pia-cardsBlock-item-date" *ngIf="newStructure">
+                      <div>{{ 'homepage.cards.date' | translate }}</div>
+                      <time>{{ newStructure.created_at | date: 'shortDate': '': _languagesService.selectedLanguage}}</time>
+                    </div> -->
+                    <div class="pia-cardsBlock-item-btn">
+                      <button type="submit" [disabled]="knowledgeBaseForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- end form -->
+              <!-- 
+              <div class="pia-newBlock-hint" *ngIf="_structureService.structures && _structureService.structures.length === 0" id="pia-rocket">
+                <span class="pia-icons pia-icon-small-arrow"></span>
+                <div>
+                  <span class="pia-icons pia-icon-rocket"></span>
+                  <p [innerHTML]="'homepage.filters.card_rocket_content_structure' | translate"></p>
+                </div>
+              </div>
+              -->
+          
+          </div>
+          <!-- end first block -->
+
+          <!-- cards -->
+          <!-- end cards -->
         </div>
+        
+        <ng-template #viewList>      
+          <div class="small-12 medium-12 columns">
+            <table class="pia-list-table">
+              <thead>
+                <tr>
+                  <th>
+                  </th>
+                  <th>
+                    <a (click)="sortBy('name')">
+                      <span>{{ 'homepage.lists.column_structure' | translate }}</span>
+                      <i class="fa"
+                      [ngClass]="[sortValue === 'name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"></i>
+                  </a>
+                  </th>
+                  <th>
+                    <a (click)="sortBy('updated_at')">
+                      <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
+                      <i class="fa"
+                        [ngClass]="[sortValue === 'updated_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                      ></i>
+                    </a>
+                  </th>
+                  <th>
+                    <a (click)="sortBy('sector_name')">
+                      <span>{{ 'homepage.lists.column_sector_name' | translate }}</span>
+                      <i class="fa"
+                        [ngClass]="[sortValue === 'sector_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                      ></i>
+                    </a>
+                  </th>
+                  <th>
+                    <a (click)="sortBy('created_at')">
+                      <span>{{ 'homepage.lists.column_creation' | translate }}</span>
+                      <i class="fa"
+                        [ngClass]="[sortValue === 'created_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                      ></i>
+                    </a>
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </ng-template>
+
 
     </div>
     

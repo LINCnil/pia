@@ -10,7 +10,7 @@
     background: url('../../../assets/images/pia-bg.png') repeat center center;
     padding: 70px 40px;
     font-size: 1.9rem;
-    color: $pia-green;
+    color: $pia-red;
     height: 440px;
     width: 274px;
     &-new,
@@ -39,7 +39,7 @@
     > span {
       display: block;
       padding: 22px 0;
-      color: $pia-gray;
+      color: $pia-red;
       font-size: 2.1rem;
     }
   }
@@ -64,7 +64,7 @@
       p {
         display: inline-block;
         vertical-align: top;
-        color: $pia-blue;
+        color: $pia-red;
         font-size: 1.6rem;
         line-height: 1.2;
         margin-top: 58px;
@@ -90,7 +90,7 @@
       left: 10px;
       top: 1px;
       font-size: 2.35rem;
-      color: $pia-green;
+      color: $pia-red;
       -webkit-transform: rotate(-45deg);
       -moz-transform: rotate(-45deg);
       -o-transform: rotate(-45deg);
@@ -105,15 +105,15 @@
       line-height: 3rem;
       font-style: normal;
       font-weight: lighter;
-      color: $pia-green;
+      color: $pia-red;
       cursor: pointer;
     }
     input.btn.btn-search {
       float: right;
       background: none;
-      border: 1px solid $pia-green;
+      border: 1px solid $pia-red;
       border-radius: 20px;
-      color: $pia-green !important;
+      color: $pia-red !important;
       font-size: 1.3rem;
       transition: all ease 0.5s;
       outline-style: none;
@@ -121,15 +121,15 @@
       position: relative;
       padding-left: 30px;
       &::placeholder {
-        color: $pia-green;
+        color: $pia-red;
       }
       &:focus,
       &.typed {
         width: 350px;
         border: 0px;
-        border: 1px solid $pia-green;
+        border: 1px solid $pia-red;
         border-radius: 20px;
-        color: $pia-green;
+        color: $pia-red;
         + .search-icon {
           left: -190px;
         }
@@ -158,9 +158,9 @@
       vertical-align: middle;
       min-width: 140px;
       height: 34px;
-      border: 1px solid $pia-green;
+      border: 1px solid $pia-red;
       border-radius: 20px;
-      color: $pia-green;
+      color: $pia-red;
       padding: 0 10px;
       .fa-list {
         font-size: 1.5rem;
@@ -174,14 +174,14 @@
       }
       &:hover,
       &:focus {
-        background: $pia-green;
-        border-color: $pia-green;
+        background: $pia-red;
+        border-color: $pia-red;
         color: #fff;
       }
       &:active {
-        color: $pia-green;
+        color: $pia-red;
         background-color: #fff;
-        border-color: $pia-green;
+        border-color: $pia-red;
       }
     }
     &-filters {
@@ -197,7 +197,7 @@
         top: 15px;
         left: 0;
         right: 0;
-        border: 2px solid $pia-green;
+        border: 2px solid $pia-red;
         border-top: none;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
@@ -224,7 +224,7 @@
           &:hover,
           &:active,
           .active {
-            background-color: $pia-blue;
+            background-color: $pia-red;
             a {
               color: #ffffff !important;
               font-weight: 600;
@@ -234,9 +234,9 @@
         }
       }
       &-btn {
-        border: 1px solid $pia-green;
+        border: 1px solid $pia-red;
         border-radius: 20px;
-        color: $pia-green;
+        color: $pia-red;
         padding: 9px 12px 9px 16px;
         font-size: 1.3rem;
         position: relative;
@@ -255,7 +255,7 @@
       &:hover {
         .pia-filtersBlock-filters-btn {
           color: #fff;
-          background-color: $pia-green;
+          background-color: $pia-red;
           .pia-icon-scroll-green {
             background-position: -367px -39px;
           }
@@ -281,7 +281,7 @@
         }
         p {
           margin-left: 10px;
-          color: $pia-blue;
+          color: $pia-red;
           font-size: 2rem;
           line-height: 1.2;
         }
@@ -308,7 +308,7 @@
 
 // Edit PIA
 .pia-editBlock {
-  border-color: $pia-green;
+  border-color: $pia-red;
   button {
     display: block;
     margin-right: 0;
