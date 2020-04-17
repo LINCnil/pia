@@ -48,4 +48,23 @@ export class KnowledgesService {
         console.log('Erreur !');
       });
   }
+
+  /**
+   * Download the Knowledges exported.
+   * @param {number} id - The Structure id.
+   */
+  export(id: number) {
+    const date = new Date().getTime();
+    let kbTemp = new KnowledgeBase();
+    kbTemp.find(id).then(data => {
+      const a = document.getElementById('pia-exportBlock');
+      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+      a.setAttribute('href', url);
+      a.setAttribute('download', date + '_export_knowledgebase_' + id + '.json');
+      const event = new MouseEvent('click', {
+        view: window
+      });
+      a.dispatchEvent(event);
+    });
+  }
 }

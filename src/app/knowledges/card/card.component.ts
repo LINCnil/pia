@@ -61,4 +61,8 @@ export class CardComponent implements OnInit {
     this._knowledgesService.selected = id;
     this._modalsService.openModal('modal-remove-knowledgebase');
   }
+
+  export(id) {
+    this._knowledgesService.export(id);
+  }
 }
