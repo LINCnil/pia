@@ -3,19 +3,20 @@
       
         <div class="pia-cardsBlock-toolbar">
             <div class="pia-cardsBlock-toolbar-export">
+                <!--
                 <a href="javascript:;" class="btn pia-tooltip">
                     <i class="fa fa-download" aria-hidden="true"></i>
                     <span title="{{ 'homepage.cards.item.tools.export' | translate }}" class="pia-tooltip-text">
                         {{ 'homepage.cards.item.tools.export' | translate }}
                     </span>
                 </a>
-                <a href="javascript:;" class="btn pia-tooltip">
+                <a href="javascript:;"class="btn pia-tooltip">
                     <i class="fa fa-files-o" aria-hidden="true"></i>
                     <span title="{{ 'homepage.cards.item.tools.duplicate' | translate }}" class="pia-tooltip-text">
                         {{ 'homepage.cards.item.tools.duplicate' | translate }}
                     </span>
-                </a>
-                <a href="javascript:;" class="btn pia-tooltip">
+                </a>-->
+                <a href="javascript:;" (click)="remove(base.id)" class="btn pia-tooltip">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                     <span title="{{ 'homepage.cards.item.tools.remove' | translate }}" class="pia-tooltip-text">
                         {{ 'homepage.cards.item.tools.remove' | translate }}
@@ -54,7 +55,11 @@
                     placeholder="{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}"
                     id="knowledgebase-edit-name"
                     (focusout)="knowledgeBaseFocusOut()">
-            </div>
+						</div>
+						<div (click)="knowledgeBaseContributorsFocusIn()" style="margin-top:20px;">
+							<label for="knowledgebase-edit-name">{{ 'homepage.cards.knowledges.placeholder_entry_number' | translate }}</label>
+							<br><span>{{ (base.knowledges) ? base.knowledges.length : "aucune"}}</span>
+						</div>
             
             <!--
             <div (click)="structureSectorNameFocusIn()">

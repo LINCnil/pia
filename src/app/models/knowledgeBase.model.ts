@@ -9,7 +9,7 @@ export class KnowledgeBase extends ApplicationDb {
   public knowleges: Knowledge[] = [];
   public created_at: Date;
 
-  constructor(id = null, name = null, author = null, contributors = null, knowleges = null, createdAt = null) {
+  constructor(id = null, name = null, author = null, contributors = null, knowleges = [], createdAt = null) {
     super(201911191636, 'knowledgeBase');
     this.id = id;
     this.name = name;
@@ -73,6 +73,7 @@ export class KnowledgeBase extends ApplicationDb {
         entry.author = this.author;
         entry.contributors = this.contributors;
         entry.updated_at = new Date();
+        entry.knowledges = this.knowleges;
 
         if (this.serverUrl) {
           const formData = new FormData();

@@ -123,7 +123,7 @@
           <!-- end first block -->
 
           <!-- cards -->
-          <app-card *ngFor="let base of knowledgeBases" [base]="base"></app-card>
+          <app-card *ngFor="let base of _knowledgesService.list" [base]="base"></app-card>
           <!-- end cards -->
         </div>
         
@@ -175,3 +175,5 @@
     </div>
     
 </div>
+
+<app-modals></app-modals>

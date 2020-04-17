@@ -20,7 +20,6 @@ export class IndexComponent implements OnInit {
   view: 'knowledges';
   searchText: string;
   paramsSubscribe: Subscription;
-  knowledgeBases: Array<KnowledgeBase> = [];
 
   constructor(
     private router: Router,
@@ -35,7 +34,6 @@ export class IndexComponent implements OnInit {
       .getAll()
       .then((result: any) => {
         console.log('result', result);
-        this.knowledgeBases = result;
       })
       .catch(() => {});
 

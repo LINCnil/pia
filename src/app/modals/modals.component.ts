@@ -15,6 +15,7 @@ import { AnswerStructureService } from 'src/app/services/answer-structure.servic
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
+import { KnowledgesService } from '../services/knowledges.service';
 
 @Component({
   selector: 'app-modals',
@@ -47,7 +48,8 @@ export class ModalsComponent implements OnInit, OnDestroy {
     public _measuresService: MeasureService,
     public _attachmentsService: AttachmentsService,
     private _translateService: TranslateService,
-    public _languagesService: LanguagesService
+    public _languagesService: LanguagesService,
+    public _knowledgesService: KnowledgesService
   ) {}
 
   ngOnInit() {

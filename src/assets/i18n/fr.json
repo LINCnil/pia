@@ -247,7 +247,8 @@
 				"import": "Importer une base",
 				"placeholder_name": "Nom de la base",
 				"placeholder_author": "Auteur",
-				"placeholder_contributors": "Contributeurs"
+				"placeholder_contributors": "Contributeurs",
+				"placeholder_entry_number": "Nombre d'entrées"
 			}
 		},
 		"filters": {
@@ -991,6 +992,10 @@
 		},
 		"general_error": {
 			"content": "Une erreur est survenue.<br>veuillez nous excuser pour ce désagrément."
+		},
+		"knowledges": {
+			"content": "Êtes vous sûr de vouloir supprimer cette base de connaissance ?",
+			"remove": "Supprimer cette base"
 		}
 	},
 	"opinions": {
