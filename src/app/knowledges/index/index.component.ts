@@ -4,12 +4,13 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
+import { ModalsService } from 'src/app/modals/modals.service';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
-  providers: [KnowledgesService]
+  providers: [KnowledgesService, ModalsService]
 })
 export class IndexComponent implements OnInit {
   knowledgeBaseForm: FormGroup;
@@ -25,6 +26,7 @@ export class IndexComponent implements OnInit {
     private router: Router,
     private el: ElementRef,
     private route: ActivatedRoute,
+    private _modalsService: ModalsService,
     private _knowledgesService: KnowledgesService
   ) {}
 

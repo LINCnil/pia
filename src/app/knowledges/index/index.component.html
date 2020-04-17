@@ -18,7 +18,10 @@
                     <i class="fa fa-list" aria-hidden="true"></i>
                     <div>{{ 'homepage.filters.list' | translate }}</div>
                 </button>
-                
+                <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
+                  <button type="button" class="btn btn-red" (click)="_modalsService.openModal('modal-list-new-structure')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_structure' | translate }}</button>
+                  <button type="button" (click)="importStruct()" class="btn btn-red"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_structure' | translate }}</button>
+                </div>
                 <div class="hide"> 
                   <form enctype="multipart/form-data" [formGroup]="importKnowledgeBaseForm">
                     <input type="file" formControlName="import_file" id="import_file" (change)="importStruct($event)" class="hide">
@@ -141,37 +144,32 @@
                   </th>
                   <th>
                     <a (click)="sortBy('name')">
-                      <span>{{ 'homepage.lists.column_structure' | translate }}</span>
+                      <span>{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</span>
                       <i class="fa"
                       [ngClass]="[sortValue === 'name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"></i>
                   </a>
                   </th>
                   <th>
-                    <a (click)="sortBy('updated_at')">
-                      <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
+                    <a (click)="sortBy('author')">
+                      <span>{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</span>
                       <i class="fa"
-                        [ngClass]="[sortValue === 'updated_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                        [ngClass]="[sortValue === 'author' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
                       ></i>
                     </a>
                   </th>
                   <th>
-                    <a (click)="sortBy('sector_name')">
-                      <span>{{ 'homepage.lists.column_sector_name' | translate }}</span>
+                    <a (click)="sortBy('contributors')">
+                      <span>{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}</span>
                       <i class="fa"
-                        [ngClass]="[sortValue === 'sector_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                      ></i>
-                    </a>
-                  </th>
-                  <th>
-                    <a (click)="sortBy('created_at')">
-                      <span>{{ 'homepage.lists.column_creation' | translate }}</span>
-                      <i class="fa"
-                        [ngClass]="[sortValue === 'created_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                        [ngClass]="[sortValue === 'contributors' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
                       ></i>
                     </a>
                   </th>
                 </tr>
               </thead>
+              <tbody>
+                <tr class="app-list-item" [attr.data-id]="base.id" *ngFor="let base of _knowledgesService.list" [base]="base"></tr>
+              </tbody>
             </table>
           </div>
         </ng-template>

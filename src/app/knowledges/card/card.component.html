@@ -63,24 +63,8 @@
                 <br><span>{{ (base.knowledges) ? base.knowledges.length : "aucune"}}</span>
             </div>
 
-            <!--
-            <div (click)="structureSectorNameFocusIn()">
-                <label for="structure-edit-sector-name">{{ 'homepage.cards.sector_name' | translate }}</label>
-                <input type="text"
-                        #structureSectorName
-                        formControlName="sector_name"
-                        required
-                        placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}"
-                        id="structure-edit-sector-name"
-                        (focusout)="structureSectorNameFocusOut()">
-            </div>
-            <div class="pia-cardsBlock-item-date">
-                <div>{{ 'homepage.cards.date' | translate }}</div>
-                <time>{{ structure.created_at | date: "shortDate":"":_languagesService.selectedLanguage }}</time>
-            </div>
-            -->
             <div class="pia-cardsBlock-item-btn">
-                <a routerLink="/knowledges/entry/{{base.id}}" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
+                <a routerLink="/knowledges/entry/{{base.id}}" class="btn btn-red">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
             </div>
         </form>
 
