@@ -415,3 +415,27 @@
     </div>
   </div>
 </div>
+
+<div class="pia-modalBlock" id="modal-list-new-knowledgebase">
+  <div class="pia-modalBlock-content bounceIn">
+    <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close"></span></button>
+    <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmitKnowledgeBase()" [formGroup]="knowledgeBaseForm">
+      <div>
+        <label for="name">{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</label>
+        <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_name' | translate }}" id="name" required>
+      </div>
+      <div>
+        <label for="author">{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</label>
+        <input formControlName="author" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_author' | translate }}" id="author" required>
+      </div>
+      <div>
+        <label for="contributor">{{ 'homepage.cards.sector_name' | translate }}</label>
+        <input formControlName="contributors" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}" id="contributors" required>
+      </div>
+      <div class="pia-cardsBlock-item-status"></div>
+      <div class="pia-cardsBlock-item-btn">
+        <button type="submit" [disabled]="knowledgeBaseForm.invalid" class="btn btn-green get-focus" id="modal_structure-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

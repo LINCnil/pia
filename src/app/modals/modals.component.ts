@@ -16,6 +16,7 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { KnowledgesService } from '../services/knowledges.service';
+import { KnowledgeBase } from '../models/knowledgeBase.model';
 
 @Component({
   selector: 'app-modals',
@@ -35,6 +36,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
   newStructure: Structure;
   piaForm: FormGroup;
   structureForm: FormGroup;
+  knowledgeBaseForm: FormGroup;
   removeAttachmentForm: FormGroup;
   enableSubmit = true;
 
@@ -77,6 +79,12 @@ export class ModalsComponent implements OnInit, OnDestroy {
     });
     this.newPia = new Pia();
     this.newStructure = new Structure();
+
+    this.knowledgeBaseForm = new FormGroup({
+      name: new FormControl(),
+      author: new FormControl(),
+      contributors: new FormControl()
+    });
   }
 
   /**
@@ -108,6 +116,14 @@ export class ModalsComponent implements OnInit, OnDestroy {
     structure.data = this._piaService.data;
     const p = structure.create();
     p.then(id => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
+  }
+
+  onSubmitKnowledgeBase() {
+    const kb = new KnowledgeBase();
+    kb.name = this.knowledgeBaseForm.value.name;
+    kb.author = this.knowledgeBaseForm.value.author;
+    kb.contributors = this.knowledgeBaseForm.value.contributors;
+    kb.create().then((result: KnowledgeBase) => this.router.navigate(['knowledges', 'entry', result.id]));
   }
 
   /**

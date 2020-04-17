@@ -19,7 +19,7 @@
                     <div>{{ 'homepage.filters.list' | translate }}</div>
                 </button>
                 <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
-                  <button type="button" class="btn btn-red" (click)="_modalsService.openModal('modal-list-new-structure')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_structure' | translate }}</button>
+                  <button type="button" class="btn btn-red" (click)="_modalsService.openModal('modal-list-new-knowledgebase')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_structure' | translate }}</button>
                   <button type="button" (click)="importStruct()" class="btn btn-red"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_structure' | translate }}</button>
                 </div>
                 <div class="hide"> 
