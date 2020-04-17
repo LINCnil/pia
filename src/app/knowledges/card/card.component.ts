@@ -6,7 +6,8 @@ import { KnowledgesService } from 'src/app/services/knowledges.service';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
+  providers: [ModalsService]
 })
 export class CardComponent implements OnInit {
   knowledgeBaseForm: FormGroup;

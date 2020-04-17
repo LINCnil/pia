@@ -126,7 +126,7 @@ export class IndexComponent implements OnInit {
     kb.name = this.knowledgeBaseForm.value.name;
     kb.author = this.knowledgeBaseForm.value.author;
     kb.contributors = this.knowledgeBaseForm.value.contributors;
-    kb.create().then((result: KnowledgeBase) => this.router.navigate(['knowledge', 'entry', result.id, 'section', 1, 'item', 1]));
+    kb.create().then((result: KnowledgeBase) => this.router.navigate(['knowledges', 'entry', result.id]));
   }
 
   /**

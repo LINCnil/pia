@@ -55,12 +55,13 @@
                     placeholder="{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}"
                     id="knowledgebase-edit-name"
                     (focusout)="knowledgeBaseFocusOut()">
-						</div>
-						<div (click)="knowledgeBaseContributorsFocusIn()" style="margin-top:20px;">
-							<label for="knowledgebase-edit-name">{{ 'homepage.cards.knowledges.placeholder_entry_number' | translate }}</label>
-							<br><span>{{ (base.knowledges) ? base.knowledges.length : "aucune"}}</span>
-						</div>
-            
+            </div>
+
+            <div (click)="knowledgeBaseContributorsFocusIn()" style="margin-top:20px;">
+                <label for="knowledgebase-edit-name">{{ 'homepage.cards.knowledges.placeholder_entry_number' | translate }}</label>
+                <br><span>{{ (base.knowledges) ? base.knowledges.length : "aucune"}}</span>
+            </div>
+
             <!--
             <div (click)="structureSectorNameFocusIn()">
                 <label for="structure-edit-sector-name">{{ 'homepage.cards.sector_name' | translate }}</label>
@@ -76,11 +77,10 @@
                 <div>{{ 'homepage.cards.date' | translate }}</div>
                 <time>{{ structure.created_at | date: "shortDate":"":_languagesService.selectedLanguage }}</time>
             </div>
-                <div class="pia-cardsBlock-item-btn">
-                    <a *ngIf="structure.is_example" routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_structure' | translate }}</a>
-                    <a *ngIf="!structure.is_example" routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
-                </div>
             -->
+            <div class="pia-cardsBlock-item-btn">
+                <a routerLink="/knowledges/entry/{{base.id}}" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
+            </div>
         </form>
 
 

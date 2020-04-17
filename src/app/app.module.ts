@@ -45,8 +45,11 @@ import { RevisionsComponent } from './shared/revisions/revisions.component';
 import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overlay.component';
 import { IndexComponent } from './knowledges/index/index.component';
 import { CardComponent } from './knowledges/card/card.component';
+import { KnowledgesService } from './services/knowledges.service';
+import { KnowledgeEntryComponent } from './knowledges/knowledge-entry/knowledge-entry.component';
 
 @NgModule({
+  providers: [KnowledgesService],
   declarations: [
     AppComponent,
     AuthenticationComponent,
@@ -80,7 +83,8 @@ import { CardComponent } from './knowledges/card/card.component';
     RevisionsComponent,
     LoadingOverlayComponent,
     IndexComponent,
-    CardComponent
+    CardComponent,
+    KnowledgeEntryComponent
   ],
   imports: [SharedModule, BrowserModule, BrowserAnimationsModule, StructuresModule, ArchivesModule, Angular2CsvModule, PdfJsViewerModule],
   bootstrap: [AppComponent]
