@@ -167,11 +167,6 @@
     tslib "^1.9.0"
     yargs "13.1.0"
 
-"@angular/compiler@^9.0.7":
-  version "9.0.7"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-9.0.7.tgz#3cf8f9f6dc6e787506a0bc9444c4abb857bb1068"
-  integrity sha512-hFpkuGpzxpK5h59LHHAjTFWsY6DCXZwgJFqvCuTPxWi/srvLGZRXrpC6Z1SlgHI9xxXaPfoa4uWw2VfA3BnqEg==
-
 "@angular/compiler@~8.2.14":
   version "8.2.14"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-8.2.14.tgz#46db7a9d1c17f236126518ff26480c160d5a6183"
@@ -1084,12 +1079,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@biesbjerg/ngx-translate-extract@^6.0.3":
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-6.0.3.tgz#9efae5376f007e1f871818e17cd9911adf9318dd"
-  integrity sha512-FWpToi3s4X631vBsOqZ52d1f96g5p4fKLRqPUhHeYVuQskHV4pVCwXg83gio/FoiHeHtiPIvLy8bQqqoFnxEVA==
+"@biesbjerg/ngx-translate-extract@^6.0.4":
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/@biesbjerg/ngx-translate-extract/-/ngx-translate-extract-6.0.4.tgz#283defea14f4fb7fce2453306d0a2a4c99c02317"
+  integrity sha512-loaQc0ZNpGClW6D4nDslEOZ0OQJnqWWWDkRnPqmv8BlbMHNH1M7hpoQdxa/8utZ6DiWr9D3/rbTK/YlB4V3bHA==
   dependencies:
-    "@angular/compiler" "^9.0.7"
     "@phenomnomnominal/tsquery" "^4.0.0"
     boxen "^4.2.0"
     colorette "^1.1.0"
@@ -1099,7 +1093,6 @@
     mkdirp "^1.0.3"
     path "^0.12.7"
     terminal-link "^2.1.1"
-    typescript "^3.8.3"
     yargs "^15.3.1"
 
 "@commitlint/cli@^8.3.5":
@@ -6722,10 +6715,10 @@ karma-source-map-support@1.4.0:
   dependencies:
     source-map-support "^0.5.5"
 
-karma@~5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/karma/-/karma-5.0.1.tgz#cd516f56d99ecd83e925a405b8003abebb72a074"
-  integrity sha512-xrDGtZ0mykEQjx1BUHOP1ITi39MDsCGocmSvLJWHxUQpxuKwxk3ZUrC6HI2VWh1plLC6+7cA3B19m12yzO/FRw==
+karma@~5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/karma/-/karma-5.0.2.tgz#e404373dac6e3fa08409ae4d9eda7d83adb43ee5"
+  integrity sha512-RpUuCuGJfN3WnjYPGIH+VBF8023Lfm3TQH6D1kcNL+FxtEPc2UUz/nVjbVAGXH4Pm+Q7FVOAQjdAeFUpXpQ3IA==
   dependencies:
     body-parser "^1.16.1"
     braces "^3.0.2"
@@ -7995,7 +7988,7 @@ opn@latest:
   dependencies:
     is-wsl "^1.1.0"
 
-optimist@^0.6.1, optimist@~0.6.0:
+optimist@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
   integrity sha1-2j6nRob6IaGaERwybpDrFaAZZoY=
@@ -8618,10 +8611,10 @@ protoduck@^5.0.1:
   dependencies:
     genfun "^5.0.0"
 
-protractor@~5.4.3:
-  version "5.4.3"
-  resolved "https://registry.yarnpkg.com/protractor/-/protractor-5.4.3.tgz#35f050741e404a45868618ea648745d89af31683"
-  integrity sha512-7pMAolv8Ah1yJIqaorDTzACtn3gk7BamVKPTeO5lqIGOrfosjPgXFx/z1dqSI+m5EeZc2GMJHPr5DYlodujDNA==
+protractor@~5.4.4:
+  version "5.4.4"
+  resolved "https://registry.yarnpkg.com/protractor/-/protractor-5.4.4.tgz#b241466aaf83b76bc2c58df67deb9a5cdfc61529"
+  integrity sha512-BaL4vePgu3Vfa/whvTUAlgaCAId4uNSGxIFSCXMgj7LMYENPWLp85h5RBi9pdpX/bWQ8SF6flP7afmi2TC4eHw==
   dependencies:
     "@types/q" "^0.0.32"
     "@types/selenium-webdriver" "^3.0.0"
@@ -8631,13 +8624,13 @@ protractor@~5.4.3:
     glob "^7.0.3"
     jasmine "2.8.0"
     jasminewd2 "^2.1.0"
-    optimist "~0.6.0"
     q "1.4.1"
     saucelabs "^1.5.0"
     selenium-webdriver "3.6.0"
     source-map-support "~0.4.0"
     webdriver-js-extender "2.1.0"
     webdriver-manager "^12.0.6"
+    yargs "^12.0.5"
 
 proxy-addr@~2.0.5:
   version "2.0.5"
@@ -10697,11 +10690,6 @@ typescript@^2.4.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
   integrity sha512-Gr4p6nFNaoufRIY4NMdpQRNmgxVIGMs4Fcu/ujdYk3nAZqk7supzBE9idmvfZIlH/Cuj//dvi+019qEue9lV0w==
 
-typescript@^3.8.3:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
-  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
-
 ua-parser-js@0.7.21:
   version "0.7.21"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
@@ -11343,7 +11331,7 @@ yargs-parser@^18.1.1:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
-yargs@12.0.5:
+yargs@12.0.5, yargs@^12.0.5:
   version "12.0.5"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-12.0.5.tgz#05f5997b609647b64f66b81e3b4b10a368e7ad13"
   integrity sha512-Lhz8TLaYnxq/2ObqHDql8dX8CJi97oHxrjUcYtzKbbykPtVW9WB+poxI+NM2UIzsMgNCZTIf0AQwsjK5yMAqZw==
