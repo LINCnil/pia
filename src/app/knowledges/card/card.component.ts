@@ -65,4 +65,8 @@ export class CardComponent implements OnInit {
   export(id) {
     this._knowledgesService.export(id);
   }
+
+  duplicate(id) {
+    this._knowledgesService.duplicate(id);
+  }
 }

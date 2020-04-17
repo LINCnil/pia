@@ -67,4 +67,24 @@ export class KnowledgesService {
       a.dispatchEvent(event);
     });
   }
+
+  import(data) {
+    let newKnowledgeBase = new KnowledgeBase(data.id, data.name, data.author, data.contributors, data.knowleges);
+    newKnowledgeBase
+      .create()
+      .then(() => {
+        this.list.push(newKnowledgeBase);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  duplicate(id: number) {
+    const date = new Date().getTime();
+    let kbTemp = new KnowledgeBase();
+    kbTemp.find(id).then(data => {
+      this.import(data);
+    });
+  }
 }

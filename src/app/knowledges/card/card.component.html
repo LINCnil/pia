@@ -10,12 +10,13 @@
                     </span>
                 </a>
                 
-                <!--<a href="javascript:;"class="btn pia-tooltip">
+                <a href="javascript:;" (click)="duplicate(base.id)" class="btn pia-tooltip">
                     <i class="fa fa-files-o" aria-hidden="true"></i>
                     <span title="{{ 'homepage.cards.item.tools.duplicate' | translate }}" class="pia-tooltip-text">
                         {{ 'homepage.cards.item.tools.duplicate' | translate }}
                     </span>
-                </a>-->
+                </a>
+
                 <a href="javascript:;" (click)="remove(base.id)" class="btn pia-tooltip">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                     <span title="{{ 'homepage.cards.item.tools.remove' | translate }}" class="pia-tooltip-text">
