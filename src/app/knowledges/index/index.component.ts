@@ -67,6 +67,10 @@ export class IndexComponent implements OnInit {
     } else {
       this.viewOnCard();
     }
+
+    this.importKnowledgeBaseForm = new FormGroup({
+      import_file: new FormControl('', [])
+    });
   }
 
   ngOnDestroy() {
@@ -169,5 +173,25 @@ export class IndexComponent implements OnInit {
     if (this.sortOrder === 'up') {
       this._structureService.structures.reverse();
     } */
+  }
+
+  /**
+   * Import a new structure.
+   * @param {*} [event] - Any Event.
+   */
+  importStruct(event?: any) {
+    if (event) {
+      //this._structureService.importStructure(event.target.files[0]);
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsText(event.target.files[0], 'UTF-8');
+        reader.onload = (event2: any) => {
+          const jsonFile = JSON.parse(event2.target.result);
+          this._knowledgesService.import(jsonFile);
+        };
+      });
+    } else {
+      this.el.nativeElement.querySelector('#import_file').click();
+    }
   }
 }

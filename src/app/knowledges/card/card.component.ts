@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
