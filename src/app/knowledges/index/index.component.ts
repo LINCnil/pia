@@ -153,7 +153,7 @@ export class IndexComponent implements OnInit {
    * @private
    */
   private sortKnowledgeBase() {
-    /* this._structureService.structures.sort((a, b) => {
+    this._knowledgesService.list.sort((a, b) => {
       let firstValue = a[this.sortValue];
       let secondValue = b[this.sortValue];
       if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
@@ -173,8 +173,8 @@ export class IndexComponent implements OnInit {
       }
     });
     if (this.sortOrder === 'up') {
-      this._structureService.structures.reverse();
-    } */
+      this._knowledgesService.list.reverse();
+    }
   }
 
   /**

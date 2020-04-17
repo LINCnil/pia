@@ -41,13 +41,13 @@
                     <span>{{ 'homepage.filters.sort_by' | translate }}</span>
                     <ul>
                       <li [ngClass]="{'active': sortValue === 'name'}">
-                        <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+                        <a (click)="sortBy('name');">{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</a>
                       </li>
-                      <li [ngClass]="{'active': sortValue === 'sector_name'}">
-                        <a (click)="sortBy('sector_name');">{{ 'homepage.filters.sector_name' | translate }}</a>
+                      <li [ngClass]="{'active': sortValue === 'author'}">
+                        <a (click)="sortBy('author');">{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</a>
                       </li>
-                      <li [ngClass]="{'active': sortValue === 'created_at'}">
-                        <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
+                      <li [ngClass]="{'active': sortValue === 'contributors'}">
+                        <a (click)="sortBy('contributors');">{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}</a>
                       </li>
                     </ul>
                   </div>
