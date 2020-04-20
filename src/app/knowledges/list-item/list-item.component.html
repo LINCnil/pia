@@ -2,7 +2,7 @@
 <td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">
     
-    <a routerLink="/knowledges/entry/{{base.id}}" class="btn pia-tooltip">
+    <a routerLink="/knowledges/base/{{base.id}}" class="btn pia-tooltip">
       <i class="fa fa-pencil" aria-hidden="true"></i>
       <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
     </a>
@@ -37,4 +37,7 @@
   <ng-template #readOnlySectorName>
     <div>{{ base.contributors }}</div>
   </ng-template>
+</td>
+<td class="pia-listsBlock-item">
+  <div>{{ (base.knowledges) ? base.knowledges.length : 0}}</div>
 </td>

@@ -20,20 +20,28 @@ export class KnowledgeBase extends ApplicationDb {
   }
 
   /**
-   * Get a Revision.
-   * @param id - The Revision id.
+   * Get a KnowledgeBase.
+   * @param id - The KnowledgeBase id.
    * @returns - New Promise
    */
   async get(id: number) {
     this.id = id;
     return new Promise((resolve, reject) => {
-      this.find(this.id).then((entry: any) => {
-        if (entry) {
-          this.knowleges = entry.knowleges;
-          this.created_at = new Date(entry.created_at);
-        }
-        resolve();
-      });
+      this.find(this.id)
+        .then((entry: any) => {
+          if (entry) {
+            this.name = entry.name;
+            this.author = entry.author;
+            this.contributors = entry.contributors;
+            this.knowleges = entry.knowleges;
+            this.created_at = new Date(entry.created_at);
+          }
+          resolve();
+        })
+        .catch(err => {
+          console.log(err);
+          reject(err);
+        });
     });
   }
 

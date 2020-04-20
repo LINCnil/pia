@@ -103,7 +103,7 @@
                       <input formControlName="author" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_author' | translate }}" id="author" required>
                     </div>
                     <div>
-                      <label for="contributor">{{ 'homepage.cards.sector_name' | translate }}</label>
+                      <label for="contributor">{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}</label>
                       <input formControlName="contributors" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}" id="contributors" required>
                     </div>
                     <!-- <div class="pia-cardsBlock-item-date" *ngIf="newStructure">
@@ -131,7 +131,7 @@
           <!-- end first block -->
 
           <!-- cards -->
-          <app-card *ngFor="let base of _knowledgesService.list" [base]="base"></app-card>
+          <app-card *ngFor="let base of _knowledgesService.list | filterForUser : searchText; let i=index" [base]="base"></app-card>
           <!-- end cards -->
         </div>
         
@@ -165,10 +165,18 @@
                       ></i>
                     </a>
                   </th>
+                  <th>
+                    <a (click)="sortBy('knowledges')">
+                      <span>{{ 'homepage.cards.knowledges.placeholder_entry_number' | translate }}</span>
+                      <i class="fa"
+                        [ngClass]="[sortValue === 'knowledges' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                      ></i>
+                    </a>
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="app-list-item" [attr.data-id]="base.id" *ngFor="let base of _knowledgesService.list" [base]="base"></tr>
+                <tr class="app-list-item" [attr.data-id]="base.id" *ngFor="let base of _knowledgesService.list | filterForUser : searchText; let i=index" [base]="base"></tr>
               </tbody>
             </table>
           </div>

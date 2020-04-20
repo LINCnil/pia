@@ -6,11 +6,12 @@ import { KnowledgesRoutingModule } from './knowledges-routing.module';
 import { CardComponent } from './card/card.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { IndexComponent } from './index/index.component';
+import { BaseComponent } from './base/base.component';
 import { EntryComponent } from './entry/entry.component';
 
 @NgModule({
   imports: [SharedModule, CommonModule, KnowledgesRoutingModule],
-  declarations: [IndexComponent, CardComponent, ListItemComponent, EntryComponent],
+  declarations: [IndexComponent, CardComponent, ListItemComponent, EntryComponent, BaseComponent],
   providers: []
 })
 export class KnowledgesModule {}
