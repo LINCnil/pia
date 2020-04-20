@@ -8,19 +8,27 @@
     border: 1px solid $pia-gray;
   }
   form {
+    h3 {
+      font-weight: normal;
+      color: $pia-red;
+      text-transform: uppercase;
+      width: 100%;
+      border-bottom: 1px solid $pia-red;
+    }
     label {
       color: $pia-red;
       font-size: 0.95rem;
       font-style: italic;
     }
-    input {
+    input,
+    select {
       padding-bottom: 6px;
       display: block;
       border: 0;
       font-size: 1.4rem;
       color: $pia-dark-black;
       width: 100%;
-      margin-top: -2px;
+      margin: 5px;
       height: 22px;
       &::placeholder {
         color: $pia-gray;
@@ -32,13 +40,17 @@
       &:disabled {
         outline: none;
       }
-    }
-    input::placeholder {
-      color: $pia-red !important;
+      &[name='name'] {
+        font-size: 2rem;
+      }
     }
     button {
       display: block;
       margin: 10px auto auto auto;
+    }
+
+    select {
+      color: $pia-red !important;
     }
   }
 }

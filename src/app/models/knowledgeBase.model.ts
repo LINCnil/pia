@@ -9,13 +9,12 @@ export class KnowledgeBase extends ApplicationDb {
   public knowledges: Knowledge[] = [];
   public created_at: Date;
 
-  constructor(id = null, name = null, author = null, contributors = null, knowledges = [], createdAt = null) {
+  constructor(id = null, name = null, author = null, contributors = null, createdAt = null) {
     super(201911191636, 'knowledgeBase');
     this.id = id;
     this.name = name;
     this.author = author;
     this.contributors = contributors;
-    this.knowledges = knowledges;
     this.created_at = createdAt;
   }
 
@@ -33,7 +32,6 @@ export class KnowledgeBase extends ApplicationDb {
             this.name = entry.name;
             this.author = entry.author;
             this.contributors = entry.contributors;
-            this.knowledges = entry.knowledges;
             this.created_at = new Date(entry.created_at);
           }
           resolve();
@@ -54,7 +52,6 @@ export class KnowledgeBase extends ApplicationDb {
       name: this.name,
       author: this.author,
       contributors: this.contributors,
-      knowledges: this.knowledges,
       created_at: new Date()
     };
     return new Promise((resolve, reject) => {
@@ -81,7 +78,6 @@ export class KnowledgeBase extends ApplicationDb {
         entry.author = this.author;
         entry.contributors = this.contributors;
         entry.updated_at = new Date();
-        entry.knowledges = this.knowledges;
 
         if (this.serverUrl) {
           const formData = new FormData();
@@ -125,21 +121,21 @@ export class KnowledgeBase extends ApplicationDb {
     });
   }
 
-  public addEntry(entry: Knowledge) {
-    entry.updated_at = new Date();
-    this.knowledges.push(entry);
-    this.update()
-      .then(() => {
-        console.log('okay', this.knowledges);
-      })
-      .catch(() => {
-        console.log('ouipps');
-      });
-  }
+  // public addEntry(entry: Knowledge) {
+  //   entry.updated_at = new Date();
+  //   this.knowledges.push(entry);
+  //   this.update()
+  //     .then(() => {
+  //       console.log('okay', this.knowledges);
+  //     })
+  //     .catch(() => {
+  //       console.log('ouipps');
+  //     });
+  // }
 
-  public updateEntry(index: number, entry: Knowledge) {
-    // TODO
+  // public updateEntry(index: number, entry: Knowledge) {
+  //   // TODO
 
-    this.update();
-  }
+  //   this.update();
+  // }
 }

@@ -8,7 +8,7 @@
               
         <div class="pia-filtersBlock-left">
             <div class="pia-filtersBlock-buttons">
-              <button type="button" class="btn btn-red" (click)="showNewEntry = !showNewEntry">
+              <button type="button" class="btn btn-red" (click)="showForm = true;  editMode = 'new'; entryForm.reset();">
                 <i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.cards.knowledges_entry.new' | translate }}
               </button>
             </div>
@@ -43,9 +43,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of base.knowledges">
+          <tr *ngFor="let item of knowledges">
             <td>
-
+              <a (click)="editEntry(item.id)" class="btn pia-tooltip">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
+              </a>
             </td>
             <td>
               {{item.name}}
@@ -62,25 +65,30 @@
     </div>
     <div class="small-4 medium-4 columns">
 
+        
         <!-- NEW ENTRY FORM -->
-        <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base_entry pia-knowledges_base_entry_new" *ngIf="showNewEntry">
-          <p>{{ 'homepage.cards.knowledges_entry.new' | translate }}</p>
+        <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base_entry pia-knowledges_base_entry_new" *ngIf="showForm">
+          <h3>Contenus</h3>
           <div>
-            <label for="name">{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</label><br>
-            <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" id="name" required>
+            <select name="category" formControlName="category">
+              <option value="null" disabled>Choisissez une catégorie</option>
+              <option value="Catégorie 1">Catégorie 1</option>
+              <option value="Catégorie 2">Catégorie 2</option>
+            </select>
           </div>
           <div>
-            <label for="category">{{ 'homepage.cards.knowledges_entry.placeholder_category' | translate }}</label><br>
-            <input formControlName="category" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_category' | translate }}" id="author" required>
+            <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" name="name"  required>
           </div>
           <div>
+            <input formControlName="description" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}" name="description"  required>
+          </div>
+          <div *ngIf="editMode === 'new'">
             <button type="submit" [disabled]="entryForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">
               {{ 'homepage.cards.start' | translate }}
             </button>
           </div>
         </form>
-
-        <!-- ENTRY EDIT / HOVERING -->
+        <p>{{editMode}}</p>
 
     </div>
   </div>

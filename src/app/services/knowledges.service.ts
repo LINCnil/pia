@@ -5,6 +5,7 @@ import { utf8Encode } from '@angular/compiler/src/util';
 import { KnowledgeBase } from '../models/knowledgeBase.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
+import { Knowledge } from '../models/knowledge.model';
 @Injectable()
 export class KnowledgesService {
   public selected: number = null;
@@ -27,6 +28,20 @@ export class KnowledgesService {
         })
         .catch(error => {
           reject(error);
+        });
+    });
+  }
+
+  public getEntries(baseId) {
+    return new Promise((resolve, reject) => {
+      let kTemp = new Knowledge();
+      kTemp
+        .findAllByBaseId(baseId)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(err => {
+          reject(err);
         });
     });
   }

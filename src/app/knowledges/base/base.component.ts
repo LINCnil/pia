@@ -24,8 +24,10 @@ function slugify(text) {
 })
 export class BaseComponent implements OnInit {
   base: KnowledgeBase = null;
+  knowledges: Knowledge[] = [];
   entryForm: FormGroup;
-  showNewEntry: Boolean = false;
+  editMode: 'edit' | 'new';
+  showForm: boolean = false;
 
   constructor(private _modalsService: ModalsService, private _knowledgesService: KnowledgesService, private route: ActivatedRoute) {}
 
@@ -35,21 +37,55 @@ export class BaseComponent implements OnInit {
     this.base = new KnowledgeBase();
     this.base
       .get(sectionId)
-      .then(() => {})
+      .then(() => {
+        // GET Knowledges entries from selected base
+        this._knowledgesService.getEntries(this.base.id).then((result: Knowledge[]) => {
+          this.knowledges = result;
+        });
+      })
       .catch(() => {});
 
     // Init Form
     this.entryForm = new FormGroup({
       name: new FormControl(),
-      category: new FormControl()
+      category: new FormControl(),
+      description: new FormControl()
     });
   }
 
+  // CREATE OR UPDATE
   onSubmit() {
     let entry = new Knowledge();
+
     entry.name = this.entryForm.value.name;
     entry.slug = slugify(entry.name);
     entry.category = this.entryForm.value.category;
-    this.base.addEntry(entry);
+    entry.description = this.entryForm.value.description;
+
+    entry.create(this._knowledgesService.selected).then((result: Knowledge) => {
+      this.knowledges.push(result);
+      this.entryForm.reset();
+      this.showForm = false;
+    });
+  }
+
+  editEntry(id) {
+    let tempk = new Knowledge();
+    tempk
+      .find(id)
+      .then((result: Knowledge) => {
+        // SET FORM CONTROL
+        this.entryForm.setValue({
+          name: result.name,
+          category: result.category,
+          description: result.description
+        });
+        // SHOW FORM
+        this.editMode = 'edit';
+        this.showForm = true;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 }

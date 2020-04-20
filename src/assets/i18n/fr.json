@@ -254,6 +254,7 @@
 				"new": "Créer un élément",
 				"placeholder_name": "Nom de l'élément",
 				"placeholder_category": "Catégorie",
+				"placeholder_description": "Votre description ici...",
 				"placeholder_updated_at": "Modifié le"
 			}
 		},
