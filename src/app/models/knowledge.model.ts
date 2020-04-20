@@ -5,13 +5,7 @@ export class Knowledge {
   public placeholder: string;
   public name: string;
   public description: string;
+  public updated_at: Date;
 
-  constructor(slug, filters, category, placeholder, name, description) {
-    this.slug = slug;
-    this.filters = filters;
-    this.category = category;
-    this.placeholder = placeholder;
-    this.name = name;
-    this.description = description;
-  }
+  constructor() {}
 }

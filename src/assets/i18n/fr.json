@@ -249,6 +249,12 @@
 				"placeholder_author": "Auteur",
 				"placeholder_contributors": "Contributeurs",
 				"placeholder_entry_number": "Nombre d'entrées"
+			},
+			"knowledges_entry": {
+				"new": "Créer un élément",
+				"placeholder_name": "Nom de l'élément",
+				"placeholder_category": "Catégorie",
+				"placeholder_updated_at": "Modifié le"
 			}
 		},
 		"filters": {

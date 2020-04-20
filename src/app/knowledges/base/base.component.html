@@ -1,12 +1,89 @@
 <app-header></app-header>
 
+<div class="container pia-mainContainerBlock pia-knowledges_base">
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <div class="pia-breadcrumb">{{ 'header.knowledges' | translate }} > {{base.name}}</div>
+      <div class="pia-filtersBlock">
+              
+        <div class="pia-filtersBlock-left">
+            <div class="pia-filtersBlock-buttons">
+              <button type="button" class="btn btn-red" (click)="showNewEntry = !showNewEntry">
+                <i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.cards.knowledges_entry.new' | translate }}
+              </button>
+            </div>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="small-8 medium-8 columns">
+      <table class="pia-list-table">
+        <thead>
+          <tr>
+            <th></th>                  
+            <th>
+              <a>
+                <span>{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}</span>
+              </a>
+            </th>
+            <th>
+              <a>
+                <span>{{ 'homepage.cards.knowledges_entry.placeholder_category' | translate }}</span>
+              </a>
+            </th>
+            <th>
+              <a>
+                <span>{{ 'homepage.cards.knowledges_entry.placeholder_updated_at' | translate }}</span>
+              </a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of base.knowledges">
+            <td>
 
-<div class="row">
-  <div class="small-12 medium-12 columns">
-    <div class="pia-breadcrumb">{{ 'header.knowledges' | translate }} > {{base.name}}</div>
+            </td>
+            <td>
+              {{item.name}}
+            </td>
+            <td>
+              {{item.category}}
+            </td>
+            <td>
+              {{item.updated_at}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="small-4 medium-4 columns">
+
+        <!-- NEW ENTRY FORM -->
+        <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base_entry pia-knowledges_base_entry_new" *ngIf="showNewEntry">
+          <p>{{ 'homepage.cards.knowledges_entry.new' | translate }}</p>
+          <div>
+            <label for="name">{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</label><br>
+            <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" id="name" required>
+          </div>
+          <div>
+            <label for="category">{{ 'homepage.cards.knowledges_entry.placeholder_category' | translate }}</label><br>
+            <input formControlName="category" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_category' | translate }}" id="author" required>
+          </div>
+          <div>
+            <button type="submit" [disabled]="entryForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">
+              {{ 'homepage.cards.start' | translate }}
+            </button>
+          </div>
+        </form>
+
+        <!-- ENTRY EDIT / HOVERING -->
+
+    </div>
   </div>
 </div>
 
-<div class="row">
-  {{base.name}}
-</div>
+<app-modals></app-modals>

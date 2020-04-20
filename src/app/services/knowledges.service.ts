@@ -7,7 +7,7 @@ import { KnowledgeBase } from '../models/knowledgeBase.model';
 import { ModalsService } from 'src/app/modals/modals.service';
 @Injectable()
 export class KnowledgesService {
-  public selected = null;
+  public selected: number = null;
   public list: Array<KnowledgeBase> = [];
 
   constructor(private router: Router, private _modalsService: ModalsService) {}
@@ -36,7 +36,6 @@ export class KnowledgesService {
     kbTemp
       .delete(this.selected)
       .then(() => {
-        console.log('cool !');
         // removeFrom this.list
         let index = this.list.findIndex(e => (e.id = this.selected));
         if (index !== -1) {

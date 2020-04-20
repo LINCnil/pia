@@ -46,7 +46,6 @@ export class RevisionPreviewComponent implements OnInit {
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changement', changes.revision);
     if (changes.revision && changes.revision.currentValue) {
       // CONSTRUC A NEW PIA FOR THE PREVIEW MODE
       this.pia = new Pia();

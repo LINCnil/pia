@@ -34,9 +34,7 @@ export class IndexComponent implements OnInit {
     // GET ALL
     this._knowledgesService
       .getAll()
-      .then((result: any) => {
-        console.log('result', result);
-      })
+      .then((result: any) => {})
       .catch(() => {});
 
     // INIT ORDER
