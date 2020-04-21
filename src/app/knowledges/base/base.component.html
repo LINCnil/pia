@@ -79,12 +79,18 @@
             <input (focusout)="focusOut()" formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" name="name"  required>
           </div>
           <div>
-            <input (focusout)="focusOut()" formControlName="description" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}" name="description"  required>
+            <textarea (focusout)="focusOut()" formControlName="description" 
+            type="text" 
+            placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}" 
+            name="description"  required></textarea>
           </div>
           <div *ngIf="editMode === 'new'">
             <button type="submit" [disabled]="entryForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">
               {{ 'homepage.cards.start' | translate }}
             </button>
+          </div>
+          <div *ngIf="editMode === 'edit'">
+            <h3>Lié à</h3>
           </div>
         </form>
         <p>{{editMode}}</p>

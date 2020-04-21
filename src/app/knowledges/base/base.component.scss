@@ -21,11 +21,12 @@
       font-style: italic;
     }
     input,
-    select {
+    select,
+    textarea {
       padding-bottom: 6px;
       display: block;
       border: 0;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: $pia-dark-black;
       width: 100%;
       margin: 5px;
@@ -51,6 +52,11 @@
 
     select {
       color: $pia-red !important;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
     }
   }
 }
