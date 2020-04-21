@@ -28,6 +28,7 @@ export class BaseComponent implements OnInit {
   entryForm: FormGroup;
   editMode: 'edit' | 'new';
   showForm: boolean = false;
+  selectedKnowledgeId: number;
 
   constructor(private _modalsService: ModalsService, private _knowledgesService: KnowledgesService, private route: ActivatedRoute) {}
 
@@ -80,6 +81,7 @@ export class BaseComponent implements OnInit {
           category: result.category,
           description: result.description
         });
+        this.selectedKnowledgeId = result.id;
         // SHOW FORM
         this.editMode = 'edit';
         this.showForm = true;
@@ -87,5 +89,26 @@ export class BaseComponent implements OnInit {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  focusOut() {
+    let entry = new Knowledge();
+    entry.get(this.selectedKnowledgeId).then(() => {
+      // set new properties values
+      entry.name = this.entryForm.value.name;
+      entry.description = this.entryForm.value.description;
+      entry.slug = slugify(entry.name);
+      entry.category = this.entryForm.value.category;
+      entry.description = this.entryForm.value.description;
+
+      // Update object
+      entry.update().then(() => {
+        // Update list
+        let index = this.knowledges.findIndex(e => e.id === entry.id);
+        if (index !== -1) {
+          this.knowledges[index] = entry;
+        }
+      });
+    });
   }
 }

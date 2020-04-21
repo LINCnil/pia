@@ -70,17 +70,17 @@
         <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base_entry pia-knowledges_base_entry_new" *ngIf="showForm">
           <h3>Contenus</h3>
           <div>
-            <select name="category" formControlName="category">
+            <select name="category" formControlName="category" (focusout)="focusOut()" >
               <option value="null" disabled>Choisissez une catégorie</option>
               <option value="Catégorie 1">Catégorie 1</option>
               <option value="Catégorie 2">Catégorie 2</option>
             </select>
           </div>
           <div>
-            <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" name="name"  required>
+            <input (focusout)="focusOut()" formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" name="name"  required>
           </div>
           <div>
-            <input formControlName="description" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}" name="description"  required>
+            <input (focusout)="focusOut()" formControlName="description" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}" name="description"  required>
           </div>
           <div *ngIf="editMode === 'new'">
             <button type="submit" [disabled]="entryForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">

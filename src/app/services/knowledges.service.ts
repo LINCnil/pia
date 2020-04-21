@@ -21,7 +21,7 @@ export class KnowledgesService {
         .then((response: any) => {
           let result = [];
           response.forEach(e => {
-            result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.knowleges, e.created_at));
+            result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.created_at));
           });
           this.list = result;
           resolve(result);

@@ -17,6 +17,37 @@ export class Knowledge extends ApplicationDb {
   }
 
   /**
+   * Get a Knowledge
+   * @param id - The Knowledge id.
+   * @returns - New Promise
+   */
+  async get(id: number) {
+    this.id = id;
+    return new Promise((resolve, reject) => {
+      this.find(this.id)
+        .then((entry: any) => {
+          if (entry) {
+            this.id = entry.id;
+            this.slug = entry.slug;
+            this.filters = entry.filters;
+            this.category = entry.category;
+            this.placeholder = entry.placeholder;
+            this.name = entry.name;
+            this.description = entry.description;
+            this.knowledgeBase_id = entry.knowledgeBase_id;
+            this.created_at = new Date(entry.created_at);
+            this.updated_at = new Date(entry.updated_at);
+          }
+          resolve();
+        })
+        .catch(err => {
+          console.log(err);
+          reject(err);
+        });
+    });
+  }
+
+  /**
    * List all Knowledge by base id
    * @param piaId - The PIA id
    */
@@ -96,53 +127,58 @@ export class Knowledge extends ApplicationDb {
     });
   }
 
-  // async update() {
-  //   return new Promise((resolve, reject) => {
-  //     this.find(this.id).then((entry: any) => {
-  //       entry.name = this.name;
-  //       entry.author = this.author;
-  //       entry.contributors = this.contributors;
-  //       entry.updated_at = new Date();
+  async update() {
+    return new Promise((resolve, reject) => {
+      this.find(this.id).then((entry: any) => {
+        entry.slug = this.slug;
+        entry.filters = this.filters;
+        entry.category = this.category;
+        entry.placeholder = this.placeholder;
+        entry.name = this.name;
+        entry.description = this.description;
+        entry.knowledgeBase_id = this.knowledgeBase_id;
+        entry.created_at = entry.created_at;
+        entry.updated_at = new Date();
 
-  //       if (this.serverUrl) {
-  //         const formData = new FormData();
-  //         for (const d in entry) {
-  //           if (entry.hasOwnProperty(d)) {
-  //             let value = entry[d];
-  //             if (d === 'data') {
-  //               value = JSON.stringify(value);
-  //             }
-  //             formData.append('structure[' + d + ']', value);
-  //           }
-  //         }
-  //         fetch(this.getServerUrl() + '/' + entry.id, {
-  //           method: 'PATCH',
-  //           body: formData,
-  //           mode: 'cors'
-  //         })
-  //           .then(response => {
-  //             return response.json();
-  //           })
-  //           .then((result: any) => {
-  //             resolve();
-  //           })
-  //           .catch(error => {
-  //             console.error('Request failed', error);
-  //             reject();
-  //           });
-  //       } else {
-  //         this.getObjectStore().then(() => {
-  //           const evt = this.objectStore.put(entry);
-  //           evt.onerror = (event: any) => {
-  //             console.error(event);
-  //             reject(Error(event));
-  //           };
-  //           evt.onsuccess = () => {
-  //             resolve();
-  //           };
-  //         });
-  //       }
-  //     });
-  //   });
-  // }
+        if (this.serverUrl) {
+          const formData = new FormData();
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d)) {
+              let value = entry[d];
+              if (d === 'data') {
+                value = JSON.stringify(value);
+              }
+              formData.append('structure[' + d + ']', value);
+            }
+          }
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
+            body: formData,
+            mode: 'cors'
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve();
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
+        } else {
+          this.getObjectStore().then(() => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            };
+            evt.onsuccess = () => {
+              resolve();
+            };
+          });
+        }
+      });
+    });
+  }
 }
