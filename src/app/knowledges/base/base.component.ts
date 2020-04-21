@@ -6,6 +6,7 @@ import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
+import { AppDataService } from 'src/app/services/app-data.service';
 
 function slugify(text) {
   return text
@@ -31,8 +32,15 @@ export class BaseComponent implements OnInit {
   showForm: boolean = false;
   selectedKnowledgeId: number;
   categories: string[] = [];
+  filters: string[] = [];
+  data: any;
 
-  constructor(private _modalsService: ModalsService, private _knowledgesService: KnowledgesService, private route: ActivatedRoute) {}
+  constructor(
+    private _modalsService: ModalsService,
+    private _knowledgesService: KnowledgesService,
+    private _appDataService: AppDataService,
+    private route: ActivatedRoute
+  ) {}
 
   async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params.id, 10);
@@ -61,6 +69,15 @@ export class BaseComponent implements OnInit {
         this.categories.push(item.category);
       }
     }
+    // get default filters
+    for (var item of piakb) {
+      if (!this.filters.includes(item.filters) && item.filters !== '') {
+        this.filters.push(item.filters);
+      }
+    }
+    console.log(this.filters);
+
+    this.data = this._appDataService.dataNav;
   }
 
   // CREATE OR UPDATE

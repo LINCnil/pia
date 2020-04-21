@@ -63,11 +63,9 @@
         </tbody>
       </table>
     </div>
-    <div class="small-4 medium-4 columns">
-
-        
+    <div class="small-4 medium-4 columns">        
         <!-- NEW ENTRY FORM -->
-        <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base_entry pia-knowledges_base_entry_new" *ngIf="showForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base-form" *ngIf="showForm">
           <h3>Contenus</h3>
           <div>
             <select name="category" formControlName="category" (focusout)="focusOut()" >
@@ -84,14 +82,37 @@
             placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}" 
             name="description"  required></textarea>
           </div>
+          <div *ngIf="editMode === 'edit'">
+            <h3>Lié à</h3>
+            <div class="pia-knowledges_base-form-checkboxes">
+              <div class="pia-knowledges_base-form-checkboxes-body">
+                <div *ngFor="let dataSection of data?.sections">
+                  <div class="pia-knowledges_base-form-checkboxes-title">
+                    <input type="checkbox" name="" id=""> {{ dataSection.title | translate }}
+                    <hr>
+                  </div>
+                  <ul class="pia-knowledges_base-form-checkboxes-list">
+                    <ng-container *ngFor="let dataItem of dataSection?.items">
+                      <li>
+                        <label for="{{dataItem.title}}">
+                          <input type="checkbox" name="{{dataItem.title}}" id="{{dataItem.title}}"> 
+                          <span
+                            class="truncate">
+                            {{ dataItem.title | translate }}</span>
+                        </label>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
           <div *ngIf="editMode === 'new'">
             <button type="submit" [disabled]="entryForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">
               {{ 'homepage.cards.start' | translate }}
             </button>
           </div>
-          <div *ngIf="editMode === 'edit'">
-            <h3>Lié à</h3>
-          </div>
+
         </form>
         <p>{{editMode}}</p>
 

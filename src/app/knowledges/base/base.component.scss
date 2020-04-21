@@ -1,13 +1,11 @@
 @import '../../../assets/stylesheets/variables';
 .pia-knowledges_base {
-  &_entry {
+  &-form {
     width: 100%;
     min-height: 200px;
     padding: 15px;
     background-color: white;
     border: 1px solid $pia-gray;
-  }
-  form {
     h3 {
       font-weight: normal;
       color: $pia-red;
@@ -15,12 +13,7 @@
       width: 100%;
       border-bottom: 1px solid $pia-red;
     }
-    label {
-      color: $pia-red;
-      font-size: 0.95rem;
-      font-style: italic;
-    }
-    input,
+    input[type='text'],
     select,
     textarea {
       padding-bottom: 6px;
@@ -57,6 +50,135 @@
     textarea {
       width: 100%;
       min-height: 100px;
+    }
+
+    &-checkboxes {
+      input[type='checkbox'] {
+        margin-right: 10px;
+      }
+
+      &-title {
+        margin-top: 18px;
+        margin-left: 10px;
+        text-transform: uppercase;
+        // border-left: solid 10px;
+        // padding: 3px 0 2px 10px;
+        align-self: center;
+        display: flex;
+        font-weight: 600;
+        justify-content: flex-end;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        hr {
+          margin: auto 10px auto auto;
+          background-color: $pia-gray;
+          border: 0;
+          height: 0px;
+        }
+      }
+      &-list {
+        padding: 0px 0px 0px 20px;
+        margin-bottom: 22px;
+        margin-left: 10px;
+        li {
+          padding: 2px 0;
+          font-size: 1.4rem;
+          list-style-type: none;
+          display: flex;
+          align-self: center;
+          justify-content: flex-start;
+          a {
+            color: $pia-dark-black;
+            text-decoration: none;
+            padding-left: 5px;
+          }
+          /* &::before {
+            content: "";
+            border-top: solid 1px $pia-gray;
+            width: 8.5px;
+            margin-right: 7px;
+            margin-top: 9px;
+            color: $pia-gray;
+          }*/
+          i {
+            font-size: 1.8rem;
+            margin-top: 2px;
+            margin-left: auto;
+            margin-right: 10px;
+            color: $pia-gray;
+          }
+          .fa-check-square-o {
+            color: $pia-blue;
+          }
+        }
+      }
+      &-body {
+        hr {
+          width: 100%;
+        }
+        a {
+          width: 81%;
+          border-radius: 4px;
+        }
+        > div {
+          &:first-child {
+            .pia-knowledges_base-form-checkboxes-title {
+              color: $pia-green;
+              border-color: $pia-green;
+            }
+            hr {
+              max-width: 164px;
+            }
+            .fa-pencil-square-o.pia-fa-valid,
+            .fa-cog.pia-fa-valid,
+            .fa-check-square-o {
+              color: $pia-green;
+            }
+          }
+          &:nth-child(2) {
+            .pia-knowledges_base-form-checkboxes-title {
+              color: $pia-blue;
+              border-color: $pia-blue;
+            }
+            hr {
+              max-width: 62px;
+            }
+            .fa-pencil-square-o.pia-fa-valid,
+            .fa-cog.pia-fa-valid,
+            .fa-check-square-o {
+              color: $pia-blue;
+            }
+          }
+          &:nth-child(3) {
+            .pia-knowledges_base-form-checkboxes-title {
+              color: $pia-red;
+              border-color: $pia-red;
+            }
+            hr {
+              max-width: 182px;
+            }
+            .fa-pencil-square-o.pia-fa-valid,
+            .fa-cog.pia-fa-valid,
+            .fa-check-square-o {
+              color: $pia-red;
+            }
+          }
+          &:last-child {
+            .pia-knowledges_base-form-checkboxes-title {
+              color: $pia-dark-black;
+              border-color: $pia-dark-black;
+              display: block;
+            }
+            hr {
+              display: none;
+            }
+            .fa-cog.pia-fa-valid,
+            .fa-check-square-o {
+              color: $pia-dark-black;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -135,6 +257,7 @@
     }
   }
 }
+
 .pia {
   &-searchInput {
     width: 150px;
