@@ -5,6 +5,7 @@ import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Knowledge } from 'src/app/models/knowledge.model';
+import piakb from 'src/assets/files/pia_knowledge-base.json';
 
 function slugify(text) {
   return text
@@ -29,6 +30,7 @@ export class BaseComponent implements OnInit {
   editMode: 'edit' | 'new';
   showForm: boolean = false;
   selectedKnowledgeId: number;
+  categories: string[] = [];
 
   constructor(private _modalsService: ModalsService, private _knowledgesService: KnowledgesService, private route: ActivatedRoute) {}
 
@@ -52,6 +54,13 @@ export class BaseComponent implements OnInit {
       category: new FormControl(),
       description: new FormControl()
     });
+
+    // get default categories
+    for (var item of piakb) {
+      if (!this.categories.includes(item.category)) {
+        this.categories.push(item.category);
+      }
+    }
   }
 
   // CREATE OR UPDATE

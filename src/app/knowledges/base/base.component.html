@@ -54,7 +54,7 @@
               {{item.name}}
             </td>
             <td>
-              {{item.category}}
+              {{item.category  | translate}}
             </td>
             <td>
               {{item.updated_at}}
@@ -72,8 +72,7 @@
           <div>
             <select name="category" formControlName="category" (focusout)="focusOut()" >
               <option value="null" disabled>Choisissez une catégorie</option>
-              <option value="Catégorie 1">Catégorie 1</option>
-              <option value="Catégorie 2">Catégorie 2</option>
+              <option value="{{category}}" *ngFor="let category of categories">{{category  | translate }}</option>
             </select>
           </div>
           <div>
