@@ -80,7 +80,9 @@ export class BaseComponent implements OnInit {
     this.data = this._appDataService.dataNav;
   }
 
-  // CREATE OR UPDATE
+  /**
+   * Create a new Knowledge entry
+   */
   onSubmit() {
     let entry = new Knowledge();
 
@@ -93,9 +95,14 @@ export class BaseComponent implements OnInit {
       this.knowledges.push(result);
       this.entryForm.reset();
       this.showForm = false;
+      this.editEntry(result.id); // Go to edition mode
     });
   }
 
+  /**
+   * Open form in edition mode, with preset values
+   * @param id Knowledge entry's id
+   */
   editEntry(id) {
     let tempk = new Knowledge();
     tempk
@@ -117,6 +124,9 @@ export class BaseComponent implements OnInit {
       });
   }
 
+  /**
+   * One shot update
+   */
   focusOut() {
     let entry = new Knowledge();
     entry.get(this.selectedKnowledgeId).then(() => {

@@ -84,21 +84,24 @@
           </div>
           <div *ngIf="editMode === 'edit'">
             <h3>Lié à</h3>
+
+            <!-- CHECKBOXES -->
             <div class="pia-knowledges_base-form-checkboxes">
               <div class="pia-knowledges_base-form-checkboxes-body">
                 <div *ngFor="let dataSection of data?.sections">
                   <div class="pia-knowledges_base-form-checkboxes-title">
-                    <input type="checkbox" name="" id=""> {{ dataSection.title | translate }}
+                    <input type="checkbox" name="" id=""> 
+                    {{ dataSection.title | translate }}
                     <hr>
                   </div>
                   <ul class="pia-knowledges_base-form-checkboxes-list">
                     <ng-container *ngFor="let dataItem of dataSection?.items">
                       <li>
                         <label for="{{dataItem.title}}">
-                          <input type="checkbox" name="{{dataItem.title}}" id="{{dataItem.title}}"> 
+                          <input type="checkbox" name="{{dataItem.title}}" id="{{dataItem.title}}" value="{{dataSection.id}}{{dataItem.id}}"> 
                           <span
                             class="truncate">
-                            {{ dataItem.title | translate }}</span>
+                            {{ dataItem.title | translate }} - {{dataSection.id}}.{{dataItem.id}}</span> 
                         </label>
                       </li>
                     </ng-container>
@@ -106,6 +109,8 @@
                 </div>
               </div>
             </div>
+            <!-- END CHECKBOXES -->
+
           </div>
           <div *ngIf="editMode === 'new'">
             <button type="submit" [disabled]="entryForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">
@@ -114,7 +119,6 @@
           </div>
 
         </form>
-        <p>{{editMode}}</p>
 
     </div>
   </div>
