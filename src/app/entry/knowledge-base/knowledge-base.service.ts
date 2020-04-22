@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { HttpClient } from '@angular/common/http';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
+import { KnowledgesService } from 'src/app/services/knowledges.service';
+import { Knowledge } from 'src/app/models/knowledge.model';
 
 @Injectable()
 export class KnowledgeBaseService {
@@ -16,6 +18,8 @@ export class KnowledgeBaseService {
   translateService: any;
   toHide = [];
 
+  constructor(private _knowledgesService: KnowledgesService) {}
+
   /**
    * Load the knowledge base
    * @param {any} http
@@ -23,6 +27,25 @@ export class KnowledgeBaseService {
   loadData(http: HttpClient) {
     this.knowledgeBaseData = piakb;
     this.allKnowledgeBaseData = piakb;
+    // Parse IndexDb's Knowledge here
+  }
+
+  switch(params) {
+    console.log('switch', params);
+    if (parseInt(params) !== 0) {
+      this._knowledgesService
+        .getEntries(parseInt(params))
+        .then((result: Knowledge[]) => {
+          console.log(result);
+          // TODO: parsing
+          result.forEach(e => {});
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      // TODO: default knowledge base
+    }
   }
 
   /**
@@ -32,18 +55,18 @@ export class KnowledgeBaseService {
    * @param {*} [linkKnowledgeBase] - Link knowledge base.
    */
   search(filter?: string, event?: any, linkKnowledgeBase?: any) {
-    this.filter = (filter && filter.length > 0) ? filter : '';
-    this.linkKnowledgeBase = (linkKnowledgeBase && linkKnowledgeBase.length > 0) ? linkKnowledgeBase : '';
+    this.filter = filter && filter.length > 0 ? filter : '';
+    this.linkKnowledgeBase = linkKnowledgeBase && linkKnowledgeBase.length > 0 ? linkKnowledgeBase : '';
     this.knowledgeBaseData = this.previousKnowledgeBaseData;
     this.specificSearch();
     if (this.knowledgeBaseData && this.filter && this.filter.length > 0) {
-      this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
-        return (item.filters.startsWith(this.filter));
+      this.knowledgeBaseData = this.knowledgeBaseData.filter(item => {
+        return item.filters.startsWith(this.filter);
       });
     }
     if (this.knowledgeBaseData && this.linkKnowledgeBase && this.linkKnowledgeBase.length > 0) {
-      this.knowledgeBaseData = this.knowledgeBaseData.filter((item) => {
-        return (this.linkKnowledgeBase.indexOf(item.slug) >= 0);
+      this.knowledgeBaseData = this.knowledgeBaseData.filter(item => {
+        return this.linkKnowledgeBase.indexOf(item.slug) >= 0;
       });
     }
     this.switchSelectedElement(event);
@@ -61,7 +84,7 @@ export class KnowledgeBaseService {
       if (item.link_knowledge_base && item.link_knowledge_base.length > 0) {
         kbSlugs = item.link_knowledge_base;
       } else if (item.is_measure) {
-        const kbSlugs2 = this.knowledgeBaseData.filter((kbItem) => {
+        const kbSlugs2 = this.knowledgeBaseData.filter(kbItem => {
           return kbItem.filters.startsWith('measure.');
         });
         kbSlugs2.forEach(element => {
@@ -77,7 +100,7 @@ export class KnowledgeBaseService {
         });
       }
       if (kbSlugs.length > 0) {
-        this.knowledgeBaseData = this.knowledgeBaseData.filter((kbItem) => {
+        this.knowledgeBaseData = this.knowledgeBaseData.filter(kbItem => {
           return kbSlugs.indexOf(kbItem.slug) >= 0;
         });
       } else {
@@ -124,8 +147,8 @@ export class KnowledgeBaseService {
   private specificSearch() {
     if (this.q && this.q.length > 0) {
       const re = new RegExp(this.q, 'i');
-      this.knowledgeBaseData = this.knowledgeBaseData.filter((item2) => (
-        this.translateService.instant(item2.name).match(re) || this.translateService.instant(item2.description).match(re))
+      this.knowledgeBaseData = this.knowledgeBaseData.filter(
+        item2 => this.translateService.instant(item2.name).match(re) || this.translateService.instant(item2.description).match(re)
       );
     }
     this.hasKnowledgeBaseData = this.knowledgeBaseData.length > 0 ? true : false;
