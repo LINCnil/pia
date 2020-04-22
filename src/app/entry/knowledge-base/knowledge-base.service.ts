@@ -36,15 +36,33 @@ export class KnowledgeBaseService {
       this._knowledgesService
         .getEntries(parseInt(params))
         .then((result: Knowledge[]) => {
+          let newBase = [];
           console.log(result);
           // TODO: parsing
-          result.forEach(e => {});
+          result.forEach(e => {
+            if (e.items) {
+              e.items.forEach(item => {
+                // entries
+                newBase.push({
+                  slug: 'PIA_CUSTOM_' + item,
+                  category: e.category,
+                  name: e.name,
+                  description: e.description,
+                  filters: ''
+                });
+              });
+            }
+          });
+          this.knowledgeBaseData = newBase;
+          this.allKnowledgeBaseData = newBase;
         })
         .catch(err => {
           console.log(err);
         });
     } else {
       // TODO: default knowledge base
+      this.knowledgeBaseData = piakb;
+      this.allKnowledgeBaseData = piakb;
     }
   }
 
