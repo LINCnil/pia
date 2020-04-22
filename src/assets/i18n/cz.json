@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Zanechat komentář",
 		"send": "Send"
 	},
+	"date": {
+		"april": "TO TRANSLATE - April",
+		"august": "TO TRANSLATE - August",
+		"december": "TO TRANSLATE - December",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+		"february": "TO TRANSLATE - February",
+		"january": "TO TRANSLATE - January",
+		"july": "TO TRANSLATE - July",
+		"june": "TO TRANSLATE - June",
+		"march": "TO TRANSLATE - March",
+		"may": "TO TRANSLATE - May",
+		"november": "TO TRANSLATE - November",
+		"october": "TO TRANSLATE - October",
+		"september": "TO TRANSLATE - September",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday"
+	},
 	"errors": {
 		"content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Stránka nebyla nalezena."
@@ -72,20 +90,28 @@
 		"improvable": "Vylepšitelné",
 		"placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
 		"placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-		"placeholder_improvable2": "TO BE TRANSLATED - Enter your comments.",
+		"placeholder_improvable2": "TO TRANSLATE - Enter your comments.",
 		"placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
-		"status": {
-			"0": "Čeká",
-			"1": "Opravit",
-			"2": "Vylepšit",
-			"3": "Přijato"
-		},
+		"status": [
+			"Čeká",
+			"Opravit",
+			"Vylepšit",
+			"Přijato"
+		],
 		"title": "Hodnocení",
 		"to_correct": "Opravit"
 	},
 	"header": {
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
-		"homepage_link": "Hlavní panel",
+		"archives": "TO TRANSLATE - PIA Archives",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"help": {
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual",
+			"pia_example_link": "PIA příklad",
+			"title": "Nápověda"
+		},
+		"homepage_link": "TO TRANSLATE - My PIAs",
 		"knowledge_base_link": "Znalostní báze",
 		"languages": {
 			"cnil_translations": "TO BE TRANSLATED - CNIL provided translations",
@@ -110,18 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
-		"logo_subtitle": "",
+		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Posouzení dopadů na soukromí",
-		"pia_example_link": "PIA příklad",
-		"structures": "TO BE TRANSLATED - Modèles de PIA",
+		"structures": "TO TRANSLATE - PIA templates",
 		"tools": {
 			"about": "O nás",
 			"accessibility": "Dostupnost pro zrakově postižené (barvy s vysokým kontrastem, daltonismem)",
-			"help": "Nápověda",
-			"settings": "Nsatavení",
-			"title": "Nástroje"
+			"settings": "TO TRANSLATE - Settings",
+			"title": "Nástroje",
+			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -168,58 +194,65 @@
 	"homepage": {
 		"cards": {
 			"author": "Upravil",
+			"category": "TO TRANSLATE - Category",
 			"creation_status": "Vytvořeno",
 			"date": "Datum",
 			"evaluation": "Posouzení",
 			"import_pia": "Importovat PIA",
-			"import_structure": "TO BE TRANSLATED - Import template",
+			"import_structure": "TO TRANSLATE - Import template",
 			"item": {
-				"consult_pia": "TO BE TRANSLATED - Consult",
+				"consult_pia": "TO TRANSLATE - Consult",
+				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Upravit",
-				"edit_structure": "TO BE TRANSLATED - Éditer le modèle",
+				"edit_structure": "TO TRANSLATE - Edit template",
 				"tools": {
 					"action_plan": "Zobrazit<br>akční plán",
+					"archive": "TO TRANSLATE - Archive",
 					"duplicate": "Duplikovat",
 					"export": "Exportovat",
 					"more_options": "Více voleb",
 					"pia": "Zobrazit<br>PIA",
-					"remove": "Odstranit"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Nová PIA",
-			"new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"new_structure": "TO TRANSLATE - New template",
 			"or": "nebo",
 			"pia_name": "PIA",
 			"placeholder_author": "Křestní jméno, Příjmení",
+			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Křestní jméno, Příjmení",
 			"placeholder_import_pia": "Importovat PIA",
-			"placeholder_import_structure": "TO BE TRANSLATED - Importer modèle",
+			"placeholder_import_structure": "TO TRANSLATE - Import template",
 			"placeholder_new_pia": "Nová PIA",
-			"placeholder_new_structure": "TO BE TRANSLATED - Nouveau modèle",
+			"placeholder_new_structure": "TO TRANSLATE - New template",
 			"placeholder_pia_name": "PIA název",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
 			"placeholder_start": "Všechna pole musí být vyplněna",
-			"placeholder_structure": "TO BE TRANSLATED - Modèle par défaut",
-			"placeholder_structure_name": "TO BE TRANSLATED - Intitulé du modèle",
+			"placeholder_structure": "TO TRANSLATE - Default template",
+			"placeholder_structure_name": "TO TRANSLATE - Template's title",
 			"placeholder_validation": "Křestní jméno, Příjmení",
 			"sector_name": "TO BE TRANSLATED - Secteur associé",
 			"start": "Start",
 			"status": "Stav",
-			"structure": "TO BE TRANSLATED - Modèle",
-			"structure_name": "TO BE TRANSLATED - Nom du modèle",
+			"structure": "TO TRANSLATE - Template",
+			"structure_name": "TO TRANSLATE - Template's name",
 			"title_close_creation": "Zavřít",
 			"validation": "Validation"
 		},
 		"filters": {
 			"assessor": "Posuzovatel",
 			"author": "Autora",
-			"card": "karta",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA,<br> klikněte na Nová PIA",
 			"card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
+			"category": "TO TRANSLATE - Category",
 			"date": "Datumu",
 			"import_pia": "Importovat PIA",
 			"import_structure": "TO BE TRANSLATED - Importer modèle",
-			"list": "seznam",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Začínáme! Chcete-li zahájit PIA, klikněte na tlačítko +",
 			"list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
 			"name": "Názvu",
@@ -234,28 +267,32 @@
 		"lists": {
 			"column_actions": "Akce",
 			"column_author": "Úpravy",
+			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Vytvořeno",
 			"column_evaluation": "Posouzení",
 			"column_pia": "PIA",
 			"column_progression": "Postup",
-			"column_sector_name": "TO BE TRANSLATED - Secteur associé",
+			"column_sector_name": "TO TRANSLATE - Associated sector",
 			"column_status": "Stav",
-			"column_structure": "TO BE TRANSLATED - Modèle",
-			"column_structure_name": "TO BE TRANSLATED - Modèle",
+			"column_structure": "TO TRANSLATE - Template",
+			"column_structure_name": "TO TRANSLATE - Template",
 			"column_updated_at": "Naposledy otevřeno",
 			"column_validation": "Validace",
 			"item": {
 				"tools": {
 					"action_plan": "Zobrazit akční plán",
+					"archive": "TO TRANSLATE - Archive",
 					"consult": "TO BE TRANSLATED - Consult",
 					"duplicate": "Duplikovat",
 					"edit": "Upravit",
 					"export": "Exportovat",
 					"pia": "Zobrazit PIA",
-					"remove": "Odstranit"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Přidat",
@@ -265,9 +302,9 @@
 			"example": "Příklad",
 			"general_measure": "Fyzická bezpečnostní kontrola",
 			"measure_on_data": "Logická bezpečnostní kontrola",
+			"method": "TO TRANSLATE - Methodology",
 			"organizational_measure": "Organizační kontrola",
-			"principle": "Zásada",
-      "method": "(TRANSLATION REQUIRED) Methodology"
+			"principle": "Zásada"
 		},
 		"filters": {
 			"all": "Vše",
@@ -382,11 +419,6 @@
 				"name": "Threats that can lead to an unwanted modification of personal data",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "To be chosen among those available in section \"Planned or existing measures\", which you may complete if needed.",
 				"name": "Measures",
@@ -618,6 +650,11 @@
 				"name": "Transfers",
 				"source": "PIAF Connected Objects p18"
 			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+			},
 			"PIA_ORG_AUD": {
 				"description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
 				"name": "Supervision",
@@ -840,6 +877,10 @@
 			"review_section": "TO BE TRANSLATED - Review a section"
 		},
 		"archive": "Archivovat",
+		"archive_pia": {
+			"archive": "TO TRANSLATE - Archive PIA",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "TO BE TRANSLATED - This section is ready to be reviewed."
 		},
@@ -881,6 +922,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Upozornění,</span><br>Musí být vyplněno alespoň jedno opatření: není možné smazání."
 		},
+		"recover_version": {
+			"continue": "Pokračovat",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
+			"title": "TO TRANSLATE - Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
 		},
@@ -896,7 +942,7 @@
 			"remove": "Odebrat toto <br>opatření"
 		},
 		"remove_pia": {
-			"content": "<span class='strong'>Upozornění,</span><br>Opravdu chcete<br>odstranit toto PIA?",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Odstranit tuto PIA"
 		},
 		"remove_question": {
@@ -919,6 +965,10 @@
 			"content": "TO BE TRANSLATED - You have approved the PIA."
 		},
 		"start_evaluation": "TO BE TRANSLATED - Start review",
+		"unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "TO BE TRANSLATED - Connection impossible."
 		},
@@ -966,6 +1016,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Přidat",
+			"download": "TO TRANSLATE - Download the attachment",
 			"remove": "Odebrat",
 			"title": "Přílohy"
 		},
@@ -1002,24 +1053,24 @@
 			},
 			"validate_pia": "Ověřit PIA"
 		},
-		"statuses": {
-			"0": "Probíhá",
-			"1": "Odmítnuto",
-			"2": "Jednoduché ověření",
-			"3": "Podepsané ověření",
-			"4": "Archivováno",
-			"5": "Čekání na ověření"
-		}
+		"statuses": [
+			"Probíhá",
+			"Odmítnuto",
+			"Jednoduché ověření",
+			"Podepsané ověření",
+			"Archivováno",
+			"Čekání na ověření"
+		]
 	},
 	"questions": {
 		"edit": "Upravit otázku",
-		"gauges": {
-			"0": "(Nedefinováno)",
-			"1": "Zanedbatelné",
-			"2": "Omezeno",
-			"3": "Důležité",
-			"4": "Maximální"
-		},
+		"gauges": [
+			"(Nedefinováno)",
+			"Zanedbatelné",
+			"Omezeno",
+			"Důležité",
+			"Maximální"
+		],
 		"placeholder_title": "TO BE TRANSLATED - Titre de la question (obligatoire)",
 		"remove": "TO BE TRANSLATED - Supprimer la question"
 	},
@@ -1292,27 +1343,6 @@
 		"update": "Aktualizovat URL"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
-    },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Základní principy",
 			"implementation_date": "Předpokládaný datum implementace",
@@ -1322,16 +1352,29 @@
 			"risks": "Rizika",
 			"title": "Akční plán"
 		},
+		"actions": {
+			"complete_download": "TO TRANSLATE - Download the full report",
+			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+			"individual_download": "TO TRANSLATE - Download elements of the report",
+			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
+			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"individual_to_download": "TO TRANSLATE - Download",
+			"print": "TO TRANSLATE - Print the report",
+			"print_and_download": "TO TRANSLATE - Print and download"
+		},
 		"attachments": "Přílohy",
 		"concerned_people_name": "Jména dotčených osob",
 		"concerned_people_opinion": "Názory dotčených osob",
 		"concerned_people_searched_opinion": "Hledání názoru dotčených osob",
 		"concerned_people_status": "Stavy dotčených osob",
 		"concerned_people_unsearched_opinion_comment": "Důvod, proč nebyl požadován zájem osob",
-		"content_choice": {
-			"0": "Léčba by neměla být prováděna.",
-			"1": "Léčba by mohla být provedena."
-		},
+		"content_choice": [
+			"Léčba by neměla být prováděna.",
+			"Léčba by mohla být provedena."
+		],
 		"creation_date": "Datum vytvoření",
 		"csv_action_plan_comment": "TO BE TRANSLATED - Action plan comment",
 		"csv_evaluation_comment": "TO BE TRANSLATED - Evaluation comment",
@@ -1340,17 +1383,7 @@
 		"csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
 		"csv_section": "TO BE TRANSLATED - Section",
 		"csv_title_object": "TO BE TRANSLATED - Title",
-		"display_filters": {
-      "check_all": "TO TRANSLATE - Enable / disable all display filters",
-			"action_plan_content": "TO BE TRANSLATED - Display action plan",
-			"context_content": "TO BE TRANSLATED - Display \"Context\"",
-			"main_content": "TO BE TRANSLATED - Display \"PIA information\"",
-			"principles_content": "TO BE TRANSLATED - Display \"Fundamental principles\"",
-			"risks_cartography_content": "TO BE TRANSLATED - Display risk mapping",
-			"risks_content": "TO BE TRANSLATED - Display \"Risks\"",
-			"risks_overview_content": "TO BE TRANSLATED - Display risks overview",
-			"title": "TO BE TRANSLATED - Filters"
-		},
+		"download_csv": "TO TRANSLATE - Action plan (.csv)",
 		"dpo_name": "Jméno DPO Poběřence osobních údajů",
 		"dpo_opinion": "Stanovisko DPO Poběřence osobních údajů",
 		"dpo_status": "Stav DPO Poběřence osobních údajů",
@@ -1367,8 +1400,25 @@
 		"pia_author": "Jméno Autora",
 		"pia_name": "PIA",
 		"pia_validator": "Jméno Validátora",
+		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
+		"preview_edition": "TO TRANSLATE - Editing",
+		"preview_evaluation": "TO TRANSLATE - Evaluation",
+		"preview_no_data": "TO TRANSLATE - No data to display.",
+		"preview_status": "TO TRANSLATE - Status",
+		"preview_subtitle": "TO TRANSLATE - General information",
+		"preview_title": "TO TRANSLATE - Preview",
+		"preview_validation": "TO TRANSLATE - Validation",
+		"preview_validation_section": "TO TRANSLATE - Validation",
 		"previous_page": "Zpět na předchozí stránku",
 		"rejection_reason": "Důvod odmítnutí",
+		"revision": {
+			"current_version": "TO TRANSLATE - Current version",
+			"pia_version": "TO TRANSLATE - PIA versions",
+			"restore_version": "TO TRANSLATE - Restore",
+			"revision": "TO TRANSLATE - Versions and revision",
+			"save": "TO TRANSLATE - Create a new version",
+			"show": "TO TRANSLATE - Display the {{length}} versions"
+		},
 		"risks_cartography_title": "TO BE TRANSLATED - Risk mapping",
 		"risks_overview_title": "TO BE TRANSLATED - Risks overview",
 		"title": "Informace PIA"

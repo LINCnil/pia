@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Laat een reactie achter",
 		"send": "Verzenden"
 	},
+	"date": {
+		"april": "TO TRANSLATE - April",
+		"august": "TO TRANSLATE - August",
+		"december": "TO TRANSLATE - December",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+		"february": "TO TRANSLATE - February",
+		"january": "TO TRANSLATE - January",
+		"july": "TO TRANSLATE - July",
+		"june": "TO TRANSLATE - June",
+		"march": "TO TRANSLATE - March",
+		"may": "TO TRANSLATE - May",
+		"november": "TO TRANSLATE - November",
+		"october": "TO TRANSLATE - October",
+		"september": "TO TRANSLATE - September",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday"
+	},
 	"errors": {
 		"content": "Als u andere problemen ondervindt of verbetersuggesties heeft, <br> kunt u deze via dit formulier terugsturen: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Pagina niet gevonden."
@@ -74,18 +92,26 @@
 		"placeholder_improvable1": "Volgens de beschikbare informatie moeten aanvullende maatregelen worden genomen om de gegevensbescherming van de verwerking te verbeteren.",
 		"placeholder_improvable2": "Voer uw opmerkingen in.",
 		"placeholder_to_correct": "De verstrekte informatie is niet voldoende om ze goed te evalueren. Stuur terug naar de editor om de originele inzending te verbeteren.",
-		"status": {
-			"0": "Hangende",
-			"1": "Te corrigeren",
-			"2": "Verbeterbaar",
-			"3": "Aanvaardbaar"
-		},
+		"status": [
+			"Hangende",
+			"Te corrigeren",
+			"Verbeterbaar",
+			"Aanvaardbaar"
+		],
 		"title": "Evaluatie",
 		"to_correct": "Te corrigeren"
 	},
 	"header": {
-    "exit_full_screen_mode": "Druk F11 om het volledige scherm te sluiten.",
-		"homepage_link": "Dashboard",
+		"archives": "TO TRANSLATE - PIA Archives",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+		"exit_full_screen_mode": "Druk F11 om het volledige scherm te sluiten.",
+		"help": {
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual",
+			"pia_example_link": "PIA-voorbeeld",
+			"title": "Help"
+		},
+		"homepage_link": "TO TRANSLATE - My PIAs",
 		"knowledge_base_link": "Kennisbank",
 		"languages": {
 			"cnil_translations": "Vertalingen door de CNIL",
@@ -110,18 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
-		"logo_subtitle": "",
+		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Privacy Impact Assessment",
-		"pia_example_link": "PIA-voorbeeld",
 		"structures": "PIA-sjablonen",
 		"tools": {
 			"about": "Over",
 			"accessibility": "Toegang voor slechtzienden (kleuren met hoog contrast, daltonisme)",
-			"help": "Help",
 			"settings": "Instellingen",
-			"title": "Tools"
+			"title": "Tools",
+			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -168,6 +194,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Aanpassen",
+			"category": "TO TRANSLATE - Category",
 			"creation_status": "Creatie",
 			"date": "Datum",
 			"evaluation": "Reviewen",
@@ -175,15 +202,19 @@
 			"import_structure": "Sjabloon importeren",
 			"item": {
 				"consult_pia": "Raadplegen",
+				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Aanpassen",
 				"edit_structure": "Sjabloon aanpassen",
 				"tools": {
 					"action_plan": "Toon<br>actieplan",
+					"archive": "TO TRANSLATE - Archive",
 					"duplicate": "Dupliceren",
 					"export": "Exporteren",
 					"more_options": "Meer opties",
 					"pia": "PIA<br>tonen",
-					"remove": "Verwijderen"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Nieuwe PIA",
@@ -191,6 +222,7 @@
 			"or": "of",
 			"pia_name": "PIA",
 			"placeholder_author": "Voornaam Achternaam",
+			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Voornaam Achternaam",
 			"placeholder_import_pia": "PIA importeren",
 			"placeholder_import_structure": "Sjabloon importeren",
@@ -213,13 +245,14 @@
 		"filters": {
 			"assessor": "Reviewer",
 			"author": "Auteur",
-			"card": "Kaart",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Aan de slag! <br> <br> Om een PIA te starten, <br> klikt u op Nieuwe PIA",
 			"card_rocket_content_structure": "Aan de slag!<br><br>Om een sjabloon <br>te starten, klikt u <br> op de +",
+			"category": "TO TRANSLATE - Category",
 			"date": "Datum",
 			"import_pia": "PIA importeren",
 			"import_structure": "Sjabloon importeren",
-			"list": "Lijst",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Aan de slag! Om een PIA te starten, klik op de +",
 			"list_rocket_content_structure": "Aan de slag! Om een sjabloon<br>te starten, klikt u op de +",
 			"name": "Naam",
@@ -234,6 +267,7 @@
 		"lists": {
 			"column_actions": "Acties",
 			"column_author": "Aanpassen",
+			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Gemaakt",
 			"column_evaluation": "Reviewen",
 			"column_pia": "PIA",
@@ -247,15 +281,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Actieplan tonen",
+					"archive": "TO TRANSLATE - Archive",
 					"consult": "Raadplegen",
 					"duplicate": "Dupliceren",
 					"edit": "Aanpassen",
 					"export": "Exporteren",
 					"pia": "PIA tonen",
-					"remove": "Verwijderen"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Toevoegen",
@@ -265,9 +302,9 @@
 			"example": "Voorbeeld",
 			"general_measure": "Fysieke beveiligingsmaatregelen",
 			"measure_on_data": "Logische beveiligingsmaatregelen",
+			"method": "Methodologie",
 			"organizational_measure": "Organisatorische maatregelen",
-			"principle": "Principe",
-      "method": "Methodologie"
+			"principle": "Principe"
 		},
 		"filters": {
 			"all": "Allemaal",
@@ -382,11 +419,6 @@
 				"name": "Bedreigingen die kunnen leiden tot een ongewenste wijziging van persoonlijke gegevens",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Te kiezen uit diegenen die beschikbaar zijn in sectie \\'Geplande of bestaande maatregelen \\', die u eventueel kunt invullen.",
 				"name": "Maatregelen",
@@ -618,6 +650,11 @@
 				"name": "Transfers",
 				"source": "PIAF Connected Objects p18"
 			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+			},
 			"PIA_ORG_AUD": {
 				"description": "Bestaan van een beleid en processen om een organisatie te realiseren, die in staat is om de bescherming van persoonlijke gegevens die zich daarin bevinden, te beheren en controleren.",
 				"name": "Toezicht",
@@ -840,6 +877,10 @@
 			"review_section": "Controleer een sectie"
 		},
 		"archive": "Archief",
+		"archive_pia": {
+			"archive": "TO TRANSLATE - Archive PIA",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "Dit gedeelte kan worden beoordeeld."
 		},
@@ -881,6 +922,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Opgelet! </span> <br> Ten minste één meting moet worden ingevuld: verwijderen is niet mogelijk."
 		},
+		"recover_version": {
+			"continue": "Vervolgen",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
+			"title": "TO TRANSLATE - Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "Aangezien u de PIA hebt afgewezen, wordt deze ter beoordeling teruggestuurd om de vereiste wijzigingen aan te brengen."
 		},
@@ -896,8 +942,8 @@
 			"remove": "Verwijder deze maatregel"
 		},
 		"remove_pia": {
-			"content": "<span class='strong'>Opgelet! </span> <br> Weet u zeker dat u deze PIA wilt verwijderen?",
-			"remove": "Remove this PIA"
+			"content": "<span class='strong'>Opgelet,</span><br>Weet u zeker dat u deze PIA wilt verwijderen?",
+			"remove": "TO TRANSLATE - Remove this PIA"
 		},
 		"remove_question": {
 			"content": "Wilt u de vraag verwijderen?",
@@ -919,6 +965,10 @@
 			"content": "U hebt de PIA gevalideerd."
 		},
 		"start_evaluation": "Start review",
+		"unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "Verbinden mislukt."
 		},
@@ -966,6 +1016,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Toevoegen",
+			"download": "TO TRANSLATE - Download the attachment",
 			"remove": "Verwijderen",
 			"title": "Bijlagen"
 		},
@@ -1002,24 +1053,24 @@
 			},
 			"validate_pia": "PIA Valideren"
 		},
-		"statuses": {
-			"0": "In opmaak",
-			"1": "Afgekeurd",
-			"2": "Gevalideerd (eenvoudig)",
-			"3": "Gevalideerd (ondertekend)",
-			"4": "Gearchiveerd",
-			"5": "Wacht op validatie"
-		}
+		"statuses": [
+			"In opmaak",
+			"Afgekeurd",
+			"Gevalideerd (eenvoudig)",
+			"Gevalideerd (ondertekend)",
+			"Gearchiveerd",
+			"Wacht op validatie"
+		]
 	},
 	"questions": {
 		"edit": "Vraag bewerken",
-		"gauges": {
-			"0": "(Niet bepaald)",
-			"1": "Verwaarloosbaar",
-			"2": "Beperkt",
-			"3": "Belangrijk",
-			"4": "Maximaal"
-		},
+		"gauges": [
+			"(Niet bepaald)",
+			"Verwaarloosbaar",
+			"Beperkt",
+			"Belangrijk",
+			"Maximaal"
+		],
 		"placeholder_title": "Title van de vraag (verplicht)",
 		"remove": "De vraag verwijderen"
 	},
@@ -1292,27 +1343,6 @@
 		"update": "URL bijwerken"
 	},
 	"summary": {
-    "preview_title": "Preview",
-    "preview_subtitle": "Algemene informatie",
-    "preview_edition": "Aanpassen",
-    "preview_evaluation": "Reviewen",
-    "preview_validation": "Valideren",
-    "preview_status": "Status",
-    "preview_validation_section": "Validatie",
-    "preview_dpo_opinion": "Mening van DPO en betrokkenen",
-    "preview_no_data": "Geen gegevens weer te geven.",
-    "actions": {
-      "print_and_download": "Afdrukken en downloaden",
-      "print": "Verslag afdrukken",
-      "complete_download": "Volledig verslag downloaden",
-      "complete_download_desc": "Exporteer in een .zip-archief de volledige inhoud van het verslag (.doc en afbeeldingen), de bijlagen en het actieplan in .csv-formaat..",
-      "individual_download": "Alle elementen van het verslag downloaden",
-      "individual_download_desc": "Bepaalde elementen van het verslag exporteren.",
-      "individual_download_select": "Te exporteren elementen selecteren:",
-      "individual_download_doc": "Teksten (.doc)",
-      "individual_download_images": "Visuele elementen (.png) waaronder het risico-overzicht, de risico-mapping en het actieplan."
-    },
-    "download_csv": "Actieplan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamentele principes",
 			"implementation_date": "Verwachte datum van implementatie",
@@ -1322,16 +1352,29 @@
 			"risks": "Risico's",
 			"title": "Actieplan"
 		},
+		"actions": {
+			"complete_download": "Volledig verslag downloaden",
+			"complete_download_desc": "Exporteer in een .zip-archief de volledige inhoud van het verslag (.doc en afbeeldingen), de bijlagen en het actieplan in .csv-formaat..",
+			"individual_download": "Alle elementen van het verslag downloaden",
+			"individual_download_desc": "Bepaalde elementen van het verslag exporteren.",
+			"individual_download_doc": "Teksten (.doc)",
+			"individual_download_images": "Visuele elementen (.png) waaronder het risico-overzicht, de risico-mapping en het actieplan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_select": "Te exporteren elementen selecteren:",
+			"individual_to_download": "Downloaden",
+			"print": "Verslag afdrukken",
+			"print_and_download": "Afdrukken en downloaden"
+		},
 		"attachments": "Bijlagen",
 		"concerned_people_name": "Namen van betrokken mensen",
 		"concerned_people_opinion": "Meningen van betrokken mensen",
 		"concerned_people_searched_opinion": "Zoeken naar de mening van betrokken mensen",
 		"concerned_people_status": "Statussen van betrokken mensen",
 		"concerned_people_unsearched_opinion_comment": "Reden waarom de mening van betrokken mensen niet werd gevraagd",
-		"content_choice": {
-			"0": "De verwerking mag niet gebeuren.",
-			"1": "De verwerking zou kunnen worden geïmplementeerd."
-		},
+		"content_choice": [
+			"De verwerking mag niet gebeuren.",
+			"De verwerking zou kunnen worden geïmplementeerd."
+		],
 		"creation_date": "Aanmaakdatum",
 		"csv_action_plan_comment": "Commentaar actieplan",
 		"csv_evaluation_comment": "Evaluatie commentaar",
@@ -1340,17 +1383,7 @@
 		"csv_people_in_charge": "Leidinggevende",
 		"csv_section": "Sectie",
 		"csv_title_object": "Titel",
-		"display_filters": {
-      "check_all": "Alle weergavefilters inschakelen / uitschakelen",
-			"action_plan_content": "Toon actieplan",
-			"context_content": "Toon \"Context\"",
-			"main_content": "Toon \"PIA-informatie\"",
-			"principles_content": "Toon \"Fundamentele principes\"",
-			"risks_cartography_content": "Toon risicokaart",
-			"risks_content": "Toon \"Risico's\"",
-			"risks_overview_content": "Toon overzicht van de risico's",
-			"title": "Filters"
-		},
+		"download_csv": "Actieplan (.csv)",
 		"dpo_name": "naam DPO",
 		"dpo_opinion": "mening DPO",
 		"dpo_status": "status DPO",
@@ -1367,8 +1400,25 @@
 		"pia_author": "Auteursnaam",
 		"pia_name": "PIA",
 		"pia_validator": "Naam validator",
+		"preview_dpo_opinion": "Mening van DPO en betrokkenen",
+		"preview_edition": "Aanpassen",
+		"preview_evaluation": "Reviewen",
+		"preview_no_data": "Geen gegevens weer te geven.",
+		"preview_status": "Status",
+		"preview_subtitle": "Algemene informatie",
+		"preview_title": "Preview",
+		"preview_validation": "Valideren",
+		"preview_validation_section": "Validatie",
 		"previous_page": "Terug naar de vorige pagina",
 		"rejection_reason": "Reden van verwerping",
+		"revision": {
+			"current_version": "TO TRANSLATE - Current version",
+			"pia_version": "TO TRANSLATE - PIA versions",
+			"restore_version": "TO TRANSLATE - Restore",
+			"revision": "TO TRANSLATE - Versions and revision",
+			"save": "TO TRANSLATE - Create a new version",
+			"show": "TO TRANSLATE - Display the {{length}} versions"
+		},
 		"risks_cartography_title": "Risicokaart",
 		"risks_overview_title": "Overzicht risico's",
 		"title": "PIA informatie"

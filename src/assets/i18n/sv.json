@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Skriv en kommentar",
 		"send": "Skicka"
 	},
+	"date": {
+		"april": "TO TRANSLATE - April",
+		"august": "TO TRANSLATE - August",
+		"december": "TO TRANSLATE - December",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+		"february": "TO TRANSLATE - February",
+		"january": "TO TRANSLATE - January",
+		"july": "TO TRANSLATE - July",
+		"june": "TO TRANSLATE - June",
+		"march": "TO TRANSLATE - March",
+		"may": "TO TRANSLATE - May",
+		"november": "TO TRANSLATE - November",
+		"october": "TO TRANSLATE - October",
+		"september": "TO TRANSLATE - September",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday"
+	},
 	"errors": {
 		"content": "Om du stöter på andra problem eller om du har förslag på förbättringar, <br> så kan du beskriva och sända dem via detta formulär: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
 		"title": "Finner inte sidan."
@@ -84,44 +102,52 @@
 		"to_correct": "Att korrigera"
 	},
 	"header": {
+		"archives": "TO TRANSLATE - PIA Archives",
+		"current_pias": "TO TRANSLATE - Current PIAs",
 		"exit_full_screen_mode": "Tryck på F11 för att lämna fullskärmsläge",
+		"help": {
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual",
+			"pia_example_link": "Konsekvensanalysexempel",
+			"title": "TO TRANSLATE - Help"
+		},
 		"homepage_link": "Hem",
 		"knowledge_base_link": "Kunskapsbas",
 		"languages": {
-			"cnil_translations": "",
-			"community_translations": "Översättning genomförd av frivilligt forum",
-			"cz": "Tjeckiska",
-			"de": "Tyska",
-			"dk": "Danska",
-			"dpa_translations": "Översättning som är kontrollerad av europeisk auktoriserad myndighet",
-			"el": "",
-			"en": "Engelska",
-			"es": "Spanska",
-			"et": "Estniska",
-			"fi": "Finska",
-			"fr": "Franska",
-			"hr": "Kroatiska",
-			"hu": "Ungerska",
-			"it": "Italienska",
-			"lt": "Lituanska",
-			"nl": "Holländska",
-			"no": "Norska",
-			"official_translation": "Ursprungsversion",
-			"pl": "Polska",
-			"pt": "Portugisiska",
-			"ro": "Romanska",
-			"sl": "Slovenska"
+			"cnil_translations": "Traductions fournies par la CNIL",
+			"community_translations": "Traductions fournies par la communauté",
+			"cz": "Česky",
+			"de": "Deutsch",
+			"dk": "Dansk",
+			"dpa_translations": "Traduction révisée par les ADP européenne",
+			"el": "Ελληνικά",
+			"en": "English",
+			"es": "Español",
+			"et": "Eesti keel",
+			"fi": "Suomi",
+			"fr": "Français",
+			"hr": "Hrvatski",
+			"hu": "Magyar",
+			"it": "Italiano",
+			"lt": "Lietuviškai",
+			"nl": "Nederlands",
+			"no": "Norsk",
+			"official_translation": "Version originelle",
+			"pl": "Polski",
+			"pt": "Português",
+			"ro": "Română",
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
 		"logo_subtitle": "PIA - Konsekvensanalys",
 		"logo_title": "PIA - Konsekvensanalys",
-		"pia_example_link": "Konsekvensanalysexempel",
 		"structures": "PIA - mallar",
 		"tools": {
 			"about": "Om",
 			"accessibility": "Tillgänglighet för funktionsvariationer (skarpa kontrastfärger, anpassning till färgblindhet)",
-			"help": "Hjälp",
 			"settings": "Inställningar",
-			"title": "Verktyg"
+			"title": "Verktyg",
+			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -168,6 +194,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Datainsamlare",
+			"category": "TO TRANSLATE - Category",
 			"creation_status": "Skapa",
 			"date": "Datum",
 			"evaluation": "Utvärdera",
@@ -175,15 +202,19 @@
 			"import_structure": "Importera mall",
 			"item": {
 				"consult_pia": "Konsultera",
+				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Redigera",
 				"edit_structure": "Redigera mall",
 				"tools": {
 					"action_plan": "Visa <br> åtgärdsplan",
+					"archive": "TO TRANSLATE - Archive",
 					"duplicate": "Duplicera",
 					"export": "Exportera",
 					"more_options": "Fler val",
 					"pia": "Visa <br>PIAn",
-					"remove": "Radera"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Ny PIA",
@@ -191,6 +222,7 @@
 			"or": "eller",
 			"pia_name": "PIA",
 			"placeholder_author": "Förnamn, efternamn",
+			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Förnamn, efternamn",
 			"placeholder_import_pia": "Importera PIA",
 			"placeholder_import_structure": "Importera mall",
@@ -216,6 +248,7 @@
 			"card": "Kort",
 			"card_rocket_content": "Starta! <br><br>För att börja<br>en PIA, klicka<br> på +",
 			"card_rocket_content_structure": "Starta! <br><br>För att börja<br>en mall, klicka<br> på +",
+			"category": "TO TRANSLATE - Category",
 			"date": "Datum",
 			"import_pia": "Importera PIA",
 			"import_structure": "Importera en mall",
@@ -234,6 +267,7 @@
 		"lists": {
 			"column_actions": "Alternativ",
 			"column_author": "Datainsamlare",
+			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Skapad",
 			"column_evaluation": "Utvärdering",
 			"column_pia": "PIA",
@@ -247,15 +281,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Visa åtgärdsplan",
+					"archive": "TO TRANSLATE - Archive",
 					"consult": "Konsultera",
 					"duplicate": "Duplicera",
 					"edit": "Redigera",
 					"export": "Exportera",
 					"pia": "Via PIA",
-					"remove": "Radera"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Lägg till",
@@ -303,7 +340,7 @@
 				"source": "Datainspektionen"
 			},
 			"PIA_DEF_CHIF": {
-				"description": "",
+				"description": "TO TRANSLATE - Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
 				"name": "Kryptering",
 				"source": "https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
 			},
@@ -554,7 +591,7 @@
 				"name": "Obetydlig sannolikhet"
 			},
 			"PIA_LGL_CONS": {
-				"description": "",
+				"description": "TO TRANSLATE - Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
 				"name": "Inhämtande av samtycke",
 				"source": "Källa saknas"
 			},
@@ -622,7 +659,7 @@
 				"description": "Förekomst av rutiner och tillsyn för att ge en övergripande och aktuell uppfattning om dataskyddet och efterlevnaden av ADSF/GDPR (kontrollera att behandlingar överensstämmer med ADSF/GDPR, måluppfyllnad och riskindikatorer, ansvar etc.).",
 				"name": "Rutiner och tillsyn av integritetsskyddande åtgärder",
 				"placeholder": "Beskriv här de processer som säkerställer regelbundna rutiner och tillsyn av personuppgiftsbehandlingen.",
-				"source": ""
+				"source": "PIA3 p76 - WIKI"
 			},
 			"PIA_ORG_EXT": {
 				"description": "Förekomst av ett förfarande för att minska riskerna som den berättigade åtkomsten till informationen av tredjeparter kan innebära för de registrerade personernas friheter och privatliv (identifiering av tredjeparter, personuppgiftsbiträdesavtal, existerande konventioner, BCR, etc.) .",
@@ -787,7 +824,7 @@
 				"source": "Svensk källa saknas"
 			},
 			"PIA_TEC_PAP": {
-				"description": "",
+				"description": "TO TRANSLATE - Where paper documents containing data are used during the processing, indicate here how they are printed, stored, destroyed and exchanged.",
 				"name": "Säkerhet för hantering av  pappersdokument",
 				"placeholder": "Ange här procedurerna och livscykeln för pappersdokument som innehåller personuppgifter.",
 				"source": "Svensk källa saknas"
@@ -840,6 +877,10 @@
 			"review_section": "Utvärdera en sektion"
 		},
 		"archive": "Arkivera",
+		"archive_pia": {
+			"archive": "TO TRANSLATE - Archive PIA",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "Denna sektion är klar för att utvärderas"
 		},
@@ -881,6 +922,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Varning,</span><br>Åtminstone en åtgärd måste läggas till: Radering kan inte göras."
 		},
+		"recover_version": {
+			"continue": "Fortsätt",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
+			"title": "TO TRANSLATE - Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "Efter ditt underkännande sänds PIAn<br>tillbaka för utvärdering och för att utföra<br> nödvändiga kompletterande åtgärder."
 		},
@@ -919,6 +965,10 @@
 			"content": "Du godkänner PIAn."
 		},
 		"start_evaluation": "Starta utvärderingen",
+		"unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "Ingen uppkoppling."
 		},
@@ -981,7 +1031,6 @@
 			"display_action_plan": "Visa<br>handlingsplan",
 			"edition": "Redigering",
 			"evaluation": "Utvärdering",
-			"exit_full_screen_mode": "Tryck på F11 för att lämna fullskärmsläge.",
 			"preview": "Förhandsvisning"
 		},
 		"sections": {
@@ -1002,7 +1051,7 @@
 					"title": "Väntar på godkännande"
 				}
 			},
-			"validate_pia": ""
+			"validate_pia": "TO TRANSLATE - Validate PIA"
 		},
 		"statuses": [
 			"Under behandling",
@@ -1257,7 +1306,7 @@
 				},
 				"5": {
 					"short_help": "Denna visualisering gör att du kan skapa dig en övergripande bild av vilken verkan åtgärderna har på komponenterna i riskerna som de skall hantera.",
-					"title": ""
+					"title": "TO TRANSLATE - Risks overview"
 				}
 			},
 			"short_help": "Det här avsnittet låter dig bedöma dataskyddsriskerna med hänsyn till befintliga eller planerade kontroller.",
@@ -1310,7 +1359,9 @@
 			"individual_download_desc": "Exportera specifika delar av rapporten.",
 			"individual_download_doc": "Texter (.doc)",
 			"individual_download_images": "Grafiska element (.png) inklusive risköversikt, kartläggning av risker och handlingsplan.",
+			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
 			"individual_download_select": "Välj avsnitt som ska exporteras:",
+			"individual_to_download": "TO TRANSLATE - Download",
 			"print": "Skriv ut rapporten",
 			"print_and_download": "Skriva ut och ladda ner"
 		},
@@ -1332,17 +1383,6 @@
 		"csv_people_in_charge": "Ansvarig för genomförandet",
 		"csv_section": "Avsnitt",
 		"csv_title_object": "Titel",
-		"display_filters": {
-			"action_plan_content": "Visa handlingsplan",
-			"check_all": "Aktivera / inaktivera alla visningsfilter",
-			"context_content": "Visa avsnitt \"Kontext\"",
-			"main_content": "Visa avsnitt \"PIA-information\"",
-			"principles_content": "Visa avsnitt \"Grundläggande principer\"",
-			"risks_cartography_content": "Visa riskkartläggning",
-			"risks_content": "Visa avsnitt \"Risker\"",
-			"risks_overview_content": "Visa risköversikt",
-			"title": "Visa filter"
-		},
 		"download_csv": "Handlingsplan (.csv)",
 		"dpo_name": "DSO´s namn",
 		"dpo_opinion": "DSO´s åsikt",
@@ -1371,6 +1411,14 @@
 		"preview_validation_section": "Godkännande",
 		"previous_page": "Tillbaka till föregående sida",
 		"rejection_reason": "Skäl för underkännande",
+		"revision": {
+			"current_version": "TO TRANSLATE - Current version",
+			"pia_version": "TO TRANSLATE - PIA versions",
+			"restore_version": "TO TRANSLATE - Restore",
+			"revision": "TO TRANSLATE - Versions and revision",
+			"save": "TO TRANSLATE - Create a new version",
+			"show": "TO TRANSLATE - Display the {{length}} versions"
+		},
 		"risks_cartography_title": "Riskkartläggning",
 		"risks_overview_title": "Risköversikt",
 		"title": "PIA-information"

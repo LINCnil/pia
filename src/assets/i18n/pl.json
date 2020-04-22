@@ -52,6 +52,24 @@
 		"placeholder_new_comment": "Można wpisać komentarz",
 		"send": "Wstaw komentarz"
 	},
+	"date": {
+		"april": "TO TRANSLATE - April",
+		"august": "TO TRANSLATE - August",
+		"december": "TO TRANSLATE - December",
+		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+		"february": "TO TRANSLATE - February",
+		"january": "TO TRANSLATE - January",
+		"july": "TO TRANSLATE - July",
+		"june": "TO TRANSLATE - June",
+		"march": "TO TRANSLATE - March",
+		"may": "TO TRANSLATE - May",
+		"november": "TO TRANSLATE - November",
+		"october": "TO TRANSLATE - October",
+		"september": "TO TRANSLATE - September",
+		"today": "TO TRANSLATE - Today",
+		"yesterday": "TO TRANSLATE - Yesterday"
+	},
 	"errors": {
 		"content": "Jeżeli wystąpią inne problemy lub mają Państwo sugestie dotyczące ulepszeń, prosimy skorzystać z formularza <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>.",
 		"title": "Brak strony."
@@ -74,17 +92,25 @@
 		"placeholder_improvable1": "Można wpisać komentarz wyjaśniający, które dodatkowe środki należy uwzględnić w celu ulepszenia ochrony danych osobowych w ramach przetwarzania.",
 		"placeholder_improvable2": "Można wpisać komentarz.",
 		"placeholder_to_correct": "Można wpisać komentarz wyjaśniający, dlaczego dostarczone informacje nie są wystarczające dla przeprowadzenia oceny. Tę sekcję nalezy odesłać do edycji w celu uzupełnienia pierwotnej propozycji.",
-		"status": {
-			"0": "Oczekujące",
-			"1": "Do poprawienia",
-			"2": "Do ulepszenia",
-			"3": "Do zaakceptowania"
-		},
+		"status": [
+			"Oczekujące",
+			"Do poprawienia",
+			"Do ulepszenia",
+			"Do zaakceptowania"
+		],
 		"title": "Ocena",
 		"to_correct": "Do poprawienia"
 	},
 	"header": {
-    "exit_full_screen_mode": "Wciśnij F11 aby wyjść z trybu pełnoekranowego.",
+		"archives": "TO TRANSLATE - PIA Archives",
+		"current_pias": "TO TRANSLATE - Current PIAs",
+		"exit_full_screen_mode": "Wciśnij F11 aby wyjść z trybu pełnoekranowego.",
+		"help": {
+			"issue_reporting": "TO TRANSLATE - Report an issue",
+			"manual": "TO TRANSLATE - User manual",
+			"pia_example_link": "Przykład PIA",
+			"title": "Pomoc"
+		},
 		"homepage_link": "Strona główna",
 		"knowledge_base_link": "Baza wiedzy",
 		"languages": {
@@ -110,18 +136,18 @@
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina"
+			"sl": "Slovenščina",
+			"sv": "Svenska"
 		},
-		"logo_subtitle": "Privacy impact assessment",
+		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Ocena skutków dla ochrony prywatności",
-		"pia_example_link": "Przykład PIA",
 		"structures": "Szablony PIA",
 		"tools": {
 			"about": "O aplikacji",
 			"accessibility": "Dostępność dla osób słabowidzących (kolory o mocnym kontraście, dopasowane do daltonizmu)",
-			"help": "Pomoc",
 			"settings": "Ustawienia",
-			"title": "Narzędzia"
+			"title": "Narzędzia",
+			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
 	"help": {
@@ -168,6 +194,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Edytowanie",
+			"category": "TO TRANSLATE - Category",
 			"creation_status": "Utworzenie",
 			"date": "Data",
 			"evaluation": "Ocena",
@@ -175,15 +202,19 @@
 			"import_structure": "Import szablonu",
 			"item": {
 				"consult_pia": "Konsultacja",
+				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Edycja",
 				"edit_structure": "Edycja szablonu",
 				"tools": {
 					"action_plan": "Wyświetlenie<br>planu działania",
+					"archive": "TO TRANSLATE - Archive",
 					"duplicate": "Duplikacja",
 					"export": "Eksport",
 					"more_options": "Więcej opcji",
 					"pia": "Wyświetlenie<br>PIA",
-					"remove": "Usunięcie"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			},
 			"new_pia": "Nowa PIA",
@@ -191,13 +222,14 @@
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Imię, nazwisko",
+			"placeholder_category": "TO TRANSLATE - Category",
 			"placeholder_evaluation": "Imię, nazwisko",
 			"placeholder_import_pia": "Import PIA",
 			"placeholder_import_structure": "Import szablonu",
 			"placeholder_new_pia": "Nowa PIA",
 			"placeholder_new_structure": "Nowy szablon",
 			"placeholder_pia_name": "Tytuł PIA",
-			"placeholder_sector_name": "TO BE TRANSLATED - Intitulé du Secteur associé",
+			"placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
 			"placeholder_start": "Należy wypełnić wszystkie pola",
 			"placeholder_structure": "Domyślny szablon",
 			"placeholder_structure_name": "Tytuł szablonu",
@@ -213,13 +245,14 @@
 		"filters": {
 			"assessor": "Oceniającego",
 			"author": "Autora",
-			"card": "karta",
+			"card": "TO TRANSLATE - Card view",
 			"card_rocket_content": "Zaczynajmy!<br><br>By rozpocząć PIA,<br> należy kliknąć Nowa PIA",
 			"card_rocket_content_structure": "Zaczynajmy!<br><br> By rozpocząć <br>szablon, prosimy kliknąć<br> +",
+			"category": "TO TRANSLATE - Category",
 			"date": "Daty",
 			"import_pia": "Import PIA",
 			"import_structure": "Import szablonu",
-			"list": "lista",
+			"list": "TO TRANSLATE - List view",
 			"list_rocket_content": "Zaczynajmy! By rozpocząć <br>PIA, prosimy kliknąć +",
 			"list_rocket_content_structure": "Zaczynajmy! By rozpocząć <br>szablon, prosimy kliknąć +",
 			"name": "Nazwiska",
@@ -234,6 +267,7 @@
 		"lists": {
 			"column_actions": "Działania",
 			"column_author": "Edytowanie",
+			"column_category": "TO TRANSLATE - Category",
 			"column_creation": "Utworzenie",
 			"column_evaluation": "Ocena",
 			"column_pia": "PIA",
@@ -247,15 +281,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Wyświetlenie planu działania",
+					"archive": "TO TRANSLATE - Archive",
 					"consult": "Konsultacja",
 					"duplicate": "Duplikacja",
 					"edit": "Edycja",
 					"export": "Eksport",
 					"pia": "Wyświetlenie PIA",
-					"remove": "Usunięcie"
+					"remove": "TO TRANSLATE - Delete",
+					"unarchive": "TO TRANSLATE - Unarchive"
 				}
 			}
-		}
+		},
+		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
 		"add_measure": "Dodanie",
@@ -265,9 +302,9 @@
 			"example": "Przykład",
 			"general_measure": "Środek ochrony fizycznej",
 			"measure_on_data": "Środek ochrony logicznej",
+			"method": "Metodologia",
 			"organizational_measure": "Środek organizacyjny",
-			"principle": "Zasada",
-      "method": "Metodologia"
+			"principle": "Zasada"
 		},
 		"filters": {
 			"all": "Wszystkie",
@@ -382,11 +419,6 @@
 				"name": "Zagrożenia, które mogą doprowadzić do niepożądanej modyfikacji danych osobowych",
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
-      "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
-				"source": ""
-      },
 			"PIA_DEF_MES": {
 				"description": "Należy wybrać spośród tych wymienionych w sekcji \"Środki planowane lub istniejące\", które można uzupełnić w razie potrzeby.",
 				"name": "Środki",
@@ -618,6 +650,11 @@
 				"name": "Przekazywanie danych",
 				"source": "PIAF Connected Objects p18"
 			},
+			"PIA_METHOD_MES": {
+				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
+				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"source": ""
+			},
 			"PIA_ORG_AUD": {
 				"description": "Wprowadzenie środków pozwalających uzyskiwać całościową i aktualną wizję stanu ochrony danych i zgodności z RODO (kontrola zgodności czynności przetwarzania, celów i wskaźników, zakresy odpowiedzialności, itd.).",
 				"name": "Nadzór",
@@ -840,6 +877,10 @@
 			"review_section": "Przegląd sekcji"
 		},
 		"archive": "Archiwizacja",
+		"archive_pia": {
+			"archive": "TO TRANSLATE - Archive PIA",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+		},
 		"ask_for_evaluation": {
 			"content": "Ta sekcja jest gotowa do sprawdzenia."
 		},
@@ -881,6 +922,11 @@
 		"not_enough_measures_to_remove": {
 			"content": "<span class='strong'>Uwaga</span><br>Należy opisać co najmniej jeden środek: usunięcie niemożliwe."
 		},
+		"recover_version": {
+			"continue": "Dalsza praca",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
+			"title": "TO TRANSLATE - Restore a previous version"
+		},
 		"refuse_pia": {
 			"content": "Ponieważ odrzuciłeś PIA, zostaje ona odesłana do sprawdzenia w celu wprowadzenia wymaganych zmian."
 		},
@@ -896,7 +942,7 @@
 			"remove": "Usunięcie <br>środka"
 		},
 		"remove_pia": {
-			"content": "Czy na pewno usunąć?",
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
 			"remove": "Usuń PIA"
 		},
 		"remove_question": {
@@ -919,6 +965,10 @@
 			"content": "Masz zatwierdzone PIA."
 		},
 		"start_evaluation": "Rozpoczęcie oceny",
+		"unarchive_pia": {
+			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+			"unarchive": "TO TRANSLATE - Unarchive PIA"
+		},
 		"update_server_url_nok": {
 			"content": "Połączenie niemożliwe."
 		},
@@ -966,6 +1016,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Dodaj załącznik",
+			"download": "TO TRANSLATE - Download the attachment",
 			"remove": "Usuń",
 			"title": "Załączniki"
 		},
@@ -1002,24 +1053,24 @@
 			},
 			"validate_pia": "Zatwierdzenie PIA"
 		},
-		"statuses": {
-			"0": "W toku",
-			"1": "Odrzucona",
-			"2": "Zatwierdzenie proste",
-			"3": "Zatwierdzenie podpisane",
-			"4": "Zarchiwizowana",
-			"5": "Czeka na potwierdzenie"
-		}
+		"statuses": [
+			"W toku",
+			"Odrzucona",
+			"Zatwierdzenie proste",
+			"Zatwierdzenie podpisane",
+			"Zarchiwizowana",
+			"Czeka na potwierdzenie"
+		]
 	},
 	"questions": {
 		"edit": "Edycja pytania",
-		"gauges": {
-			"0": "(Niezdefiniowane)",
-			"1": "Pomijalne",
-			"2": "Ograniczone",
-			"3": "Poważne",
-			"4": "Maksymalne"
-		},
+		"gauges": [
+			"(Niezdefiniowane)",
+			"Pomijalne",
+			"Ograniczone",
+			"Poważne",
+			"Maksymalne"
+		],
 		"placeholder_title": "Tytuł pytania (obowiązkowy)",
 		"remove": "Usuń pytanie"
 	},
@@ -1292,27 +1343,6 @@
 		"update": "Aktualizacja URL"
 	},
 	"summary": {
-    "preview_title": "Podgląd",
-    "preview_subtitle": "Ogólne Informacje",
-    "preview_edition": "Edycja",
-    "preview_evaluation": "Ocena",
-    "preview_validation": "Weryfikacja",
-    "preview_status": "Status",
-    "preview_validation_section": "Weryfikacja",
-    "preview_dpo_opinion": "Opinia IOD oraz osób, których dane dotyczą",
-    "preview_no_data": "Brak danych do wyświetlenia.",
-    "actions": {
-      "print_and_download": "Wydrukuj i pobierz",
-      "print": "Wydrukuj raport",
-      "complete_download": "Pobierz pełen raport",
-      "complete_download_desc": "Wyeksportuj w formacie archiwum .zip pełną zawartość, raport (jako .doc i grafiki), załączniki plan działań jako .csv.",
-      "individual_download": "Pobierz elementy raportu.",
-      "individual_download_desc": "Wyeksportuj wybrane elementy raportu.",
-      "individual_download_select": "Wybierz elementy do eksportu:",
-      "individual_download_doc": "Tekst (.doc)",
-      "individual_download_images": "Grafiki (.png) łącznie z obrazem ryzyk, mapą ryzyk i planem działań."
-    },
-    "download_csv": "Plan działań(.csv)",
 		"action_plan": {
 			"fundamental_principles": "Podstawowe zasady",
 			"implementation_date": "Planowana data wdrożenia",
@@ -1322,16 +1352,29 @@
 			"risks": "Ryzyka",
 			"title": "Plan działania"
 		},
+		"actions": {
+			"complete_download": "Pobierz pełen raport",
+			"complete_download_desc": "Wyeksportuj w formacie archiwum .zip pełną zawartość, raport (jako .doc i grafiki), załączniki plan działań jako .csv.",
+			"individual_download": "Pobierz elementy raportu.",
+			"individual_download_desc": "Wyeksportuj wybrane elementy raportu.",
+			"individual_download_doc": "Tekst (.doc)",
+			"individual_download_images": "Grafiki (.png) łącznie z obrazem ryzyk, mapą ryzyk i planem działań.",
+			"individual_download_json": "Pobierz (.json)",
+			"individual_download_select": "Wybierz elementy do eksportu:",
+			"individual_to_download": "Pobierz",
+			"print": "Wydrukuj raport",
+			"print_and_download": "Wydrukuj i pobierz"
+		},
 		"attachments": "Załączniki",
 		"concerned_people_name": "Nazwiska osób, których dane dotyczą",
 		"concerned_people_opinion": "Opinie osób, których dane dotyczą",
 		"concerned_people_searched_opinion": "Potrzebne opinie osób, których dane dotyczą",
 		"concerned_people_status": "Status osób, których dane dotyczą",
 		"concerned_people_unsearched_opinion_comment": "Powód, dla którego nie zwrócono się o opinię do osób, których dane dotyczą.",
-		"content_choice": {
-			"0": "Tego przetwarzania nie należy wdrażać.",
-			"1": "To przetwarzanie można wdrożyć."
-		},
+		"content_choice": [
+			"Tego przetwarzania nie należy wdrażać.",
+			"To przetwarzanie można wdrożyć."
+		],
 		"creation_date": "Data utworzenia",
 		"csv_action_plan_comment": "Komentarz do planu działania",
 		"csv_evaluation_comment": "Komentarz do oceny",
@@ -1340,17 +1383,7 @@
 		"csv_people_in_charge": "Osoba odpowiedzialna",
 		"csv_section": "Sekcja",
 		"csv_title_object": "Tytuł",
-		"display_filters": {
-      "check_all": "Włącz/wyłącz wszystkie filtry widoku",
-			"action_plan_content": "Wyświetl plan działania",
-			"context_content": "Wyświetl \"Kontekst przetwarzania\"",
-			"main_content": "Wyświetl \"Informacje\"",
-			"principles_content": "Wyświetl \"Podstawowe zasady\"",
-			"risks_cartography_content": "Wyświetl mapę ryzyka",
-			"risks_content": "Wyświetl \"Ryzyka\"",
-			"risks_overview_content": "Wyświetl przegląd ryzyka",
-			"title": "Filtry"
-		},
+		"download_csv": "Plan działań(.csv)",
 		"dpo_name": "Nazwisko IOD",
 		"dpo_opinion": "Opinia IOD",
 		"dpo_status": "Status IOD",
@@ -1367,8 +1400,25 @@
 		"pia_author": "Nazwisko autora",
 		"pia_name": "Nazwa PIA",
 		"pia_validator": "Nazwisko zatwierdzającego",
+		"preview_dpo_opinion": "Opinia IOD oraz osób, których dane dotyczą",
+		"preview_edition": "Edycja",
+		"preview_evaluation": "Ocena",
+		"preview_no_data": "Brak danych do wyświetlenia.",
+		"preview_status": "Status",
+		"preview_subtitle": "Ogólne Informacje",
+		"preview_title": "Podgląd",
+		"preview_validation": "Weryfikacja",
+		"preview_validation_section": "Weryfikacja",
 		"previous_page": "Powrót do poprzedniej strony",
 		"rejection_reason": "Powód odmowy",
+		"revision": {
+			"current_version": "TO TRANSLATE - Current version",
+			"pia_version": "TO TRANSLATE - PIA versions",
+			"restore_version": "TO TRANSLATE - Restore",
+			"revision": "TO TRANSLATE - Versions and revision",
+			"save": "TO TRANSLATE - Create a new version",
+			"show": "TO TRANSLATE - Display the {{length}} versions"
+		},
 		"risks_cartography_title": "Mapowanie ryzyka",
 		"risks_overview_title": "Przegląd ryzyka",
 		"title": "Informacje o PIA"

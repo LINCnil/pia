@@ -26,7 +26,8 @@
               align-self: center;
             }
           }
-          &-structure {
+          &-structure,
+          &-category {
             color: $pia-gray-dark;
           }
           &-title {
@@ -82,7 +83,7 @@
             a {
               width: 81%;
               border-radius: 4px;
-              &:focus, &:hover, &:active, &.active {
+              &:hover, &.active {
                 color: #fff !important;
               }
             }
@@ -98,7 +99,7 @@
                   max-width: 164px;
                 }
                 a {
-                  &:focus, &:hover, &:active, &.active {
+                  &:hover,, &.active {
                     background-color: $pia-green;
                   }
                 }
@@ -113,7 +114,7 @@
                   max-width: 62px;
                 }
                 a {
-                  &:focus, &:hover, &:active, &.active {
+                  &:hover, &.active {
                     background-color: $pia-blue;
                   }
                 }
@@ -128,7 +129,7 @@
                   max-width: 182px;
                 }
                 a {
-                  &:focus, &:hover, &:active, &.active {
+                  &:hover, &.active {
                     background-color: $pia-red;
                   }
                 }
@@ -144,7 +145,7 @@
                   display: none;
                 }
                 a {
-                  &:focus, &:hover, &:active, &.active {
+                  &:hover, &.active {
                     background-color: $pia-dark-black;
                   }
                 }
@@ -152,6 +153,15 @@
             }
           }
         }
+      }
+    }
+    &-aside {
+      position: relative;
+      &-content {
+        padding-top: 15px;
+        position: sticky;
+        top: 0px;
+        width: 100%;
       }
     }
   }
@@ -182,7 +192,7 @@
       margin: 0 0 8px 0;
       padding: 10px 15px;
       background: #fff;
-      box-shadow: 2px 1px 18px 1px #c2c2c2;
+      box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     }
     .evaluationbox {
       p {
@@ -209,7 +219,7 @@
   }
   &-previewRisksOverviewBlock,
   &-previewRisksCartographyBlock {
-    box-shadow: 2px 1px 18px 1px #c2c2c2;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     > div {
       vertical-align: top;
@@ -229,7 +239,7 @@
       display: flex;
       background-color: #fff;
       position: relative;
-      box-shadow:  2px 1px 18px 1px rgba(210,210,210,1);
+      box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
       > div:first-child {
         width: 74px;
         background-color: #3c3b3d;
@@ -391,16 +401,15 @@
     &-exports {
       display: inline-block;
       vertical-align: top;
-      padding-left: 15px;
     }
     &-data {
-      width: 610px;
+      width: 578px;
     }
     &-headline {
       display: flex;
       margin: 15px 0;
       background-color: #fff;
-      box-shadow: 2px 1px 18px 1px rgba(210,210,210,1);
+      box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
       &-title {
         width: 100%;
         border-left: 74px solid #3c3b3d;
@@ -454,121 +463,11 @@
         padding: 10px 15px;
       }
     }
-    &-exports {
-      width: 260px;
-      position: sticky;
-      top: 0;
-      font-size: 1.7rem;
-      &-title {
-        color: $pia-gray;
-      }
-      > div {
-        &:first-child {
-          padding: 15px 0;
-          border-top: none;
-        }
-      }
-      &-print,
-      &-full {
-        &:active {
-          padding: 0 10px;
-          background-color: $pia-green;
-          button,
-          div {
-            color: #fff;
-          }
-        }
-      }
-      &-print,
-      &-full,
-      &-individual {
-        border-top: 1px solid #c8c7c9;
-        padding: 0 10px;
-        &:focus,
-        &:hover {
-          background-color: $pia-green;
-          border-top-color: $pia-green;
-          button,
-          div {
-            color: #fff;
-          }
-        }
-
-      }
-      &-print,
-      &-full {
-        button {
-          padding: 15px 0;
-          width:100%;
-          cursor: pointer;
-          text-align: left;
-        }
-      }
-      &-full {
-        button {
-          div {
-            &:last-child {
-              padding-top: 15px;
-              font-size: 1.4rem;
-              padding-right: 10px;
-            }
-          }
-        }
-      }
-      &-individual {
-        padding-top: 15px;
-        &:focus,
-        &:hover {
-          padding-top: 15px;
-        }
-        &-description {
-          cursor: pointer;
-          div {
-            &:last-child {
-              padding: 15px 0;
-              font-size: 1.4rem;
-            }
-          }
-        }
-        &-links {
-          font-size: 1.4rem;
-          text-align: left;
-          button {
-            cursor: pointer;
-            text-align: left;
-            width: 100%;
-            padding: 15px 0;
-            &:focus,
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-        &.activeMenu {
-          background-color: transparent;
-          padding: 15px 10px 0 10px;
-          &:focus,
-          &:hover {
-            padding: 15px 10px 0 10px;
-            button,
-            div {
-              color: #000;
-            }
-          }
-          > div {
-            &:first-child {
-              div {
-                color: $pia-green;
-              }
-            }
-          }
-        }
-      }
-    }
   }
 
 }
 
 .pagebreak {
-  break-before: page;
+  page-break-before: always;
 }
+
