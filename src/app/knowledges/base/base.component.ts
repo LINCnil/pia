@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 import { AppDataService } from 'src/app/services/app-data.service';
@@ -34,6 +34,7 @@ export class BaseComponent implements OnInit {
   categories: string[] = [];
   filters: string[] = [];
   data: any;
+  itemsSelected: string[] = [];
 
   constructor(
     private _modalsService: ModalsService,
@@ -109,11 +110,15 @@ export class BaseComponent implements OnInit {
       .find(id)
       .then((result: Knowledge) => {
         // SET FORM CONTROL
-        this.entryForm.setValue({
-          name: result.name,
-          category: result.category,
-          description: result.description
-        });
+
+        this.entryForm.controls['name'].setValue(result.name);
+        this.entryForm.controls['category'].setValue(result.category);
+        this.entryForm.controls['description'].setValue(result.description);
+        this.itemsSelected = [];
+        if (result.items) {
+          this.itemsSelected = result.items;
+        }
+
         this.selectedKnowledgeId = result.id;
         // SHOW FORM
         this.editMode = 'edit';
@@ -136,7 +141,7 @@ export class BaseComponent implements OnInit {
       entry.slug = slugify(entry.name);
       entry.category = this.entryForm.value.category;
       entry.description = this.entryForm.value.description;
-
+      entry.items = this.itemsSelected;
       // Update object
       entry.update().then(() => {
         // Update list
@@ -146,5 +151,17 @@ export class BaseComponent implements OnInit {
         }
       });
     });
+  }
+
+  onCheckboxChange(e) {
+    if (e.target.checked) {
+      this.itemsSelected.push(e.target.value);
+    } else {
+      this.itemsSelected.forEach(item => {
+        let index = this.itemsSelected.indexOf(item);
+        this.itemsSelected.splice(index, 1);
+      });
+    }
+    this.focusOut();
   }
 }

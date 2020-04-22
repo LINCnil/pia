@@ -9,6 +9,7 @@ export class Knowledge extends ApplicationDb {
   public name: string;
   public description: string;
   public knowledgeBase_id: number;
+  public items: any[] = [];
   public updated_at: Date;
   public created_at: Date;
 
@@ -35,6 +36,7 @@ export class Knowledge extends ApplicationDb {
             this.name = entry.name;
             this.description = entry.description;
             this.knowledgeBase_id = entry.knowledgeBase_id;
+            this.items = entry.items;
             this.created_at = new Date(entry.created_at);
             this.updated_at = new Date(entry.updated_at);
           }
@@ -103,6 +105,7 @@ export class Knowledge extends ApplicationDb {
       name: this.name,
       description: this.description,
       knowledgeBase_id: baseId,
+      items: this.items,
       created_at: new Date(),
       updated_at: new Date()
     };
@@ -137,7 +140,7 @@ export class Knowledge extends ApplicationDb {
         entry.name = this.name;
         entry.description = this.description;
         entry.knowledgeBase_id = this.knowledgeBase_id;
-        entry.created_at = entry.created_at;
+        (entry.items = this.items), (entry.created_at = entry.created_at);
         entry.updated_at = new Date();
 
         if (this.serverUrl) {
