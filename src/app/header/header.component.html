@@ -11,23 +11,67 @@
       </div>
     </div>
   </div>
-  <nav class="pia-navigationBlock" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
+  <nav class="pia-navigationBlock" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader, 'pia-navigationBlock-archives' : isArchiveHeader }">
     <div class="container">
       <div class="row">
         <div class="small-12 medium-12 columns">
-          <ul class="pia-navigationBlock-list">
-            <li routerLinkActive="active">
-              <a routerLink="/home">{{ 'header.homepage_link' | translate }}</a>
+          <ul class="pia-navigationBlock-list ">
+            <li class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-pias">
+              <a href="javascript:;">
+                {{ 'header.homepage_link' | translate }}
+                <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
+              </a>
+              <ul>
+                <li><a routerLink="/home">{{ 'header.current_pias' | translate }}</a></li>
+                <li><a routerLink="/archives">{{ 'header.archives' | translate }}</a></li>
+              </ul>
+            </li>
+            <li [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
+              <a style="text-transform:uppercase;" routerLink="/structures">{{ 'header.structures' | translate }}</a>
             </li>
           </ul>
           <ul class="pia-navigationBlock-list">
-            <li routerLinkActive="active">
-              <a routerLink="/structures">{{ 'header.structures' | translate }}</a>
-            </li><li [ngClass]="{'active': pia_is_example}">
-              <a *ngIf="_languagesService.selectedLanguage === 'fr' && pia_example" href="javascript:;" routerLink="/entry/{{pia_example.id}}/section/1/item/1">
-                {{ 'header.pia_example_link' | translate }}
+            <li class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-company">
+              <a href="javascript:;">
+                <i class="fa fa-user" style="display:none;" aria-hidden="true"></i>
+                {{ 'header.tools.settings' | translate }}
+                <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
               </a>
-            </li><li class="pia-navigationBlock-languages">
+              <form>
+                <fieldset>
+                  <a routerLink="/settings">{{ 'header.tools.url_setting' | translate }}</a>
+                  <div>
+                    <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast === 'true'" (change)="changeContrast($event)">
+                    <label for="pia-accessibility">{{ 'header.tools.accessibility' | translate }}</label>
+                  </div>
+                  <div>
+                    <a routerLink="/about">{{ 'header.tools.about' | translate }}</a>
+                  </div>
+                </fieldset>
+              </form>
+            </li>
+            <li class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-help">
+              <a href="javascript:;">
+                {{ 'header.help.title' | translate }}
+                <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
+              </a>
+              <ul>
+                <li *ngIf="_languagesService.selectedLanguage === 'fr' && pia_example">
+                  <a href="javascript:;" routerLink="/entry/{{pia_example.id}}/section/1/item/1">
+                    {{ 'header.help.pia_example_link' | translate }}
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/help">{{ 'header.help.manual' | translate }}</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://github.com/LINCnil/pia/blob/master/CONTRIBUTING.md#exprimer-un-besoin-ou-probl%C3%A8me">
+                    {{ 'header.help.issue_reporting' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-languages">
               <a href="javascript:;">
                 <i class="fa fa-globe" aria-hidden="true"></i>
               </a>
@@ -131,28 +175,12 @@
                     {{ 'header.languages.sl' | translate }}
                   </a>
                 </li>
+                <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'sv'}">
+                  <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('sv')">
+                    {{ 'header.languages.sv' | translate }}
+                  </a>
+                </li>
               </ul>
-            </li><li class="pia-navigationBlock-company">
-              <a href="javascript:;">
-                <i class="fa fa-user" style="display:none;" aria-hidden="true"></i>
-                {{ 'header.tools.title' | translate }}
-                <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
-              </a>
-              <form>
-                <fieldset>
-                  <legend><a routerLink="/settings">{{ 'header.tools.settings' | translate }}</a></legend>
-                  <div>
-                    <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast === 'true'" (change)="changeContrast($event)">
-                    <label for="pia-accessibility">{{ 'header.tools.accessibility' | translate }}</label>
-                  </div>
-                  <div>
-                    <a routerLink="/help">{{ 'header.tools.help' | translate }}</a>
-                  </div>
-                  <div>
-                    <a routerLink="/about">{{ 'header.tools.about' | translate }}</a>
-                  </div>
-                </fieldset>
-              </form>
             </li>
           </ul>
         </div>

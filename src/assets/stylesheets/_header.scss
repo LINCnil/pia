@@ -24,55 +24,280 @@
           display: block;
           padding: 4px 20px;
           color: #fff;
-          text-transform: uppercase;
           font-weight: 500;
           font-size: 1.38rem;
-          &:focus, &:hover, &:active {
-            background-color: #fff;
-            color: $pia-blue;
+          &:focus,
+          &:hover,
+          &:active {
+            background-color: $pia-green;
           }
         }
         a {
           text-decoration: none;
         }
       }
-      .pia-navigationBlock-languages {
-        color: #fff;
+
+      .pia-navigationBlock-withsub {
+        > a {
+          cursor: context-menu;
+        }
+        > ul {
+          display: none;
+          background-color: #fff;
+          padding: 0 10px;
+          margin: 0;
+          position: absolute;
+          top: 28px;
+          right: -1px;
+          min-width: 120px;
+          color: $pia-blue;
+          list-style-type: none;
+          z-index: 2000;
+          border: 1px solid $pia-gray;
+          border-top: 0;
+          li {
+            text-align: left;
+            color: #fff;
+            cursor: pointer;
+            border-bottom: 1px solid $pia-gray;
+            &:last-child {
+              border-bottom: 0px;
+            }
+            a {
+              padding: 10px 0 !important;
+              color: #393939 !important;
+              font-weight: 400 !important;
+              color: $pia-blue;
+              padding: 0 8px;
+            }
+          }
+        }
+        &:hover {
+          > a {
+            color: $pia-blue;
+          }
+          > a,
+          > ul {
+            background-color: #fff;
+          }
+          > ul {
+            display: block;
+            background-color: #fff;
+            > li {
+              background-color: #fff;
+              a {
+                display: block;
+                &:focus,
+                &:hover,
+                &:active {
+                  font-weight: 500 !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .pia-navigationBlock-dropdown {
         position: relative;
         border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+        > a {
+          padding: 4px 14px !important;
+          cursor: context-menu;
+          text-align: center;
+          .pia-icon-scroll {
+            margin-top: 5px;
+            margin-left: 8px;
+            float: right;
+          }
+          &:focus,
+          &:hover,
+          &:active {
+            color: #fff !important;
+            background-color: $pia-green;
+            & + form {
+              display: block;
+            }
+            .pia-icon-scroll {
+              background-position: -367px -39px;
+            }
+          }
+        }
+        &:focus,
+        &:hover,
+        &:active {
+          > a {
+            color: #fff !important;
+            background-color: $pia-green;
+            .pia-icon-scroll {
+              background-position: -367px -39px;
+            }
+          }
+          > form {
+            display: block;
+          }
+        }
+      }
+
+      .pia-navigationBlock-pias,
+      .pia-navigationBlock-structures {
+        & > a {
+          text-transform: uppercase !important;
+        }
+      }
+
+      .pia-navigationBlock-pias {
+        > ul {
+          right: initial;
+          left: -1px;
+        }
+      }
+
+      .pia-navigationBlock-company {
+        form {
+          display: none;
+          border: 1px solid $pia-gray;
+          border-top: none;
+          position: absolute;
+          width: 185px;
+          top: 28px;
+          right: -1px;
+          color: $pia-light-black;
+          padding: 0 10px;
+          z-index: 999;
+          background-color: #fff;
+          > fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+            a {
+              cursor: pointer;
+              &:hover {
+                font-weight: 500 !important;
+              }
+            }
+            > div:hover {
+              label {
+                font-weight: 500 !important;
+              }
+            }
+          }
+          div {
+            border-top: 1px solid $pia-gray;
+            border-bottom: 1px solid $pia-gray;
+            padding: 8px 0;
+            /* input, label {
+              display: inline-block;
+              vertical-align: top;
+            }
+            input {
+              width: 13px;
+              margin-top: 3px;
+            }
+            label {
+              padding: 0;
+              margin: 0;
+              margin-left: 4px;
+              width: 88%;
+              font-size: 1.2rem;
+              line-height: 1.4;
+              cursor: pointer;
+              span {
+                font-style: italic;
+              }
+            } */
+            &:last-child {
+              border: 0;
+              padding: 0;
+              margin-bottom: 0;
+            }
+
+            /* Custom checkboxes styles */
+            input {
+              position: absolute;
+              left: -9999px;
+            }
+            label {
+              padding-left: 20px;
+              cursor: pointer;
+              display: block;
+              position: relative;
+              &:focus,
+              &:hover {
+                &:before {
+                  border: 1px solid #000;
+                }
+              }
+            }
+            label::before {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 3px;
+              left: 0;
+              width: 16px;
+              height: 16px;
+              border: 1px solid $pia-gray-dark;
+              transition: all 0.3s;
+            }
+            input:checked + label::before {
+              background-color: $pia-green-dark;
+              box-shadow: inset 0px 0px 0px 1px #fff;
+            }
+
+            > a {
+              cursor: pointer;
+              &:hover {
+                font-weight: 500 !important;
+              }
+            }
+          }
+          a {
+            padding: 10px 0 !important;
+            color: $pia-light-black !important;
+            font-weight: 400 !important;
+            display: block;
+          }
+        }
+      }
+
+      .pia-navigationBlock-help {
+        border-left: 0 !important;
+        border-right: 0 !important;
+        > ul {
+          min-width: 140px;
+        }
+      }
+
+      .pia-navigationBlock-languages {
+        min-width: 60px;
+        color: #fff;
+        position: relative;
+        border-right: 1px solid #fff;
+        > a {
+          min-width: 60px;
+          padding: 3px 14px !important;
+        }
         .fa-globe {
           font-size: 1.8rem;
           margin-top: 2px;
         }
         > ul {
-          display: none;
-          z-index: 999;
-          background-color: #fff;
-          padding: 0;
-          margin: 0;
-          position: absolute;
-          top: 28px;
-          left: -1px;
           min-width: 200px;
-          color: $pia-blue;
-          list-style-type: none;
-          box-shadow: 2px 2px 4px 1px rgba(181, 181, 181, 1);
+          padding-bottom: 10px;
           li {
-            text-align: left;
-            color: #fff;
-            cursor: pointer;
+            border-bottom: 0;
+            cursor: default;
             a {
-              font-size: 1.2rem;
-              text-transform: none;
-              font-weight: normal;
-              text-decoration: none;
-              color: $pia-blue;
-              padding: 0 8px;
+              cursor: pointer;
+              padding: 0 5px !important;
             }
             &.is_active {
               background-color: $pia-blue !important;
               a {
                 color: $pia-white !important;
+                font-weight: 500 !important;
               }
             }
           }
@@ -88,156 +313,8 @@
           .cnilTranslations,
           .dpaTranslations,
           .communityTranslations {
-            border-top: 1px solid #A7A7A7;
+            border-top: 1px solid $pia-gray;
             padding-bottom: 3px;
-          }
-        }
-        &:hover {
-          > a, > ul {
-            background-color: #fff;
-          }
-          .fa-globe {
-            color: $pia-blue;
-          }
-          > ul {
-            display: block;
-            background-color: #fff;
-            > li {
-              background-color: #fff;
-              a {
-                display: block;
-                &:focus, &:hover, &:active {
-                  color: #fff;
-                  background-color: $pia-blue;
-                }
-              }
-            }
-          }
-        }
-        > a {
-          cursor: context-menu;
-          padding: 4px 14px !important;
-          &:focus, &:hover, &:active {
-            & + ul {
-              display: block;
-              background-color: #fff;
-            }
-          }
-        }
-      }
-      .pia-navigationBlock-company {
-        position: relative;
-        border-left: 1px solid #fff;
-        border-right: 1px solid #fff;
-        min-width: 90px;
-        > a {
-          min-width: 90px;
-          text-transform: none !important;
-          padding: 4px 14px !important;
-          cursor: context-menu;
-          text-align: center;
-          .fa-user {
-            margin-right: 14px;
-            font-size: 1.9rem;
-          }
-          .pia-icon-scroll {
-            margin-top: 5px;
-            margin-left: 8px;
-            float: right;
-          }
-          &:focus, &:hover, &:active {
-            color: #fff !important;
-            background-color: $pia-green;
-            & + form {
-              display: block;
-            }
-            .pia-icon-scroll {
-              background-position: -367px -39px;
-            }
-          }
-        }
-        form {
-          display: none;
-          font-size: 1.4rem;
-          border: 1px solid $pia-gray;
-          border-top: none;
-          position: absolute;
-          width: 185px;
-          top: 28px;
-          right: -1px;
-          color: $pia-light-black;
-          padding: 23px 6px 24px 10px;
-          z-index: 999;
-          background-color: #fff;
-          > fieldset {
-            border: none;
-            margin: 0;
-            padding: 0;
-            > legend {
-              padding-left: 5px;
-              a {
-                cursor: pointer;
-                &:hover {
-                  font-weight: 500 !important;
-                }
-              }
-            }
-          }
-          div {
-            margin: 10px 0;
-            border-bottom: 1px solid $pia-gray;
-            padding-bottom: 10px;
-            input, label {
-              display: inline-block;
-              vertical-align: top;
-            }
-            input {
-              width: 13px;
-              margin-top: 3px;
-            }
-            label {
-              padding: 0;
-              margin: 0;
-              width: 88%;
-              font-size: 1.2rem;
-              line-height: 1.4;
-              cursor: pointer;
-              span {
-                font-style: italic;
-              }
-            }
-            &:last-child {
-              border: 0;
-              padding: 0;
-              margin-bottom: 0;
-            }
-            > a {
-              cursor: pointer;
-              &:hover {
-                font-weight: 500 !important;
-              }
-            }
-          }
-          a {
-            padding: 10px 0 !important;
-            color: $pia-light-black !important;
-            font-weight: 400 !important;
-            padding-left: 8px !important;
-          }
-        }
-        &:focus, &:hover, &:active {
-          > a {
-            color: #fff !important;
-            background-color: $pia-green;
-            .pia-icon-scroll {
-              background-position: -367px -39px;
-            }
-          }
-          li > a {
-            color: #fff;
-          }
-          > form {
-            display: block;
           }
         }
       }

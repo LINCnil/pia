@@ -1,7 +1,7 @@
 <div class="container pia-validationBlock ">
   <div class="pia-entryContentBlock-content">
     <div class="pia-entryContentBlock-content-list">
-      <p>({{_piaService.pia.updated_at | date: 'dd/MM/yyyy'}})</p>
+      <p>({{_piaService.pia.updated_at | date: "shortDate":"":_languagesService.selectedLanguage}})</p>
       <p>{{ 'validation_page.responsible' | translate }}<span class="blue">{{_piaService.pia.validator_name}}</span>.</p>
       <p>{{ 'validation_page.after_reading' | translate }}<span class="blue">{{_piaService.pia.name}}</span></p>
       <form [formGroup]="validateForm" novalidate>
@@ -103,10 +103,10 @@
     </div>
 
     <!-- Links and tools block -->
-    <div class="pia-entryContentBlock-footer-validationTools">
+    <!-- <div class="pia-entryContentBlock-footer-validationTools">
       <a routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i><p>{{ 'validation_page.tools.dashboard' | translate }}</p></a>
       <a routerLink="/preview/{{_piaService.pia.id}}"><i class="fa fa-file-text-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.display_pia' | translate }}</p></a>
-    </div>
+    </div> -->
 
   </div>
 </div>
