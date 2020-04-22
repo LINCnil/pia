@@ -32,18 +32,17 @@
     align-content: stretch;
     a {
       color: $pia-green;
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin: 0 10px 0 0;
       text-decoration: none;
+      width: 18px;
     }
   }
   &-attachment {
-    vertical-align: middle;
-    display: inline-block;
-    width: 10%;
-    position: relative;
+    position: absolute;
+    right: 10px;
+    top: 4px;
     cursor: pointer;
-    margin: auto 0 auto auto;
     ul {
       display: none;
       position: absolute;

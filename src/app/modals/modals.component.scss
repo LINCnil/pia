@@ -11,7 +11,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     &.open {
       opacity: 1;
       display: block;
@@ -46,7 +46,7 @@
     &-content {
       margin-left: -220px;
       width: 440px;
-      box-shadow: 15px 15px 205px -35px black;
+      box-shadow: 15px 15px 130px -35px black;
       text-align: center;
       color: $pia-blue;
       font-style: italic;
@@ -67,18 +67,22 @@
     }
     &-removeQuestion,
     &-removeMeasure,
+    &-archivePIA,
+    &-unarchivePIA,
     &-removePIA,
-    &-removeAttachment {
+    &-removeStructure,
+    &-removeAttachment,
+    &-recoverVersion {
       p {
         margin-bottom: 30px;
       }
       .pia-modalBlock-buttons-choice {
         margin-top: 22px;
         button {
-            padding: 7px 15px;
-            &:first-child {
-                margin-right: 30px;
-            }
+          padding: 7px 15px;
+          &:first-child {
+            margin-right: 30px;
+          }
         }
       }
     }
@@ -121,7 +125,8 @@
   }
 }
 // Create new pia from list
-#modal-list-new-pia, #modal-list-new-structure {
+#modal-list-new-pia,
+#modal-list-new-structure {
   .pia-modalBlock {
     &-close {
       top: 6px;
@@ -154,7 +159,7 @@
   textarea {
     width: 94%;
     height: 100px;
-    border: 1px solid #A7A7A7;
+    border: 1px solid #a7a7a7;
   }
 }
 
@@ -279,4 +284,38 @@
   margin-top: 0;
   bottom: 11px;
   padding-top: 12px;
+}
+
+.pia-modalBlock.fullsize {
+  padding: 0px;
+  .pia-modalBlock-content {
+    padding: 0px;
+    width: auto;
+  }
+}
+
+#revision-preview-selection {
+  .pia-modalBlock-content {
+    top: 13%;
+    margin-left: -285px;
+    text-align: initial;
+    font-style: normal !important;
+    font-size: inherit !important;
+  }
+}
+
+@media print {
+  #revision-preview-selection {
+    margin: auto;
+    position: static;
+    background-color: white !important;
+    .pia-modalBlock-content {
+      width: 100%;
+      background-color: white !important;
+
+      top: 0%;
+      left: 0px;
+      margin: auto;
+    }
+  }
 }

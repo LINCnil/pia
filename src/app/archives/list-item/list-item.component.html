@@ -1,0 +1,39 @@
+<td class="pia-listsBlock-item">
+    <div class="pia-listsBlock-item-actions">
+      <a routerLink="/preview/{{archivedPia.id}}" class="btn pia-tooltip">
+        <i class="fa fa-eye" aria-hidden="true"></i>
+        <span title="{{ 'homepage.lists.item.tools.consult' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.consult' | translate }}</span>
+      </a>
+      <a href="javascript:;" (click)="unarchive(archivedPia.id)" class="btn pia-tooltip">
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+        <span title="{{ 'homepage.lists.item.tools.unarchive' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.unarchive' | translate }}</span>
+      </a>
+      <a href="javascript:;" (click)="remove(archivedPia.id)" class="btn pia-tooltip">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <span title="{{ 'homepage.lists.item.tools.remove' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
+      </a>
+    </div>
+  </td>
+<td class="pia-listsBlock-item pia-listsBlock-item-title">
+  <div>{{ archivedPia.name }}</div>
+  <div *ngIf="attachments && attachments.length > 0" class="pia-listsBlock-item-attachment" aria-hidden="true">
+    <span class="pia-icons pia-icon-attachment"></span>
+    <ul>
+      <ng-container *ngFor="let attachment of attachments">
+        <li>{{ attachment.name }}</li>
+      </ng-container>
+    </ul>
+  </div>
+</td>
+<td class="pia-listsBlock-item"><time *ngIf="archivedPia.updated_at && archivedPia.updated_at.toString() !== 'Invalid Date'">{{ archivedPia.updated_at | date: "shortDate":"":_languagesService.selectedLanguage }}</time></td>
+<td class="pia-listsBlock-item"><div>{{ archivedPia.author_name }}</div></td>
+<td class="pia-listsBlock-item"><div>{{ archivedPia.evaluator_name }}</div></td>
+<td class="pia-listsBlock-item"><div>{{ archivedPia.validator_name }}</div></td>
+<td class="pia-listsBlock-item"><div *ngIf="archivedPia.structure_id">{{ archivedPia.structure_name }}</div></td>
+<td class="pia-listsBlock-item progress">
+  <div class="pia-cardsBlock-item-status-progressBar">
+    <span title="{{ archivedPia.getStatusName() | translate }}">{{ archivedPia.getStatusName() | translate }}</span>
+    <progress max="100" value="{{ archivedPia.progress }}"></progress>
+  </div>
+</td>
+

@@ -1,12 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as FileSaver from 'file-saver';
 
+import { Pia } from 'src/app/entry/pia.model';
 import { Attachment } from 'src/app/entry/attachments/attachment.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 declare const require: any;
 
@@ -17,13 +19,17 @@ declare const require: any;
 })
 export class ListItemComponent implements OnInit {
   @Input() pia: any;
+  @Output() piaEvent = new EventEmitter<Pia>();
   attachments: any;
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
-              public _piaService: PiaService,
-              private _modalsService: ModalsService,
-              private _translateService: TranslateService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public _piaService: PiaService,
+    private _modalsService: ModalsService,
+    private _translateService: TranslateService,
+    public _languagesService: LanguagesService
+  ) {}
 
   ngOnInit() {
     const attachmentModel = new Attachment();
@@ -31,7 +37,7 @@ export class ListItemComponent implements OnInit {
     attachmentModel.pia_id = this.pia.id;
     attachmentModel.findAll().then((entries: any) => {
       entries.forEach(element => {
-        if (element["file"] && element["file"].length) {
+        if (element['file'] && element['file'].length) {
           this.attachments.push(element);
         }
       });
@@ -49,13 +55,13 @@ export class ListItemComponent implements OnInit {
       this.addAttachmentsToZip(zip).then((zip2: any) => {
         /* JSON */
         this._piaService.export(this.pia.id).then((data: any) => {
-          zip2.file("pia.json", data, { binary: true });
+          zip2.file('pia.json', data, { binary: true });
           /* Save as .zip */
           zip2.generateAsync({ type: 'blob' }).then(blobContent => {
             FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
           });
         });
-      })
+      });
     }, 500);
   }
 
@@ -67,15 +73,19 @@ export class ListItemComponent implements OnInit {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
         const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
-        const folderName = this._translateService.instant('summary.attachments');
-        zip.file(folderName + '/' + attachment.name, byteCharacters1, { binary: true });
+        const folderName = this._translateService.instant(
+          'summary.attachments'
+        );
+        zip.file(folderName + '/' + attachment.name, byteCharacters1, {
+          binary: true
+        });
       });
       resolve(zip);
     });
   }
 
   /**
-   * Focuses out field and update PIA.
+   * Focus out field and update PIA.
    * @param {string} attribute - Attribute of the PIA.
    * @param {*} event - Any Event.
    */
@@ -83,14 +93,15 @@ export class ListItemComponent implements OnInit {
     const text = event.target.innerText;
     this.pia[attribute] = text;
     this.pia.update();
+    this.piaEvent.emit(this.pia);
   }
 
   /**
-   * Opens the modal to confirm deletion of a PIA
-   * @param {string} id - The PIA id.
+   * Archive a PIA with a given id
+   * @param {string} id - The PIA id
    */
-  removePia(id: string) {
-    localStorage.setItem('pia-id', id);
-    this._modalsService.openModal('modal-remove-pia');
+  archivePia(id: string) {
+    localStorage.setItem('pia-to-archive-id', id);
+    this._modalsService.openModal('modal-archive-pia');
   }
 }
