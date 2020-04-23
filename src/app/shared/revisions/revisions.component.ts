@@ -105,7 +105,8 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     this.newRevisionEmitter.emit();
   }
 
-  previewRevision(revisionId: number, event: Event) {
+  previewRevision(revisionId: number, event: Event, revisionDate: any) {
+    localStorage.setItem('currentRevisionDate', revisionDate);
     document.querySelectorAll('.pia-revisions-box-content-revision-item').forEach(revision => {
       if (revision.classList.contains('revision-active')) {
         revision.querySelector('.fa').classList.toggle('fa-circle-o');
