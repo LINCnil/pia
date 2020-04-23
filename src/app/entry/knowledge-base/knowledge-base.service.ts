@@ -41,7 +41,6 @@ export class KnowledgeBaseService {
         .getEntries(parseInt(params))
         .then((result: Knowledge[]) => {
           let newBase = [];
-          console.log(result);
           // TODO: parsing
           result.forEach(e => {
             if (e.items) {
@@ -59,6 +58,8 @@ export class KnowledgeBaseService {
           });
           this.knowledgeBaseData = newBase;
           this.allKnowledgeBaseData = newBase;
+          this.previousKnowledgeBaseData = newBase;
+          console.log(this.knowledgeBaseData);
         })
         .catch(err => {
           console.log(err);
@@ -67,6 +68,7 @@ export class KnowledgeBaseService {
       // TODO: default knowledge base
       this.knowledgeBaseData = piakb;
       this.allKnowledgeBaseData = piakb;
+      this.previousKnowledgeBaseData = piakb;
     }
   }
 
@@ -170,7 +172,11 @@ export class KnowledgeBaseService {
     if (this.q && this.q.length > 0) {
       const re = new RegExp(this.q, 'i');
       this.knowledgeBaseData = this.knowledgeBaseData.filter(
-        item2 => this.translateService.instant(item2.name).match(re) || this.translateService.instant(item2.description).match(re)
+        item2 =>
+          this.translateService.instant(item2.name).match(re) ||
+          this.translateService.instant(item2.description).match(re) ||
+          item2.name.match(re) ||
+          item2.description.match(re)
       );
     }
     this.hasKnowledgeBaseData = this.knowledgeBaseData.length > 0 ? true : false;
