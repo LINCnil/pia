@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Pia } from 'src/app/entry/pia.model';
 import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
-
+import { DatePipe } from '@angular/common';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
@@ -26,7 +26,7 @@ function slugify(text) {
   selector: 'app-revision-preview',
   templateUrl: './revision-preview.component.html',
   styleUrls: ['./revision-preview.component.scss'],
-  providers: [AppDataService, SidStatusService, RevisionService, TranslateService]
+  providers: [AppDataService, SidStatusService, RevisionService, TranslateService, DatePipe]
 })
 export class RevisionPreviewComponent implements OnInit {
   @Input() revision: any;
@@ -40,7 +40,8 @@ export class RevisionPreviewComponent implements OnInit {
     public _appDataService: AppDataService,
     public _sidStatusService: SidStatusService,
     public _revisionService: RevisionService,
-    public _modalsService: ModalsService
+    public _modalsService: ModalsService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit() {}
@@ -203,7 +204,8 @@ export class RevisionPreviewComponent implements OnInit {
   }
 
   public exportJson() {
-    const fileTitle = 'pia-' + slugify(this.pia.name) + slugify(new Date(this.pia.created_at));
+    const revisionDate = this.datePipe.transform(localStorage.getItem('currentRevisionDate'), '-yyyy-MM-dd-HH-mm');
+    const fileTitle = 'pia-' + slugify(this.pia.name) + revisionDate;
     let downloadLink = document.createElement('a');
     document.body.appendChild(downloadLink);
     if (navigator.msSaveOrOpenBlob) {
@@ -213,6 +215,7 @@ export class RevisionPreviewComponent implements OnInit {
       downloadLink.download = fileTitle + '.json';
       downloadLink.click();
     }
+    localStorage.removeItem('currentRevisionDate');
   }
 
   public restoreRevision() {
