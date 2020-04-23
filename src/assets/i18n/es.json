@@ -417,105 +417,105 @@
 				"name": "Filtrado y eliminación",
 				"source": "PIAF Connected objects p42 - WIKI"
 			},
-			"PIA_DEF_MIN2" : {
-				"description" : "Una vez que se han recibido datos confidenciales, como parte de una serie de información general o transmitidos solo con fines estadísticos, estos se pueden convertir en una forma menos confidencial o seudonimizados. Por ejemplo: <br> - si el sistema recopila la dirección IP para determinar la ubicación del usuario con fines estadísticos, la dirección IP se puede eliminar una vez que se haya deducido la ciudad o el distrito <br> - si el sistema recibe datos de video de cámaras de vigilancia, puede reconocer a las personas que están de pie o en movimiento en la escena y difuminarlos <br> - si el sistema es un medidor inteligente, puede agregar el uso de energía durante un cierto período, sin registrarlo en tiempo real",
-				"name" : "Reducción de la sensibilidad mediante conversión",
-				"source" : "Objetos conectados PIAF p42 - WIKI"
+			"PIA_DEF_MIN2": {
+				"description": "Una vez que se han recibido datos confidenciales, como parte de una serie de información general o transmitidos solo con fines estadísticos, estos se pueden convertir en una forma menos confidencial o seudonimizados. Por ejemplo: <br> - si el sistema recopila la dirección IP para determinar la ubicación del usuario con fines estadísticos, la dirección IP se puede eliminar una vez que se haya deducido la ciudad o el distrito <br> - si el sistema recibe datos de video de cámaras de vigilancia, puede reconocer a las personas que están de pie o en movimiento en la escena y difuminarlos <br> - si el sistema es un medidor inteligente, puede agregar el uso de energía durante un cierto período, sin registrarlo en tiempo real",
+				"name": "Reducción de la sensibilidad mediante conversión",
+				"source": "Objetos conectados PIAF p42 - WIKI"
 			},
-			"PIA_DEF_MIN3" : {
-				"description" : "El sistema puede garantizar que: <br> - el usuario puede usar un recurso o servicio sin el riesgo de revelar su identidad (datos anónimos) <br> - el usuario puede usar un recurso o servicio sin el riesgo de revelar su / su identidad, pero sigue siendo identificable y responsable de este uso (datos seudónimos) <br> - el usuario puede hacer múltiples usos de recursos o servicios sin el riesgo de que estos diferentes usos estén vinculados entre sí (los datos no se pueden correlacionar) <br> - el el usuario puede usar un recurso o servicio sin el riesgo de que otros, en particular de terceros, puedan observar que el recurso o servicio se está utilizando (no observabilidad) <br> Se debe elegir un método de la lista anterior. sobre la base de las amenazas identificadas. Para algunos tipos de amenazas a la privacidad, La seudonimización será más apropiada que la anonimización (por ejemplo, si existe una necesidad de trazabilidad). Además, algunas amenazas a la privacidad se abordarán mediante una combinación de métodos.",
-				"name" : "Reducción de la naturaleza de identificación de los datos",
-				"source" : "Objetos conectados PIAF p42 - WIKI"
+			"PIA_DEF_MIN3": {
+				"description": "El sistema puede garantizar que: <br> - el usuario puede usar un recurso o servicio sin el riesgo de revelar su identidad (datos anónimos) <br> - el usuario puede usar un recurso o servicio sin el riesgo de revelar su / su identidad, pero sigue siendo identificable y responsable de este uso (datos seudónimos) <br> - el usuario puede hacer múltiples usos de recursos o servicios sin el riesgo de que estos diferentes usos estén vinculados entre sí (los datos no se pueden correlacionar) <br> - el el usuario puede usar un recurso o servicio sin el riesgo de que otros, en particular de terceros, puedan observar que el recurso o servicio se está utilizando (no observabilidad) <br> Se debe elegir un método de la lista anterior. sobre la base de las amenazas identificadas. Para algunos tipos de amenazas a la privacidad, La seudonimización será más apropiada que la anonimización (por ejemplo, si existe una necesidad de trazabilidad). Además, algunas amenazas a la privacidad se abordarán mediante una combinación de métodos.",
+				"name": "Reducción de la naturaleza de identificación de los datos",
+				"source": "Objetos conectados PIAF p42 - WIKI"
 			},
-			"PIA_DEF_MIN4" : {
-				"description" : "El sistema puede organizarse en partes independientes con funciones de control de acceso separadas. Los datos también pueden dividirse entre estos subsistemas independientes y controlarse por cada subsistema utilizando diferentes mecanismos de control de acceso. Si un subsistema es comprometida, los impactos sobre todos los datos de este modo se pueden reducir.",
-				"name" : "Reducción de la acumulación de datos",
-				"source" : "Objetos conectados PIAF p42 - WIKI"
+			"PIA_DEF_MIN4": {
+				"description": "El sistema puede organizarse en partes independientes con funciones de control de acceso separadas. Los datos también pueden dividirse entre estos subsistemas independientes y controlarse por cada subsistema utilizando diferentes mecanismos de control de acceso. Si un subsistema es comprometida, los impactos sobre todos los datos de este modo se pueden reducir.",
+				"name": "Reducción de la acumulación de datos",
+				"source": "Objetos conectados PIAF p42 - WIKI"
 			},
-			"PIA_DEF_MIN5" : {
-				"description" : "El sistema puede limitar el acceso a los datos de acuerdo con el principio de 'necesidad de saber' . El sistema puede separar los datos confidenciales y aplicar políticas de control de acceso específicas. El sistema también puede cifrar datos confidenciales para proteger su confidencialidad durante la transmisión y el almacenamiento. el acceso a las cookies temporales que se producen durante el tratamiento de datos también debe ser protegido.",
-				"name" : "Restricción del acceso a datos",
-				"source" : "Objetos conectados PIAF p42 - WIKI"
+			"PIA_DEF_MIN5": {
+				"description": "El sistema puede limitar el acceso a los datos de acuerdo con el principio de 'necesidad de saber' . El sistema puede separar los datos confidenciales y aplicar políticas de control de acceso específicas. El sistema también puede cifrar datos confidenciales para proteger su confidencialidad durante la transmisión y el almacenamiento. el acceso a las cookies temporales que se producen durante el tratamiento de datos también debe ser protegido.",
+				"name": "Restricción del acceso a datos",
+				"source": "Objetos conectados PIAF p42 - WIKI"
 			},
-			"PIA_DEF_MINC" : {
-				"description" : "Reducir la gravedad de los riesgos mediante la limitación de la cantidad de datos personales a lo estrictamente necesario para alcanzar un propósito definido, de lo contrario los datos no se recogen.",
-				"name" : "Minimizando la cantidad de datos personales",
-				"source" : "WIKI Minimisation_des_données _: _ adéquates, _pertinentes_et_limitées"
+			"PIA_DEF_MINC": {
+				"description": "Reducir la gravedad de los riesgos mediante la limitación de la cantidad de datos personales a lo estrictamente necesario para alcanzar un propósito definido, de lo contrario los datos no se recogen.",
+				"name": "Minimizando la cantidad de datos personales",
+				"source": "WIKI Minimisation_des_données _: _ adéquates, _pertinentes_et_limitées"
 			},
-			"PIA_DEF_MIND" : {
-				"description" : "PARA SER TRADUCIDO - Reduzca la gravedad de los riesgos minimizando los datos en sí mismos, tomando medidas destinadas a reducir su sensibilidad, como filtrar y eliminar datos innecesarios, seudonimizar datos, etc.",
-				"name" : "A SER TRADUCIDO - Minimización de los datos mismos",
-				"source" : "PIA3 p64"
+			"PIA_DEF_MIND": {
+				"description": "PARA SER TRADUCIDO - Reduzca la gravedad de los riesgos minimizando los datos en sí mismos, tomando medidas destinadas a reducir su sensibilidad, como filtrar y eliminar datos innecesarios, seudonimizar datos, etc.",
+				"name": "A SER TRADUCIDO - Minimización de los datos mismos",
+				"source": "PIA3 p64"
 			},
-			"PIA_DEF_OPP" : {
-				"description" : "El interesado tendrá derecho a oponerse, por motivos relacionados con su situación particular, en cualquier momento al tratamiento de datos personales que le conciernen, de conformidad con <a target = \" _blank \" href = \" http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN \" > Art. 21 de [GDPR] </a>",
-				"name" : "Derecho a objetar",
-				"source" : "GDPR Art. 21"
+			"PIA_DEF_OPP": {
+				"description": "El interesado tendrá derecho a oponerse, por motivos relacionados con su situación particular, en cualquier momento al tratamiento de datos personales que le conciernen, de conformidad con <a target = \" _blank \" href = \" http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN \" > Art. 21 de [GDPR] </a>",
+				"name": "Derecho a objetar",
+				"source": "GDPR Art. 21"
 			},
-			"PIA_DEF_PBDS" : {
-				"description" : "Medidas tomadas para integrar la protección de datos personales en todas las nuevas operaciones de tratamiento (nombres confiables, directrices, metodología CNIL para la gestión de riesgos u otra metodología interna)",
-				"name" : "Gestión de proyectos",
-				"source" : "Mesures_US"
+			"PIA_DEF_PBDS": {
+				"description": "Medidas tomadas para integrar la protección de datos personales en todas las nuevas operaciones de tratamiento (nombres confiables, directrices, metodología CNIL para la gestión de riesgos u otra metodología interna)",
+				"name": "Gestión de proyectos",
+				"source": "Mesures_US"
 			},
-			"PIA_DEF_PC" : {
-				"description" : "Personas a las que se refieren los datos cubiertos por el tratamiento",
-				"name" : "Sujeto de datos",
-				"source" : "PIA1 p9"
+			"PIA_DEF_PC": {
+				"description": "Personas a las que se refieren los datos cubiertos por el tratamiento",
+				"name": "Sujeto de datos",
+				"source": "PIA1 p9"
 			},
-			"PIA_DEF_PORT" : {
-				"description" : "El interesado tiene derecho a recibir los datos personales que le conciernen, que ha proporcionado a un controlador, en un formato estructurado, de uso común y legible por máquina, y tiene el derecho de transmitirlos datos a otro controlador sin obstáculos del controlador al que se han proporcionado los datos personales, consulte <a target = \" _blank \" href = \" http://eur-lex.europa.eu/legal-content/EN/ TXT / HTML /? Uri = CELEX: 32016R0679 & from = ES \" > Art. 20 de [GDPR] </a>",
-				"name" : "Derecho a la portabilidad de datos",
-				"source" : "GDPR Art. 20"
+			"PIA_DEF_PORT": {
+				"description": "El interesado tiene derecho a recibir los datos personales que le conciernen, que ha proporcionado a un controlador, en un formato estructurado, de uso común y legible por máquina, y tiene el derecho de transmitirlos datos a otro controlador sin obstáculos del controlador al que se han proporcionado los datos personales, consulte <a target = \" _blank \" href = \" http://eur-lex.europa.eu/legal-content/EN/ TXT / HTML /? Uri = CELEX: 32016R0679 & from = ES \" > Art. 20 de [GDPR] </a>",
+				"name": "Derecho a la portabilidad de datos",
+				"source": "GDPR Art. 20"
 			},
-			"PIA_DEF_PSEU" : {
-				"description" : "tratamiento de datos personales de tal manera que los datos personales ya no se puedan atribuir a un sujeto de datos específico sin el uso de información adicional, siempre que dicha información adicional se mantenga por separado y esté sujeta a medidas técnicas y organizativas para garantizar que los datos personales no se atribuyan a una persona física identificada o identificable. <br> La seudonimización reduce la vinculación de un conjunto de datos con la identidad original de un sujeto de datos; como tal, es una medida de seguridad útil pero no un método de anonimización",
-				"name" : "Pseudonimización",
-				"source" : "GDPR Art. 4.5 y directrices G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+			"PIA_DEF_PSEU": {
+				"description": "tratamiento de datos personales de tal manera que los datos personales ya no se puedan atribuir a un sujeto de datos específico sin el uso de información adicional, siempre que dicha información adicional se mantenga por separado y esté sujeta a medidas técnicas y organizativas para garantizar que los datos personales no se atribuyan a una persona física identificada o identificable. <br> La seudonimización reduce la vinculación de un conjunto de datos con la identidad original de un sujeto de datos; como tal, es una medida de seguridad útil pero no un método de anonimización",
+				"name": "Pseudonimización",
+				"source": "GDPR Art. 4.5 y directrices G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
 			},
-			"PIA_DEF_PWD" : {
-				"description" : "Las contraseñas deben estar compuestas por un mínimo de ocho caracteres; deben renovarse si existe la menor preocupación de que puedan haber sido comprometidas y, posiblemente, periódicamente (cada seis meses o una vez al año) y deben incluir un mínimo de tres de los cuatro tipos de caracteres (letras mayúsculas, minúsculas, números y caracteres especiales); cuando se cambia una contraseña, no se pueden reutilizar las últimas cinco contraseñas; la misma contraseña no debe usarse para diferentes accesos; las contraseñas deben no estar relacionado con la propia información personal (incluyendo nombre o fecha de nacimiento.). Definir un número máximo de intentos más allá del cual se emite una advertencia y la autenticación se bloquea (temporal o hasta que se desbloquee manualmente).",
-				"name" : "Contraseña",
-				"source" : "Mesure_US"
+			"PIA_DEF_PWD": {
+				"description": "Las contraseñas deben estar compuestas por un mínimo de ocho caracteres; deben renovarse si existe la menor preocupación de que puedan haber sido comprometidas y, posiblemente, periódicamente (cada seis meses o una vez al año) y deben incluir un mínimo de tres de los cuatro tipos de caracteres (letras mayúsculas, minúsculas, números y caracteres especiales); cuando se cambia una contraseña, no se pueden reutilizar las últimas cinco contraseñas; la misma contraseña no debe usarse para diferentes accesos; las contraseñas deben no estar relacionado con la propia información personal (incluyendo nombre o fecha de nacimiento.). Definir un número máximo de intentos más allá del cual se emite una advertencia y la autenticación se bloquea (temporal o hasta que se desbloquee manualmente).",
+				"name": "Contraseña",
+				"source": "Mesure_US"
 			},
-			"PIA_DEF_RECT" : {
-				"description" : "El interesado tendrá derecho a obtener del controlador sin demora indebida la rectificación de los datos personales inexactos que le conciernen. Teniendo en cuenta los fines del tratamiento, el interesado tendrá derecho a tener información incompleta datos personales completado, incluso por medio de proporcionar una declaración complementaria.",
-				"name" : "Derecho a la rectificación",
-				"source" : "GDPR Art. 16"
+			"PIA_DEF_RECT": {
+				"description": "El interesado tendrá derecho a obtener del controlador sin demora indebida la rectificación de los datos personales inexactos que le conciernen. Teniendo en cuenta los fines del tratamiento, el interesado tendrá derecho a tener información incompleta datos personales completado, incluso por medio de proporcionar una declaración complementaria.",
+				"name": "Derecho a la rectificación",
+				"source": "GDPR Art. 16"
 			},
-			"PIA_DEF_RGPD" : {
-				"description" : "Reglamento sobre la protección de las personas físicas en lo que respecta al tratamiento de datos personales ya la libre circulación de estos datos, y se deroga la Directiva 95/46 / CE.",
-				"name" : "GDPR (Reglamento general de protección de datos",
-				"source" : "Título GDPR"
+			"PIA_DEF_RGPD": {
+				"description": "Reglamento sobre la protección de las personas físicas en lo que respecta al tratamiento de datos personales ya la libre circulación de estos datos, y se deroga la Directiva 95/46 / CE.",
+				"name": "GDPR (Reglamento general de protección de datos",
+				"source": "Título GDPR"
 			},
-			"PIA_DEF_RT" : {
-				"description" : "Persona física o jurídica, autoridad pública, agencia u otro organismo que, solo o junto con otros, determina los propósitos y medios del tratamiento de datos personales; donde los propósitos y medios de dicho tratamiento son determinados por la Unión o La ley del Estado miembro, el controlador o los criterios específicos para su nominación pueden ser establecidos por la ley de la Unión o del Estado miembro. <br> Ver <a target = \" _blank \" href = \" http: //eur-lex.europa .eu / legal-content / EN / TXT / HTML /? uri = CELEX: 32016R0679 & from = EN \" > Art. 4.7 de [GDPR] </a>",
-				"name" : "Controlador",
-				"source" : "GDPR Art. 4.7"
+			"PIA_DEF_RT": {
+				"description": "Persona física o jurídica, autoridad pública, agencia u otro organismo que, solo o junto con otros, determina los propósitos y medios del tratamiento de datos personales; donde los propósitos y medios de dicho tratamiento son determinados por la Unión o La ley del Estado miembro, el controlador o los criterios específicos para su nominación pueden ser establecidos por la ley de la Unión o del Estado miembro. <br> Ver <a target = \" _blank \" href = \" http: //eur-lex.europa .eu / legal-content / EN / TXT / HTML /? uri = CELEX: 32016R0679 & from = EN \" > Art. 4.7 de [GDPR] </a>",
+				"name": "Controlador",
+				"source": "GDPR Art. 4.7"
 			},
-			"PIA_DEF_SRC" : {
-				"description" : "Persona o fuente no humana que puede causar un riesgo. Esta fuente puede actuar accidental o deliberadamente",
-				"name" : "Fuente de riesgo",
-				"source" : "PIA1 p11 - WIKI"
+			"PIA_DEF_SRC": {
+				"description": "Persona o fuente no humana que puede causar un riesgo. Esta fuente puede actuar accidental o deliberadamente",
+				"name": "Fuente de riesgo",
+				"source": "PIA1 p11 - WIKI"
 			},
-			"PIA_DEF_ST" : {
-				"description" : "Persona física o jurídica, autoridad pública, agencia u otro organismo que procesa datos personales en nombre del controlador, consulte <a target = \" _blank \" href = \" http: //eur-lex.europa .eu / legal-content / EN / TXT / HTML /? uri = CELEX: 32016R0679 & from = EN \" > Art. 4.8 de [GDPR] </a>. <br> El procesador y cualquier persona que actúe bajo la autoridad del el controlador o el procesador, que tiene acceso a datos personales, no procesará esos datos, excepto por instrucciones del controlador, a menos que así lo exija la legislación de la Unión o del Estado miembro, consulte <a target = \" _blank \" href = \"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN \" > Art. 29 de la [GDPR] </a>.",
-				"name" : "Procesador",
-				"source" : "GDPR Art. 4.8 y 29"
+			"PIA_DEF_ST": {
+				"description": "Persona física o jurídica, autoridad pública, agencia u otro organismo que procesa datos personales en nombre del controlador, consulte <a target = \" _blank \" href = \" http: //eur-lex.europa .eu / legal-content / EN / TXT / HTML /? uri = CELEX: 32016R0679 & from = EN \" > Art. 4.8 de [GDPR] </a>. <br> El procesador y cualquier persona que actúe bajo la autoridad del el controlador o el procesador, que tiene acceso a datos personales, no procesará esos datos, excepto por instrucciones del controlador, a menos que así lo exija la legislación de la Unión o del Estado miembro, consulte <a target = \" _blank \" href = \"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN \" > Art. 29 de la [GDPR] </a>.",
+				"name": "Procesador",
+				"source": "GDPR Art. 4.8 y 29"
 			},
-			"PIA_DEF_SUPT" : {
-				"description" : "Activo en el que se basan los datos personales. Puede ser hardware, software, redes, personas, papel o canales de transmisión de papel",
-				"name" : "Activos de apoyo",
-				"source" : "PIA1 p10"
+			"PIA_DEF_SUPT": {
+				"description": "Activo en el que se basan los datos personales. Puede ser hardware, software, redes, personas, papel o canales de transmisión de papel",
+				"name": "Activos de apoyo",
+				"source": "PIA1 p10"
 			},
-			"PIA_DEF_VIOL" : {
-				"description" : "Infracción de seguridad que conduce a la destrucción accidental o ilegal, pérdida, alteración, divulgación no autorizada o acceso a datos personales transmitidos, almacenados o procesados ??de otra manera",
-				"name" : "Violación de datos personales",
-				"source" : "GDPR Art. 4.12"
+			"PIA_DEF_VIOL": {
+				"description": "Infracción de seguridad que conduce a la destrucción accidental o ilegal, pérdida, alteración, divulgación no autorizada o acceso a datos personales transmitidos, almacenados o procesados ??de otra manera",
+				"name": "Violación de datos personales",
+				"source": "GDPR Art. 4.12"
 			},
-			"PIA_DEF_VRA" : {
-				"description" : ". Probabilidad expresa la posibilidad de ocurrencia de un riesgo que depende principalmente del nivel de las vulnerabilidades de los activos de apoyo cuando están bajo amenaza y el nivel de las capacidades de las fuentes de riesgo de explotación de los mismos",
-				"name" : "Probabilidad",
-				"source" : "PIA1 página 6"
+			"PIA_DEF_VRA": {
+				"description": ". Probabilidad expresa la posibilidad de ocurrencia de un riesgo que depende principalmente del nivel de las vulnerabilidades de los activos de apoyo cuando están bajo amenaza y el nivel de las capacidades de las fuentes de riesgo de explotación de los mismos",
+				"name": "Probabilidad",
+				"source": "PIA1 página 6"
 			},
 			"PIA_EX_DC": {
 				"description": "Datos utilizados para un sistema de scoring, resultado de la aplicación del scoring....",
