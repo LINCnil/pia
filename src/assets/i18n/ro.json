@@ -178,6 +178,13 @@
 			},
 			"footer": "TO BE TRANSLATED - If you have any other problems or suggestions for improvement, you can send them to us via this form <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
+		"infografics": {
+			"display": "Vizualizați harta procesului",
+			"file": "./pia_docs/180409_fiche_risque_en_cmjk.pdf",
+			"guide": "Afișați ghidurile PIA ale CNIL",
+			"hide": "Ascundeți harta procesului",
+			"title": "Prezentare generală a obligațiilor și a metodei"
+		},
 		"title": "Ajutor"
 	},
 	"homepage": {

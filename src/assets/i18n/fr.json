@@ -178,6 +178,13 @@
 			},
 			"footer": "Si vous rencontrez d’autres problèmes ou si vous avez des suggestions d’amélioration, vous pouvez nous les faire remonter via ce formulaire <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
 		},
+		"infografics": {
+			"display": "Afficher la carte de processus",
+			"file": "./pia_docs/171002_fiche_risque_fr_cmjk.pdf",
+			"guide": "Montrer les guides PIA de la CNIL",
+			"hide": "Masquer la carte de processus",
+			"title": "Vue d'esemble des obligations et de la méthode"
+		},
 		"title": "Aide"
 	},
 	"homepage": {
