@@ -79,7 +79,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     dataNav.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
         if (item.questions) {
-          item.questions.forEach(question => {
+          item.questions.forEach((question) => {
             if (question.answer_type === 'gauge') {
               this.questions.push(question);
             }
@@ -88,11 +88,11 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       });
     });
     this.answer.getGaugeByPia(this._piaService.pia.id).then((entries: any) => {
-      this.answersGauge = entries.filter(entry => {
+      this.answersGauge = entries.filter((entry) => {
         return entry.data.gauge >= 0;
       });
-      this.answersGauge.forEach(answer => {
-        const question: any = this.questions.filter(entry => {
+      this.answersGauge.forEach((answer) => {
+        const question: any = this.questions.filter((entry) => {
           return entry.id.toString() === answer.reference_to.toString();
         });
         if (question[0]) {

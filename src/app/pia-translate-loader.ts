@@ -24,7 +24,7 @@ import { Observable } from 'rxjs/Observable';
 
 export class PiaTranslateLoader implements TranslateLoader {
   public getTranslation(lang: string): Observable<any> {
-    return Observable.create(observer => {
+    return Observable.create((observer) => {
       switch (lang) {
         case 'cz':
           observer.next(cz);
