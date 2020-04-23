@@ -1,14 +1,14 @@
-import {Component, OnInit, ElementRef, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { Pia } from '../entry/pia.model';
+import { Structure } from 'src/app/structures/structure.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
-import { Structure } from 'src/app/structures/structure.model';
 
 @Component({
   selector: 'app-cards',
@@ -24,9 +24,10 @@ export class CardsComponent implements OnInit, OnDestroy {
   importPiaForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string }
+  viewStyle: { view: string };
   view: 'card';
   paramsSubscribe: Subscription;
+  searchText: string;
 
   constructor(private router: Router,
               private el: ElementRef,
@@ -55,6 +56,7 @@ export class CardsComponent implements OnInit, OnDestroy {
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl(),
+      category: new FormControl(),
       structure: new FormControl([])
     });
     this.viewStyle = {
@@ -75,8 +77,27 @@ export class CardsComponent implements OnInit, OnDestroy {
     });
   }
 
+  onCleanSearch() {
+    this.searchText = "";
+  }
+
   ngOnDestroy() {
     this.paramsSubscribe.unsubscribe();
+  }
+
+  /**
+   * On PIA change.
+   * @param {any} pia - Any PIA.
+   */
+  piaChange(pia) {
+    if (this._piaService.pias.includes(pia)) {
+      this._piaService.pias.forEach(item => {
+        if (item.id === pia.id)
+        item = pia;
+      });
+    } else {
+      this._piaService.pias.push(pia);
+    }
   }
 
   /**
@@ -159,13 +180,14 @@ export class CardsComponent implements OnInit, OnDestroy {
    */
   async refreshContent() {
     const pia = new Pia();
-    const data: any = await pia.getAll();
-    this._piaService.pias = data;
-    this._piaService.calculProgress();
-    this.sortOrder = localStorage.getItem('sortOrder');
-    this.sortValue = localStorage.getItem('sortValue');
-    setTimeout(() => {
-      this.sortPia();
+    setTimeout(async () => {
+      await pia.getAllActives().then((data: Array<Pia>) => {
+        this._piaService.pias = data;
+        this._piaService.calculProgress();
+        this.sortOrder = localStorage.getItem('sortOrder');
+        this.sortValue = localStorage.getItem('sortValue');
+        this.sortPia();
+      });
     }, 200);
   }
 

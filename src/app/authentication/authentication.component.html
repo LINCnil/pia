@@ -6,7 +6,7 @@
     <div class="row">
       <div class="small-12 medium-12 columns">
         <ul class="pia-navigationBlock-list">
-          <li class="pia-navigationBlock-languages">
+          <li class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-languages">
             <a href="javascript:;">
               <i class="fa fa-globe" aria-hidden="true"></i>
             </a>
@@ -108,6 +108,11 @@
               <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'sl'}">
                 <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('sl')">
                   {{ 'header.languages.sl' | translate }}
+                </a>
+              </li>
+              <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'sv'}">
+                <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('sv')">
+                  {{ 'header.languages.sv' | translate }}
                 </a>
               </li>
             </ul>

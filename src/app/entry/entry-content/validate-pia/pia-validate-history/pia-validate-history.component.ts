@@ -1,7 +1,8 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 import { PiaService } from 'src/app/services/pia.service';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 @Component({
   selector: 'app-pia-validate-history',
@@ -10,10 +11,12 @@ import { TranslateService } from '@ngx-translate/core';
   providers: [PiaService]
 })
 export class PiaValidateHistoryComponent implements OnInit {
-
-  constructor(private el: ElementRef,
-              public _piaService: PiaService,
-              private _translateService: TranslateService) { }
+  constructor(
+    private el: ElementRef,
+    public _piaService: PiaService,
+    private _translateService: TranslateService,
+    public _languagesService: LanguagesService
+  ) {}
 
   ngOnInit() {
     this._piaService.getPIA();
@@ -23,8 +26,12 @@ export class PiaValidateHistoryComponent implements OnInit {
    * Shows or hides the validation history list.
    */
   displayHistoryList() {
-    const historyList = this.el.nativeElement.querySelector('.pia-validationHistoryBlock-content');
-    const btn = this.el.nativeElement.querySelector('.pia-historyBlock-btn span');
+    const historyList = this.el.nativeElement.querySelector(
+      '.pia-validationHistoryBlock-content'
+    );
+    const btn = this.el.nativeElement.querySelector(
+      '.pia-historyBlock-btn span'
+    );
     btn.classList.toggle('pia-icon-accordeon-down');
     historyList.classList.toggle('close');
   }
@@ -33,8 +40,12 @@ export class PiaValidateHistoryComponent implements OnInit {
    * Shows or hides the refuse list.
    */
   displayRefuseList() {
-    const refuseList = this.el.nativeElement.querySelector('.pia-validationHistoryBlock-refuse-content');
-    const btn = this.el.nativeElement.querySelector('.pia-refuseBlock-btn span');
+    const refuseList = this.el.nativeElement.querySelector(
+      '.pia-validationHistoryBlock-refuse-content'
+    );
+    const btn = this.el.nativeElement.querySelector(
+      '.pia-refuseBlock-btn span'
+    );
     btn.classList.toggle('pia-icon-accordeon-down');
     refuseList.classList.toggle('close');
   }
@@ -44,9 +55,12 @@ export class PiaValidateHistoryComponent implements OnInit {
    * @returns {boolean} - True if the PIA is validated and that there was a rejection before this validation, False otherwise.
    */
   showValidationHistory() {
-    return ((this._piaService.pia.status === 2 || this._piaService.pia.status === 3) &&
-            this._piaService.pia.applied_adjustements &&
-            this._piaService.pia.rejected_reason);
+    return (
+      (this._piaService.pia.status === 2 ||
+        this._piaService.pia.status === 3) &&
+      this._piaService.pia.applied_adjustements &&
+      this._piaService.pia.rejected_reason
+    );
   }
 
   /**
@@ -54,7 +68,6 @@ export class PiaValidateHistoryComponent implements OnInit {
    * @returns {boolean} - True if the PIA is refused, False otherwise.
    */
   showRejectionHistory() {
-    return (this._piaService.pia.status === 1);
+    return this._piaService.pia.status === 1;
   }
-
 }

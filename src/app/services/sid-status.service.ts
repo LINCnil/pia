@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { PiaService } from './pia.service';
 
 @Injectable()
 export class SidStatusService {
@@ -17,7 +18,11 @@ export class SidStatusService {
   public subject = new Subject();
 
   constructor(private _globalEvaluationService: GlobalEvaluationService) {
-    this.specialIcon = { '3.5': 'fa-line-chart', '4.1': 'fa-line-chart', '4.2': 'fa-calendar-check-o' }
+    this.specialIcon = {
+      '3.5': 'fa-line-chart',
+      '4.1': 'fa-line-chart',
+      '4.2': 'fa-calendar-check-o'
+    };
     this.sidStatusIcon = {
       0: 'fa-pencil-square-o',
       1: 'fa-pencil-square-o',
@@ -34,7 +39,7 @@ export class SidStatusService {
     this.enablePiaValidation = false;
     this.piaIsRefused = false;
     this.enableDpoValidation = false;
-    this._globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string, status: number }) => {
+    this._globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string; status: number }) => {
       if (obj.reference_to && obj.status > 0) {
         this.itemStatus[obj.reference_to] = obj.status;
         this.verifEnableDpo();
@@ -44,27 +49,45 @@ export class SidStatusService {
 
   /**
    * Set status by reference.
-   * @param {*} piaService - The PIA Service.
-   * @param {*} section - The section.
-   * @param {*} item - The item.
+   * @param pia - The PIA.
+   * @param section - The section.
+   * @param item - The item.
    */
-  setSidStatus(piaService: any, section: any, item: any) {
-    const reference_to = section.id + '.' + item.id;
+  setSidStatus(pia: any, section: any, item: any) {
+    const referenceTo = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
     const globalEvaluationService = new GlobalEvaluationService();
-    globalEvaluationService.pia = piaService.pia;
+    globalEvaluationService.pia = pia;
     globalEvaluationService.section = section;
     globalEvaluationService.item = item;
-    if (item.evaluation_mode === 'item' || item.evaluation_mode === 'question' || reference_to === '4.3') {
-      globalEvaluationService.validate(false).then((obj: { reference_to: string, status: number }) => {
-        if (reference_to === '4.3') {
+    if (item.evaluation_mode === 'item' || item.evaluation_mode === 'question' || referenceTo === '4.3') {
+      globalEvaluationService.validate(false).then((obj: { reference_to: string; status: number }) => {
+        if (referenceTo === '4.3') {
           this.enablePiaValidation = globalEvaluationService.enablePiaValidation;
           this.piaIsRefused = globalEvaluationService.piaIsRefused;
         }
         this.itemStatus[obj.reference_to] = obj.status;
         this.verifEnableDpo();
+        this.setPiaProgress(pia, referenceTo, obj.status);
       });
     }
+  }
+
+  setPiaProgress(pia: any, referenceTo: string, status: number) {
+    let percent = 0;
+    let basePoint = 3.75;
+
+    if (referenceTo === '4.3') {
+      basePoint = 2;
+    }
+    if (status >= 1 && status < 5) {
+      percent = basePoint;
+    } else if (status === 5 || status === 6) {
+      percent = basePoint * 2;
+    } else if (status >= 7) {
+      percent = basePoint * 3;
+    }
+    pia.progress += percent;
   }
 
   /**

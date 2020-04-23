@@ -28,3 +28,23 @@ export class FormatTheDate implements PipeTransform {
     }
   }
 }
+
+@Pipe({ name: 'filterForUser' })
+export class FilterForUser implements PipeTransform {
+  transform(items: any[], searchText: string): any[] {
+      if (!items || !searchText) return items;
+      searchText = searchText.toLowerCase();
+          return items.filter((data) => this.matchValue(data,searchText));
+  }
+  matchValue(data, value) {
+    return Object.keys(data).map((key) => {
+      const allowedFields = ['name', 'category', 'author_name', 'evaluator_name', 'validator_name', 'structure_name', 'structure_sector_name', 'sector_name']
+      if (allowedFields.includes(key)) {
+        value = value.replace(/[{()}]/g, '');
+        return new RegExp(value, 'gi').test(data[key]);
+      } else {
+        return false;
+      }
+    }).some(result => result);
+  }
+}
