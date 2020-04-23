@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
+import { Knowledge } from 'src/app/models/knowledge.model';
 
 @Component({
   selector: 'app-card',
@@ -11,6 +12,7 @@ import { KnowledgesService } from 'src/app/services/knowledges.service';
 })
 export class CardComponent implements OnInit {
   knowledgeBaseForm: FormGroup;
+  public nbEntries: number = 0;
   @Input() base: any;
 
   constructor(private _modalsService: ModalsService, private _knowledgesService: KnowledgesService) {}
@@ -22,6 +24,16 @@ export class CardComponent implements OnInit {
       author: new FormControl(this.base.author),
       contributors: new FormControl(this.base.contributors)
     });
+
+    this._knowledgesService
+      .getEntries(this.base.id)
+      .then((result: Knowledge[]) => {
+        console.log(result.length, 'ddf');
+        this.nbEntries = result.length;
+      })
+      .catch(err => {
+        console.log('hello');
+      });
   }
 
   /**

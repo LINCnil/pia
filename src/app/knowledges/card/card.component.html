@@ -58,9 +58,9 @@
                     (focusout)="knowledgeBaseFocusOut()">
             </div>
 
-            <div (click)="knowledgeBaseContributorsFocusIn()" style="margin-top:20px;">
+            <div style="margin-top:20px;">
                 <label for="knowledgebase-edit-name">{{ 'homepage.cards.knowledges.placeholder_entry_number' | translate }}</label>
-                <br><span>{{ (base.knowledges) ? base.knowledges.length : "aucune"}}</span>
+                <br>{{ nbEntries }}
             </div>
 
             <div class="pia-cardsBlock-item-btn">

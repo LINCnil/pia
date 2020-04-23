@@ -30,6 +30,10 @@ export class KnowledgeBaseService {
     // Parse IndexDb's Knowledge here
   }
 
+  /**
+   * Replace current Knowledge base by CUSTOM ENTRIES
+   * @param params Knowledge Base Id
+   */
   switch(params) {
     console.log('switch', params);
     if (parseInt(params) !== 0) {
