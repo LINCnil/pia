@@ -57,7 +57,7 @@
               {{item.category  | translate}}
             </td>
             <td>
-              {{item.updated_at}}
+              {{item.updated_at  | date: "fullDate":"":_languagesService.selectedLanguage}} - {{item.updated_at.getHours()}}h{{item.updated_at.getMinutes()}}
             </td>
           </tr>
         </tbody>

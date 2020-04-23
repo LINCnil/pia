@@ -7,6 +7,7 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 function slugify(text) {
   return text
@@ -37,6 +38,7 @@ export class BaseComponent implements OnInit {
   itemsSelected: string[] = [];
 
   constructor(
+    private _languagesService: LanguagesService,
     private _modalsService: ModalsService,
     private _knowledgesService: KnowledgesService,
     private _appDataService: AppDataService,
