@@ -6,7 +6,7 @@
 
   <h3>Selectionnez votre base de connaissance</h3>
 
-  <select (change)="_knowledgeBaseService.switch(selectedKnowledBase)" [(ngModel)]="selectedKnowledBase">
+  <select (change)="switch(selectedKnowledBase)" [(ngModel)]="selectedKnowledBase">
     <option value="0">Base de connaissance CNIL (par défaut)</option>
     <option value="{{base.id}}" *ngFor="let base of customKnowledgeBases">{{base.name}}</option>
   </select>

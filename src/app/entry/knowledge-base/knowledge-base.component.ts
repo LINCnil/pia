@@ -103,4 +103,15 @@ export class KnowledgeBaseComponent implements OnInit {
       });
     }
   }
+
+  switch(selectedKnowledBase) {
+    this._knowledgeBaseService
+      .switch(selectedKnowledBase)
+      .then(() => {
+        this._knowledgeBaseService.loadByItem(this.item);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 }

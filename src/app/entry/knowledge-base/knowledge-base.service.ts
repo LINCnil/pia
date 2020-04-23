@@ -35,41 +35,46 @@ export class KnowledgeBaseService {
    * @param params Knowledge Base Id
    */
   switch(params) {
-    console.log('switch', params);
-    if (parseInt(params) !== 0) {
-      this._knowledgesService
-        .getEntries(parseInt(params))
-        .then((result: Knowledge[]) => {
-          let newBase = [];
-          // TODO: parsing
-          result.forEach(e => {
-            if (e.items) {
-              e.items.forEach(item => {
-                // entries
-                newBase.push({
-                  slug: 'PIA_CUSTOM_' + item,
-                  category: e.category,
-                  name: e.name,
-                  description: e.description,
-                  filters: ''
+    return new Promise((resolve, reject) => {
+      console.log('switch', params);
+      if (parseInt(params) !== 0) {
+        this._knowledgesService
+          .getEntries(parseInt(params))
+          .then((result: Knowledge[]) => {
+            let newBase = [];
+            // TODO: parsing
+            result.forEach(e => {
+              if (e.items) {
+                e.items.forEach(item => {
+                  // entries
+                  newBase.push({
+                    slug: 'PIA_CUSTOM_' + item,
+                    category: e.category,
+                    name: e.name,
+                    description: e.description,
+                    filters: ''
+                  });
                 });
-              });
-            }
+              }
+            });
+            this.knowledgeBaseData = newBase;
+            this.allKnowledgeBaseData = newBase;
+            this.previousKnowledgeBaseData = newBase;
+            console.log(this.knowledgeBaseData);
+            resolve(true);
+          })
+          .catch(err => {
+            console.log(err);
+            reject(err);
           });
-          this.knowledgeBaseData = newBase;
-          this.allKnowledgeBaseData = newBase;
-          this.previousKnowledgeBaseData = newBase;
-          console.log(this.knowledgeBaseData);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    } else {
-      // TODO: default knowledge base
-      this.knowledgeBaseData = piakb;
-      this.allKnowledgeBaseData = piakb;
-      this.previousKnowledgeBaseData = piakb;
-    }
+      } else {
+        // TODO: default knowledge base
+        this.knowledgeBaseData = piakb;
+        this.allKnowledgeBaseData = piakb;
+        this.previousKnowledgeBaseData = piakb;
+        resolve(true);
+      }
+    });
   }
 
   /**
@@ -102,6 +107,7 @@ export class KnowledgeBaseService {
    * @param {*} [event] - List of Events.
    */
   loadByItem(item: any, event?: any) {
+    console.log('load  by item');
     if (this.allKnowledgeBaseData && item) {
       this.knowledgeBaseData = this.allKnowledgeBaseData;
       let kbSlugs = [];
