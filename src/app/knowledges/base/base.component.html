@@ -8,7 +8,7 @@
               
         <div class="pia-filtersBlock-left">
             <div class="pia-filtersBlock-buttons">
-              <button type="button" class="btn btn-red" (click)="showForm = true;  editMode = 'new'; entryForm.reset();">
+              <button type="button" class="btn btn-red" (click)="showForm = true;  editMode = 'new'; entryForm.reset(); selectedKnowledgeId = null">
                 <i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.cards.knowledges_entry.new' | translate }}
               </button>
             </div>
@@ -96,7 +96,6 @@
               <div class="pia-knowledges_base-form-checkboxes-body">
                 <div *ngFor="let dataSection of data?.sections">
                   <div class="pia-knowledges_base-form-checkboxes-title">
-                    <input type="checkbox" name="" id=""> 
                     {{ dataSection.title | translate }}
                     <hr>
                   </div>

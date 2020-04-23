@@ -160,10 +160,8 @@ export class Knowledge extends ApplicationDb {
             mode: 'cors'
           })
             .then(response => {
-              return response.json();
-            })
-            .then((result: any) => {
               resolve();
+              return response.json();
             })
             .catch(error => {
               console.error('Request failed', error);
