@@ -203,6 +203,7 @@
 			"item": {
 				"consult_pia": "Consultar PIA",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Modificar PIA",
 				"edit_structure": "Editar plantilla",
 				"tools": {
@@ -923,7 +924,7 @@
 		},
 		"recover_version": {
 			"continue": "Continuar",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
 			"title": "TO TRANSLATE - Restore a previous version"
 		},
 		"refuse_pia": {
@@ -952,11 +953,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Atención,</span><br>¿Está seguro de que desea<br> eliminar este modelo?",
 			"remove": "Eliminar esta plantilla"
-		},
-		"revision": {
-			"continue": "",
-			"message": "",
-			"title": ""
 		},
 		"same_comment": {
 			"content": "Advertencia,<br>Ingrese un comentario diferente al último registrado."

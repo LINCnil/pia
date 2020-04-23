@@ -17,7 +17,7 @@
             <div>{{ 'homepage.filters.list' | translate }}</div>
           </button>
 
-          
+
 
           <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
             <button type="button" class="btn btn-green" (click)="_modalsService.openModal('modal-list-new-structure')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_structure' | translate }}</button>
@@ -60,7 +60,7 @@
             </div>
           </div>
           <div class="pia-searchInput">
-            <input type="text" class="btn btn-search" [ngClass]="{'typed': searchText && searchText.length > 0}" 
+            <input type="text" class="btn btn-search" [ngClass]="{'typed': searchText && searchText.length > 0}"
               [(ngModel)]="searchText" placeholder="{{ 'homepage.search_filter' | translate }}" name="search" autocomplete="off">
               <i class="search-icon">⚲</i>
               <i class="search-close" (click)="onCleanSearch()" *ngIf="searchText && searchText.length > 0">×</i>
@@ -107,10 +107,10 @@
               </div>
               <!-- <div class="pia-cardsBlock-item-date" *ngIf="newStructure">
                 <div>{{ 'homepage.cards.date' | translate }}</div>
-                <time>{{ newStructure.created_at | date: 'dd/MM/yyyy'}}</time>
+                <time>{{ newStructure.created_at | date: 'shortDate': '': _languagesService.selectedLanguage}}</time>
               </div> -->
               <div class="pia-cardsBlock-item-btn">
-                <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
+                <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
               </div>
             </form>
           </div>
@@ -138,7 +138,7 @@
               <th>
                 <a (click)="sortBy('name')">
                   <span>{{ 'homepage.lists.column_structure' | translate }}</span>
-                  <i class="fa" 
+                  <i class="fa"
                   [ngClass]="[sortValue === 'name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"></i>
               </a>
               </th>

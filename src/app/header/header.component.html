@@ -26,8 +26,8 @@
                 <li><a routerLink="/archives">{{ 'header.archives' | translate }}</a></li>
               </ul>
             </li>
-            <li class="pia-navigationBlock-structures">
-              <a routerLink="/structures">{{ 'header.structures' | translate }}</a>
+            <li [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
+              <a style="text-transform:uppercase;" routerLink="/structures">{{ 'header.structures' | translate }}</a>
             </li>
           </ul>
           <ul class="pia-navigationBlock-list">
@@ -173,6 +173,11 @@
                 <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'sl'}">
                   <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('sl')">
                     {{ 'header.languages.sl' | translate }}
+                  </a>
+                </li>
+                <li [ngClass]="{'is_active': _languagesService.selectedLanguage === 'sv'}">
+                  <a href="javascript:;" (click)="_languagesService.updateCurrentLanguage('sv')">
+                    {{ 'header.languages.sv' | translate }}
                   </a>
                 </li>
               </ul>

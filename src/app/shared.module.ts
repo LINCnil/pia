@@ -7,9 +7,9 @@ import { TagInputModule } from 'ngx-chips';
 
 // Locales
 import localeEN from '@angular/common/locales/en';
-// import localeCZ from '@angular/common/locales/cz';
+import localeCS from '@angular/common/locales/cs';
+import localeDA from '@angular/common/locales/da';
 import localeDE from '@angular/common/locales/de';
-// import localeDK from '@angular/common/locales/dk';
 import localeEL from '@angular/common/locales/el';
 import localeES from '@angular/common/locales/es';
 import localeET from '@angular/common/locales/et';
@@ -19,17 +19,18 @@ import localeHR from '@angular/common/locales/hr';
 import localeHU from '@angular/common/locales/hu';
 import localeIT from '@angular/common/locales/it';
 import localeLT from '@angular/common/locales/lt';
+import localeNB from '@angular/common/locales/nb';
 import localeNL from '@angular/common/locales/nl';
-// import localeNO from '@angular/common/locales/no';
 import localePL from '@angular/common/locales/pl';
 import localePT from '@angular/common/locales/pt';
 import localeRO from '@angular/common/locales/ro';
 import localeSL from '@angular/common/locales/sl';
+import localeSV from '@angular/common/locales/sv';
 
 registerLocaleData(localeEN, 'en');
-// registerLocaleData(localeCZ, 'cz');
+registerLocaleData(localeCS, 'cz');
+registerLocaleData(localeDA, 'dk');
 registerLocaleData(localeDE, 'de');
-// registerLocaleData(localeDK, 'dk');
 registerLocaleData(localeEL, 'el');
 registerLocaleData(localeES, 'es');
 registerLocaleData(localeET, 'et');
@@ -40,11 +41,12 @@ registerLocaleData(localeHU, 'hu');
 registerLocaleData(localeIT, 'it');
 registerLocaleData(localeLT, 'lt');
 registerLocaleData(localeNL, 'nl');
-// registerLocaleData(localeNO, 'no');
+registerLocaleData(localeNB, 'no');
 registerLocaleData(localePL, 'pl');
 registerLocaleData(localePT, 'pt');
 registerLocaleData(localeRO, 'ro');
 registerLocaleData(localeSL, 'sl');
+registerLocaleData(localeSV, 'sv');
 
 import { PiaTranslateLoader } from './pia-translate-loader';
 
@@ -68,6 +70,7 @@ import { PaginationService } from 'src/app/entry/entry-content/pagination.servic
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { RevisionPreviewComponent } from './shared/revisions/revision-preview/revision-preview.component';
 
 import { SafeHtmlPipe, Nl2brPipe, FormatTheDate, FilterForUser } from './tools';
 
@@ -117,6 +120,7 @@ const providersList: any = [
   declarations: [
     HeaderComponent,
     ModalsComponent,
+    RevisionPreviewComponent,
     KnowledgeBaseComponent,
     KnowledgeBaseItemComponent,
     SafeHtmlPipe,
@@ -126,4 +130,4 @@ const providersList: any = [
   ],
   providers: providersList
 })
-export class SharedModule { }
+export class SharedModule {}

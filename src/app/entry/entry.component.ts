@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 
 import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Revision } from '../models/revision.model';
 
 import { KnowledgeBaseService } from 'src/app/entry/knowledge-base/knowledge-base.service';
 import { MeasureService } from 'src/app/entry/entry-content/measures/measures.service';
@@ -18,15 +19,18 @@ import { RevisionService } from '../services/revision.service';
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
-  styleUrls: [
-    './entry.component.scss',
-    './entry-content/action-plan/action-plan.component.scss'
-  ],
+  styleUrls: ['./entry.component.scss', './entry-content/action-plan/action-plan.component.scss'],
   providers: [PiaService, RevisionService]
 })
 export class EntryComponent implements OnInit, OnDestroy, DoCheck {
-  section: { id: number, title: string, short_help: string, items: any };
-  item: { id: number, title: string, evaluation_mode: string, short_help: string, questions: any };
+  section: { id: number; title: string; short_help: string; items: any };
+  item: {
+    id: number;
+    title: string;
+    evaluation_mode: string;
+    short_help: string;
+    questions: any;
+  };
   data: { sections: any };
   questions: any;
   measureToRemoveFromTags: string;
@@ -36,42 +40,49 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   public revisionOverlay = false;
   public pia = null;
   public download = false;
+  public preview;
 
-  constructor(private route: ActivatedRoute,
-              private http: HttpClient,
-              private _modalsService: ModalsService,
-              private _appDataService: AppDataService,
-              private _sidStatusService: SidStatusService,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              public _piaService: PiaService,
-              private _actionPlanService: ActionPlanService,
-              private _globalEvaluationService: GlobalEvaluationService,
-              public _revisionService: RevisionService,
-              private _measureService: MeasureService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private _modalsService: ModalsService,
+    private _appDataService: AppDataService,
+    private _sidStatusService: SidStatusService,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    public _piaService: PiaService,
+    private _actionPlanService: ActionPlanService,
+    private _globalEvaluationService: GlobalEvaluationService,
+    public _revisionService: RevisionService,
+    private _measureService: MeasureService,
+    private router: Router
+  ) {}
 
   async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     let itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
     await this._piaService.getPIA();
-    if (this._piaService.pia.structure_data) {
-      this._appDataService.dataNav = this._piaService.pia.structure_data;
-    } else {
-      this._appDataService.resetDataNav();
-    }
-    this.data = this._appDataService.dataNav;
 
-    this.route.params.subscribe(
-      (params: Params) => {
+    if (!sectionId || !itemId) {
+      this.router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1]);
+    } else {
+      if (this._piaService.pia.structure_data) {
+        this._appDataService.dataNav = this._piaService.pia.structure_data;
+      } else {
+        this._appDataService.resetDataNav();
+      }
+      this.data = this._appDataService.dataNav;
+
+      this.route.params.subscribe((params: Params) => {
         sectionId = parseInt(params.section_id, 10);
         itemId = parseInt(params.item_id, 10);
         this.getSectionAndItem(sectionId, itemId);
         window.scroll(0, 0);
-      }
-    );
+      });
+    }
 
     // Suscribe to measure service messages
-    this.subscription = this._measureService.behaviorSubject.subscribe((val) => {
+    this.subscription = this._measureService.behaviorSubject.subscribe(val => {
       this.measureToRemoveFromTags = val;
     });
   }
@@ -85,11 +96,13 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       const itemsQuestions = [];
       this._piaService.data.sections.forEach(section => {
         section.items.forEach(item => {
-            if (item.questions) {
-              itemsQuestions.push(item.questions.filter((question) => {
-                return (question.answer_type === 'list' && question.is_measure === true);
-              }));
-            }
+          if (item.questions) {
+            itemsQuestions.push(
+              item.questions.filter(question => {
+                return question.answer_type === 'list' && question.is_measure === true;
+              })
+            );
+          }
         });
       });
 
@@ -118,19 +131,18 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
 
   /**
    * Get the current Section and Item and initialize others information.
-   * @private
-   * @param {number} sectionId - The section id.
-   * @param {number} itemId - The item id.
+   * @param sectionId - The section id.
+   * @param itemId - The item id.
    */
   private async getSectionAndItem(sectionId: number, itemId: number) {
     if (this._piaService.pia.structure_data) {
       this._appDataService.dataNav = this._piaService.pia.structure_data;
     }
     this.data = this._appDataService.dataNav;
-    this.section = this.data.sections.filter((section) => {
+    this.section = this.data.sections.filter(section => {
       return section.id === sectionId;
     })[0];
-    this.item = this.section.items.filter((item) => {
+    this.item = this.section.items.filter(item => {
       return item.id === itemId;
     })[0];
 
@@ -148,10 +160,9 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       this._globalEvaluationService.pia = this._piaService.pia;
       this._globalEvaluationService.validate();
       this._measureService.listMeasures(this._piaService.pia.id).then(() => {
-
         /* Modal for risks if no measures yet */
         let displayModal = true;
-        if ((this.section.id === 3) && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
+        if (this.section.id === 3 && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
           if (this._measureService.measures.length > 0) {
             this._measureService.measures.forEach(element => {
               if (element.title && element.title.length > 0) {
@@ -173,7 +184,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
         if (this.section.id === 4 && this.item.id === 3 && !this._sidStatusService.enableDpoValidation) {
           this._modalsService.openModal('pia-dpo-missing-evaluations');
         }
-
       });
 
       this._actionPlanService.data = this.data;
@@ -183,18 +193,19 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
       this.pia = this._piaService.pia;
 
       // Load PIA's revisions
-      this._revisionService.getAll(this.pia.id)
-      .then((resp) => {
+      const revision = new Revision();
+      revision.findAllByPia(this.pia.id).then(resp => {
         this.revisions = resp;
       });
-
     });
 
     // Update on knowledge base (scroll / content / search field)
-    const knowledgeBaseScroll  = document.querySelector('.pia-knowledgeBaseBlock-list');
-    const knowledgeBaseContent  = document.querySelector('.pia-knowledgeBaseBlock-searchForm input') as HTMLInputElement;
-    knowledgeBaseScroll.scrollTop = 0;
-    knowledgeBaseContent.value = '';
+    const knowledgeBaseScroll = document.querySelector('.pia-knowledgeBaseBlock-list');
+    const knowledgeBaseContent = document.querySelector('.pia-knowledgeBaseBlock-searchForm input') as HTMLInputElement;
+    if (knowledgeBaseContent) {
+      knowledgeBaseScroll.scrollTop = 0;
+      knowledgeBaseContent.value = '';
+    }
 
     this._knowledgeBaseService.q = null;
     this._knowledgeBaseService.loadByItem(this.item);
@@ -202,42 +213,51 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   /********** REVISIONS ACTIONS ***********/
-    /**
-     * Create a new Revision record in indexDB
-     */
-    onNewRevision() {
-      this._piaService.export(this._piaService.pia.id)
-        .then((exportResult) => {
-          this._revisionService.add(exportResult, this._piaService.pia.id)
-            .then((resp) => {
-              // because ngOnchanges no detect simply array push
-              this.revisions.push(resp);
-              this.revisions = this.revisions.slice();
-            });
-        });
-    }
+  /**
+   * Create a new Revision record in indexDB
+   */
+  onNewRevision() {
+    this._revisionService.export(this._piaService.pia.id).then(exportResult => {
+      this._revisionService.add(exportResult, this._piaService.pia.id).then(resp => {
+        // because ngOnchanges no detect simply array push
+        this.revisions.push(resp);
+        this.revisions = this.revisions.slice();
+      });
+    });
+  }
 
-    /**
-     * Save revision as selection in revision service
-     * and open a modal, waiting for confirmation
-     * @param {number} piaId
-     */
-    onSelectedRevision(piaId) {
-      localStorage.setItem('revision-date-id', piaId);
-      this._revisionService.prepareRevision(piaId);
+  /**
+   * Save revision as selection in revision service
+   * and open a modal, waiting for confirmation
+   * @param revisionId - The revision id
+   */
+  onSelectedRevision(revisionId: number) {
+    this._revisionService.prepareLoadRevision(revisionId, this._piaService.pia.id).then((createdAt: Date) => {
+      this._modalsService.revisionDate = createdAt;
       this._modalsService.openModal('revision-selection');
-    }
+    });
+  }
 
+  /**
+   * On modal confirmation, replace current pia version by selected revision
+   */
+  async loadPiaRevision() {
+    localStorage.removeItem('revision-date-id');
+    this.onNewRevision();
+    this.revisionOverlay = true;
+    this._revisionService.loadRevision().then(() => {
+      this.revisionOverlay = false;
+    });
+  }
 
-    /**
-     * On modal confirmation, replace current pia version by selected revision
-     */
-    async loadPiaRevision() {
-      localStorage.removeItem('revision-date-id');
-      this.onNewRevision();
-      this.revisionOverlay = true;
-      this._revisionService.loadRevision();
-    }
-    
+  onPreviewRevision(id) {
+    this._revisionService.revisionSelected = id;
+    this._revisionService.getRevisionById(id).then(revisionExport => {
+      this.preview = revisionExport;
+      this.preview.id = id;
+      this._modalsService.openModal('revision-preview-selection');
+    });
+  }
+
   /********** END REVISIONS ACTIONS ***********/
 }

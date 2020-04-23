@@ -1,114 +1,90 @@
 import { Injectable } from '@angular/core';
-import { ApplicationDb } from '../application.db';
 
 import { Revision } from '../models/revision.model';
-
 import { PiaService } from './pia.service';
-
+import { Router } from '@angular/router';
+import { utf8Encode } from '@angular/compiler/src/util';
 
 @Injectable()
 export class RevisionService {
+  public revisionSelected: number;
 
-  private revisionDb: ApplicationDb;
-  public currentVersion: Date;
-  public revisionSelected: Revision;
-  protected serverUrl: string;
+  constructor(public piaService: PiaService, private router: Router) {}
 
-  constructor(public _piaService: PiaService) {
-    this.revisionDb = new ApplicationDb(201911191636, 'revision');
-  }
-
-  prepareRevision(id) {
-    this.revisionSelected = id;
-  }
-
+  /**
+   * Load a new revision
+   */
   async loadRevision() {
-    this.revisionDb.find(this.revisionSelected)
-      .then(async (response: Revision) => {
-        const piaExport = JSON.parse(response.export);
-        await this._piaService.replacePiaByExport(piaExport, true)
-          .then(() => {
-            if (this.serverUrl) { // TODO: CHECK IT
-
-            } else {
-              setTimeout(() => {
-                location.reload();
-              }, 2000);
-            }
-          });
+    return new Promise(resolve => {
+      const revision = new Revision();
+      revision.pia_id = this.piaService.pia.id;
+      revision.get(this.revisionSelected).then(() => {
+        const piaExport = JSON.parse(revision.export);
+        this.piaService.replacePiaByExport(piaExport, true, true, revision.created_at).then(() => {
+          this.router.navigate(['entry', this.piaService.pia.id]);
+          resolve();
+        });
       });
-  }
-
-  async getAll(piaId: number) {
-    const items = [];
-    return new Promise((resolve, reject) => {
-      if (this.serverUrl) { // TODO: CHECK IT
-        fetch(this.revisionDb.getServerUrl(), {
-          mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
-      } else {
-        this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
-          const index = response.index('index1').getAll(IDBKeyRange.only(piaId));
-          index.onsuccess = (res: any) => {
-            resolve(res.target.result);
-          };
-          index.onerror = (err) => {
-            reject(err);
-          };
-        });
-      }
     });
   }
 
+  /**
+   * Load a new revision
+   */
+  async getRevisionById(id) {
+    return new Promise(resolve => {
+      const revision = new Revision();
+      revision.pia_id = this.piaService.pia.id;
+      revision.get(this.revisionSelected).then(() => {
+        const piaExport = JSON.parse(revision.export);
+        resolve(piaExport);
+      });
+    });
+  }
+
+  /**
+   * Create new revision
+   * @param piaExport - The PIA exported
+   * @param piaId - The PIA id
+   */
   async add(piaExport, piaId) {
     return new Promise((resolve, reject) => {
-      const revision = new Revision(piaExport, piaId, new Date());
-      if (this.serverUrl) { // TODO: CHECK IT
-        const formData = new FormData();
-        for (const d in revision) {
-          if (revision.hasOwnProperty(d)) {
-            let value = revision[d];
-            if (d === 'structure_data') {
-              value = JSON.stringify(value);
-            }
-            formData.append('revision[' + d + ']', value);
-          }
-        }
-        fetch(this.revisionDb.getServerUrl(), {
-          method: 'POST',
-          body: formData,
-          mode : 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result.id);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
-      } else {
-        this.revisionDb.getObjectStore().then((response: IDBObjectStore) => {
-          const evt = response.add(revision);
+      const revision = new Revision();
+      revision.pia_id = piaId;
+      revision.export = piaExport;
+      revision.create().then((response: any) => {
+        this.piaService.pia.updated_at = new Date(); // Update current version's date
+        // BETTER SOLUTION BUT REFRESH SCREEN:
+        // this.router.navigate(['entry', this.piaService.pia.id]);
+        resolve(response);
+      });
+    });
+  }
 
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            resolve(
-              {...revision,
-              id: event.target.result}
-            );
-          };
-        });
-      }
+  /**
+   * Prepare to load a revision
+   * @param revisionId - The revision id
+   * @param piaId - The PIA id
+   */
+  async prepareLoadRevision(revisionId: number, piaId: number) {
+    this.revisionSelected = revisionId;
+    localStorage.setItem('revision-date-id', revisionId.toString());
+    return new Promise(resolve => {
+      const revision = new Revision();
+      revision.pia_id = piaId;
+      revision.get(revisionId).then(() => {
+        resolve(revision.created_at);
+      });
+    });
+  }
+
+  async export(id: number) {
+    return new Promise(async (resolve, reject) => {
+      this.piaService.calculPiaProgress;
+      this.piaService.exportData(id).then(data => {
+        const finalData = JSON.stringify(data);
+        resolve(finalData);
+      });
     });
   }
 }

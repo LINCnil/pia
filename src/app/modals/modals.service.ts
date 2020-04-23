@@ -1,28 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ApplicationDb } from '../application.db';
-
-import { Revision } from '../models/revision.model';
-
 import { PaginationService } from 'src/app/entry/entry-content/pagination.service';
 
 @Injectable()
 export class ModalsService {
-  private revisionDb: ApplicationDb;
   public revisionDate: any;
 
-  constructor(private _router: Router,
-              private _paginationService: PaginationService) {}
+  constructor(
+    private router: Router,
+    private paginationService: PaginationService
+  ) {}
 
   /**
-   * Opens a specific modal through its unique id.
-   * @param {string} modal_id - Unique id of the modal which has to be opened.
+   * Opens a specific modal through its unique key (id).
+   * @param modalKey - Unique key (id) of the modal which has to be opened.
    */
-  openModal(modal_id: string) {
-    if (modal_id === 'pia-declare-measures' ||
-        modal_id === 'pia-action-plan-no-evaluation' ||
-        modal_id === 'pia-dpo-missing-evaluations') {
+  openModal(modalKey: string) {
+    if (
+      modalKey === 'pia-declare-measures' ||
+      modalKey === 'pia-action-plan-no-evaluation' ||
+      modalKey === 'pia-dpo-missing-evaluations'
+    ) {
       const mainContent = document.querySelector('.pia-entryContentBlock');
       if (mainContent) {
         mainContent.classList.add('blur-content');
@@ -33,27 +32,18 @@ export class ModalsService {
       header.classList.add('blur');
       container.classList.add('blur');
     }
-    const e = <HTMLElement>document.getElementById(modal_id);
+    const e = document.getElementById(modalKey) as HTMLElement;
     e.classList.add('open');
-    const gf = (<HTMLButtonElement>e.querySelector('.get-focus'));
+    const gf = e.querySelector('.get-focus') as HTMLButtonElement;
     if (gf) {
       gf.focus();
-    }
-
-    /* Opening special modal with revision date */
-    const id = parseInt(localStorage.getItem('revision-date-id'), 10);
-    if (id) {
-      this.revisionDb = new ApplicationDb(201911191636, 'revision');
-      this.revisionDb.find(id).then(async (response: Revision) => {
-        this.revisionDate = response.created_at;
-      });
     }
   }
 
   /**
    * Closes the current opened modal.
    */
-  closeModal(pia_id?: number, toAction?: string) {
+  closeModal(piaId?: number, toAction?: string) {
     const modal = document.querySelector('.pia-modalBlock.open');
     const mainContent = document.querySelector('.pia-entryContentBlock');
     if (mainContent) {
@@ -66,15 +56,18 @@ export class ModalsService {
     modal.classList.remove('open');
     if (toAction && toAction.length > 0) {
       const goto = toAction.split('-');
-      const goto_section_item = this._paginationService.getNextSectionItem(parseInt(goto[0], 10), parseInt(goto[1], 10))
+      const gotoSectionItem = this.paginationService.getNextSectionItem(
+        parseInt(goto[0], 10),
+        parseInt(goto[1], 10)
+      );
 
-      this._router.navigate([
+      this.router.navigate([
         'entry',
-        pia_id,
+        piaId,
         'section',
-        goto_section_item[0],
+        gotoSectionItem[0],
         'item',
-        goto_section_item[1]
+        gotoSectionItem[1]
       ]);
     }
   }

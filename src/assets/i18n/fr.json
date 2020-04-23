@@ -202,7 +202,8 @@
 			"import_structure": "Importer modèle",
 			"item": {
 				"consult_pia": "Consulter",
-				"consult_structure": "Consulter le modèle",
+        "consult_structure": "Consulter le modèle",
+        "validate_pia": "Valider",
 				"edit_pia": "Éditer",
 				"edit_structure": "Éditer le modèle",
 				"tools": {
@@ -923,7 +924,7 @@
 		},
 		"recover_version": {
 			"continue": "Continuer",
-			"message": "En continuant, vous allez restaurer la version du {{date}} de cette analyse. Vous devrez valider à nouveau l'analyse une fois celle-ci terminée.<br><br>La version actuelle sera archivée.",
+			"message": "En continuant, vous allez restaurer la version du {{date}} de cette analyse.<br><br>La version actuelle sera sauvegardée.",
 			"title": "Restaurer une ancienne version"
 		},
 		"refuse_pia": {
@@ -953,11 +954,6 @@
 			"content": "<span class='strong'>Attention,</span><br>Êtes-vous sûr de vouloir<br>supprimer ce modèle ?",
 			"remove": "Supprimer ce modèle"
 		},
-		"revision": {
-			"continue": "Continuer",
-			"message": "En continuant, vous allez mettre à jour l'analyse. Celle-ci perdra son statut de validation et il sera nécessaire de la valider à nouveau une fois les changements effectués.<br><br>La version actuellement validée sera archivée.",
-			"title": "Réviser le PIA"
-		},
 		"same_comment": {
 			"content": "<span class='strong'>Attention,</span><br>Veuillez saisir un commentaire différent du dernier enregistré."
 		},
@@ -984,6 +980,9 @@
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Désolé,<br>Plusieurs champs doivent être corrigés.<br>Retour au mode d'édition<br>pour apporter des corrections."
+		},
+		"general_error": {
+			"content": "Une erreur est survenue.<br>veuillez nous excuser pour ce désagrément."
 		}
 	},
 	"opinions": {
@@ -1418,7 +1417,7 @@
 		"revision": {
 			"current_version": "Version actuelle",
 			"pia_version": "Versions du PIA",
-			"restore_version": "Restaurer cette version",
+			"restore_version": "Restaurer",
 			"revision": "Versions et révision",
 			"save": "Créer une nouvelle version",
 			"show": "Afficher les {{length}} version(s)"

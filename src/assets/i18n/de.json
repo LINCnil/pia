@@ -203,6 +203,7 @@
 			"item": {
 				"consult_pia": "Ansehen",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Bearbeiten",
 				"edit_structure": "Bearbeiten der Vorlage",
 				"tools": {
@@ -923,7 +924,7 @@
 		},
 		"recover_version": {
 			"continue": "Fortsetzen",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
 			"title": "TO TRANSLATE - Restore a previous version"
 		},
 		"refuse_pia": {
@@ -952,11 +953,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Achtung,</span><br>Sind Sie sicher, dass Sie dieses Modell löschen wollen?",
 			"remove": "Diese Vorlage löschen"
-		},
-		"revision": {
-			"continue": "",
-			"message": "",
-			"title": ""
 		},
 		"same_comment": {
 			"content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
@@ -1357,17 +1353,17 @@
 			"title": "Aktionsplan"
 		},
 		"actions": {
-			"complete_download": "TO TRANSLATE - Download the full report",
-			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-			"individual_download": "TO TRANSLATE - Download elements of the report",
-			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
-			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
-			"individual_download_select": "TO TRANSLATE - Select elements to export:",
-			"individual_to_download": "TO TRANSLATE - Download",
-			"print": "TO TRANSLATE - Print the report",
-			"print_and_download": "TO TRANSLATE - Print and download"
+			"complete_download": "Den vollständigen Bericht herunterladen",
+			"complete_download_desc": "Exportieren des gesamten Berichtsinhaltes (DOC und Bilder), Anhänge und den Aktionsplan im CSV-Format, in ein ZIP-Archiv.",
+			"individual_download": "Elemente des Berichts herunterladen",
+			"individual_download_desc": "Bestimmte Elemente des Berichts exportieren.",
+			"individual_download_doc": "Texte (.doc)",
+			"individual_download_images": "Visuelle Elemente (.png), einschließlich der Risikoübersicht, der Risikokartierung und des Aktionsplans.",
+			"individual_download_json": "Herunterladen (.json)",
+			"individual_download_select": "Zu exportierenden Elemente auswählen:",
+			"individual_to_download": "Herunterladen",
+			"print": "Den Bericht drucken",
+			"print_and_download": "Drucken und herunterladen"
 		},
 		"attachments": "Anlagen",
 		"concerned_people_name": "Namen der Betroffenen",
@@ -1387,7 +1383,7 @@
 		"csv_people_in_charge": "Verantwortlicher",
 		"csv_section": "Abschnitt",
 		"csv_title_object": "Titel",
-		"download_csv": "TO TRANSLATE - Action plan (.csv)",
+		"download_csv": "Aktonsplan (.csv)",
 		"dpo_name": "Name des DSB",
 		"dpo_opinion": "Gutachten des DSB",
 		"dpo_status": "Feststellung des DSB",
@@ -1404,21 +1400,21 @@
 		"pia_author": "Name des Bearbeiters",
 		"pia_name": "DSFA",
 		"pia_validator": "Name des Bestätigers",
-		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-		"preview_edition": "TO TRANSLATE - Editing",
-		"preview_evaluation": "TO TRANSLATE - Evaluation",
-		"preview_no_data": "TO TRANSLATE - No data to display.",
-		"preview_status": "TO TRANSLATE - Status",
-		"preview_subtitle": "TO TRANSLATE - General information",
-		"preview_title": "TO TRANSLATE - Preview",
-		"preview_validation": "TO TRANSLATE - Validation",
-		"preview_validation_section": "TO TRANSLATE - Validation",
+		"preview_dpo_opinion": "Stellungnahme des Datenschutzbeauftragten und der Betroffenen",
+		"preview_edition": "Bearbeitung",
+		"preview_evaluation": "Auswertung",
+		"preview_no_data": "Keine anzuzeigenden Daten.",
+		"preview_status": "Status",
+		"preview_subtitle": "Allgemeine Informationen",
+		"preview_title": "Vorschau",
+		"preview_validation": "Überprüfung",
+		"preview_validation_section": "Überprüfung",
 		"previous_page": "Zurück zur vorherigen Seite",
 		"rejection_reason": "Ablehnungsgrund",
 		"revision": {
 			"current_version": "TO TRANSLATE - Current version",
 			"pia_version": "TO TRANSLATE - PIA versions",
-			"restore_version": "TO TRANSLATE - Restore this version",
+			"restore_version": "TO TRANSLATE - Restore",
 			"revision": "TO TRANSLATE - Versions and revision",
 			"save": "TO TRANSLATE - Create a new version",
 			"show": "TO TRANSLATE - Display the {{length}} versions"

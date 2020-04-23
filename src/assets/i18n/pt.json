@@ -104,14 +104,14 @@
 	"header": {
 		"archives": "TO TRANSLATE - PIA Archives",
 		"current_pias": "TO TRANSLATE - Current PIAs",
-		"exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+		"exit_full_screen_mode": "Pressione F11 para sair do mode de ecrã completo.",
 		"help": {
 			"issue_reporting": "TO TRANSLATE - Report an issue",
 			"manual": "TO TRANSLATE - User manual",
 			"pia_example_link": "Exemplo PIA",
 			"title": "Ajuda"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Painel",
 		"knowledge_base_link": "Base de conhecimento",
 		"languages": {
 			"cnil_translations": "Traduções fornecidas pela CNIL",
@@ -203,6 +203,7 @@
 			"item": {
 				"consult_pia": "Consultar",
 				"consult_structure": "TO TRANSLATE - Consult template",
+        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Editar",
 				"edit_structure": "Editar modelo",
 				"tools": {
@@ -923,7 +924,7 @@
 		},
 		"recover_version": {
 			"continue": "Continuar",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
 			"title": "TO TRANSLATE - Restore a previous version"
 		},
 		"refuse_pia": {
@@ -952,11 +953,6 @@
 		"remove_structure": {
 			"content": "<span class='strong'>Atenção,</span><br>Tem a certeza que deseja <br>apagar este modelo ?",
 			"remove": "Apagar este modelo"
-		},
-		"revision": {
-			"continue": "",
-			"message": "",
-			"title": ""
 		},
 		"same_comment": {
 			"content": "<span class='strong'>Atenção,</span> Por favor insira um comentário diferente do último gravado<br>."
@@ -1357,17 +1353,17 @@
 			"title": "Plano de ação"
 		},
 		"actions": {
-			"complete_download": "TO TRANSLATE - Download the full report",
-			"complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-			"individual_download": "TO TRANSLATE - Download elements of the report",
-			"individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-			"individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-			"individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+			"complete_download": "Descarregar o relatório completo",
+			"complete_download_desc": "Exportar todo o conteúdo do relatório num .zip (.doc e imagens), anexos e o plano de ação em formato .csv.",
+			"individual_download": "Descarregar elementos do relatório",
+			"individual_download_desc": "Exportar elementos específicos do relatório.",
+			"individual_download_doc": "Textos (.doc)",
+			"individual_download_images": "Elementos visuais (.png) incluindo resumo de riscos, mapeamento de riscos e o plano de ação.",
 			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
-			"individual_download_select": "TO TRANSLATE - Select elements to export:",
+			"individual_download_select": "Seleccionar elementos a exportar:",
 			"individual_to_download": "TO TRANSLATE - Download",
-			"print": "TO TRANSLATE - Print the report",
-			"print_and_download": "TO TRANSLATE - Print and download"
+			"print": "Imprimir o relatório",
+			"print_and_download": "Imprimir e descarregar"
 		},
 		"attachments": "Anexos",
 		"concerned_people_name": "Opiniões de partes interessadas",
@@ -1387,7 +1383,7 @@
 		"csv_people_in_charge": "Pessoa responsável",
 		"csv_section": "Secção",
 		"csv_title_object": "Título",
-		"download_csv": "TO TRANSLATE - Action plan (.csv)",
+		"download_csv": "Plano de ação (.csv)",
 		"dpo_name": "Nome do DPO",
 		"dpo_opinion": "Opinião do DPO",
 		"dpo_status": "Estado do DPO",
@@ -1404,21 +1400,21 @@
 		"pia_author": "Nome do autor",
 		"pia_name": "PIA",
 		"pia_validator": "Nome do validador",
-		"preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-		"preview_edition": "TO TRANSLATE - Editing",
-		"preview_evaluation": "TO TRANSLATE - Evaluation",
-		"preview_no_data": "TO TRANSLATE - No data to display.",
-		"preview_status": "TO TRANSLATE - Status",
-		"preview_subtitle": "TO TRANSLATE - General information",
-		"preview_title": "TO TRANSLATE - Preview",
-		"preview_validation": "TO TRANSLATE - Validation",
-		"preview_validation_section": "TO TRANSLATE - Validation",
+		"preview_dpo_opinion": "Opinião do DPO e dos titulares dos dados",
+		"preview_edition": "Editar",
+		"preview_evaluation": "Avaliação",
+		"preview_no_data": "Sem dados para visualizar display.",
+		"preview_status": "Estado",
+		"preview_subtitle": "Informação Geral",
+		"preview_title": "Pré-visualizar",
+		"preview_validation": "Validação",
+		"preview_validation_section": "Validação",
 		"previous_page": "Voltar para a página anterior",
 		"rejection_reason": "Motivo da rejeição",
 		"revision": {
 			"current_version": "TO TRANSLATE - Current version",
 			"pia_version": "TO TRANSLATE - PIA versions",
-			"restore_version": "TO TRANSLATE - Restore this version",
+			"restore_version": "TO TRANSLATE - Restore",
 			"revision": "TO TRANSLATE - Versions and revision",
 			"save": "TO TRANSLATE - Create a new version",
 			"show": "TO TRANSLATE - Display the {{length}} versions"
