@@ -5,7 +5,7 @@
 		"licences": "Bibliotheeklicenties",
 		"title": "Over de PIA-software",
 		"translators": "De PIA-software is momenteel beschikbaar in 18 talen. De Franse en Engelse versies werden gemaakt door de CNIL. De andere versie zijn het resultaat van de bijdrages van de volgende personen:",
-		"translators_name": "<ul><li>Kroatisch: <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Tsjechisch: Jiří Grohmann, Manuel d’Orso ;</li><li>Deens: <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Nederlands: Ruud van Driel, Manuel d’Orso, Andi Vercruyssen ;</li><li>Engels: <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estisch: Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Fins: <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Frans: <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Duits: <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a>, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Grieks: <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hongaars: <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italiaans: Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Litouws: Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Noors: <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Pools: <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a>, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguees: <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Roemeens: <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spaans: <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
+		"translators_name": "<ul><li>Kroatisch: <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Tsjechisch: Jiří Grohmann, Manuel d’Orso ;</li><li>Deens: <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Nederlands: Ruud van Driel, Manuel d’Orso, Andi Vercruyssen ;</li><li>Engels: <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estisch: Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Fins: <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Frans: <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Duits: <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a>, Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Grieks: <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hongaars: <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italiaans: Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Litouws: Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Noors: <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Pools: <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a>, Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguees: <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Roemeens: <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spaans: <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> ;</li><li>Swedish : Per von Bahr <a target=\"_blank\" href=\"https://www.soprasteria.se\">(Sopra Steria AB)</a> .</li></ul>",
 		"version_number": "Versienummer"
 	},
 	"action_plan": {
@@ -53,22 +53,10 @@
 		"send": "Verzenden"
 	},
 	"date": {
-		"april": "TO TRANSLATE - April",
-		"august": "TO TRANSLATE - August",
-		"december": "TO TRANSLATE - December",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
-		"february": "TO TRANSLATE - February",
-		"january": "TO TRANSLATE - January",
-		"july": "TO TRANSLATE - July",
-		"june": "TO TRANSLATE - June",
-		"march": "TO TRANSLATE - March",
-		"may": "TO TRANSLATE - May",
-		"november": "TO TRANSLATE - November",
-		"october": "TO TRANSLATE - October",
-		"september": "TO TRANSLATE - September",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday"
+		"earlier-in-this-month": "Eerder deze maand",
+		"earlier-in-this-week": "Eerder deze week",
+		"today": "Vandaag",
+		"yesterday": "Gisteren"
 	},
 	"errors": {
 		"content": "Als u andere problemen ondervindt of verbetersuggesties heeft, <br> kunt u deze via dit formulier terugsturen: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
@@ -203,7 +191,6 @@
 			"item": {
 				"consult_pia": "Raadplegen",
 				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
 				"edit_pia": "Aanpassen",
 				"edit_structure": "Sjabloon aanpassen",
 				"tools": {
@@ -215,7 +202,8 @@
 					"pia": "PIA<br>tonen",
 					"remove": "TO TRANSLATE - Delete",
 					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+				},
+				"validate_pia": "Bevestigen"
 			},
 			"new_pia": "Nieuwe PIA",
 			"new_structure": "Nieuw sjabloon",
@@ -910,6 +898,9 @@
 			"remove": "Verwijderen",
 			"review_section": "Controleer een sectie"
 		},
+		"general_error": {
+			"content": "Er is een fout opgetreden.<br>excuseer ons voor dit ongemak."
+		},
 		"import_wrong_pia_file": {
 			"content": "Het geïmporteerde bestand stemt niet overeen met een bestand van het type PIA"
 		},
@@ -924,7 +915,7 @@
 		},
 		"recover_version": {
 			"continue": "Vervolgen",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
+			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}. You will have to validate again the PIA once it is completed.<br><br>The current version will be archived.",
 			"title": "TO TRANSLATE - Restore a previous version"
 		},
 		"refuse_pia": {

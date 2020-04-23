@@ -5,7 +5,7 @@
 		"licences": "Bibliothekslizenzen:",
 		"title": "Über das Werkzeug PIA",
 		"translators": "Das Tool ist derzeit in achtzehn Sprachen verfügbar. Die französische und die englische Version werden von der CNIL bereitgestellt. Die anderen Versionen sind das Ergebnis der Beiträge der folgenden Personen:",
-		"translators_name": "<ul><li>Deutsch : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Dänisch : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Englisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estnisch : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnisch : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Französisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Griechisch : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a>  ;</li><li>Italienisch : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Kroatisch : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Litauisch : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Niederländisch : Ruud van Driel, Manuel d’Orso ;</li><li>Norwegisch : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polnisch : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugiesisch : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Rumänisch : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanisch : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a>  ;</li><li>Tschechisch : Jiří Grohmann, Manuel d’Orso ;</li><li>Ungarisch : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>.</li></ul>",
+		"translators_name": "<ul><li>Deutsch : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Dänisch : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Englisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estnisch : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnisch : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>Französisch : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Griechisch : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a>  ;</li><li>Italienisch : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Kroatisch : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Litauisch : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Niederländisch : Ruud van Driel, Manuel d’Orso ;</li><li>Norwegisch : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polnisch : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portugiesisch : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Rumänisch : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanisch : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a>  ;</li><li>Tschechisch : Jiří Grohmann, Manuel d’Orso ;</li><li>Swedisch : Per von Bahr <a target=\"_blank\" href=\"https://www.soprasteria.se\">(Sopra Steria AB)</a> ;</li><li>Ungarisch : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>.</li></ul>",
 		"version_number": "Versionsnummer"
 	},
 	"action_plan": {
@@ -26,7 +26,7 @@
 		"description": "Diese Software der <strong>französischen Datenschutzbehörde (CNIL)</strong> soll den Datenverantwortlichen bei der Erstellung und dem Nachweis der Einhaltung der DS-GVO helfen. Sie hilft bei der Durchführung einer Datenschutz-Folgenabschätzung, indem sie die Verwendung der von der CNIL entwickelten PIA-Methode erleichtert.",
 		"start": "Starten",
 		"start_app": "Zugriff auf die PIA-Software (Beta)",
-		"subtitle1": "Eine Plattform zum Erstellen<br>und Verwalten Ihrer DSFAs",
+		"subtitle1": "Eine Plattform zum Erstellen<br>und Verwalten Ihrer DSFA",
 		"subtitle2": "Zugriff auf Tools und Glossare",
 		"title": "Datenschutz-Folgenabschätzung"
 	},
@@ -34,9 +34,9 @@
 		"important": "Substantiell",
 		"legend1": "Geplante oder bestehende Maßnahmen",
 		"legend2": "Mit den eingeleiteten Korrekturmaßnahmen",
-		"legend3": "(Z) Unrechtmäßiger Zugriff auf Daten",
-		"legend4": "(V) Unerwünschte Veränderung von Daten",
-		"legend5": "(D) Datenverlust",
+		"legend3": "Unrechtmäßiger (Z)ugriff auf Daten",
+		"legend4": "Unerwünschte (V)eränderung von Daten",
+		"legend5": "(D)atenverlust",
 		"likelihood_axe": "Eintrittswahrscheinlichkeit des Risikos",
 		"limited": "Überschaubar",
 		"maximal": "Groß",
@@ -53,22 +53,10 @@
 		"send": "Senden"
 	},
 	"date": {
-		"april": "TO TRANSLATE - April",
-		"august": "TO TRANSLATE - August",
-		"december": "TO TRANSLATE - December",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
-		"february": "TO TRANSLATE - February",
-		"january": "TO TRANSLATE - January",
-		"july": "TO TRANSLATE - July",
-		"june": "TO TRANSLATE - June",
-		"march": "TO TRANSLATE - March",
-		"may": "TO TRANSLATE - May",
-		"november": "TO TRANSLATE - November",
-		"october": "TO TRANSLATE - October",
-		"september": "TO TRANSLATE - September",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday"
+		"earlier-in-this-month": "Anfang dieses Monats",
+		"earlier-in-this-week": "Anfang dieser Woche",
+		"today": "Heute",
+		"yesterday": "Gestern"
 	},
 	"errors": {
 		"content": "Wenn Sie auf andere Probleme stoßen oder Verbesserungsvorschläge haben, können Sie diese über das folgende Formular zurücksenden: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
@@ -89,7 +77,7 @@
 		},
 		"improvable": "verbesserungsfähig",
 		"placeholder_acceptable": "Soweit aus den zur Verfügung gestellten Informationen ersichtlich, reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
-		"placeholder_improvable1": " Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
+		"placeholder_improvable1": "Soweit aus den zur Verfügung gestellten Informationen ersichtlich, müssen zusätzliche Maßnahmen hinzugefügt werden, um den Schutz der verarbeiteten Daten zu verbessern.",
 		"placeholder_improvable2": "Geben Sie Ihre Kommentare ein.",
 		"placeholder_to_correct": "Die bereitgestellten Informationen sind nicht ausreichend für eine vollständige Bewertung. Die DSFA wird zurück an den Bearbeiter verwiesen, um den ursprünglichen Vorschlag zu ergänzen.",
 		"status": [
@@ -102,16 +90,16 @@
 		"to_correct": "zu berichtigen"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "Archivierte DSFA",
+		"current_pias": "Aktive DSFA",
 		"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Einen Fehler melden",
+			"manual": "Benutzerhandbuch",
 			"pia_example_link": "Beispiel DSFA",
 			"title": "Hilfe"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Meine DSFA",
 		"knowledge_base_link": "Wissensbasis",
 		"languages": {
 			"cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
@@ -147,7 +135,7 @@
 			"accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
 			"settings": "Einstellungen",
 			"title": "Tools",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Konfiguration der Server URL"
 		}
 	},
 	"help": {
@@ -194,35 +182,35 @@
 	"homepage": {
 		"cards": {
 			"author": "Bearbeiter",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorie",
 			"creation_status": "Anlegen",
 			"date": "Datum",
 			"evaluation": "Prüfer",
 			"import_pia": "DSFA importieren",
 			"import_structure": "Vorlage importieren",
 			"item": {
-				"consult_pia": "Ansehen",
-				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
+				"consult_pia": "Einsehen",
+				"consult_structure": "Vorlage einsehen",
 				"edit_pia": "Bearbeiten",
 				"edit_structure": "Bearbeiten der Vorlage",
 				"tools": {
 					"action_plan": "Aktionsplan<br>anzeigen",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archivieren",
 					"duplicate": "Kopieren",
 					"export": "Exportieren",
 					"more_options": "Weitere Optionen",
 					"pia": "DSFA<br>anzeigen",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
-				}
+					"remove": "Entfernen",
+					"unarchive": "Dearchivieren"
+				},
+				"validate_pia": "Bestätigen"
 			},
 			"new_pia": "Neue DSFA",
 			"new_structure": "Neue Vorlage",
 			"or": "oder",
 			"pia_name": "DSFA",
 			"placeholder_author": "Vorname Nachname",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategorie",
 			"placeholder_evaluation": "Vorname Nachname",
 			"placeholder_import_pia": "DSFA importieren",
 			"placeholder_import_structure": "Vorlage importieren",
@@ -245,14 +233,14 @@
 		"filters": {
 			"assessor": "Überprüft von",
 			"author": "Bearbeitet von",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Kartenansicht",
 			"card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\"",
 			"card_rocket_content_structure": "Fangen Sia an!<br><br>Um eine Vorlage<br>zu beginnen, klicken Sie auf<br> auf das +.",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorie",
 			"date": "Datum",
 			"import_pia": "DSFA importieren",
 			"import_structure": "Vorlage importieren",
-			"list": "TO TRANSLATE - List view",
+			"list": "Listenansicht",
 			"list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
 			"list_rocket_content_structure": "Fangen Sie an! Um eine Vorlage<br>zu beginnen, klicken Sie auf die Schaltfläche +.",
 			"name": "Name",
@@ -267,7 +255,7 @@
 		"lists": {
 			"column_actions": "Aktionen",
 			"column_author": "Bearbeitet von",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategorie",
 			"column_creation": "Bearbeitet",
 			"column_evaluation": "Überprüft von",
 			"column_pia": "DSFA",
@@ -281,18 +269,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Aktionsplan anzeigen",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archivieren",
 					"consult": "Ansehen",
 					"duplicate": "Kopieren",
 					"edit": "Bearbeiten",
 					"export": "Exportieren",
 					"pia": "DSFA anzeigen",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Entfernen",
+					"unarchive": "Dearchivieren"
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Suchen"
 	},
 	"knowledge_base": {
 		"add_measure": "Hinzufügen",
@@ -567,7 +555,7 @@
 				"name": "Schweregrad: groß"
 			},
 			"PIA_EX_IMPN": {
-				"description": "Die Betroffenen werden nicht gar nicht beeinträchtigt oder haben einige temporäre Unannehmlichkeiten, die sie ohne Schwierigkeiten überwinden können.<br> Beispiele für Auswirkungen:<br> - Körperlich: flüchtige Kopfschmerzen<br>- materiell: Zeitverschwendung, durch Wiederholung von Formalitäten oder durch Warten auf deren Durchführung, Empfang von Spam-Mails, Verwendung öffentlich zugänglicher Daten für gezielte Werbung etc.,<br>- psychisch: einfaches Ärgernis, Gefühl des Eindringens ins Privatleben ohne wirklichen Schaden (Werbung) usw.",
+				"description": "Die Betroffenen werden gar nicht beeinträchtigt oder haben einige temporäre Unannehmlichkeiten, die sie ohne Schwierigkeiten überwinden können.<br> Beispiele für Auswirkungen:<br> - Körperlich: flüchtige Kopfschmerzen<br>- materiell: Zeitverschwendung, durch Wiederholung von Formalitäten oder durch Warten auf deren Durchführung, Empfang von Spam-Mails, Verwendung öffentlich zugänglicher Daten für gezielte Werbung etc.,<br>- psychisch: einfaches Ärgernis, Gefühl des Eindringens ins Privatleben ohne wirklichen Schaden (Werbung) usw.",
 				"name": "Schweregrad: geringfügig"
 			},
 			"PIA_EX_NHUM": {
@@ -878,8 +866,8 @@
 		},
 		"archive": "Archivieren",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Archivieren Sie diese DSFA",
+			"content": "<span class='strong'>Warnung,</span><br>möchten Sie diese DSFA wirklich<br>archivieren?"
 		},
 		"ask_for_evaluation": {
 			"content": "Der Unterabschnitt steht jetzt zur Überprüfung bereit."
@@ -888,7 +876,7 @@
 			"content": "Dieser Abschnitt wurde zur Bearbeitung zurückgeschickt.<br>Einige Felder müssen korrigiert werden,<br>damit sie ordnungsgemäß überprüft werden können."
 		},
 		"back_to_evaluation": {
-			"content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Validierung zu ermöglichen."
+			"content": "Dieser Abschnitt wurde zur Überprüfung zurückgeschickt.<br>Einige Felder müssen überprüft werden,<br>um ihre ordnungsgemäße Bestätigung zu ermöglichen."
 		},
 		"back_to_home": "Zurück zur Startseite",
 		"cancel": "Abbrechen",
@@ -910,6 +898,9 @@
 			"remove": "Entfernen",
 			"review_section": "Überprüfen Sie einen Abschnitt"
 		},
+		"general_error": {
+			"content": "Ein Fehler ist aufgetreten.<br>Bitte entschuldigen Sie die Unannehmlichkeiten."
+		},
 		"import_wrong_pia_file": {
 			"content": "Die importierte Datei entspricht nicht dem Dateityp einer DSFA."
 		},
@@ -924,8 +915,8 @@
 		},
 		"recover_version": {
 			"continue": "Fortsetzen",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Wenn Sie fortfahren, stellen Sie die {{date}} -Version dieser Analyse wieder her. Sie müssen die Analyse bestätigen, sobald sie abgeschlossen ist.<br><br>Die aktuelle Version wird archiviert.",
+			"title": "Stellen Sie eine alte Version wieder her"
 		},
 		"refuse_pia": {
 			"content": "Nach Ihrer Ablehnung wird vom Analyse-<br>in den Überprüfungsmodus zurückgesetzt,<br>um die notwendigen Änderungen vorzunehmen."
@@ -942,7 +933,7 @@
 			"remove": "Entfernen Sie<br>diese Maßnahme"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Warnung,</span><br>möchten Sie diese DSFA wirklich dauerhaft<br>löschen?",
 			"remove": "Diese DSFA entfernen"
 		},
 		"remove_question": {
@@ -958,7 +949,7 @@
 			"content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
 		},
 		"signed_pia_validation": {
-			"content": "<span class = 'strong'>Die DSFA wird akzeptiert</span><br>Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht an die zuständige Person anhängen.",
+			"content": "Um die Bestätigung der Analyse abzuschließen,<br>hängen Sie den signierten Bericht als Anhang an.",
 			"download_pia": "Laden Sie die DSFA herunter"
 		},
 		"simple_pia_validation": {
@@ -966,8 +957,8 @@
 		},
 		"start_evaluation": "Beginnen Sie die Überprüfung",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Warnung,</span><br>möchten Sie die<br>Archivierung dieser DSFA wirklich aufheben?",
+			"unarchive": "Dearchiviere diese PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Keine Verbindung möglich."
@@ -1016,7 +1007,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Hinzufügen",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Laden Sie den Anhang herunter",
 			"remove": "Löschen",
 			"title": "Anlagen"
 		},
@@ -1112,7 +1103,7 @@
 					"questions": {
 						"1": {
 							"placeholder": "Listen Sie die gesammelten und verarbeiteten Daten auf. Definieren Sie je Datenkategorie die Speicherdauer, die Empfänger und die zugriffsberechtigten Personen.",
-							"title": "Welche Daten werden verarbeitetet?"
+							"title": "Welche Daten werden verarbeitet?"
 						},
 						"2": {
 							"placeholder": "Präsentieren und beschreiben Sie die Funktionsweise und den Ablauf der Datenverarbeitung (von der Datensammlung bis zur Datenlöschung, sowie die verschiedenen Verarbeitungsschritte, Speicherung, etc.) zum Beispiel mit Hilfe eines Diagramm der Datenflüsse (fügen Sie es als Anhang hinzu) und einer detaillierten Beschreibung der Prozesse.",
@@ -1407,17 +1398,17 @@
 		"preview_status": "Status",
 		"preview_subtitle": "Allgemeine Informationen",
 		"preview_title": "Vorschau",
-		"preview_validation": "Überprüfung",
-		"preview_validation_section": "Überprüfung",
+		"preview_validation": "Bestätigung",
+		"preview_validation_section": "Bestätigung",
 		"previous_page": "Zurück zur vorherigen Seite",
 		"rejection_reason": "Ablehnungsgrund",
 		"revision": {
-			"current_version": "TO TRANSLATE - Current version",
-			"pia_version": "TO TRANSLATE - PIA versions",
-			"restore_version": "TO TRANSLATE - Restore",
-			"revision": "TO TRANSLATE - Versions and revision",
-			"save": "TO TRANSLATE - Create a new version",
-			"show": "TO TRANSLATE - Display the {{length}} versions"
+			"current_version": "Aktuelle Version",
+			"pia_version": "Versionen der DSFA",
+			"restore_version": "Stellen Sie diese Version wieder her",
+			"revision": "Versionen und Überarbeitungen",
+			"save": "Erstellen Sie eine neue Version",
+			"show": "{{length}} Version(en) anzeigen"
 		},
 		"risks_cartography_title": "Risikokartierung",
 		"risks_overview_title": "Risikokübersicht",
@@ -1436,7 +1427,7 @@
 		"confirmation3": "Billige ich die angegebenen Korrekturmaßnahmen.",
 		"confirmation4": "Verpflichte ich mich, die angegebenen Korrekturmaßnahmen so schnell wie möglich umzusetzen.",
 		"latest_signed_attachment": "Letzter hinzugefügter Anhang",
-		"mandatory_fields": "Alle Felder müssen markiert sein",
+		"mandatory_fields": "Alle Felder müssen angekreuzt sein",
 		"remove_attachment": "Anhang löschen",
 		"responsible": "Verantwortlich für die Bestätigung der DSFA: ",
 		"signed_attachments_history": "Historie der hinzugefügten Anhänge",
