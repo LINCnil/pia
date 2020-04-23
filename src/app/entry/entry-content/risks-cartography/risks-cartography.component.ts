@@ -23,6 +23,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   dataJSON: any;
   risk1Letter;
   risk2Letter;
+  risk3Letter;
 
   constructor(
     private http: HttpClient,
@@ -33,23 +34,15 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   ) {}
 
   async ngOnInit() {
-    this.risk1Letter = this._translateService.instant(
-      'cartography.risk1_access'
-    );
-    this.risk2Letter = this._translateService.instant(
-      'cartography.risk2_modification'
-    );
-    this.subscription = this._translateService.onLangChange.subscribe(
-      (event: LangChangeEvent) => {
-        this.risk1Letter = this._translateService.instant(
-          'cartography.risk1_access'
-        );
-        this.risk2Letter = this._translateService.instant(
-          'cartography.risk2_modification'
-        );
-        this.loadCartography();
-      }
-    );
+    this.risk1Letter = this._translateService.instant('cartography.risk1_access');
+    this.risk2Letter = this._translateService.instant('cartography.risk2_modification');
+    this.risk3Letter = this._translateService.instant('cartography.risk3_disappearance');
+    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.risk1Letter = this._translateService.instant('cartography.risk1_access');
+      this.risk2Letter = this._translateService.instant('cartography.risk2_modification');
+      this.risk3Letter = this._translateService.instant('cartography.risk3_disappearance');
+      this.loadCartography();
+    });
 
     const positions = {
       x: {
@@ -113,40 +106,30 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
             } else if (cartographyKey[0] === 'risk-disappearance') {
               pointPosition -= 20;
             }
-            this.dataJSON[cartographyKey[0]]['author'][
-              axeValue
-            ] = pointPosition;
+            this.dataJSON[cartographyKey[0]]['author'][axeValue] = pointPosition;
           }
         }
       });
       const evaluation = new Evaluation();
       evaluation.getByReference(this._piaService.pia.id, '3.2').then(() => {
         if (evaluation.gauges) {
-          this.dataJSON['risk-access']['evaluator']['y'] =
-            positions['y'][evaluation.gauges['x']];
-          this.dataJSON['risk-access']['evaluator']['x'] =
-            positions['x'][evaluation.gauges['y']];
+          this.dataJSON['risk-access']['evaluator']['y'] = positions['y'][evaluation.gauges['x']];
+          this.dataJSON['risk-access']['evaluator']['x'] = positions['x'][evaluation.gauges['y']];
         }
         const evaluation2 = new Evaluation();
         evaluation2.getByReference(this._piaService.pia.id, '3.3').then(() => {
           if (evaluation2.gauges) {
-            this.dataJSON['risk-change']['evaluator']['y'] =
-              positions['y'][evaluation2.gauges['x']];
-            this.dataJSON['risk-change']['evaluator']['x'] =
-              positions['x'][evaluation2.gauges['y']];
+            this.dataJSON['risk-change']['evaluator']['y'] = positions['y'][evaluation2.gauges['x']];
+            this.dataJSON['risk-change']['evaluator']['x'] = positions['x'][evaluation2.gauges['y']];
           }
           const evaluation3 = new Evaluation();
-          evaluation3
-            .getByReference(this._piaService.pia.id, '3.4')
-            .then(() => {
-              if (evaluation3.gauges) {
-                this.dataJSON['risk-disappearance']['evaluator']['y'] =
-                  positions['y'][evaluation3.gauges['x']];
-                this.dataJSON['risk-disappearance']['evaluator']['x'] =
-                  positions['x'][evaluation3.gauges['y']];
-              }
-              this.loadCartography();
-            });
+          evaluation3.getByReference(this._piaService.pia.id, '3.4').then(() => {
+            if (evaluation3.gauges) {
+              this.dataJSON['risk-disappearance']['evaluator']['y'] = positions['y'][evaluation3.gauges['x']];
+              this.dataJSON['risk-disappearance']['evaluator']['x'] = positions['x'][evaluation3.gauges['y']];
+            }
+            this.loadCartography();
+          });
         });
       });
     });
@@ -161,9 +144,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
    */
   loadCartography() {
     // Instanciation of canvas context
-    const canvas = <HTMLCanvasElement>(
-      document.getElementById('actionPlanCartography')
-    );
+    const canvas = <HTMLCanvasElement>document.getElementById('actionPlanCartography');
     const context = canvas.getContext('2d');
 
     // Clearing canvas if changing languages
@@ -184,10 +165,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     context.strokeStyle = 'white';
     context.stroke();
 
-    if (
-      this.dataJSON['risk-access']['author'].x &&
-      this.dataJSON['risk-access']['author'].y
-    ) {
+    if (this.dataJSON['risk-access']['author'].x && this.dataJSON['risk-access']['author'].y) {
       // Author dots (red)
       context.beginPath();
       if (localStorage.getItem('increaseContrast') === 'true') {
@@ -195,62 +173,34 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       } else {
         context.fillStyle = '#FD4664';
       }
-      context.arc(
-        this.dataJSON['risk-access']['author'].x + 8,
-        this.dataJSON['risk-access']['author'].y,
-        7,
-        0,
-        Math.PI * 2,
-        true
-      );
+      context.arc(this.dataJSON['risk-access']['author'].x + 8, this.dataJSON['risk-access']['author'].y, 7, 0, Math.PI * 2, true);
       context.fill();
       context.textAlign = 'center';
       context.font = 'bold 1.1rem Roboto, Times, serif';
       context.fillStyle = '#333';
       try {
-        context.fillText(
-          this.risk1Letter,
-          this.dataJSON['risk-access']['author'].x + 8,
-          this.dataJSON['risk-access']['author'].y + 20
-        );
+        context.fillText(this.risk1Letter, this.dataJSON['risk-access']['author'].x + 8, this.dataJSON['risk-access']['author'].y + 20);
       } catch (ex) {}
     }
 
-    if (
-      this.dataJSON['risk-change']['author'].x &&
-      this.dataJSON['risk-change']['author'].y
-    ) {
+    if (this.dataJSON['risk-change']['author'].x && this.dataJSON['risk-change']['author'].y) {
       context.beginPath();
       if (localStorage.getItem('increaseContrast') === 'true') {
         context.fillStyle = '#C40288';
       } else {
         context.fillStyle = '#FD4664';
       }
-      context.arc(
-        this.dataJSON['risk-change']['author'].x,
-        this.dataJSON['risk-change']['author'].y,
-        7,
-        0,
-        Math.PI * 2,
-        true
-      );
+      context.arc(this.dataJSON['risk-change']['author'].x, this.dataJSON['risk-change']['author'].y, 7, 0, Math.PI * 2, true);
       context.fill();
       context.textAlign = 'center';
       context.font = 'bold 1.1rem Roboto, Times, serif';
       context.fillStyle = '#333';
       try {
-        context.fillText(
-          this.risk2Letter,
-          this.dataJSON['risk-change']['author'].x,
-          this.dataJSON['risk-change']['author'].y + 20
-        );
+        context.fillText(this.risk2Letter, this.dataJSON['risk-change']['author'].x, this.dataJSON['risk-change']['author'].y + 20);
       } catch (ex) {}
     }
 
-    if (
-      this.dataJSON['risk-disappearance']['author'].x &&
-      this.dataJSON['risk-disappearance']['author'].y
-    ) {
+    if (this.dataJSON['risk-disappearance']['author'].x && this.dataJSON['risk-disappearance']['author'].y) {
       context.beginPath();
       if (localStorage.getItem('increaseContrast') === 'true') {
         context.fillStyle = '#C40288';
@@ -271,7 +221,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       context.fillStyle = '#333';
       try {
         context.fillText(
-          '(D)',
+          this.risk3Letter,
           this.dataJSON['risk-disappearance']['author'].x - 8,
           this.dataJSON['risk-disappearance']['author'].y + 20
         );
@@ -287,10 +237,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     ) {
       let diameter = 7;
       if (
-        this.dataJSON['risk-access']['evaluator'].x ===
-          this.dataJSON['risk-access']['author'].x &&
-        this.dataJSON['risk-access']['evaluator'].y ===
-          this.dataJSON['risk-access']['author'].y
+        this.dataJSON['risk-access']['evaluator'].x === this.dataJSON['risk-access']['author'].x &&
+        this.dataJSON['risk-access']['evaluator'].y === this.dataJSON['risk-access']['author'].y
       ) {
         diameter = 10;
         context.globalCompositeOperation = 'destination-over';
@@ -316,14 +264,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
         context.globalCompositeOperation = 'destination-over';
         context.beginPath();
         context.fillStyle = '#091C6B';
-        context.arc(
-          this.dataJSON['risk-access']['author'].x + 8,
-          this.dataJSON['risk-access']['author'].y,
-          10,
-          0,
-          Math.PI * 2,
-          true
-        );
+        context.arc(this.dataJSON['risk-access']['author'].x + 8, this.dataJSON['risk-access']['author'].y, 10, 0, Math.PI * 2, true);
         context.fill();
       }
     }
@@ -338,10 +279,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       let y = this.dataJSON['risk-change']['evaluator'].y;
       let diameter = 7;
       if (
-        this.dataJSON['risk-change']['evaluator'].x - 10 ===
-          this.dataJSON['risk-change']['author'].x &&
-        this.dataJSON['risk-change']['evaluator'].y - 10 ===
-          this.dataJSON['risk-change']['author'].y
+        this.dataJSON['risk-change']['evaluator'].x - 10 === this.dataJSON['risk-change']['author'].x &&
+        this.dataJSON['risk-change']['evaluator'].y - 10 === this.dataJSON['risk-change']['author'].y
       ) {
         x = this.dataJSON['risk-change']['evaluator'].x - 10;
         y = this.dataJSON['risk-change']['evaluator'].y - 10;
@@ -362,14 +301,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
         context.globalCompositeOperation = 'destination-over';
         context.beginPath();
         context.fillStyle = '#091C6B';
-        context.arc(
-          this.dataJSON['risk-change']['author'].x,
-          this.dataJSON['risk-change']['author'].y,
-          10,
-          0,
-          Math.PI * 2,
-          true
-        );
+        context.arc(this.dataJSON['risk-change']['author'].x, this.dataJSON['risk-change']['author'].y, 10, 0, Math.PI * 2, true);
         context.fill();
       }
     }
@@ -384,10 +316,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       let y = this.dataJSON['risk-disappearance']['evaluator'].y;
       let diameter = 7;
       if (
-        this.dataJSON['risk-disappearance']['evaluator'].x - 20 ===
-          this.dataJSON['risk-disappearance']['author'].x &&
-        this.dataJSON['risk-disappearance']['evaluator'].y - 20 ===
-          this.dataJSON['risk-disappearance']['author'].y
+        this.dataJSON['risk-disappearance']['evaluator'].x - 20 === this.dataJSON['risk-disappearance']['author'].x &&
+        this.dataJSON['risk-disappearance']['evaluator'].y - 20 === this.dataJSON['risk-disappearance']['author'].y
       ) {
         x = this.dataJSON['risk-disappearance']['evaluator'].x - 28;
         y = this.dataJSON['risk-disappearance']['evaluator'].y - 20;
@@ -433,10 +363,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       this.dataJSON['risk-access']['author'].y &&
       this.dataJSON['risk-access']['evaluator'].x &&
       this.dataJSON['risk-access']['evaluator'].y &&
-      (this.dataJSON['risk-access']['evaluator'].x !==
-        this.dataJSON['risk-access']['author'].x ||
-        this.dataJSON['risk-access']['evaluator'].y !==
-          this.dataJSON['risk-access']['author'].y)
+      (this.dataJSON['risk-access']['evaluator'].x !== this.dataJSON['risk-access']['author'].x ||
+        this.dataJSON['risk-access']['evaluator'].y !== this.dataJSON['risk-access']['author'].y)
     ) {
       context.beginPath();
       const gradRisk1 = context.createLinearGradient(
@@ -464,10 +392,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       this.dataJSON['risk-change']['author'].y &&
       this.dataJSON['risk-change']['evaluator'].x &&
       this.dataJSON['risk-change']['evaluator'].y &&
-      (this.dataJSON['risk-change']['evaluator'].x - 10 !==
-        this.dataJSON['risk-change']['author'].x ||
-        this.dataJSON['risk-change']['evaluator'].y - 10 !==
-          this.dataJSON['risk-change']['author'].y)
+      (this.dataJSON['risk-change']['evaluator'].x - 10 !== this.dataJSON['risk-change']['author'].x ||
+        this.dataJSON['risk-change']['evaluator'].y - 10 !== this.dataJSON['risk-change']['author'].y)
     ) {
       context.beginPath();
       const gradRisk2 = context.createLinearGradient(
@@ -495,10 +421,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       this.dataJSON['risk-disappearance']['author'].y &&
       this.dataJSON['risk-disappearance']['evaluator'].x &&
       this.dataJSON['risk-disappearance']['evaluator'].y &&
-      (this.dataJSON['risk-disappearance']['evaluator'].x - 20 !==
-        this.dataJSON['risk-disappearance']['author'].x ||
-        this.dataJSON['risk-disappearance']['evaluator'].y - 20 !==
-          this.dataJSON['risk-disappearance']['author'].y)
+      (this.dataJSON['risk-disappearance']['evaluator'].x - 20 !== this.dataJSON['risk-disappearance']['author'].x ||
+        this.dataJSON['risk-disappearance']['evaluator'].y - 20 !== this.dataJSON['risk-disappearance']['author'].y)
     ) {
       context.beginPath();
       const gradRisk3 = context.createLinearGradient(
@@ -530,25 +454,13 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
    * @param {number} tox - To the position X.
    * @param {number} toy - To the position Y.
    */
-  canvasArrow(
-    context: CanvasRenderingContext2D,
-    fromx: number,
-    fromy: number,
-    tox: number,
-    toy: number
-  ) {
+  canvasArrow(context: CanvasRenderingContext2D, fromx: number, fromy: number, tox: number, toy: number) {
     const headlength = 16;
     const angle = Math.atan2(toy - fromy, tox - fromx);
     context.moveTo(fromx, fromy);
     context.lineTo(tox, toy);
-    context.lineTo(
-      tox - headlength * Math.cos(angle - Math.PI / 6),
-      toy - headlength * Math.sin(angle - Math.PI / 6)
-    );
+    context.lineTo(tox - headlength * Math.cos(angle - Math.PI / 6), toy - headlength * Math.sin(angle - Math.PI / 6));
     context.moveTo(tox, toy);
-    context.lineTo(
-      tox - headlength * Math.cos(angle + Math.PI / 6),
-      toy - headlength * Math.sin(angle + Math.PI / 6)
-    );
+    context.lineTo(tox - headlength * Math.cos(angle + Math.PI / 6), toy - headlength * Math.sin(angle + Math.PI / 6));
   }
 }

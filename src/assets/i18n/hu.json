@@ -43,6 +43,7 @@
 		"negligible": "Elhanyagolható",
 		"risk1_access": "(A)",
 		"risk2_modification": "(M)",
+		"risk3_disappearance": "(D)",
 		"seriousness_axe": "Kockázat súlyossága"
 	},
 	"comments": {

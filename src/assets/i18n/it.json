@@ -43,6 +43,7 @@
 		"negligible": "Trascurabile",
 		"risk1_access": "(A)",
 		"risk2_modification": "(M)",
+		"risk3_disappearance": "(P)",
 		"seriousness_axe": "Gravità del rischio"
 	},
 	"comments": {

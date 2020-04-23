@@ -43,6 +43,7 @@
 		"negligible": "Geringfügig",
 		"risk1_access": "(Z)",
 		"risk2_modification": "(V)",
+		"risk3_disappearance": "(D)",
 		"seriousness_axe": "Schweregrad des Risikos"
 	},
 	"comments": {

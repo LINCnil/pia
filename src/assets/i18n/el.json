@@ -43,6 +43,7 @@
 		"negligible": "Αμελητέο",
 		"risk1_access": "(Α)",
 		"risk2_modification": "(Μ)",
+		"risk3_disappearance": "(E)",
 		"seriousness_axe": "Σοβαρότητα κινδύνου"
 	},
 	"comments": {
