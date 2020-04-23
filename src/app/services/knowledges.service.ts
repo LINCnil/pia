@@ -47,12 +47,13 @@ export class KnowledgesService {
   }
 
   public removeKnowledgeBase() {
+    console.log('selected', this.selected);
     let kbTemp = new KnowledgeBase();
     kbTemp
       .delete(this.selected)
       .then(() => {
         // removeFrom this.list
-        let index = this.list.findIndex(e => (e.id = this.selected));
+        let index = this.list.findIndex(e => e.id === this.selected);
         if (index !== -1) {
           this.list.splice(index, 1);
           this._modalsService.closeModal();

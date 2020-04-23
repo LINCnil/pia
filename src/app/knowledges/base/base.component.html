@@ -42,7 +42,7 @@
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="knowledges && knowledges.length > 0; else elseBlock">
           <tr *ngFor="let item of knowledges">
             <td>
               <a (click)="editEntry(item.id)" class="btn pia-tooltip">
@@ -61,6 +61,13 @@
             </td>
           </tr>
         </tbody>
+        <ng-template #elseBlock>
+          <tbody>
+            <tr>
+              <td colspan="4">Pas d'entrée pour cette base...</td>
+            </tr>
+          </tbody>
+        </ng-template>
       </table>
     </div>
     <div class="small-4 medium-4 columns">        
