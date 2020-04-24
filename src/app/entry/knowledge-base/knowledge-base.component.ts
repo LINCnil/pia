@@ -67,6 +67,7 @@ export class KnowledgeBaseComponent implements OnInit {
         // console.log('pia_' + this.route.snapshot.params.id + '_knowledgebase', localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase'))
         if (localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase')) {
           this.selectedKnowledBase = localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase');
+          this.switch(localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase'));
         }
       })
       .catch(() => {});
