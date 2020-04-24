@@ -94,8 +94,12 @@
               <i class="fa fa-folder-open" aria-hidden="true"></i>
               <button class="btn" (click)="newPIA()" type="button" title="{{ 'homepage.cards.placeholder_new_pia' | translate }}">
                 <span class="pia-icons pia-icon-pia-plus"
+                      data-tooltipclass='pia-onboarding-dashboard-1'
                       data-intro="<div class='pia-onboarding-title'>Créer un PIA</div>
-                                  <div class='pia-onboarding-description'>Cliquez sur le <strong>+</strong> pour créer votre premier PIA.</div>"
+                                  <div class='pia-onboarding-description'>
+                                    Cliquez sur le <strong>+</strong> pour créer votre premier PIA.
+                                  </div>
+                                  <div class='pia-onboarding-steps'>1/5</div>"
                       data-position='right'></span>
               </button>
             </div>
@@ -107,8 +111,12 @@
               <i class="fa fa-upload" aria-hidden="true"></i>
               <button class="btn" (click)="importPia()" type="button" title="{{ 'homepage.cards.placeholder_import_pia' | translate }}">
                   <span class="pia-icons pia-icon-pia-plus"
+                        data-tooltipclass='pia-onboarding-dashboard-2'
                         data-intro="<div class='pia-onboarding-title'>Importer un PIA</div>
-                                    <div class='pia-onboarding-description'>Cliquez sur le <strong>+</strong> pour importer un PIA au format <strong>.json</strong>.</div>"
+                                    <div class='pia-onboarding-description'>
+                                      Cliquez sur le <strong>+</strong> pour importer un PIA au format <strong>.json</strong>.
+                                    </div>
+                                    <div class='pia-onboarding-steps'>2/5</div>"
                         data-position='right'></span>
               </button>
             </div>
