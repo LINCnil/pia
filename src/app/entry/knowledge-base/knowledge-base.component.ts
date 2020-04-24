@@ -64,7 +64,10 @@ export class KnowledgeBaseComponent implements OnInit {
       .getAll()
       .then((result: any) => {
         this.customKnowledgeBases = result;
-        this.selectedKnowledBase = localStorage.getItem('pia_' + this.route.snapshot.params.structure_id + '_knowledgebase');
+        // console.log('pia_' + this.route.snapshot.params.id + '_knowledgebase', localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase'))
+        if (localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase')) {
+          this.selectedKnowledBase = localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase');
+        }
       })
       .catch(() => {});
   }
@@ -113,7 +116,7 @@ export class KnowledgeBaseComponent implements OnInit {
       .then(() => {
         this._knowledgeBaseService.loadByItem(this.item);
         // SET LOCALSTORAGE
-        localStorage.setItem('pia_' + this.route.snapshot.params.structure_id + '_knowledgebase', selectedKnowledBase);
+        localStorage.setItem('pia_' + this.route.snapshot.params.id + '_knowledgebase', selectedKnowledBase);
       })
       .catch(err => {
         console.log(err);
