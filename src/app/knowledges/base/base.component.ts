@@ -35,7 +35,7 @@ export class BaseComponent implements OnInit {
   categories: string[] = [];
   filters: string[] = [];
   data: any;
-  itemsSelected: string[] = [];
+  itemsSelected: any = [];
 
   constructor(
     private _languagesService: LanguagesService,
@@ -149,7 +149,7 @@ export class BaseComponent implements OnInit {
           .update()
           .then(() => {
             // Update list
-            let index = this.knowledges.findIndex(e => e.id === entry.id);
+            let index = this.knowledges.findIndex(e => e.id == entry.id);
             if (index !== -1) {
               this.knowledges[index] = entry;
             }
@@ -162,14 +162,40 @@ export class BaseComponent implements OnInit {
   }
 
   onCheckboxChange(e) {
+    console.log(e.target.value, e.target.checked);
+    let ar = this.itemsSelected;
     if (e.target.checked) {
-      this.itemsSelected.push(e.target.value);
+      ar.push(e.target.value);
     } else {
-      this.itemsSelected.forEach(item => {
-        let index = this.itemsSelected.indexOf(item);
-        this.itemsSelected.splice(index, 1);
-      });
+      let index = ar.findIndex(item => item == e.target.value);
+      if (index !== -1) {
+        ar.splice(index, 1);
+      }
     }
+    this.itemsSelected = ar;
+    this.focusOut();
+  }
+
+  globalCheckingElementInDataSection(dataSection, e = null) {
+    let ar = this.itemsSelected;
+    // if(e.target.checked) { // add Items
+    dataSection.items.forEach(dataItem => {
+      let temp = ar.findIndex(e => e == dataSection.id.toString() + dataItem.id.toString());
+      if (temp == -1) {
+        ar.push(dataSection.id.toString() + dataItem.id.toString());
+      }
+    });
+    // } else {
+    //   dataSection.items.forEach(dataItem => {
+    //     let temp = ar.findIndex(e => e == dataSection.id.toString() + dataItem.id.toString());
+    //     if (temp !== -1){
+    //       ar.splice(temp)
+    //     }
+    //   })
+    // }
+    console.log(this.itemsSelected);
+    this.itemsSelected = ar;
+    console.log(this.itemsSelected);
     this.focusOut();
   }
 }
