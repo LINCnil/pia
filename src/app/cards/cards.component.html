@@ -110,14 +110,7 @@
             <div class="pia-newBlock-item-import-btn">
               <i class="fa fa-upload" aria-hidden="true"></i>
               <button class="btn" (click)="importPia()" type="button" title="{{ 'homepage.cards.placeholder_import_pia' | translate }}">
-                  <span class="pia-icons pia-icon-pia-plus"
-                        data-tooltipclass='pia-onboarding-dashboard-2'
-                        data-intro="<div class='pia-onboarding-title'>Importer un PIA</div>
-                                    <div class='pia-onboarding-description'>
-                                      Cliquez sur le <strong>+</strong> pour importer un PIA au format <strong>.json</strong>.
-                                    </div>
-                                    <div class='pia-onboarding-steps'>2/5</div>"
-                        data-position='right'></span>
+                  <span class="pia-icons pia-icon-pia-plus"></span>
               </button>
             </div>
           </div>
@@ -130,14 +123,45 @@
                 <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
                 <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>
               </div>
+              <span data-tooltipclass='pia-onboarding-dashboard-2'
+                    data-intro="<div class='pia-onboarding-title'>Les rôles autour du PIA</div>
+                                <div class='pia-onboarding-description'>
+                                  <p>Les <strong>rédacteurs</strong> sont ceux rédigeant la première version de l'analyse.</p>
+                                  <p>Ce sont par exemple les chefs du projet associés au traitement.</p>
+                                </div>
+                                <div class='pia-onboarding-steps'>2/5</div>"
+                    data-position='right'>
+              </span>
               <div>
                 <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
                 <input formControlName="author_name" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="author_name" required>
               </div>
+              <span data-tooltipclass='pia-onboarding-dashboard-3'
+                    data-intro="<div class='pia-onboarding-title'>Les rôles autour du PIA</div>
+                                <div class='pia-onboarding-description'>
+                                  <p>Les <strong>évaluateurs</strong> interviennent dans un second temps.</p>
+                                  <p>Ils jaugent, à l'aune de leur expertise juridique ou technique, la qualité et la conformité du traitement.</p>
+                                  <p>Ce sont par exemple le RSSI, des juristes, le DPO, ...</p>
+                                </div>
+                                <div class='pia-onboarding-steps'>3/5</div>"
+                    data-position='right'>
+              </span>
               <div>
                 <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
                 <input formControlName="evaluator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="evaluator_name" required>
               </div>
+              <span data-tooltipclass='pia-onboarding-dashboard-4'
+                    data-intro="<div class='pia-onboarding-title'>Les rôles autour du PIA</div>
+                                <div class='pia-onboarding-description'>
+                                  <p>
+                                    Les <strong>validateurs</strong> acceptent ou non la mise en oeuvre du traitement.
+                                    Ils doivent signer l'analyse.
+                                  </p>
+                                  <p>Ce sont les responsables de traitement, comme par exemple le CEO.</p>
+                                </div>
+                                <div class='pia-onboarding-steps'>4/5</div>"
+                    data-position='right'>
+              </span>
               <div>
                 <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
                 <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
@@ -146,6 +170,18 @@
                 <label for="category">{{ 'homepage.cards.category' | translate }}</label>
                 <input formControlName="category" type="text" placeholder="{{ 'homepage.cards.placeholder_category' | translate }}" id="category">
               </div>
+              <span data-tooltipclass='pia-onboarding-dashboard-5'
+                    data-intro="<div class='pia-onboarding-title'>Les modèles</div>
+                                <div class='pia-onboarding-description'>
+                                  <p>
+                                    Les <strong>modèles</strong> sont une fonctionnalité avancée.
+                                    Ils permettent de créer une base pré-remplie de l'analyse.
+                                  </p>
+                                  <p>Vous pouvez créer des modèles en allant dans la section associée depuis le menu du haut.</p>
+                                </div>
+                                <div class='pia-onboarding-steps'>5/5</div>"
+                    data-position='right'>
+              </span>
               <div>
                 <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>
                 <div  class="pia-structure-wrapper">
@@ -155,7 +191,7 @@
                   </select>
                 </div>
               </div>
-              <div class="pia-cardsBlock-item-btn">
+              <div class="pia-cardsBlock-item-btn" style="padding-top:26px;">
                 <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
               </div>
             </form>

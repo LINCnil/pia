@@ -90,7 +90,6 @@ export class CardsComponent implements OnInit, OnDestroy {
     // init INTRO JS in this component
     introJs()
       .setOption('nextLabel', 'SUIVANT')
-      .setOption('prevLabel', 'PRECEDENT')
       .setOption('skipLabel', 'PASSER')
       .setOption('doneLabel', 'TERMINER')
       .setOption('showBullets', false)
