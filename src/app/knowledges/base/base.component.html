@@ -91,23 +91,26 @@
           </div>
           <div *ngIf="editMode === 'edit'">
             <h3>Lié à</h3>
+            {{itemsSelected}}
             <!-- CHECKBOXES -->
-            <div class="pia-knowledges_base-form-checkboxes">
+            <div class="pia-knowledges_base-form-checkboxes" *ngIf="data && data.sections.length > 0">
               <div class="pia-knowledges_base-form-checkboxes-body">
                 <div *ngFor="let dataSection of data?.sections">
                   <div class="pia-knowledges_base-form-checkboxes-title">
-                    {{ dataSection.title | translate }}
+                    {{ dataSection.title | translate }} <span (click)="globalCheckingElementInDataSection(dataSection, $event)">&nbsp;tous</span>
                     <hr>
                   </div>
                   <ul class="pia-knowledges_base-form-checkboxes-list">
                     <ng-container *ngFor="let dataItem of dataSection?.items">
                       <li>
                         <label for="{{dataItem.title}}">
-                          <input [checked]="itemsSelected.includes(dataSection.id+''+dataItem.id)" (change)="onCheckboxChange($event)" type="checkbox"
-                           name="{{dataItem.title}}" id="{{dataItem.title}}" value="{{dataSection.id}}{{dataItem.id}}"> 
+                          <input [checked]="itemsSelected.includes(dataSection.id.toString() + dataItem.id.toString())" 
+                            (change)="onCheckboxChange($event)" type="checkbox"
+                            name="{{dataItem.title}}" id="{{dataItem.title}}" 
+                            value="{{dataSection.id.toString() + dataItem.id.toString()}}"> 
                           <span
                             class="truncate">
-                            {{ dataItem.title | translate }} - {{dataSection.id}}.{{dataItem.id}}</span> 
+                            {{ dataItem.title | translate }} - {{dataSection.id.toString() + dataItem.id.toString()}}</span> 
                         </label>
                       </li>
                     </ng-container>

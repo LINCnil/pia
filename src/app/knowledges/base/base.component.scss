@@ -69,6 +69,15 @@
         justify-content: flex-end;
         font-size: 1.3rem;
         text-transform: uppercase;
+        span {
+          margin-right: 10px;
+          cursor: pointer;
+          color: $pia-blue;
+          text-transform: initial;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
         hr {
           margin: auto 10px auto auto;
           background-color: $pia-gray;
