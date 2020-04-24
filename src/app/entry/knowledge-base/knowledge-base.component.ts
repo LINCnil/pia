@@ -9,6 +9,7 @@ import { AnswerStructureService } from 'src/app/services/answer-structure.servic
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-knowledge-base',
@@ -25,6 +26,7 @@ export class KnowledgeBaseComponent implements OnInit {
   selectedKnowledBase: any = 0;
 
   constructor(
+    private route: ActivatedRoute,
     private _measureService: MeasureService,
     public _knowledgeBaseService: KnowledgeBaseService,
     private el: ElementRef,
@@ -62,6 +64,7 @@ export class KnowledgeBaseComponent implements OnInit {
       .getAll()
       .then((result: any) => {
         this.customKnowledgeBases = result;
+        this.selectedKnowledBase = localStorage.getItem('pia_' + this.route.snapshot.params.structure_id + '_knowledgebase');
       })
       .catch(() => {});
   }
@@ -109,6 +112,8 @@ export class KnowledgeBaseComponent implements OnInit {
       .switch(selectedKnowledBase)
       .then(() => {
         this._knowledgeBaseService.loadByItem(this.item);
+        // SET LOCALSTORAGE
+        localStorage.setItem('pia_' + this.route.snapshot.params.structure_id + '_knowledgebase', selectedKnowledBase);
       })
       .catch(err => {
         console.log(err);
