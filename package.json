@@ -13,7 +13,7 @@
     "clean": "rimraf ./dist/",
     "format:write": "prettier src/**/*.{ts,json,md,scss} --write",
     "format:test": "prettier src/**/*.{ts,json,md,scss} --list-different",
-    "extract-i18n": "ngx-translate-extract --input src --output ./src/assets/i18n/ --clean --sort --format namespaced-json",
+    "extract-i18n": "ngx-translate-extract --input ./src --output ./src/assets/i18n/strings.json --clean --sort --format namespaced-json",
     "compodoc": "compodoc -p src/tsconfig.app.json"
   },
   "husky": {
