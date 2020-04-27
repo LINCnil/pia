@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { Pia } from '../entry/pia.model';
 import { Structure } from 'src/app/structures/structure.model';
 
+import { TranslateService } from '@ngx-translate/core';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
@@ -36,7 +37,8 @@ export class CardsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     public _modalsService: ModalsService,
     public _piaService: PiaService,
-    public _structureService: StructureService
+    public _structureService: StructureService,
+    private _translateService: TranslateService
   ) {}
 
   ngOnInit() {
@@ -89,9 +91,9 @@ export class CardsComponent implements OnInit, OnDestroy {
   ngAfterViewInit() {
     // init INTRO JS in this component
     introJs()
-      .setOption('nextLabel', 'SUIVANT')
-      .setOption('skipLabel', 'PASSER')
-      .setOption('doneLabel', 'TERMINER')
+      .setOption('nextLabel', this._translateService.instant('onboarding.general.next'))
+      .setOption('skipLabel', this._translateService.instant('onboarding.general.skip'))
+      .setOption('doneLabel', this._translateService.instant('onboarding.general.done'))
       .setOption('showBullets', false)
       .start();
   }

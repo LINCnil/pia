@@ -1469,5 +1469,34 @@
 		},
 		"validated_pia_with_signature": "Validé",
 		"waiting_for_signature": "En attente de la signature du rapport PIA"
-	}
+  },
+  "onboarding": {
+    "general": {
+      "next": "Suivant",
+      "skip": "Passer",
+      "done": "Terminer"
+    },
+    "dashboard": {
+      "step1": {
+        "title": "Créer un PIA",
+        "description": "Cliquez sur le <strong>+</strong> pour créer votre premier PIA."
+      },
+      "step2": {
+        "title": "Les rôles autour du PIA",
+        "description": "<p>Les <strong>rédacteurs</strong> sont ceux rédigeant la première version de l'analyse.</p><p>Ce sont par exemple les chefs du projet associés au traitement.</p>"
+      },
+      "step3": {
+        "title": "Les rôles autour du PIA",
+        "description": "<p>Les <strong>évaluateurs</strong> interviennent dans un second temps.</p><p>Ils jaugent, à l'aune de leur expertise juridique ou technique, la qualité et la conformité du traitement.</p><p>Ce sont par exemple le RSSI, des juristes, le DPO, ...</p>"
+      },
+      "step4": {
+        "title": "Les rôles autour du PIA",
+        "description": "<p>Les <strong>validateurs</strong> acceptent ou non la mise en oeuvre du traitement.Ils doivent signer l'analyse.</p><p>Ce sont les responsables de traitement, comme par exemple le CEO.</p>"
+      },
+      "step5": {
+        "title": "Les modèles",
+        "description": "<p>Les <strong>modèles</strong> sont une fonctionnalité avancée.Ils permettent de créer une base pré-remplie de l'analyse.</p><p>Vous pouvez créer des modèles en allant dans la section associée depuis le menu du haut.</p>"
+      }
+    }
+  }
 }
