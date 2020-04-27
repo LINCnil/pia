@@ -1497,6 +1497,36 @@
         "title": "Les modèles",
         "description": "<p>Les <strong>modèles</strong> sont une fonctionnalité avancée.Ils permettent de créer une base pré-remplie de l'analyse.</p><p>Vous pouvez créer des modèles en allant dans la section associée depuis le menu du haut.</p>"
       }
-    }
+		},
+		"entry": {
+			"step1": {
+				"title": "Navigation",
+				"description": "Blabla blabla blabla"
+			},
+			"step2": {
+				"title": "Contexte",
+				"description": "Blabla blabla blabla"
+			},
+			"step3": {
+				"title": "Les principes fondamentaux",
+				"description": "Blabla blabla blabla"
+			},
+			"step4": {
+				"title": "Les risques",
+				"description": "Blabla blabla blabla"
+			},
+			"step5": {
+				"title": "La validation",
+				"description": "Blabla blabla blabla"
+			},
+			"step6": {
+				"title": "La base de connaissance",
+				"description": "Blabla blabla blabla"
+			},
+			"step7": {
+				"title": "Exporter son AIPD",
+				"description": "Blabla blabla blabla"
+			}
+		}
   }
 }

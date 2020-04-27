@@ -14,7 +14,7 @@
   </div>
 
   <div class="pia-sectionBlock-body">
-    <div *ngFor="let dataSection of data?.sections">
+    <div *ngFor="let dataSection of data?.sections" [ngClass]="dataSection.title.split('.').join('-')">
       <div class="pia-sectionBlock-title">
         {{ dataSection.title | translate }}
         <hr>
