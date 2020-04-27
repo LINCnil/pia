@@ -96,7 +96,6 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
         }
       });
       this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth); // Get Properties on array
-      console.log(this.revisionsGroupByMonth);
     }
   }
 

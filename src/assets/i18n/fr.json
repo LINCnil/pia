@@ -1527,6 +1527,28 @@
 				"title": "Exporter son AIPD",
 				"description": "À tout moment lors de la réalisation de l'analyse, vous pouvez télécharger l'analyse sous divers formats pour la partager avec vos collaborateurs."
 			}
+		},
+		"evaluation": {
+			"step1": {
+				"title": "Evaluation de l'AIPD",
+				"description": "Blabla blabla blabla"
+			},
+			"step2": {
+				"title": "A corriger",
+				"description": "Blabla blabla blabla"
+			},
+			"step3": {
+				"title": "Améliorable",
+				"description": "Blabla blabla blabla"
+			},
+			"step4": {
+				"title": "Acceptable",
+				"description": "Blabla blabla blabla"
+			},
+			"step5": {
+				"title": "Annuler une demande",
+				"description": "Blabla blabla blabla"
+			}
 		}
   }
 }
