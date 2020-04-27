@@ -5,7 +5,7 @@
     <div class="small-12 medium-12 columns">
       <div class="pia-breadcrumb">{{ 'header.knowledges' | translate }} > {{base.name}}</div>
       <div class="pia-filtersBlock">
-              
+
         <div class="pia-filtersBlock-left">
             <div class="pia-filtersBlock-buttons">
               <button type="button" class="btn btn-red" (click)="showForm = true;  editMode = 'new'; entryForm.reset(); selectedKnowledgeId = null">
@@ -13,18 +13,18 @@
               </button>
             </div>
         </div>
-  
-  
+
+
       </div>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="small-8 medium-8 columns">
       <table class="pia-list-table">
         <thead>
           <tr>
-            <th></th>                  
+            <th></th>
             <th>
               <a>
                 <span>{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}</span>
@@ -70,7 +70,7 @@
         </ng-template>
       </table>
     </div>
-    <div class="small-4 medium-4 columns">        
+    <div class="small-4 medium-4 columns">
         <!-- NEW ENTRY FORM -->
         <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base-form" *ngIf="showForm">
           <h3>Contenus</h3>
@@ -84,33 +84,33 @@
             <input (focusout)="focusOut()" formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" name="name"  required>
           </div>
           <div>
-            <textarea (focusout)="focusOut()" formControlName="description" 
-            type="text" 
-            placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}" 
+            <textarea (focusout)="focusOut()" formControlName="description"
+            type="text"
+            placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}"
             name="description"  required></textarea>
           </div>
           <div *ngIf="editMode === 'edit'">
             <h3>Lié à</h3>
-            {{itemsSelected}}
             <!-- CHECKBOXES -->
             <div class="pia-knowledges_base-form-checkboxes" *ngIf="data && data.sections.length > 0">
               <div class="pia-knowledges_base-form-checkboxes-body">
                 <div *ngFor="let dataSection of data?.sections">
                   <div class="pia-knowledges_base-form-checkboxes-title">
-                    {{ dataSection.title | translate }} <span (click)="globalCheckingElementInDataSection(dataSection, $event)">&nbsp;tous</span>
+                    <input type="checkbox" (click)="globalCheckingElementInDataSection(dataSection, $event)" [checked]="sectionCheckedVerification(dataSection)">
+                    {{ dataSection.title | translate }}
                     <hr>
                   </div>
                   <ul class="pia-knowledges_base-form-checkboxes-list">
                     <ng-container *ngFor="let dataItem of dataSection?.items">
                       <li>
                         <label for="{{dataItem.title}}">
-                          <input [checked]="itemsSelected.includes(dataSection.id.toString() + dataItem.id.toString())" 
+                          <input [checked]="itemsSelected.includes(dataSection.id.toString() + dataItem.id.toString())"
                             (change)="onCheckboxChange($event)" type="checkbox"
-                            name="{{dataItem.title}}" id="{{dataItem.title}}" 
-                            value="{{dataSection.id.toString() + dataItem.id.toString()}}"> 
+                            name="{{dataItem.title}}" id="{{dataItem.title}}"
+                            value="{{dataSection.id.toString() + dataItem.id.toString()}}">
                           <span
                             class="truncate">
-                            {{ dataItem.title | translate }} - {{dataSection.id.toString() + dataItem.id.toString()}}</span> 
+                            {{ dataItem.title | translate }} - {{dataSection.id.toString() + dataItem.id.toString()}}</span>
                         </label>
                       </li>
                     </ng-container>
