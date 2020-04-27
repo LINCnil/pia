@@ -1477,6 +1477,36 @@
         "title": "Modeles",
         "description": "<p><strong>Models</strong> are...</p>"
       }
+    },
+    "entry": {
+			"step1": {
+				"title": "Navigation",
+				"description": "TODO..."
+			},
+			"step2": {
+				"title": "Context",
+				"description": "TODO..."
+			},
+			"step3": {
+				"title": "Fundamental principles",
+				"description": "TODO..."
+			},
+			"step4": {
+				"title": "Risks",
+				"description": "TODO..."
+			},
+			"step5": {
+				"title": "Validation",
+				"description": "TODO..."
+			},
+			"step6": {
+				"title": "Knowledge base",
+				"description": "TODO..."
+			},
+			"step7": {
+				"title": "Export the report",
+				"description": "TODO..."
+      }
     }
   }
 }

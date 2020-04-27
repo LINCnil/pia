@@ -68,6 +68,13 @@ export class HeaderComponent implements OnInit {
   }
 
   /**
+   * Restart the onboarding module for the current user
+   */
+  restartOnboarding() {
+    localStorage.removeItem('onboardingDashboard');
+  }
+
+  /**
    * Manually updates the contrast. Can be executed by users through header.
    * @param {any} event - Any kind of event.
    */

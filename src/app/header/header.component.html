@@ -48,6 +48,9 @@
                     <label for="pia-accessibility">{{ 'header.tools.accessibility' | translate }}</label>
                   </div>
                   <div>
+                    <button type="button" name="pia-onboarding" id="pia-onboarding" (click)="restartOnboarding()">Relancer le tutoriel</button>
+                  </div>
+                  <div>
                     <a routerLink="/about">{{ 'header.tools.about' | translate }}</a>
                   </div>
                 </fieldset>

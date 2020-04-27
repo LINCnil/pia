@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy, Input, DoCheck } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -19,7 +19,7 @@ import * as introJs from 'intro.js/intro.js';
   styleUrls: ['./cards.component.scss'],
   providers: [PiaService, StructureService]
 })
-export class CardsComponent implements OnInit, OnDestroy {
+export class CardsComponent implements OnInit, OnDestroy, DoCheck {
   @Input() pia: any;
   newPia: Pia;
   piaForm: FormGroup;
@@ -88,9 +88,91 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.paramsSubscribe.unsubscribe();
   }
 
+  ngDoCheck() {
+    if (!localStorage.getItem('onboardingDashboard')) {
+      /* this.initializeOnboarding(); */
+    }
+  }
+
   ngAfterViewInit() {
-    // init INTRO JS in this component
+    if (!localStorage.getItem('onboardingDashboard')) {
+      this.initializeOnboarding();
+    }
+  }
+
+  initializeOnboarding() {
     introJs()
+      .addStep({
+        element: document.querySelector('.pia-newBlock-item.front'),
+        tooltipClass: 'pia-onboarding-dashboard-1',
+        intro: `
+        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step2.title')}</div>
+        <div class='pia-onboarding-description'>
+          ${this._translateService.instant('onboarding.dashboard.step1.description')}
+        </div>
+        <div class='pia-onboarding-steps'>1/5</div>
+      `,
+        position: 'right'
+      })
+      .addStep({
+        element: document.querySelector('.pia-cardsBlock.pia-editBlock.back'),
+        tooltipClass: 'pia-onboarding-dashboard-2',
+        intro: `
+        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step2.title')}</div>
+        <div class='pia-onboarding-description'>
+          ${this._translateService.instant('onboarding.dashboard.step2.description')}
+        </div>
+        <div class='pia-onboarding-steps'>2/5</div>
+      `,
+        position: 'right'
+      })
+      .addStep({
+        element: document.querySelector('.pia-cardsBlock.pia-editBlock.back'),
+        tooltipClass: 'pia-onboarding-dashboard-3',
+        intro: `
+        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step3.title')}</div>
+        <div class='pia-onboarding-description'>
+          ${this._translateService.instant('onboarding.dashboard.step3.description')}
+        </div>
+        <div class='pia-onboarding-steps'>3/5</div>
+      `,
+        position: 'right'
+      })
+      .addStep({
+        element: document.querySelector('.pia-cardsBlock.pia-editBlock.back'),
+        tooltipClass: 'pia-onboarding-dashboard-4',
+        intro: `
+        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step4.title')}</div>
+        <div class='pia-onboarding-description'>
+          ${this._translateService.instant('onboarding.dashboard.step4.description')}
+        </div>
+        <div class='pia-onboarding-steps'>4/5</div>
+      `,
+        position: 'right'
+      })
+      .addStep({
+        element: document.querySelector('.pia-cardsBlock.pia-editBlock.back'),
+        tooltipClass: 'pia-onboarding-dashboard-5',
+        intro: `
+        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step5.title')}</div>
+        <div class='pia-onboarding-description'>
+          ${this._translateService.instant('onboarding.dashboard.step5.description')}
+        </div>
+        <div class='pia-onboarding-steps'>5/5</div>
+      `,
+        position: 'right'
+      })
+      .onbeforechange(targetElement => {
+        if (targetElement.classList.contains('back')) {
+          const cardsToSwitch = document.getElementById('cardsSwitch');
+          cardsToSwitch.classList.add('flipped');
+        }
+      })
+      .onexit(() => {
+        localStorage.setItem('onboardingDashboard', 'true');
+      })
+      .setOption('exitOnOverlayClick', false)
+      .setOption('disableInteraction', true)
       .setOption('nextLabel', this._translateService.instant('onboarding.general.next'))
       .setOption('skipLabel', this._translateService.instant('onboarding.general.skip'))
       .setOption('doneLabel', this._translateService.instant('onboarding.general.done'))

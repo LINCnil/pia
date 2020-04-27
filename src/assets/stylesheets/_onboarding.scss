@@ -4,6 +4,7 @@
     font-weight: 600;
     font-size: 15.5px;
     text-transform: uppercase;
+    line-height: 1;
   }
   &-description {
     margin-top: 10px;
@@ -20,39 +21,79 @@
   // DASHBOARD
   &-dashboard {
     &-1 {
-      left: 122px !important;
+      left: 254px !important;
+      top: 110px !important;
     }
     &-2,
     &-3,
     &-4,
     &-5 {
-      top: -28px !important;
+      left: 186px !important;
     }
     &-2 {
-      left: 165px !important;
+      top: 58px !important;
     }
     &-3 {
-      left: 150px !important;
+      top: 96px !important;
     }
     &-4 {
-      left: 150px !important;
+      top: 135px !important;
     }
     &-5 {
-      left: 160px !important;
+      top: 175px !important;
     }
   }
 
-  // TODO
+  // EDITION
+  &-entry {
+    &-1,
+    &-2,
+    &-3,
+    &-4,
+    &-5 {
+      left: 315px !important;
+    }
+    &-1 {
+      top: calc(50% - 53px) !important;
+    }
+    &-2 {
+      top: 120px !important;
+    }
+    &-3 {
+      top: 228px !important;
+    }
+    &-4 {
+      top: 367px !important;
+    }
+    &-5 {
+      top: 530px !important;
+    }
+    &-6 {
+      right: 314px !important;
+      top: 234px !important;
+    }
+    &-7 {
+      right: 314px !important;
+      top: 204px !important;
+    }
+  }
 }
 
 // GLOBAL STYLES FOR ONBOARDING PLUGIN
 .introjs-overlay {
-  background-color: transparent !important;
+  /* background-color: transparent !important; */
 }
 .introjs-helperLayer {
-  background-color: transparent !important;
+  /* background-color: transparent !important;
   border: 0px !important;
-  box-shadow: none !important;
+  box-shadow: none !important; */
+  box-sizing: border-box !important;
+  /* margin-left: 8px; */
+}
+.introjs-helperLayer,
+.introjs-tooltipReferenceLayer,
+.introjs-tooltip {
+  transition: none !important;
 }
 .introjs-helperNumberLayer {
   display: none !important;
@@ -70,12 +111,19 @@
     border: 12px solid transparent;
   }
   .introjs-arrow.left,
+  .introjs-arrow.right,
   .introjs-arrow.left-bottom {
     border-right-color: $pia-green !important;
     left: -24px !important;
     top: 41px !important;
     margin-top: -18px !important;
     bottom: auto !important;
+  }
+  .introjs-arrow.right {
+    left: inherit !important;
+    right: -24px;
+    border-left-color: $pia-green !important;
+    border-right-color: transparent !important;
   }
   .introjs-tooltiptext {
     color: white;

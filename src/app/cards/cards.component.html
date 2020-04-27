@@ -92,13 +92,12 @@
             <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_pia' | translate }}</div>
             <div class="pia-newBlock-item-new-btn">
               <i class="fa fa-folder-open" aria-hidden="true"></i>
-              <button class="btn" (click)="newPIA()" type="button" title="{{ 'homepage.cards.placeholder_new_pia' | translate }}">
-                <span class="pia-icons pia-icon-pia-plus"
-                      data-tooltipclass='pia-onboarding-dashboard-1'
-                      attr.data-intro="<div class='pia-onboarding-title'>{{ 'onboarding.dashboard.step1.title' | translate }}</div>
-                                      <div class='pia-onboarding-description'>{{ 'onboarding.dashboard.step1.description' | translate }}</div>
-                                      <div class='pia-onboarding-steps'>1/5</div>"
-                      data-position='right'></span>
+              <button
+                class="btn"
+                (click)="newPIA()"
+                type="button"
+                title="{{ 'homepage.cards.placeholder_new_pia' | translate }}">
+                <span class="pia-icons pia-icon-pia-plus"></span>
               </button>
             </div>
           </div>
