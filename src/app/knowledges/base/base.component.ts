@@ -176,26 +176,32 @@ export class BaseComponent implements OnInit {
     this.focusOut();
   }
 
-  globalCheckingElementInDataSection(dataSection, e = null) {
-    let ar = this.itemsSelected;
-    // if(e.target.checked) { // add Items
-    dataSection.items.forEach(dataItem => {
-      let temp = ar.findIndex(e => e == dataSection.id.toString() + dataItem.id.toString());
-      if (temp == -1) {
-        ar.push(dataSection.id.toString() + dataItem.id.toString());
+  globalCheckingElementInDataSection(dataSection, e) {
+    const checkboxStatus = e.target.checked;
+    const checkboxes = e.target.parentNode.parentNode
+      .querySelector('.pia-knowledges_base-form-checkboxes-list')
+      .querySelectorAll('[type="checkbox"]');
+    if (checkboxes) {
+      checkboxes.forEach((checkboxElement: HTMLInputElement) => {
+        if (checkboxStatus && !checkboxElement.checked) {
+          checkboxElement.click();
+        } else if (!checkboxStatus && checkboxElement.checked) {
+          checkboxElement.click();
+        }
+      });
+    }
+  }
+
+  /*
+   * Checked the parent checkbox attribute
+   */
+  sectionCheckedVerification(dataSection) {
+    let checked = true;
+    dataSection.items.forEach(item => {
+      if (!this.itemsSelected.includes(`${dataSection.id}${item.id}`)) {
+        checked = false;
       }
     });
-    // } else {
-    //   dataSection.items.forEach(dataItem => {
-    //     let temp = ar.findIndex(e => e == dataSection.id.toString() + dataItem.id.toString());
-    //     if (temp !== -1){
-    //       ar.splice(temp)
-    //     }
-    //   })
-    // }
-    console.log(this.itemsSelected);
-    this.itemsSelected = ar;
-    console.log(this.itemsSelected);
-    this.focusOut();
+    return checked;
   }
 }
