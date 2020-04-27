@@ -133,111 +133,190 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     this.subscription.unsubscribe();
   }
 
-  ngAfterContentInit() {
+  ngAfterViewInit() {
     // init INTRO JS in this component
     setTimeout(() => {
-      // SET STEP
-      const intro = introJs();
-      intro.addStep({
-        element: document.querySelector('.pia-sectionsBlock'),
-        tooltipClass: 'pia-onboarding-entry-1',
-        intro: `
-          <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step1.title')}</div>
-          <div class='pia-onboarding-description'>
-            ${this._translateService.instant('onboarding.entry.step1.description')}
-          </div>
-          <div class='pia-onboarding-steps'>1/7</div>
-        `,
-        position: 'right'
-      });
-      intro.addStep({
-        tooltipClass: 'pia-onboarding-entry-2',
-        element: document.querySelector('.pia-sectionsBlock'),
-        intro: `
-          <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step2.title')}</div>
-          <div class='pia-onboarding-description'>
-            ${this._translateService.instant('onboarding.entry.step2.description')}
-          </div>
-          <div class='pia-onboarding-steps'>2/7</div>
-        `,
-        position: 'right'
-      });
-      intro.addStep({
-        tooltipClass: 'pia-onboarding-entry-3',
-        element: document.querySelector('.pia-sectionsBlock'),
-        intro: `
-          <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step3.title')}</div>
-          <div class='pia-onboarding-description'>
-            ${this._translateService.instant('onboarding.entry.step3.description')}
-          </div>
-          <div class='pia-onboarding-steps'>3/7</div>
-        `,
-        position: 'right'
-      });
-      intro.addStep({
-        tooltipClass: 'pia-onboarding-entry-4',
-        element: document.querySelector('.pia-sectionsBlock'),
-        intro: `
-          <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step4.title')}</div>
-          <div class='pia-onboarding-description'>
-            ${this._translateService.instant('onboarding.entry.step4.description')}
-          </div>
-          <div class='pia-onboarding-steps'>4/7</div>
-        `,
-        position: 'right'
-      });
-      intro.addStep({
-        tooltipClass: 'pia-onboarding-entry-5',
-        element: document.querySelector('.pia-sectionsBlock'),
-        intro: `
-          <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step5.title')}</div>
-          <div class='pia-onboarding-description'>
-            ${this._translateService.instant('onboarding.entry.step5.description')}
-          </div>
-          <div class='pia-onboarding-steps'>5/7</div>
-        `,
-        position: 'right'
-      });
-      intro.addStep({
-        tooltipClass: 'pia-onboarding-entry-6',
-        element: document.querySelector('.pia-rightSidebarBlock-content'),
-        intro: `
-          <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step6.title')}</div>
-          <div class='pia-onboarding-description'>
-            ${this._translateService.instant('onboarding.entry.step6.description')}
-          </div>
-          <div class='pia-onboarding-steps'>6/7</div>
-        `,
-        position: 'left'
-      });
-      intro.addStep({
-        tooltipClass: 'pia-onboarding-entry-7',
-        element: document.querySelector('.pia-rightSidebarBlock-content'),
-        intro: `
-          <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step7.title')}</div>
-          <div class='pia-onboarding-description'>
-            ${this._translateService.instant('onboarding.entry.step7.description')}
-          </div>
-          <div class='pia-onboarding-steps'>7/7</div>
-        `,
-        position: 'left'
-      });
-      intro.onchange(targetElement => {
-        if (intro._currentStep == 6) {
-          this.sideView = 'export';
+      const sectionItem = this.route.snapshot.params.section_id + '.' + this.route.snapshot.params.item_id;
+      console.log(sectionItem, this._sidStatusService.itemStatus[sectionItem]);
+      const introJSFUNCTION = introJs();
+
+      if (this._sidStatusService.itemStatus[sectionItem] && this._sidStatusService.itemStatus[sectionItem] >= 6) {
+        // EVALUATION ONBOARDING
+        console.log('EVALUATION ONBOARDING');
+        introJSFUNCTION
+          .addStep({
+            tooltipclass: 'pia-onboarding-evaluation-step-1',
+            element: document.querySelectorAll('.pia-evaluationBlock')[0],
+            intro: `
+              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step1.title')}</div>
+              <div class='pia-onboarding-description'>
+                ${this._translateService.instant('onboarding.evaluation.step1.description')}
+              </div>
+              <div class='pia-onboarding-steps'>1/4</div>
+            `,
+            position: 'top'
+          })
+          .addStep({
+            // Cancel btn
+            tooltipclass: 'pia-onboarding-evaluation-step-1',
+            element: document.querySelectorAll('.pia-evaluationBlock-buttons button')[0],
+            intro: `
+              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step2.title')}</div>
+              <div class='pia-onboarding-description'>
+                ${this._translateService.instant('onboarding.evaluation.step2.description')}
+              </div>
+              <div class='pia-onboarding-steps'>2/4</div>
+            `,
+            position: 'top'
+          });
+
+        // to eval btn
+        if (document.querySelectorAll('.pia-evaluationBlock-buttons button').length > 3) {
+          introJSFUNCTION
+            .addStep({
+              tooltipclass: 'pia-onboarding-evaluation-step-1',
+              element: document.querySelectorAll('.pia-evaluationBlock-buttons button')[1],
+              intro: `
+                  <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step3.title')}</div>
+                  <div class='pia-onboarding-description'>
+                    ${this._translateService.instant('onboarding.evaluation.step3.description')}
+                  </div>
+                  <div class='pia-onboarding-steps'>3/4</div>
+                `,
+              position: 'top'
+            })
+            .addStep({
+              tooltipclass: 'pia-onboarding-evaluation-step-1',
+              element: document.querySelectorAll('.pia-evaluationBlock-buttons button')[2],
+              intro: `
+                  <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step4.title')}</div>
+                  <div class='pia-onboarding-description'>
+                    ${this._translateService.instant('onboarding.evaluation.step4.description')}
+                  </div>
+                  <div class='pia-onboarding-steps'>4/4</div>
+                `,
+              position: 'top'
+            });
+        } else {
+          introJSFUNCTION.addStep({
+            tooltipclass: 'pia-onboarding-evaluation-step-1',
+            element: document.querySelectorAll('.pia-evaluationBlock-buttons button')[1],
+            intro: `
+                  <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step4.title')}</div>
+                  <div class='pia-onboarding-description'>
+                    ${this._translateService.instant('onboarding.evaluation.step4.description')}
+                  </div>
+                  <div class='pia-onboarding-steps'>4/4</div>
+                `,
+            position: 'top'
+          });
         }
-      });
-      intro.onexit(() => {
-        this.sideView = 'knowledge';
-      });
-      intro.setOption('exitOnOverlayClick', false);
-      intro.setOption('disableInteraction', true);
-      intro.setOption('nextLabel', this._translateService.instant('onboarding.general.next'));
-      intro.setOption('skipLabel', this._translateService.instant('onboarding.general.skip'));
-      intro.setOption('doneLabel', this._translateService.instant('onboarding.general.done'));
-      intro.setOption('showBullets', false);
-      intro.start();
-    }, 3000);
+      } else {
+        // ENTRY ONBOARDING
+        console.log('ENTRY ONBOARDING');
+        introJSFUNCTION
+          .addStep({
+            tooltipclass: 'pia-onboarding-entry-step-1',
+            element: document.querySelectorAll('.pia-sectionsBlock')[0],
+            intro: `
+              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step1.title')}</div>
+              <div class='pia-onboarding-description'>
+                ${this._translateService.instant('onboarding.entry.step1.description')}
+              </div>
+              <div class='pia-onboarding-steps'>1/7</div>
+            `,
+            position: 'right'
+          })
+          .addStep({
+            tooltipclass: 'pia-onboarding-entry-step-2',
+            element: document.querySelectorAll('.sections-1-title')[0],
+            intro: `
+              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step2.title')}</div>
+              <div class='pia-onboarding-description'>
+                ${this._translateService.instant('onboarding.entry.step2.description')}
+              </div>
+              <div class='pia-onboarding-steps'>2/7</div>
+            `,
+            position: 'right'
+          })
+          .addStep({
+            tooltipclass: 'pia-onboarding-entry-step-3',
+            element: document.querySelectorAll('.sections-2-title')[0],
+            intro: `
+              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step3.title')}</div>
+              <div class='pia-onboarding-description'>
+                ${this._translateService.instant('onboarding.entry.step3.description')}
+              </div>
+              <div class='pia-onboarding-steps'>3/7</div>
+            `,
+            position: 'right'
+          })
+          .addStep({
+            tooltipclass: 'pia-onboarding-entry-step-4',
+            element: document.querySelectorAll('.sections-3-title')[0],
+            intro: `
+              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step4.title')}</div>
+              <div class='pia-onboarding-description'>
+                ${this._translateService.instant('onboarding.entry.step4.description')}
+              </div>
+              <div class='pia-onboarding-steps'>4/7</div>
+            `,
+            position: 'right'
+          })
+          .addStep({
+            tooltipclass: 'pia-onboarding-entry-step-5',
+            element: document.querySelectorAll('.sections-4-title')[0],
+            intro: `
+              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step5.title')}</div>
+              <div class='pia-onboarding-description'>
+                ${this._translateService.instant('onboarding.entry.step5.description')}
+              </div>
+              <div class='pia-onboarding-steps'>5/7</div>
+            `,
+            position: 'right'
+          })
+          .addStep({
+            tooltipclass: 'pia-onboarding-entry-knowledgebase',
+            element: document.querySelectorAll('.pia-knowledgeBaseBlock')[0],
+            intro: `
+              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step6.title')}</div>
+              <div class='pia-onboarding-description'>
+                ${this._translateService.instant('onboarding.entry.step6.description')}
+              </div>
+              <div class='pia-onboarding-steps'>6/7</div>
+            `,
+            position: 'left'
+          })
+          .addStep({
+            tooltipclass: 'pia-onboarding-entry-export',
+            element: document.querySelectorAll('.pia-export')[0],
+            intro: `
+              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step7.title')}</div>
+              <div class='pia-onboarding-description'>
+                ${this._translateService.instant('onboarding.entry.step7.description')}
+              </div>
+              <div class='pia-onboarding-steps'>7/7</div>
+            `,
+            position: 'left'
+          })
+          .onbeforechange(targetElement => {
+            if (targetElement.classList.contains('pia-export')) {
+              this.sideView = 'export';
+            }
+          })
+          .onexit(() => {
+            this.sideView = 'knowledge';
+          });
+      }
+      // SET STEP
+
+      introJSFUNCTION
+        .setOption('nextLabel', 'SUIVANT')
+        .setOption('skipLabel', 'PASSER')
+        .setOption('doneLabel', 'TERMINER')
+        .setOption('showBullets', false)
+        .start();
+    }, 6000);
   }
 
   /**

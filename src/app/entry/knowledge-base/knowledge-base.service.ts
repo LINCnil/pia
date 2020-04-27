@@ -36,7 +36,6 @@ export class KnowledgeBaseService {
    */
   switch(params) {
     return new Promise((resolve, reject) => {
-      console.log('switch', params);
       if (parseInt(params) !== 0) {
         this._knowledgesService
           .getEntries(parseInt(params))
@@ -107,7 +106,6 @@ export class KnowledgeBaseService {
    * @param {*} [event] - List of Events.
    */
   loadByItem(item: any, event?: any) {
-    console.log('load  by item');
     if (this.allKnowledgeBaseData && item) {
       this.knowledgeBaseData = this.allKnowledgeBaseData;
       let kbSlugs = [];
