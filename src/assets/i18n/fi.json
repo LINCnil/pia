@@ -143,10 +143,10 @@
 		"logo_title": "Tietosuojaa koskeva vaikutustenarviointi",
 		"structures": "PIA templates",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Tietoa ohjelmasta",
 			"accessibility": "Visuaaliset helppokäyttöisyysasetukset (suuri kontrasti, värisokeus)",
 			"settings": "Asetukset",
-			"title": "Työkalut",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

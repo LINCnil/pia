@@ -143,10 +143,10 @@
 		"logo_title": "Ocena skutków dla ochrony prywatności",
 		"structures": "Szablony PIA",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "O aplikacji",
 			"accessibility": "Dostępność dla osób słabowidzących (kolory o mocnym kontraście, dopasowane do daltonizmu)",
 			"settings": "Ustawienia",
-			"title": "Narzędzia",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

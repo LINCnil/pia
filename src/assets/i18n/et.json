@@ -143,10 +143,10 @@
 		"logo_title": "Andmekaitsealane mõjuhinnag",
 		"structures": "Vormid",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Tarkvarast",
 			"accessibility": "Vaegnägijale",
 			"settings": "Seaded",
-			"title": "Tööriistad",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

@@ -143,10 +143,10 @@
 		"logo_title": "Privacy impact assessment",
 		"structures": "PIA templates",
 		"tools": {
+      "onboarding": "Restart tutorial",
 			"about": "About",
 			"accessibility": "Visually impaired accessibility (high contrast colors, daltonism)",
 			"settings": "Settings",
-			"title": "Tools",
 			"url_setting": "Server URL configuration"
 		}
 	},

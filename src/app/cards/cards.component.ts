@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, OnDestroy, Input, DoCheck } from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -19,7 +19,7 @@ import * as introJs from 'intro.js/intro.js';
   styleUrls: ['./cards.component.scss'],
   providers: [PiaService, StructureService]
 })
-export class CardsComponent implements OnInit, OnDestroy, DoCheck {
+export class CardsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   newPia: Pia;
   piaForm: FormGroup;
@@ -88,14 +88,8 @@ export class CardsComponent implements OnInit, OnDestroy, DoCheck {
     this.paramsSubscribe.unsubscribe();
   }
 
-  ngDoCheck() {
-    if (!localStorage.getItem('onboardingDashboard')) {
-      /* this.initializeOnboarding(); */
-    }
-  }
-
   ngAfterViewInit() {
-    if (!localStorage.getItem('onboardingDashboard')) {
+    if (!localStorage.getItem('onboardingDashboardConfirmed')) {
       this.initializeOnboarding();
     }
   }
@@ -169,7 +163,7 @@ export class CardsComponent implements OnInit, OnDestroy, DoCheck {
         }
       })
       .onexit(() => {
-        localStorage.setItem('onboardingDashboard', 'true');
+        localStorage.setItem('onboardingDashboardConfirmed', 'true');
       })
       .setOption('exitOnOverlayClick', false)
       .setOption('disableInteraction', true)

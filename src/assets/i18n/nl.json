@@ -143,10 +143,10 @@
 		"logo_title": "Privacy Impact Assessment",
 		"structures": "PIA-sjablonen",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Over",
 			"accessibility": "Toegang voor slechtzienden (kleuren met hoog contrast, daltonisme)",
 			"settings": "Instellingen",
-			"title": "Tools",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

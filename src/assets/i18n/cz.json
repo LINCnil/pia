@@ -143,10 +143,10 @@
 		"logo_title": "Posouzení dopadů na soukromí",
 		"structures": "TO TRANSLATE - PIA templates",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "O nás",
 			"accessibility": "Dostupnost pro zrakově postižené (barvy s vysokým kontrastem, daltonismem)",
 			"settings": "TO TRANSLATE - Settings",
-			"title": "Nástroje",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
