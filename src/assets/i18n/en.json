@@ -1449,5 +1449,34 @@
 		},
 		"validated_pia_with_signature": "Approved",
 		"waiting_for_signature": "Pending signed PIA"
-	}
+	},
+  "onboarding": {
+    "general": {
+      "next": "Next",
+      "skip": "Skip",
+      "done": "Confirm"
+    },
+    "dashboard": {
+      "step1": {
+        "title": "Create a PIA",
+        "description": "Click on the <strong>+</strong> to create your first PIA."
+      },
+      "step2": {
+        "title": "Roles around the PIA",
+        "description": "<p><strong>Editors</strong> are...</p><p>TODO...</p>"
+      },
+      "step3": {
+        "title": "Roles around the PIA",
+        "description": "<p><strong>Reviewers</strong> are ...</p><p>TODO...</p>"
+      },
+      "step4": {
+        "title": "Roles around the PIA",
+        "description": "<p><strong>Validators</strong> are ...</p><p>TODO...</p>"
+      },
+      "step5": {
+        "title": "Modeles",
+        "description": "<p><strong>Models</strong> are...</p>"
+      }
+    }
+  }
 }

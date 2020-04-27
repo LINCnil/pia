@@ -21,23 +21,24 @@
   &-dashboard {
     &-1 {
       left: 122px !important;
-      top: -25px !important;
+    }
+    &-2,
+    &-3,
+    &-4,
+    &-5 {
+      top: -28px !important;
     }
     &-2 {
-      left: -95px !important;
-      top: -70px !important;
+      left: 165px !important;
     }
     &-3 {
       left: 150px !important;
-      top: -95px !important;
     }
     &-4 {
       left: 150px !important;
-      top: -76px !important;
     }
     &-5 {
       left: 160px !important;
-      top: -90px !important;
     }
   }
 
@@ -66,13 +67,13 @@
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4) !important;
   // SMALL ARROWS
   .introjs-arrow {
-    border: 18px solid transparent;
+    border: 12px solid transparent;
   }
   .introjs-arrow.left,
   .introjs-arrow.left-bottom {
     border-right-color: $pia-green !important;
-    left: -35px !important;
-    top: 50% !important;
+    left: -24px !important;
+    top: 41px !important;
     margin-top: -18px !important;
     bottom: auto !important;
   }

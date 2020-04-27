@@ -121,46 +121,61 @@
                 <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
                 <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>
               </div>
-              <span data-tooltipclass='pia-onboarding-dashboard-2'
-                    attr.data-intro="<div class='pia-onboarding-title'>{{ 'onboarding.dashboard.step2.title' | translate }}</div>
-                                    <div class='pia-onboarding-description'>{{ 'onboarding.dashboard.step2.description' | translate }}</div>
-                                    <div class='pia-onboarding-steps'>2/5</div>"
-                    data-position='right'>
-              </span>
               <div>
                 <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
-                <input formControlName="author_name" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="author_name" required>
+                <input
+                  formControlName="author_name"
+                  type="text"
+                  placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
+                  id="author_name"
+                  required
+                  data-tooltipclass='pia-onboarding-dashboard-2'
+                  attr.data-intro="<div class='pia-onboarding-title'>{{ 'onboarding.dashboard.step2.title' | translate }}</div>
+                                  <div class='pia-onboarding-description'>{{ 'onboarding.dashboard.step2.description' | translate }}</div>
+                                  <div class='pia-onboarding-steps'>2/5</div>"
+                  data-position="right">
               </div>
-              <span data-tooltipclass='pia-onboarding-dashboard-3'
-                    attr.data-intro="<div class='pia-onboarding-title'>{{ 'onboarding.dashboard.step3.title' | translate }}</div>
-                                    <div class='pia-onboarding-description'>{{ 'onboarding.dashboard.step3.description' | translate }}</div>
-                                    <div class='pia-onboarding-steps'>3/5</div>"
-                    data-position='right'>
-              </span>
               <div>
                 <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
-                <input formControlName="evaluator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="evaluator_name" required>
+                <input
+                  formControlName="evaluator_name"
+                  type="text"
+                  placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
+                  id="evaluator_name"
+                  required
+                  data-tooltipclass='pia-onboarding-dashboard-3'
+                  attr.data-intro="<div class='pia-onboarding-title'>{{ 'onboarding.dashboard.step3.title' | translate }}</div>
+                                  <div class='pia-onboarding-description'>{{ 'onboarding.dashboard.step3.description' | translate }}</div>
+                                  <div class='pia-onboarding-steps'>3/5</div>"
+                  data-position='right'>
               </div>
-              <span data-tooltipclass='pia-onboarding-dashboard-4'
-                    attr.data-intro="<div class='pia-onboarding-title'>{{ 'onboarding.dashboard.step4.title' | translate }}</div>
-                                    <div class='pia-onboarding-description'>{{ 'onboarding.dashboard.step4.description' | translate }}</div>
-                                    <div class='pia-onboarding-steps'>4/5</div>"
-                    data-position='right'>
-              </span>
               <div>
                 <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
-                <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
+                <input
+                  formControlName="validator_name"
+                  type="text"
+                  placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
+                  id="validator_name"
+                  required
+                  data-tooltipclass='pia-onboarding-dashboard-4'
+                  attr.data-intro="<div class='pia-onboarding-title'>{{ 'onboarding.dashboard.step4.title' | translate }}</div>
+                                  <div class='pia-onboarding-description'>{{ 'onboarding.dashboard.step4.description' | translate }}</div>
+                                  <div class='pia-onboarding-steps'>4/5</div>"
+                  data-position='right'>
               </div>
               <div>
                 <label for="category">{{ 'homepage.cards.category' | translate }}</label>
-                <input formControlName="category" type="text" placeholder="{{ 'homepage.cards.placeholder_category' | translate }}" id="category">
+                <input
+                  formControlName="category"
+                  type="text"
+                  placeholder="{{ 'homepage.cards.placeholder_category' | translate }}"
+                  id="category"
+                  data-tooltipclass='pia-onboarding-dashboard-5'
+                  attr.data-intro="<div class='pia-onboarding-title'>{{ 'onboarding.dashboard.step5.title' | translate }}</div>
+                                  <div class='pia-onboarding-description'>{{ 'onboarding.dashboard.step5.description' | translate }}</div>
+                                  <div class='pia-onboarding-steps'>5/5</div>"
+                  data-position='right'>
               </div>
-              <span data-tooltipclass='pia-onboarding-dashboard-5'
-                    attr.data-intro="<div class='pia-onboarding-title'>{{ 'onboarding.dashboard.step5.title' | translate }}</div>
-                                    <div class='pia-onboarding-description'>{{ 'onboarding.dashboard.step5.description' | translate }}</div>
-                                    <div class='pia-onboarding-steps'>5/5</div>"
-                    data-position='right'>
-              </span>
               <div>
                 <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>
                 <div  class="pia-structure-wrapper">
@@ -174,13 +189,6 @@
                 <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
               </div>
             </form>
-          </div>
-        </div>
-        <div class="pia-newBlock-hint" *ngIf="_piaService.pias && _piaService.pias.length === 0" id="pia-rocket">
-          <span class="pia-icons pia-icon-small-arrow"></span>
-          <div>
-            <span class="pia-icons pia-icon-rocket"></span>
-            <p [innerHTML]="'homepage.filters.card_rocket_content' | translate"></p>
           </div>
         </div>
       </div>
