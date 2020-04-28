@@ -63,7 +63,6 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     private _introjsService: IntrojsService
   ) {
     this._introjsService.entrySideViewChange.subscribe(value => {
-      console.log('hah');
       this.sideView = value;
     });
   }

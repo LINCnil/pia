@@ -52,8 +52,8 @@ export class IntrojsService {
   }
 
   private prepareEntryOnBoarding() {
-    console.log('onBoarding entry', document.querySelectorAll('.pia-sectionsBlock')[0]);
-    let INTROJS = introJs();
+    var i = 0;
+    const INTROJS = introJs();
     INTROJS.addStep({
       tooltipclass: 'pia-onboarding-entry-step-1',
       element: document.querySelectorAll('.pia-sectionsBlock')[0],
@@ -116,7 +116,7 @@ export class IntrojsService {
       })
       .addStep({
         tooltipclass: 'pia-onboarding-entry-knowledgebase',
-        element: document.querySelectorAll('.pia-knowledgeBaseBlock')[0],
+        element: document.querySelectorAll('.pia-rightSidebarBlock')[0],
         intro: `
           <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step6.title')}</div>
           <div class='pia-onboarding-description'>
@@ -128,7 +128,7 @@ export class IntrojsService {
       })
       .addStep({
         tooltipclass: 'pia-onboarding-entry-export',
-        element: document.querySelectorAll('.pia-export')[0],
+        element: document.querySelectorAll('.pia-rightSidebarBlock')[0],
         intro: `
           <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step7.title')}</div>
           <div class='pia-onboarding-description'>
@@ -139,8 +139,13 @@ export class IntrojsService {
         position: 'left'
       })
       .onbeforechange(targetElement => {
-        if (targetElement.classList.contains('pia-export')) {
-          this.entrySideViewChange.next('export');
+        // console.log(targetElement)
+        // console.log(i, targetElement.classList.contains('pia-rightSidebarBlock'))
+        if (targetElement.classList.contains('pia-rightSidebarBlock')) {
+          if (i == 1) {
+            this.entrySideViewChange.next('export');
+          }
+          i++;
         }
       })
       .onexit(() => {
@@ -154,7 +159,6 @@ export class IntrojsService {
   }
 
   private prepareEvaluationsOnBoarding() {
-    console.log('intro eval');
     let INTROJS = introJs();
     INTROJS.addStep({
       tooltipclass: 'pia-onboarding-evaluation-step-1',
@@ -231,13 +235,13 @@ export class IntrojsService {
     switch (onBoarding) {
       case 'entry':
         setTimeout(() => {
-          console.log('start onBoarding entry', document.querySelectorAll('.pia-sectionsBlock')[0]);
+          // console.log('start onBoarding entry', document.querySelectorAll('.pia-sectionsBlock')[0]);
           this.prepareEntryOnBoarding();
         }, 1000);
         break;
       case 'evaluation':
         setTimeout(() => {
-          console.log('start onBoarding evaluation', document.querySelectorAll('.pia-evaluationBlock')[0]);
+          // console.log('start onBoarding evaluation', document.querySelectorAll('.pia-evaluationBlock')[0]);
           this.prepareEvaluationsOnBoarding();
         }, 1000);
         break;
