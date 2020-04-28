@@ -143,10 +143,10 @@
 		"logo_title": "Analiza impactului asupra confidențialității datelor",
 		"structures": "PIA templates",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Despre",
 			"accessibility": "Accesibilitate deficiențe vizuale (contrast ridicat, daltonism)",
 			"settings": "Setări",
-			"title": "Instrumente",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

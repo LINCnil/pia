@@ -143,10 +143,10 @@
 		"logo_title": "Poveikio duomenų apsaugai vertinimas",
 		"structures": "PDAV šablonas",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Apie",
 			"accessibility": "Regėjimo sutrikimą turintiems (padidinto ryškumo spalvos, daltonismas)",
 			"settings": "Nustatymai",
-			"title": "Įrankiai",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

@@ -144,10 +144,10 @@
 		"structures": "Modèles de PIA",
 		"knowledges": "Base de connaissance",
 		"tools": {
+      "onboarding": "Relancer le tutoriel",
 			"about": "À propos",
 			"accessibility": "Accessibilité malvoyants (couleurs à contraste fort, adapté daltonisme)",
 			"settings": "Paramètres",
-			"title": "Outils",
 			"url_setting": "Configuration URL serveur"
 		}
 	},

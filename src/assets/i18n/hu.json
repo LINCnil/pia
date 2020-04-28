@@ -143,10 +143,10 @@
 		"logo_title": "Adatvédelmi hatásvizsgálat",
 		"structures": "PIA templates",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Rólunk",
 			"accessibility": "Hozzáférés látássérülteknek (erős színkontraszt, daltonizmus)",
 			"settings": "Beállítások",
-			"title": "Eszköztár",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

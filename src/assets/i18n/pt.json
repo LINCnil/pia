@@ -143,10 +143,10 @@
 		"logo_title": "Avaliação de Impacto da Proteção de Dados",
 		"structures": "Modelos de PIA",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Sobre",
 			"accessibility": "Acessibilidade para pessoas com deficiência visual (cores de alto contraste, daltonismo)",
 			"settings": "Definições",
-			"title": "Ferramentas",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

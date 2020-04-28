@@ -143,10 +143,10 @@
 		"logo_title": "DSFA - Datenschutz-Folgenabschätzung",
 		"structures": "DSFA-Vorlagen",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Über",
 			"accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
 			"settings": "Einstellungen",
-			"title": "Tools",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

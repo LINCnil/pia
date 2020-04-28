@@ -143,10 +143,10 @@
 		"logo_title": "Evaluación de impacto de la privacidad",
 		"structures": "Modelos PIA",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Acerca de",
 			"accessibility": "Accesibilidad para personas con discapacidad visual (colores de alto contraste, daltonismo)",
 			"settings": "Ajustes",
-			"title": "Herramientas",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

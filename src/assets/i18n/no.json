@@ -143,10 +143,10 @@
 		"logo_title": "PIA",
 		"structures": "PIA templates",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Om",
 			"accessibility": "Tilgjengelighet for synshemmede (høykontrastfarger, daltonisme)",
 			"settings": "Innstillinger",
-			"title": "Verktøy",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

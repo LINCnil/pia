@@ -143,10 +143,10 @@
 		"logo_title": "PIA Konsekvensanalyse",
 		"structures": "PIA skabelon",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Om applikationen",
 			"accessibility": "Øget tilgængelighed (høje kontrast farver, daltonism)",
 			"settings": "Konfiguration",
-			"title": "Værktøjer",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},

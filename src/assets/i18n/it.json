@@ -143,10 +143,10 @@
 		"logo_title": "Valutazione d'impatto sulla protezione dei dati",
 		"structures": "Modelli PIA",
 		"tools": {
+      "onboarding": "TO TRANSLATE - Restart tutorial",
 			"about": "Informazioni",
 			"accessibility": "Accessibilità per ipovedenti (colori ad alto contrasto, daltonismo)",
 			"settings": "Impostazioni",
-			"title": "Strumenti",
 			"url_setting": "TO TRANSLATE - Server URL configuration"
 		}
 	},
