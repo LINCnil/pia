@@ -45,9 +45,10 @@ import { ExportComponent } from './shared/export/export.component';
 import { RevisionsComponent } from './shared/revisions/revisions.component';
 import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overlay.component';
 import { KnowledgesService } from './services/knowledges.service';
+import { IntrojsService } from './services/introjs.service';
 
 @NgModule({
-  providers: [KnowledgesService],
+  providers: [KnowledgesService, IntrojsService],
   declarations: [
     AppComponent,
     AuthenticationComponent,

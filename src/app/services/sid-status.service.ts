@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { PiaService } from './pia.service';
+import { IntrojsService } from '../services/introjs.service';
 
 @Injectable()
 export class SidStatusService {
@@ -17,7 +18,7 @@ export class SidStatusService {
   enableDpoValidation: boolean;
   public subject = new Subject();
 
-  constructor(private _globalEvaluationService: GlobalEvaluationService) {
+  constructor(private _introjsService: IntrojsService, private _globalEvaluationService: GlobalEvaluationService) {
     this.specialIcon = {
       '3.5': 'fa-line-chart',
       '4.1': 'fa-line-chart',
@@ -43,6 +44,15 @@ export class SidStatusService {
       if (obj.reference_to && obj.status > 0) {
         this.itemStatus[obj.reference_to] = obj.status;
         this.verifEnableDpo();
+        // this._globalEvaluationService.verification()
+      }
+
+      if (this._introjsService.evaluationsLoaded === null) {
+        if (this._globalEvaluationService.status > 0) {
+          this._introjsService.evaluations(true);
+        } else {
+          this._introjsService.evaluations(false);
+        }
       }
     });
   }

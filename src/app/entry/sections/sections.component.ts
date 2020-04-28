@@ -10,6 +10,8 @@ import { SidStatusService } from 'src/app/services/sid-status.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 
+import { IntrojsService } from '../../services/introjs.service';
+
 @Component({
   selector: 'app-sections',
   templateUrl: './sections.component.html',
@@ -36,7 +38,7 @@ export class SectionsComponent implements OnInit {
     public _piaService: PiaService,
     private _appDataService: AppDataService,
     public _sidStatusService: SidStatusService,
-    private _globalEvaluationService: GlobalEvaluationService
+    private _introjsService: IntrojsService
   ) {}
 
   async ngOnInit() {
@@ -44,12 +46,14 @@ export class SectionsComponent implements OnInit {
     this.data = this._appDataService.dataNav;
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
-        this._sidStatusService.setSidStatus(
-          this._piaService.pia,
-          section,
-          item
-        );
+        this._sidStatusService.setSidStatus(this._piaService.pia, section, item);
       });
     });
+  }
+
+  ngAfterViewChecked() {
+    if (!this._introjsService.sectionsLoaded) {
+      this._introjsService.sections(true);
+    }
   }
 }
