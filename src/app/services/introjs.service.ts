@@ -14,6 +14,9 @@ export class IntrojsService {
   public evaluationsLoaded: Boolean = null;
   evaluationsChange: Subject<any> = new Subject<any>();
 
+  public entrySideView = 'knowledge';
+  entrySideViewChange: Subject<any> = new Subject<any>();
+
   constructor(private router: Router, private _translateService: TranslateService) {
     console.log('Introjs connected');
 
@@ -49,6 +52,7 @@ export class IntrojsService {
   }
 
   private prepareEntryOnBoarding() {
+    console.log('onBoarding entry', document.querySelectorAll('.pia-sectionsBlock')[0]);
     let INTROJS = introJs();
     INTROJS.addStep({
       tooltipclass: 'pia-onboarding-entry-step-1',
@@ -136,9 +140,12 @@ export class IntrojsService {
       })
       .onbeforechange(targetElement => {
         if (targetElement.classList.contains('pia-export')) {
+          this.entrySideViewChange.next('export');
         }
       })
-      .onexit(() => {})
+      .onexit(() => {
+        this.entrySideViewChange.next('knowledge');
+      })
       .setOption('nextLabel', 'SUIVANT')
       .setOption('skipLabel', 'PASSER')
       .setOption('doneLabel', 'TERMINER')

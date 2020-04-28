@@ -44,14 +44,16 @@ export class SidStatusService {
       if (obj.reference_to && obj.status > 0) {
         this.itemStatus[obj.reference_to] = obj.status;
         this.verifEnableDpo();
-        // this._globalEvaluationService.verification()
       }
 
-      if (this._introjsService.evaluationsLoaded === null) {
-        if (this._globalEvaluationService.status > 0) {
-          this._introjsService.evaluations(true);
-        } else {
-          this._introjsService.evaluations(false);
+      if (this._globalEvaluationService.status != undefined) {
+        console.log(this._globalEvaluationService.status, this.itemStatus);
+        if (this._introjsService.evaluationsLoaded === null) {
+          if (this._globalEvaluationService.status > 0) {
+            this._introjsService.evaluations(true);
+          } else {
+            this._introjsService.evaluations(false);
+          }
         }
       }
     });

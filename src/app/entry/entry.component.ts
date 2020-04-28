@@ -16,6 +16,7 @@ import { SidStatusService } from 'src/app/services/sid-status.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { RevisionService } from '../services/revision.service';
 import { TranslateService } from '@ngx-translate/core';
+import { IntrojsService } from '../services/introjs.service';
 
 import * as introJs from 'intro.js/intro.js';
 
@@ -58,8 +59,14 @@ export class EntryComponent implements OnInit, OnDestroy, DoCheck {
     public _revisionService: RevisionService,
     private _measureService: MeasureService,
     private router: Router,
-    private _translateService: TranslateService
-  ) {}
+    private _translateService: TranslateService,
+    private _introjsService: IntrojsService
+  ) {
+    this._introjsService.entrySideViewChange.subscribe(value => {
+      console.log('hah');
+      this.sideView = value;
+    });
+  }
 
   async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params.section_id, 10);
