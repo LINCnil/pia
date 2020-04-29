@@ -216,6 +216,14 @@
   }
 
   &-status-info {
+    color: #686868;
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 15px 1px #d2d2d2;
+    > div {
+      padding: 12px 32px;
+    }
     strong {
       text-transform: uppercase;
     }
@@ -225,12 +233,6 @@
     p {
       margin-bottom: 0;
     }
-    color: #686868;
-    position: relative;
-    margin-bottom: 10px;
-    background-color: #fff;
-    padding: 12px 32px;
-    box-shadow: 1px 1px 15px 1px #d2d2d2;
   }
 }
 .app-risks-cartography {

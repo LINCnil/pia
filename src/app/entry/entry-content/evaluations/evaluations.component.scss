@@ -2,8 +2,10 @@
 .pia {
   &-evaluationBlock {
     position: relative;
-    border-top: 5px solid $pia-red;
     margin: 10px 0;
+    > div {
+      border-top: 5px solid $pia-red;
+    }
     &-title {
       color: $pia-red;
       font-size: 1.75rem;
@@ -25,7 +27,13 @@
       button {
         display: inline-block;
         vertical-align: middle;
-        margin: 0 8px;
+        padding: 9px 10px;
+        margin: 0 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        max-width: 154px;
         &:before {
           font-family: FontAwesome;
           margin-right: 5px;

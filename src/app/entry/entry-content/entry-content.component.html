@@ -36,20 +36,24 @@
 
   <!-- Back to edition -->
   <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && _piaService.pia.is_example !== 1">
-    <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
-    <p>
-      <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
-      <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
-    </p>
+    <div>
+      <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
+      <p>
+        <span [innerHTML]="'pia.sections.status.evaluation.content' | translate"></span>
+        <a href="javascript:;" (click)="cancelAskForEvaluation()" [innerHTML]="'pia.sections.status.evaluation.cancel' | translate"></a>
+      </p>
+    </div>
   </div>
 
   <!-- Back to evaluation -->
   <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 7 && _piaService.pia.is_example !== 1 && !(section.id == 4 && item.id == 3)">
-    <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
-    <p>
-      <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
-      <a href="javascript:;" (click)="cancelValidateEvaluation()" [innerHTML]="'pia.sections.status.validation.cancel' | translate"></a>
-    </p>
+    <div>
+      <strong>{{ 'pia.sections.status.validation.title' | translate }}</strong>
+      <p>
+        <span [innerHTML]="'pia.sections.status.validation.content' | translate"></span>
+        <a href="javascript:;" (click)="cancelValidateEvaluation()" [innerHTML]="'pia.sections.status.validation.cancel' | translate"></a>
+      </p>
+    </div>
   </div>
 
   <ng-container *ngIf="item.is_measure; else appQuestions">
