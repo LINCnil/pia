@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { PiaService } from './pia.service';
 import { IntrojsService } from '../services/introjs.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class SidStatusService {
@@ -18,7 +19,11 @@ export class SidStatusService {
   enableDpoValidation: boolean;
   public subject = new Subject();
 
-  constructor(private _introjsService: IntrojsService, private _globalEvaluationService: GlobalEvaluationService) {
+  constructor(
+    private _introjsService: IntrojsService,
+    private _globalEvaluationService: GlobalEvaluationService,
+    private route: ActivatedRoute
+  ) {
     this.specialIcon = {
       '3.5': 'fa-line-chart',
       '4.1': 'fa-line-chart',
@@ -46,15 +51,21 @@ export class SidStatusService {
         this.verifEnableDpo();
       }
 
-      if (this._globalEvaluationService.status != undefined) {
-        console.log(this._globalEvaluationService.status, this.itemStatus);
-        if (this._introjsService.evaluationsLoaded === null) {
-          if (this._globalEvaluationService.status > 0) {
-            this._introjsService.evaluations(true);
-          } else {
-            this._introjsService.evaluations(false);
+      // Algo for IntroJs: Entry page ? and Evaluation mode ?
+      if (this.route.snapshot.params.id && this.route.snapshot.params.section_id && this.route.snapshot.params.item_id) {
+        if (this._globalEvaluationService.status != undefined) {
+          console.log(this._globalEvaluationService.status, this.itemStatus);
+          if (this._introjsService.evaluationsLoaded === null) {
+            if (this._globalEvaluationService.status > 0) {
+              this._introjsService.evaluations(true);
+            } else {
+              this._introjsService.evaluations(false);
+            }
           }
         }
+      } else {
+        this._introjsService.sectionsLoaded = null;
+        this._introjsService.evaluationsLoaded = null;
       }
     });
   }
