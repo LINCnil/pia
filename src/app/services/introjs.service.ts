@@ -284,46 +284,43 @@ export class IntrojsService {
             <div class='pia-onboarding-steps'>2/${stepsQuantity}</div>
           `,
         position: 'top'
-      })
-        .addStep({
-          // "Action plan" button
-          tooltipClass: 'pia-onboarding-evaluation-step-actionPlanButton',
-          element: document.querySelector('.pia-evaluationBlock > div'),
-          intro: `
+      }).addStep({
+        // "Action plan" button
+        tooltipClass: 'pia-onboarding-evaluation-step-actionPlanButton',
+        element: document.querySelector('.pia-evaluationBlock > div'),
+        intro: `
               <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step3.title')}</div>
               <div class='pia-onboarding-description'>
                 ${this._translateService.instant('onboarding.evaluation.step3.description')}
               </div>
               <div class='pia-onboarding-steps'>3/${stepsQuantity}</div>
             `,
-          position: 'top'
-        })
-        .addStep({
-          // "Acceptable" button
-          tooltipClass: 'pia-onboarding-evaluation-step-acceptableButton-tripleButtons',
-          element: document.querySelector('.pia-evaluationBlock > div'),
-          intro: `
+        position: 'top'
+      }).addStep({
+        // "Acceptable" button
+        tooltipClass: 'pia-onboarding-evaluation-step-acceptableButton-tripleButtons',
+        element: document.querySelector('.pia-evaluationBlock > div'),
+        intro: `
               <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step4.title')}</div>
               <div class='pia-onboarding-description'>
                 ${this._translateService.instant('onboarding.evaluation.step4.description')}
               </div>
               <div class='pia-onboarding-steps'>4/${stepsQuantity}</div>
             `,
-          position: 'top'
-        })
-        .addStep({
-          // Top evaluation block (cancel block)
-          tooltipClass: 'pia-onboarding-evaluation-step-cancelEvaluationBlock',
-          element: document.querySelector('.pia-status-info > div'),
-          intro: `
+        position: 'top'
+      }).addStep({
+        // Top evaluation block (cancel block)
+        tooltipClass: 'pia-onboarding-evaluation-step-cancelEvaluationBlock',
+        element: document.querySelector('.pia-status-info > div'),
+        intro: `
                 <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step5.title')}</div>
                 <div class='pia-onboarding-description'>
                   ${this._translateService.instant('onboarding.evaluation.step5.description')}
                 </div>
                 <div class='pia-onboarding-steps'>5/${stepsQuantity}</div>
               `,
-          position: 'bottom'
-        });
+        position: 'bottom'
+      });
     } else {
       INTROJS.addStep({
         // "Cancel" button
@@ -366,7 +363,7 @@ export class IntrojsService {
     }
     INTROJS.onexit(() => {
       localStorage.setItem('onboardingEvaluationConfirmed', 'true');
-    });
+    })
     INTROJS.setOption('exitOnOverlayClick', false)
       .setOption('disableInteraction', true)
       .setOption('nextLabel', this._translateService.instant('onboarding.general.next'))
