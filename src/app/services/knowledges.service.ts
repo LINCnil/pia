@@ -84,7 +84,7 @@ export class KnowledgesService {
   }
 
   import(data) {
-    let newKnowledgeBase = new KnowledgeBase(data.id, data.name, data.author, data.contributors, data.knowleges);
+    let newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
     newKnowledgeBase
       .create()
       .then(() => {
