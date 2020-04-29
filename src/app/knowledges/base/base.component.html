@@ -96,7 +96,7 @@
               <div class="pia-knowledges_base-form-checkboxes-body">
                 <div *ngFor="let dataSection of data?.sections">
                   <div class="pia-knowledges_base-form-checkboxes-title">
-                    <input type="checkbox" (click)="globalCheckingElementInDataSection(dataSection, $event)" [checked]="sectionCheckedVerification(dataSection)">
+                    <input type="checkbox" [disabled]="lockedChoice" (click)="globalCheckingElementInDataSection(dataSection, $event)" [checked]="sectionCheckedVerification(dataSection)">
                     {{ dataSection.title | translate }}
                     <hr>
                   </div>
@@ -107,7 +107,7 @@
                           <input [checked]="itemsSelected.includes(dataSection.id.toString() + dataItem.id.toString())"
                             (change)="onCheckboxChange($event)" type="checkbox"
                             name="{{dataItem.title}}" id="{{dataItem.title}}"
-                            value="{{dataSection.id.toString() + dataItem.id.toString()}}">
+                            value="{{dataSection.id.toString() + dataItem.id.toString()}}" [disabled]="lockedChoice && dataSection.id.toString() + dataItem.id.toString() !== '31'">
                           <span
                             class="truncate">
                             {{ dataItem.title | translate }} - {{dataSection.id.toString() + dataItem.id.toString()}}</span>
