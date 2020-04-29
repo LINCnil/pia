@@ -337,7 +337,10 @@ export class IntrojsService {
             `,
       position: 'top'
     });
-    INTROJS.setOption('exitOnOverlayClick', false)
+    INTROJS.onexit(() => {
+      localStorage.setItem('onboardingEvaluationConfirmed', 'true');
+    })
+      .setOption('exitOnOverlayClick', false)
       .setOption('disableInteraction', true)
       .setOption('nextLabel', this._translateService.instant('onboarding.general.next'))
       .setOption('skipLabel', this._translateService.instant('onboarding.general.skip'))
@@ -364,9 +367,12 @@ export class IntrojsService {
         }, 1000);
         break;
       case 'evaluation':
-        setTimeout(() => {
-          this.prepareEvaluationsOnBoarding();
-        }, 1000);
+        const LOCALSTORAGE_INTROJS_EVALUATION = localStorage.getItem('onboardingEvaluationConfirmed');
+        if (LOCALSTORAGE_INTROJS_EVALUATION === null || LOCALSTORAGE_INTROJS_EVALUATION === undefined) {
+          setTimeout(() => {
+            this.prepareEvaluationsOnBoarding();
+          }, 1000);
+        }
         break;
       default:
         break;
