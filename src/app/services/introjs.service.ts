@@ -405,9 +405,12 @@ export class IntrojsService {
         }, 1000);
         break;
       case 'validated':
-        setTimeout(() => {
-          this.prepareValidatedOnBoarding();
-        }, 3000);
+        const LOCALSTORAGE_INTROJS_VALIDATED = localStorage.getItem('onboardingValidatedConfirmed');
+        if (LOCALSTORAGE_INTROJS_VALIDATED === null || LOCALSTORAGE_INTROJS_VALIDATED === undefined) {
+          setTimeout(() => {
+            this.prepareValidatedOnBoarding();
+          }, 3000);
+        }
         break;
       case 'evaluation':
         const LOCALSTORAGE_INTROJS_EVALUATION = localStorage.getItem('onboardingEvaluationConfirmed');
