@@ -42,7 +42,6 @@ export class IntrojsService {
 
   public autoSelectOnBoarding() {
     if (this.sectionsLoaded !== null && this.evaluationsLoaded !== null) {
-      console.log('INTRO JS ACTIVATED');
       if (this.evaluationsLoaded === true) {
         this.start('evaluation');
       } else {
@@ -159,6 +158,7 @@ export class IntrojsService {
   }
 
   private prepareEvaluationsOnBoarding() {
+    console.log('evaluation', document.querySelectorAll('.pia-evaluationBlock')[0]);
     let INTROJS = introJs();
     INTROJS.addStep({
       tooltipclass: 'pia-onboarding-evaluation-step-1',
@@ -232,16 +232,17 @@ export class IntrojsService {
   }
 
   public start(onBoarding: string) {
+    console.log('start');
     switch (onBoarding) {
       case 'entry':
         setTimeout(() => {
-          // console.log('start onBoarding entry', document.querySelectorAll('.pia-sectionsBlock')[0]);
+          console.log('start onBoarding entry', document.querySelectorAll('.pia-sectionsBlock')[0]);
           this.prepareEntryOnBoarding();
         }, 1000);
         break;
       case 'evaluation':
         setTimeout(() => {
-          // console.log('start onBoarding evaluation', document.querySelectorAll('.pia-evaluationBlock')[0]);
+          console.log('start onBoarding evaluation', document.querySelectorAll('.pia-evaluationBlock')[0]);
           this.prepareEvaluationsOnBoarding();
         }, 1000);
         break;
