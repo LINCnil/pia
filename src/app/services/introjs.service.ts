@@ -349,6 +349,44 @@ export class IntrojsService {
       .start();
   }
 
+  private prepareValidatedOnBoarding() {
+    const INTROJS = introJs();
+    INTROJS.addStep({
+      tooltipclass: 'pia-onboarding-validated-step-1',
+      element: document.querySelectorAll('.pia-archiveBlock .pia-cardsBlock-item-btn-single')[0],
+      intro: `
+                <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.validated.step1.title')}</div>
+                <div class='pia-onboarding-description'>
+                  ${this._translateService.instant('onboarding.validated.step1.description')}
+                </div>
+                <div class='pia-onboarding-steps'>1/2</div>
+              `,
+      position: 'right'
+    }).addStep({
+      tooltipclass: 'pia-onboarding-validated-step-2',
+      element: document.querySelectorAll('.pia-archiveBlock a.pia-tooltip')[0],
+      intro: `
+                <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.validated.step2.title')}</div>
+                <div class='pia-onboarding-description'>
+                  ${this._translateService.instant('onboarding.validated.step2.description')}
+                </div>
+                <div class='pia-onboarding-steps'>2/2</div>
+              `,
+      position: 'left'
+    });
+
+    INTROJS.onexit(() => {
+      localStorage.setItem('onboardingValidatedConfirmed', 'true');
+    })
+      .setOption('exitOnOverlayClick', false)
+      .setOption('disableInteraction', true)
+      .setOption('nextLabel', this._translateService.instant('onboarding.general.next'))
+      .setOption('skipLabel', this._translateService.instant('onboarding.general.skip'))
+      .setOption('doneLabel', this._translateService.instant('onboarding.general.done'))
+      .setOption('showBullets', false)
+      .start();
+  }
+
   /**
    * Start the corresponding onboarding
    * @param onBoarding the name of the onboarding to start
@@ -365,6 +403,11 @@ export class IntrojsService {
         setTimeout(() => {
           this.prepareEntryOnBoarding();
         }, 1000);
+        break;
+      case 'validated':
+        setTimeout(() => {
+          this.prepareValidatedOnBoarding();
+        }, 3000);
         break;
       case 'evaluation':
         const LOCALSTORAGE_INTROJS_EVALUATION = localStorage.getItem('onboardingEvaluationConfirmed');

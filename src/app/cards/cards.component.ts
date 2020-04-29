@@ -91,11 +91,22 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    if (!localStorage.getItem('onboardingDashboardConfirmed')) {
-      if (localStorage.getItem('homepageDisplayMode') === 'card') {
-        this._introjsService.start('dashboard');
+    const temp = new Pia();
+    temp.getAllActives().then((data: []) => {
+      console.log('data', data);
+      let validated = data.filter((e: Pia) => e.status == 2 || e.status == 3);
+      if (validated.length > 0) {
+        // Validated introjs
+        this._introjsService.start('validated');
+      } else {
+        // dashboard introjs
+        if (!localStorage.getItem('onboardingDashboardConfirmed')) {
+          if (localStorage.getItem('homepageDisplayMode') === 'card') {
+            this._introjsService.start('dashboard');
+          }
+        }
       }
-    }
+    });
   }
 
   /**
