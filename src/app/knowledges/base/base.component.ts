@@ -79,8 +79,6 @@ export class BaseComponent implements OnInit {
         this.filters.push(item.filters);
       }
     }
-    console.log(this.filters);
-
     this.data = this._appDataService.dataNav;
   }
 
@@ -191,7 +189,6 @@ export class BaseComponent implements OnInit {
   }
 
   onCheckboxChange(e) {
-    console.log(e.target.value, e.target.checked);
     let ar = this.itemsSelected;
     if (e.target.checked) {
       ar.push(e.target.value);

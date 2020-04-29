@@ -54,7 +54,6 @@ export class SidStatusService {
       // Algo for IntroJs: Entry page ? and Evaluation mode ?
       if (this.route.snapshot.params.id && this.route.snapshot.params.section_id && this.route.snapshot.params.item_id) {
         if (this._globalEvaluationService.status != undefined) {
-          console.log(this._globalEvaluationService.status, this.itemStatus);
           if (this._introjsService.evaluationsLoaded === null) {
             if (this._globalEvaluationService.status > 0) {
               this._introjsService.evaluations(true);

@@ -120,22 +120,4 @@ export class KnowledgeBase extends ApplicationDb {
       });
     });
   }
-
-  // public addEntry(entry: Knowledge) {
-  //   entry.updated_at = new Date();
-  //   this.knowledges.push(entry);
-  //   this.update()
-  //     .then(() => {
-  //       console.log('okay', this.knowledges);
-  //     })
-  //     .catch(() => {
-  //       console.log('ouipps');
-  //     });
-  // }
-
-  // public updateEntry(index: number, entry: Knowledge) {
-  //   // TODO
-
-  //   this.update();
-  // }
 }
