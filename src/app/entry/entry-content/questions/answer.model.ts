@@ -121,7 +121,6 @@ export class Answer extends ApplicationDb {
         }
       }
     }
-    console.log(formData);
     return formData;
   }
 

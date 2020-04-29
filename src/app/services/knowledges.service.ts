@@ -47,7 +47,6 @@ export class KnowledgesService {
   }
 
   public removeKnowledgeBase() {
-    console.log('selected', this.selected);
     let kbTemp = new KnowledgeBase();
     kbTemp
       .delete(this.selected)
@@ -59,8 +58,8 @@ export class KnowledgesService {
           this._modalsService.closeModal();
         }
       })
-      .catch(() => {
-        console.log('Erreur !');
+      .catch(error => {
+        console.log(error);
       });
   }
 

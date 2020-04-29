@@ -28,11 +28,10 @@ export class CardComponent implements OnInit {
     this._knowledgesService
       .getEntries(this.base.id)
       .then((result: Knowledge[]) => {
-        console.log(result.length, 'ddf');
         this.nbEntries = result.length;
       })
       .catch(err => {
-        console.log('hello');
+        console.log('catch');
       });
   }
 

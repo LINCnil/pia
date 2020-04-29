@@ -216,9 +216,7 @@ export class RevisionPreviewComponent implements OnInit {
 
   public restoreRevision() {
     this._modalsService.closeModal();
-    console.log('hello final');
     this._revisionService.prepareLoadRevision(this.revision.id, this.pia.id).then((createdAt: Date) => {
-      console.log(createdAt);
       this._modalsService.revisionDate = new Date(createdAt);
       this._modalsService.openModal('revision-selection');
     });

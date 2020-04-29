@@ -69,16 +69,16 @@
       top: 530px !important;
     }
     &-6 {
-      right: 314px !important;
+      right: 326px !important;
       top: 234px !important;
     }
     &-7 {
-      right: 314px !important;
+      right: 326px !important;
       top: 204px !important;
     }
   }
 
-  // EVALUATION {
+  // EVALUATION
   &-evaluation {
     &-step {
       &-evaluationBlock,
@@ -121,6 +121,18 @@
           left: 360px !important;
         }
       }
+    }
+  }
+
+  // VALIDATED PIAs
+  &-validated {
+    &-1 {
+      left: 230px !important;
+      top: 361px !important;
+    }
+    &-2 {
+      top: -9px !important;
+      right: 128px !important;
     }
   }
 }

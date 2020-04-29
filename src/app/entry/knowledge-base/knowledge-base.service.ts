@@ -59,7 +59,6 @@ export class KnowledgeBaseService {
             this.knowledgeBaseData = newBase;
             this.allKnowledgeBaseData = newBase;
             this.previousKnowledgeBaseData = newBase;
-            console.log(this.knowledgeBaseData);
             resolve(true);
           })
           .catch(err => {

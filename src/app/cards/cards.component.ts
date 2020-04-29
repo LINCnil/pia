@@ -93,7 +93,6 @@ export class CardsComponent implements OnInit, OnDestroy {
   ngAfterViewInit() {
     const temp = new Pia();
     temp.getAllActives().then((data: []) => {
-      console.log('data', data);
       let validated = data.filter((e: Pia) => e.status == 2 || e.status == 3);
       if (validated.length > 0) {
         // Validated introjs
