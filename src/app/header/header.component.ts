@@ -72,6 +72,7 @@ export class HeaderComponent implements OnInit {
    */
   restartOnboarding() {
     localStorage.removeItem('onboardingDashboardConfirmed');
+    localStorage.removeItem('onboardingEntryConfirmed');
     location.reload();
   }
 

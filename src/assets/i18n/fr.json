@@ -1530,24 +1530,34 @@
 		},
 		"evaluation": {
 			"step1": {
-				"title": "Evaluation de l'AIPD",
-				"description": "Blabla blabla blabla"
+				"title": "Évaluer l'AIPD",
+				"description": "L'évaluation peut se faire au niveau d'une section entière, ou bien au niveau de chaque élément d'une section."
 			},
 			"step2": {
-				"title": "A corriger",
-				"description": "Blabla blabla blabla"
+				"title": "À corriger",
+				"description": "<p>Cette évaluation indique aux rédacteurs que des éléments sont manquants pour pouvoir faire une évaluation pertinente.</p><p>L'évaluateur doit indiquer ceux-ci dans le champ <strong>commentaire d'évaluation</strong> associé. Le rédacteur reverra sa copie en fonction.</p>"
 			},
 			"step3": {
 				"title": "Améliorable",
-				"description": "Blabla blabla blabla"
+				"description": "<p>Cette évaluation indique les points du traitement à réviser et sont détaillés dans le champ <strong>plan d'action / mesures correctives</strong>.</p><p>Ces mesures seront ajoutées automatiquement à la partie plan d'action de l'analyse. Il est nécessaire de les mettre en oeuvre dans les plus brefs délais.</p>"
 			},
 			"step4": {
 				"title": "Acceptable",
-				"description": "Blabla blabla blabla"
+				"description": "Cette évaluation signifie que, en l'état, ce point du traitement peut être mis en oeuvre sans y apporter de modifications."
 			},
 			"step5": {
 				"title": "Annuler une demande",
-				"description": "Blabla blabla blabla"
+				"description": "Si l'évaluation d'une section n'a pas encore commencé, il est possible d'annuler la demande d'évaluation pour apporter des modifications à la description du traitement."
+			}
+    },
+    "validated": {
+			"step1": {
+				"title": "Consulter une AIPD validée",
+				"description": "Une analyse faite dans son intégralité et validée peut être consultée à tout moment via une interface dédiée."
+			},
+			"step2": {
+				"title": "Mettre à jour une AIPD validée",
+				"description": "Il est nécessaire de réviser son analyse régulièrement. Vous pouvez à tout moment l'éditer ou la dupliquer pour revoir son contenu en fonction des évolutions du traitement."
 			}
 		}
   }
