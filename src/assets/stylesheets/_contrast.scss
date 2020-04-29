@@ -619,7 +619,9 @@ body.pia-contrast {
 
   /* evaluations */
   .pia-evaluationBlock {
-    border-top-color: $pia-red-dark;
+    > div {
+      border-top-color: $pia-red-dark !important;
+    }
     &-title {
       color: $pia-red-dark;
     }
@@ -979,6 +981,23 @@ body.pia-contrast {
           background-color: $pia-green-dark !important;
         }
       }
+    }
+  }
+
+  /* Onboarding */
+  .introjs-tooltip {
+    background-color: $pia-green-dark !important;
+    .introjs-arrow.top {
+      border-bottom-color: $pia-green-dark !important;
+    }
+    .introjs-arrow.bottom {
+      border-top-color: $pia-green-dark !important;
+    }
+    .introjs-arrow.left {
+      border-right-color: $pia-green-dark !important;
+    }
+    .introjs-arrow.right {
+      border-left-color: $pia-green-dark !important;
     }
   }
 }
