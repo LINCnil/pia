@@ -3,12 +3,12 @@
 <div class="container pia-mainContainerBlock pia-knowledges_base">
   <div class="row">
     <div class="small-12 medium-12 columns">
-      <div class="pia-breadcrumb">{{ 'header.knowledges' | translate }} > {{base.name}}</div>
+      <div class="pia-breadcrumb">{{ 'header.knowledge_base_link' | translate }} > {{base.name}}</div>
       <div class="pia-filtersBlock">
 
         <div class="pia-filtersBlock-left">
             <div class="pia-filtersBlock-buttons">
-              <button type="button" class="btn btn-red" (click)="showForm = true;  editMode = 'new'; entryForm.reset(); selectedKnowledgeId = null">
+              <button type="button" class="btn btn-red" (click)="showForm = !showForm;  editMode = 'new'; entryForm.reset(); selectedKnowledgeId = null">
                 <i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.cards.knowledges_entry.new' | translate }}
               </button>
             </div>
@@ -20,115 +20,101 @@
   </div>
 
   <div class="row">
-    <div class="small-8 medium-8 columns">
+    <div class="small-9 medium-9 columns">
       <table class="pia-list-table">
         <thead>
           <tr>
-            <th></th>
-            <th>
-              <a>
-                <span>{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}</span>
-              </a>
+            <th style="width:75px;"></th>
+            <th colspan="2">
+              <a><span>{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}</span></a>
             </th>
-            <th>
-              <a>
-                <span>{{ 'homepage.cards.knowledges_entry.placeholder_category' | translate }}</span>
-              </a>
+            <th style="width:260px;">
+              <a><span>{{ 'homepage.cards.knowledges_entry.placeholder_category' | translate }}</span></a>
             </th>
-            <th>
-              <a>
-                <span>{{ 'homepage.cards.knowledges_entry.placeholder_updated_at' | translate }}</span>
-              </a>
+            <th style="width:130px;text-align:center;">
+              <a><span>{{ 'homepage.cards.knowledges_entry.placeholder_updated_at' | translate }}</span></a>
             </th>
           </tr>
         </thead>
-        <tbody *ngIf="knowledges && knowledges.length > 0; else elseBlock">
-          <tr *ngFor="let item of knowledges">
-            <td>
+        <tbody *ngIf="knowledges && knowledges.length > 0">
+          <tr *ngFor="let item of knowledges" [ngClass]="{'noElementsDisplaying': showForm}">
+            <td class="pia-listsBlock-item">
               <a (click)="editEntry(item.id)" class="btn pia-tooltip">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
                 <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
               </a>
             </td>
-            <td>
-              {{item.name}}
-            </td>
-            <td>
-              {{item.category  | translate}}
-            </td>
-            <td>
-              {{item.updated_at  | date: "fullDate":"":_languagesService.selectedLanguage}} - {{item.updated_at.getHours()}}h{{item.updated_at.getMinutes()}}
+            <td colspan="2">{{item.name}}</td>
+            <td>{{item.category  | translate}}</td>
+            <td style="text-align:center;">{{item.updated_at  | date: "shortDate":"":_languagesService.selectedLanguage}}</td>
+            <!-- Display element data block in absolute -->
+            <td class="pia-knowledges_base-displayData">
+              <h3>{{ 'homepage.cards.knowledges_entry.contents' | translate }}</h3>
+              <div class="pia-knowledges_base-displayData-category">{{item.category  | translate}}</div>
+              <div class="pia-knowledges_base-displayData-name">{{item.name}}</div>
+              <div class="pia-knowledges_base-displayData-description">{{item.description}}</div>
             </td>
           </tr>
         </tbody>
-        <ng-template #elseBlock>
-          <tbody>
-            <tr>
-              <td colspan="4">Pas d'entrée pour cette base...</td>
-            </tr>
-          </tbody>
-        </ng-template>
       </table>
     </div>
-    <div class="small-4 medium-4 columns">
-        <!-- NEW ENTRY FORM -->
-        <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base-form" *ngIf="showForm">
-          <h3>Contenus</h3>
-          <div>
+    <div class="small-3 medium-3 columns">
+      <!-- NEW ENTRY FORM -->
+      <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base-form" *ngIf="showForm">
+        <button (click)="closeNewElementForm()" class="pia-knowledges_base-form-close" type="button">
+          <span class="pia-icons pia-icon-close"></span>
+        </button>
+        <h3>{{ 'homepage.cards.knowledges_entry.contents' | translate }}</h3>
+        <div>
+          <div class="pia-elementCategory-wrapper">
             <select name="category" formControlName="category" (focusout)="focusOut()" >
-              <option value="null" disabled>Choisissez une catégorie</option>
+              <option value="null" disabled>{{ 'homepage.cards.knowledges_entry.choose_category' | translate }}</option>
               <option value="{{category}}" *ngFor="let category of categories">{{category  | translate }}</option>
             </select>
           </div>
-          <div>
-            <input (focusout)="focusOut()" formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" name="name"  required>
-          </div>
-          <div>
-            <textarea (focusout)="focusOut()" formControlName="description"
-            type="text"
-            placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}"
-            name="description"  required></textarea>
-          </div>
-          <div *ngIf="editMode === 'edit'">
-            <h3>Lié à</h3>
-            <!-- CHECKBOXES -->
-            <div class="pia-knowledges_base-form-checkboxes" *ngIf="data && data.sections.length > 0">
-              <div class="pia-knowledges_base-form-checkboxes-body">
-                <div *ngFor="let dataSection of data?.sections">
-                  <div class="pia-knowledges_base-form-checkboxes-title">
-                    <input type="checkbox" [disabled]="lockedChoice" (click)="globalCheckingElementInDataSection(dataSection, $event)" [checked]="sectionCheckedVerification(dataSection)">
-                    {{ dataSection.title | translate }}
-                    <hr>
-                  </div>
-                  <ul class="pia-knowledges_base-form-checkboxes-list">
-                    <ng-container *ngFor="let dataItem of dataSection?.items">
-                      <li>
-                        <label for="{{dataItem.title}}">
-                          <input [checked]="itemsSelected.includes(dataSection.id.toString() + dataItem.id.toString())"
-                            (change)="onCheckboxChange($event)" type="checkbox"
-                            name="{{dataItem.title}}" id="{{dataItem.title}}"
-                            value="{{dataSection.id.toString() + dataItem.id.toString()}}" [disabled]="lockedChoice && dataSection.id.toString() + dataItem.id.toString() !== '31'">
-                          <span
-                            class="truncate">
-                            {{ dataItem.title | translate }} - {{dataSection.id.toString() + dataItem.id.toString()}}</span>
-                        </label>
-                      </li>
-                    </ng-container>
-                  </ul>
+        </div>
+        <div>
+          <input (focusout)="focusOut()" formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" name="name"  required>
+        </div>
+        <div>
+          <textarea (focusout)="focusOut()" formControlName="description"
+          type="text"
+          placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}"
+          name="description"  required></textarea>
+        </div>
+        <div *ngIf="editMode === 'edit'">
+          <h3>{{ 'homepage.cards.knowledges_entry.linked_to' | translate }}</h3>
+          <!-- CHECKBOXES -->
+          <div class="pia-knowledges_base-form-checkboxes" *ngIf="data && data.sections.length > 0">
+            <div class="pia-knowledges_base-form-checkboxes-body">
+              <div *ngFor="let dataSection of data?.sections">
+                <div class="pia-knowledges_base-form-checkboxes-title">
+                  <input id="{{dataSection.title}}" name="{{dataSection.title}}" type="checkbox" [disabled]="lockedChoice" (click)="globalCheckingElementInDataSection(dataSection, $event)" [checked]="sectionCheckedVerification(dataSection)">
+                  <label for="{{dataSection.title}}">{{ dataSection.title | translate }}</label>
                 </div>
+                <ul class="pia-knowledges_base-form-checkboxes-list">
+                  <ng-container *ngFor="let dataItem of dataSection?.items">
+                    <li>
+                      <label for="{{dataItem.title}}">
+                        <input [checked]="itemsSelected.includes(dataSection.id.toString() + dataItem.id.toString())"
+                          (change)="onCheckboxChange($event)" type="checkbox"
+                          name="{{dataItem.title}}" id="{{dataItem.title}}"
+                          value="{{dataSection.id.toString() + dataItem.id.toString()}}" [disabled]="lockedChoice && dataSection.id.toString() + dataItem.id.toString() !== '31'">
+                        <span title="{{ dataItem.title | translate }}" class="truncate">{{ dataItem.title | translate }}</span>
+                      </label>
+                    </li>
+                  </ng-container>
+                </ul>
               </div>
             </div>
-            <!-- END CHECKBOXES -->
-
           </div>
-          <div *ngIf="editMode === 'new'">
-            <button type="submit" [disabled]="entryForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">
-              {{ 'homepage.cards.start' | translate }}
-            </button>
-          </div>
-
-        </form>
-
+        </div>
+        <div *ngIf="editMode === 'new'">
+          <button type="submit" [disabled]="entryForm.invalid" class="btn btn-red" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">
+            {{ 'homepage.cards.knowledges_entry.create' | translate }}
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

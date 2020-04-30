@@ -16,7 +16,7 @@
     &:focus,
     &:hover,
     &:active {
-      outline: 1px dotted $pia-green;
+      outline: 1px dotted $pia-red;
     }
     &:focus,
     &:active {
@@ -34,11 +34,14 @@
     align-items: flex-start;
     align-content: stretch;
     a {
-      color: $pia-green;
+      color: $pia-red;
       font-size: 1.8rem;
       margin: 0 10px 0 0;
       text-decoration: none;
       width: 18px;
+    }
+    span {
+      background-color: $pia-red;
     }
   }
   &-attachment {

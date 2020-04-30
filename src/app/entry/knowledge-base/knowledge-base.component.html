@@ -4,10 +4,10 @@
     <h1>{{ 'knowledge_base.title' | translate }}</h1>
   </div> -->
 
-  <h3>Selectionnez votre base de connaissances</h3>
+  <h3 style="font-weight:400;">{{ 'knowledge_base.choose_knowledge_base' | translate }}</h3>
 
   <select (change)="switch(selectedKnowledBase)" [(ngModel)]="selectedKnowledBase">
-    <option value="0">Base de connaissance CNIL (par défaut)</option>
+    <option value="0">{{ 'knowledge_base.default_knowledge_base' | translate }}</option>
     <option value="{{base.id}}" *ngFor="let base of customKnowledgeBases">{{base.name}}</option>
   </select>
 

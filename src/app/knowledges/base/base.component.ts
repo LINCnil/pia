@@ -230,4 +230,8 @@ export class BaseComponent implements OnInit {
     });
     return checked;
   }
+
+  closeNewElementForm() {
+    this.showForm = false;
+  }
 }

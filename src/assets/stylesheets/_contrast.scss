@@ -120,6 +120,9 @@ body.pia-contrast {
     &-structures {
       background-color: $pia-green-dark;
     }
+    &-knowledges {
+      background-color: $pia-red-dark;
+    }
   }
 
   /* "Card" display mode */
@@ -679,6 +682,17 @@ body.pia-contrast {
       color: $pia-red-dark !important;
     }
   }
+  #modal-list-new-knowledgebase {
+    input {
+      &:focus, &:hover, &:active {
+        outline: 1px dotted $pia-red-dark !important;
+      }
+    }
+    .pia-modalBlock-content,
+    .pia-cardsBlock-item-btn {
+      border-color: $pia-red-dark !important;
+    }
+  }
 
   /* PIA validation page */
   .pia-validationBlock {
@@ -998,6 +1012,202 @@ body.pia-contrast {
     }
     .introjs-arrow.right {
       border-left-color: $pia-green-dark !important;
+    }
+  }
+
+  /* Knowledge base homepage */
+  .pia-knowledgeBaseHomepageBlock {
+    .pia-newBlock {
+      &-item {
+        color: $pia-red-dark;
+        .pia-icon-pia-plus-red {
+          background-position: -545px -137px;
+        }
+        > span {
+          color: $pia-red-dark !important;
+        }
+      }
+    }
+    .pia {
+      &-searchInput {
+        .search-icon,
+        .search-close {
+          color: $pia-red-dark !important;
+        }
+        input.btn.btn-search {
+          border: 1px solid $pia-red-dark !important;
+          color: $pia-red-dark !important;
+          &::placeholder {
+            color: $pia-red-dark !important;
+          }
+          &:focus,
+          &.typed {
+            border: 1px solid $pia-red-dark !important;
+            color: $pia-red-dark !important;
+          }
+        }
+      }
+      &-filtersBlock {
+        &-switch {
+          border: 1px solid $pia-red-dark !important;
+          color: $pia-red-dark !important;
+          &:hover,
+          &:focus {
+            background: $pia-red-dark !important;
+            border-color: $pia-red-dark !important;
+            color: #fff !important;
+          }
+          &:active {
+            color: $pia-red-dark !important;
+            border-color: $pia-red-dark !important;
+          }
+        }
+        &-filters {
+          &-list {
+            border: 2px solid $pia-red-dark !important;
+            li {
+              &:focus,
+              &:hover,
+              &:active,
+              .active {
+                background-color: $pia-red-dark !important;
+              }
+            }
+          }
+          &-btn {
+            border: 1px solid $pia-red-dark !important;
+            color: $pia-red-dark !important;
+            .pia-icon-scroll-red {
+              background-position: -486px -95px;
+            }
+          }
+          &:hover {
+            .pia-filtersBlock-filters-btn {
+              color: #fff !important;
+              background-color: $pia-red-dark !important;
+            }
+          }
+        }
+      }
+      &-editBlock {
+        border-color: $pia-red-dark !important;
+      }
+    }
+    .pia-cardsBlock-item,
+    .pia-cardsBlock-item.pia-doingBlock-item {
+      input {
+        &:focus,
+        &:hover,
+        &:active {
+          outline: 1px dotted $pia-red-dark !important;
+        }
+      }
+    }
+    .pia-cardsBlock-item-btn {
+      border-top: 1px solid $pia-red-dark !important;
+    }
+    .pia-cardsBlock-toolbar {
+      a {
+        color: $pia-red-dark !important;
+      }
+      .pia-tooltip-text {
+        background-color: $pia-red-dark;
+      }
+    }
+    .pia-listsBlock-item {
+      div[contenteditable] {
+        cursor: text;
+        &:focus,
+        &:hover,
+        &:active {
+          outline: 1px dotted $pia-red-dark !important;
+        }
+      }
+      &-actions {
+        a {
+          color: $pia-red-dark !important;
+        }
+        span {
+          background-color: $pia-red-dark !important;
+        }
+      }
+    }
+  }
+
+  /* Knowledge base display list */
+  .pia-knowledges_base {
+    .btn.pia-tooltip {
+      color: $pia-red-dark !important;
+    }
+    .pia-tooltip-text {
+      background-color: $pia-red-dark !important;
+    }
+    &-form,
+    &-displayData {
+      h3 {
+        color: $pia-red-dark !important;
+        border-bottom-color: $pia-red-dark !important;
+      }
+    }
+    &-form {
+      border-color: $pia-red-dark !important;
+      input[type='text'],
+      select,
+      textarea {
+        &::placeholder {
+          color: $pia-gray-dark !important;
+        }
+        &:hover {
+          outline: 1px dotted $pia-red-dark !important;
+        }
+      }
+      .pia-elementCategory-wrapper {
+        &:after {
+          border-color: $pia-red-dark transparent transparent transparent !important;
+        }
+      }
+      select {
+        color: $pia-red-dark !important;
+        option {
+          color: $pia-red-dark !important;
+        }
+      }
+      &-checkboxes {
+        &-body {
+          > div {
+            /* CONTEXT */
+            &:first-child {
+              .pia-knowledges_base-form-checkboxes-title {
+                color: $pia-green-dark !important;
+                border-color: $pia-green-dark !important;
+              }
+              .fa-pencil-square-o.pia-fa-valid,
+              .fa-cog.pia-fa-valid,
+              .fa-check-square-o {
+                color: $pia-green-dark !important;
+              }
+            }
+            /* RISKS */
+            &:nth-child(3) {
+              .pia-knowledges_base-form-checkboxes-title {
+                color: $pia-red-dark !important;
+                border-color: $pia-red-dark !important;
+              }
+              .fa-pencil-square-o.pia-fa-valid,
+              .fa-cog.pia-fa-valid,
+              .fa-check-square-o {
+                color: $pia-red-dark !important;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-displayData {
+      border-color: $pia-gray-dark !important;
+      &-category {
+        color: $pia-red-dark !important;
+      }
     }
   }
 }

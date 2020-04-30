@@ -1,16 +1,19 @@
 @import '../../../assets/stylesheets/variables';
 .pia-knowledges_base {
-  &-form {
+  &-form,
+  &-displayData {
+    margin-bottom: 30px;
     width: 100%;
     min-height: 200px;
-    padding: 15px;
+    padding: 10px;
     background-color: white;
-    border: 1px solid $pia-gray;
     h3 {
       font-weight: normal;
       color: $pia-red;
       text-transform: uppercase;
       width: 100%;
+      margin-top: 10px;
+      padding-bottom: 5px;
       border-bottom: 1px solid $pia-red;
     }
     input[type='text'],
@@ -22,53 +25,73 @@
       font-size: 1.2rem;
       color: $pia-dark-black;
       width: 100%;
-      margin: 5px;
+      margin: 15px 0;
       height: 22px;
       &::placeholder {
         color: $pia-gray;
       }
       &:hover {
-        outline: 1px dotted #3ee095;
+        outline: 1px dotted $pia-red;
         cursor: text;
       }
       &:disabled {
         outline: none;
       }
       &[name='name'] {
-        font-size: 2rem;
+        font-size: 1.6rem;
       }
     }
     button {
       display: block;
       margin: 10px auto auto auto;
     }
-
-    select {
-      color: $pia-red !important;
+    .pia-elementCategory-wrapper {
+      position: relative;
+      &:hover {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 5px 5px 0 5px;
+          border-color: $pia-red transparent transparent transparent;
+        }
+      }
     }
-
+    select {
+      appearance: none;
+      color: $pia-red;
+      option {
+        color: $pia-dark-black;
+      }
+    }
     textarea {
       width: 100%;
-      min-height: 100px;
+      min-height: 80px;
+      resize: none;
     }
-
     &-checkboxes {
       input[type='checkbox'] {
-        margin-right: 10px;
+        margin-right: 5px;
+        vertical-align: -2px;
+        width: 14px;
+        height: 18px;
       }
-
       &-title {
-        margin-top: 18px;
-        margin-left: 10px;
+        margin-top: 15px;
         text-transform: uppercase;
-        // border-left: solid 10px;
-        // padding: 3px 0 2px 10px;
-        align-self: center;
-        display: flex;
         font-weight: 600;
-        justify-content: flex-end;
+        display: flex;
+        justify-content: flex-start;
+        align-self: center;
         font-size: 1.3rem;
         text-transform: uppercase;
+        label {
+          cursor: pointer;
+        }
         span {
           margin-right: 10px;
           cursor: pointer;
@@ -78,37 +101,24 @@
             text-decoration: underline;
           }
         }
-        hr {
-          margin: auto 10px auto auto;
-          background-color: $pia-gray;
-          border: 0;
-          height: 0px;
-        }
       }
       &-list {
-        padding: 0px 0px 0px 20px;
-        margin-bottom: 22px;
-        margin-left: 10px;
+        padding-left: 18px;
+        margin-top: 8px;
         li {
+          line-height: 1;
           padding: 2px 0;
           font-size: 1.4rem;
           list-style-type: none;
           display: flex;
           align-self: center;
           justify-content: flex-start;
+          margin-bottom: 2px;
           a {
             color: $pia-dark-black;
             text-decoration: none;
             padding-left: 5px;
           }
-          /* &::before {
-            content: "";
-            border-top: solid 1px $pia-gray;
-            width: 8.5px;
-            margin-right: 7px;
-            margin-top: 9px;
-            color: $pia-gray;
-          }*/
           i {
             font-size: 1.8rem;
             margin-top: 2px;
@@ -118,6 +128,18 @@
           }
           .fa-check-square-o {
             color: $pia-blue;
+          }
+          label {
+            span {
+              cursor: pointer;
+              display: inline-block;
+              font-size: 1.25rem;
+              max-width: 210px;
+              color: $pia-gray-dark;
+              &:hover {
+                font-weight: 500;
+              }
+            }
           }
         }
       }
@@ -130,41 +152,35 @@
           border-radius: 4px;
         }
         > div {
+          /* CONTEXT */
           &:first-child {
             .pia-knowledges_base-form-checkboxes-title {
               color: $pia-green;
               border-color: $pia-green;
             }
-            hr {
-              max-width: 164px;
-            }
             .fa-pencil-square-o.pia-fa-valid,
             .fa-cog.pia-fa-valid,
             .fa-check-square-o {
               color: $pia-green;
             }
           }
+          /* PRINCIPLES */
           &:nth-child(2) {
             .pia-knowledges_base-form-checkboxes-title {
               color: $pia-blue;
               border-color: $pia-blue;
             }
-            hr {
-              max-width: 62px;
-            }
             .fa-pencil-square-o.pia-fa-valid,
             .fa-cog.pia-fa-valid,
             .fa-check-square-o {
               color: $pia-blue;
             }
           }
+          /* RISKS */
           &:nth-child(3) {
             .pia-knowledges_base-form-checkboxes-title {
               color: $pia-red;
               border-color: $pia-red;
-            }
-            hr {
-              max-width: 182px;
             }
             .fa-pencil-square-o.pia-fa-valid,
             .fa-cog.pia-fa-valid,
@@ -172,14 +188,12 @@
               color: $pia-red;
             }
           }
+          /* VALIDATION */
           &:last-child {
             .pia-knowledges_base-form-checkboxes-title {
               color: $pia-dark-black;
               border-color: $pia-dark-black;
               display: block;
-            }
-            hr {
-              display: none;
             }
             .fa-cog.pia-fa-valid,
             .fa-check-square-o {
@@ -188,6 +202,50 @@
           }
         }
       }
+    }
+  }
+  &-form {
+    position: relative;
+    border: 1px solid $pia-red;
+    width: 283px;
+    @media screen and (max-width: 992px) {
+      width: 200px;
+    }
+    &-close {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      margin-top: 0 !important;
+      transform: scale(0.8);
+      cursor: pointer;
+    }
+  }
+  &-displayData {
+    border: 1px solid #c7c7c7;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    width: 283px;
+    margin-left: 13px;
+    @media screen and (max-width: 992px) {
+      width: 200px;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      width: 16px;
+      top: -2px;
+      bottom: -2px;
+      background-color: transparent;
+    }
+    &-category {
+      color: $pia-red;
+    }
+    &-name {
+      font-weight: 400;
+      font-size: 1.9rem;
+      margin-bottom: 8px;
     }
   }
 }
@@ -233,36 +291,6 @@
       padding: 22px 0;
       color: $pia-red;
       font-size: 2.1rem;
-    }
-  }
-  &-hint {
-    position: absolute;
-    background-color: #fff;
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 18px 2px rgba(212, 212, 212, 1);
-    top: 110px;
-    right: -323px;
-    .pia-icon-small-arrow {
-      position: absolute;
-      top: 50%;
-      left: -22px;
-      margin-top: -18.5px;
-    }
-    div {
-      margin-top: 8px;
-      margin-left: 38px;
-      p {
-        display: inline-block;
-        vertical-align: top;
-        color: $pia-red;
-        font-size: 1.6rem;
-        line-height: 1.2;
-        margin-top: 58px;
-        margin-left: 14px;
-        width: 65%;
-      }
     }
   }
 }
@@ -458,30 +486,7 @@
         }
       }
     }
-    &-hint {
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 3px 24px 5px 26px;
-      margin-left: 10px;
-      div {
-        span,
-        p {
-          display: inline-block;
-          vertical-align: middle;
-        }
-        p {
-          margin-left: 10px;
-          color: $pia-red;
-          font-size: 2rem;
-          line-height: 1.2;
-        }
-      }
-    }
     &-buttons {
-      margin-left: 12px;
       display: inline-block;
       vertical-align: middle;
       margin-right: 3px;
@@ -507,27 +512,6 @@
     margin-right: 0;
     margin-left: auto;
   }
-}
-
-// Cards flipper (New / Edit)
-#cardsSwitch {
-  background-color: transparent;
-}
-#cardsSwitch > div {
-  margin: 0;
-  position: absolute;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-}
-#cardsSwitch .back {
-  transform: rotateY(180deg);
-}
-#cardsSwitch.flipped .back {
-  transform: rotateY(0deg);
-}
-#cardsSwitch.flipped .front {
-  transform: rotateY(180deg);
 }
 
 // List PIA
@@ -586,18 +570,52 @@
       }
     }
   }
+  tbody {
+    tr {
+      position: relative;
+      &:nth-child(even) {
+        background-color: rgba(62, 224, 149, 0.15);
+      }
+      &:focus,
+      &:hover,
+      &:active {
+        background-color: rgba(62, 224, 149, 0.25);
+        .pia-knowledges_base-displayData {
+          display: table-cell;
+        }
+      }
+      &.noElementsDisplaying {
+        &:focus,
+        &:hover,
+        &:active {
+          .pia-knowledges_base-displayData {
+            display: none;
+          }
+        }
+      }
+      .pia-listsBlock-item {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        align-content: stretch;
+        a {
+          color: $pia-red;
+          font-size: 1.8rem;
+          margin: 0 10px 0 0;
+          text-decoration: none;
+          width: 18px;
+        }
+        span {
+          background-color: $pia-red;
+        }
+      }
+    }
+  }
 }
 .pia-cardsBlock-item-form input {
   padding-bottom: 0;
-}
-.app-list-item {
-  display: table-row;
-  &:nth-child(even) {
-    background-color: rgba(62, 224, 149, 0.15);
-  }
-  &:hover {
-    background-color: rgba(62, 224, 149, 0.25);
-  }
 }
 .pia-icon-close {
   z-index: 1;

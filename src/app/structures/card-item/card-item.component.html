@@ -21,23 +21,23 @@
             [formGroup]="structureForm">
           <input type="hidden" formControlName="id">
           <div (click)="structureNameFocusIn()" style="margin-top:20px;">
-              <label for="structure-edit-name">{{ 'homepage.cards.structure_name' | translate }}</label>
+              <label for="structure-edit-{{structure.id}}-name">{{ 'homepage.cards.structure_name' | translate }}</label>
               <input type="text"
                      #structureName
                      formControlName="name"
                      required
                      placeholder="{{ 'homepage.cards.placeholder_structure_name' | translate }}"
-                     id="structure-edit-name"
+                     id="structure-edit-{{structure.id}}-name"
                      (focusout)="structureNameFocusOut()">
           </div>
           <div (click)="structureSectorNameFocusIn()">
-              <label for="structure-edit-sector-name">{{ 'homepage.cards.sector_name' | translate }}</label>
+              <label for="structure-edit-{{structure.id}}-sector-name">{{ 'homepage.cards.sector_name' | translate }}</label>
               <input type="text"
                      #structureSectorName
                      formControlName="sector_name"
                      required
                      placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}"
-                     id="structure-edit-sector-name"
+                     id="structure-edit-{{structure.id}}-sector-name"
                      (focusout)="structureSectorNameFocusOut()">
           </div>
         <div class="pia-cardsBlock-item-date">

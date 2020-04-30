@@ -142,7 +142,6 @@
 		"logo_subtitle": "privacy impact assessment",
 		"logo_title": "Analyse d'impact sur la protection des données",
 		"structures": "Modèles de PIA",
-		"knowledges": "Base de connaissance",
 		"tools": {
       "onboarding": "Relancer le tutoriel",
 			"about": "À propos",
@@ -244,18 +243,23 @@
 			"validation": "Validation",
 			"knowledges": {
 				"new": "Créer une base",
-				"import": "Importer une base",
+        "import": "Importer une base",
+        "edit": "Éditer la base",
 				"placeholder_name": "Nom de la base",
 				"placeholder_author": "Auteur",
 				"placeholder_contributors": "Contributeurs",
 				"placeholder_entry_number": "Nombre d'entrées"
 			},
 			"knowledges_entry": {
-				"new": "Créer un élément",
+        "new": "Créer un élément",
+        "create": "Créer l'élément",
 				"placeholder_name": "Nom de l'élément",
 				"placeholder_category": "Catégorie",
 				"placeholder_description": "Votre description ici...",
-				"placeholder_updated_at": "Modifié le"
+        "placeholder_updated_at": "Modifié le",
+        "contents": "Contenus",
+        "choose_category":"Choisissez une catégorie",
+        "linked_to": "Lié à"
 			}
 		},
 		"filters": {
@@ -311,8 +315,10 @@
 		"search_filter": "Chercher"
 	},
 	"knowledge_base": {
+    "choose_knowledge_base": "Sélectionnez votre base de connaissances",
+    "default_knowledge_base": "Base de connaissances CNIL (par défaut)",
 		"add_measure": "Ajouter",
-		"add_measure_hint": "Ajoutez aussi une mesure à partir de la base de connaissance.",
+		"add_measure_hint": "Ajoutez aussi une mesure à partir de la base de connaissances.",
 		"category": {
 			"definition": "Définition",
 			"example": "Exemple",
@@ -874,7 +880,7 @@
 		"title": "Base de connaissances"
 	},
 	"measures": {
-		"add": "Créer une mesure (ou en ajouter une proposée dans la base de connaissance à droite)",
+		"add": "Créer une mesure (ou en ajouter une proposée dans la base de connaissances à droite)",
 		"default_placeholder": "Décrivez les mesures existantes ou prévues pour garantir la sécurité des données.",
 		"edit": "Éditer la mesure",
 		"placeholder_title": "Titre de la mesure",
@@ -1001,7 +1007,7 @@
 			"content": "Une erreur est survenue.<br>veuillez nous excuser pour ce désagrément."
 		},
 		"knowledges": {
-			"content": "Êtes vous sûr de vouloir supprimer cette base de connaissance ?",
+			"content": "Êtes vous sûr de vouloir supprimer cette base de connaissances ?",
 			"remove": "Supprimer cette base"
 		}
 	},
