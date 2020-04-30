@@ -1,14 +1,14 @@
 <app-header></app-header>
 
 
-<div class="container pia-mainContainerBlock">
+<div class="container pia-mainContainerBlock pia-knowledgeBaseHomepageBlock">
 
     <div class="row">
       <div class="small-12 medium-12 columns">
-        <div class="pia-breadcrumb">{{ 'header.knowledges' | translate }}</div>
-  
+        <div class="pia-breadcrumb">{{ 'header.knowledge_base_link' | translate }}</div>
+
         <div class="pia-filtersBlock">
-            
+
             <div class="pia-filtersBlock-left">
                 <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'list'" (click)="viewOnCard()">
                     <i class="fa fa-list" aria-hidden="true"></i>
@@ -19,10 +19,10 @@
                     <div>{{ 'homepage.filters.list' | translate }}</div>
                 </button>
                 <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
-                  <button type="button" class="btn btn-red" (click)="_modalsService.openModal('modal-list-new-knowledgebase')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_structure' | translate }}</button>
-                  <button type="button" (click)="importStruct()" class="btn btn-red"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_structure' | translate }}</button>
+                  <button type="button" class="btn btn-red" (click)="_modalsService.openModal('modal-list-new-knowledgebase')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.cards.knowledges.new' | translate }}</button>
+                  <button type="button" (click)="importStruct()" class="btn btn-red"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.cards.knowledges.import' | translate }}</button>
                 </div>
-                <div class="hide"> 
+                <div class="hide">
                   <form enctype="multipart/form-data" [formGroup]="importKnowledgeBaseForm">
                     <input type="file" formControlName="import_file" id="import_file" (change)="importStruct($event)" class="hide">
                   </form>
@@ -35,13 +35,13 @@
                   <button class="pia-filtersBlock-filters-btn btn" type="button">
                     <i class="fa fa-filter"></i>
                     {{ 'homepage.filters.sort' | translate }}
-                    <span class="pia-icons pia-icon-scroll-green"></span>
+                    <span class="pia-icons pia-icon-scroll-red"></span>
                   </button>
                   <div class="pia-filtersBlock-filters-list">
                     <span>{{ 'homepage.filters.sort_by' | translate }}</span>
                     <ul>
                       <li [ngClass]="{'active': sortValue === 'name'}">
-                        <a (click)="sortBy('name');">{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</a>
+                        <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
                       </li>
                       <li [ngClass]="{'active': sortValue === 'author'}">
                         <a (click)="sortBy('author');">{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</a>
@@ -68,15 +68,14 @@
 
         <!-- "Card" mode -->
         <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
-          
-          <!-- first block -->
+
           <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
               <div class="pia-newBlock-item front" id="pia-new-card">
                   <div class="pia-newBlock-item-new">
                     <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.knowledges.new' | translate }}</div>
                     <div class="pia-newBlock-item-new-btn">
                       <i class="fa fa-folder-open" aria-hidden="true"></i>
-                      <button class="btn" (click)="newStruct()" type="button" title="{{ 'homepage.cards.knowledges.new' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
+                      <button class="btn" (click)="newStruct()" type="button" title="{{ 'homepage.cards.knowledges.new' | translate }}"><span class="pia-icons pia-icon-pia-plus-red"></span></button>
                     </div>
                   </div>
                   <span>{{ 'homepage.cards.or' | translate }}</span>
@@ -84,7 +83,7 @@
                     <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.knowledges.import' | translate }}</div>
                     <div class="pia-newBlock-item-import-btn">
                       <i class="fa fa-upload" aria-hidden="true"></i>
-                      <button class="btn" (click)="importStruct()" type="button" title="{{ 'homepage.cards.knowledges.import' | translate }}"><span class="pia-icons pia-icon-pia-plus"></span></button>
+                      <button class="btn" (click)="importStruct()" type="button" title="{{ 'homepage.cards.knowledges.import' | translate }}"><span class="pia-icons pia-icon-pia-plus-red"></span></button>
                     </div>
                   </div>
               </div>
@@ -106,36 +105,19 @@
                       <label for="contributor">{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}</label>
                       <input formControlName="contributors" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}" id="contributors" required>
                     </div>
-                    <!-- <div class="pia-cardsBlock-item-date" *ngIf="newStructure">
-                      <div>{{ 'homepage.cards.date' | translate }}</div>
-                      <time>{{ newStructure.created_at | date: 'shortDate': '': _languagesService.selectedLanguage}}</time>
-                    </div> -->
                     <div class="pia-cardsBlock-item-btn">
-                      <button type="submit" [disabled]="knowledgeBaseForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
+                      <button type="submit" [disabled]="knowledgeBaseForm.invalid" class="btn btn-red" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
                     </div>
                   </form>
                 </div>
               </div>
-              <!-- end form -->
-              <!-- 
-              <div class="pia-newBlock-hint" *ngIf="_structureService.structures && _structureService.structures.length === 0" id="pia-rocket">
-                <span class="pia-icons pia-icon-small-arrow"></span>
-                <div>
-                  <span class="pia-icons pia-icon-rocket"></span>
-                  <p [innerHTML]="'homepage.filters.card_rocket_content_structure' | translate"></p>
-                </div>
-              </div>
-              -->
-          
-          </div>
-          <!-- end first block -->
 
-          <!-- cards -->
+          </div>
+
           <app-card *ngFor="let base of _knowledgesService.list | filterForUser : searchText; let i=index" [base]="base"></app-card>
-          <!-- end cards -->
         </div>
-        
-        <ng-template #viewList>      
+
+        <ng-template #viewList>
           <div class="small-12 medium-12 columns">
             <table class="pia-list-table">
               <thead>
@@ -184,7 +166,7 @@
 
 
     </div>
-    
+
 </div>
 
 <app-modals></app-modals>

@@ -141,11 +141,14 @@
     margin: 8px 0 40px 0;
     &-left,
     &-right {
-      width: 50%;
       display: inline-block;
       vertical-align: middle;
     }
+    &-left {
+      width: 60%;
+    }
     &-right {
+      width: 40%;
       text-align: right;
     }
     &-switch,
@@ -241,7 +244,7 @@
         font-size: 1.3rem;
         position: relative;
         z-index: 999;
-        .pia-icon-scroll-green {
+        .pia-icon-scroll-red {
           margin-left: 35px;
         }
         &:focus,
@@ -256,7 +259,7 @@
         .pia-filtersBlock-filters-btn {
           color: #fff;
           background-color: $pia-red;
-          .pia-icon-scroll-green {
+          .pia-icon-scroll-red {
             background-position: -367px -39px;
           }
         }
@@ -309,6 +312,13 @@
 // Edit PIA
 .pia-editBlock {
   border-color: $pia-red;
+  input {
+    &:focus,
+    &:hover,
+    &:active {
+      outline: 1px dotted $pia-red !important;
+    }
+  }
   button {
     display: block;
     margin-right: 0;
@@ -409,7 +419,10 @@
 .pia-icon-close {
   z-index: 1;
 }
-.pia-cardsBlock-item-btn button {
-  display: flex;
-  margin: auto;
+.pia-cardsBlock-item-btn {
+  border-top: 1px solid $pia-red;
+  button {
+    display: flex;
+    margin: auto;
+  }
 }

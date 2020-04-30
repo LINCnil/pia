@@ -240,7 +240,27 @@
 			"structure": "Modello",
 			"structure_name": "Nome del modello",
 			"title_close_creation": "Chiudi",
-			"validation": "Validatore"
+			"validation": "Validatore",
+      "knowledges": {
+				"new": "TO TRANSLATE - Create a base",
+        "import": "TO TRANSLATE - Import a base",
+        "edit": "TO TRANSLATE - Edit the base",
+				"placeholder_name": "TO TRANSLATE - Base's name",
+				"placeholder_author": "TO TRANSLATE - Author",
+				"placeholder_contributors": "TO TRANSLATE - Contributors",
+				"placeholder_entry_number": "TO TRANSLATE - Number of entries"
+			},
+			"knowledges_entry": {
+        "new": "TO TRANSLATE - Create an element",
+        "create": "TO TRANSLATE - Create this element",
+				"placeholder_name": "TO TRANSLATE - Element's name",
+				"placeholder_category": "TO TRANSLATE - Category",
+				"placeholder_description": "TO TRANSLATE - Your description here...",
+				"placeholder_updated_at": "TO TRANSLATE - Last updated",
+        "contents": "TO TRANSLATE - Contents",
+        "choose_category":"TO TRANSLATE - Choose a category",
+        "linked_to": "TO TRANSLATE - Linked to"
+			}
 		},
 		"filters": {
 			"assessor": "Revisore",
@@ -295,6 +315,8 @@
 		"search_filter": "TO TRANSLATE - Search"
 	},
 	"knowledge_base": {
+    "choose_knowledge_base": "TO TRANSLATE - Choose your knowledge base",
+    "default_knowledge_base": "TO TRANSLATE - CNIL's knowledge base (default)",
 		"add_measure": "Aggiungi",
 		"add_measure_hint": "È possibile aggiungere anche una  misura dall'archivio.",
 		"category": {

@@ -1,6 +1,6 @@
 <div class="pia-cardsBlock pia" [attr.data-id]="base.id">
     <div class="pia-cardsBlock-item pia-doingBlock-item">
-      
+
         <div class="pia-cardsBlock-toolbar">
             <div class="pia-cardsBlock-toolbar-export">
                 <a href="javascript:;" (click)="export(base.id)" class="btn pia-tooltip">
@@ -9,7 +9,7 @@
                         {{ 'homepage.cards.item.tools.export' | translate }}
                     </span>
                 </a>
-                
+
                 <a href="javascript:;" (click)="duplicate(base.id)" class="btn pia-tooltip">
                     <i class="fa fa-files-o" aria-hidden="true"></i>
                     <span title="{{ 'homepage.cards.item.tools.duplicate' | translate }}" class="pia-tooltip-text">
@@ -29,32 +29,32 @@
         <form class="pia-cardsBlock-item-form" [formGroup]="knowledgeBaseForm">
             <input type="hidden" formControlName="id">
             <div (click)="knowledgeBaseNameFocusIn()" style="margin-top:20px;">
-                <label for="knowledgebase-edit-name">{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</label>
+                <label for="knowledgebase-edit-{{base.id}}-name">{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</label>
                 <input type="text"
                     formControlName="name"
                     required
                     placeholder="{{ 'homepage.cards.knowledges.placeholder_name' | translate }}"
-                    id="knowledgebase-edit-name"
+                    id="knowledgebase-edit-{{base.id}}-name"
                     (focusout)="knowledgeBaseFocusOut()">
             </div>
 
             <div (click)="knowledgeBaseAuthorFocusIn()" style="margin-top:20px;">
-                <label for="knowledgebase-edit-name">{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</label>
+                <label for="knowledgebase-edit-{{base.id}}-author-name">{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</label>
                 <input type="text"
                     formControlName="author"
                     required
                     placeholder="{{ 'homepage.cards.knowledges.placeholder_author' | translate }}"
-                    id="knowledgebase-edit-name"
+                    id="knowledgebase-edit-{{base.id}}-author-name"
                     (focusout)="knowledgeBaseFocusOut()">
             </div>
 
             <div (click)="knowledgeBaseContributorsFocusIn()" style="margin-top:20px;">
-                <label for="knowledgebase-edit-name">{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}</label>
+                <label for="knowledgebase-edit-{{base.id}}-contributor-names">{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}</label>
                 <input type="text"
                     formControlName="contributors"
                     required
                     placeholder="{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}"
-                    id="knowledgebase-edit-name"
+                    id="knowledgebase-edit-{{base.id}}-contributor-names"
                     (focusout)="knowledgeBaseFocusOut()">
             </div>
 
@@ -64,7 +64,7 @@
             </div>
 
             <div class="pia-cardsBlock-item-btn">
-                <a routerLink="/knowledges/base/{{base.id}}" class="btn btn-red">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
+                <a routerLink="/knowledges/base/{{base.id}}" class="btn btn-red">{{ 'homepage.cards.knowledges.edit' | translate }}</a>
             </div>
         </form>
 

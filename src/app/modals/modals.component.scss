@@ -124,7 +124,7 @@
     }
   }
 }
-// Create new pia from list
+// Create new pia/structure/knowledge base from list
 #modal-list-new-pia,
 #modal-list-new-structure,
 #modal-list-new-knowledgebase {
@@ -156,6 +156,19 @@
     height: 386px;
   }
 }
+
+#modal-list-new-knowledgebase {
+  input {
+    &:focus, &:hover, &:active {
+      outline: 1px dotted $pia-red;
+    }
+  }
+  .pia-modalBlock-content,
+  .pia-cardsBlock-item-btn {
+    border-color: $pia-red;
+  }
+}
+
 .pia-remove-attachment-comment {
   textarea {
     width: 94%;
