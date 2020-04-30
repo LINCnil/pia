@@ -3,27 +3,28 @@ import { Component, ViewChild, OnInit, Input, ElementRef } from '@angular/core';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
 
-import {DomSanitizer} from "@angular/platform-browser";
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-attachment-item',
   templateUrl: './attachment-item.component.html',
   styleUrls: ['./attachment-item.component.scss']
 })
 export class AttachmentItemComponent implements OnInit {
-  @ViewChild('pdfViewerAutoLoad', { static: false }) pdfViewerAutoLoad;
+  @ViewChild('pdfViewerAutoLoad') pdfViewerAutoLoad;
 
   @Input() isPreview: boolean;
   @Input() attachment: any;
   @Input() pia: any;
-  fileUrl:any = null;
+  fileUrl: any = null;
 
+  constructor(
+    private domSanitizer: DomSanitizer,
+    private _modalsService: ModalsService,
+    private _attachmentsService: AttachmentsService,
+    private el: ElementRef
+  ) {}
 
-  constructor(private domSanitizer : DomSanitizer,
-              private _modalsService: ModalsService,
-              private _attachmentsService: AttachmentsService,
-              private el: ElementRef) { }
-
-  ngOnInit() { }
+  ngOnInit() {}
 
   /**
    * Deletes an attachment with a given id.
@@ -57,8 +58,8 @@ export class AttachmentItemComponent implements OnInit {
 
       if (show) {
         if (this.attachment.mime_type.endsWith('pdf')) {
-        // embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
-        // embed.classList.remove('hide');
+          // embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
+          // embed.classList.remove('hide');
           const data = this.attachment.file.split(';base64,')[1];
           // base64 string
           var base64str = data;
@@ -69,16 +70,15 @@ export class AttachmentItemComponent implements OnInit {
           var buffer = new ArrayBuffer(len);
           var view = new Uint8Array(buffer);
           for (var i = 0; i < len; i++) {
-              view[i] = binary.charCodeAt(i);
+            view[i] = binary.charCodeAt(i);
           }
 
-
-          let blob = new Blob([view], {type: 'application/pdf'})
+          let blob = new Blob([view], { type: 'application/pdf' });
           this.fileUrl = URL.createObjectURL(blob);
 
           elPreview.classList.remove('hide');
           // this.downloadAttachment();
-        } else if(this.attachment.mime_type.startsWith('image')) {
+        } else if (this.attachment.mime_type.startsWith('image')) {
           img.setAttribute('src', this.attachment.file);
           img.classList.remove('hide');
           elPreview.classList.remove('hide');
@@ -94,7 +94,6 @@ export class AttachmentItemComponent implements OnInit {
    * @return {boolean} - True if the PIA isn't validated (simple or signed validation), false otherwise.
    */
   showAddAttachmentButton() {
-    return (this.pia.status !== 2 && this.pia.status !== 3);
+    return this.pia.status !== 2 && this.pia.status !== 3;
   }
-
 }

@@ -1,15 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  OnDestroy,
-  Input,
-  Output,
-  EventEmitter,
-  AfterViewChecked,
-  DoCheck,
-  NgZone
-} from '@angular/core';
+declare var tinymce: any;
+
+import { Component, ElementRef, OnInit, OnDestroy, Input, Output, EventEmitter, AfterViewChecked, DoCheck, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -28,8 +19,7 @@ import { LanguagesService } from 'src/app/services/languages.service';
   templateUrl: './evaluations.component.html',
   styleUrls: ['./evaluations.component.scss']
 })
-export class EvaluationsComponent
-  implements OnInit, AfterViewChecked, OnDestroy, DoCheck {
+export class EvaluationsComponent implements OnInit, AfterViewChecked, OnDestroy, DoCheck {
   private riskSubscription: Subscription;
   private placeholderSubscription: Subscription;
   evaluationForm: FormGroup;
@@ -68,49 +58,33 @@ export class EvaluationsComponent
     this.checkEvaluationValidation();
 
     this.riskName = {
-      value: this._translateService.instant(
-        'sections.3.items.' + this.item.id + '.title'
-      )
+      value: this._translateService.instant('sections.3.items.' + this.item.id + '.title')
     };
 
     // Updating translations when changing language (risks' names)
-    this.riskSubscription = this._translateService.onLangChange.subscribe(
-      (event: LangChangeEvent) => {
-        this.riskName = {
-          value: this._translateService.instant(
-            'sections.3.items.' + this.item.id + '.title'
-          )
-        };
-      }
-    );
+    this.riskSubscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.riskName = {
+        value: this._translateService.instant('sections.3.items.' + this.item.id + '.title')
+      };
+    });
 
     // Updating translations when changing language (comments' placeholders)
-    this.placeholderSubscription = this._translateService.onLangChange.subscribe(
-      (event: LangChangeEvent) => {
-        if (this.evaluation.status) {
-          if (this.evaluation.status === 1) {
-            this.comment_placeholder = this._translateService.instant(
-              'evaluations.placeholder_to_correct'
-            );
-          } else if (this.evaluation.status === 3) {
-            this.comment_placeholder = this._translateService.instant(
-              'evaluations.placeholder_acceptable'
-            );
-          } else {
-            this.comment_placeholder = this._translateService.instant(
-              'evaluations.placeholder_improvable2'
-            );
-          }
+    this.placeholderSubscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      if (this.evaluation.status) {
+        if (this.evaluation.status === 1) {
+          this.comment_placeholder = this._translateService.instant('evaluations.placeholder_to_correct');
+        } else if (this.evaluation.status === 3) {
+          this.comment_placeholder = this._translateService.instant('evaluations.placeholder_acceptable');
+        } else {
+          this.comment_placeholder = this._translateService.instant('evaluations.placeholder_improvable2');
         }
       }
-    );
+    });
   }
 
   ngAfterViewChecked() {
     // Evaluation comment textarea auto resize
-    const evaluationCommentTextarea = document.querySelector(
-      '.pia-evaluation-comment-' + this.evaluation.id
-    );
+    const evaluationCommentTextarea = document.querySelector('.pia-evaluation-comment-' + this.evaluation.id);
     if (!this.hasResizedContent && evaluationCommentTextarea) {
       this.hasResizedContent = true;
       if (evaluationCommentTextarea) {
@@ -122,10 +96,7 @@ export class EvaluationsComponent
   ngDoCheck() {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
-    if (
-      this.item.evaluation_mode === 'item' &&
-      this.previousReferenceTo !== this.reference_to
-    ) {
+    if (this.item.evaluation_mode === 'item' && this.previousReferenceTo !== this.reference_to) {
       this.previousReferenceTo = this.reference_to;
       this.checkEvaluationValidation();
     }
@@ -152,10 +123,8 @@ export class EvaluationsComponent
         this.reference_to += '.' + this.questionId;
       }
     }
-    this.actionPlanCommentElementId =
-      'pia-evaluation-action-plan-' + this.reference_to.replace(/\./g, '-');
-    this.evaluationCommentElementId =
-      'pia-evaluation-comment-' + this.reference_to.replace(/\./g, '-');
+    this.actionPlanCommentElementId = 'pia-evaluation-action-plan-' + this.reference_to.replace(/\./g, '-');
+    this.evaluationCommentElementId = 'pia-evaluation-comment-' + this.reference_to.replace(/\./g, '-');
 
     this.evaluationForm = new FormGroup({
       actionPlanComment: new FormControl(),
@@ -169,17 +138,11 @@ export class EvaluationsComponent
       // Translation for comment's placeholder
       if (this.evaluation.status) {
         if (this.evaluation.status === 1) {
-          this.comment_placeholder = this._translateService.instant(
-            'evaluations.placeholder_to_correct'
-          );
+          this.comment_placeholder = this._translateService.instant('evaluations.placeholder_to_correct');
         } else if (this.evaluation.status === 3) {
-          this.comment_placeholder = this._translateService.instant(
-            'evaluations.placeholder_acceptable'
-          );
+          this.comment_placeholder = this._translateService.instant('evaluations.placeholder_acceptable');
         } else {
-          this.comment_placeholder = this._translateService.instant(
-            'evaluations.placeholder_improvable2'
-          );
+          this.comment_placeholder = this._translateService.instant('evaluations.placeholder_improvable2');
         }
       }
 
@@ -189,19 +152,11 @@ export class EvaluationsComponent
         this.evaluation.gauges = { x: 0, y: 0 };
       }
 
-      this.evaluationForm.controls['actionPlanComment'].patchValue(
-        this.evaluation.action_plan_comment
-      );
-      this.evaluationForm.controls['evaluationComment'].patchValue(
-        this.evaluation.evaluation_comment
-      );
+      this.evaluationForm.controls['actionPlanComment'].patchValue(this.evaluation.action_plan_comment);
+      this.evaluationForm.controls['evaluationComment'].patchValue(this.evaluation.evaluation_comment);
       if (this.evaluation.gauges) {
-        this.evaluationForm.controls['gaugeX'].patchValue(
-          this.evaluation.gauges['x']
-        );
-        this.evaluationForm.controls['gaugeY'].patchValue(
-          this.evaluation.gauges['y']
-        );
+        this.evaluationForm.controls['gaugeX'].patchValue(this.evaluation.gauges['x']);
+        this.evaluationForm.controls['gaugeY'].patchValue(this.evaluation.gauges['y']);
       } else {
         this.evaluationForm.controls['gaugeX'].patchValue(0);
         this.evaluationForm.controls['gaugeY'].patchValue(0);
@@ -209,15 +164,14 @@ export class EvaluationsComponent
     });
 
     if (this.item.questions) {
-      const questions: any[] = this.item.questions.filter(question => {
+      const questions: any[] = this.item.questions.filter((question) => {
         return question.answer_type === 'gauge';
       });
-      questions.forEach(question => {
+      questions.forEach((question) => {
         const answersModel = new Answer();
         answersModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
           if (answersModel.data) {
-            this.previousGauges[question.cartography.split('_')[1]] =
-              answersModel.data.gauge;
+            this.previousGauges[question.cartography.split('_')[1]] = answersModel.data.gauge;
           }
         });
       });
@@ -235,8 +189,7 @@ export class EvaluationsComponent
     }
     if (textarea.clientHeight < textarea.scrollHeight) {
       textarea.style.height = textarea.scrollHeight + 'px';
-      textarea.style.height =
-        textarea.scrollHeight * 2 - textarea.clientHeight + 'px';
+      textarea.style.height = textarea.scrollHeight * 2 - textarea.clientHeight + 'px';
     }
   }
 
@@ -251,44 +204,30 @@ export class EvaluationsComponent
 
     // Action plan comment : hides action plan field + switchs its value to comment field + removes its value.
     if (status !== 2) {
-      const evaluationPlanValue = this.evaluationForm.controls[
-        'actionPlanComment'
-      ].value;
-      const commentValue = this.evaluationForm.controls['evaluationComment']
-        .value;
+      const evaluationPlanValue = this.evaluationForm.controls['actionPlanComment'].value;
+      const commentValue = this.evaluationForm.controls['evaluationComment'].value;
 
       // Sets up the adequate placeholder for comment
       if (status === 1) {
-        this.comment_placeholder = this._translateService.instant(
-          'evaluations.placeholder_to_correct'
-        );
+        this.comment_placeholder = this._translateService.instant('evaluations.placeholder_to_correct');
       } else {
-        this.comment_placeholder = this._translateService.instant(
-          'evaluations.placeholder_acceptable'
-        );
+        this.comment_placeholder = this._translateService.instant('evaluations.placeholder_acceptable');
       }
 
       // Checks if there is an evaluation comment to concatenate it after the action plan value.
       if (evaluationPlanValue && evaluationPlanValue.length > 0) {
         if (commentValue && commentValue.length > 0) {
-          this.evaluationForm.controls['evaluationComment'].setValue(
-            evaluationPlanValue + '\n<br>' + commentValue
-          );
-          this.evaluation.evaluation_comment =
-            evaluationPlanValue + '\n<br>' + commentValue;
+          this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue + '\n<br>' + commentValue);
+          this.evaluation.evaluation_comment = evaluationPlanValue + '\n<br>' + commentValue;
         } else {
-          this.evaluationForm.controls['evaluationComment'].setValue(
-            evaluationPlanValue
-          );
+          this.evaluationForm.controls['evaluationComment'].setValue(evaluationPlanValue);
           this.evaluation.evaluation_comment = evaluationPlanValue;
         }
         this.evaluationForm.controls['actionPlanComment'].setValue('');
         this.evaluation.action_plan_comment = undefined;
       }
     } else {
-      this.comment_placeholder = this._translateService.instant(
-        'evaluations.placeholder_improvable2'
-      );
+      this.comment_placeholder = this._translateService.instant('evaluations.placeholder_improvable2');
     }
 
     this.evaluation.update().then(() => {
@@ -298,9 +237,7 @@ export class EvaluationsComponent
     });
 
     // Displays content (action plan & comment fields).
-    const content = this.el.nativeElement.querySelector(
-      '.pia-evaluationBlock-content'
-    );
+    const content = this.el.nativeElement.querySelector('.pia-evaluationBlock-content');
     content.classList.remove('hide');
   }
 
@@ -309,9 +246,7 @@ export class EvaluationsComponent
    */
   actionPlanCommentFocusIn() {
     if (this._globalEvaluationService.evaluationEditionEnabled) {
-      this._knowledgeBaseService.placeholder = this._translateService.instant(
-        'evaluations.placeholder_improvable1'
-      );
+      this._knowledgeBaseService.placeholder = this._translateService.instant('evaluations.placeholder_improvable1');
       this.loadEditor('actionPlanComment', true);
     }
   }
@@ -393,9 +328,7 @@ export class EvaluationsComponent
    */
   checkGaugeChanges(event: any, xOrY: string) {
     const value: string = event.target.value;
-    const bgElement = event.target.parentNode.querySelector(
-      '.pia-gaugeBlock-background-' + xOrY
-    );
+    const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background-' + xOrY);
     bgElement.classList.remove('pia-gaugeBlock-background-1');
     bgElement.classList.remove('pia-gaugeBlock-background-2');
     bgElement.classList.remove('pia-gaugeBlock-background-3');
@@ -439,10 +372,9 @@ export class EvaluationsComponent
       autoresize_min_height: 40,
       content_style: 'body {background-color:#eee!important;}',
       selector: '#' + elementId,
-      toolbar:
-        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin_url: 'assets/skins/lightgray',
-      setup: editor => {
+      setup: (editor) => {
         if (field === 'actionPlanComment') {
           this.editor = editor;
         } else {

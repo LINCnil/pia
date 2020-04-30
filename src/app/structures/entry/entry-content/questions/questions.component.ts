@@ -1,3 +1,5 @@
+declare var tinymce: any;
+
 import { Component, Input, ElementRef, OnInit, Renderer2, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
@@ -16,7 +18,6 @@ import { SidStatusService } from 'src/app/services/sid-status.service';
   styleUrls: ['./questions.component.scss'],
   providers: [StructureService]
 })
-
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
   @Input() question: any;
@@ -28,14 +29,16 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   editor: any;
   editTitle = true;
 
-  constructor(private el: ElementRef,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _modalsService: ModalsService,
-              private _ngZone: NgZone,
-              public _globalEvaluationService: GlobalEvaluationService,
-              private renderer: Renderer2,
-              private _sidStatusService: SidStatusService,
-              private _structureService: StructureService) { }
+  constructor(
+    private el: ElementRef,
+    private _knowledgeBaseService: KnowledgeBaseService,
+    private _modalsService: ModalsService,
+    private _ngZone: NgZone,
+    public _globalEvaluationService: GlobalEvaluationService,
+    private renderer: Renderer2,
+    private _sidStatusService: SidStatusService,
+    private _structureService: StructureService
+  ) {}
 
   ngOnInit() {
     this._globalEvaluationService.answerEditionEnabled = true;
@@ -113,8 +116,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
     const questionTitle = this.questionForm.controls['title'].value;
     if (questionTitleTextarea && !questionTitle) {
-        questionTitleTextarea.classList.add('pia-required');
-        questionTitleTextarea.focus();
+      questionTitleTextarea.classList.add('pia-required');
+      questionTitleTextarea.focus();
     } else if (this._globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
     }
@@ -158,22 +161,22 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : false,
+      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}' ,
+      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
       toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin_url: 'assets/skins/lightgray',
-      setup: editor => {
+      setup: (editor) => {
         this.editor = editor;
         editor.on('focusout', () => {
           this.questionForm.controls['text'].patchValue(editor.getContent());
           this.questionContentFocusOut();
           this.closeEditor();
         });
-      },
+      }
     });
   }
 

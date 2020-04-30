@@ -12,17 +12,15 @@ import { GlobalEvaluationService } from 'src/app/services/global-evaluation.serv
   styleUrls: ['./action-plan-implementation.component.scss']
 })
 export class ActionPlanImplementationComponent implements OnInit {
-
   @Input() data: any;
   evaluation: Evaluation;
   actionPlanForm: FormGroup;
   displayEditButton = false;
 
-  @ViewChild('estimatedEvaluationDate', { static: false }) private estimatedEvaluationDate: ElementRef;
-  @ViewChild('personInCharge', { static: false }) private personInCharge: ElementRef;
+  @ViewChild('estimatedEvaluationDate') private estimatedEvaluationDate: ElementRef;
+  @ViewChild('personInCharge') private personInCharge: ElementRef;
 
-  constructor(private _piaService: PiaService,
-              public _globalEvaluationService: GlobalEvaluationService) { }
+  constructor(private _piaService: PiaService, public _globalEvaluationService: GlobalEvaluationService) {}
 
   ngOnInit() {
     this.actionPlanForm = new FormGroup({
@@ -34,8 +32,8 @@ export class ActionPlanImplementationComponent implements OnInit {
       const date = this.evaluation.estimated_implementation_date;
       if (date.toString() !== 'Invalid Date') {
         const month = (date.getMonth() + 1).toString();
-        const finalMonth = (month.length === 1 ? '0' : '' ) + month;
-        const finalDate =  date.getFullYear() + '-' + finalMonth + '-' + date.getDate();
+        const finalMonth = (month.length === 1 ? '0' : '') + month;
+        const finalDate = date.getFullYear() + '-' + finalMonth + '-' + date.getDate();
         this.actionPlanForm.controls['estimatedEvaluationDate'].patchValue(finalDate);
         // TODO Unable to FocusIn with Firefox
         // this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
@@ -106,5 +104,4 @@ export class ActionPlanImplementationComponent implements OnInit {
       }
     });
   }
-
 }

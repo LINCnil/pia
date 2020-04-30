@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Injectable, EventEmitter, Output, Directive } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { utf8Encode } from '@angular/compiler/src/util';
 
@@ -13,6 +13,7 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 
+@Directive()
 @Injectable()
 export class PiaService {
   pias = [];
@@ -93,26 +94,26 @@ export class PiaService {
           pia.structure_name = structure.name;
           pia.structure_sector_name = structure.sector_name;
           pia.structure_data = this.removeEmptyElements(structure.data);
-          pia.create().then(id => {
+          pia.create().then((id) => {
             this.structureCreateMeasures(pia, id).then(() => {
               this.structureCreateAnswers(pia, id).then(() => resolve(id));
             });
           });
         });
       } else {
-        pia.create().then(id => resolve(id));
+        pia.create().then((id) => resolve(id));
       }
     });
   }
 
   removeEmptyElements(structure_data) {
-    structure_data.sections.forEach(section => {
+    structure_data.sections.forEach((section) => {
       if (section.items) {
-        section.items.forEach(item => {
+        section.items.forEach((item) => {
           if (item.is_measure) {
             if (item.answers && item.answers.length > 0) {
               let index = 0;
-              item.answers.forEach(answer => {
+              item.answers.forEach((answer) => {
                 if (answer && answer.title.length <= 0) {
                   item.answers.splice(index, 1);
                 }
@@ -120,9 +121,9 @@ export class PiaService {
               });
             }
           } else if (item.questions) {
-            item.questions.forEach(question => {
+            item.questions.forEach((question) => {
               if (question.answer && question.answer.length > 0 && question.answer.title && question.answer.title.length <= 0) {
-                const index = item.questions.findIndex(q => q.id === question.id);
+                const index = item.questions.findIndex((q) => q.id === question.id);
                 item.questions.splice(index, 1);
               }
             });
@@ -136,7 +137,7 @@ export class PiaService {
   async structureCreateMeasures(pia: Pia, id: any) {
     return new Promise((resolve, reject) => {
       // Record the structures Measures
-      const structures_measures = pia.structure_data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers;
+      const structures_measures = pia.structure_data.sections.filter((s) => s.id === 3)[0].items.filter((i) => i.id === 1)[0].answers;
       let i = 0;
       if (structures_measures.length > 0) {
         for (const m in structures_measures) {
@@ -163,11 +164,11 @@ export class PiaService {
     // Record the structures Answers
     return new Promise((resolve, reject) => {
       const questions = [];
-      pia.structure_data.sections.forEach(section => {
+      pia.structure_data.sections.forEach((section) => {
         if (section.items) {
-          section.items.forEach(item => {
+          section.items.forEach((item) => {
             if (item.questions) {
-              item.questions.forEach(question => {
+              item.questions.forEach((question) => {
                 if (question.answer && question.answer.length > 0) {
                   questions.push(question);
                 }
@@ -179,7 +180,7 @@ export class PiaService {
 
       if (questions.length > 0) {
         let i = 0;
-        questions.forEach(question => {
+        questions.forEach((question) => {
           const answer = new Answer();
           answer.pia_id = id;
           answer.reference_to = question.id;
@@ -209,7 +210,7 @@ export class PiaService {
       pia.is_archive = 1;
       pia.update();
 
-      const index = this.pias.findIndex(item => item.id === piaID);
+      const index = this.pias.findIndex((item) => item.id === piaID);
       if (index !== -1) {
         this.pias[index] = pia;
 
@@ -240,7 +241,7 @@ export class PiaService {
       evaluation.pia_id = this.pia.id;
       evaluation.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
-          entries.forEach(element => {
+          entries.forEach((element) => {
             evaluation = new Evaluation();
             evaluation.get(element.id).then((entry: any) => {
               entry.global_status = 0;
@@ -275,7 +276,7 @@ export class PiaService {
    * @param id - The PIA id.
    */
   duplicate(id: number) {
-    this.exportData(id).then(data => {
+    this.exportData(id).then((data) => {
       this.importData(data, 'COPY', true);
     });
   }
@@ -308,13 +309,13 @@ export class PiaService {
           evaluations: null,
           comments: null
         };
-        answer.findAllByPia(id).then(answers => {
+        answer.findAllByPia(id).then((answers) => {
           data['answers'] = answers;
-          measure.findAll().then(measures => {
+          measure.findAll().then((measures) => {
             data['measures'] = measures;
-            evaluation.findAll().then(evaluations => {
+            evaluation.findAll().then((evaluations) => {
               data['evaluations'] = evaluations;
-              comment.findAll().then(comments => {
+              comment.findAll().then((comments) => {
                 data['comments'] = comments;
                 // attachment.findAll().then((attachments) => {
                 // data['attachments'] = attachments;
@@ -408,7 +409,7 @@ export class PiaService {
   }
 
   async replacePiaByExport(piaExport, resetOption, updateOption, dateExport) {
-    return new Promise(async resolve => {
+    return new Promise(async (resolve) => {
       const pia = new Pia();
       pia.id = piaExport.pia.id;
       pia.name = piaExport.pia.name;
@@ -506,7 +507,7 @@ export class PiaService {
    */
   async export(id: number) {
     return new Promise(async (resolve, reject) => {
-      this.exportData(id).then(data => {
+      this.exportData(id).then((data) => {
         const finalData = utf8Encode(JSON.stringify(data));
         resolve(finalData);
       });
@@ -575,7 +576,7 @@ export class PiaService {
    * @param piaId - The PIA id
    */
   private async importAnswers(answers: any, piaId: number) {
-    answers.forEach(answer => {
+    answers.forEach((answer) => {
       const answerModel = new Answer();
       answerModel.pia_id = piaId;
       answerModel.reference_to = answer.reference_to;
@@ -600,7 +601,7 @@ export class PiaService {
       let count = 0;
       const oldIdToNewId = [];
       // Create measures
-      data.measures.forEach(measure => {
+      data.measures.forEach((measure) => {
         const measureModel = new Measure();
         measureModel.title = measure.title;
         measureModel.pia_id = piaId;
@@ -629,7 +630,7 @@ export class PiaService {
    * @param piaId - The PIA id
    */
   private async importComments(comments: any, piaId: number) {
-    comments.forEach(comment => {
+    comments.forEach((comment) => {
       const commentModel = new Comment();
       commentModel.pia_id = piaId;
       commentModel.description = comment.description;

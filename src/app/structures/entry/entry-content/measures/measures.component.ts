@@ -1,3 +1,5 @@
+declare var tinymce: any;
+
 import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -14,7 +16,6 @@ import { SidStatusService } from 'src/app/services/sid-status.service';
   providers: [StructureService]
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
-
   @Input() id: number;
   @Input() measure: any;
   @Input() item: any;
@@ -32,7 +33,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     private _modalsService: ModalsService,
     private _knowledgeBaseService: KnowledgeBaseService,
     private _ngZone: NgZone,
-    private _sidStatusService: SidStatusService) { }
+    private _sidStatusService: SidStatusService
+  ) {}
 
   ngOnInit() {
     this.measureForm = new FormGroup({
@@ -69,7 +71,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (textarea.clientHeight < textarea.scrollHeight) {
       textarea.style.height = textarea.scrollHeight + 'px';
       if (textarea.clientHeight < textarea.scrollHeight) {
-        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+        textarea.style.height = textarea.scrollHeight * 2 - textarea.clientHeight + 'px';
       }
     }
   }
@@ -112,7 +114,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this._ngZone.run(() => {
       this._sidStatusService.setStructureStatus(this.section, this.item);
     });
-
   }
 
   /**
@@ -174,22 +175,22 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : false,
+      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}' ,
+      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
       toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin_url: 'assets/skins/lightgray',
-      setup: editor => {
+      setup: (editor) => {
         this.editor = editor;
         editor.on('focusout', () => {
           this.measureForm.controls['measureContent'].patchValue(editor.getContent());
           this.measureContentFocusOut();
           tinymce.remove(this.editor);
         });
-      },
+      }
     });
   }
 }
