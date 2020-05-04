@@ -174,6 +174,21 @@ export class BaseComponent implements OnInit {
       });
   }
 
+  deleteEntry(id) {
+    let tempk = new Knowledge();
+    tempk
+      .delete(id)
+      .then(() => {
+        let index = this.knowledges.findIndex(e => e.id === id);
+        if (index !== -1) {
+          this.knowledges.splice(index, 1);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   /**
    * One shot update
    */
