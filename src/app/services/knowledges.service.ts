@@ -83,23 +83,47 @@ export class KnowledgesService {
   }
 
   import(data) {
-    let newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
-    newKnowledgeBase
-      .create()
-      .then((resp: KnowledgeBase) => {
-        newKnowledgeBase.id = resp.id;
-        this.list.push(newKnowledgeBase);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    return new Promise((resolve, reject) => {
+      let newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
+      newKnowledgeBase
+        .create()
+        .then((resp: KnowledgeBase) => {
+          newKnowledgeBase.id = resp.id;
+          this.list.push(newKnowledgeBase);
+          resolve(newKnowledgeBase);
+        })
+        .catch(error => {
+          console.log(error);
+          reject(error);
+        });
+    });
   }
 
   duplicate(id: number) {
     const date = new Date().getTime();
     let kbTemp = new KnowledgeBase();
-    kbTemp.find(id).then(data => {
-      this.import(data);
+    kbTemp.find(id).then((data: KnowledgeBase) => {
+      this.import(data).then((newKnowledgeBase: KnowledgeBase) => {
+        // Duplicate entries
+        this.getEntries(id).then((knowledges: Knowledge[]) => {
+          knowledges.forEach((entry: Knowledge) => {
+            let temp = new Knowledge();
+            temp.id = entry.id;
+            temp.slug = entry.slug;
+            temp.filters = entry.filters;
+            temp.category = entry.category;
+            temp.placeholder = entry.placeholder;
+            temp.name = entry.name;
+            temp.description = entry.description;
+            temp.items = entry.items;
+            temp.created_at = new Date(entry.created_at);
+            temp.updated_at = new Date(entry.updated_at);
+            temp.create(newKnowledgeBase.id).then(e => {
+              console.log(e);
+            });
+          });
+        });
+      });
     });
   }
 }
