@@ -46,13 +46,20 @@ export class KnowledgeBaseService {
               if (e.items) {
                 e.items.forEach(item => {
                   // entries
-                  newBase.push({
+                  let entrie = {
                     slug: 'PIA_CUSTOM_' + item,
                     category: e.category,
                     name: e.name,
                     description: e.description,
                     filters: e.filters
-                  });
+                  };
+                  if (e.filters && e.filters !== '') {
+                    entrie = {
+                      ...entrie,
+                      filters: e.filters
+                    };
+                  }
+                  newBase.push(entrie);
                 });
               }
             });
