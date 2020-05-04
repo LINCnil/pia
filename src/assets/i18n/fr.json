@@ -259,7 +259,8 @@
         "placeholder_updated_at": "Modifié le",
         "contents": "Contenus",
         "choose_category":"Choisissez une catégorie",
-        "linked_to": "Lié à"
+        "linked_to": "Lié à",
+        "all_sections": "Toutes les sections"
 			}
 		},
 		"filters": {

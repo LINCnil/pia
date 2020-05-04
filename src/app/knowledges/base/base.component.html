@@ -86,6 +86,10 @@
           <h3>{{ 'homepage.cards.knowledges_entry.linked_to' | translate }}</h3>
           <!-- CHECKBOXES -->
           <div class="pia-knowledges_base-form-checkboxes" *ngIf="data && data.sections.length > 0">
+            <div class="pia-knowledges_base-form-checkboxes-title">
+              <input id="select_all_sections" name="select_all_sections" type="checkbox" [disabled]="lockedChoice" (click)="globalCheckingAllElementInDataSection($event)" [checked]="allSectionCheckedVerification(data?.sections)">
+              <label for="select_all_sections">{{ 'homepage.cards.knowledges_entry.all_sections' | translate }}</label>
+            </div>
             <div class="pia-knowledges_base-form-checkboxes-body">
               <div *ngFor="let dataSection of data?.sections">
                 <div class="pia-knowledges_base-form-checkboxes-title">

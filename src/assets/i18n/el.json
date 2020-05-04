@@ -259,7 +259,8 @@
 				"placeholder_updated_at": "TO TRANSLATE - Last updated",
         "contents": "TO TRANSLATE - Contents",
         "choose_category":"TO TRANSLATE - Choose a category",
-        "linked_to": "TO TRANSLATE - Linked to"
+        "linked_to": "TO TRANSLATE - Linked to",
+        "all_sections": "TO TRANSLATE - All sections"
 			}
 		},
 		"filters": {

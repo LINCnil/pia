@@ -213,6 +213,9 @@ export class BaseComponent implements OnInit {
     }
   }
 
+  /**
+   * Record every change on each item checkbox.
+   */
   onCheckboxChange(e) {
     let ar = this.itemsSelected;
     if (e.target.checked) {
@@ -227,6 +230,9 @@ export class BaseComponent implements OnInit {
     this.focusOut();
   }
 
+  /**
+   * Check all items when the section checkbox is clicked.
+   */
   globalCheckingElementInDataSection(dataSection, e) {
     const checkboxStatus = e.target.checked;
     const checkboxes = e.target.parentNode.parentNode
@@ -243,7 +249,27 @@ export class BaseComponent implements OnInit {
     }
   }
 
-  /*
+  /**
+   * Check all sections when the "all sections" checkbox is clicked.
+   */
+  globalCheckingAllElementInDataSection(e) {
+    const checkboxStatus = e.target.checked;
+    const checkboxesTitle = e.target.parentNode.parentNode.querySelectorAll('.pia-knowledges_base-form-checkboxes-title');
+    if (checkboxesTitle) {
+      checkboxesTitle.forEach(el => {
+        const checkboxElement = el.querySelector('[type="checkbox"]');
+        if (checkboxElement) {
+          if (checkboxStatus && !checkboxElement.checked) {
+            checkboxElement.click();
+          } else if (!checkboxStatus && checkboxElement.checked) {
+            checkboxElement.click();
+          }
+        }
+      });
+    }
+  }
+
+  /**
    * Checked the parent checkbox attribute
    */
   sectionCheckedVerification(dataSection) {
@@ -256,6 +282,23 @@ export class BaseComponent implements OnInit {
     return checked;
   }
 
+  /**
+   * Verify every checkboxes to check or uncheck the "all section" checkbox.
+   */
+  allSectionCheckedVerification(sections) {
+    let allChecked = true;
+    sections.forEach(section => {
+      if (!this.sectionCheckedVerification(section)) {
+        allChecked = false;
+      }
+    });
+    const checkboxAllSections = document.getElementById('select_all_sections') as HTMLInputElement;
+    checkboxAllSections.checked = allChecked;
+  }
+
+  /**
+   * Open or close the form.
+   */
   closeNewElementForm() {
     this.showForm = false;
   }
