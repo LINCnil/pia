@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { PiaService } from 'src/app/services/pia.service';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { LanguagesService } from 'src/app/services/languages.service';
+import { IntrojsService } from '../services/introjs.service';
 
 import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
 
@@ -35,7 +36,8 @@ export class HeaderComponent implements OnInit {
     public _piaService: PiaService,
     private _modalsService: ModalsService,
     private httpClient: HttpClient,
-    public _languagesService: LanguagesService
+    public _languagesService: LanguagesService,
+    private _introjsService: IntrojsService
   ) {
     this.updateContrast();
   }
@@ -75,7 +77,11 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('onboardingDashboardConfirmed');
     localStorage.removeItem('onboardingEntryConfirmed');
     localStorage.removeItem('onboardingValidatedConfirmed');
-    location.reload();
+    // location.reload();
+    let currentUrl = this._router.url;
+    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this._router.navigate([currentUrl]);
+    });
   }
 
   /**
