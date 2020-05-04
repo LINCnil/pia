@@ -86,7 +86,8 @@ export class KnowledgesService {
     let newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
     newKnowledgeBase
       .create()
-      .then(() => {
+      .then((resp: KnowledgeBase) => {
+        newKnowledgeBase.id = resp.id;
         this.list.push(newKnowledgeBase);
       })
       .catch(error => {
