@@ -71,7 +71,7 @@
         <h3>{{ 'homepage.cards.knowledges_entry.contents' | translate }}</h3>
         <div>
           <div class="pia-elementCategory-wrapper">
-            <select name="category" formControlName="category" (focusout)="focusOut()" >
+            <select name="category" formControlName="category" (change)="focusOut()" >
               <option value="null" disabled>{{ 'homepage.cards.knowledges_entry.choose_category' | translate }}</option>
               <option value="{{category}}" *ngFor="let category of categories">{{category  | translate }}</option>
             </select>
