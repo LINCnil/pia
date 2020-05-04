@@ -43,6 +43,10 @@
                 <i class="fa fa-pencil" aria-hidden="true"></i>
                 <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
               </a>
+              <a (click)="deleteEntry(item.id)" class="btn pia-tooltip">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                <span title="{{ 'homepage.cards.item.tools.remove' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
+              </a>
             </td>
             <td colspan="2">{{item.name}}</td>
             <td>{{item.category  | translate}}</td>
@@ -67,7 +71,7 @@
         <h3>{{ 'homepage.cards.knowledges_entry.contents' | translate }}</h3>
         <div>
           <div class="pia-elementCategory-wrapper">
-            <select name="category" formControlName="category" (focusout)="focusOut()" >
+            <select name="category" formControlName="category" (change)="focusOut()" >
               <option value="null" disabled>{{ 'homepage.cards.knowledges_entry.choose_category' | translate }}</option>
               <option value="{{category}}" *ngFor="let category of categories">{{category  | translate }}</option>
             </select>
@@ -86,6 +90,10 @@
           <h3>{{ 'homepage.cards.knowledges_entry.linked_to' | translate }}</h3>
           <!-- CHECKBOXES -->
           <div class="pia-knowledges_base-form-checkboxes" *ngIf="data && data.sections.length > 0">
+            <div class="pia-knowledges_base-form-checkboxes-title">
+              <input id="select_all_sections" name="select_all_sections" type="checkbox" [disabled]="lockedChoice" (click)="globalCheckingAllElementInDataSection($event)" [checked]="allSectionCheckedVerification(data?.sections)">
+              <label for="select_all_sections">{{ 'homepage.cards.knowledges_entry.all_sections' | translate }}</label>
+            </div>
             <div class="pia-knowledges_base-form-checkboxes-body">
               <div *ngFor="let dataSection of data?.sections">
                 <div class="pia-knowledges_base-form-checkboxes-title">
@@ -99,7 +107,7 @@
                         <input [checked]="itemsSelected.includes(dataSection.id.toString() + dataItem.id.toString())"
                           (change)="onCheckboxChange($event)" type="checkbox"
                           name="{{dataItem.title}}" id="{{dataItem.title}}"
-                          value="{{dataSection.id.toString() + dataItem.id.toString()}}" [disabled]="lockedChoice && dataSection.id.toString() + dataItem.id.toString() !== '31'">
+                          value="{{dataSection.id.toString() + dataItem.id.toString()}}" [disabled]="(lockedChoice && dataSection.id.toString() + dataItem.id.toString() !== '31') || (!lockedChoice && dataSection.id.toString() + dataItem.id.toString() === '31' && entryForm.value.category !== 'knowledge_base.category.definition')">
                         <span title="{{ dataItem.title | translate }}" class="truncate">{{ dataItem.title | translate }}</span>
                       </label>
                     </li>

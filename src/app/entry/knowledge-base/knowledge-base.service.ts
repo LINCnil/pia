@@ -51,7 +51,7 @@ export class KnowledgeBaseService {
                     category: e.category,
                     name: e.name,
                     description: e.description,
-                    filters: ''
+                    filters: e.filters && e.filters !== '' && item === '31' ? e.filters : ''
                   });
                 });
               }
@@ -126,6 +126,7 @@ export class KnowledgeBaseService {
           }
         });
       }
+
       if (kbSlugs.length > 0) {
         this.knowledgeBaseData = this.knowledgeBaseData.filter(kbItem => {
           return kbSlugs.indexOf(kbItem.slug) >= 0;
@@ -133,6 +134,7 @@ export class KnowledgeBaseService {
       } else {
         this.knowledgeBaseData = [];
       }
+
       this.previousKnowledgeBaseData = this.knowledgeBaseData;
       this.specificSearch();
       this.switchSelectedElement(event);

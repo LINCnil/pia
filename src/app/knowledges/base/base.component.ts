@@ -38,6 +38,13 @@ export class BaseComponent implements OnInit {
   itemsSelected: any = [];
   lockedChoice: boolean = false;
 
+  filtersCategoriesCorrespondance = {
+    'knowledge_base.category.measure_on_data': 'measure.data_processing',
+    'knowledge_base.category.general_measure': 'measure.security',
+    'knowledge_base.category.organizational_measure': 'measure.goverance',
+    'knowledge_base.category.definition': 'measure.definition'
+  };
+
   constructor(
     private _languagesService: LanguagesService,
     private _modalsService: ModalsService,
@@ -97,6 +104,20 @@ export class BaseComponent implements OnInit {
     }
   }
 
+  checkFilters() {
+    if (
+      this.entryForm.value.category === 'knowledge_base.category.organizational_measure' ||
+      this.entryForm.value.category === 'knowledge_base.category.measure_on_data' ||
+      this.entryForm.value.category === 'knowledge_base.category.general_measure' ||
+      this.entryForm.value.category === 'knowledge_base.category.definition'
+    ) {
+      return this.filtersCategoriesCorrespondance[this.entryForm.value.category];
+    } else {
+      this.lockedChoice = false;
+      return '';
+    }
+  }
+
   /**
    * Create a new Knowledge entry
    */
@@ -112,6 +133,8 @@ export class BaseComponent implements OnInit {
       entry.items = ['31'];
       this.itemsSelected = ['31'];
     }
+
+    entry.filters = this.checkFilters();
 
     entry.create(this._knowledgesService.selected).then((result: Knowledge) => {
       this.knowledges.push(result);
@@ -151,6 +174,21 @@ export class BaseComponent implements OnInit {
       });
   }
 
+  deleteEntry(id) {
+    let tempk = new Knowledge();
+    tempk
+      .delete(id)
+      .then(() => {
+        let index = this.knowledges.findIndex(e => e.id === id);
+        if (index !== -1) {
+          this.knowledges.splice(index, 1);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   /**
    * One shot update
    */
@@ -171,6 +209,8 @@ export class BaseComponent implements OnInit {
           this.itemsSelected = ['31'];
         }
 
+        entry.filters = this.checkFilters();
+
         // Update object
         entry
           .update()
@@ -188,6 +228,9 @@ export class BaseComponent implements OnInit {
     }
   }
 
+  /**
+   * Record every change on each item checkbox.
+   */
   onCheckboxChange(e) {
     let ar = this.itemsSelected;
     if (e.target.checked) {
@@ -202,6 +245,9 @@ export class BaseComponent implements OnInit {
     this.focusOut();
   }
 
+  /**
+   * Check all items when the section checkbox is clicked.
+   */
   globalCheckingElementInDataSection(dataSection, e) {
     const checkboxStatus = e.target.checked;
     const checkboxes = e.target.parentNode.parentNode
@@ -218,7 +264,27 @@ export class BaseComponent implements OnInit {
     }
   }
 
-  /*
+  /**
+   * Check all sections when the "all sections" checkbox is clicked.
+   */
+  globalCheckingAllElementInDataSection(e) {
+    const checkboxStatus = e.target.checked;
+    const checkboxesTitle = e.target.parentNode.parentNode.querySelectorAll('.pia-knowledges_base-form-checkboxes-title');
+    if (checkboxesTitle) {
+      checkboxesTitle.forEach(el => {
+        const checkboxElement = el.querySelector('[type="checkbox"]');
+        if (checkboxElement) {
+          if (checkboxStatus && !checkboxElement.checked) {
+            checkboxElement.click();
+          } else if (!checkboxStatus && checkboxElement.checked) {
+            checkboxElement.click();
+          }
+        }
+      });
+    }
+  }
+
+  /**
    * Checked the parent checkbox attribute
    */
   sectionCheckedVerification(dataSection) {
@@ -231,6 +297,23 @@ export class BaseComponent implements OnInit {
     return checked;
   }
 
+  /**
+   * Verify every checkboxes to check or uncheck the "all section" checkbox.
+   */
+  allSectionCheckedVerification(sections) {
+    let allChecked = true;
+    sections.forEach(section => {
+      if (!this.sectionCheckedVerification(section)) {
+        allChecked = false;
+      }
+    });
+    const checkboxAllSections = document.getElementById('select_all_sections') as HTMLInputElement;
+    checkboxAllSections.checked = allChecked;
+  }
+
+  /**
+   * Open or close the form.
+   */
   closeNewElementForm() {
     this.showForm = false;
   }
