@@ -38,6 +38,13 @@ export class BaseComponent implements OnInit {
   itemsSelected: any = [];
   lockedChoice: boolean = false;
 
+  filtersCategoriesCorrespondance = {
+    'knowledge_base.category.measure_on_data': 'measure.data_processing',
+    'knowledge_base.category.general_measure': 'measure.security',
+    'knowledge_base.category.organizational_measure': 'measure.goverance',
+    'knowledge_base.category.definition': 'measure.definition'
+  };
+
   constructor(
     private _languagesService: LanguagesService,
     private _modalsService: ModalsService,
@@ -97,6 +104,20 @@ export class BaseComponent implements OnInit {
     }
   }
 
+  checkFilters() {
+    if (
+      this.entryForm.value.category === 'knowledge_base.category.organizational_measure' ||
+      this.entryForm.value.category === 'knowledge_base.category.measure_on_data' ||
+      this.entryForm.value.category === 'knowledge_base.category.general_measure' ||
+      this.entryForm.value.category === 'knowledge_base.category.definition'
+    ) {
+      return this.filtersCategoriesCorrespondance[this.entryForm.value.category];
+    } else {
+      this.lockedChoice = false;
+      return '';
+    }
+  }
+
   /**
    * Create a new Knowledge entry
    */
@@ -112,6 +133,8 @@ export class BaseComponent implements OnInit {
       entry.items = ['31'];
       this.itemsSelected = ['31'];
     }
+
+    entry.filters = this.checkFilters();
 
     entry.create(this._knowledgesService.selected).then((result: Knowledge) => {
       this.knowledges.push(result);
@@ -170,6 +193,8 @@ export class BaseComponent implements OnInit {
           entry.items = ['31'];
           this.itemsSelected = ['31'];
         }
+
+        entry.filters = this.checkFilters();
 
         // Update object
         entry
