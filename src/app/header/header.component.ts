@@ -78,6 +78,7 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('onboardingEntryConfirmed');
     localStorage.removeItem('onboardingValidatedConfirmed');
     // location.reload();
+    this._introjsService.reset();
     let currentUrl = this._router.url;
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate([currentUrl]);
