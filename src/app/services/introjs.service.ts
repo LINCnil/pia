@@ -422,30 +422,42 @@ export class IntrojsService {
    */
   public start(onBoarding: string) {
     console.log('start');
+    let interval;
     switch (onBoarding) {
       case 'dashboard':
-        setTimeout(() => {
-          this.prepareDashboardOnBoarding();
-        }, 1000);
+        interval = setInterval(() => {
+          if (document.querySelector('.pia-newBlock-item.front')) {
+            this.prepareDashboardOnBoarding();
+            clearInterval(interval);
+          }
+        }, 2000);
         break;
       case 'entry':
-        setTimeout(() => {
-          this.prepareEntryOnBoarding();
-        }, 1000);
+        interval = setInterval(() => {
+          if (document.querySelector('.pia-sectionsBlock')) {
+            this.prepareEntryOnBoarding();
+            clearInterval(interval);
+          }
+        }, 2000);
         break;
       case 'validated':
-        const LOCALSTORAGE_INTROJS_VALIDATED = localStorage.getItem('onboardingValidatedConfirmed');
-        if (LOCALSTORAGE_INTROJS_VALIDATED === null || LOCALSTORAGE_INTROJS_VALIDATED === undefined) {
-          setTimeout(() => {
-            this.prepareValidatedOnBoarding();
-          }, 3000);
+        if (!localStorage.getItem('onboardingValidatedConfirmed')) {
+          interval = setInterval(() => {
+            if (document.querySelector('.pia-cardsBlock.pia-archiveBlock')) {
+              this.prepareValidatedOnBoarding();
+              clearInterval(interval);
+            }
+          }, 2000);
         }
         break;
       case 'evaluation':
         if (!localStorage.getItem('onboardingEvaluationConfirmed')) {
-          setTimeout(() => {
-            this.prepareEvaluationsOnBoarding();
-          }, 1000);
+          interval = setInterval(() => {
+            if (document.querySelector('.pia-evaluationBlock-buttons button')) {
+              this.prepareEvaluationsOnBoarding();
+              clearInterval(interval);
+            }
+          }, 2000);
         }
         break;
       default:
