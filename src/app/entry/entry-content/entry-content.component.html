@@ -35,7 +35,7 @@
   </header>
 
   <!-- Back to edition -->
-  <div class="pia-status-info" *ngIf="_globalEvaluationService.status === 4 && _piaService.pia.is_example !== 1">
+  <div class="pia-status-info evaluationsStatus" *ngIf="_globalEvaluationService.status === 4 && _piaService.pia.is_example !== 1">
     <div>
       <strong>{{ 'pia.sections.status.evaluation.title' | translate }}</strong>
       <p>
