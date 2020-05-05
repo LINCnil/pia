@@ -470,7 +470,11 @@ export class IntrojsService {
       case 'evaluation':
         if (!localStorage.getItem('onboardingEvaluationConfirmed')) {
           interval = setInterval(() => {
-            if (document.querySelector('.pia-evaluationBlock-buttons button') && document.querySelector('.pia-evaluationBlock > div')) {
+            if (
+              document.querySelector('.pia-evaluationBlock') &&
+              document.querySelector('.pia-evaluationBlock-buttons button') &&
+              document.querySelector('.pia-evaluationBlock > div')
+            ) {
               this.prepareEvaluationsOnBoarding();
               clearInterval(interval);
             }
