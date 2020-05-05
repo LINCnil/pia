@@ -17,19 +17,32 @@ export class IntrojsService {
   public entrySideView = 'knowledge';
   entrySideViewChange: Subject<any> = new Subject<any>();
 
+  private introjsChecked = false;
+
   constructor(private router: Router, private _translateService: TranslateService) {
     console.log('Introjs connected');
+    console.log('test introjscherc', this.introjsChecked);
 
     this.sectionsChange.subscribe(bool => {
-      console.log('changements sections', bool);
-      this.sectionsLoaded = bool;
-      this.autoSelectOnBoarding();
+      if (!this.introjsChecked) {
+        console.log('changements sections', bool);
+        this.sectionsLoaded = bool;
+        this.autoSelectOnBoarding();
+      }
     });
     this.evaluationsChange.subscribe(bool => {
-      console.log('changements evaluations', bool);
-      this.evaluationsLoaded = bool;
-      this.autoSelectOnBoarding();
+      if (!this.introjsChecked) {
+        console.log('changements evaluations', bool);
+        this.evaluationsLoaded = bool;
+        this.autoSelectOnBoarding();
+      }
     });
+  }
+
+  reset() {
+    this.sectionsLoaded = null;
+    this.evaluationsLoaded = null;
+    this.introjsChecked = false;
   }
 
   sections(bool) {
@@ -43,10 +56,14 @@ export class IntrojsService {
   public autoSelectOnBoarding() {
     if (this.sectionsLoaded !== null && this.evaluationsLoaded !== null) {
       if (this.evaluationsLoaded === true) {
+        console.log('EVALUATION INTROJS');
         this.start('evaluation');
+        this.introjsChecked = true;
       } else {
         if (!localStorage.getItem('onboardingEntryConfirmed')) {
+          console.log('ENTRY INTROJS');
           this.start('entry');
+          this.introjsChecked = true;
         }
       }
     }
@@ -422,30 +439,46 @@ export class IntrojsService {
    */
   public start(onBoarding: string) {
     console.log('start');
+    let interval;
     switch (onBoarding) {
       case 'dashboard':
-        setTimeout(() => {
-          this.prepareDashboardOnBoarding();
-        }, 1000);
+        interval = setInterval(() => {
+          if (document.querySelector('.pia-newBlock-item.front')) {
+            this.prepareDashboardOnBoarding();
+            clearInterval(interval);
+          }
+        }, 2000);
         break;
       case 'entry':
-        setTimeout(() => {
-          this.prepareEntryOnBoarding();
-        }, 1000);
+        interval = setInterval(() => {
+          if (document.querySelector('.pia-sectionsBlock')) {
+            this.prepareEntryOnBoarding();
+            clearInterval(interval);
+          }
+        }, 2000);
         break;
       case 'validated':
-        const LOCALSTORAGE_INTROJS_VALIDATED = localStorage.getItem('onboardingValidatedConfirmed');
-        if (LOCALSTORAGE_INTROJS_VALIDATED === null || LOCALSTORAGE_INTROJS_VALIDATED === undefined) {
-          setTimeout(() => {
-            this.prepareValidatedOnBoarding();
-          }, 3000);
+        if (!localStorage.getItem('onboardingValidatedConfirmed')) {
+          interval = setInterval(() => {
+            if (document.querySelector('.pia-cardsBlock.pia-archiveBlock')) {
+              this.prepareValidatedOnBoarding();
+              clearInterval(interval);
+            }
+          }, 2000);
         }
         break;
       case 'evaluation':
         if (!localStorage.getItem('onboardingEvaluationConfirmed')) {
-          setTimeout(() => {
-            this.prepareEvaluationsOnBoarding();
-          }, 1000);
+          interval = setInterval(() => {
+            if (
+              document.querySelector('.pia-evaluationBlock') &&
+              document.querySelector('.pia-evaluationBlock-buttons button') &&
+              document.querySelector('.pia-evaluationBlock > div')
+            ) {
+              this.prepareEvaluationsOnBoarding();
+              clearInterval(interval);
+            }
+          }, 2000);
         }
         break;
       default:

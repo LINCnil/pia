@@ -54,7 +54,6 @@ export class KnowledgeBaseService {
                     filters: e.filters && e.filters !== '' && item === '31' ? e.filters : ''
                   });
                 });
-                console.log(newBase);
               }
             });
             this.knowledgeBaseData = newBase;
