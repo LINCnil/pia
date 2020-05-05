@@ -113,7 +113,6 @@ export class BaseComponent implements OnInit {
     ) {
       return this.filtersCategoriesCorrespondance[this.entryForm.value.category];
     } else {
-      this.lockedChoice = false;
       return '';
     }
   }
