@@ -219,14 +219,6 @@
               padding: 0;
               margin-bottom: 0;
             }
-            button {
-              cursor: pointer;
-              color: $pia-light-black;
-              font-weight: 400 !important;
-              &:hover {
-                font-weight: 500 !important;
-              }
-            }
             /* Custom checkboxes styles */
             input {
               position: absolute;
@@ -281,6 +273,15 @@
         border-right: 0 !important;
         > ul {
           min-width: 140px;
+        }
+        button {
+          padding: 10px 0 !important;
+          cursor: pointer;
+          color: $pia-light-black;
+          font-weight: 400 !important;
+          &:hover {
+            font-weight: 500 !important;
+          }
         }
       }
 
