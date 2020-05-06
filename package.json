@@ -54,7 +54,7 @@
     "rxjs-compat": "^6.5.5",
     "save-svg-as-png": "^1.4.17",
     "tinymce": "^4.9.7",
-    "tslib": "^1.11.1",
+    "tslib": "^1.11.2",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -68,7 +68,7 @@
     "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~3.5.10",
     "@types/jasminewd2": "~2.0.8",
-    "@types/node": "~13.13.4",
+    "@types/node": "~13.13.5",
     "codelyzer": "^5.2.2",
     "cypress": "^4.5.0",
     "husky": "^4.2.5",
@@ -76,7 +76,7 @@
     "jasmine-spec-reporter": "~5.0.2",
     "karma": "~5.0.4",
     "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.1",
+    "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~3.1.1",
     "karma-jasmine-html-reporter": "^1.5.3",
     "prettier": "^2.0.5",
