@@ -610,6 +610,9 @@
         span {
           background-color: $pia-red;
         }
+        &-click {
+          cursor: pointer !important;
+        }
       }
     }
   }
