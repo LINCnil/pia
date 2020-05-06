@@ -111,12 +111,19 @@
   // VALIDATED PIAs
   &-validated {
     &-1 {
-      left: 230px !important;
-      top: 361px !important;
+      margin-bottom: 30px;
+      .introjs-arrow.bottom {
+        left: 28px !important;
+      }
     }
     &-2 {
-      top: -9px !important;
-      right: 128px !important;
+      /* top: -9px !important; */
+      left: 65px !important;
+      margin-bottom: -6px;
+      .introjs-arrow.bottom {
+        left: 50% !important;
+        margin-left: -12px !important;
+      }
     }
   }
 }
