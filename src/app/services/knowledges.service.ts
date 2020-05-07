@@ -24,6 +24,12 @@ export class KnowledgesService {
             result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.created_at));
           });
           this.list = result;
+
+          // Parse default Knowledge base json
+          let cnilKnowledgeBase = new KnowledgeBase(0, 'Base de connaissance CNIL', 'CNIL', 'CNIL');
+          cnilKnowledgeBase.is_example = true;
+
+          this.list.push(cnilKnowledgeBase);
           resolve(result);
         })
         .catch(error => {

@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalsService } from 'src/app/modals/modals.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { Knowledge } from 'src/app/models/knowledge.model';
+import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
+import piakb from 'src/assets/files/pia_knowledge-base.json';
 
 @Component({
   selector: 'app-card',
@@ -13,26 +15,31 @@ import { Knowledge } from 'src/app/models/knowledge.model';
 export class CardComponent implements OnInit {
   knowledgeBaseForm: FormGroup;
   public nbEntries: number = 0;
-  @Input() base: any;
+  @Input() base: KnowledgeBase;
 
   constructor(private _modalsService: ModalsService, private _knowledgesService: KnowledgesService) {}
 
   ngOnInit() {
     this.knowledgeBaseForm = new FormGroup({
-      id: new FormControl(this.base.id),
-      name: new FormControl(this.base.name),
-      author: new FormControl(this.base.author),
-      contributors: new FormControl(this.base.contributors)
+      id: new FormControl({ value: this.base.id, disabled: this.base.is_example }, Validators.required),
+      name: new FormControl({ value: this.base.name, disabled: this.base.is_example }, Validators.required),
+      author: new FormControl({ value: this.base.author, disabled: this.base.is_example }, Validators.required),
+      contributors: new FormControl({ value: this.base.contributors, disabled: this.base.is_example }, Validators.required)
     });
 
-    this._knowledgesService
-      .getEntries(this.base.id)
-      .then((result: Knowledge[]) => {
-        this.nbEntries = result.length;
-      })
-      .catch(err => {
-        console.log('catch');
-      });
+    if (!this.base.is_example) {
+      this._knowledgesService
+        .getEntries(this.base.id)
+        .then((result: Knowledge[]) => {
+          this.nbEntries = result.length;
+        })
+        .catch(err => {
+          console.log('catch');
+        });
+    } else {
+      // exemple
+      this.nbEntries = piakb.length;
+    }
   }
 
   /**
