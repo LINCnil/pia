@@ -178,6 +178,7 @@ export class BaseComponent implements OnInit {
           if (result.items) {
             this.itemsSelected = result.items;
           }
+          this.checkLockedChoice();
 
           this.editMode = 'edit';
           this.showForm = true;
