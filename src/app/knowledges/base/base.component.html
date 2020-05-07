@@ -39,30 +39,45 @@
         <tbody *ngIf="knowledges && knowledges.length > 0">
           <tr *ngFor="let item of knowledges" [ngClass]="{'noElementsDisplaying': showForm}">
             <td class="pia-listsBlock-item">
-              <a (click)="editEntry(item.id)" class="btn pia-tooltip">
+              <a (click)="editEntry(item.id)" class="btn pia-tooltip"  *ngIf="!base.is_example">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
                 <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
               </a>
-              <a href="javascript:;" (click)="duplicateEntry(item.id)" class="btn pia-tooltip">
+              <a href="javascript:;" (click)="duplicateEntry(item.id)" class="btn pia-tooltip"  *ngIf="!base.is_example">
                 <i class="fa fa-files-o" aria-hidden="true"></i>
                 <span title="{{ 'homepage.cards.item.tools.duplicate' | translate }}" class="pia-tooltip-text">
                     {{ 'homepage.cards.item.tools.duplicate' | translate }}
                 </span>
               </a>
-              <a (click)="deleteModal(item.id)" class="btn pia-tooltip">
+              <a (click)="deleteModal(item.id)" class="btn pia-tooltip"  *ngIf="!base.is_example">
                 <i class="fa fa-trash" aria-hidden="true"></i>
                 <span title="{{ 'homepage.cards.item.tools.remove' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
               </a>
             </td>
-            <td class="pia-listsBlock-item-click" (click)="editEntry(item.id)" colspan="2">{{item.name}}</td>
+            <td class="pia-listsBlock-item-click" (click)="editEntry(item.id)" colspan="2">
+              <ng-container *ngIf="!base.is_example;else elseblock">{{item.name}}</ng-container>
+              <ng-template #elseblock>
+                {{item.name | translate }}
+              </ng-template>
+            </td>
             <td class="pia-listsBlock-item-click" (click)="editEntry(item.id)">{{item.category  | translate}}</td>
             <td class="pia-listsBlock-item-click" (click)="editEntry(item.id)" style="text-align:center;">{{item.updated_at  | date: "shortDate":"":_languagesService.selectedLanguage}}</td>
             <!-- Display element data block in absolute -->
             <td class="pia-knowledges_base-displayData">
               <h3>{{ 'homepage.cards.knowledges_entry.contents' | translate }}</h3>
               <div class="pia-knowledges_base-displayData-category">{{item.category  | translate}}</div>
-              <div class="pia-knowledges_base-displayData-name">{{item.name}}</div>
-              <div class="pia-knowledges_base-displayData-description">{{item.description}}</div>
+              <div class="pia-knowledges_base-displayData-name">
+                <ng-container *ngIf="!base.is_example;else elseblock2">{{item.name}}</ng-container>
+                <ng-template #elseblock2>
+                  {{item.name | translate }}
+                </ng-template>
+              </div>
+              <div class="pia-knowledges_base-displayData-description">
+                <ng-container *ngIf="!base.is_example;else elseblock3">{{item.description}}</ng-container>
+                <ng-template #elseblock3>
+                  {{item.description | translate }}
+                </ng-template>
+              </div>
             </td>
           </tr>
         </tbody>
