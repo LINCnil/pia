@@ -188,14 +188,20 @@ export class BaseComponent implements OnInit {
       });
   }
 
-  deleteEntry(id) {
+  deleteModal(id) {
+    this._modalsService.openModal('modal-remove-knowledgeEntry');
+    this.selectedKnowledgeId = id;
+  }
+
+  deleteEntry() {
     let tempk = new Knowledge();
     tempk
-      .delete(id)
+      .delete(this.selectedKnowledgeId)
       .then(() => {
-        let index = this.knowledges.findIndex(e => e.id === id);
+        let index = this.knowledges.findIndex(e => e.id === this.selectedKnowledgeId);
         if (index !== -1) {
           this.knowledges.splice(index, 1);
+          this._modalsService.closeModal();
         }
       })
       .catch(err => {

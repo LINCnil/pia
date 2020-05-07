@@ -1010,7 +1010,11 @@
 		"knowledges": {
 			"content": "Êtes vous sûr de vouloir supprimer cette base de connaissances ?",
 			"remove": "Supprimer cette base"
-		}
+    },
+    "knowledge": {
+      "content": "Êtes vous sûr de vouloir supprimer cet élément ?",
+      "remove": "Supprimer cet élément"
+    }
 	},
 	"opinions": {
 		"content": ", considère(nt) que :",

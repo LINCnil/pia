@@ -49,7 +49,7 @@
                     {{ 'homepage.cards.item.tools.duplicate' | translate }}
                 </span>
               </a>
-              <a (click)="deleteEntry(item.id)" class="btn pia-tooltip">
+              <a (click)="deleteModal(item.id)" class="btn pia-tooltip">
                 <i class="fa fa-trash" aria-hidden="true"></i>
                 <span title="{{ 'homepage.cards.item.tools.remove' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
               </a>
@@ -136,4 +136,4 @@
   </div>
 </div>
 
-<app-modals></app-modals>
+<app-modals (continueEvent)="deleteEntry()"></app-modals>
