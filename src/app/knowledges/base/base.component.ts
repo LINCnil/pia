@@ -171,6 +171,23 @@ export class BaseComponent implements OnInit {
       });
   }
 
+  duplicateEntry(id) {
+    let tempk = new Knowledge();
+    tempk
+      .get(id)
+      .then(() => {
+        console.log(tempk);
+        tempk.id = null;
+        tempk.create(this.base.id).then((response: Knowledge) => {
+          tempk.id = response.id;
+          this.knowledges.push(tempk);
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   deleteEntry(id) {
     let tempk = new Knowledge();
     tempk
