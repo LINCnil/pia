@@ -1,7 +1,7 @@
 
 <td class="pia-listsBlock-item">
-  <div class="pia-listsBlock-item-actions">
-    
+  <div class="pia-listsBlock-item-actions" *ngIf="!base.is_example">
+
     <a routerLink="/knowledges/base/{{base.id}}" class="btn pia-tooltip">
       <i class="fa fa-pencil" aria-hidden="true"></i>
       <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
@@ -21,23 +21,23 @@
   </div>
 </td>
 <td class="pia-listsBlock-item">
-  <div contenteditable (focusout)="onFocusOut('name', $event)">{{ base.name }}</div>
+  <div contenteditable (focusout)="onFocusOut('name', $event)" *ngIf="!base.is_example;else readOnlyName">{{ base.name }}</div>
   <ng-template #readOnlyName>
     <div>{{ base.name }}</div>
   </ng-template>
 </td>
 <td class="pia-listsBlock-item">
-  <div contenteditable (focusout)="onFocusOut('author', $event)">{{  base.author }}</div>
+  <div contenteditable (focusout)="onFocusOut('author', $event)" *ngIf="!base.is_example;else readOnlyName">{{  base.author }}</div>
   <ng-template #readOnlySectorName>
     <div>{{ base.author }}</div>
   </ng-template>
 </td>
 <td class="pia-listsBlock-item">
-  <div contenteditable (focusout)="onFocusOut('contributors', $event)">{{  base.contributors }}</div>
+  <div contenteditable (focusout)="onFocusOut('contributors', $event)" *ngIf="!base.is_example;else readOnlyName">{{  base.contributors }}</div>
   <ng-template #readOnlySectorName>
     <div>{{ base.contributors }}</div>
   </ng-template>
 </td>
 <td class="pia-listsBlock-item">
-  <div>{{ (base.knowledges) ? base.knowledges.length : 0}}</div>
+  <div>{{ nbEntries }}</div>
 </td>

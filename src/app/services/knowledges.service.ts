@@ -9,7 +9,7 @@ import { Knowledge } from '../models/knowledge.model';
 @Injectable()
 export class KnowledgesService {
   public selected: number = null;
-  public list: Array<KnowledgeBase> = [];
+  public list: KnowledgeBase[] = [];
 
   constructor(private router: Router, private _modalsService: ModalsService) {}
 
@@ -19,17 +19,17 @@ export class KnowledgesService {
       kbTemp
         .findAll()
         .then((response: any) => {
-          let result = [];
+          let result: KnowledgeBase[] = [];
           response.forEach(e => {
             result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.created_at));
           });
-          this.list = result;
-
           // Parse default Knowledge base json
           let cnilKnowledgeBase = new KnowledgeBase(0, 'Base de connaissance CNIL', 'CNIL', 'CNIL');
           cnilKnowledgeBase.is_example = true;
 
           this.list.push(cnilKnowledgeBase);
+          this.list = this.list.concat(result);
+
           resolve(result);
         })
         .catch(error => {
