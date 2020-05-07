@@ -7,7 +7,7 @@
       <div class="pia-filtersBlock">
 
         <div class="pia-filtersBlock-left">
-            <div class="pia-filtersBlock-buttons">
+            <div class="pia-filtersBlock-buttons" *ngIf="!base.is_example">
               <button type="button" class="btn btn-red" (click)="showForm = true;  editMode = 'new'; entryForm.reset(); selectedKnowledgeId = null; itemsSelected = []">
                 <i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.cards.knowledges_entry.new' | translate }}
               </button>
@@ -24,7 +24,7 @@
       <table class="pia-list-table">
         <thead>
           <tr>
-            <th style="width:75px;"></th>
+            <th style="width:75px;" *ngIf="!base.is_example"></th>
             <th colspan="2">
               <a><span>{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}</span></a>
             </th>
@@ -38,18 +38,18 @@
         </thead>
         <tbody *ngIf="knowledges && knowledges.length > 0">
           <tr *ngFor="let item of knowledges" [ngClass]="{'noElementsDisplaying': showForm}">
-            <td class="pia-listsBlock-item">
-              <a (click)="editEntry(item.id)" class="btn pia-tooltip"  *ngIf="!base.is_example">
+            <td class="pia-listsBlock-item"  *ngIf="!base.is_example">
+              <a (click)="editEntry(item.id)" class="btn pia-tooltip">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
                 <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
               </a>
-              <a href="javascript:;" (click)="duplicateEntry(item.id)" class="btn pia-tooltip"  *ngIf="!base.is_example">
+              <a href="javascript:;" (click)="duplicateEntry(item.id)" class="btn pia-tooltip">
                 <i class="fa fa-files-o" aria-hidden="true"></i>
                 <span title="{{ 'homepage.cards.item.tools.duplicate' | translate }}" class="pia-tooltip-text">
                     {{ 'homepage.cards.item.tools.duplicate' | translate }}
                 </span>
               </a>
-              <a (click)="deleteModal(item.id)" class="btn pia-tooltip"  *ngIf="!base.is_example">
+              <a (click)="deleteModal(item.id)" class="btn pia-tooltip">
                 <i class="fa fa-trash" aria-hidden="true"></i>
                 <span title="{{ 'homepage.cards.item.tools.remove' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
               </a>

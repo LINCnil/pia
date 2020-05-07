@@ -21,10 +21,10 @@ export class CardComponent implements OnInit {
 
   ngOnInit() {
     this.knowledgeBaseForm = new FormGroup({
-      id: new FormControl({ value: this.base.id, disabled: this.base.is_example }, Validators.required),
-      name: new FormControl({ value: this.base.name, disabled: this.base.is_example }, Validators.required),
-      author: new FormControl({ value: this.base.author, disabled: this.base.is_example }, Validators.required),
-      contributors: new FormControl({ value: this.base.contributors, disabled: this.base.is_example }, Validators.required)
+      id: new FormControl({ value: this.base.id, disabled: this.base.is_example }, null),
+      name: new FormControl({ value: this.base.name, disabled: this.base.is_example }, null),
+      author: new FormControl({ value: this.base.author, disabled: this.base.is_example }, null),
+      contributors: new FormControl({ value: this.base.contributors, disabled: this.base.is_example }, null)
     });
 
     if (!this.base.is_example) {
