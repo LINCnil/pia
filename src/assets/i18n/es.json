@@ -1003,7 +1003,18 @@
 		},
 		"validate_evaluation_to_correct": {
 			"content": "Lo siento,<br>Se deben corregir varios campos. <br> Volver al modo de edición<br>para realizar correcciones"
-		}
+		},
+		"general_error": {
+			"content": "TO TRANSLATE - All our apologies an error has occurred."
+    },
+    "knowledges": {
+			"content": "TO TRANSLATE - Are you sure you want to delete this knowledge base?",
+			"remove": "TO TRANSLATE - Delete this knowledge base"
+    },
+    "knowledge": {
+      "content": "TO TRANSLATE - Are you sure you want to delete this element?",
+      "remove": "TO TRANSLATE - Delete this element"
+    }
 	},
 	"opinions": {
 		"content": ", consideran que:",

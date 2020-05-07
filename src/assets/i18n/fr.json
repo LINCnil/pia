@@ -1008,11 +1008,11 @@
 			"content": "Une erreur est survenue.<br>veuillez nous excuser pour ce désagrément."
 		},
 		"knowledges": {
-			"content": "Êtes vous sûr de vouloir supprimer cette base de connaissances ?",
+			"content": "Êtes-vous sûr de vouloir supprimer cette base de connaissances ?",
 			"remove": "Supprimer cette base"
     },
     "knowledge": {
-      "content": "Êtes vous sûr de vouloir supprimer cet élément ?",
+      "content": "Êtes-vous sûr de vouloir supprimer cet élément ?",
       "remove": "Supprimer cet élément"
     }
 	},
