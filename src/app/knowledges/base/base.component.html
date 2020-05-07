@@ -8,7 +8,7 @@
 
         <div class="pia-filtersBlock-left">
             <div class="pia-filtersBlock-buttons">
-              <button type="button" class="btn btn-red" (click)="showForm = true;  editMode = 'new'; entryForm.reset(); selectedKnowledgeId = null">
+              <button type="button" class="btn btn-red" (click)="showForm = true;  editMode = 'new'; entryForm.reset(); selectedKnowledgeId = null; itemsSelected = []">
                 <i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.cards.knowledges_entry.new' | translate }}
               </button>
             </div>
@@ -72,7 +72,7 @@
         <h3>{{ 'homepage.cards.knowledges_entry.contents' | translate }}</h3>
         <div>
           <div class="pia-elementCategory-wrapper">
-            <select name="category" formControlName="category" (change)="focusOut()" required>
+            <select name="category" formControlName="category" (change)="checkLockedChoice(); focusOut()" required>
               <option value="null" disabled>{{ 'homepage.cards.knowledges_entry.choose_category' | translate }}</option>
               <option value="{{category}}" *ngFor="let category of categories">{{category  | translate }}</option>
             </select>

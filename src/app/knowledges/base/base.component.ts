@@ -90,16 +90,20 @@ export class BaseComponent implements OnInit {
   }
 
   checkLockedChoice() {
-    console.log('passing');
     if (
       this.entryForm.value.category === 'knowledge_base.category.organizational_measure' ||
       this.entryForm.value.category === 'knowledge_base.category.measure_on_data' ||
       this.entryForm.value.category === 'knowledge_base.category.general_measure'
     ) {
       this.lockedChoice = true;
+      this.itemsSelected = ['31'];
       return true;
     } else {
       this.lockedChoice = false;
+      let index = this.itemsSelected.findIndex(e => e == '31');
+      if (index !== -1) {
+        this.itemsSelected.splice(index, 1);
+      }
       return false;
     }
   }
@@ -124,14 +128,10 @@ export class BaseComponent implements OnInit {
     let entry = new Knowledge();
 
     entry.name = this.entryForm.value.name;
+    entry.description = this.entryForm.value.description;
     entry.slug = slugify(entry.name);
     entry.category = this.entryForm.value.category;
-    entry.description = this.entryForm.value.description;
-
-    if (this.checkLockedChoice()) {
-      entry.items = ['31'];
-      this.itemsSelected = ['31'];
-    }
+    entry.items = this.itemsSelected;
 
     entry.filters = this.checkFilters();
 
@@ -162,8 +162,6 @@ export class BaseComponent implements OnInit {
         if (result.items) {
           this.itemsSelected = result.items;
         }
-        // SHOW FORM
-        this.checkLockedChoice();
 
         this.editMode = 'edit';
         this.showForm = true;
@@ -200,13 +198,7 @@ export class BaseComponent implements OnInit {
         entry.description = this.entryForm.value.description;
         entry.slug = slugify(entry.name);
         entry.category = this.entryForm.value.category;
-        entry.description = this.entryForm.value.description;
         entry.items = this.itemsSelected;
-
-        if (this.checkLockedChoice()) {
-          entry.items = ['31'];
-          this.itemsSelected = ['31'];
-        }
 
         entry.filters = this.checkFilters();
 
