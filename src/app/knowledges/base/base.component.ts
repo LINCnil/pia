@@ -202,10 +202,12 @@ export class BaseComponent implements OnInit {
         if (index !== -1) {
           this.knowledges.splice(index, 1);
           this._modalsService.closeModal();
+          this.selectedKnowledgeId = null;
         }
       })
       .catch(err => {
         console.log(err);
+        this.selectedKnowledgeId = null;
       });
   }
 
