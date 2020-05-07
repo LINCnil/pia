@@ -439,3 +439,16 @@
     </form>
   </div>
 </div>
+
+<div class="pia-modalBlock" id="modal-remove-knowledgeEntry">
+  <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
+    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.knowledge.content' | translate"></p>
+    <span class="pia-icons pia-icon-sad"></span>
+    <div class="pia-modalBlock-buttons-choice">
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="continueEvent.emit();" type="button">{{ 'modals.knowledge.remove' | translate }}</button>
+    </div>
+  </div>
+</div>
+

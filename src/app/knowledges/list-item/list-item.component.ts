@@ -3,6 +3,8 @@ import { ModalsService } from 'src/app/modals/modals.service';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Knowledge } from 'src/app/models/knowledge.model';
+import piakb from 'src/assets/files/pia_knowledge-base.json';
 
 @Component({
   selector: '.app-list-item',
@@ -12,6 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListItemComponent implements OnInit {
   @Input() base: KnowledgeBase;
+  nbEntries: number = 0;
 
   constructor(
     private router: Router,
@@ -20,7 +23,21 @@ export class ListItemComponent implements OnInit {
     private _knowledgesService: KnowledgesService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (!this.base.is_example) {
+      this._knowledgesService
+        .getEntries(this.base.id)
+        .then((result: Knowledge[]) => {
+          this.nbEntries = result.length;
+        })
+        .catch(err => {
+          console.log('catch');
+        });
+    } else {
+      // exemple
+      this.nbEntries = piakb.length;
+    }
+  }
 
   onFocusOut(attribute: string, event: any) {
     const text = event.target.innerText;

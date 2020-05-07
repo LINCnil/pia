@@ -8,6 +8,7 @@ import { Knowledge } from 'src/app/models/knowledge.model';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { LanguagesService } from 'src/app/services/languages.service';
+import { TranslateService } from '@ngx-translate/core';
 
 function slugify(text) {
   return text
@@ -27,7 +28,7 @@ function slugify(text) {
 })
 export class BaseComponent implements OnInit {
   base: KnowledgeBase = null;
-  knowledges: Knowledge[] = [];
+  knowledges: Knowledge[] | any[] = [];
   entryForm: FormGroup;
   editMode: 'edit' | 'new';
   showForm: boolean = false;
@@ -47,6 +48,7 @@ export class BaseComponent implements OnInit {
 
   constructor(
     private _languagesService: LanguagesService,
+    private _translateService: TranslateService,
     private _modalsService: ModalsService,
     private _knowledgesService: KnowledgesService,
     private _appDataService: AppDataService,
@@ -56,50 +58,67 @@ export class BaseComponent implements OnInit {
   async ngOnInit() {
     let sectionId = parseInt(this.route.snapshot.params.id, 10);
     this._knowledgesService.selected = sectionId;
-    this.base = new KnowledgeBase();
-    this.base
-      .get(sectionId)
-      .then(() => {
-        // GET Knowledges entries from selected base
-        this._knowledgesService.getEntries(this.base.id).then((result: Knowledge[]) => {
-          this.knowledges = result;
-        });
-      })
-      .catch(() => {});
+    if (sectionId) {
+      this.base = new KnowledgeBase();
+      this.base
+        .get(sectionId)
+        .then(() => {
+          // GET Knowledges entries from selected base
+          this._knowledgesService.getEntries(this.base.id).then((result: Knowledge[]) => {
+            this.knowledges = result;
+          });
+        })
+        .catch(() => {});
 
-    // Init Form
-    this.entryForm = new FormGroup({
-      name: new FormControl(),
-      category: new FormControl(),
-      description: new FormControl()
-    });
+      // Init Form
+      this.entryForm = new FormGroup({
+        name: new FormControl(),
+        category: new FormControl(),
+        description: new FormControl()
+      });
 
-    // get default categories
-    for (var item of piakb) {
-      if (!this.categories.includes(item.category)) {
-        this.categories.push(item.category);
+      // get default categories
+      for (var item of piakb) {
+        if (!this.categories.includes(item.category)) {
+          this.categories.push(item.category);
+        }
       }
-    }
-    // get default filters
-    for (var item of piakb) {
-      if (!this.filters.includes(item.filters) && item.filters !== '') {
-        this.filters.push(item.filters);
+      // get default filters
+      for (var item of piakb) {
+        if (!this.filters.includes(item.filters) && item.filters !== '') {
+          this.filters.push(item.filters);
+        }
       }
+      this.data = this._appDataService.dataNav;
+    } else {
+      this.base = new KnowledgeBase(0, this._translateService.instant('knowledge_base.default_knowledge_base'), 'CNIL', 'CNIL');
+      this.base.is_example = true;
+      this.knowledges = piakb;
+
+      // Init Form
+      this.entryForm = new FormGroup({
+        name: new FormControl({ disabled: true }),
+        category: new FormControl({ disabled: true }),
+        description: new FormControl({ disabled: true })
+      });
     }
-    this.data = this._appDataService.dataNav;
   }
 
   checkLockedChoice() {
-    console.log('passing');
     if (
       this.entryForm.value.category === 'knowledge_base.category.organizational_measure' ||
       this.entryForm.value.category === 'knowledge_base.category.measure_on_data' ||
       this.entryForm.value.category === 'knowledge_base.category.general_measure'
     ) {
       this.lockedChoice = true;
+      this.itemsSelected = ['31'];
       return true;
     } else {
       this.lockedChoice = false;
+      let index = this.itemsSelected.findIndex(e => e == '31');
+      if (index !== -1) {
+        this.itemsSelected.splice(index, 1);
+      }
       return false;
     }
   }
@@ -124,14 +143,10 @@ export class BaseComponent implements OnInit {
     let entry = new Knowledge();
 
     entry.name = this.entryForm.value.name;
+    entry.description = this.entryForm.value.description;
     entry.slug = slugify(entry.name);
     entry.category = this.entryForm.value.category;
-    entry.description = this.entryForm.value.description;
-
-    if (this.checkLockedChoice()) {
-      entry.items = ['31'];
-      this.itemsSelected = ['31'];
-    }
+    entry.items = this.itemsSelected;
 
     entry.filters = this.checkFilters();
 
@@ -148,43 +163,69 @@ export class BaseComponent implements OnInit {
    * @param id Knowledge entry's id
    */
   editEntry(id) {
-    this.selectedKnowledgeId = id;
+    if (id) {
+      this.selectedKnowledgeId = id;
+      let tempk = new Knowledge();
+      tempk
+        .find(id)
+        .then((result: Knowledge) => {
+          // SET FORM CONTROL
+
+          this.entryForm.controls['name'].setValue(result.name);
+          this.entryForm.controls['category'].setValue(result.category);
+          this.entryForm.controls['description'].setValue(result.description);
+          this.itemsSelected = [];
+          if (result.items) {
+            this.itemsSelected = result.items;
+          }
+          this.checkLockedChoice();
+
+          this.editMode = 'edit';
+          this.showForm = true;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
+
+  duplicateEntry(id) {
     let tempk = new Knowledge();
     tempk
-      .find(id)
-      .then((result: Knowledge) => {
-        // SET FORM CONTROL
-
-        this.entryForm.controls['name'].setValue(result.name);
-        this.entryForm.controls['category'].setValue(result.category);
-        this.entryForm.controls['description'].setValue(result.description);
-        this.itemsSelected = [];
-        if (result.items) {
-          this.itemsSelected = result.items;
-        }
-        // SHOW FORM
-        this.checkLockedChoice();
-
-        this.editMode = 'edit';
-        this.showForm = true;
+      .get(id)
+      .then(() => {
+        console.log(tempk);
+        tempk.id = null;
+        tempk.create(this.base.id).then((response: Knowledge) => {
+          tempk.id = response.id;
+          this.knowledges.push(tempk);
+        });
       })
       .catch(err => {
         console.log(err);
       });
   }
 
-  deleteEntry(id) {
+  deleteModal(id) {
+    this._modalsService.openModal('modal-remove-knowledgeEntry');
+    this.selectedKnowledgeId = id;
+  }
+
+  deleteEntry() {
     let tempk = new Knowledge();
     tempk
-      .delete(id)
+      .delete(this.selectedKnowledgeId)
       .then(() => {
-        let index = this.knowledges.findIndex(e => e.id === id);
+        let index = this.knowledges.findIndex(e => e.id === this.selectedKnowledgeId);
         if (index !== -1) {
           this.knowledges.splice(index, 1);
+          this._modalsService.closeModal();
+          this.selectedKnowledgeId = null;
         }
       })
       .catch(err => {
         console.log(err);
+        this.selectedKnowledgeId = null;
       });
   }
 
@@ -200,13 +241,7 @@ export class BaseComponent implements OnInit {
         entry.description = this.entryForm.value.description;
         entry.slug = slugify(entry.name);
         entry.category = this.entryForm.value.category;
-        entry.description = this.entryForm.value.description;
         entry.items = this.itemsSelected;
-
-        if (this.checkLockedChoice()) {
-          entry.items = ['31'];
-          this.itemsSelected = ['31'];
-        }
 
         entry.filters = this.checkFilters();
 
