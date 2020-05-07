@@ -1,20 +1,26 @@
 
 <td class="pia-listsBlock-item">
-  <div class="pia-listsBlock-item-actions" *ngIf="!base.is_example">
+  <div class="pia-listsBlock-item-actions">
 
-    <a routerLink="/knowledges/base/{{base.id}}" class="btn pia-tooltip">
+    <a routerLink="/knowledges/base/{{base.id}}" class="btn pia-tooltip" *ngIf="!base.is_example;else elseblock">
       <i class="fa fa-pencil" aria-hidden="true"></i>
       <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
     </a>
-    <a href="javascript:;" (click)="export(base.id)" class="btn pia-tooltip">
+    <ng-template #elseblock>
+      <a routerLink="/knowledges/base/{{base.id}}" class="btn pia-tooltip">
+        <i class="fa fa-eye" aria-hidden="true"></i>
+        <span title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
+      </a>
+    </ng-template>
+    <a href="javascript:;" (click)="export(base.id)" class="btn pia-tooltip"  *ngIf="!base.is_example">
       <i class="fa fa-download" aria-hidden="true"></i>
       <span title="{{ 'homepage.lists.item.tools.export' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.export' | translate }}</span>
     </a>
-    <a href="javascript:;" (click)="duplicate(base.id)" class="btn pia-tooltip">
+    <a href="javascript:;" (click)="duplicate(base.id)" class="btn pia-tooltip"  *ngIf="!base.is_example">
       <i class="fa fa-files-o" aria-hidden="true"></i>
       <span title="{{ 'homepage.lists.item.tools.duplicate' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.duplicate' | translate }}</span>
     </a>
-    <a href="javascript:;" (click)="remove(base.id)" class="btn pia-tooltip">
+    <a href="javascript:;" (click)="remove(base.id)" class="btn pia-tooltip"  *ngIf="!base.is_example">
       <i class="fa fa-trash-o" aria-hidden="true"></i>
       <span title="{{ 'homepage.lists.item.tools.remove' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
     </a>

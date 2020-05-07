@@ -6,12 +6,13 @@ import { KnowledgeBase } from '../models/knowledgeBase.model';
 
 import { ModalsService } from 'src/app/modals/modals.service';
 import { Knowledge } from '../models/knowledge.model';
+import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class KnowledgesService {
   public selected: number = null;
   public list: KnowledgeBase[] = [];
 
-  constructor(private router: Router, private _modalsService: ModalsService) {}
+  constructor(private router: Router, private _modalsService: ModalsService, private _translateService: TranslateService) {}
 
   public getAll() {
     let kbTemp = new KnowledgeBase();
@@ -24,7 +25,12 @@ export class KnowledgesService {
             result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.created_at));
           });
           // Parse default Knowledge base json
-          let cnilKnowledgeBase = new KnowledgeBase(0, 'Base de connaissance CNIL', 'CNIL', 'CNIL');
+          let cnilKnowledgeBase = new KnowledgeBase(
+            0,
+            this._translateService.instant('knowledge_base.default_knowledge_base'),
+            'CNIL',
+            'CNIL'
+          );
           cnilKnowledgeBase.is_example = true;
 
           this.list.push(cnilKnowledgeBase);
