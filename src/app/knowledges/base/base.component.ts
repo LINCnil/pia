@@ -115,7 +115,7 @@ export class BaseComponent implements OnInit {
       return true;
     } else {
       this.lockedChoice = false;
-      let index = this.itemsSelected.findIndex(e => e == '31');
+      const index = this.itemsSelected.findIndex(e => e === '31');
       if (index !== -1) {
         this.itemsSelected.splice(index, 1);
       }
@@ -325,6 +325,9 @@ export class BaseComponent implements OnInit {
     let checked = true;
     dataSection.items.forEach(item => {
       if (!this.itemsSelected.includes(`${dataSection.id}${item.id}`)) {
+        if (!this.lockedChoice && `${dataSection.id}${item.id}` === '31') {
+          return;
+        }
         checked = false;
       }
     });
