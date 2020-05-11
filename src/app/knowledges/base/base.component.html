@@ -73,9 +73,11 @@
                 </ng-template>
               </div>
               <div class="pia-knowledges_base-displayData-description">
-                <ng-container *ngIf="!base.is_example;else elseblock3">{{item.description}}</ng-container>
+                <ng-container *ngIf="!base.is_example;else elseblock3">
+                  <div [innerHTML]="item.description"></div>
+                </ng-container>
                 <ng-template #elseblock3>
-                  {{item.description | translate }}
+                  <div [innerHTML]="item.description | translate"></div>
                 </ng-template>
               </div>
             </td>
