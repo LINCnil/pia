@@ -56,7 +56,7 @@ export class BaseComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    let sectionId = parseInt(this.route.snapshot.params.id, 10);
+    const sectionId = parseInt(this.route.snapshot.params.id, 10);
     this._knowledgesService.selected = sectionId;
     if (sectionId) {
       this.base = new KnowledgeBase();
@@ -78,13 +78,13 @@ export class BaseComponent implements OnInit {
       });
 
       // get default categories
-      for (var item of piakb) {
+      for (const item of piakb) {
         if (!this.categories.includes(item.category)) {
           this.categories.push(item.category);
         }
       }
       // get default filters
-      for (var item of piakb) {
+      for (const item of piakb) {
         if (!this.filters.includes(item.filters) && item.filters !== '') {
           this.filters.push(item.filters);
         }
@@ -140,7 +140,7 @@ export class BaseComponent implements OnInit {
    * Create a new Knowledge entry
    */
   onSubmit() {
-    let entry = new Knowledge();
+    const entry = new Knowledge();
 
     entry.name = this.entryForm.value.name;
     entry.description = this.entryForm.value.description;
@@ -165,7 +165,7 @@ export class BaseComponent implements OnInit {
   editEntry(id) {
     if (id) {
       this.selectedKnowledgeId = id;
-      let tempk = new Knowledge();
+      const tempk = new Knowledge();
       tempk
         .find(id)
         .then((result: Knowledge) => {
@@ -190,7 +190,7 @@ export class BaseComponent implements OnInit {
   }
 
   duplicateEntry(id) {
-    let tempk = new Knowledge();
+    const tempk = new Knowledge();
     tempk
       .get(id)
       .then(() => {
@@ -212,11 +212,11 @@ export class BaseComponent implements OnInit {
   }
 
   deleteEntry() {
-    let tempk = new Knowledge();
+    const tempk = new Knowledge();
     tempk
       .delete(this.selectedKnowledgeId)
       .then(() => {
-        let index = this.knowledges.findIndex(e => e.id === this.selectedKnowledgeId);
+        const index = this.knowledges.findIndex(e => e.id === this.selectedKnowledgeId);
         if (index !== -1) {
           this.knowledges.splice(index, 1);
           this._modalsService.closeModal();
@@ -234,7 +234,7 @@ export class BaseComponent implements OnInit {
    */
   focusOut() {
     if (this.selectedKnowledgeId) {
-      let entry = new Knowledge();
+      const entry = new Knowledge();
       entry.get(this.selectedKnowledgeId).then(() => {
         // set new properties values
         entry.name = this.entryForm.value.name;
@@ -250,7 +250,7 @@ export class BaseComponent implements OnInit {
           .update()
           .then(() => {
             // Update list
-            let index = this.knowledges.findIndex(e => e.id == entry.id);
+            const index = this.knowledges.findIndex(e => e.id == entry.id);
             if (index !== -1) {
               this.knowledges[index] = entry;
             }
@@ -266,11 +266,11 @@ export class BaseComponent implements OnInit {
    * Record every change on each item checkbox.
    */
   onCheckboxChange(e) {
-    let ar = this.itemsSelected;
+    const ar = this.itemsSelected;
     if (e.target.checked) {
       ar.push(e.target.value);
     } else {
-      let index = ar.findIndex(item => item == e.target.value);
+      const index = ar.findIndex(item => item === e.target.value);
       if (index !== -1) {
         ar.splice(index, 1);
       }
