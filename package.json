@@ -45,6 +45,7 @@
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.6.3",
+    "handlebars": "^4.7.6",
     "html2canvas": "1.0.0-rc.1",
     "jszip": "^3.4.0",
     "ng2-pdfjs-viewer": "^5.0.7",
