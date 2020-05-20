@@ -317,7 +317,7 @@
 	},
 	"knowledge_base": {
     "choose_knowledge_base": "TO TRANSLATE - Choose your knowledge base",
-    "default_knowledge_base": "TO TRANSLATE - CNIL's knowledge base (default)",
+    "default_knowledge_base": "TO TRANSLATE - CNIL's knowledge base",
 		"add_measure": "Lägg till",
 		"add_measure_hint": "Du kan också lägga till en åtgärd från kunskapsdatabasen",
 		"category": {
@@ -1489,86 +1489,86 @@
     },
     "dashboard": {
       "step1": {
-        "title": "Create a PIA",
-        "description": "TO TRANSLATE - Cliquez sur le <strong>+</strong> pour créer votre premier PIA."
+        "title": "TO TRANSLATE - Create a PIA",
+        "description": "TO TRANSLATE - Click on the <strong>+</strong> to create your first PIA."
       },
       "step2": {
-        "title": "TO TRANSLATE - Les rôles autour du PIA",
-        "description": "TO TRANSLATE - <p>Les <strong>rédacteurs</strong> sont ceux rédigeant la première version de l'analyse.</p><p>Ce sont par exemple les chefs du projet associés au traitement.</p>"
+        "title": "TO TRANSLATE - PIA's roles",
+        "description": "TO TRANSLATE - <p><strong>Editors</strong> write the first version of the analysis.</p><p>They are, for example, the project managers associated with the data processing.</p>"
       },
       "step3": {
-        "title": "TO TRANSLATE - Les rôles autour du PIA",
-        "description": "TO TRANSLATE - <p>Les <strong>évaluateurs</strong> interviennent dans un second temps.</p><p>Ils jaugent, à l'aune de leur expertise juridique ou technique, la qualité et la conformité du traitement.</p><p>Ce sont par exemple le RSSI, des juristes, le DPO, ...</p>"
+        "title": "TO TRANSLATE - PIA's roles",
+        "description": "TO TRANSLATE - <p><strong>Reviewers</strong> are involved in a second phase.</p><p>They use their legal or technical expertise to check the quality and compliance of the processing.</p><p>They are, for example, DPO, legal experts, ...</p>"
       },
       "step4": {
-        "title": "TO TRANSLATE - Les rôles autour du PIA",
-        "description": "TO TRANSLATE - <p>Les <strong>validateurs</strong> acceptent ou non la mise en oeuvre du traitement.Ils doivent signer l'analyse.</p><p>Ce sont les responsables de traitement, comme par exemple le CEO.</p>"
+        "title": "TO TRANSLATE - PIA's roles",
+        "description": "TO TRANSLATE - The <p><strong>validator</strong> accepts or rejects the implementation of the processing. He must sign the analysis.</p><p>He is the controller, e.g. the CEO.</p>"
       },
       "step5": {
-        "title": "Models",
-        "description": "TO TRANSLATE - <p>Les <strong>modèles</strong> sont une fonctionnalité avancée.Ils permettent de créer une base pré-remplie de l'analyse.</p><p>Vous pouvez créer des modèles en allant dans la section associée depuis le menu du haut.</p>"
+        "title": "TO TRANSLATE - Templates",
+        "description": "TO TRANSLATE - <p><strong>Templates</strong> are an advanced feature. They are used to create a pre-filled basis for the analysis.</p><p>You can create templates by going to the associated section accessible from the top menu.</p>"
       }
 		},
 		"entry": {
 			"step1": {
-				"title": "TO TRANSLATE - Naviguer",
-				"description": "TO TRANSLATE - Pour passer d'une partie à l'autre de l'analyse, utilisez le menu de navigation de gauche."
+				"title": "TO TRANSLATE - Browse",
+				"description": "TO TRANSLATE - To move from one part of the analysis to another, use the left navigation menu."
 			},
 			"step2": {
-				"title": "Context",
-				"description": "TO TRANSLATE - Il sert à expliquer l'objectif du traitement et comment il sera mis en oeuvre."
+				"title": "TO TRANSLATE - Context",
+				"description": "TO TRANSLATE - This is used to explain the purpose of the processing and how it will be implemented."
 			},
 			"step3": {
-				"title": "Fundamental principles",
-				"description": "TO TRANSLATE - Ils permettent de s'assurer que le traitement est juridiquement conforme au RGPD."
+				"title": "TO TRANSLATE - Fundamental principles",
+				"description": "TO TRANSLATE - These aim to ensure that the processing complies with the GDPR."
 			},
 			"step4": {
-				"title": "Risks",
-				"description": "TO TRANSLATE - Ils décrivent les mesures de sécurité déjà prévues sur le traitement et permettent d'évaluer les impacts potentiels sur les personnes concernées."
+				"title": "TO TRANSLATE - Risks",
+				"description": "TO TRANSLATE - These describe the security measures already planned for the processing operation and make it possible to assess its potential impact on the data subjects."
 			},
 			"step5": {
-				"title": "Validation",
-				"description": "TO TRANSLATE - Elle permet au DPO d'exprimer son avis sur la mise en oeuvre du traitement et au responsable de traitement de l'accepter ou de le refuser."
+				"title": "TO TRANSLATE - Validation",
+				"description": "TO TRANSLATE - This allows the DPO to express her opinion on the implementation of the processing and the controller to accept or refuse it."
 			},
 			"step6": {
-				"title": "Knowledge base",
-				"description": "TO TRANSLATE - <p>Elle fournit une aide contextuelle à la réalisation de l'analyse et s'appuie sur le RGPD, le guide de sécurité et les guides AIPD de la CNIL.</p><p>En plus de ces contenus, vous pouvez également créer vos propres bases de connaissances pour accéder facilement à des informations spécifiques à votre organisme.</p>"
+				"title": "TO TRANSLATE - The knowledge base",
+				"description": "TO TRANSLATE - <p>It provides contextual assistance in carrying out the analysis and is based on the GDPR, the security guide and the CNIL's PIA guides</p><p>In addition to these contents, you can also create your own knowledge bases to easily access information specific to your organization.</p>"
 			},
 			"step7": {
-				"title": "TO TRANSLATE - Exporter son AIPD",
-				"description": "TO TRANSLATE - À tout moment lors de la réalisation de l'analyse, vous pouvez télécharger l'analyse sous divers formats pour la partager avec vos collaborateurs."
+				"title": "TO TRANSLATE - Export your PIA",
+				"description": "TO TRANSLATE - At any time during the analysis, you can download the analysis in various formats to share it with your colleagues."
 			}
 		},
     "evaluation": {
 			"step1": {
-				"title": "TO TRANSLATE - Évaluer l'AIPD",
-				"description": "TO TRANSLATE - L'évaluation peut se faire au niveau d'une section entière, ou bien au niveau de chaque élément d'une section."
+				"title": "TO TRANSLATE - Evaluate the PIA",
+				"description": "TO TRANSLATE - The evaluation can take an entire section into account, or at the level of each element of a section."
 			},
 			"step2": {
-				"title": "TO TRANSLATE - À corriger",
-				"description": "TO TRANSLATE - <p>Cette évaluation indique aux rédacteurs que des éléments sont manquants pour pouvoir faire une évaluation pertinente.</p><p>L'évaluateur doit indiquer ceux-ci dans le champ <strong>commentaire d'évaluation</strong> associé. Le rédacteur reverra sa copie en fonction.</p>"
+				"title": "TO TRANSLATE - To correct",
+				"description": "TO TRANSLATE - <p>This evaluation indicates to the editors that elements are missing in order to make a relevant assessment.</p><p>The assessor must indicate these in the associated <strong>evaluation comment</strong> field. The editor will make the necessary corrections.</p>"
 			},
 			"step3": {
-				"title": "TO TRANSLATE - Améliorable",
-				"description": "TO TRANSLATE - <p>Cette évaluation indique les points du traitement à réviser et sont détaillés dans le champ <strong>plan d'action / mesures correctives</strong>.</p><p>Ces mesures seront ajoutées automatiquement à la partie plan d'action de l'analyse. Il est nécessaire de les mettre en oeuvre dans les plus brefs délais.</p>"
+				"title": "TO TRANSLATE - Improvable",
+				"description": "TO TRANSLATE - <p>This assessment indicates the processing elements to be revised. Theyare detailed in the <strong>action plan / corrective action</strong> field.</p><p>These measures will be automatically added to the action plan part of the analysis. It is necessary to implement them as soon as possible.</p>"
 			},
 			"step4": {
 				"title": "TO TRANSLATE - Acceptable",
-				"description": "TO TRANSLATE - Cette évaluation signifie que, en l'état, ce point du traitement peut être mis en oeuvre sans y apporter de modifications."
+				"description": "TO TRANSLATE - This assessment means that this part of the processing can be implemented without modification."
 			},
 			"step5": {
-				"title": "TO TRANSLATE - Annuler une demande",
-				"description": "TO TRANSLATE - Si l'évaluation d'une section n'a pas encore commencé, il est possible d'annuler la demande d'évaluation pour apporter des modifications à la description du traitement."
+				"title": "TO TRANSLATE - Cancel a request",
+				"description": "TO TRANSLATE - If the assessment of a section has not yet begun, the request forassessment may be cancelled to make changes to the processing description."
 			}
     },
     "validated": {
 			"step1": {
-				"title": "TO TRANSLATE - Consulter une AIPD validée",
-				"description": "TO TRANSLATE - Une analyse faite dans son intégralité et validée peut être consultée à tout moment via une interface dédiée."
+				"title": "TO TRANSLATE - Consult a validated PIA",
+				"description": "TO TRANSLATE - A complete and validated analysis can be consulted at any time via a dedicated interface."
 			},
 			"step2": {
-				"title": "TO TRANSLATE - Mettre à jour une AIPD validée",
-				"description": "TO TRANSLATE - Il est nécessaire de réviser son analyse régulièrement. Vous pouvez à tout moment l'éditer ou la dupliquer pour revoir son contenu en fonction des évolutions du traitement."
+				"title": "TO TRANSLATE - Update a validated PIA",
+				"description": "TO TRANSLATE - It is necessary to review regularly an analysis. You can edit or duplicate it at any time to review its content according to the processing evolution."
 			}
 		}
   }

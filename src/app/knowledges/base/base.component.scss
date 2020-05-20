@@ -5,7 +5,7 @@
     margin-bottom: 30px;
     width: 100%;
     min-height: 200px;
-    padding: 10px;
+    padding: 10px 10px 20px 10px;
     background-color: white;
     h3 {
       font-weight: normal;
@@ -572,6 +572,7 @@
   }
   tbody {
     tr {
+      height: 27px;
       position: relative;
       &:nth-child(even) {
         background-color: rgba(62, 224, 149, 0.15);
@@ -612,6 +613,7 @@
         }
         &-click {
           cursor: pointer !important;
+          padding: 0 10px;
         }
       }
     }

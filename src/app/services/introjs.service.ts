@@ -78,7 +78,7 @@ export class IntrojsService {
       element: document.querySelector('.pia-newBlock-item.front'),
       tooltipClass: 'pia-onboarding-dashboard-1',
       intro: `
-      <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step2.title')}</div>
+      <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step1.title')}</div>
       <div class='pia-onboarding-description'>
         ${this._translateService.instant('onboarding.dashboard.step1.description')}
       </div>

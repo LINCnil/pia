@@ -38,7 +38,7 @@
                     (focusout)="knowledgeBaseFocusOut()">
             </div>
 
-            <div (click)="knowledgeBaseAuthorFocusIn()" style="margin-top:20px;">
+            <div (click)="knowledgeBaseAuthorFocusIn()">
                 <label for="knowledgebase-edit-{{base.id}}-author-name">{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</label>
                 <input type="text"
                     formControlName="author"
@@ -48,7 +48,7 @@
                     (focusout)="knowledgeBaseFocusOut()">
             </div>
 
-            <div (click)="knowledgeBaseContributorsFocusIn()" style="margin-top:20px;">
+            <div (click)="knowledgeBaseContributorsFocusIn()">
                 <label for="knowledgebase-edit-{{base.id}}-contributor-names">{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}</label>
                 <input type="text"
                     formControlName="contributors"
@@ -58,7 +58,7 @@
                     (focusout)="knowledgeBaseFocusOut()">
             </div>
 
-            <div style="margin-top:20px;">
+            <div>
                 <label for="knowledgebase-edit-name">{{ 'homepage.cards.knowledges.placeholder_entry_number' | translate }}</label>
                 <br>{{ nbEntries }}
             </div>
