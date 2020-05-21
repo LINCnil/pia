@@ -55,14 +55,14 @@
     "save-svg-as-png": "^1.4.17",
     "tinymce": "^4.9.10",
     "tslib": "^1.13.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.26",
     "@angular/cli": "~8.3.26",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
-    "@biesbjerg/ngx-translate-extract": "^6.0.4",
+    "@biesbjerg/ngx-translate-extract": "^6.1.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@compodoc/compodoc": "^1.1.11",
@@ -70,7 +70,7 @@
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~14.0.4",
     "codelyzer": "^5.2.2",
-    "cypress": "^4.5.0",
+    "cypress": "^4.6.0",
     "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.2",
