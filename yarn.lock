@@ -3580,10 +3580,10 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-cypress@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-4.6.0.tgz#ac76786500580df1347a0a50be63e5c59ffbef59"
-  integrity sha512-vIPXAceRP+Nxvnm/O9ruY9EQaRGmVVybtk9F1sfC9mH3067YbitrdBTynaaLuHFj90p9e0U2ZCV7OkX4x4V/Wg==
+cypress@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-4.7.0.tgz#3ea29bddaf9a1faeaa5b8d54b60a84ed1cafa83d"
+  integrity sha512-Vav6wUFhPRlImIND/2lOQlUnAWzgCC/iXyJlJjX9nJOJul5LC1vUpf/m8Oiae870PFPyT0ZLLwPHKTXZNdXmHw==
   dependencies:
     "@cypress/listr-verbose-renderer" "0.4.1"
     "@cypress/request" "2.88.5"
@@ -6587,10 +6587,10 @@ karma-jasmine-html-reporter@^1.5.4:
   resolved "https://registry.yarnpkg.com/karma-jasmine-html-reporter/-/karma-jasmine-html-reporter-1.5.4.tgz#669f33d694d88fce1b0ccfda57111de716cb0192"
   integrity sha512-PtilRLno5O6wH3lDihRnz0Ba8oSn0YUJqKjjux1peoYGwo0AQqrWRbdWk/RLzcGlb+onTyXAnHl6M+Hu3UxG/Q==
 
-karma-jasmine@~3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-3.1.1.tgz#f592b253e7619a8d84559d7daf473a647498ade8"
-  integrity sha512-pxBmv5K7IkBRLsFSTOpgiK/HzicQT3mfFF+oHAC7nxMfYKhaYFgxOa5qjnHW4sL5rUnmdkSajoudOnnOdPyW4Q==
+karma-jasmine@~3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-3.2.0.tgz#61ca8e881db3a92dfe456c9a8c4bef2a8fbf0f94"
+  integrity sha512-NkMgcMVKZJ2LtxWXXWD+d6OSFf8ehjxhfgpjdx9DgjwpLDpirm66kEc7+S0i4HcTJzgNhyTWutDzzfnbvKJpNg==
   dependencies:
     jasmine-core "^3.5.0"
 
