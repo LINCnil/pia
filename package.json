@@ -76,14 +76,14 @@
     "jasmine-spec-reporter": "~5.0.2",
     "karma": "~5.0.9",
     "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.2",
-    "karma-jasmine": "~3.2.0",
+    "karma-coverage-istanbul-reporter": "~3.0.3",
+    "karma-jasmine": "~3.3.1",
     "karma-jasmine-html-reporter": "^1.5.4",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "protractor": "~7.0.0",
     "rimraf": "^3.0.2",
-    "ts-node": "~8.10.1",
+    "ts-node": "~8.10.2",
     "tslint": "~6.1.2",
     "typescript": "~3.5.3"
   }
