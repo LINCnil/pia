@@ -317,7 +317,7 @@
 	},
 	"knowledge_base": {
     "choose_knowledge_base": "Sélectionnez votre base de connaissances",
-    "default_knowledge_base": "Base de connaissances CNIL (par défaut)",
+    "default_knowledge_base": "Base de connaissances CNIL",
 		"add_measure": "Ajouter",
 		"add_measure_hint": "Ajoutez aussi une mesure à partir de la base de connaissances.",
 		"category": {
@@ -1008,9 +1008,13 @@
 			"content": "Une erreur est survenue.<br>veuillez nous excuser pour ce désagrément."
 		},
 		"knowledges": {
-			"content": "Êtes vous sûr de vouloir supprimer cette base de connaissances ?",
+			"content": "Êtes-vous sûr de vouloir supprimer cette base de connaissances ?",
 			"remove": "Supprimer cette base"
-		}
+    },
+    "knowledge": {
+      "content": "Êtes-vous sûr de vouloir supprimer cet élément ?",
+      "remove": "Supprimer cet élément"
+    }
 	},
 	"opinions": {
 		"content": ", considère(nt) que :",
@@ -1485,24 +1489,24 @@
     },
     "dashboard": {
       "step1": {
-        "title": "Créer un PIA",
-        "description": "Cliquez sur le <strong>+</strong> pour créer votre premier PIA."
+        "title": "Créer une AIPD",
+        "description": "Cliquez sur le <strong>+</strong> pour créer votre première AIPD."
       },
       "step2": {
-        "title": "Les rôles autour du PIA",
-        "description": "<p>Les <strong>rédacteurs</strong> sont ceux rédigeant la première version de l'analyse.</p><p>Ce sont par exemple les chefs du projet associés au traitement.</p>"
+        "title": "Les rôles autour de l'AIPD",
+        "description": "<p>Les <strong>rédacteurs</strong> rédigent la première version de l'analyse.</p><p>Ce sont par exemple les chefs du projet associés au traitement.</p>"
       },
       "step3": {
-        "title": "Les rôles autour du PIA",
-        "description": "<p>Les <strong>évaluateurs</strong> interviennent dans un second temps.</p><p>Ils jaugent, à l'aune de leur expertise juridique ou technique, la qualité et la conformité du traitement.</p><p>Ce sont par exemple le RSSI, des juristes, le DPO, ...</p>"
+        "title": "Les rôles autour de l'AIPD",
+        "description": "<p>Les <strong>évaluateurs</strong> interviennent dans un second temps.</p><p>Ils contrôlent, grâce à leur expertise juridique ou technique, la qualité et la conformité du traitement.</p><p>Ce sont par exemple le RSSI, des juristes, ...</p>"
       },
       "step4": {
-        "title": "Les rôles autour du PIA",
-        "description": "<p>Les <strong>validateurs</strong> acceptent ou non la mise en oeuvre du traitement.Ils doivent signer l'analyse.</p><p>Ce sont les responsables de traitement, comme par exemple le CEO.</p>"
+        "title": "Les rôles autour de l'AIPD",
+        "description": "<p>Le <strong>validateur</strong> accepte ou non la mise en oeuvre du traitement. Il doit signer l'analyse.</p><p>Il s'agit du responsable de traitement, par exemple le CEO.</p>"
       },
       "step5": {
         "title": "Les modèles",
-        "description": "<p>Les <strong>modèles</strong> sont une fonctionnalité avancée.Ils permettent de créer une base pré-remplie de l'analyse.</p><p>Vous pouvez créer des modèles en allant dans la section associée depuis le menu du haut.</p>"
+        "description": "<p>Les <strong>modèles</strong> sont une fonctionnalité avancée. Ils permettent de créer une base pré-remplie pour l'analyse.</p><p>Vous pouvez créer des modèles en allant dans la section associée depuis le menu du haut.</p>"
       }
 		},
 		"entry": {
@@ -1516,19 +1520,19 @@
 			},
 			"step3": {
 				"title": "Les principes fondamentaux",
-				"description": "Ils permettent de s'assurer que le traitement est juridiquement conforme au RGPD."
+				"description": "Ils permettent de s'assurer que le traitement est conforme au RGPD."
 			},
 			"step4": {
 				"title": "Les risques",
-				"description": "Ils décrivent les mesures de sécurité déjà prévues sur le traitement et permettent d'évaluer les impacts potentiels sur les personnes concernées."
+				"description": "Ils décrivent les mesures de sécurité déjà prévues pour le traitement et permettent d'évaluer ses impacts potentiels sur les personnes concernées."
 			},
 			"step5": {
 				"title": "La validation",
-				"description": "Elle permet au DPO d'exprimer son avis sur la mise en oeuvre du traitement et au responsable de traitement de l'accepter ou de le refuser."
+				"description": "Elle permet au DPO d'exprimer son avis sur la mise en oeuvre du traitement et au responsable de traitement de l'accepter ou de la refuser."
 			},
 			"step6": {
 				"title": "La base de connaissances",
-				"description": "<p>Elle fournit une aide contextuelle à la réalisation de l'analyse et s'appuie sur le RGPD, le guide de sécurité et les guides AIPD de la CNIL.</p><p>En plus de ces contenus, vous pouvez également créer vos propres bases de connaissances pour accéder facilement à des informations spécifiques à votre organisme.</p>"
+				"description": "<p>Elle fournit une aide contextuelle à la réalisation de l'analyse et s'appuie sur le RGPD, le guide sécurité et les guides AIPD de la CNIL.</p><p>En plus de ces contenus, vous pouvez également créer vos propres bases de connaissances pour accéder facilement à des informations spécifiques à votre organisme.</p>"
 			},
 			"step7": {
 				"title": "Exporter son AIPD",
@@ -1542,15 +1546,15 @@
 			},
 			"step2": {
 				"title": "À corriger",
-				"description": "<p>Cette évaluation indique aux rédacteurs que des éléments sont manquants pour pouvoir faire une évaluation pertinente.</p><p>L'évaluateur doit indiquer ceux-ci dans le champ <strong>commentaire d'évaluation</strong> associé. Le rédacteur reverra sa copie en fonction.</p>"
+				"description": "<p>Cette évaluation indique aux rédacteurs que des éléments sont manquants pour pouvoir faire une évaluation pertinente.</p><p>L'évaluateur doit indiquer ceux-ci dans le champ <strong>commentaire d'évaluation</strong> associé. Le rédacteur apportera les corrections nécessaires.</p>"
 			},
 			"step3": {
 				"title": "Améliorable",
-				"description": "<p>Cette évaluation indique les points du traitement à réviser et sont détaillés dans le champ <strong>plan d'action / mesures correctives</strong>.</p><p>Ces mesures seront ajoutées automatiquement à la partie plan d'action de l'analyse. Il est nécessaire de les mettre en oeuvre dans les plus brefs délais.</p>"
+				"description": "<p>Cette évaluation indique les points du traitement à réviser. Ils sont détaillés dans le champ <strong>plan d'action / mesures correctives</strong>.</p><p>Ces mesures seront ajoutées automatiquement à la partie plan d'action de l'analyse. Il est nécessaire de les mettre en oeuvre dans les plus brefs délais.</p>"
 			},
 			"step4": {
 				"title": "Acceptable",
-				"description": "Cette évaluation signifie que, en l'état, ce point du traitement peut être mis en oeuvre sans y apporter de modifications."
+				"description": "Cette évaluation signifie que ce point du traitement peut être mis en oeuvre sans y apporter de modifications."
 			},
 			"step5": {
 				"title": "Annuler une demande",

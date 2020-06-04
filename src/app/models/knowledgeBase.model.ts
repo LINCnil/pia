@@ -8,6 +8,7 @@ export class KnowledgeBase extends ApplicationDb {
   public contributors: string;
   public knowledges: Knowledge[] = [];
   public created_at: Date;
+  public is_example: Boolean = false;
 
   constructor(id = null, name = null, author = null, contributors = null, createdAt = null) {
     super(201911191636, 'knowledgeBase');

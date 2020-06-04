@@ -78,7 +78,7 @@ export class IntrojsService {
       element: document.querySelector('.pia-newBlock-item.front'),
       tooltipClass: 'pia-onboarding-dashboard-1',
       intro: `
-      <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step2.title')}</div>
+      <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step1.title')}</div>
       <div class='pia-onboarding-description'>
         ${this._translateService.instant('onboarding.dashboard.step1.description')}
       </div>
@@ -331,21 +331,21 @@ export class IntrojsService {
             `,
           position: 'top'
         });
-        if (document.querySelector('.pia-status-info.evaluationsStatus > div')) {
-          INTROJS.addStep({
-            // Top evaluation block (cancel block)
-            tooltipClass: 'pia-onboarding-evaluation-step-cancelEvaluationBlock',
-            element: document.querySelector('.pia-status-info.evaluationsStatus > div'),
-            intro: `
+      if (document.querySelector('.pia-status-info.evaluationsStatus > div')) {
+        INTROJS.addStep({
+          // Top evaluation block (cancel block)
+          tooltipClass: 'pia-onboarding-evaluation-step-cancelEvaluationBlock',
+          element: document.querySelector('.pia-status-info.evaluationsStatus > div'),
+          intro: `
                   <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step5.title')}</div>
                   <div class='pia-onboarding-description'>
                     ${this._translateService.instant('onboarding.evaluation.step5.description')}
                   </div>
                   <div class='pia-onboarding-steps'>5/${stepsQuantity}</div>
                 `,
-            position: 'bottom'
-          });
-        }
+          position: 'bottom'
+        });
+      }
     } else {
       INTROJS.addStep({
         // "Cancel" button
@@ -413,7 +413,7 @@ export class IntrojsService {
                 </div>
                 <div class='pia-onboarding-steps'>1/2</div>
               `,
-      position: 'right'
+      position: 'top'
     }).addStep({
       tooltipClass: 'pia-onboarding-validated-2',
       element: document.querySelector('.pia-cardsBlock.pia-archiveBlock'),
@@ -424,7 +424,7 @@ export class IntrojsService {
                 </div>
                 <div class='pia-onboarding-steps'>2/2</div>
               `,
-      position: 'left'
+      position: 'top'
     });
 
     INTROJS.onexit(() => {
