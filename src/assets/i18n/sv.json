@@ -5,7 +5,7 @@
 		"licences": "Bibliotekslicenser:",
 		"title": "Om PIA-verktyget",
 		"translators": "PIA-verktyget är för närvarande tillgängligt på 19 språk. De franska och engelska versionerna är producerade av CNIL. Övriga versioner är resultat av följande individers översättningsarbete:",
-		"translators_name": "<li>Svenska : Per von Bahr, Sopra Steria AB ;</li><ul><ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
+		"translators_name": "<li>Svenska : Per von Bahr (Sopra Steria AB), <a target=\"_blank\" href=\"https://www.linkedin.com/in/pergu\">Per M. Gustavsson</a> (Göteborgs Stad) ;</li><ul><ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
 		"version_number": "Versionsnummer"
 	},
 	"action_plan": {
@@ -53,22 +53,22 @@
 		"send": "Skicka"
 	},
 	"date": {
-		"april": "TO TRANSLATE - April",
-		"august": "TO TRANSLATE - August",
-		"december": "TO TRANSLATE - December",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
-		"february": "TO TRANSLATE - February",
-		"january": "TO TRANSLATE - January",
-		"july": "TO TRANSLATE - July",
-		"june": "TO TRANSLATE - June",
-		"march": "TO TRANSLATE - March",
-		"may": "TO TRANSLATE - May",
-		"november": "TO TRANSLATE - November",
-		"october": "TO TRANSLATE - October",
-		"september": "TO TRANSLATE - September",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday"
+		"april": "april",
+		"august": "augusti",
+		"december": "december",
+		"earlier-in-this-month": "tidigare denna månad",
+		"earlier-in-this-week": "tidigare denna vecka",
+		"february": "februari",
+		"january": "januari",
+		"july": "juli",
+		"june": "juni",
+		"march": "mars",
+		"may": "maj",
+		"november": "november",
+		"october": "oktober,
+		"september": "september",
+		"today": "i dag",
+		"yesterday": "i går"
 	},
 	"errors": {
 		"content": "Om du stöter på andra problem eller om du har förslag på förbättringar, <br> så kan du beskriva och sända dem via detta formulär: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
@@ -102,24 +102,25 @@
 		"to_correct": "Att korrigera"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "PIA arkiv",
+		"current_pias": "Nuvarande PIAs",
 		"exit_full_screen_mode": "Tryck på F11 för att lämna fullskärmsläge",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Rapportera ett fel",
+			"manual": "Användarmanual",
 			"pia_example_link": "Konsekvensanalysexempel",
-			"title": "TO TRANSLATE - Help"
+			"title": "hjälp"
 		},
 		"homepage_link": "Hem",
 		"knowledge_base_link": "Kunskapsbas",
 		"languages": {
-			"cnil_translations": "Traductions fournies par la CNIL",
-			"community_translations": "Traductions fournies par la communauté",
+			"cnil_translations": "Översättningar tillhandhållna av CNIL",
+			"community_translations": "Översättningar tillhandahållna av gemenskapen",
 			"cz": "Česky",
 			"de": "Deutsch",
 			"dk": "Dansk",
-			"dpa_translations": "Traduction révisée par les ADP européenne",
+      "sv": "Svenska",
+			"dpa_translations": "Översättningar reviderade av ADP européenne",
 			"el": "Ελληνικά",
 			"en": "English",
 			"es": "Español",
@@ -132,12 +133,12 @@
 			"lt": "Lietuviškai",
 			"nl": "Nederlands",
 			"no": "Norsk",
-			"official_translation": "Version originelle",
+			"official_translation": "Original version",
 			"pl": "Polski",
 			"pt": "Português",
 			"ro": "Română",
-			"sl": "Slovenščina",
-			"sv": "Svenska"
+			"sl": "Slovenščina"
+			
 		},
 		"logo_subtitle": "PIA - Konsekvensanalys",
 		"logo_title": "PIA - Konsekvensanalys",
@@ -194,7 +195,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Datainsamlare",
-			"category": "TO TRANSLATE - Category",
+			"category": "kategori",
 			"creation_status": "Skapa",
 			"date": "Datum",
 			"evaluation": "Utvärdera",
@@ -202,19 +203,19 @@
 			"import_structure": "Importera mall",
 			"item": {
 				"consult_pia": "Konsultera",
-				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
+				"consult_structure": "Konsultera mall",
+        "validate_pia": "Validera",
 				"edit_pia": "Redigera",
 				"edit_structure": "Redigera mall",
 				"tools": {
 					"action_plan": "Visa <br> åtgärdsplan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Arkivera,
 					"duplicate": "Duplicera",
 					"export": "Exportera",
 					"more_options": "Fler val",
 					"pia": "Visa <br>PIAn",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Ta bort",
+					"unarchive": "Återsälla arkivering"
 				}
 			},
 			"new_pia": "Ny PIA",
@@ -222,7 +223,7 @@
 			"or": "eller",
 			"pia_name": "PIA",
 			"placeholder_author": "Förnamn, efternamn",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategori",
 			"placeholder_evaluation": "Förnamn, efternamn",
 			"placeholder_import_pia": "Importera PIA",
 			"placeholder_import_structure": "Importera mall",
@@ -248,7 +249,7 @@
 			"card": "Kort",
 			"card_rocket_content": "Starta! <br><br>För att börja<br>en PIA, klicka<br> på +",
 			"card_rocket_content_structure": "Starta! <br><br>För att börja<br>en mall, klicka<br> på +",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategori",
 			"date": "Datum",
 			"import_pia": "Importera PIA",
 			"import_structure": "Importera en mall",
@@ -267,7 +268,7 @@
 		"lists": {
 			"column_actions": "Alternativ",
 			"column_author": "Datainsamlare",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategori",
 			"column_creation": "Skapad",
 			"column_evaluation": "Utvärdering",
 			"column_pia": "PIA",
@@ -281,18 +282,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Visa åtgärdsplan",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Arkivera",
 					"consult": "Konsultera",
 					"duplicate": "Duplicera",
 					"edit": "Redigera",
 					"export": "Exportera",
 					"pia": "Via PIA",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Ta bort",
+					"unarchive": "Återsälla arkivering"
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Sök"
 	},
 	"knowledge_base": {
 		"add_measure": "Lägg till",
@@ -340,8 +341,8 @@
 				"source": "Datainspektionen"
 			},
 			"PIA_DEF_CHIF": {
-				"description": "TO TRANSLATE - Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
-				"name": "Kryptering",
+				"description": "Åtgärder som gör personuppgifter obegriplig för någon utan behörighet (tex. symmetrisk eller asymmetrisk kryptering, användning av offentliga algoritmer som är kända för att vara starka, autentiseringscertifikat, etc.). ",
+			  "name": "Kryptering",
 				"source": "https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
 			},
 			"PIA_DEF_CLO": {
@@ -591,9 +592,9 @@
 				"name": "Obetydlig sannolikhet"
 			},
 			"PIA_LGL_CONS": {
-				"description": "TO TRANSLATE - Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
-				"name": "Inhämtande av samtycke",
-				"source": "Källa saknas"
+				"description": "Låt de registrerade göra ett fritt, specifikt och informerat val. Bestäm om behandlingen förlitar sig på en annan rättslig grund än samtycke enligt art. 6 av <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/SV/TXT/HTML/?uri=CELEX:32016R0679&from=SV\"> [ BRP] </a>",
+        "name": "Inhämtande av samtycke",
+        "source": "ASDF/GDPR Art. 6"
 			},
 			"PIA_LGL_DATA": {
 				"description": "Definiera och beskriv personuppgifterna i detalj: <br> - vilka personuppgifter som hanteras, vem som hanterar dem och dess lagringsperiod;<br> - en beskrivning av processer och datahantering för hela datalivscykeln (från insamling till radering).",
@@ -824,9 +825,9 @@
 				"source": "Svensk källa saknas"
 			},
 			"PIA_TEC_PAP": {
-				"description": "TO TRANSLATE - Where paper documents containing data are used during the processing, indicate here how they are printed, stored, destroyed and exchanged.",
+				"description": "Ange här livscykelhanteringen för pappersdokument som innehåller personuppgifter (hur de skapas, skrivs ut, lagrade, delas, tas bort och arkiveras).",
 				"name": "Säkerhet för hantering av  pappersdokument",
-				"placeholder": "Ange här procedurerna och livscykeln för pappersdokument som innehåller personuppgifter.",
+				"placeholder": "Ange här procedurerna och livscykeln för pappersdokument som innehåller personuppgifter. (för TO TRANSLATE - Where paper documents containing data are used during the processing, indicate here how they are printed, stored, destroyed and exchanged.)",
 				"source": "Svensk källa saknas"
 			},
 			"PIA_VAL_ACT": {
@@ -878,8 +879,8 @@
 		},
 		"archive": "Arkivera",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "Arkivera PIA",
+			"content": "<span class='strong'>Warning,</span><br>Är du säker på att du vill <br>arkivera denna PIA ?"
 		},
 		"ask_for_evaluation": {
 			"content": "Denna sektion är klar för att utvärderas"
@@ -924,8 +925,8 @@
 		},
 		"recover_version": {
 			"continue": "Fortsätt",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Genom att fortsätta så kommer du att återställa rapportens tidigare version : {{date}}.<br><br>Den nuvarande versionen kommer att sparas.",
+			"title": "Återställ en tidigare version"
 		},
 		"refuse_pia": {
 			"content": "Efter ditt underkännande sänds PIAn<br>tillbaka för utvärdering och för att utföra<br> nödvändiga kompletterande åtgärder."
@@ -966,8 +967,8 @@
 		},
 		"start_evaluation": "Starta utvärderingen",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill <br>återställa denna PIA ?",
+			"unarchive": "Återsälla arkivering av PIA"
 		},
 		"update_server_url_nok": {
 			"content": "Ingen uppkoppling."
@@ -1051,7 +1052,7 @@
 					"title": "Väntar på godkännande"
 				}
 			},
-			"validate_pia": "TO TRANSLATE - Validate PIA"
+			"validate_pia": "Validera PIA"
 		},
 		"statuses": [
 			"Under behandling",
@@ -1306,7 +1307,7 @@
 				},
 				"5": {
 					"short_help": "Denna visualisering gör att du kan skapa dig en övergripande bild av vilken verkan åtgärderna har på komponenterna i riskerna som de skall hantera.",
-					"title": "TO TRANSLATE - Risks overview"
+					"title": "Överblick av risker"
 				}
 			},
 			"short_help": "Det här avsnittet låter dig bedöma dataskyddsriskerna med hänsyn till befintliga eller planerade kontroller.",
@@ -1359,9 +1360,9 @@
 			"individual_download_desc": "Exportera specifika delar av rapporten.",
 			"individual_download_doc": "Texter (.doc)",
 			"individual_download_images": "Grafiska element (.png) inklusive risköversikt, kartläggning av risker och handlingsplan.",
-			"individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+			"individual_download_json": "Rapport att importera till PIA verktyget (.json file)",
 			"individual_download_select": "Välj avsnitt som ska exporteras:",
-			"individual_to_download": "TO TRANSLATE - Download",
+			"individual_to_download": "Ladda ner",
 			"print": "Skriv ut rapporten",
 			"print_and_download": "Skriva ut och ladda ner"
 		},
@@ -1412,12 +1413,12 @@
 		"previous_page": "Tillbaka till föregående sida",
 		"rejection_reason": "Skäl för underkännande",
 		"revision": {
-			"current_version": "TO TRANSLATE - Current version",
-			"pia_version": "TO TRANSLATE - PIA versions",
-			"restore_version": "TO TRANSLATE - Restore",
-			"revision": "TO TRANSLATE - Versions and revision",
-			"save": "TO TRANSLATE - Create a new version",
-			"show": "TO TRANSLATE - Display the {{length}} versions"
+			"current_version": "Nuvarande version",
+			"pia_version": "PIA versioner",
+			"restore_version": "Återställ",
+			"revision": "Versioner och revisioner",
+			"save": "TSkapa ny version",
+			"show": "Visa {{length}} versionen"
 		},
 		"risks_cartography_title": "Riskkartläggning",
 		"risks_overview_title": "Risköversikt",
