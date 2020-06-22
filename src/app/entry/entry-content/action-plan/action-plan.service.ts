@@ -68,15 +68,9 @@ export class ActionPlanService {
               evaluation
             };
 
-            if (this.results.findIndex(e => e === temp) === -1) {
+            if (this.results.findIndex(e => e.status === temp.status && e.short_title === temp.short_title) === -1) {
               // check if not exist
-              this.results.push({
-                status: evaluation.status,
-                short_title: q.short_title,
-                action_plan_comment: evaluation.action_plan_comment,
-                evaluation_comment: evaluation.evaluation_comment,
-                evaluation
-              });
+              this.results.push(temp);
             }
 
             if (title1) {
