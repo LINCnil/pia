@@ -27,8 +27,15 @@ export class ApplicationDb {
     return new Promise((resolve, reject) => {
       const evt = window.indexedDB.open(this.tableName, this.dbVersion);
       evt.onerror = (event: any) => {
-        console.error(event);
-        reject(Error(event));
+        // Hack to return the previous database if the current version is bigger than the previous one.
+        const evt2 = window.indexedDB.open(this.tableName);
+        evt2.onsuccess = (event2: any) => {
+          resolve(event2.target.result);
+        };
+        evt2.onerror = (event2: any) => {
+          console.error(event2);
+          reject(Error(event2));
+        }
       };
       evt.onsuccess = (event: any) => {
         resolve(event.target.result);
