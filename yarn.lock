@@ -118,7 +118,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cli@~8.3.22":
+"@angular/cli@^8.3.28":
   version "8.3.28"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-8.3.28.tgz#f4d43992610adb258bd90f32978094c9b2d0b352"
   integrity sha512-liP39zD3Y/uDbwOQoiryh8tkaJSlz05TG5HgFe7oWIeCSUQW7WBAULVY/ID+t7e4KX2opi0OKSH5R8+DP3VzcA==
@@ -1021,7 +1021,7 @@
     typescript "^3.6.3"
     yargs "^14.0.0"
 
-"@commitlint/cli@^8.3.4":
+"@commitlint/cli@^8.3.5":
   version "8.3.5"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-8.3.5.tgz#6d93a3a8b2437fa978999d3f6a336bcc70be3fd3"
   integrity sha512-6+L0vbw55UEdht71pgWOE55SRgb+8OHcEwGDB234VlIBFGK9P2QOBU7MHiYJ5cjdjCQ0rReNrGjOHmJ99jwf0w==
@@ -1367,7 +1367,7 @@
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.3.12.tgz#bf282cb540e9ad7a0a04b742082c073b655eab39"
   integrity sha512-lXvr2xFQEVQLkIhuGaR3GC1L9lMU1IxeWnAF/wNY5ZWpC4p9dgxkKkzMp7pntpAdv9pZSnYqgsBkCg32MXSZMg==
 
-"@types/jasmine@~2.8.8":
+"@types/jasmine@^2.8.17":
   version "2.8.17"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.17.tgz#65fa3be377126253f6c7988b365dfc78d62d536e"
   integrity sha512-lXmY2lBjE38ASvP7ah38yZwXCdc7DTCKhHqx4J3WGNiVzp134U0BD9VKdL5x9q9AAfhnpJeQr4owL6ZOXhOpfA==
@@ -1399,10 +1399,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.14.tgz#24a0b5959f16ac141aeb0c5b3cd7a15b7c64cbce"
   integrity sha512-syUgf67ZQpaJj01/tRTknkMNoBBLWJOBODF0Zm4NrXmiSuxjymFrxnTu1QVYRubhVkRcZLYZG8STTwJRdVm/WQ==
 
-"@types/node@~13.1.6":
-  version "13.1.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.8.tgz#1d590429fe8187a02707720ecf38a6fe46ce294b"
-  integrity sha512-6XzyyNM9EKQW4HKuzbo/CkOIjn/evtCmsU+MUM1xDfJ+3/rNjBttM1NgN7AOQvN6tP1Sl1D1PIKMreTArnxM9A==
+"@types/node@^13.1.8":
+  version "13.13.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.12.tgz#9c72e865380a7dc99999ea0ef20fc9635b503d20"
+  integrity sha512-zWz/8NEPxoXNT9YyF2osqyA9WjssZukYpgI4UYZpOjcyqwIUqWGkcCionaEb9Ki+FULyPyvNFpg/329Kd2/pbw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -3016,7 +3016,7 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-codelyzer@^5.2.1:
+codelyzer@^5.2.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-5.2.2.tgz#d0530a455784e6bea0b6d7e97166c73c30a5347f"
   integrity sha512-jB4FZ1Sx7kZhvZVdf+N2BaKTdrrNZOL0Bj10RRfrhHrb3zEvXjJvvq298JPMJAiyiCS/v4zs1QlGU0ip7xGqeA==
@@ -3346,7 +3346,7 @@ core-js@^2.4.0, core-js@^2.5.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
 
-core-js@^3.6.4:
+core-js@^3.6.5:
   version "3.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
   integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
@@ -5163,7 +5163,7 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
-foundation-sites@^6.6.1:
+foundation-sites@^6.6.3:
   version "6.6.3"
   resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.6.3.tgz#8ca5f246357db69e6a0e73351ce06aa8acce6540"
   integrity sha512-8X93wUAmUg1HhVv8uWMWnwoBLSQWSmFImJencneIZDctswn724Bq/MV1cbPZN/GFWGOB/9ngoQHztfzd4+ovCg==
@@ -6636,15 +6636,15 @@ karma-coverage-istanbul-reporter@~2.1.1:
     istanbul-api "^2.1.6"
     minimatch "^3.0.4"
 
-karma-jasmine-html-reporter@^1.5.1:
+karma-jasmine-html-reporter@^1.5.4:
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/karma-jasmine-html-reporter/-/karma-jasmine-html-reporter-1.5.4.tgz#669f33d694d88fce1b0ccfda57111de716cb0192"
   integrity sha512-PtilRLno5O6wH3lDihRnz0Ba8oSn0YUJqKjjux1peoYGwo0AQqrWRbdWk/RLzcGlb+onTyXAnHl6M+Hu3UxG/Q==
 
-karma-jasmine@~3.1.0:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-3.1.1.tgz#f592b253e7619a8d84559d7daf473a647498ade8"
-  integrity sha512-pxBmv5K7IkBRLsFSTOpgiK/HzicQT3mfFF+oHAC7nxMfYKhaYFgxOa5qjnHW4sL5rUnmdkSajoudOnnOdPyW4Q==
+karma-jasmine@^3.1.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-3.3.1.tgz#c01b1a2ec973e1531c1f6535e1d7d66b8e4275c2"
+  integrity sha512-Nxh7eX9mOQMyK0VSsMxdod+bcqrR/ikrmEiWj5M6fwuQ7oI+YEF1FckaDsWfs6TIpULm9f0fTKMjF7XcrvWyqQ==
   dependencies:
     jasmine-core "^3.5.0"
 
@@ -7644,7 +7644,7 @@ ng2-material-dropdown@0.11.0:
   dependencies:
     tslib "^1.9.0"
 
-ng2-pdfjs-viewer@^5.0.5:
+ng2-pdfjs-viewer@^5.0.7:
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/ng2-pdfjs-viewer/-/ng2-pdfjs-viewer-5.0.7.tgz#99bb373548488f93badefee2868af6af4b011c2f"
   integrity sha512-KkeA0ejCoqz9CDWVDiZ+qCxme0Ta0U/VZBHSpounVLI9plGr5aXiEUG0nNdRNtfcq86GSiNE4gqKFzyYXU50Kg==
@@ -8621,7 +8621,7 @@ protoduck@^5.0.1:
   dependencies:
     genfun "^5.0.0"
 
-protractor@~5.4.0:
+protractor@^5.4.4:
   version "5.4.4"
   resolved "https://registry.yarnpkg.com/protractor/-/protractor-5.4.4.tgz#b241466aaf83b76bc2c58df67deb9a5cdfc61529"
   integrity sha512-BaL4vePgu3Vfa/whvTUAlgaCAId4uNSGxIFSCXMgj7LMYENPWLp85h5RBi9pdpX/bWQ8SF6flP7afmi2TC4eHw==
@@ -9322,7 +9322,7 @@ rimraf@^2.6.0:
   dependencies:
     glob "^7.1.3"
 
-rimraf@^3.0.0, rimraf@^3.0.2:
+rimraf@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
   integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
@@ -9359,7 +9359,7 @@ rw@1:
   resolved "https://registry.yarnpkg.com/rw/-/rw-1.3.3.tgz#3f862dfa91ab766b14885ef4d01124bfda074fb4"
   integrity sha1-P4Yt+pGrdmsUiF700BEkv9oHT7Q=
 
-rxjs-compat@^6.5.4:
+rxjs-compat@^6.5.5:
   version "6.5.5"
   resolved "https://registry.yarnpkg.com/rxjs-compat/-/rxjs-compat-6.5.5.tgz#073c40510f29c45a2a5fc02dde87f8c3ad75f2c2"
   integrity sha512-F42sssVbUyWH4vJswEo6m+Eh02xHv3q93n8S7nUJO58R7sbc3CvJIOts605zdaBhWa1xMB9aVSyqPqhQ5q3eXg==
@@ -9432,7 +9432,7 @@ saucelabs@^1.5.0:
   dependencies:
     https-proxy-agent "^2.2.1"
 
-save-svg-as-png@^1.4.14:
+save-svg-as-png@^1.4.17:
   version "1.4.17"
   resolved "https://registry.yarnpkg.com/save-svg-as-png/-/save-svg-as-png-1.4.17.tgz#294442002772a24f1db1bf8a2aaf7df4ab0cdc55"
   integrity sha512-7QDaqJsVhdFPwviCxkgHiGm9omeaMBe1VKbHySWU6oFB2LtnGCcYS13eVoslUgq6VZC6Tjq/HddBd1K6p2PGpA==
