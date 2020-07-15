@@ -344,7 +344,7 @@
 			},
 			"PIA_DEF_EXA": {
 				"description": "Persoonlijke gegevens moeten nauwkeurig zijn en, waar nodig, worden bijgewerkt; elke redelijke stap moet worden gezet om ervoor te zorgen dat persoonsgegevens die onnauwkeurig zijn, rekening houdend met de doeleinden waarvoor ze worden verwerkt, onverwijld worden gewist of gecorrigeerd ('nauwkeurigheid'). <br> zie <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/NL/TXT/HTML/?uri=CELEX:32016R0679&from=NL\">Art. 5.1 d) van [AVG]</a>",
-				"name": "Quality of data",
+				"name": "Kwaliteit van de gegevens",
 				"source": "AVG Art. 5.1 d)"
 			},
 			"PIA_DEF_GRV": {
@@ -383,8 +383,8 @@
 				"source": "PIAF Connected Objects p43 and 44, WIKI"
 			},
       "PIA_METHOD_MES": {
-				"description": "(TRANSLATION REQUIRED) Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "(TRANSLATION REQUIRED) Planned and corrective controls",
+				"description": "Bestaande of geplande maatregelen zijn maatregelen die zijn ingevoerd vóór analyse door de reviewer. Door de reviewer aanbevolen corrigerende maatregelen zullen in het actieplan worden vermeld en zullen een tweede beoordeling van de ernst en de waarschijnlijkheid van het risico mogelijk maken.",
+				"name": "Geplande en corrigerende maatregelen",
 				"source": ""
       },
 			"PIA_DEF_MES": {
@@ -564,7 +564,7 @@
 				"source": "PIA3 p11 - WIKI"
 			},
 			"PIA_LGL_DATA": {
-				"description": "Definieer en beschrijf de scope in detail: <br> - de betreffende persoonlijke gegevens, hun ontvangers en hun opslagduur <br> - beschrijving van de processen en persoonlijke gegevens die de assets ondersteunen voor de gehele levenscyclus van persoonlijke gegevens (van verzameling tot wissen).",
+				"description": "Definieer en beschrijf de scope in detail: <br> - de betreffende persoonlijke gegevens, hun ontvangers en hun bewaartermijn <br> - beschrijving van de processen en persoonlijke gegevens die de assets ondersteunen voor de gehele levenscyclus van persoonlijke gegevens (van verzameling tot wissen).",
 				"name": "Gegevens en processen",
 				"source": "PIA1 p6"
 			},
@@ -579,8 +579,8 @@
 				"source": "AVG art 4.9"
 			},
 			"PIA_LGL_DUR": {
-				"description": "Er moet een opslagduur worden gedefinieerd voor elk type gegevens en worden gerechtvaardigd door de wettelijke vereisten en/of verwerkingsbehoeften. Er wordt dus een onderscheid gemaakt tussen gemeenschappelijke gegevens en gearchiveerde gegevens, waartoe de toegang beperkt blijft tot alleen de betrokken belanghebbenden. Een wismechanisme moet worden geïmplementeerd om gemeenschappelijke gegevens te archiveren of gearchiveerde gegevens te wissen aan het einde van de opslagduur. Functionele sporen moeten ook worden verwijderd, evenals technische logboeken die mogelijk niet voor onbepaalde tijd worden opgeslagen",
-				"name": "Opslagduur",
+				"description": "Er moet een bewaartermijn worden gedefinieerd voor elk type gegevens en worden gerechtvaardigd door de wettelijke vereisten en/of verwerkingsbehoeften. Er wordt dus een onderscheid gemaakt tussen gemeenschappelijke gegevens en gearchiveerde gegevens, waartoe de toegang beperkt blijft tot alleen de betrokken belanghebbenden. Een wismechanisme moet worden geïmplementeerd om gemeenschappelijke gegevens te archiveren of gearchiveerde gegevens te wissen aan het einde van de opslagduur. Functionele sporen moeten ook worden verwijderd, evenals technische logboeken die mogelijk niet voor onbepaalde tijd worden opgeslagen",
+				"name": "Bewaartermijn",
 				"source": "PIAF Connected Objects p12"
 			},
 			"PIA_LGL_FIN": {
@@ -1060,7 +1060,7 @@
 				"2": {
 					"questions": {
 						"1": {
-							"placeholder": "Maak een lijst van de verzamelde en verwerkte gegevens. Definieer voor elk de opslagduur, de ontvangers en personen met toegang daartoe.",
+							"placeholder": "Maak een lijst van de verzamelde en verwerkte gegevens. Definieer voor elk gegeven de bewaartermijn, de ontvangers en personen met toegang daartoe.",
 							"title": "Welke gegevens worden verwerkt?"
 						},
 						"2": {
@@ -1292,27 +1292,27 @@
 		"update": "URL bijwerken"
 	},
 	"summary": {
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
+    "preview_title": "Voorbeeld",
+    "preview_subtitle": "Algemene informatie",
+    "preview_edition": "Bewerken",
+    "preview_evaluation": "Evaluatie",
+    "preview_validation": "Validatie",
+    "preview_status": "Status",
+    "preview_validation_section": "Validatie",
+    "preview_dpo_opinion": "Mening van de FG/DPO en betrokkenen",
+    "preview_no_data": "Geen informatie om weer te geven.",
     "actions": {
-      "print_and_download": "TO TRANSLATE - Print and download",
-      "print": "TO TRANSLATE - Print the report",
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan."
+      "print_and_download": "Print en download",
+      "print": "Print het rapport",
+      "complete_download": "Download het hele rapport",
+      "complete_download_desc": "Export in een.zip archive het hele rapport (.doc en afbeeldingen), bijlagen en het actieplan in een .csv formaat.",
+      "individual_download": "Download elementen van het rapport",
+      "individual_download_desc": "Exporteer specifieke elementen van het rapport.",
+      "individual_download_select": "Selecteer elementen om te exporteren:",
+      "individual_download_doc": "Tekst (.doc)",
+      "individual_download_images": "Visuele elementen (.png) inclusief het risico-overzicht, de risicokaart en het actieplan."
     },
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
+    "download_csv": "Actieplan (.csv)",
 		"action_plan": {
 			"fundamental_principles": "Fundamentele principes",
 			"implementation_date": "Verwachte datum van implementatie",
