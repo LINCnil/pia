@@ -1513,10 +1513,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.7.tgz#85dbb71c510442d00c0631f99dae957ce44fd104"
   integrity sha512-suFHr6hcA9mp8vFrZTgrmqW2ZU3mbWsryQtQlY/QvwTISCw7nw/j+bCQPPohqmskhmqa5wLNuMHTTsc+xf1MQg==
 
-"@types/node@~14.0.26":
-  version "14.0.26"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.26.tgz#22a3b8a46510da8944b67bfc27df02c34a35331c"
-  integrity sha512-W+fpe5s91FBGE0pEa0lnqGLL4USgpLgs4nokw16SrBBco/gQxuua7KnArSEOd5iaMqbbSHV10vUDkJYJJqpXKA==
+"@types/node@~14.0.27":
+  version "14.0.27"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.27.tgz#a151873af5a5e851b51b3b065c9e63390a9e0eb1"
+  integrity sha512-kVrqXhbclHNHGu9ztnAwSncIgJv/FaxmzXJvGXNdcCpV1b8u1/Mi6z6m0vwy0LzKeXFTPLH0NzwmoJ3fNCIq0g==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -6561,7 +6561,7 @@ istanbul-reports@^3.0.2:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
 
-jasmine-core@^3.5.0, jasmine-core@~3.5.0:
+jasmine-core@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-3.5.0.tgz#132c23e645af96d85c8bca13c8758b18429fc1e4"
   integrity sha512-nCeAiw37MIMA9w9IXso7bRaLl+c/ef3wnxsoSAlYrzS+Ot0zTG6nU8G/cIfGkqpkjX2wNaIW9RFG0TwIFnG6bA==
@@ -6570,6 +6570,11 @@ jasmine-core@~2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-2.8.0.tgz#bcc979ae1f9fd05701e45e52e65d3a5d63f1a24e"
   integrity sha1-vMl5rh+f0FcB5F5S5l06XWPxok4=
+
+jasmine-core@~3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-3.6.0.tgz#491f3bb23941799c353ceb7a45b38a950ebc5a20"
+  integrity sha512-8uQYa7zJN8hq9z+g8z1bqCfdC8eoDAeVnM5sfqs7KHv9/ifoJ500m018fpFc7RDaO6SWCLCXwo/wPSNcdYTgcw==
 
 jasmine-spec-reporter@~5.0.2:
   version "5.0.2"
@@ -6761,10 +6766,10 @@ karma-source-map-support@1.4.0:
   dependencies:
     source-map-support "^0.5.5"
 
-karma@~5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/karma/-/karma-5.1.0.tgz#deaa5f3939f75d7d78ded33283fa5f9bb67e9a05"
-  integrity sha512-I3aPbkuIbwuBo6wSog97P5WnnhCgUTsWTu/bEw1vZVQFbXmKO3PK+cfFhZioOgVtJAuQxoyauGNjnwXNHMCxbw==
+karma@~5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/karma/-/karma-5.1.1.tgz#4e472c1e5352d73edbd2090726afdb01d7869d72"
+  integrity sha512-xAlOr5PMqUbiKXSv5PCniHWV3aiwj6wIZ0gUVcwpTCPVQm/qH2WAMFWxtnpM6KJqhkRWrIpovR4Rb0rn8GtJzQ==
   dependencies:
     body-parser "^1.19.0"
     braces "^3.0.2"
