@@ -50,7 +50,7 @@
     "ng2-pdfjs-viewer": "^5.0.7",
     "ngx-chips": "2.1.0",
     "normalize.css": "^8.0.1",
-    "rxjs": "~6.6.0",
+    "rxjs": "~6.6.2",
     "rxjs-compat": "^6.6.0",
     "save-svg-as-png": "^1.4.17",
     "tinymce": "^4.9.11",
