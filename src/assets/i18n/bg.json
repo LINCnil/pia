@@ -470,149 +470,149 @@
 				"source": "Mesures_US"
 			},
 			"PIA_DEF_PC": {
-				"description": "Persons to whom the data covered by the processing relate.",
-				"name": "Data subject",
+				"description": "Лице, с което са свързани данните които се обработват.",
+				"name": "Субект на данните",
 				"source": "PIA1 p9"
 			},
 			"PIA_DEF_PORT": {
-				"description": " The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
-				"name": "Right to data portability",
-				"source": "GDPR Art. 20"
+				"description": " Субектът на данните има право да получи личните данни, които го засягат и които той е предоставил на администратор, в структуриран, широко използван и пригоден за машинно четене формат и има правото да прехвърли тези данни на друг администратор без възпрепятстване от администратора, на когото личните данни са предоставени, виж <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 20 of [GDPR]</a>",
+				"name": "Право на преносимост на данните",
+				"source": "ОРЗД чл. 20"
 			},
 			"PIA_DEF_PSEU": {
-				"description": "Processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person.<br>Pseudonymisation  reduces  the  linkability  of  a  dataset  with  the  original  identity  of  a  data subject; as such, it is a useful security measure but not a method of anonymisation.",
-				"name": "Pseudonymisation",
-				"source": "GDPR Art. 4.5 and guidelines G29 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+				"description": "Обработването на лични данни по такъв начин, че личните данни не могат повече да бъдат свързвани с конкретен субект на данни, без да се използва допълнителна информация, при условие че тя се съхранява отделно и е предмет на технически и организационни мерки с цел да се гарантира, че личните данни не са свързани с идентифицирано физическо лице или с физическо лице, което може да бъде идентифицирано.<br>Псевдонимизацията намалява възможността да се свърже набор от данни с оригиналната самоличност на даден субек на данни; поради това, тя е полезна мярка за сигурност но не е метод за анонимизиране.",
+				"name": "Псевдонимизация",
+				"source": "ОРЗД чл. 4.5 и насоки на работната група по чл. 29 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
 			},
 			"PIA_DEF_PWD": {
-				"description": "Passwords shall be composed of a minimum of eight characters; must be renewed if there is the least concern that they may have been compromised and, possibly, periodically (every six months or once a year) and must include a minimum of three of the four kinds of characters (capital letters, lower case letters, numerals and special characters); when a password is changed, the last five passwords may not be reused; the same password should not be used for different accesses; passwords should not be related to one's personal information (including name or date of birth.). Define a maximum number of attempts beyond which a warning is issued and authentication is blocked (temporarily or until it is manually unblocked).",
-				"name": "Password",
+				"description": "Паролите трябва да се състоят от минимум осем знака; трябва да се променят ако има и най-малко съмнение че може да са компрометирани и ако е възможно, периодично (на всеки шест месеца или веднъж годишно) и трябва да включват минимум три от четирите вида знаци (главни букви, малки букви, цифри и специални символи); при промяна на парола, да не се използват отново последните пет използвани пароли; една и съща парола да не се използва за различни акаунти; паролите не трябва да са свързани с лична информация (включително име и дата на раждане). Трябва да има определен максимален брой опити за влизане в акаунт, след които да се генерира аларма и се блокира достъпът (временно или до ръчното му отблокиране).",
+				"name": "Парола",
 				"source": "Mesure_US"
 			},
 			"PIA_DEF_RECT": {
-				"description": "The data subject shall have the right to obtain from the controller without undue delay the rectification of inaccurate personal data concerning him or her. Taking into account the purposes of the processing, the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement.",
-				"name": "Right to rectification",
-				"source": "GDPR Art. 16"
+				"description": "Субектът на данни има право да поиска от администратора да коригира без ненужно забавяне неточните лични данни, свързани с него. Като се имат предвид целите на обработването субектът на данните има право непълните лични данни да бъдат попълнени, включително чрез добавяне на декларация.",
+				"name": "Право на коригиране",
+				"source": "ОРЗД чл. 16"
 			},
 			"PIA_DEF_RGPD": {
-				"description": "Regulation on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC.",
-				"name": "GDPR (General Data Protection Regulation",
-				"source": "GDPR title"
+				"description": "Регламент относно защитата на физическите лица във връзка с обработването на лични данни и относно свободното движение на такива данни и за отмяна на Директива 95/46/ЕО (Общ регламент относно защитата на данните, ОРЗД).",
+				"name": "ОРЗД (Общо регламент относно защитата на данните)",
+				"source": "Наименование на ОРЗД"
 			},
 			"PIA_DEF_RT": {
-				"description": "Natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; where the purposes and means of such processing are determined by Union or Member State law, the controller or the specific criteria for its nomination may be provided for by Union or Member State law.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 of [GDPR]</a>",
-				"name": "Controller",
-				"source": "GDPR Art. 4.7"
+				"description": ") „администратор“ означава физическо или юридическо лице, публичен орган, агенция или друга структура, която сама или съвместно с други определя целите и средствата за обработването на лични данни; когато целите и средствата за това обработване се определят от правото на Съюза или правото на държава членка, администраторът или специалните критерии за неговото определяне могат да бъдат установени в правото на Съюза или в правото на държава членка.<br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.7 of [GDPR]</a>",
+				"name": "Администратор",
+				"source": "ОРЗД чл. 4.7"
 			},
 			"PIA_DEF_SRC": {
-				"description": "Person or non-human source that can cause a risk. This source may act accidentally or deliberately.",
-				"name": "Risk source",
+				"description": "Човешки или друг вид източник, който може да причини риск. Източникът може да действа несъзнателно или целенасочено.",
+				"name": "Източник на риска",
 				"source": "PIA1 p11 - WIKI"
 			},
 			"PIA_DEF_ST": {
-				"description": "Natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 of [GDPR]</a>.<br>The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 of [GDPR]</a>.",
-				"name": "Processor",
-				"source": "GDPR Art. 4.8 and 29"
+				"description": "Физическо или юридическо лице, публичен орган, агенция или друга структура, която обработва лични данни от името на администратора, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 4.8 of [GDPR]</a>.<br> Обработващият лични данни и всяко лице, действащо под ръководството на администратора или на обработващия лични данни, което има достъп до личните данни, обработва тези данни само по указание на администратора, освен ако обработването не се изисква от правото на Съюза или правото на държава членка, виж <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 29 of [GDPR]</a>.",
+				"name": "Обработващ",
+				"source": "ОРЗД чл. 4.8 и 29"
 			},
 			"PIA_DEF_SUPT": {
-				"description": "Asset on which personal data rely. This may be hardware, software, networks, people, paper or paper transmission channels",
-				"name": "Supporting assets",
+				"description": "Материали и помощни средства, свързани с обработването на личните данни. Това може да е хардуер, софтуер, мрежи, хора, хартиени документи или комуникационни канали",
+				"name": "Помощни средства",
 				"source": "PIA1 p10"
 			},
 			"PIA_DEF_VIOL": {
-				"description": "Breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed.",
-				"name": "Personal data breach",
-				"source": "GDPR Art. 4.12"
+				"description": "Нарушение на сигурността, което води до случайно или неправомерно унищожаване, загуба, промяна, неразрешено разкриване или достъп до лични данни, които се предават, съхраняват или обработват по друг начин.",
+				"name": "Нарушение на сигурността на лични данни",
+				"source": "ОРЗД чл. 4.12"
 			},
 			"PIA_DEF_VRA": {
-				"description": "Likelihood expresses the possibility of a risk occurring. It primarily depends on the level of vulnerabilities of the supporting assets when under threat and the level of capabilities of the risk sources to exploit them.",
-				"name": "Likelihood",
+				"description": "Вероятността изразява възможността рискът да се случи. Зависи основно от нивото на уязвимостите в помощните средства при наличие на заплаха и нивото на способност на източниците на риска да използват уязвимостите.",
+				"name": "Вероятност",
 				"source": "PIA1 page 6"
 			},
 			"PIA_EX_DC": {
-				"description": "Data for a score system, result of the application of the score....",
-				"name": "Calculated data"
+				"description": "Данни за системата за оценка, резултат от прилагане на оценката....",
+				"name": "Калкулирани данниa"
 			},
 			"PIA_EX_DCPC": {
-				"description": "<strong>Identification data</strong> : Civil status, identity, age, etc. <br><strong>Personal life</strong> : living habits, marital status, etc. <br><strong>Professional life </strong> : résumé, education and professional training, awards, etc. <br><strong>Connection data </strong> : IP addresses, event logs, etc.<br><strong>Location data</strong> : travels, GPS data, GSM data, etc.<br><strong>Others</strong> : phone number, email address, etc.",
-				"name": "Common personal data",
+				"description": "<strong>Данни за идентификация</strong> : Гражданско състояние, ЕГН, възраст и др. <br><strong>Личен живот</strong> : начин на живот, семейно положение и др.<br><strong>Професионален живот </strong> : трудова биография (CV), образование и квалификация, постижения и др. <br><strong>Данни за свързаност</strong> : IP адреси, журнални файлове и др.<br><strong>Данни за местоположение</strong> : пътувания, геолокация, данни от мобилно устройство и др.<br><strong>Други</strong> : телефонен номер, адрес на електронна поща и др.",
+				"name": "Обикновени лични данни",
 				"source": "PIA2 old version - WIKI"
 			},
 			"PIA_EX_DCPR": {
-				"description": "Philosophical, political, religious and trade-union views, sex life, health data, racial or ethnic origin, data concerning health or sex life, offenses, convictions, security measures, see <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.",
-				"name": "Convictions and sensitive personal data"
+				"description": "Расов или етнически произход, политически възгледи, религиозни или философски убеждения или членство в синдикални организации, данни за здравословното състояние или данни за сексуалния живот или сексуалната ориентация на физическото лице; присъди и нарушения или със свързаните с тях мерки за сигурност, виж <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 9 and 10 of [GDPR]</a>.", 
+				"name": "Присъди и чувствителни лични данни"
 			},
 			"PIA_EX_DCPS": {
-				"description": "Social security number (NIR), biometric data, bank data",
-				"name": "Personal data perceived as sensitive"
+				"description": "Социалноосигурителен номер, биометрични данни, банкови данни",
+				"name": "Лични данни, считани за чувствителни"
 			},
 			"PIA_EX_HUME": {
-				"description": "It could be either:<br>- a rogue or naive neighbor, by having a physical proximity, hacking into the device's data;<br>- a hacker targeting a user by using the knowledge he/she has of the user and some of the information concerning him/her;<br>- a hacker targeting one of the companies by using the knowledge he/she has of the companies that can undermine their image;<br>- an authorised third party company using its privileged access to illegitimately access information.",
-				"name": "External human sources"
+				"description": "Може да бъде някое от следните:<br>- злонамерен или наивен съсед, използващ физическата близост и достъпващ данните в различни устройства;<br>- хакер, атакуващ субекта, използвайки информация, която е придобил за нея/него;<br>- хакер, атакуващ компания, използвайки информация, която е придобил за нея и която може да подрони имиджа й;<br>- упълномощено трето лице, което използва предоставения му достъп за неправомерно сдобиване с информация.",
+				"name": "Външна човешка намеса"
 			},
 			"PIA_EX_HUMI": {
-				"description": "It could be either:<br>- a negligent or rogue employee, proximity of the system, skills, privileges and available time are potentially high, possible lack of training and awareness<br>- negligent or rogue user, family member or friend having access to the service.<br> Various motives are possible, including : clumsiness, error, negligence game, malicious intent, revenge, spying",
-				"name": "Internal human sources"
+				"description": "Може да бъде някое от следните:<br>- небрежен или злонамерен служител, използващ достъпа си до системите, уменията, правата и наличното време; евентуална липса на умения и бдителност<br>- небрежен или злонамерен потребител, член на семейството или близък, имащ достъп до услугата.<br> Възможните мотиви са разнообразни, включително: непохватност, грешка, небрежност, злонамереност, отмъщение, шпиониране",
+				"name": "Външна човешка намеса"
 			},
 			"PIA_EX_IMPI": {
-				"description": "Data subjects may encounter significant consequences, which they should be able to overcome albeit with real and serious difficulties. For example: <br>- physical : serious physical ailments causing long-term harm (worsening of health due to improper care, or disregard of contraindications), lteration of physical integrity for example following an assault, an accident at home, work, etc.<br>- material : misappropriation of money not compensated, targeted, unique and non-recurring, lost opportunities  (home loan, refusal of studies, internships or employment, examination ban), loss of housing, loss of employment, etc.;<br>- moral : serious psychological ailments (depression, development of a phobia), feeling of invasion of privacy with irreversible damage, victim of blackmailing, cyberbullying and harassment, etc.",
-				"name": "Significant impact"
+				"description": "Субектите на данни може да понесат значителни последствия, които може да са способни да преодолеят, но на цената на значителни затруднения и усилия. Например: <br>- Физически: сериозни наранявания, с дългосрочни последствия (влошаване на здравето поради неподходящо лечение или пренебрегване на противопоказания), загуба на пълна физическа дееспособност вслествие например на нападение, битов инцидент, трудова злополука и др.<br>- Материални: загуба на средства, пропускане на уникални възможности (ипотечен заем, отказ за образование и обучение, отказ за наемане на работа, допускане до изпит), загуба на жилището, на работа и др.;<br>- Морални : сериозни психологически заболявания (депресия, развиване на фобии), чувство за нахлуване в личния живот, водещо до необратими вреди, жертва на изнудване, кибер тормоз и др.",
+				"name": "Значително въздействие"
 			},
 			"PIA_EX_IMPL": {
-				"description": "Data subjects may encounter significant inconveniences, which they will be able to overcome despite a few difficulties. For example:<br>- physical : minor physical ailments (minor illness due to disregard of contraindications), defamation resulting in physical or psychological retaliation, etc.;<br>- material : unanticipated payments (fines imposed erroneously), denial of access to administrative or commercial services, receipt of unsolicited targeted mailings likely to damage the reputation of data subjects, etc.;<br>- moral : minor but objective psychological ailments, feeling of invasion of privacy without irreversible damage, intimidation on social networks, etc.",
-				"name": "Limited impact"
+				"description": "Субектите на данни могат да изпитат значителни неудобства, които могат да преодолеят въпреки някои затруднения. Например:<br>- Физически: незначителни физически неразположения (незначителни заболявания дължащи се на пренебрегване на противопоказания), клевета, довела до физическо отмъщение или психологическа атака и др.;<br>- Материални: непредвидени разходи (неправилно наложени глоби), отказ на достъп до административни или търговски услуги, получаване на адресирани рекламни съобщения които може да навредят на репутацията на субекта и др.;<br>- Морални: неголеми но обективни психологически вреди, чувство за нахлуване в личния живот но без необратими вреди, заплахи в социалните мрежи и др.",
+				"name": "Ограничено въздействие"
 			},
 			"PIA_EX_IMPM": {
-				"description": "Data subjects may encounter significant, or even irreversible, consequences, which they may not overcome. For example:<br>- physical : long-term or permanent physical ailments, permanent impairment of physical integrity, death;<br>- material : financial risk, substantial debts, inability to work, inability to relocate, loss of evidence in the context of litigation, loss of access to vital infrastructure (water, electricity), etc.<br>- moral : long-term or permanent psychological ailments, criminal penalty, abduction, loss of family ties, inability to sue, change of administrative status and/or loss of legal autonomy (guardianship), etc.",
-				"name": "Maximum impact"
+				"description": "Субектите на данни може да понесат значителни, дори необратими, последствия, които е възможно да не могат да преодолеят. Например:<br>- Физически: дълготрайни или постоянни физически заболявания,  инвалидност, смърт;<br>- Материални: финансов риск, значителни дългове, неспособност за работа, невъзможност за промяна на местоживеенето, загуба на доказателства при съдебен процес, лишаване от достъп до жизненоважна инфраструктура (вода, електричество), etc.<br>- Морални: дълготрайни или постоянни психически заболявания, криминални присъди, отвличане, сриване на семейните отношения, невъзможност за съдебни искове, промяна на административния статус и/ или загуба на юридическа дееспособност (поставяне под попечителство) и др.",
+				"name": "Максимално въздействие"
 			},
 			"PIA_EX_IMPN": {
-				"description": "Data subjects either will not be affected or may encounter a few inconveniences, which they will overcome without any problem. For example:<br>- physical : transient headaches;<br>- material : loss of time in repeating formalities or waiting for them to be fulfilled, receipt of unsolicited mail (e.g.: spams), reuse of data published on websites for the purpose of targeted advertising , etc.;<br>- moral : mere annoyance, feeling of invasion of privacy without real or objective harm (commercial intrusion), etc.",
-				"name": "Negligible impact"
+				"description": "Субектите на данни няма да бъдат засегнати или ще изпитат незначителни неудобства, които ще могат да преодолеят без проблем. Например:<br>- Физически: краткотрайно главоболие;<br>- Материални: загуба на време за повтарящи се формалности или чакане за изпълнение на такива, получаване на непоискани търговски съобщения (например спам), изпращане на адресирани търговски съобщения с информация, която е публикувана и на уебсайт и др.;<br>- Морални: изпитване на досада, чувство на нахлуване в личния живот без наличие на реални вради (търговски пътници и реклами) и др.",
+				"name": "Незначително въздействие"
 			},
 			"PIA_EX_NHUM": {
-				"description": "Incident or damage at one of the organisation (power cut, fire, flood, etc.)",
-				"name": "Non-human sources"
+				"description": "Инцидент или повреда в поддържащите системи (прекъсване на електрозахранването, пожар, наводнение и др.)",
+				"name": "Материални ресурси"
 			},
 			"PIA_EX_VRAI": {
-				"description": "It seems possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in offices that cannot be accessed without first checking in at the reception).",
-				"name": "Significant likelihood"
+				"description": "Изглежда възможно визираните източници на риск да материализират заплахата чрез възползване от особеностите на поддържащите активи (например кражба на хартиени документи, съхранявани на места, до които е невъзможно да се достигне без минаване през рецепция).",
+				"name": "Значителна вероятност"
 			},
 			"PIA_EX_VRAL": {
-				"description": "It seems difficult for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader).",
-				"name": "Limited likelihood"
+				"description": "Изглежда трудно за визираните източници на риск да материализират заплахата чрез възползване от особеностите на поддържащите активи (например кражба на хартиени документи от помещение, в което се влиза с карта за достъп).",
+				"name": "Ограничена вероятност"
 			},
 			"PIA_EX_VRAM": {
-				"description": "It seems extremely easy for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in the public lobby).",
-				"name": "Maximum likelihood"
+				"description": "Изглежда съвсем лесно за визираните източници на риск да материализират заплахата чрез възползване от особеностите на поддържащите активи (например кражба на хартиени документи съхранявани в помещение без ограничение на достъпа (например фоайе на обществена сграда).",
+				"name": "Максимална вероятност"
 			},
 			"PIA_EX_VRAN": {
-				"description": "It does not seem possible for the selected risk sources to materialize the threat by exploiting the properties of supporting assets (e.g.: theft of paper documents stored in a room protected by a badge reader and access code).",
-				"name": "Negligible likelihood"
+				"description": "Изглежда невъзможно за визираните източници на риск да материализират заплахата чрез възползване от особеностите на поддържащите активи (например кражба на хартиени документи, съхранявани в помещение, в което се влиза с карта за достъп и набиране на код).",
+				"name": "Незначителна вероятност"
 			},
 			"PIA_LGL_CONS": {
-				"description": "Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
-				"name": "Consent",
+				"description": "Позволете на субектите на данни да направят свободен, конкретен и информиран избор. Проверете дали обработката не се основава на друго правно основание, съдържащо се в чл. 6 на ОРЗД, вместо на съгласие <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+				"name": "Получаване на съгласие",
 				"source": "PIA3 p11 - WIKI"
 			},
 			"PIA_LGL_DATA": {
-				"description": "Define and describe the scope in detail:<br>- the personal data concerned, their recipients and storage durations<br>- description of the processes and personal data supporting assets for the entire personal data life cycle (from collection to erasure).",
-				"name": "Data and processes",
+				"description": "Определете и опишете обхвата в подробности:<br>- видовете лични данни, техните получатели и срока на съхранение<br>- описание на процесите и поддържащите личните данни активи и системи за целия жизнен цикъл на личните данни (от събирането до изтриването).",
+				"name": "Обработвани данни",
 				"source": "PIA1 p6"
 			},
 			"PIA_LGL_DESC": {
-				"description": "Present a brief outline of the processing under consideration, its nature, scope, context, purposes and stakes. Identify the data controller and any processors. List the standard references applicable to the processing, which are necessary or must be complied with , not least the approved codes of conduct (see Art. 40 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) and certifications regarding data protection (see Art. 42 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
-				"name": "Processing's description",
+				"description": "Представете кратко описание на предвидения процес на обработване, характера му, обхвата, контекста, целите и основанията. Идентифицирайте администратора на лични данни и всички обработващи. Опишете всички нормативни документи, имащи отношение към обработването или чиито изисквания трябва да се спазят, включително кодекси за поведение (виж чл. 40 от ОРЗД <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>) и сертифицирането свързано със защитата на данните (виж чл. 42 от ОРЗД <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>)",
+				"name": "Описание на обработването",
 				"source": "PIA1 p4"
 			},
 			"PIA_LGL_DEST": {
-				"description": "Natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing. see Art. 4.9 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
-				"name": "Recipient",
-				"source": "GDPR art 4.9"
+				"description": "Физическо или юридическо лице, публичен орган, агенция или друга структура, пред която се разкриват личните данни, независимо дали е трета страна или не. Същевременно публичните органи, които могат да получават лични данни в рамките на конкретно разследване в съответствие с правото на Съюза или правото на държава членка, не се считат за „получатели“; обработването на тези данни от посочените публични органи отговаря на приложимите правила за защита на данните съобразно целите на обработването. Виж чл. 4.9 от ОРЗД <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+				"name": "Получател",
+				"source": "ОРЗД чл. 4.9"
 			},
 			"PIA_LGL_DUR": {
-				"description": "A storage duration must be defined for each type of data and justified by the legal requirements and/or processing needs. Thus a distinction is made between common data and archived data, to which access will be limited to only the stakeholders concerned. An erasure mechanism must be implemented to archive common data or purge archived data at the end of their storage duration. Functional traces will also have to be purged, as will technical logs which may not be stored indefinitely",
-				"name": "Storage Durations",
+				"description": "Срокът за съхранение трябва да е определен за всеки вид данни и аргументиран съгласно нормативни изисквания и/ или нуждите на обработването. Прави се разлика между данни и архивирани данни, до които достъп могат да имат само имащи право на това страни. Трябва да е предвиден и механизъм за архивиране, респективно изтриване на данните след изтичане на срока на съхранение. Включително за журналните файлове, които също не може да се съхраняват за неопределен срок. ",
+				"name": "Срок на съхранение",
 				"source": "PIAF Connected Objects p12"
 			},
 			"PIA_LGL_FIN": {
