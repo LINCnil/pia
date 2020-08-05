@@ -400,7 +400,7 @@
 				"source": "Mesures_US Surveillance"
 			},
 			"PIA_DEF_MEN": {
-				"description": "Начин на действие, състоящ се от едно или повече враждебни въздействия върху информационните активи. Използва се, съзнателно или не, от източниците на риска и може да причини нежелано събитие.",
+				"description": "Начин на действие, състоящ се от едно или повече враждебни въздействия върху активите, използвани при обработването на данните. Използва се, съзнателно или не, от източниците на риска и може да причини нежелано събитие.",
 				"name": "Заплаха",
 				"source": "PIA1 p12 - WIKI"
 			},
@@ -515,8 +515,8 @@
 				"source": "ОРЗД чл. 4.8 и 29"
 			},
 			"PIA_DEF_SUPT": {
-				"description": "Материали и помощни средства, свързани с обработването на личните данни. Това може да е хардуер, софтуер, мрежи, хора, хартиени документи или комуникационни канали",
-				"name": "Помощни средства",
+				"description": "Материали и помощни средства, свързани с обработването на личните данни. Това може да е хардуер, софтуер, мрежи, хора, хартиени документи или процедури",
+				"name": "Активи използвани при обработването",
 				"source": "PIA1 p10"
 			},
 			"PIA_DEF_VIOL": {
@@ -525,7 +525,7 @@
 				"source": "ОРЗД чл. 4.12"
 			},
 			"PIA_DEF_VRA": {
-				"description": "Вероятността изразява възможността рискът да се случи. Зависи основно от нивото на уязвимостите в помощните средства при наличие на заплаха и нивото на способност на източниците на риска да използват уязвимостите.",
+				"description": "Вероятността изразява възможността рискът да се случи. Зависи основно от нивото на уязвимостите в активите, използвани при обработването, при наличие на заплаха и нивото на способност на източниците на риска да използват уязвимостите.",
 				"name": "Вероятност",
 				"source": "PIA1 page 6"
 			},
@@ -575,19 +575,19 @@
 				"name": "Материални ресурси"
 			},
 			"PIA_EX_VRAI": {
-				"description": "Изглежда възможно визираните източници на риск да материализират заплахата чрез възползване от особеностите на поддържащите активи (например кражба на хартиени документи, съхранявани на места, до които е невъзможно да се достигне без минаване през рецепция).",
+				"description": "Изглежда възможно визираните източници на риск да материализират заплахата чрез възползване от особеностите на активите, използвани при обработването (например кражба на хартиени документи, съхранявани на места, до които е невъзможно да се достигне без минаване през рецепция).",
 				"name": "Значителна вероятност"
 			},
 			"PIA_EX_VRAL": {
-				"description": "Изглежда трудно за визираните източници на риск да материализират заплахата чрез възползване от особеностите на поддържащите активи (например кражба на хартиени документи от помещение, в което се влиза с карта за достъп).",
+				"description": "Изглежда трудно за визираните източници на риск да материализират заплахата чрез възползване от особеностите на активите, използвани при обработването (например кражба на хартиени документи от помещение, в което се влиза с карта за достъп).",
 				"name": "Ограничена вероятност"
 			},
 			"PIA_EX_VRAM": {
-				"description": "Изглежда съвсем лесно за визираните източници на риск да материализират заплахата чрез възползване от особеностите на поддържащите активи (например кражба на хартиени документи съхранявани в помещение без ограничение на достъпа (например фоайе на обществена сграда).",
+				"description": "Изглежда съвсем лесно за визираните източници на риск да материализират заплахата чрез възползване от особеностите на активите, използвани при обработването (например кражба на хартиени документи съхранявани в помещение без ограничение на достъпа (например фоайе на обществена сграда).",
 				"name": "Максимална вероятност"
 			},
 			"PIA_EX_VRAN": {
-				"description": "Изглежда невъзможно за визираните източници на риск да материализират заплахата чрез възползване от особеностите на поддържащите активи (например кражба на хартиени документи, съхранявани в помещение, в което се влиза с карта за достъп и набиране на код).",
+				"description": "Изглежда невъзможно за визираните източници на риск да материализират заплахата чрез възползване от особеностите на активите, използвани при обработването (например кражба на хартиени документи, съхранявани в помещение, в което се влиза с карта за достъп и набиране на код).",
 				"name": "Незначителна вероятност"
 			},
 			"PIA_LGL_CONS": {
@@ -596,7 +596,7 @@
 				"source": "PIA3 p11 - WIKI"
 			},
 			"PIA_LGL_DATA": {
-				"description": "Определете и опишете обхвата в подробности:<br>- видовете лични данни, техните получатели и срока на съхранение<br>- описание на процесите и поддържащите личните данни активи и системи за целия жизнен цикъл на личните данни (от събирането до изтриването).",
+				"description": "Определете и опишете обхвата в подробности:<br>- видовете лични данни, техните получатели и срока на съхранение<br>- описание на процесите и активите, използвани при обработването, за целия жизнен цикъл на личните данни (от събирането до изтриването).",
 				"name": "Обработвани данни",
 				"source": "PIA1 p6"
 			},
@@ -616,109 +616,109 @@
 				"source": "PIAF Connected Objects p12"
 			},
 			"PIA_LGL_FIN": {
-				"description": "Personal data shall be collected for specified, explicit and legitimate purposes and <strong>not further processed in a manner that is incompatible with those purposes.</strong> <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) of [GDPR]</a>",
-				"name": "Principles relating to processing of personal data",
-				"source": "GDPR art 5.1 b)"
+				"description": "Личните данни са събирани за конкретни, изрично указани и легитимни цели и<strong> не се обработват по-нататък по начин, несъвместим с тези цели.</strong> <br>Виж <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">Art. 5.1 b) of [GDPR]</a>",
+				"name": "Принципи, свързани с обработването на лични данни",
+				"source": "ОРЗД чл. 5.1 б)"
 			},
 			"PIA_LGL_FOND": {
-				"description": "- The data subject has given consent  to the processing of his or her personal data for one or more specific purposes <br>- Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract <br>-Processing is necessary for compliance with a legal obligation to which the controller is subject <br>- Processing is necessary in order to protect the vital interests of the data subject or of another natural person <br>- Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller <br>- Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child<br> See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 of [GDPR]</a> ",
-				"name": "Justification of lawfulness",
+				"description": "- Субектът на данните е дал съгласие за обработване на личните му данни за една или повече конкретни цели <br>- Обработването е необходимо за изпълнението на договор, по който субектът на данните е страна, или за предприемане на стъпки по искане на субекта на данните преди сключването на договор <br>- Обработването е необходимо за спазването на законово задължение, което се прилага спрямо администратора<br>- Обработването е необходимо, за да бъдат защитени жизненоважните интереси на субекта на данните или на друго физическо лице<br>- Обработването е необходимо за изпълнението на задача от обществен интерес или при упражняването на официални правомощия, които са предоставени на администратора<br>- Обработването е необходимо за целите на легитимните интереси на администратора или на трета страна, освен когато пред такива интереси преимущество имат интересите или основните права и свободи на субекта на данните, които изискват защита на личните данни, по-специално когато субектът на данните е дете<br> Виж <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 6 of [GDPR]</a> ",
+				"name": "Законосъобразност на обработването",
 				"source": "PIA2 p4"
 			},
 			"PIA_LGL_INFO": {
-				"description": "Ensure that the subjects are informed. Confirm that the processing is not covered by an exception and is not subject to specific conditions.",
-				"name": "Informing data subjects",
+				"description": "Осигурете информирането на субектите. Уверете се че обработването не попада в обхвата на някое изключение или на специални условия.",
+				"name": "Информиране на субектите на данни",
 				"source": "PIA3 p8 - WIKI"
 			},
 			"PIA_LGL_MINI": {
-				"description": "It is important to reduce the severity of the risks by minimising the number of personal data that will be processed, by limiting such data to what is strictly necessary for the purposes for which they are processed (otherwise they should not be collected). Then, it also becomes possible to minimise the data themselves, via controls aimed at reducing their sensitivity.",
-				"name": "Data minimisation",
+				"description": "Важно е да се намали силата на риска чрез свеждане до минимум на категориите лични данни, които ще се обработват, като тези данни се ограничават само до такива, които са строго необходими за целите на обработването (в противен случай изобщо не трябва да се събират). Въможно е и да се минимизират самите данни чрез мерки, които намаляват тяхната чувствителност.",
+				"name": "Свеждане на данните до минимум",
 				"source": "PIAF Connected Objects p10 - WIKI"
 			},
 			"PIA_LGL_ST": {
-				"description": "A processing contract must be signed with each processor, setting out all of the aspects stipulated in Art. 28 of the [GDPR]: duration, scope, purpose, documented processing instructions, prior authorisation where a processor is engaged, provision of any documentation providing evidence of compliance with the [GDPR], prompt notification of any data breach, etc.",
-				"name": "Subcontracting",
+				"description": "Договорът между администратор и обработващ/и трябва да е подписан от всички обработващи и да включва всички изисквания, съдържащи се в чл. 28 на ОРЗД: продължителност, обхват, цел, документирани указания за обработване, правата на обработващия, осигуряване на цялата документация, доказваща съответствие с ОРЗД, адекватно известяване при нарушения в сигурността на личните данни и т.н.",
+				"name": "Договори с обработващи",
 				"source": "PIA2 p10"
 			},
 			"PIA_LGL_SUPT": {
-				"description": "Asset on which personal data rely. Note: this may be hardware, software, networks, people, paper or paper transmission channels.",
-				"name": "Supporting asset",
+				"description": "Актив, който се използва за обработване на личните данни. Забележка: това може да е хардуер, софтуер, мрежи, хора, хартиен документ или процедура.",
+				"name": "Актив, използван при обработването",
 				"source": "PIA1 p10"
 			},
 			"PIA_LGL_TRAN": {
-				"description": "Depending on the country in question, you will have to justify the choice of remote hosting and indicate the legal supervision arrangements implemented in order to ensure adequate protection of the data subject to a cross-border transfer. That is :<br>- European Union<br>- Country recognised as providing adequate protection by the EU<br>- Transfer to the United States to a company which has joined the Privacy Shield<br>- Other country <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
-				"name": "Transfers",
+				"description": "В зависимост от избора на конкретната държава, например предлагаща услуги по съхранение на данни, може да се наложи да приложите подходящи гаранции, така че да се осигури адекватна защита на субектите на данни при предаването на лични данни на трети лица или международни организации. Възможностите са:<br>- Европейски съюз<br>- Държава, за която ЕС счита че осигурява адекватно ниво на защита<br>- Трансфер до САЩ до компания, която участва в Privacy Shield<br>- Друга държава <br>See <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">art. 44 to 49 of [GDPR]</a>",
+				"name": "Трансфери",
 				"source": "PIAF Connected Objects p18"
 			},
 			"PIA_METHOD_MES": {
-				"description": "Planned controls are those originally put in place, before any analysis by the assessor. Corrective measures advised by the assessor will be stated in the action plan and will enable a second assessment of the severity and likelihood of the risk.",
-				"name": "Planned and corrective controls",
+				"description": "Плановите контроли са тези, които са предвидени първоначално, преди извършване на анализ от оценителя. Коригиращите мерки, предложени от оценителя, ще се опишат в плана за действие и ще дадат възможност за второ оценяване на въздействието и вероятността на риска.",
+				"name": "Планови и коригиращи контроли",
 				"source": ""
 			},
 			"PIA_ORG_AUD": {
-				"description": "Existence of a policy and processes to obtain an organisation able to manage and control the protection of personal data held within it.",
-				"name": "Supervision",
-				"placeholder": "Indicate here whether the effectiveness and adequacy of privacy controls are monitored.",
+				"description": "Наличие на политика и процеси, чрез които администраторът да постигне управление и контрол върху личните данни, обработвани от него.",
+				"name": "Надзор",
+				"placeholder": "Посочете тук дали ефективността и адекватността на контрола върху контролите над защитата се следят.",
 				"source": "PIA3 p76 - WIKI"
 			},
 			"PIA_ORG_EXT": {
-				"description": "Existence of a policy and processes reducing the risk that legitimate access to personal data by third parties may pose to the data subjects' civil liberties and privacy.",
-				"name": "Relations with third parties",
-				"placeholder": "Indicate here, for processors requiring access to data, the security controls and arrangements carried out as regards such access.",
+				"description": "Наличие на политика и процеси, намаляващи риска, който легитимният достъп до лични данни от трети лица може да създаде за правата и свободите на субектите на данни.",
+				"name": "Отношения с трети лица",
+				"placeholder": "Посочете тук контролите за сигурност и споразуменията с обработващи лични данни, касаещи достъпа на обработващите до личните данни.",
 				"source": "PIA3 p48 - WIKI"
 			},
 			"PIA_ORG_ORG": {
-				"description": "Specify whether a person is responsible for the enforcement of privacy laws and regulations. Specify whether there is a monitoring committee (or equivalent) responsible for the guidance and follow-up of actions concerning the protection of privacy.",
-				"name": "Organisation",
-				"placeholder": "Indicate if the roles and responsibilities for data protection are defined.",
+				"description": "Посочете дали има отговорник за прилагането на нормативната уредба, отнасяща се до защитата на личните данни. Посочете дали има комитет за мониторинг (или еквивалентно звено), отговорен за управление и контрол на дейността, свързана със защитата на личните данни.",
+				"name": "Организация на дейността",
+				"placeholder": "Посочете дали ролите и отгворностите за защита на данните са дефинирани.",
 				"source": "PIAF Connected Objects p24 - WIKI"
 			},
 			"PIA_ORG_PBD": {
-				"description": "Existence of a policy designed integrate the protection of personal data in all new processing operations.",
-				"name": "Integrating privacy protection in projects",
-				"placeholder": "Describe here how privacy protection is integrated in projects",
+				"description": "Наличие на политика, предназначена да интегрира защитата на личните данни във всички нови процеси.",
+				"name": "Интегриране на защитата на данните в проектите",
+				"placeholder": "Опишете тук как защитата на данните се интегрира в проектите",
 				"source": "PIA3 p79 - WIKI"
 			},
 			"PIA_ORG_PERS": {
-				"description": "Existence of a policy describing awareness-raising controls are carried out with regard to a new recruit and what controls are carried out when persons who have been accessing data leave their job.",
-				"name": "Personnel management",
-				"placeholder": "Indicate here what awareness-raising controls are carried out with regard to employees.",
+				"description": "Наличие на политика, описваща как мерките за повишаване на осведомеността се прилагат към нови служители и какви мерки се вземат при напускане на служители, които са имали достъп до лични данни.",
+				"name": "Управление на персонала",
+				"placeholder": "Посочете тук какви мерки за повишаване на осведомеността се прилагат към служителите.",
 				"source": "PIAF Connected Objects p24"
 			},
 			"PIA_ORG_POL": {
-				"description": "Set out important aspects relating to data protection within a documentary base making up the data protection policy and in a form suited to each type of content (risks, key principles to be followed, target objectives, rules to be applied, etc.) and each communication target (users, IT department, policymakers, etc.).",
-				"name": "Policy",
-				"placeholder": "Describe here the documentary base setting out data protection objectives and rules.",
+				"description": "Залагане на важните моменти при защитата на личните данни в документите на организацията, създавайки политика за защита на личните данни, обхващаща дейността изцяло  - всички аспекти (рискове, основни принципи, цели, правила и т.н.), както и всички участници (потребители, IT отдел, автори на документите на организацията и т.н.).",
+				"name": "Политика",
+				"placeholder": "Опишете тук документалната база, регламентираща целите и правилата при защитата на данните.",
 				"source": "PIA3 p78 - WIKI"
 			},
 			"PIA_ORG_RMGT": {
-				"description": "Policy describing processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects (building a map of the risks, etc.).",
-				"name": "Managing privacy risks",
-				"placeholder": "Describe here processes to control the risks that processing operations performed by the organisation pose on data protection and the privacy of data subjects.",
+				"description": "Политика, описваща процесите чрез които се контролира рискът, който операциите по обработване на лични данни от организацията поражда за правата и свободите на субектите на данни (изработване на карта на рисковете и т.н.).",
+				"name": "Управление на рисковете за защитата на данните",
+				"placeholder": "Опишете тук процесите, чрез които се контролират рисковете, които операциите по обработване на лични данни от организацията пораждат за правата и свободите на субектите на данни.",
 				"source": "PIA3 p77 - WIKI"
 			},
 			"PIA_ORG_VIOL": {
-				"description": "Existence of an operational organisation that can detect and treat incidents that may affect the data subjects' civil liberties and privacy.",
-				"name": " Managing personal data violations",
-				"placeholder": "Indicate here whether IT incidents are subject to a documented and tested management procedure.",
+				"description": "Наличие на оперативна организация на дейността, която може да открие и третира нарушения в сигурността на личните данни, които представляват заплаха за правата и свободите на субектите на данни.",
+				"name": "Управление на нарушенията в сигурността на личните данни",
+				"placeholder": "Посочете тук дали IT инцидентите се третират съгласно документирана и тествана процедура за управлението им.",
 				"source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
 			},
 			"PIA_SEC_BKP": {
-				"description": "Policies and means implemented to ensure the availability and/or integrity of the personal data, while maintaining their confidentiality.",
-				"name": "Backups",
-				"placeholder": "Indicate here how backups are managed. Clarify whether they are stored in a safe place.",
+				"description": "Политики и средства, които се прилагат с цел осигуряване на наличността и/ или целостта на личните данни, същевременно запазвайки конфиденциалността им.",
+				"name": "Резервни копия",
+				"placeholder": "Посочете тук как се управляват резервните копия. Уточнете дали се съхраняват на сигурно място.",
 				"source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
 			},
 			"PIA_SEC_COMP": {
-				"description": "Controls implemented on workstations (automatic locking, regular updates, configuration, physical security, etc.) to reduce the possibility to exploit software properties (operating systems, business applications etc.) to adversely affect personal data.",
-				"name": "Managing workstations",
-				"placeholder": "Describe here the controls implemented on workstations",
+				"description": "Мерки, приложени върху работните станции (автоматично заключване, редовно актуализиране, конфигурация, физическа сигурност и т.н.) с цел намаляване на възможността за атакуване на софтуера (операционни системи, бизнес приложения и др.) с отрицателен ефект върху личните данни.",
+				"name": "Управление на работните станции",
+				"placeholder": "Опишете тук мерките, които се прилагат върху работните станции",
 				"source": "PIAF Connected Objects p22 - WIKI"
 			},
 			"PIA_SEC_CTR": {
-				"description": "<strong>Only use subcontractors which are able to provide sufficient guarantees</strong> (in particular in terms of specialised knowledge, reliability and resources). Require service providers to communicate their information system security policy before signing a contract with them. <br>Take and document the means (security audits, installation visits, etc.) used to <strong>ensure the effectiveness of the guarantees offered by the subcontractor</strong> in terms of data protection. These guarantees include: <br>- encryption of data according to its sensitivity or, at least, the existence of procedures guaranteeing that the service company does not have access to the data; <br>- encryption of data transmissions (e.g.: HTTPS type connection, VPN, etc.); <br>- guarantees in terms of network protection, traceability (logs, audits), access rights management, authentication, etc. <br><strong>Sign a contract with the subcontractors</strong>, which defines the subject, the length and the purpose of the processing, as well as obligations of each party. Ensure that it contains, in particular, provisions targeting: <br>- their obligation in terms of <strong>confidentiality of the entrusted personal data</strong>;<br>- <strong>minimal standards in terms of user authentication</strong>;<br>- <strong>conditions of restitution of data and/or its destruction at end of the contract</strong>;<br>- <strong>incident management and notification rules. </strong> They should include notification of the data controller whenever a security breach or a security incident is discovered, which should happen as soon as possible when it concerns personal data.",
-				"name": "Processing contracts",
-				"placeholder": "Describe here specific measures for processors (host, maintenance company, administrator, specialist service providers, etc.)",
+				"description": "<strong>Използвайте само обработващи, които предоставяте достатъчно гаранции </strong> (специално по отношение на експертни познания, надеждност и ресурси). Изискайте от доставчиците на услуги да представят политиките си за сигурност на информационните системи преди да подпишете договор с тях. <br>Въведете и документирайте мерки (одити, посещения при инсталиране и т.н.) за да се  <strong>осигури ефективността на гаранциите, предожени от обработващия</strong> по отношение защитата на данните. Тези гаранции включват: <br>- криптиране на данните в зависимост от тяхната чувствителност или, най-малко, наличие на процедура която да гарантира че субконтракторът няма достъп до данните; <br>- криптиране на предаването на данни (например свързване чрез HTTPS, VPN и т.н.); <br>- гаранции по отношение защитата на мрежите, проследяемост (лог файлове, одити), управление на правата за достъп, автентификация и др. <br><strong>Подпишете договор с обработващия </strong>, който дефинира предмета, продължителността и целта на обработването, както и задълженията на всяка страна. Погрижете се той да съдържа, по-специално клаузи, регламентиращи: <br>- задълженията му относно <strong>поверителността на личните данни, до които има достъп</strong>;<br>- <strong>минимални стандарти при автентификация на потребителите</strong>;<br>- <strong>условията на връщане на данните и/ или тяхното унищожаване при приключване на договорните отношения</strong>;<br>- <strong>правила за третиране на нарушенията в сигурността и уведомяването за тях. </strong> Те трябва да включват уведомяване на администратора винаги когато се установи инциденти или нарушение в сигурността, като уведомяването трябва да се случи възможно най-бързо ако става въпрос за лични данни.",
+				"name": "Договари с обработващи",
+				"placeholder": "Опишете тук специфичните мерки по отношение на обработващите (били те осигуряващи сървърно пространство, сервизираща организация, доставчик на специализирани услуги и т.н.)",
 				"source": "Mesures_US Procurement: identified and governed by a contract"
 			},
 			"PIA_SEC_EXP": {
