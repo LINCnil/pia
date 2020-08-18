@@ -37,7 +37,7 @@
     <p [innerHTML]="'modals.signed_pia_validation.content' | translate"></p>
     <i class="fa fa-check icon-green" aria-hidden="true"></i>
     <div class="pia-modalBlock-buttons-choice">
-      <a routerLink="/preview/{{_piaService.pia.id}}" class="btn btn-green get-focus" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
+      <a *ngIf="revisionPreview === null" routerLink="/preview/{{_piaService.pia.id}}" class="btn btn-green get-focus" [innerHTML]="'modals.signed_pia_validation.download_pia' | translate"></a>
     </div>
   </div>
 </div>
@@ -209,26 +209,48 @@
   </div>
 </div>
 
-<div class="pia-modalBlock" id="modal-remove-pia">
+<div class="pia-modalBlock" id="modal-archive-pia">
+  <div class="pia-modalBlock-content pia-modalBlock-archivePIA bounceIn">
+    <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.archive_pia.content' | translate"></p>
+    <div class="pia-modalBlock-buttons-choice">
+      <button tabindex="1" class="btn btn-blue" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button tabindex="2" class="btn btn-blue get-focus" (click)="continueEvent.emit(); _piaService.archivePia()" type="button">{{ 'modals.archive_pia.archive' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock" id="modal-unarchive-pia">
+    <div class="pia-modalBlock-content pia-modalBlock-unarchivePIA bounceIn">
+      <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+      <p [innerHTML]="'modals.unarchive_pia.content' | translate"></p>
+      <div class="pia-modalBlock-buttons-choice">
+        <button tabindex="1" class="btn btn-blue" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+        <button tabindex="2" class="btn btn-blue get-focus" (click)="continueEvent.emit(); _archiveService.unarchivePia()" type="button">{{ 'modals.unarchive_pia.unarchive' | translate }}</button>
+      </div>
+    </div>
+  </div>
+
+<div class="pia-modalBlock" id="modal-remove-archived-pia">
   <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
     <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.remove_pia.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-red get-focus" (click)="_piaService.removePIA()" type="button">{{ 'modals.remove_pia.remove' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="continueEvent.emit();_archiveService.removeArchivedPia()" type="button">{{ 'modals.remove_pia.remove' | translate }}</button>
     </div>
   </div>
 </div>
 
 <div class="pia-modalBlock" id="modal-remove-structure">
-  <div class="pia-modalBlock-content pia-modalBlock-removePIA bounceIn">
+  <div class="pia-modalBlock-content pia-modalBlock-removeStructure bounceIn">
     <button tabindex="3" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <p [innerHTML]="'modals.remove_structure.content' | translate"></p>
     <span class="pia-icons pia-icon-sad"></span>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
-      <button tabindex="2" class="btn btn-red get-focus" (click)="_structureService.removeStructure()" type="button">{{ 'modals.remove_structure.remove' | translate }}</button>
+      <button tabindex="2" class="btn btn-red get-focus" (click)="continueEvent.emit(); _structureService.removeStructure()" type="button">{{ 'modals.remove_structure.remove' | translate }}</button>
     </div>
   </div>
 </div>
@@ -292,52 +314,71 @@
   </div>
 </div>
 
+<div class="pia-modalBlock" id="modal-general-error">
+  <div class="pia-modalBlock-content bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <p [innerHTML]="'modals.general_error.content' | translate"></p>
+    <span class="pia-icons pia-icon-sad"></span>
+    <div class="pia-modalBlock-validate">
+      <button tabindex="1" class="btn btn-red get-focus" type="button" (click)="_modalsService.closeModal()">{{ 'modals.close' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock" id="revision-selection">
+  <div class="pia-modalBlock-content pia-modalBlock-recoverVersion bounceIn">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <h3>{{ 'modals.recover_version.title' | translate }}</h3>
+    <p [innerHTML]="'modals.recover_version.message' | translate:{date: _modalsService.revisionDate | date: 'short':'':_languagesService.selectedLanguage }"></p>
+    <div class="pia-modalBlock-buttons-choice">
+      <button tabindex="1" class="btn btn-red" type="button" (click)="_modalsService.closeModal()">{{ 'modals.cancel' | translate }}</button>
+      <button tabindex="2" class="btn btn-green get-focus" (click)="continueEvent.emit(); _modalsService.closeModal()" type="button">{{ 'modals.recover_version.continue' | translate }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="pia-modalBlock fullsize" id="revision-preview-selection">
+  <div class="pia-modalBlock-content pia-modalBlock-recoverVersion">
+    <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
+    <app-revision-preview [revision]="revisionPreview"></app-revision-preview>
+  </div>
+</div>
+
 <div class="pia-modalBlock" id="modal-list-new-pia">
   <div class="pia-modalBlock-content bounceIn">
     <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close"></span></button>
     <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="piaForm">
       <div>
-        <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
-        <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>
+        <label for="pia_name">{{ 'homepage.cards.pia_name' | translate }}</label>
+        <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="pia_name" required>
       </div>
       <div>
-        <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
-        <input formControlName="author_name" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="author_name" required>
+        <label for="pia_author_name">{{ 'homepage.cards.author' | translate }}</label>
+        <input formControlName="author_name" type="text" placeholder="{{ 'homepage.cards.placeholder_author' | translate }}" id="pia_author_name" required>
       </div>
       <div>
-        <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
-        <input formControlName="evaluator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="evaluator_name" required>
+        <label for="pia_evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
+        <input formControlName="evaluator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}" id="pia_evaluator_name" required>
       </div>
       <div>
-        <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
-        <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="validator_name" required>
+        <label for="pia_validator_name">{{ 'homepage.cards.validation' | translate }}</label>
+        <input formControlName="validator_name" type="text" placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}" id="pia_validator_name" required>
       </div>
       <div>
-        <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>
+        <label for="pia_category">{{ 'homepage.cards.category' | translate }}</label>
+        <input formControlName="category" type="text" placeholder="{{ 'homepage.cards.placeholder_category' | translate }}" id="pia_category">
+      </div>
+      <div>
+        <label for="pia_structure">{{ 'homepage.cards.structure' | translate }}</label>
         <div class="pia-structure-wrapper">
-          <select formControlName="structure" id="structure">
+          <select formControlName="structure" id="pia_structure">
             <option value="" selected>{{ 'homepage.cards.placeholder_structure' | translate }}</option>
             <option *ngFor="let item of _structureService.structures" [ngValue]="item.id">{{item.name}}</option>
           </select>
         </div>
       </div>
-      <!-- <div class="pia-cardsBlock-item-date" *ngIf="newPia">
-        <div>{{ 'homepage.cards.date' | translate }}</div>
-        <time>{{ newPia.created_at | date: 'dd/MM/yyyy'}}</time>
-      </div>
-      <div class="pia-cardsBlock-item-status">
-        <div class="pia-cardsBlock-item-status-infos">
-          <div>{{ 'homepage.cards.status' | translate }}</div>
-          <div>{{ 'homepage.cards.creation_status' | translate }}</div>
-        </div>
-        <div class="pia-cardsBlock-item-status-progressBar">
-          <div>0%</div>
-          <progress max="100" value="0">
-          </progress>
-        </div>
-      </div> -->
       <div class="pia-cardsBlock-item-btn">
-        <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
+        <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green get-focus" id="modal_pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
       </div>
     </form>
   </div>
@@ -348,20 +389,16 @@
     <button tabindex="1" type="button" class="pia-modalBlock-close btn" title="{{ 'homepage.cards.title_close_creation' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close"></span></button>
     <form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmitStructure()" [formGroup]="structureForm">
       <div>
-        <label for="name">{{ 'homepage.cards.structure_name' | translate }}</label>
-        <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_structure_name' | translate }}" id="name" required>
+        <label for="structure_name">{{ 'homepage.cards.structure_name' | translate }}</label>
+        <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_structure_name' | translate }}" id="structure_name" required>
       </div>
       <div>
         <label for="sector_name">{{ 'homepage.cards.sector_name' | translate }}</label>
         <input formControlName="sector_name" type="text" placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}" id="sector_name" required>
       </div>
-      <!-- <div class="pia-cardsBlock-item-date" *ngIf="newPia">
-        <div>{{ 'homepage.cards.date' | translate }}</div>
-        <time>{{ newStructure.created_at | date: 'dd/MM/yyyy'}}</time>
-      </div> -->
       <div class="pia-cardsBlock-item-status"></div>
       <div class="pia-cardsBlock-item-btn">
-        <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green get-focus" id="pia-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
+        <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green get-focus" id="modal_structure-save-card-btn">{{ 'homepage.cards.start' | translate }}</button>
       </div>
     </form>
   </div>

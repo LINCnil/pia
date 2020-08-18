@@ -1,0 +1,194 @@
+<section class=" small-12 medium-6 columns pia-fullPreviewBlock-content" *ngIf="revision">
+  <div class="container pia-fullPreviewContainerBlock pia-mainContainerBlock">
+    <div class="pia-fullPreviewBlock-data">
+      <div class="pia-fullPreviewBlock-actions hide-for-print">
+        <div>
+          <button type="button" (click)="print()">
+            <i aria-hidden="true" class="fa fa-print"></i>
+            <div>{{ 'summary.actions.print' | translate }}</div>
+          </button>
+        </div>
+        <div>
+          <button type="button" (click)="exportJson()">
+            <i aria-hidden="true" class="fa fa-download"></i>
+            <div>{{ 'homepage.cards.item.tools.export' | translate }}</div>
+          </button>
+        </div>
+        <div>
+          <button type="button" (click)="restoreRevision()">
+            <i aria-hidden="true" class="fa fa-refresh"></i>
+            <div>{{ 'summary.revision.restore_version' | translate }}</div>
+          </button>
+        </div>
+      </div>
+      <header class="pia-fullPreviewBlock-header">
+        <div>
+          <span class="pia-icons pia-icon-white-preview"></span>
+          <div>{{ 'pia.header.preview' | translate }}</div>
+        </div>
+        <div class="pia-fullPreviewBlock-header-title">
+          <h1>{{ 'summary.preview_title' | translate }}</h1>
+          <h2>{{ 'summary.preview_subtitle' | translate }}</h2>
+          <div class="pia-fullPreviewBlock-header-data">
+            <div>
+              <div>
+                <div>{{ 'homepage.cards.placeholder_pia_name' | translate }} :</div>
+                <div><strong>{{ pia.name }}</strong></div>
+              </div>
+              <div>
+                <div>{{ 'summary.preview_edition' | translate }} :</div>
+                <div>{{ pia.author_name }}</div>
+              </div>
+              <div>
+                <div>{{ 'summary.preview_evaluation' | translate }} :</div>
+                <div>{{ pia.evaluator_name }}</div>
+              </div>
+              <div>
+                <div>{{ 'summary.preview_validation' | translate }} :</div>
+                <div>{{ pia.validator_name }}</div>
+              </div>
+            </div>
+            <div>
+              <div>
+                <div>{{ 'summary.preview_status' | translate }} :</div>
+                <div>{{ pia.getStatusName() | translate }}</div>
+              </div>
+              <div class="pia-fullPreviewBlock-header-progressBar">
+                  <div>{{ pia.progress }}%</div>
+                  <progress max="100" value="{{ pia.progress }}"></progress>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <a *ngIf="!fromArchives || revision.pia.is_example === 1" routerLink="/entry/{{revision.pia.id}}/section/1/item/1" class="btn pia-previewBlock">
+          <i class="fa fa-pencil"></i>
+          <div>{{ 'homepage.cards.item.edit_pia' | translate }}</div>
+        </a> -->
+      </header>
+
+      <div class="row" id="pia-full-content">
+        <div class="small-12 medium-12 columns">
+          <div>
+
+              <!-- CONTEXT + FUNDAMENTAL PRINCIPLES + RISKS -->
+              <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
+                <div *ngFor="let section of this.data.sections">
+                  <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">
+
+                    <div *ngFor="let item of section.items">
+                      <div *ngIf="item.evaluation_mode !== ''">
+
+                        <div [className]="'pia-fullPreviewBlock-headline headline' + section.id">
+                          <div class="pia-fullPreviewBlock-headline-title">
+                            <h1 >{{ section.title | translate }}</h1>
+                            <h2>{{ item.title | translate }}</h2>
+                          </div>
+                        </div>
+
+                        <div class="databox">
+
+                          <!-- Measures -->
+                          <div *ngIf="item.is_measure">
+                            <ng-container *ngIf="allData[section.id][item.id].length > 0; else noMeasuresData">
+                              <div *ngFor="let measure of allData[section.id][item.id]">
+                                <h3 [innerHTML]="measure.title"></h3>
+                                <div [innerHTML]="measure.content | translate | safeHtml"></div>
+                                <br>
+                                <!-- Measures' evaluations -->
+                                <div class="evaluationbox" *ngIf="measure.evaluation">
+                                  <p>
+                                    <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ measure.evaluation.title | translate }}</strong>
+                                    <br>
+                                    <span *ngIf="measure.evaluation.action_plan_comment">
+                                      <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.action_plan_comment | safeHtml"></span>
+                                      <br>
+                                    </span>
+                                    <span *ngIf="measure.evaluation.evaluation_comment">
+                                      <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong><span style="font-weight:400;" [innerHTML]="measure.evaluation.evaluation_comment | safeHtml"></span>
+                                      <br>
+                                    </span>
+                                  </p>
+                                </div>
+                              </div>
+                            </ng-container>
+                            <ng-template #noMeasuresData>
+                                  {{ 'summary.preview_no_data' | translate }}
+                            </ng-template>
+                          </div>
+
+                          <!-- Questions -->
+                          <div *ngIf="item.questions">
+                            <div *ngFor="let question of item.questions">
+                              <h3 [innerHTML]="question.title | translate"></h3>
+                              <div *ngIf="allData[section.id][item.id][question.id].content && allData[section.id][item.id][question.id].content.length > 0" [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
+                              <div class="evaluationbox" *ngIf="allData[section.id][item.id][question.id].evaluation">
+                                <br>
+                                <p>
+                                  <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id][question.id].evaluation.title | translate }}</strong>
+                                  <br>
+                                  <span *ngIf="allData[section.id][item.id][question.id].evaluation.action_plan_comment">
+                                    <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id][question.id].evaluation.action_plan_comment | safeHtml"></span>
+                                    <br>
+                                  </span>
+                                  <span *ngIf="allData[section.id][item.id][question.id].evaluation.evaluation_comment">
+                                    <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id][question.id].evaluation.evaluation_comment | safeHtml"></span>
+                                    <br>
+                                  </span>
+
+                                  <!-- Gauges' values -->
+                                  <span *ngIf="allData[section.id][item.id][question.id].evaluation.gauges && allData[section.id][item.id][question.id].evaluation.gauges.seriousness > 0">
+                                    <span [innerHTML]="'evaluations.gauges.seriousness' | translate:allData[section.id][item.id][question.id].evaluation.gauges.riskName"></span>
+                                    {{ 'evaluations.gauges.' + allData[section.id][item.id][question.id].evaluation.gauges.seriousness | translate }}
+                                    <br>
+                                  </span>
+                                  <span *ngIf="allData[section.id][item.id][question.id].evaluation.gauges && allData[section.id][item.id][question.id].evaluation.gauges.likelihood > 0">
+                                    <span [innerHTML]="'evaluations.gauges.likelihood' | translate:allData[section.id][item.id][question.id].evaluation.gauges.riskName"></span>
+                                    {{ 'evaluations.gauges.' + allData[section.id][item.id][question.id].evaluation.gauges.likelihood | translate }}
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Evaluations -->
+                          <div class="evaluationbox" *ngIf="allData[section.id][item.id]['evaluation_item']">
+                            <br>
+                            <p>
+                              <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id]['evaluation_item'].title | translate }}</strong>
+                              <br>
+                              <span *ngIf="allData[section.id][item.id]['evaluation_item'].action_plan_comment">
+                                <strong>{{ 'evaluations.action_plan_comment' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id]['evaluation_item'].action_plan_comment | safeHtml"></span>
+                                <br>
+                              </span>
+                              <span *ngIf="allData[section.id][item.id]['evaluation_item'].evaluation_comment">
+                                <strong>{{ 'evaluations.evaluation_comment' | translate }} :<br></strong><span [innerHTML]="allData[section.id][item.id]['evaluation_item'].evaluation_comment | safeHtml"></span>
+                                <br>
+                              </span>
+                              <span *ngIf="allData[section.id][item.id]['evaluation_item'].gauges && allData[section.id][item.id]['evaluation_item'].gauges.seriousness > 0">
+                                <span [innerHTML]="'evaluations.gauges.seriousness' | translate:allData[section.id][item.id]['evaluation_item'].gauges.riskName"></span>
+                                {{ 'evaluations.gauges.' + allData[section.id][item.id]['evaluation_item'].gauges.seriousness | translate }}
+                                <br>
+                              </span>
+                              <span *ngIf="allData[section.id][item.id]['evaluation_item'].gauges && allData[section.id][item.id]['evaluation_item'].gauges.likelihood > 0">
+                                <span [innerHTML]="'evaluations.gauges.likelihood' | translate:allData[section.id][item.id]['evaluation_item'].gauges.riskName"></span>
+                                {{ 'evaluations.gauges.' + allData[section.id][item.id]['evaluation_item'].gauges.likelihood | translate }}
+                              </span>
+                            </p>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>

@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   pia_is_example: boolean;
   pia_example: Pia;
   isStructureHeader: boolean;
+  isArchiveHeader: boolean;
 
   constructor(public _router: Router,
               private renderer: Renderer2,
@@ -54,6 +55,9 @@ export class HeaderComponent implements OnInit {
     });
     if (this._router.url.indexOf('/structures/') > -1) {
       this.isStructureHeader = true;
+    }
+    if (this._router.url.indexOf('/archives/') > -1) {
+      this.isArchiveHeader = true;
     }
   }
 

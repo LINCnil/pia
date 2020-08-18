@@ -8,10 +8,10 @@
   }
   &-item {
     background: url("../../assets/images/pia-bg.png") repeat center center;
-    padding: 40px;
+    padding: 70px 40px;
     font-size: 1.9rem;
     color: $pia-green;
-    height: 400px;
+    height: 440px;
     width: 274px;
     &-new, &-import {
       &-title {
@@ -71,9 +71,77 @@
   }
 }
 .pia {
+  &-searchInput {
+    width: 150px;
+    margin-left: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    float: right;
+    .search-icon {
+      font-style: initial;
+      transition: all ease 0.5s;
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: 1px;
+      font-size: 2.35rem;
+      color: $pia-green;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+    .search-close {
+      display: block;
+      position: absolute;
+      right: 10px;
+      top: 2px;
+      font-size: 2.5rem;
+      line-height: 3rem;
+      font-style: normal;
+      font-weight: lighter;
+      color: $pia-green;
+      cursor: pointer;
+    }
+    input.btn.btn-search {
+      float: right;
+      background: none;
+      border: 1px solid $pia-green;
+      border-radius: 20px;
+      color: $pia-green !important;
+      font-size: 1.30rem;
+      transition: all ease 0.5s;
+      outline-style:none;
+      box-shadow:none;
+      position: relative;
+      padding-left: 30px;
+      &::placeholder {
+        color: $pia-green;
+      }
+      &:focus, &.typed {
+        width: 350px;
+        border: 0px;
+        border: 1px solid $pia-green;
+        border-radius: 20px;
+        color: $pia-green;
+        + .search-icon {
+          left: -190px;
+        }
+      }
+    }
+  }
   &-filtersBlock {
     position: relative;
-    margin: 8px 0 15px 0;
+    margin: 8px 0 40px 0;
+    &-left, &-right {
+      width: 50%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &-right {
+      text-align: right;
+    }
     &-switch, &-filters {
       display: inline-block;
       vertical-align: middle;
@@ -81,13 +149,20 @@
     &-switch {
       display: inline-block;
       vertical-align: middle;
-      width: 34px;
+      min-width: 140px;
       height: 34px;
       border: 1px solid $pia-green;
       border-radius: 20px;
       color: $pia-green;
+      padding: 0 10px;
+      .fa-list {
+        font-size: 1.5rem;
+      }
       div {
-        font-size: 1.1rem;
+        vertical-align: 1px;
+        display: inline-block;
+        font-size: 1.3rem;
+        margin-left: 4px;
         margin-top: -2px;
       }
       &:hover, &:focus {
@@ -104,6 +179,7 @@
     &-filters {
       position: relative;
       margin-left: 12px;
+      float: right;
       &-list {
         z-index: 998;
         background-color: #eee;
@@ -152,7 +228,6 @@
         color: $pia-green;
         padding: 9px 12px 9px 16px;
         font-size: 1.3rem;
-        font-weight: 500;
         position: relative;
         z-index: 999;
         .pia-icon-scroll-green {
@@ -251,7 +326,6 @@
 
 // List PIA
 .pia-list-table {
-  margin-top: 10px;
   border-collapse: collapse;
   width: 100%;
   max-width: 100%;
@@ -278,6 +352,7 @@
         display: flex;
         cursor: pointer;
         justify-content: space-between;
+        position: relative;
         span {
           align-self: center;
           padding-left: 13px;
@@ -287,6 +362,11 @@
           color: $pia-white;
           font-size: 2.5rem;
           align-self: center;
+          position: absolute;
+          right: 0px;
+          &.desactivate {
+            color: gray;
+          }
         }
       }
       span {

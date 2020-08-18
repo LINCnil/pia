@@ -29,16 +29,20 @@ import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 import { OverviewRisksComponent } from './entry/entry-content/overview-risks/overview-risks.component';
 import { ErrorsComponent } from './errors/errors.component';
-import {
-    ActionPlanImplementationComponent
-  } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
+import { ActionPlanImplementationComponent } from './entry/entry-content/action-plan/action-plan-implementation/action-plan-implementation.component';
 import { ListItemComponent } from './cards/list-item/list-item.component';
 import { AboutComponent } from './about/about.component';
+
 import { StructuresModule } from './structures/structures.module';
+import { ArchivesModule } from './archives/archives.module';
+
 import { MeasuresComponent } from './entry/entry-content/measures/measures.component';
 import { QuestionsComponent } from './entry/entry-content/questions/questions.component';
 import { Angular2CsvModule } from 'angular2-csv';
 import { PreviewComponent } from './preview/preview.component';
+import { ExportComponent } from './shared/export/export.component';
+import { RevisionsComponent } from './shared/revisions/revisions.component';
+import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overlay.component';
 
 @NgModule({
   declarations: [
@@ -70,15 +74,11 @@ import { PreviewComponent } from './preview/preview.component';
     MeasuresComponent,
     QuestionsComponent,
     PreviewComponent,
+    ExportComponent,
+    RevisionsComponent,
+    LoadingOverlayComponent
   ],
-  imports: [
-    SharedModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    StructuresModule,
-    Angular2CsvModule,
-    PdfJsViewerModule
-  ],
+  imports: [SharedModule, BrowserModule, BrowserAnimationsModule, StructuresModule, ArchivesModule, Angular2CsvModule, PdfJsViewerModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
