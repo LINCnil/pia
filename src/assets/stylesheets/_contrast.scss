@@ -1,0 +1,1215 @@
+/* CONTRAST CHANGES */
+body.pia-contrast {
+  /* buttons */
+  .btn {
+    &-inactive,
+    &[disabled] {
+      color: $pia-gray-dark;
+      border-color: $pia-gray-dark;
+      &:focus,
+      &:hover {
+        color: $pia-gray-dark;
+        background-color: transparent;
+      }
+    }
+    &-white {
+      color: $pia-green-dark;
+      &:focus,
+      &:hover,
+      &.btn-active,
+      &.btn-active[disabled] {
+        color: $pia-green-dark;
+      }
+    }
+    &-green {
+      color: $pia-green-dark;
+      border-color: $pia-green-dark;
+      &:focus,
+      &:hover,
+      &.btn-active,
+      &.btn-active[disabled] {
+        background-color: $pia-green-dark;
+        color: #fff;
+      }
+    }
+    &-blue {
+      color: $pia-blue;
+      border-color: $pia-blue;
+      &:focus,
+      &:hover,
+      &.btn-active,
+      &.btn-active[disabled] {
+        background-color: $pia-blue;
+        color: #fff;
+      }
+    }
+    &-red {
+      color: $pia-red-dark;
+      border-color: $pia-red-dark;
+      &:focus,
+      &:hover,
+      &.btn-active,
+      &.btn-active[disabled] {
+        background-color: $pia-red-dark;
+        color: #fff;
+      }
+    }
+  }
+  .btn-pending-validation,
+  .btn-pending-validation[disabled] {
+    color: $pia-blue;
+    border-color: $pia-blue;
+    &:focus,
+    &:hover,
+    &:active {
+      color: $pia-blue;
+    }
+  }
+
+  /* risks overview */
+  .pia-risksOverviewBlock {
+    .rect_2 {
+      color: $pia-gray-dark;
+    }
+    .c32 {
+      fill: $pia-red-dark;
+    }
+    .path_32 {
+      stroke: $pia-red-dark;
+    }
+    .c33 {
+      fill: $pia-green-dark;
+    }
+    .path_33 {
+      stroke: $pia-green-dark;
+    }
+  }
+
+  /* header */
+  .pia-navigationBlock {
+    &-list {
+      > li > a {
+        &:focus,
+        &:hover,
+        &:active {
+          background-color: $pia-green-dark !important;
+        }
+      }
+    }
+    &-dropdown,
+    &-company {
+      &:focus,
+      &:hover,
+      &:active {
+        > a {
+          background-color: $pia-green-dark !important;
+        }
+      }
+    }
+    &-company {
+      form {
+        border-color: $pia-gray-dark !important;
+        fieldset {
+          > div:nth-child(2),
+          > div:nth-child(3) {
+            border-bottom-color: $pia-gray-dark !important;
+          }
+        }
+      }
+    }
+    &-structures {
+      background-color: $pia-green-dark;
+    }
+    &-knowledges {
+      background-color: $pia-red-dark;
+    }
+  }
+
+  /* "Card" display mode */
+  .pia-filtersBlock {
+    &-switch,
+    &-filters-btn {
+      border-color: $pia-green-dark;
+      color: $pia-green-dark;
+      &:focus,
+      &:hover,
+      &:active {
+        background-color: $pia-green-dark;
+        border-color: $pia-green-dark;
+        color: #fff;
+      }
+    }
+    &-filters {
+      &:focus,
+      &:hover,
+      &:active {
+        .pia-filtersBlock-filters-btn {
+          background-color: $pia-green-dark !important;
+        }
+      }
+      &-list {
+        border-color: $pia-green-dark;
+        > span {
+          color: $pia-gray-dark !important;
+        }
+      }
+      .pia-icon-scroll-green {
+        background-position: -387px -58px;
+      }
+    }
+  }
+
+  .pia-cardsBlock {
+    &.pia-doingBlock {
+      .pia-cardsBlock-header-title {
+        border-bottom-color: $pia-red-dark;
+        color: $pia-red-dark;
+      }
+    }
+    &.pia-archiveBlock {
+      .pia-cardsBlock-header-title {
+        border-bottom-color: $pia-green-dark;
+        color: $pia-green-dark;
+      }
+    }
+    &-item {
+      &-status {
+        &-infos {
+          > div:first-child {
+            color: $pia-gray-dark;
+          }
+        }
+        &-progressBar {
+          > div {
+            color: $pia-green-dark;
+          }
+          progress {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            color: $pia-green-dark;
+            &::-moz-progress-bar {
+              background: $pia-green-dark;
+            }
+            &::-webkit-progress-value {
+              background: $pia-green-dark;
+            }
+          }
+        }
+      }
+      &-btn {
+        border-top-color: $pia-green-dark;
+      }
+      &-form {
+        label {
+          color: $pia-gray-dark;
+        }
+        input::placeholder {
+          color: $pia-gray-dark !important;
+        }
+        div {
+          #structure:hover,
+          input:hover {
+            outline-color: $pia-green-dark;
+          }
+        }
+        .pia-structure-wrapper {
+          &:after {
+            border-color: $pia-green-dark transparent transparent transparent;
+          }
+        }
+      }
+      &-date {
+        div {
+          color: $pia-gray-dark;
+        }
+      }
+    }
+    &-toolbar {
+      a {
+        color: $pia-green-dark;
+      }
+    }
+  }
+
+  .pia-newBlock,
+  .pia-editBlock,
+  .pia-archiveBlock {
+    &-item {
+      color: $pia-green-dark;
+    }
+  }
+
+  .pia-newBlock {
+    &-item {
+      .pia-icon-pia-plus {
+        background-position: -409px -137px;
+      }
+      > span {
+        color: $pia-gray-dark !important;
+      }
+    }
+    #pia-new-card {
+      border-color: $pia-gray-dark !important;
+    }
+  }
+
+  .pia-editBlock {
+    border-color: $pia-green-dark;
+  }
+
+  .pia-tooltip {
+    &-text {
+      background-color: $pia-green-dark;
+      &:before {
+        background-position: -392px -93px;
+      }
+    }
+  }
+
+  #pia-rocket {
+    > div {
+      .pia-icon-rocket {
+        background-position: -412px -406px;
+      }
+    }
+  }
+
+  /* "List" display mode */
+  .pia-filtersBlock {
+    .pia-icon-rocket-small {
+      background-position: -495px -273px;
+    }
+  }
+  .pia-listsBlock-item {
+    progress {
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      color: $pia-green-dark;
+      &:after {
+        color: $pia-green-dark !important;
+      }
+      &::-moz-progress-bar {
+        background: $pia-green-dark;
+      }
+      &::-webkit-progress-value {
+        background: $pia-green-dark;
+      }
+    }
+    &-actions {
+      .pia-tooltip {
+        color: $pia-green-dark !important;
+      }
+    }
+  }
+
+  /* entry-content */
+  .pia-entryContentBlock {
+    .pia-status-info {
+      a {
+        color: $pia-red-dark !important;
+      }
+    }
+    &-section1 {
+      .pia-entryContentBlock-header {
+        div:first-child {
+          background-color: $pia-green-dark;
+        }
+        h1,
+        h2 {
+          color: $pia-green-dark;
+        }
+      }
+    }
+    &-section3 {
+      .btn-addMeasure {
+        .pia-icon-add {
+          background-position: -223px -2px;
+        }
+      }
+      .pia-entryContentBlock-header {
+        div:first-child {
+          background-color: $pia-red-dark !important;
+        }
+        h1,
+        h2 {
+          color: $pia-red-dark !important;
+        }
+      }
+    }
+    &-footer {
+      &-requiredFields {
+        color: $pia-red-dark !important;
+      }
+      .pia-cancelBtn {
+        color: $pia-red-dark !important;
+      }
+      &-measures {
+        button:first-child {
+          .pia-icon-add {
+            background-position: -223px -2px;
+          }
+        }
+      }
+      &-validationAttachments {
+        > div:first-child {
+          > div {
+            border: 1px solid $pia-gray-dark !important;
+          }
+        }
+        &-history {
+          > div {
+            border: 1px solid $pia-gray-dark !important;
+          }
+        }
+      }
+      // footer for validation page
+      &-validationTools {
+        > a,
+        button {
+          i {
+            color: $pia-green-dark !important;
+          }
+          p {
+            color: $pia-gray-dark !important;
+          }
+        }
+      }
+      &-nav {
+        a {
+          color: $pia-green-dark !important;
+        }
+      }
+    }
+    // content for action plan page
+    &-content {
+      &-measures,
+      &-risks {
+        h2 {
+          background-color: $pia-red-dark !important;
+        }
+      }
+    }
+  }
+
+  .pia-previewBlock {
+    .pia-icon-preview {
+      background-position: -272px -63px;
+    }
+    > div {
+      color: $pia-green-dark !important;
+    }
+  }
+
+  /* sections */
+  .pia-sectionBlock {
+    &-header {
+      border-bottom-color: $pia-gray-dark !important;
+      .pia-icon-close-big {
+        background-position: -323px -86px;
+      }
+    }
+    &-title {
+      hr {
+        background-color: $pia-gray-dark !important;
+      }
+    }
+    &-list {
+      li {
+        &::before {
+          content: '';
+          border-top: solid 1px $pia-gray-dark !important;
+          color: $pia-gray-dark !important;
+        }
+      }
+    }
+    &-body {
+      > div {
+        i.pia-fa-valid {
+          color: $pia-green-dark !important;
+        }
+        &:first-child {
+          .pia-sectionBlock-title {
+            color: $pia-green-dark !important;
+            border-color: $pia-green-dark !important;
+          }
+          a {
+            &:focus,
+            &:hover,
+            &:active,
+            &.active {
+              background-color: $pia-green-dark !important;
+            }
+          }
+          i {
+            &.fa-pencil-square-o.pia-fa-valid,
+            &.fa-cog.pia-fa-valid,
+            &.fa-check-square-o {
+              color: $pia-green-dark !important;
+            }
+            &.fa-cog,
+            &.fa-pencil-square-o {
+              color: $pia-gray-dark;
+            }
+          }
+        }
+        &:nth-child(2) {
+          i {
+            &.fa-cog,
+            &.fa-pencil-square-o {
+              color: $pia-gray-dark;
+            }
+          }
+        }
+        &:nth-child(3) {
+          .pia-sectionBlock-title {
+            color: $pia-red-dark !important;
+            border-color: $pia-red-dark !important;
+          }
+          a {
+            &:focus,
+            &:hover,
+            &:active,
+            &.active {
+              background-color: $pia-red-dark !important;
+            }
+          }
+          i {
+            &.fa-pencil-square-o.pia-fa-valid,
+            &.fa-cog.pia-fa-valid,
+            &.fa-check-square-o {
+              color: $pia-red-dark !important;
+            }
+            &.fa-cog,
+            &.fa-pencil-square-o {
+              color: $pia-gray-dark;
+            }
+          }
+        }
+        &:nth-child(4) {
+          i {
+            &.fa-pencil-square-o {
+              color: $pia-gray-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* attachments */
+  .pia-attachmentsBlock {
+    &-item {
+      border-color: $pia-gray-dark;
+    }
+    &-addBtn {
+      color: $pia-green-dark;
+      .pia-icon-add {
+        background-position: -223px -3px;
+      }
+    }
+  }
+
+  /* knowledge-base */
+  .pia-knowledgeBaseBlock {
+    &-header {
+      color: $pia-gray-dark;
+      border-bottom-color: $pia-gray-dark;
+    }
+    &-searchForm {
+      i {
+        color: $pia-gray-dark !important;
+      }
+    }
+    &-filters {
+      > div:first-child {
+        color: $pia-gray-dark !important;
+      }
+      button {
+        color: $pia-gray-dark !important;
+        &.active {
+          color: $pia-blue !important;
+        }
+      }
+    }
+    &-item {
+      border-top-color: $pia-green-dark;
+      .pia-icon-accordeon-up {
+        background-position: -343px -140px;
+      }
+      .pia-icon-accordeon-down {
+        background-position: -341px -166px;
+      }
+      &-definition {
+        > p {
+          color: $pia-red-dark !important;
+        }
+        .btn {
+          .pia-icon-add {
+            background-position: -223px -2px;
+          }
+          p {
+            color: $pia-green-dark !important;
+          }
+          span:last-child {
+            color: $pia-green-dark !important;
+          }
+        }
+        > div {
+          .pia-icon-hand {
+            background-position: -78px -20px;
+          }
+        }
+      }
+    }
+  }
+
+  /* measures AND questions */
+  .pia-measureBlock,
+  .pia-questionBlock {
+    &.approved {
+      border-color: $pia-gray-dark;
+    }
+    &-title {
+      .pia-icon-accordeon-up {
+        background-position: -343px -140px;
+      }
+      .pia-icon-accordeon-down {
+        background-position: -341px -166px;
+      }
+      .green-highlight {
+        color: $pia-green-dark;
+      }
+    }
+    &-edit {
+      color: $pia-gray-dark;
+    }
+    &-delete {
+      color: $pia-red-dark;
+    }
+    form {
+      input::placeholder,
+      textarea::placeholder {
+        color: $pia-gray-dark !important;
+      }
+    }
+  }
+
+  /* comments */
+  .pia-commentsBlock {
+    &-infos {
+      border-top-color: $pia-green-dark;
+    }
+    &-btn {
+      button {
+        color: $pia-green-dark !important;
+        .pia-icon-accordeon-up {
+          background-position: -343px -140px;
+        }
+        .pia-icon-accordeon-down {
+          background-position: -341px -166px;
+        }
+      }
+    }
+    &-content {
+      border-color: $pia-gray-dark !important;
+    }
+    &-date time {
+      color: $pia-gray-dark !important;
+    }
+  }
+
+  /* evaluations */
+  .pia-evaluationBlock {
+    > div {
+      border-top-color: $pia-red-dark !important;
+    }
+    &-title {
+      color: $pia-red-dark;
+    }
+    &-edit {
+      button {
+        color: $pia-red-dark !important;
+      }
+    }
+    &-date {
+      color: $pia-gray-dark;
+    }
+    &-gauge {
+      .red-highlight {
+        color: $pia-red-dark;
+      }
+    }
+    textarea::placeholder {
+      color: $pia-gray-dark !important;
+    }
+  }
+
+  /* modals */
+  .pia-modalBlock {
+    .pia-icon-happy {
+      background-position: -127px -391px;
+    }
+    .pia-icon-sad {
+      background-position: -128px -600px;
+    }
+    .pia-icon-close-big {
+      background-position: -323px -86px;
+    }
+
+    /* Icons' colors */
+    .icon-green {
+      color: $pia-green-dark !important;
+    }
+    .icon-red {
+      color: $pia-red-dark !important;
+    }
+    .icon-gray {
+      color: $pia-gray-dark !important;
+    }
+  }
+  #modal-abandon-pia {
+    p {
+      color: $pia-red-dark !important;
+    }
+    .abandonText {
+      color: $pia-gray-dark !important;
+    }
+  }
+  #modal-refuse-pia {
+    p {
+      color: $pia-red-dark !important;
+    }
+  }
+  #modal-list-new-knowledgebase {
+    input {
+      &:focus,
+      &:hover,
+      &:active {
+        outline: 1px dotted $pia-red-dark !important;
+      }
+    }
+    .pia-modalBlock-content,
+    .pia-cardsBlock-item-btn {
+      border-color: $pia-red-dark !important;
+    }
+  }
+
+  /* PIA validation page */
+  .pia-validationBlock {
+    .pia-entryContentBlock-content {
+      &-list {
+        form {
+          > p {
+            color: $pia-gray-dark !important;
+          }
+        }
+        &-confirm {
+          input:checked + label {
+            border: solid $pia-green-dark 1px !important;
+            .fa-check {
+              color: $pia-green-dark !important;
+            }
+          }
+          &.validate {
+            input:checked + label {
+              .fa-check {
+                color: $pia-white !important;
+              }
+            }
+          }
+        }
+        &-confirm.validate {
+          label {
+            border: 1px solid $pia-green-dark !important;
+            background-color: $pia-green-dark !important;
+          }
+        }
+      }
+    }
+  }
+  .pia-validationHistoryBlock-refuse {
+    border-top: 5px solid $pia-red-dark;
+    &-title {
+      > p {
+        color: $pia-red-dark;
+      }
+    }
+  }
+
+  /* PIA refusal page */
+  .pia-ValidationRefuse {
+    textarea {
+      border-bottom: 1px solid $pia-green-dark !important;
+    }
+  }
+
+  /* cartography */
+  .pia-cartographyBlock {
+    &-abscisses,
+    &-ordinates {
+      div {
+        color: $pia-gray-dark !important;
+      }
+    }
+    &-legend {
+      li:first-child {
+        color: $pia-red-dark !important;
+      }
+    }
+    &-date {
+      border-top: 1px solid $pia-green-dark;
+      time {
+        color: $pia-gray-dark !important;
+      }
+    }
+  }
+
+  /* action plan */
+  .pia-actionPlanGraphBlock {
+    &-item {
+      .pia-list {
+        color: $pia-gray-dark !important;
+      }
+      .pia-box {
+        background-color: $pia-gray-dark !important;
+      }
+      .pia-green {
+        background-color: $pia-green-dark !important;
+      }
+      .pia-blue {
+        background-color: $pia-blue !important;
+      }
+      .pia-red {
+        background-color: $pia-red-dark !important;
+      }
+    }
+    &-right {
+      h3 {
+        color: $pia-red-dark !important;
+      }
+    }
+    .pia-legend {
+      border-bottom: 1px solid $pia-green-dark !important;
+      p:last-child {
+        color: $pia-green-dark !important;
+      }
+    }
+  }
+  .pia-details-blocks-content {
+    > p {
+      border-bottom: 1px solid $pia-green-dark;
+    }
+    form {
+      input {
+        color: $pia-gray-dark !important;
+      }
+    }
+  }
+
+  /* DPO & people opinions page */
+  .pia-ValidationDPO {
+    .pia-entryContentBlock-content {
+      &-DPO,
+      &-people {
+        &-reasons {
+          border-bottom: 1px solid $pia-green-dark !important;
+        }
+        &-treatment {
+          > div {
+            &:first-child {
+              input:checked + label {
+                background-color: $pia-green-dark !important;
+              }
+            }
+            &:last-child {
+              input:checked + label {
+                background-color: $pia-red-dark !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Text editor */
+  .mce-tinymce.mce-container.mce-panel {
+    > div {
+      border-bottom: 2px solid $pia-green-dark !important;
+    }
+  }
+  .mce-container-body {
+    .mce-flow-layout {
+      background-color: $pia-green-dark !important;
+      &:before {
+        border-bottom: 16px solid $pia-green-dark !important;
+      }
+      .mce-widget,
+      .mce-btn {
+        background-color: $pia-green-dark !important;
+      }
+    }
+  }
+  app-editor {
+    border-bottom: $pia-green-dark solid 0.3rem !important;
+  }
+
+  /* Gauges */
+  .pia-gaugeBlock {
+    &-background {
+      background: linear-gradient(90deg, $pia-green-dark, $pia-green-dark);
+    }
+    &-background-1 {
+      background: linear-gradient(90deg, $pia-green-dark, #41534c);
+    }
+    &-background-2 {
+      background: linear-gradient(90deg, $pia-green-dark, #6b3960);
+    }
+    &-background-3 {
+      background: linear-gradient(90deg, $pia-green-dark, #961f73);
+    }
+    &-background-4 {
+      background: linear-gradient(90deg, $pia-green-dark, $pia-red-dark);
+    }
+  }
+
+  /* Preview system */
+  .evaluationbox {
+    p {
+      border: 0.5px dotted $pia-gray-dark !important;
+    }
+  }
+  .pia-fullPreviewBlock {
+    &-header {
+      .pia-previewBlock {
+        i {
+          border: 1px solid $pia-green-dark !important;
+        }
+        i,
+        div {
+          color: $pia-green-dark !important;
+        }
+      }
+      &-progressBar {
+        > div {
+          color: $pia-green-dark !important;
+        }
+        progress {
+          &:before,
+          &:after {
+            background-color: $pia-green-dark !important;
+          }
+        }
+        progress {
+          appearance: none !important;
+          -moz-appearance: none !important;
+          -webkit-appearance: none !important;
+          color: $pia-green-dark !important;
+          &:after {
+            color: $pia-green-dark !important;
+          }
+          &::-moz-progress-bar {
+            background: $pia-green-dark !important;
+          }
+          &::-webkit-progress-value {
+            background: $pia-green-dark !important;
+          }
+        }
+      }
+    }
+    &-headline {
+      &.headline1 {
+        .pia-fullPreviewBlock-headline-title {
+          border-left-color: $pia-green-dark !important;
+        }
+      }
+      &.headline3 {
+        .pia-fullPreviewBlock-headline-title {
+          border-left-color: $pia-red-dark !important;
+        }
+      }
+    }
+  }
+
+  .green-highlight {
+    color: $pia-green-dark !important;
+  }
+  .red-highlight {
+    color: $pia-red-dark !important;
+  }
+
+  /* Breadcrumb */
+  .pia-breadcrumb {
+    color: $pia-gray-dark;
+  }
+
+  /* Search bar */
+  .pia-searchInput {
+    .search-icon,
+    .search-close {
+      color: $pia-green-dark !important;
+    }
+    input.btn.btn-search {
+      border: 1px solid $pia-green-dark !important;
+      color: $pia-green-dark !important;
+      &::placeholder {
+        color: $pia-green-dark !important;
+      }
+    }
+  }
+
+  /* Revisions  */
+  .pia-revisions {
+    &-box,
+    &-new {
+      background-color: $pia-green-dark !important;
+    }
+  }
+
+  /* Print and exports */
+  .pia-exportBlock {
+    &-print {
+      button {
+        background-color: $pia-green-dark !important;
+      }
+    }
+    &-individual {
+      .btn-green {
+        &:disabled {
+          color: $pia-gray-dark !important;
+          &:focus,
+          &:hover,
+          &:active {
+            color: $pia-gray-dark !important;
+          }
+        }
+        color: $pia-green-dark !important;
+        &:focus,
+        &:hover,
+        &:active {
+          color: #fff !important;
+        }
+      }
+      &-links {
+        input:checked + label::before {
+          background-color: $pia-green-dark !important;
+        }
+      }
+    }
+  }
+
+  /* Onboarding */
+  .introjs-tooltip {
+    background-color: $pia-green-dark !important;
+    .introjs-arrow.top {
+      border-bottom-color: $pia-green-dark !important;
+    }
+    .introjs-arrow.bottom {
+      border-top-color: $pia-green-dark !important;
+    }
+    .introjs-arrow.left {
+      border-right-color: $pia-green-dark !important;
+    }
+    .introjs-arrow.right {
+      border-left-color: $pia-green-dark !important;
+    }
+  }
+
+  /* Knowledge base homepage */
+  .pia-knowledgeBaseHomepageBlock {
+    .pia-newBlock {
+      &-item {
+        color: $pia-red-dark;
+        .pia-icon-pia-plus-red {
+          background-position: -545px -137px;
+        }
+        > span {
+          color: $pia-red-dark !important;
+        }
+      }
+    }
+    .pia {
+      &-searchInput {
+        .search-icon,
+        .search-close {
+          color: $pia-red-dark !important;
+        }
+        input.btn.btn-search {
+          border: 1px solid $pia-red-dark !important;
+          color: $pia-red-dark !important;
+          &::placeholder {
+            color: $pia-red-dark !important;
+          }
+          &:focus,
+          &.typed {
+            border: 1px solid $pia-red-dark !important;
+            color: $pia-red-dark !important;
+          }
+        }
+      }
+      &-filtersBlock {
+        &-switch {
+          border: 1px solid $pia-red-dark !important;
+          color: $pia-red-dark !important;
+          &:hover,
+          &:focus {
+            background: $pia-red-dark !important;
+            border-color: $pia-red-dark !important;
+            color: #fff !important;
+          }
+          &:active {
+            color: $pia-red-dark !important;
+            border-color: $pia-red-dark !important;
+          }
+        }
+        &-filters {
+          &-list {
+            border: 2px solid $pia-red-dark !important;
+            li {
+              &:focus,
+              &:hover,
+              &:active,
+              .active {
+                background-color: $pia-red-dark !important;
+              }
+            }
+          }
+          &-btn {
+            border: 1px solid $pia-red-dark !important;
+            color: $pia-red-dark !important;
+            .pia-icon-scroll-red {
+              background-position: -486px -95px;
+            }
+          }
+          &:hover {
+            .pia-filtersBlock-filters-btn {
+              color: #fff !important;
+              background-color: $pia-red-dark !important;
+            }
+          }
+        }
+      }
+      &-editBlock {
+        border-color: $pia-red-dark !important;
+      }
+    }
+    .pia-cardsBlock-item,
+    .pia-cardsBlock-item.pia-doingBlock-item {
+      input {
+        &:focus,
+        &:hover,
+        &:active {
+          outline: 1px dotted $pia-red-dark !important;
+        }
+      }
+    }
+    .pia-cardsBlock-item-btn {
+      border-top: 1px solid $pia-red-dark !important;
+    }
+    .pia-cardsBlock-toolbar {
+      a {
+        color: $pia-red-dark !important;
+      }
+      .pia-tooltip-text {
+        background-color: $pia-red-dark;
+      }
+    }
+    .pia-listsBlock-item {
+      div[contenteditable] {
+        cursor: text;
+        &:focus,
+        &:hover,
+        &:active {
+          outline: 1px dotted $pia-red-dark !important;
+        }
+      }
+      &-actions {
+        a {
+          color: $pia-red-dark !important;
+        }
+        span {
+          background-color: $pia-red-dark !important;
+        }
+      }
+    }
+  }
+
+  /* Knowledge base display list */
+  .pia-knowledges_base {
+    .btn.pia-tooltip {
+      color: $pia-red-dark !important;
+    }
+    .pia-tooltip-text {
+      background-color: $pia-red-dark !important;
+    }
+    &-form,
+    &-displayData {
+      h3 {
+        color: $pia-red-dark !important;
+        border-bottom-color: $pia-red-dark !important;
+      }
+    }
+    &-form {
+      border-color: $pia-red-dark !important;
+      input[type='text'],
+      select,
+      textarea {
+        &::placeholder {
+          color: $pia-gray-dark !important;
+        }
+        &:hover {
+          outline: 1px dotted $pia-red-dark !important;
+        }
+      }
+      .pia-elementCategory-wrapper {
+        &:after {
+          border-color: $pia-red-dark transparent transparent transparent !important;
+        }
+      }
+      select {
+        color: $pia-red-dark !important;
+        option {
+          color: $pia-red-dark !important;
+        }
+      }
+      &-checkboxes {
+        &-body {
+          > div {
+            /* CONTEXT */
+            &:first-child {
+              .pia-knowledges_base-form-checkboxes-title {
+                color: $pia-green-dark !important;
+                border-color: $pia-green-dark !important;
+              }
+              .fa-pencil-square-o.pia-fa-valid,
+              .fa-cog.pia-fa-valid,
+              .fa-check-square-o {
+                color: $pia-green-dark !important;
+              }
+            }
+            /* RISKS */
+            &:nth-child(3) {
+              .pia-knowledges_base-form-checkboxes-title {
+                color: $pia-red-dark !important;
+                border-color: $pia-red-dark !important;
+              }
+              .fa-pencil-square-o.pia-fa-valid,
+              .fa-cog.pia-fa-valid,
+              .fa-check-square-o {
+                color: $pia-red-dark !important;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-displayData {
+      border-color: $pia-gray-dark !important;
+      &-category {
+        color: $pia-red-dark !important;
+      }
+    }
+  }
+}

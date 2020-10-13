@@ -1,0 +1,181 @@
+// Gauges
+.pia {
+  &-gaugeBlock {
+    position: relative;
+    padding: 5px 0;
+    height: 60px;
+    input {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    > div {
+      display: flex;
+      > div {
+        width: 20%;
+        text-align: center;
+        &:first-child {
+          text-align:left;
+        }
+        &:last-child {
+          text-align: right;
+        }
+        &:nth-child(2) {
+          padding-right: 28px;
+        }
+        &:nth-child(3) {
+          padding-right: 5px;
+        }
+        &:nth-child(4) {
+          text-align: right;
+        }
+      }
+    }
+    &-background {
+      z-index: -1;
+      width: 4%;
+      height: 20px;
+      position: absolute;
+      border-radius: 50px;
+      left: 0;
+      top: 3px;
+      background: linear-gradient(90deg, $pia-green, $pia-green);
+    }
+    &-user-choice {
+      width: 100%;
+      z-index: 1;
+      height: 10px;
+      position: absolute;
+      border-radius: 50px;
+      left: 0;
+      top: 7px;
+      background-color: #999;
+      background: linear-gradient(90deg, #fff, #fff);
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      &-1 {
+        width: calc(25% + 15px);
+        background: linear-gradient(90deg, #fff, #E0E0DF);
+      }
+      &-2 {
+        width: calc(50% + 10px);
+        background: linear-gradient(90deg, #fff, #E0E0DF);
+      }
+      &-3 {
+        width: calc(75% + 3px);
+        background: linear-gradient(90deg, #fff, #c6c6c6);
+      }
+      &-4 {
+        width: calc(99% + 2px);
+        background: linear-gradient(90deg, #fff, $pia-gray);
+      }
+    }
+    &-background-1 {
+      width: calc(25% + 15px);
+      background: linear-gradient(90deg, $pia-green, #78b687);
+    }
+    &-background-2 {
+      width: calc(50% + 10px);
+      background: linear-gradient(90deg, $pia-green, #a2947f);
+    }
+    &-background-3 {
+      width: calc(75% + 3px);
+      background: linear-gradient(90deg, $pia-green, #d06f73);
+    }
+    &-background-4 {
+      width: calc(99% + 2px);
+      background: linear-gradient(90deg, $pia-green, $pia-red);
+    }
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* CSS Statements that only apply on webkit-based browsers (Chrome, Safari, etc.) */
+  .pia-gaugeBlock {
+    &-background {
+      z-index: 1;
+    }
+  }
+}
+
+// Input with range (gauges)
+input[type=range] {
+  /* Removes default webkit styles */
+  -webkit-appearance: none;
+  /* Fix for FF unable to apply focus style bug */
+  border: 0;
+  /* Required for proper track sizing in FF*/
+  width: 100%;
+  height: 15px;
+  background-color: transparent;
+  &:disabled {
+    background-color: transparent !important;
+  }
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 3px;
+  background-color: #999;
+  border: none;
+  border-radius: 3px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 2px solid #fff;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-top: -10px;
+  position: relative;
+  z-index: 999;
+  cursor: pointer;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+  height: 5px;
+  background: transparent;
+  border: none;
+  border-radius: 3px;
+}
+input[type=range]::-moz-range-thumb {
+  border: 2px solid #fff;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background-color: #aaa;
+  margin-top: -10px;
+  position: relative;
+  z-index: 999;
+  cursor: pointer;
+}
+
+/* Hides the outline behind the border. */
+input[type=range]:-moz-focusring{
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+  height: 5px;
+
+  /* Leaves room for the larger thumb to overflow with a transparent border. */
+  border-color: transparent;
+  border-width: 6px 0;
+
+  /* Removes default tick marks. */
+  color: transparent;
+}
+
+input[type=range]::-ms-thumb {
+  border: 2px solid #fff;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background-color: transparent;
+  margin-top: -10px;
+}
