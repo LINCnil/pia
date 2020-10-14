@@ -24,13 +24,29 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
+              { "glob": "**/*", "input": "node_modules/ng2-pdfjs-viewer/pdfjs", "output": "/assets/pdfjs" },
+              "src/assets",
+              "src/android-chrome-192x192.png",
+              "src/android-chrome-256x256.png",
+              "src/apple-touch-icon.png",
+              "src/browserconfig.xml",
+              "src/favicon-16x16.png",
+              "src/favicon-32x32.png",
               "src/favicon.ico",
-              "src/assets"
+              "src/humans.txt",
+              "src/manifest.json",
+              "src/mstitle-150x150.png",
+              "src/safari-pinned-tab.svg"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+            "styles": ["src/styles.scss", "node_modules/intro.js/introjs.css"],
+            "scripts": [
+              "node_modules/save-svg-as-png/lib/saveSvgAsPng.js",
+              "node_modules/tinymce/tinymce.js",
+              "node_modules/tinymce/themes/modern/theme.js",
+              "node_modules/tinymce/plugins/lists/plugin.js",
+              "node_modules/tinymce/plugins/autoresize/plugin.js",
+              "node_modules/intro.js/intro.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -51,8 +67,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "6mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",

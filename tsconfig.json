@@ -2,8 +2,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "resolveJsonModule": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
