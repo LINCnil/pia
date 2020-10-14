@@ -53,6 +53,7 @@ import { PiaTranslateLoader } from '../pia-translate-loader';
 import { SafeHtmlPipe, Nl2brPipe, FormatTheDate, FilterForUser } from '../tools';
 import { IntrojsService } from '../services/introjs.service';
 import { LanguagesService } from '../services/languages.service';
+import { TranslateService } from '@ngx-translate/core/lib/translate.service';
 
 
 
@@ -78,17 +79,20 @@ import { LanguagesService } from '../services/languages.service';
     })
   ],
   exports: [
+    TranslateModule,
     HeaderComponent,
     TranslateModule,
     SafeHtmlPipe,
     Nl2brPipe,
     FormsModule,
     FormatTheDate,
+    TagInputModule,
     FilterForUser
   ],
   providers: [
     IntrojsService,
-    LanguagesService
+    LanguagesService,
+    TranslateService
   ]
 })
 export class SharedModule { }

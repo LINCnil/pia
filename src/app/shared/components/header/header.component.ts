@@ -21,13 +21,13 @@ export class HeaderComponent implements OnInit {
   isKnowledgeHeader: boolean;
   isStructureHeader: boolean;
   isArchiveHeader: boolean;
-  private renderer: Renderer2
+  private renderer: Renderer2;
 
   constructor(
     public router: Router,
     private introjsService: IntrojsService,
     public languagesService: LanguagesService,
-    private translateService: TranslateService) { }
+    public translateService: TranslateService) { }
 
   ngOnInit(): void {
     const displayMessage = document.querySelector('.pia-closeFullScreenModeAlertBlock');
