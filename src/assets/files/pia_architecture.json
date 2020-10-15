@@ -1,0 +1,523 @@
+{
+  "sections": [
+    {
+      "id": 1,
+      "title": "sections.1.title",
+      "short_help": "sections.1.short_help",
+      "items": [
+        {
+          "id": 1,
+          "title": "sections.1.items.1.title",
+          "evaluation_mode": "item",
+          "short_help": "sections.1.items.1.short_help",
+          "questions": [
+            {
+              "id": 111,
+              "title": "sections.1.items.1.questions.1.title",
+              "link_knowledge_base": ["PIA_LGL_DESC", "PIA_DEF_FIN", "PIA_CUSTOM_11"],
+              "placeholder": "sections.1.items.1.questions.1.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 112,
+              "title": "sections.1.items.1.questions.2.title",
+              "link_knowledge_base": ["PIA_LGL_DESC", "PIA_DEF_RT", "PIA_DEF_ST", "PIA_CUSTOM_11"],
+              "placeholder": "sections.1.items.1.questions.2.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 113,
+              "title": "sections.1.items.1.questions.3.title",
+              "link_knowledge_base": ["PIA_LGL_DESC", "PIA_CUSTOM_11"],
+              "placeholder": "sections.1.items.1.questions.3.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "sections.1.items.2.title",
+          "evaluation_mode": "item",
+          "short_help": "sections.1.items.2.short_help",
+          "questions": [
+            {
+              "id": 121,
+              "title": "sections.1.items.2.questions.1.title",
+              "link_knowledge_base": ["PIA_LGL_DATA", "PIA_LGL_DEST", "PIA_DEF_DCP", "PIA_DEF_DEST", "PIA_CUSTOM_12"],
+              "placeholder": "sections.1.items.2.questions.1.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 122,
+              "title": "sections.1.items.2.questions.2.title",
+              "link_knowledge_base": ["PIA_LGL_LCYC", "PIA_CUSTOM_12"],
+              "placeholder": "sections.1.items.2.questions.2.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 123,
+              "title": "sections.1.items.2.questions.3.title",
+              "link_knowledge_base": ["PIA_LGL_SUPT", "PIA_CUSTOM_12"],
+              "placeholder": "sections.1.items.2.questions.3.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "sections.2.title",
+      "short_help": "sections.2.short_help",
+      "items": [
+        {
+          "id": 1,
+          "title": "sections.2.items.1.title",
+          "evaluation_mode": "question",
+          "short_help": "sections.2.items.2.short_help",
+          "questions": [
+            {
+              "id": 211,
+              "title": "sections.2.items.1.questions.1.title",
+              "short_title": "sections.2.items.1.questions.1.short_title",
+              "link_knowledge_base": ["PIA_LGL_FIN", "PIA_DEF_FIN", "PIA_CUSTOM_21"],
+              "placeholder": "sections.2.items.1.questions.1.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 212,
+              "title": "sections.2.items.1.questions.2.title",
+              "short_title": "sections.2.items.1.questions.2.short_title",
+              "link_knowledge_base": ["PIA_LGL_FOND", "PIA_CUSTOM_21"],
+              "placeholder": "sections.2.items.1.questions.2.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 213,
+              "title": "sections.2.items.1.questions.3.title",
+              "short_title": "sections.2.items.1.questions.3.short_title",
+              "link_knowledge_base": ["PIA_LGL_MINI", "PIA_DEF_MINC", "PIA_DEF_MIND", "PIA_CUSTOM_21"],
+              "placeholder": "sections.2.items.1.questions.3.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 214,
+              "title": "sections.2.items.1.questions.4.title",
+              "short_title": "sections.2.items.1.questions.4.short_title",
+              "link_knowledge_base": ["PIA_DEF_EXA", "PIA_CUSTOM_21"],
+              "placeholder": "sections.2.items.1.questions.4.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 215,
+              "title": "sections.2.items.1.questions.5.title",
+              "short_title": "sections.2.items.1.questions.5.short_title",
+              "link_knowledge_base": ["PIA_LGL_DUR", "PIA_CUSTOM_21"],
+              "placeholder": "sections.2.items.1.questions.5.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "sections.2.items.2.title",
+          "evaluation_mode": "question",
+          "short_help": "sections.2.items.2.short_help",
+          "questions": [
+            {
+              "id": 221,
+              "title": "sections.2.items.2.questions.1.title",
+              "short_title": "sections.2.items.2.questions.1.short_title",
+              "link_knowledge_base": ["PIA_LGL_INFO", "PIA_CUSTOM_22"],
+              "placeholder": "sections.2.items.2.questions.1.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 222,
+              "title": "sections.2.items.2.questions.2.title",
+              "short_title": "sections.2.items.2.questions.2.short_title",
+              "link_knowledge_base": ["PIA_LGL_CONS", "PIA_DEF_CONS", "PIA_CUSTOM_22"],
+              "placeholder": "sections.2.items.2.questions.2.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 223,
+              "title": "sections.2.items.2.questions.3.title",
+              "short_title": "sections.2.items.2.questions.3.short_title",
+              "link_knowledge_base": ["PIA_LGL_ACC", "PIA_LGL_PORT", "PIA_DEF_ACC", "PIA_DEF_PORT", "PIA_CUSTOM_22"],
+              "placeholder": "sections.2.items.2.questions.3.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 224,
+              "title": "sections.2.items.2.questions.4.title",
+              "short_title": "sections.2.items.2.questions.4.short_title",
+              "link_knowledge_base": ["PIA_LGL_EFF", "PIA_LGL_RECT", "PIA_DEF_EFF", "PIA_DEF_RECT", "PIA_CUSTOM_22"],
+              "placeholder": "sections.2.items.2.questions.4.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 225,
+              "title": "sections.2.items.2.questions.5.title",
+              "short_title": "sections.2.items.2.questions.5.short_title",
+              "link_knowledge_base": ["PIA_LGL_LIM", "PIA_DEF_LIM", "PIA_DEF_OPP", "PIA_CUSTOM_22"],
+              "placeholder": "sections.2.items.2.questions.5.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 226,
+              "title": "sections.2.items.2.questions.6.title",
+              "short_title": "sections.2.items.2.questions.6.short_title",
+              "link_knowledge_base": ["PIA_LGL_ST", "PIA_DEF_ST", "PIA_CUSTOM_22"],
+              "placeholder": "sections.2.items.2.questions.6.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            },
+            {
+              "id": 227,
+              "title": "sections.2.items.2.questions.7.title",
+              "short_title": "sections.2.items.2.questions.7.short_title",
+              "link_knowledge_base": ["PIA_LGL_TRAN", "PIA_CUSTOM_22"],
+              "placeholder": "sections.2.items.2.questions.7.placeholder",
+              "answer_type": "text",
+              "answer": "",
+              "active": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "sections.3.title",
+      "short_help": "sections.3.short_help",
+      "items": [
+        {
+          "id": 1,
+          "is_measure": true,
+          "filter_by": "measure",
+          "title": "sections.3.items.1.title",
+          "link_knowledge_base": [],
+          "evaluation_mode": "question",
+          "short_help": "sections.3.items.1.short_help",
+          "answers": []
+        },
+        {
+          "id": 2,
+          "title": "sections.3.items.2.title",
+          "evaluation_mode": "item",
+          "evaluation_with_gauge": true,
+          "short_help": "sections.3.items.2.short_help",
+          "questions": [
+            {
+              "id": 321,
+              "title": "sections.3.items.2.questions.1.title",
+              "link_knowledge_base": ["PIA_DEF_ACCI", "PIA_DEF_IMP", "PIA_CUSTOM_32"],
+              "placeholder": "sections.3.items.2.questions.1.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 322,
+              "title": "sections.3.items.2.questions.2.title",
+              "link_knowledge_base": ["PIA_DEF_ACCI", "PIA_DEF_MEN", "PIA_EX_MENA", "PIA_EX_MENM", "PIA_EX_MENI", "PIA_CUSTOM_32"],
+              "placeholder": "sections.3.items.2.questions.2.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 323,
+              "title": "sections.3.items.2.questions.3.title",
+              "link_knowledge_base": ["PIA_DEF_ACCI", "PIA_DEF_SRC", "PIA_EX_HUMI", "PIA_EX_HUME", "PIA_EX_NHUM", "PIA_CUSTOM_32"],
+              "placeholder": "sections.3.items.2.questions.3.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 324,
+              "title": "sections.3.items.2.questions.4.title",
+              "is_measure": true,
+              "link_knowledge_base": ["PIA_DEF_ACCI", "PIA_DEF_MES", "PIA_METHOD_MES", "PIA_CUSTOM_32"],
+              "placeholder": "sections.3.items.2.questions.4.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 325,
+              "title": "sections.3.items.2.questions.5.title",
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_IMP",
+                "PIA_DEF_GRV",
+                "PIA_EX_IMPN",
+                "PIA_EX_IMPL",
+                "PIA_EX_IMPI",
+                "PIA_EX_IMPM",
+                "PIA_CUSTOM_32"
+              ],
+              "placeholder": "sections.3.items.2.questions.5.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-access_x",
+              "active": true
+            },
+            {
+              "id": 326,
+              "title": "sections.3.items.2.questions.6.title",
+              "link_knowledge_base": [
+                "PIA_DEF_ACCI",
+                "PIA_DEF_VRA",
+                "PIA_EX_VRAN",
+                "PIA_EX_VRAL",
+                "PIA_EX_VRAI",
+                "PIA_EX_VRAM",
+                "PIA_CUSTOM_32"
+              ],
+              "placeholder": "sections.3.items.2.questions.6.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-access_y",
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "sections.3.items.3.title",
+          "evaluation_mode": "item",
+          "evaluation_with_gauge": true,
+          "short_help": "sections.3.items.3.short_help",
+          "questions": [
+            {
+              "id": 331,
+              "title": "sections.3.items.3.questions.1.title",
+              "link_knowledge_base": ["PIA_DEF_MODI", "PIA_DEF_IMP", "PIA_CUSTOM_33"],
+              "placeholder": "sections.3.items.3.questions.1.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 332,
+              "title": "sections.3.items.3.questions.2.title",
+              "link_knowledge_base": ["PIA_DEF_MODI", "PIA_DEF_MEN", "PIA_EX_MENA", "PIA_EX_MENM", "PIA_EX_MENI", "PIA_CUSTOM_33"],
+              "placeholder": "sections.3.items.3.questions.2.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 333,
+              "title": "sections.3.items.3.questions.3.title",
+              "link_knowledge_base": ["PIA_DEF_MODI", "PIA_DEF_SRC", "PIA_EX_HUMI", "PIA_EX_HUME", "PIA_EX_NHUM", "PIA_CUSTOM_33"],
+              "placeholder": "sections.3.items.3.questions.3.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 334,
+              "title": "sections.3.items.3.questions.4.title",
+              "is_measure": true,
+              "link_knowledge_base": ["PIA_DEF_MODI", "PIA_DEF_MES", "PIA_CUSTOM_33"],
+              "placeholder": "sections.3.items.3.questions.4.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 335,
+              "title": "sections.3.items.3.questions.5.title",
+              "link_knowledge_base": [
+                "PIA_DEF_MODI",
+                "PIA_DEF_GRV",
+                "PIA_DEF_IMP",
+                "PIA_EX_IMPN",
+                "PIA_EX_IMPL",
+                "PIA_EX_IMPI",
+                "PIA_EX_IMPM",
+                "PIA_CUSTOM_33"
+              ],
+              "placeholder": "sections.3.items.3.questions.5.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-change_x",
+              "active": true
+            },
+            {
+              "id": 336,
+              "title": "sections.3.items.3.questions.6.title",
+              "link_knowledge_base": [
+                "PIA_DEF_MODI",
+                "PIA_DEF_VRA",
+                "PIA_EX_VRAN",
+                "PIA_EX_VRAL",
+                "PIA_EX_VRAI",
+                "PIA_EX_VRAM",
+                "PIA_CUSTOM_33"
+              ],
+              "placeholder": "sections.3.items.3.questions.6.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-change_y",
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "sections.3.items.4.title",
+          "evaluation_mode": "item",
+          "evaluation_with_gauge": true,
+          "short_help": "sections.3.items.4.short_help",
+          "questions": [
+            {
+              "id": 341,
+              "title": "sections.3.items.4.questions.1.title",
+              "link_knowledge_base": ["PIA_DEF_IND", "PIA_DEF_IMP", "PIA_CUSTOM_34"],
+              "placeholder": "sections.3.items.4.questions.1.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 342,
+              "title": "sections.3.items.4.questions.2.title",
+              "link_knowledge_base": ["PIA_DEF_IND", "PIA_DEF_MEN", "PIA_EX_MENA", "PIA_EX_MENM", "PIA_EX_MENI", "PIA_CUSTOM_34"],
+              "placeholder": "sections.3.items.4.questions.2.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 343,
+              "title": "sections.3.items.4.questions.3.title",
+              "link_knowledge_base": ["PIA_DEF_IND", "PIA_DEF_SRC", "PIA_EX_HUMI", "PIA_EX_HUME", "PIA_EX_NHUM", "PIA_CUSTOM_34"],
+              "placeholder": "sections.3.items.4.questions.3.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 344,
+              "title": "sections.3.items.4.questions.4.title",
+              "is_measure": true,
+              "link_knowledge_base": ["PIA_DEF_IND", "PIA_DEF_MES", "PIA_CUSTOM_34"],
+              "placeholder": "sections.3.items.4.questions.4.placeholder",
+              "answer_type": "list",
+              "active": true
+            },
+            {
+              "id": 345,
+              "title": "sections.3.items.4.questions.5.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_GRV",
+                "PIA_DEF_IMP",
+                "PIA_EX_IMPN",
+                "PIA_EX_IMPL",
+                "PIA_EX_IMPI",
+                "PIA_EX_IMPM",
+                "PIA_CUSTOM_34"
+              ],
+              "placeholder": "sections.3.items.4.questions.5.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-disappearance_x",
+              "active": true
+            },
+            {
+              "id": 346,
+              "title": "sections.3.items.4.questions.6.title",
+              "link_knowledge_base": [
+                "PIA_DEF_IND",
+                "PIA_DEF_VRA",
+                "PIA_EX_VRAN",
+                "PIA_EX_VRAL",
+                "PIA_EX_VRAI",
+                "PIA_EX_VRAM",
+                "PIA_CUSTOM_34"
+              ],
+              "placeholder": "sections.3.items.4.questions.6.placeholder",
+              "answer_type": "gauge",
+              "cartography": "risk-disappearance_y",
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "sections.3.items.5.title",
+          "evaluation_mode": "",
+          "short_help": "sections.3.items.5.short_help",
+          "type": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "sections.4.title",
+      "short_help": "sections.4.short_help",
+      "items": [
+        {
+          "id": 1,
+          "title": "sections.4.items.1.title",
+          "evaluation_mode": "",
+          "link_knowledge_base": ["PIA_VAL_CART", "PIA_CUSTOM_41"],
+          "short_help": "sections.4.items.1.short_help"
+        },
+        {
+          "id": 2,
+          "title": "sections.4.items.2.title",
+          "evaluation_mode": "",
+          "link_knowledge_base": ["PIA_VAL_ACT", "PIA_CUSTOM_41"],
+          "short_help": "sections.4.items.2.short_help"
+        },
+        {
+          "id": 3,
+          "title": "sections.4.items.3.title",
+          "evaluation_mode": "",
+          "link_knowledge_base": ["PIA_VAL_DPO", "PIA_VAL_CONC", "PIA_VAL_RT", "PIA_CUSTOM_41"],
+          "short_help": "sections.4.items.3.short_help"
+        },
+        {
+          "id": 4,
+          "hide": true,
+          "title": "sections.4.items.4.title",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": ""
+        },
+        {
+          "id": 5,
+          "hide": true,
+          "title": "sections.4.items.5.title",
+          "evaluation_mode": "",
+          "link_knowledge_base": "",
+          "short_help": ""
+        }
+      ]
+    }
+  ]
+}

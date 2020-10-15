@@ -44,3 +44,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# other
+src/environments/environment.prod.ts
+/cypress/videos/*
+/documentation
