@@ -214,14 +214,14 @@
             </tr>
           </thead>
           <tbody>
-            <!-- <tr
+            <app-pia-line
               class="app-list-item"
               [ngClass]="{'pia-exampleBlock': pia.is_example === 1}"
               [attr.data-id]="pia.id"
               *ngFor="let pia of piaService.pias | filterForUser : searchText; let i=index"
               (piaEvent)="piaChange($event)"
               [pia]="pia">
-            </tr> -->
+            </app-pia-line>
           </tbody>
         </table>
       </div>

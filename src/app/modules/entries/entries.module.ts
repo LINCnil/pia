@@ -10,11 +10,17 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
 import { NewPiaComponent } from './forms/new-pia/new-pia.component';
 import { PiaCardComponent } from './cards/pia-card/pia-card.component';
+import { PiaLineComponent } from './list/pia-line/pia-line.component';
 
 
 
 @NgModule({
-  declarations: [EntriesComponent, NewPiaComponent, PiaCardComponent],
+  declarations: [
+    EntriesComponent,
+    NewPiaComponent,
+    PiaCardComponent,
+    PiaLineComponent
+  ],
   imports: [
     SharedModule,
     CommonModule,

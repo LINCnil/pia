@@ -8,10 +8,11 @@ import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
-
-import * as FileSaver from 'file-saver';
 import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
+
+import * as FileSaver from 'file-saver';
+declare const require: any;
 
 
 @Component({
