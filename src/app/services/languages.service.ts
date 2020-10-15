@@ -14,8 +14,6 @@ export class LanguagesService {
   initLanguages() {
     this.translateService.addLangs(['en', 'cz', 'de', 'dk', 'el', 'es', 'et', 'fi', 'fr', 'hr', 'hu', 'it', 'lt', 'nl', 'no', 'pl', 'pt', 'ro', 'sl', 'sv']);
     this.translateService.setDefaultLang('fr');
-
-    console.log(this.translateService.setDefaultLang('fr'))
   }
 
   /**

@@ -54,6 +54,13 @@ import { SafeHtmlPipe, Nl2brPipe, FormatTheDate, FilterForUser } from '../tools'
 import { IntrojsService } from '../services/introjs.service';
 import { LanguagesService } from '../services/languages.service';
 import { TranslateService } from '@ngx-translate/core';
+import { KnowledgesService } from '../services/knowledges.service';
+import { KnowledgeBaseService } from '../services/knowledge-base.service';
+import { GlobalEvaluationService } from '../services/global-evaluation.service';
+import { ModalsService } from '../services/modals.service';
+import { PaginationService } from '../services/pagination.service';
+import { SidStatusService } from '../services/sid-status.service';
+import { AppDataService } from '../services/app-data.service';
 
 
 
@@ -91,9 +98,16 @@ import { TranslateService } from '@ngx-translate/core';
     FilterForUser
   ],
   providers: [
-    IntrojsService,
+    AppDataService,
+    ModalsService,
+    KnowledgeBaseService,
+    KnowledgesService,
+    PaginationService,
+    SidStatusService,
     LanguagesService,
-    TranslateService
+    GlobalEvaluationService,
+    FormatTheDate,
+    IntrojsService
   ]
 })
 export class SharedModule { }
