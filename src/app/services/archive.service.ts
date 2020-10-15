@@ -12,7 +12,7 @@ export class ArchiveService {
   data: { sections: any };
 
   constructor(
-    private _modalsService: ModalsService,
+    private modalsService: ModalsService,
     public _appDataService: AppDataService,
     public _sidStatusService: SidStatusService
   ) {
@@ -45,7 +45,7 @@ export class ArchiveService {
     }
 
     localStorage.removeItem('pia-to-unarchive-id');
-    this._modalsService.closeModal();
+    this.modalsService.closeModal();
   }
 
   /**
@@ -71,7 +71,7 @@ export class ArchiveService {
     }
 
     localStorage.removeItem('pia-to-remove-id');
-    this._modalsService.closeModal();
+    this.modalsService.closeModal();
   }
 
   async calculProgress() {
