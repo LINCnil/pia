@@ -85,7 +85,7 @@ export class PiaCardComponent implements OnInit {
   /**
    * Generate a ZIP with the attachments and the .json
    */
-  async generateZip() {
+  async generateZip(): Promise<void> {
     setTimeout(() => {
       const JSZip = require('jszip');
       const zip = new JSZip();

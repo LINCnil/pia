@@ -9,9 +9,9 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class IntrojsService {
-  public sectionsLoaded: Boolean = null;
+  public sectionsLoaded: boolean = null;
   sectionsChange: Subject<any> = new Subject<any>();
-  public evaluationsLoaded: Boolean = null;
+  public evaluationsLoaded: boolean = null;
   evaluationsChange: Subject<any> = new Subject<any>();
 
   public entrySideView = 'knowledge';
@@ -36,21 +36,21 @@ export class IntrojsService {
     });
   }
 
-  reset() {
+  reset(): void {
     this.sectionsLoaded = null;
     this.evaluationsLoaded = null;
     this.introjsChecked = false;
   }
 
-  sections(bool) {
+  sections(bool): void {
     this.sectionsChange.next(bool);
   }
 
-  evaluations(bool) {
+  evaluations(bool): void {
     this.evaluationsChange.next(bool);
   }
 
-  public autoSelectOnBoarding() {
+  public autoSelectOnBoarding(): void {
     if (this.sectionsLoaded !== null && this.evaluationsLoaded !== null) {
       if (this.evaluationsLoaded === true) {
         console.log('EVALUATION INTROJS');
@@ -69,7 +69,7 @@ export class IntrojsService {
   /**
    * Prepare onboarding for the Dashboard page
    */
-  private prepareDashboardOnBoarding() {
+  private prepareDashboardOnBoarding(): void {
     const INTROJS = introJs();
     INTROJS.addStep({
       element: document.querySelector('.pia-newBlock-item.front'),
@@ -153,8 +153,8 @@ export class IntrojsService {
   /**
    * Prepare onboarding for a PIA edit page
    */
-  private prepareEntryOnBoarding() {
-    var i = 0;
+  private prepareEntryOnBoarding(): void {
+    let i = 0;
     const INTROJS = introJs();
     INTROJS.addStep({
       tooltipClass: 'pia-onboarding-entry-1',
@@ -265,8 +265,9 @@ export class IntrojsService {
   /**
    * Prepare onboarding for evaluation blocks
    */
-  private prepareEvaluationsOnBoarding() {
+  private prepareEvaluationsOnBoarding(): void {
     let stepsQuantity = 3;
+
     if (document.querySelectorAll('.pia-evaluationBlock-buttons button').length > 2) {
       stepsQuantity = 4;
     }
@@ -274,7 +275,7 @@ export class IntrojsService {
       stepsQuantity = stepsQuantity + 1;
     }
 
-    let INTROJS = introJs();
+    const INTROJS = introJs();
     INTROJS.addStep({
       // Main evaluation block
       tooltipClass: 'pia-onboarding-evaluation-step-evaluationBlock',
@@ -401,7 +402,7 @@ export class IntrojsService {
   /**
    * Prepare onboarding for PIA homepage for validated PIAs
    */
-  private prepareValidatedOnBoarding() {
+  private prepareValidatedOnBoarding(): void {
     const INTROJS = introJs();
     INTROJS.addStep({
       tooltipClass: 'pia-onboarding-validated-1',
@@ -444,7 +445,7 @@ export class IntrojsService {
    * Start the corresponding onboarding
    * @param onBoarding the name of the onboarding to start
    */
-  public start(onBoarding: string) {
+  public start(onBoarding: string): void {
     console.log('start');
     let interval;
     switch (onBoarding) {

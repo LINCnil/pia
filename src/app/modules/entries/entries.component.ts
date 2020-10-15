@@ -106,7 +106,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
   /**
    * Refresh the list.
    */
-  async refreshContent() {
+  async refreshContent(): Promise<void> {
     const pia = new Pia();
     setTimeout(async () => {
       await pia.getAllActives().then((data: Array<Pia>) => {
