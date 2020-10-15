@@ -6,11 +6,10 @@ import { BehaviorSubject } from 'rxjs';
 import structureExampleFr from 'src/assets/files/2018-11-21-structure-example-fr.json';
 import structureExampleEn from 'src/assets/files/2018-11-21-structure-example-en.json';
 
-import { Structure } from 'src/app/structures/structure.model';
-import { Pia } from 'src/app/entry/pia.model';
-
-import { ModalsService } from 'src/app/modals/modals.service';
 import { LanguagesService } from 'src/app/services/languages.service';
+import { Pia } from '../models/pia.model';
+import { Structure } from '../models/structure.model';
+import { ModalsService } from './modals.service';
 
 
 @Injectable()

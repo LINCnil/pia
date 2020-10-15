@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { GlobalEvaluationService } from './global-evaluation.service';
 import { PiaService } from './pia.service';
 import { IntrojsService } from '../services/introjs.service';
 import { ActivatedRoute } from '@angular/router';

@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Pia } from 'src/app/entry/pia.model';
-import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
-import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 
-import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { Pia } from '../models/pia.model';
+import { ModalsService } from './modals.service';
 import { SidStatusService } from './sid-status.service';
 
 @Injectable()

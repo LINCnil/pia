@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Revision } from '../models/revision.model';
 import { PiaService } from './pia.service';
 import { Router } from '@angular/router';
 import { utf8Encode } from '@angular/compiler/src/util';
+import { Revision } from '../models/revision.model';
 
 @Injectable()
 export class RevisionService {
