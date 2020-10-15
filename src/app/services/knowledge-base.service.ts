@@ -19,7 +19,7 @@ export class KnowledgeBaseService {
   translateService: any;
   toHide = [];
 
-  constructor(private _knowledgesService: KnowledgesService) {}
+  constructor(private knowledgesService: KnowledgesService) {}
 
   /**
    * Load the knowledge base
@@ -38,7 +38,7 @@ export class KnowledgeBaseService {
   switch(params) {
     return new Promise((resolve, reject) => {
       if (parseInt(params) !== 0) {
-        this._knowledgesService
+        this.knowledgesService
           .getEntries(parseInt(params))
           .then((result: Knowledge[]) => {
             let newBase = [];

@@ -20,8 +20,8 @@ export class StructureService {
 
   constructor(private route: ActivatedRoute,
               private httpClient: HttpClient,
-              private _modalsService: ModalsService,
-              private _languagesService: LanguagesService) {
+              private modalsService: ModalsService,
+              private languagesService: LanguagesService) {
                 this.getStructure();
               }
 
@@ -48,7 +48,7 @@ export class StructureService {
 
   async loadExample() {
     return new Promise((resolve, reject) => {
-      const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? structureExampleFr : structureExampleEn;
+      const exampleStructLanguage = this.languagesService.selectedLanguage === 'fr' ? structureExampleFr : structureExampleEn;
       const structureExample = new Structure();
       structureExample.id = 0;
       structureExample.name = exampleStructLanguage.structure.name;
@@ -101,7 +101,7 @@ export class StructureService {
     }
 
     localStorage.removeItem('structure-id');
-    this._modalsService.closeModal();
+    this.modalsService.closeModal();
   }
 
   /**
@@ -134,7 +134,7 @@ export class StructureService {
           resolve(data);
         });
       } else {
-        const exampleStructLanguage = this._languagesService.selectedLanguage === 'fr' ? structureExampleFr : structureExampleEn;
+        const exampleStructLanguage = this.languagesService.selectedLanguage === 'fr' ? structureExampleFr : structureExampleEn;
         resolve(exampleStructLanguage);
       }
     });
@@ -149,7 +149,7 @@ export class StructureService {
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
       if (!('structure' in data) || !('dbVersion' in data.structure)) {
-        this._modalsService.openModal('import-wrong-structure-file');
+        this.modalsService.openModal('import-wrong-structure-file');
         return;
       }
       const structure = new Structure();

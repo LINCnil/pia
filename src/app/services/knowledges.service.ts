@@ -12,7 +12,7 @@ export class KnowledgesService {
   public selected: number = null;
   public list: KnowledgeBase[] = [];
 
-  constructor(private router: Router, private _modalsService: ModalsService, private _translateService: TranslateService) {}
+  constructor(private router: Router, private mmodalsService: ModalsService, private translateService: TranslateService) {}
 
   public getAll() {
     let kbTemp = new KnowledgeBase();
@@ -27,7 +27,7 @@ export class KnowledgesService {
           // Parse default Knowledge base json
           let cnilKnowledgeBase = new KnowledgeBase(
             0,
-            this._translateService.instant('knowledge_base.default_knowledge_base'),
+            this.translateService.instant('knowledge_base.default_knowledge_base'),
             'CNIL',
             'CNIL'
           );
@@ -67,7 +67,7 @@ export class KnowledgesService {
         let index = this.list.findIndex(e => e.id === this.selected);
         if (index !== -1) {
           this.list.splice(index, 1);
-          this._modalsService.closeModal();
+          this.mmodalsService.closeModal();
         }
       })
       .catch(error => {

@@ -10,7 +10,7 @@ export class PaginationService {
   nextLink: any[] = []; // sectionId, itemId, itemTitle
   dataNav: any;
 
-  constructor(private _sidStatusService: SidStatusService) { }
+  constructor(private sidStatusService: SidStatusService) { }
 
   /**
    * Set the pagination.
@@ -68,14 +68,14 @@ export class PaginationService {
     let goto_section = null;
     let goto_item = null;
 
-    const itemStatus = Object.keys(this._sidStatusService.itemStatus).sort().reduce(
-      (r, k) => (r[k] = this._sidStatusService.itemStatus[k], r), {}
+    const itemStatus = Object.keys(this.sidStatusService.itemStatus).sort().reduce(
+      (r, k) => (r[k] = this.sidStatusService.itemStatus[k], r), {}
     );
 
     for (const el in itemStatus) {
-      if (this._sidStatusService.itemStatus.hasOwnProperty(el) &&
-          this._sidStatusService.itemStatus[el] >= status_start &&
-          this._sidStatusService.itemStatus[el] < status_end &&
+      if (this.sidStatusService.itemStatus.hasOwnProperty(el) &&
+          this.sidStatusService.itemStatus[el] >= status_start &&
+          this.sidStatusService.itemStatus[el] < status_end &&
           el !== '4.3') {
         const reference_to = el.split('.');
         goto_section = reference_to[0];

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { Structure } from '../models/structure.model';
+import { ModalsService } from './modals.service';
 
-import { Structure } from 'src/app/structures/structure.model';
-import { ModalsService } from 'src/app/modals/modals.service';
 
 @Injectable()
 export class AnswerStructureService {
@@ -11,7 +11,7 @@ export class AnswerStructureService {
   measureToRemove = new Subject<number>();
   questionToRemove = new Subject<number>();
 
-  constructor(private _modalsService: ModalsService) {}
+  constructor(private modalsService: ModalsService) {}
 
 
   async addQuestion(structure: Structure, section: any, item: any) {
@@ -58,7 +58,7 @@ export class AnswerStructureService {
     this.structure.update().then(() => {
       this.measureToRemove.next(measure_id);
       localStorage.removeItem('measure-id');
-      this._modalsService.closeModal();
+      this.modalsService.closeModal();
     });
   }
 
@@ -74,6 +74,6 @@ export class AnswerStructureService {
       this.questionToRemove.next(index);
     }
     localStorage.removeItem('question-id');
-    this._modalsService.closeModal();
+    this.modalsService.closeModal();
   }
 }

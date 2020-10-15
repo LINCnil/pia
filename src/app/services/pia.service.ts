@@ -23,10 +23,10 @@ export class PiaService {
   @Output() piaEvent = new EventEmitter<Pia>();
 
   constructor(
-    private _router: Router,
+    private router: Router,
     private route: ActivatedRoute,
     public _appDataService: AppDataService,
-    private _modalsService: ModalsService,
+    private modalsService: ModalsService,
     public _sidStatusService: SidStatusService
   ) {
     if (this.pia.structure_data) {
@@ -227,7 +227,7 @@ export class PiaService {
 
     localStorage.removeItem('pia-to-archive-id');
 
-    this._modalsService.closeModal();
+    this.modalsService.closeModal();
   }
 
   /**
@@ -266,8 +266,8 @@ export class PiaService {
   abandonTreatment() {
     this.pia.status = 4;
     this.pia.update().then(() => {
-      this._modalsService.closeModal();
-      this._router.navigate(['home']);
+      this.modalsService.closeModal();
+      this.router.navigate(['home']);
     });
   }
 
@@ -338,7 +338,7 @@ export class PiaService {
    */
   async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
     if (!('pia' in data) || !('dbVersion' in data.pia)) {
-      this._modalsService.openModal('import-wrong-pia-file');
+      this.modalsService.openModal('import-wrong-pia-file');
       return;
     }
     const pia = new Pia();
@@ -526,7 +526,7 @@ export class PiaService {
         const jsonFile = JSON.parse(event.target.result);
         this.importData(jsonFile, 'IMPORT', false);
       } catch (error) {
-        this._modalsService.openModal('modal-general-error');
+        this.modalsService.openModal('modal-general-error');
         console.error('Unable to parse JSON file.');
       }
     };

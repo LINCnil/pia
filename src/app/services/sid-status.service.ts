@@ -20,8 +20,8 @@ export class SidStatusService {
   public subject = new Subject();
 
   constructor(
-    private _introjsService: IntrojsService,
-    private _globalEvaluationService: GlobalEvaluationService,
+    private introjsService: IntrojsService,
+    private globalEvaluationService: GlobalEvaluationService,
     private route: ActivatedRoute
   ) {
     this.specialIcon = {
@@ -45,7 +45,7 @@ export class SidStatusService {
     this.enablePiaValidation = false;
     this.piaIsRefused = false;
     this.enableDpoValidation = false;
-    this._globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string; status: number }) => {
+    this.globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string; status: number }) => {
       if (obj.reference_to && obj.status > 0) {
         this.itemStatus[obj.reference_to] = obj.status;
         this.verifEnableDpo();
@@ -53,18 +53,18 @@ export class SidStatusService {
 
       // Algo for IntroJs: Entry page ? and Evaluation mode ?
       if (this.route.snapshot.params.id && this.route.snapshot.params.section_id && this.route.snapshot.params.item_id) {
-        if (this._globalEvaluationService.status != undefined) {
-          if (this._introjsService.evaluationsLoaded === null) {
-            if (this._globalEvaluationService.status > 0) {
-              this._introjsService.evaluations(true);
+        if (this.globalEvaluationService.status != undefined) {
+          if (this.introjsService.evaluationsLoaded === null) {
+            if (this.globalEvaluationService.status > 0) {
+              this.introjsService.evaluations(true);
             } else {
-              this._introjsService.evaluations(false);
+              this.introjsService.evaluations(false);
             }
           }
         }
       } else {
-        this._introjsService.sectionsLoaded = null;
-        this._introjsService.evaluationsLoaded = null;
+        this.introjsService.sectionsLoaded = null;
+        this.introjsService.evaluationsLoaded = null;
       }
     });
   }
@@ -77,7 +77,7 @@ export class SidStatusService {
    */
   setSidStatus(pia: any, section: any, item: any) {
     const referenceTo = section.id + '.' + item.id;
-    // We need to instanciate a new instance of GLobalEvaluationService
+    // We need to instanciate a new instance of globalEvaluationService
     const globalEvaluationService = new GlobalEvaluationService();
     globalEvaluationService.pia = pia;
     globalEvaluationService.section = section;

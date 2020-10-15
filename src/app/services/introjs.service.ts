@@ -19,7 +19,7 @@ export class IntrojsService {
 
   private introjsChecked = false;
 
-  constructor(private router: Router, private _translateService: TranslateService) {
+  constructor(private router: Router, private translateService: TranslateService) {
     this.sectionsChange.subscribe(bool => {
       if (!this.introjsChecked) {
         console.log('changements sections', bool);
@@ -75,9 +75,9 @@ export class IntrojsService {
       element: document.querySelector('.pia-newBlock-item.front'),
       tooltipClass: 'pia-onboarding-dashboard-1',
       intro: `
-      <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step1.title')}</div>
+      <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.dashboard.step1.title')}</div>
       <div class='pia-onboarding-description'>
-        ${this._translateService.instant('onboarding.dashboard.step1.description')}
+        ${this.translateService.instant('onboarding.dashboard.step1.description')}
       </div>
       <div class='pia-onboarding-steps'>1/5</div>
     `,
@@ -87,9 +87,9 @@ export class IntrojsService {
         element: document.querySelector('.pia-cardsBlock.pia-editBlock.back'),
         tooltipClass: 'pia-onboarding-dashboard-2',
         intro: `
-      <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step2.title')}</div>
+      <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.dashboard.step2.title')}</div>
       <div class='pia-onboarding-description'>
-        ${this._translateService.instant('onboarding.dashboard.step2.description')}
+        ${this.translateService.instant('onboarding.dashboard.step2.description')}
       </div>
       <div class='pia-onboarding-steps'>2/5</div>
     `,
@@ -99,9 +99,9 @@ export class IntrojsService {
         element: document.querySelector('.pia-cardsBlock.pia-editBlock.back'),
         tooltipClass: 'pia-onboarding-dashboard-3',
         intro: `
-      <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step3.title')}</div>
+      <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.dashboard.step3.title')}</div>
       <div class='pia-onboarding-description'>
-        ${this._translateService.instant('onboarding.dashboard.step3.description')}
+        ${this.translateService.instant('onboarding.dashboard.step3.description')}
       </div>
       <div class='pia-onboarding-steps'>3/5</div>
     `,
@@ -111,9 +111,9 @@ export class IntrojsService {
         element: document.querySelector('.pia-cardsBlock.pia-editBlock.back'),
         tooltipClass: 'pia-onboarding-dashboard-4',
         intro: `
-      <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step4.title')}</div>
+      <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.dashboard.step4.title')}</div>
       <div class='pia-onboarding-description'>
-        ${this._translateService.instant('onboarding.dashboard.step4.description')}
+        ${this.translateService.instant('onboarding.dashboard.step4.description')}
       </div>
       <div class='pia-onboarding-steps'>4/5</div>
     `,
@@ -123,9 +123,9 @@ export class IntrojsService {
         element: document.querySelector('.pia-cardsBlock.pia-editBlock.back'),
         tooltipClass: 'pia-onboarding-dashboard-5',
         intro: `
-      <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.dashboard.step5.title')}</div>
+      <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.dashboard.step5.title')}</div>
       <div class='pia-onboarding-description'>
-        ${this._translateService.instant('onboarding.dashboard.step5.description')}
+        ${this.translateService.instant('onboarding.dashboard.step5.description')}
       </div>
       <div class='pia-onboarding-steps'>5/5</div>
     `,
@@ -143,9 +143,9 @@ export class IntrojsService {
       .setOption('keyboardNavigation', false)
       .setOption('exitOnOverlayClick', false)
       .setOption('disableInteraction', true)
-      .setOption('nextLabel', this._translateService.instant('onboarding.general.next'))
-      .setOption('skipLabel', this._translateService.instant('onboarding.general.skip'))
-      .setOption('doneLabel', this._translateService.instant('onboarding.general.done'))
+      .setOption('nextLabel', this.translateService.instant('onboarding.general.next'))
+      .setOption('skipLabel', this.translateService.instant('onboarding.general.skip'))
+      .setOption('doneLabel', this.translateService.instant('onboarding.general.done'))
       .setOption('showBullets', false)
       .start();
   }
@@ -160,9 +160,9 @@ export class IntrojsService {
       tooltipClass: 'pia-onboarding-entry-1',
       element: document.querySelector('.pia-sectionsBlock'),
       intro: `
-          <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step1.title')}</div>
+          <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.entry.step1.title')}</div>
           <div class='pia-onboarding-description'>
-            ${this._translateService.instant('onboarding.entry.step1.description')}
+            ${this.translateService.instant('onboarding.entry.step1.description')}
           </div>
           <div class='pia-onboarding-steps'>1/7</div>
         `,
@@ -172,9 +172,9 @@ export class IntrojsService {
         tooltipClass: 'pia-onboarding-entry-2',
         element: document.querySelector('.pia-sectionsBlock'),
         intro: `
-        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step2.title')}</div>
+        <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.entry.step2.title')}</div>
         <div class='pia-onboarding-description'>
-          ${this._translateService.instant('onboarding.entry.step2.description')}
+          ${this.translateService.instant('onboarding.entry.step2.description')}
         </div>
         <div class='pia-onboarding-steps'>2/7</div>
       `,
@@ -184,9 +184,9 @@ export class IntrojsService {
         tooltipClass: 'pia-onboarding-entry-3',
         element: document.querySelector('.pia-sectionsBlock'),
         intro: `
-        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step3.title')}</div>
+        <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.entry.step3.title')}</div>
         <div class='pia-onboarding-description'>
-          ${this._translateService.instant('onboarding.entry.step3.description')}
+          ${this.translateService.instant('onboarding.entry.step3.description')}
         </div>
         <div class='pia-onboarding-steps'>3/7</div>
       `,
@@ -196,9 +196,9 @@ export class IntrojsService {
         tooltipClass: 'pia-onboarding-entry-4',
         element: document.querySelector('.pia-sectionsBlock'),
         intro: `
-        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step4.title')}</div>
+        <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.entry.step4.title')}</div>
         <div class='pia-onboarding-description'>
-          ${this._translateService.instant('onboarding.entry.step4.description')}
+          ${this.translateService.instant('onboarding.entry.step4.description')}
         </div>
         <div class='pia-onboarding-steps'>4/7</div>
       `,
@@ -208,9 +208,9 @@ export class IntrojsService {
         tooltipClass: 'pia-onboarding-entry-5',
         element: document.querySelector('.pia-sectionsBlock'),
         intro: `
-        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step5.title')}</div>
+        <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.entry.step5.title')}</div>
         <div class='pia-onboarding-description'>
-          ${this._translateService.instant('onboarding.entry.step5.description')}
+          ${this.translateService.instant('onboarding.entry.step5.description')}
         </div>
         <div class='pia-onboarding-steps'>5/7</div>
       `,
@@ -220,9 +220,9 @@ export class IntrojsService {
         tooltipClass: 'pia-onboarding-entry-6',
         element: document.querySelector('.pia-rightSidebarBlock'),
         intro: `
-        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step6.title')}</div>
+        <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.entry.step6.title')}</div>
         <div class='pia-onboarding-description'>
-          ${this._translateService.instant('onboarding.entry.step6.description')}
+          ${this.translateService.instant('onboarding.entry.step6.description')}
         </div>
         <div class='pia-onboarding-steps'>6/7</div>
       `,
@@ -232,9 +232,9 @@ export class IntrojsService {
         tooltipClass: 'pia-onboarding-entry-7',
         element: document.querySelector('.pia-rightSidebarBlock'),
         intro: `
-        <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.entry.step7.title')}</div>
+        <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.entry.step7.title')}</div>
         <div class='pia-onboarding-description'>
-          ${this._translateService.instant('onboarding.entry.step7.description')}
+          ${this.translateService.instant('onboarding.entry.step7.description')}
         </div>
         <div class='pia-onboarding-steps'>7/7</div>
       `,
@@ -255,9 +255,9 @@ export class IntrojsService {
       .setOption('keyboardNavigation', false)
       .setOption('exitOnOverlayClick', false)
       .setOption('disableInteraction', true)
-      .setOption('nextLabel', this._translateService.instant('onboarding.general.next'))
-      .setOption('skipLabel', this._translateService.instant('onboarding.general.skip'))
-      .setOption('doneLabel', this._translateService.instant('onboarding.general.done'))
+      .setOption('nextLabel', this.translateService.instant('onboarding.general.next'))
+      .setOption('skipLabel', this.translateService.instant('onboarding.general.skip'))
+      .setOption('doneLabel', this.translateService.instant('onboarding.general.done'))
       .setOption('showBullets', false)
       .start();
   }
@@ -280,9 +280,9 @@ export class IntrojsService {
       tooltipClass: 'pia-onboarding-evaluation-step-evaluationBlock',
       element: document.querySelector('.pia-evaluationBlock > div'),
       intro: `
-          <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step1.title')}</div>
+          <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.evaluation.step1.title')}</div>
           <div class='pia-onboarding-description'>
-            ${this._translateService.instant('onboarding.evaluation.step1.description')}
+            ${this.translateService.instant('onboarding.evaluation.step1.description')}
           </div>
           <div class='pia-onboarding-steps'>1/${stepsQuantity}</div>
         `,
@@ -294,9 +294,9 @@ export class IntrojsService {
         tooltipClass: 'pia-onboarding-evaluation-step-refuseButton-tripleButtons',
         element: document.querySelectorAll('.pia-evaluationBlock-buttons button')[0],
         intro: `
-            <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step2.title')}</div>
+            <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.evaluation.step2.title')}</div>
             <div class='pia-onboarding-description'>
-              ${this._translateService.instant('onboarding.evaluation.step2.description')}
+              ${this.translateService.instant('onboarding.evaluation.step2.description')}
             </div>
             <div class='pia-onboarding-steps'>2/${stepsQuantity}</div>
           `,
@@ -307,9 +307,9 @@ export class IntrojsService {
           tooltipClass: 'pia-onboarding-evaluation-step-actionPlanButton',
           element: document.querySelectorAll('.pia-evaluationBlock-buttons button')[1],
           intro: `
-              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step3.title')}</div>
+              <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.evaluation.step3.title')}</div>
               <div class='pia-onboarding-description'>
-                ${this._translateService.instant('onboarding.evaluation.step3.description')}
+                ${this.translateService.instant('onboarding.evaluation.step3.description')}
               </div>
               <div class='pia-onboarding-steps'>3/${stepsQuantity}</div>
             `,
@@ -320,9 +320,9 @@ export class IntrojsService {
           tooltipClass: 'pia-onboarding-evaluation-step-acceptableButton-tripleButtons',
           element: document.querySelectorAll('.pia-evaluationBlock-buttons button')[2],
           intro: `
-              <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step4.title')}</div>
+              <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.evaluation.step4.title')}</div>
               <div class='pia-onboarding-description'>
-                ${this._translateService.instant('onboarding.evaluation.step4.description')}
+                ${this.translateService.instant('onboarding.evaluation.step4.description')}
               </div>
               <div class='pia-onboarding-steps'>4/${stepsQuantity}</div>
             `,
@@ -334,9 +334,9 @@ export class IntrojsService {
           tooltipClass: 'pia-onboarding-evaluation-step-cancelEvaluationBlock',
           element: document.querySelector('.pia-status-info.evaluationsStatus > div'),
           intro: `
-                  <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step5.title')}</div>
+                  <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.evaluation.step5.title')}</div>
                   <div class='pia-onboarding-description'>
-                    ${this._translateService.instant('onboarding.evaluation.step5.description')}
+                    ${this.translateService.instant('onboarding.evaluation.step5.description')}
                   </div>
                   <div class='pia-onboarding-steps'>5/${stepsQuantity}</div>
                 `,
@@ -349,9 +349,9 @@ export class IntrojsService {
         tooltipClass: 'pia-onboarding-evaluation-step-refuseButton-doubleButtons',
         element: document.querySelectorAll('.pia-evaluationBlock-buttons button')[0],
         intro: `
-            <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step2.title')}</div>
+            <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.evaluation.step2.title')}</div>
             <div class='pia-onboarding-description'>
-              ${this._translateService.instant('onboarding.evaluation.step2.description')}
+              ${this.translateService.instant('onboarding.evaluation.step2.description')}
             </div>
             <div class='pia-onboarding-steps'>2/${stepsQuantity}</div>
           `,
@@ -361,9 +361,9 @@ export class IntrojsService {
         tooltipClass: 'pia-onboarding-evaluation-step-acceptableButton-doubleButtons',
         element: document.querySelectorAll('.pia-evaluationBlock-buttons button')[1],
         intro: `
-                <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step4.title')}</div>
+                <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.evaluation.step4.title')}</div>
                 <div class='pia-onboarding-description'>
-                  ${this._translateService.instant('onboarding.evaluation.step4.description')}
+                  ${this.translateService.instant('onboarding.evaluation.step4.description')}
                 </div>
                 <div class='pia-onboarding-steps'>3/${stepsQuantity}</div>
               `,
@@ -375,9 +375,9 @@ export class IntrojsService {
           tooltipClass: 'pia-onboarding-evaluation-step-cancelEvaluationBlock',
           element: document.querySelector('.pia-status-info.evaluationsStatus > div'),
           intro: `
-                <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.evaluation.step5.title')}</div>
+                <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.evaluation.step5.title')}</div>
                 <div class='pia-onboarding-description'>
-                  ${this._translateService.instant('onboarding.evaluation.step5.description')}
+                  ${this.translateService.instant('onboarding.evaluation.step5.description')}
                 </div>
                 <div class='pia-onboarding-steps'>4/${stepsQuantity}</div>
               `,
@@ -391,9 +391,9 @@ export class IntrojsService {
     INTROJS.setOption('exitOnOverlayClick', false)
       .setOption('keyboardNavigation', false)
       .setOption('disableInteraction', true)
-      .setOption('nextLabel', this._translateService.instant('onboarding.general.next'))
-      .setOption('skipLabel', this._translateService.instant('onboarding.general.skip'))
-      .setOption('doneLabel', this._translateService.instant('onboarding.general.done'))
+      .setOption('nextLabel', this.translateService.instant('onboarding.general.next'))
+      .setOption('skipLabel', this.translateService.instant('onboarding.general.skip'))
+      .setOption('doneLabel', this.translateService.instant('onboarding.general.done'))
       .setOption('showBullets', false)
       .start();
   }
@@ -407,9 +407,9 @@ export class IntrojsService {
       tooltipClass: 'pia-onboarding-validated-1',
       element: document.querySelector('.pia-cardsBlock.pia-archiveBlock'),
       intro: `
-                <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.validated.step1.title')}</div>
+                <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.validated.step1.title')}</div>
                 <div class='pia-onboarding-description'>
-                  ${this._translateService.instant('onboarding.validated.step1.description')}
+                  ${this.translateService.instant('onboarding.validated.step1.description')}
                 </div>
                 <div class='pia-onboarding-steps'>1/2</div>
               `,
@@ -418,9 +418,9 @@ export class IntrojsService {
       tooltipClass: 'pia-onboarding-validated-2',
       element: document.querySelector('.pia-cardsBlock.pia-archiveBlock'),
       intro: `
-                <div class='pia-onboarding-title'>${this._translateService.instant('onboarding.validated.step2.title')}</div>
+                <div class='pia-onboarding-title'>${this.translateService.instant('onboarding.validated.step2.title')}</div>
                 <div class='pia-onboarding-description'>
-                  ${this._translateService.instant('onboarding.validated.step2.description')}
+                  ${this.translateService.instant('onboarding.validated.step2.description')}
                 </div>
                 <div class='pia-onboarding-steps'>2/2</div>
               `,
@@ -433,9 +433,9 @@ export class IntrojsService {
       .setOption('exitOnOverlayClick', false)
       .setOption('keyboardNavigation', false)
       .setOption('disableInteraction', true)
-      .setOption('nextLabel', this._translateService.instant('onboarding.general.next'))
-      .setOption('skipLabel', this._translateService.instant('onboarding.general.skip'))
-      .setOption('doneLabel', this._translateService.instant('onboarding.general.done'))
+      .setOption('nextLabel', this.translateService.instant('onboarding.general.next'))
+      .setOption('skipLabel', this.translateService.instant('onboarding.general.skip'))
+      .setOption('doneLabel', this.translateService.instant('onboarding.general.done'))
       .setOption('showBullets', false)
       .start();
   }
