@@ -72,7 +72,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
   /**
    * Asort items created on PIA.
-   * @param {string} fieldToSort - Field to sort.
+   * @param fieldToSort - Field to sort.
    */
   sortBy(fieldToSort: string): void {
     this.sortValue = fieldToSort;
@@ -123,7 +123,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
     /**
      * On PIA change.
-     * @param {any} pia - Any PIA.
+     * @param pia - Any PIA.
      */
     piaChange(pia): void {
       if (this.piaService.pias.includes(pia)) {
@@ -160,7 +160,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
     /**
      * Import a new PIA.
-     * @param {*} [event] - Any Event.
+     * @param [event] - Any Event.
      */
     importPia(event?: any): void {
       if (event) {
@@ -172,7 +172,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
     /**
      * Go to the new entry route
-     * @param id
+     * @param id id
      */
     onPiaSubmited(id): void {
       this.router.navigate(['entry', id, 'section', 1, 'item', 1]);

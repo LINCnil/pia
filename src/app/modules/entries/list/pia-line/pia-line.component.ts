@@ -45,7 +45,7 @@ export class PiaLineComponent implements OnInit {
   /**
    * Generate a ZIP with the attachments and the .json
    */
-  async generateZip() {
+  async generateZip(): Promise<void> {
     setTimeout(() => {
       const JSZip = require('jszip');
       const zip = new JSZip();
@@ -65,9 +65,9 @@ export class PiaLineComponent implements OnInit {
 
   /**
    * Add all active attachments (not the removed ones) to the zip after converting them as blob files
-   * @param zip
+   * @param zip zip
    */
-  async addAttachmentsToZip(zip) {
+  async addAttachmentsToZip(zip): Promise<void> {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
         const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
@@ -84,8 +84,8 @@ export class PiaLineComponent implements OnInit {
 
   /**
    * Focus out field and update PIA.
-   * @param {string} attribute - Attribute of the PIA.
-   * @param {*} event - Any Event.
+   * @param attribute - Attribute of the PIA.
+   * @param event - Any Event.
    */
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
@@ -96,7 +96,7 @@ export class PiaLineComponent implements OnInit {
 
   /**
    * Archive a PIA with a given id
-   * @param {string} id - The PIA id
+   * @param id - The PIA id
    */
   archivePia(id: string): void {
     localStorage.setItem('pia-to-archive-id', id);

@@ -105,7 +105,7 @@ export class PiaCardComponent implements OnInit {
 
   /**
    * Add all active attachments (not the removed ones) to the zip after converting them as blob files
-   * @param zip
+   * @param zip zip
    */
   async addAttachmentsToZip(zip): Promise<any> {
     return new Promise(async (resolve, reject) => {
@@ -235,7 +235,7 @@ export class PiaCardComponent implements OnInit {
 
   /**
    * Archive a PIA with a given id.
-   * @param {string} id - The PIA id.
+   * @param id - The PIA id.
    */
   archivePia(id: string): void {
     localStorage.setItem('pia-to-archive-id', id);
