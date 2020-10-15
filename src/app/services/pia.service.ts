@@ -2,16 +2,17 @@ import { Injectable, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { utf8Encode } from '@angular/compiler/src/util';
 
-import { Pia } from 'src/app/entry/pia.model';
-import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
-import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
-import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
-import { Comment } from 'src/app/entry/entry-content/comments/comment.model';
-import { Structure } from 'src/app/structures/structure.model';
 
 import { AppDataService } from 'src/app/services/app-data.service';
-import { ModalsService } from 'src/app/modals/modals.service';
+
 import { SidStatusService } from 'src/app/services/sid-status.service';
+import { Answer } from '../models/answer.model';
+import { Evaluation } from '../models/evaluation.model';
+import { Measure } from '../models/measure.model';
+import { Pia } from '../models/pia.model';
+import { Comment } from '../models/comment.model';
+import { Structure } from '../models/structure.model';
+import { ModalsService } from './modals.service';
 
 @Injectable()
 export class PiaService {

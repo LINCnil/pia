@@ -53,7 +53,7 @@ import { PiaTranslateLoader } from '../pia-translate-loader';
 import { SafeHtmlPipe, Nl2brPipe, FormatTheDate, FilterForUser } from '../tools';
 import { IntrojsService } from '../services/introjs.service';
 import { LanguagesService } from '../services/languages.service';
-import { TranslateService } from '@ngx-translate/core/lib/translate.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -74,7 +74,8 @@ import { TranslateService } from '@ngx-translate/core/lib/translate.service';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useClass: PiaTranslateLoader
+        useClass: PiaTranslateLoader,
+        deps: [HttpClient]
       }
     })
   ],

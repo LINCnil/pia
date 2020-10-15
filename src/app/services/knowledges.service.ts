@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { utf8Encode } from '@angular/compiler/src/util';
 import { KnowledgeBase } from '../models/knowledgeBase.model';
 
-import { ModalsService } from 'src/app/modals/modals.service';
+import { ModalsService } from './modals.service';
 import { Knowledge } from '../models/knowledge.model';
 import { TranslateService } from '@ngx-translate/core';
 @Injectable()

@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
-import Pia from 'src/app/models/Pia';
+
 import { LanguagesService } from 'src/app/services/languages.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { Renderer2 } from '@angular/core';
+import { Pia } from 'src/app/models/pia.model';
 
 @Component({
   selector: 'app-header',
@@ -26,8 +27,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     public router: Router,
     private introjsService: IntrojsService,
-    public languagesService: LanguagesService,
-    public translateService: TranslateService) { }
+    public translateService: TranslateService,
+    public languagesService: LanguagesService) { }
 
   ngOnInit(): void {
     const displayMessage = document.querySelector('.pia-closeFullScreenModeAlertBlock');
@@ -39,6 +40,7 @@ export class HeaderComponent implements OnInit {
     this.appVersion = environment.version;
 
     this.pia_is_example = false;
+
     // Load pia
     // this._piaService.getPIA().then(() => {
     //   if (this._piaService.pia.is_example === 1) {
