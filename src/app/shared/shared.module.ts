@@ -61,12 +61,15 @@ import { ModalsService } from '../services/modals.service';
 import { PaginationService } from '../services/pagination.service';
 import { SidStatusService } from '../services/sid-status.service';
 import { AppDataService } from '../services/app-data.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { ModalsComponent } from './components/modals/modals.component';
 
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
+    ModalsComponent,
     FormatTheDate,
     SafeHtmlPipe,
     Nl2brPipe,
@@ -76,6 +79,7 @@ import { AppDataService } from '../services/app-data.service';
   imports: [
     CommonModule,
     HttpClientModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
@@ -87,8 +91,12 @@ import { AppDataService } from '../services/app-data.service';
     })
   ],
   exports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule,
     HeaderComponent,
+    ModalsComponent,
     TranslateModule,
     SafeHtmlPipe,
     Nl2brPipe,
