@@ -1,0 +1,180 @@
+@import '~src/assets/stylesheets/variables';
+.pia {
+  &-closeFullScreenModeAlertBlock {
+    color: #fff;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 1rem;
+  }
+}
+.pia-authenticationBlock {
+    padding-top: 110px;
+    &-warning {
+      color: white;
+    }
+    &-logo {
+        > div:first-child {
+          margin-bottom: 37px;
+          margin-left: 20px;
+          width: initial;
+          img, > div {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          > div {
+            color: $pia-blue;
+            h1 {
+              font-size: 2.2rem;
+              margin: 0;
+              line-height: 3.2rem;
+            }
+            div {
+              font-weight: initial;
+              font-size: 2.4rem;
+            }
+          }
+        }
+
+        > div {
+            width: 350px;
+        }
+        h2, p {
+            position: relative;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 1.4rem;
+            line-height: 1.55rem;
+            font-weight: bold;
+            margin: 10px auto;
+            padding: 6px 30px 6px 6px;
+            background-color: $pia-green;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            display: inline-block;
+            &:before {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: -5px;
+                content: '';
+                background-color: $pia-green;
+                width: 10px;
+                transform: skewX(-10deg);
+            }
+        }
+    }
+    &-auth {
+        margin-left: 10px;
+        width: 280px;
+        box-shadow: 0 0 50px #aaa;
+    }
+    &-register, &-enter {
+        background-color: #fff;
+        font-size: 1.4rem;
+        padding: 10px;
+        > div {
+            color: $pia-blue;
+            display: block;
+            padding: 5px;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        a {
+            display: block;
+            font-size: 1.3rem;
+            margin: 2px auto;
+            width: 120px;
+            padding: 4px 10px;
+            text-align: center;
+            text-decoration: none;
+            color: $pia-green;
+            &:focus, &:hover, &:active {
+                background-color: $pia-green;
+                color: #fff;
+            }
+        }
+    }
+    &-enter {
+        background-color: $pia-blue;
+        margin-top: 10%;
+        > div {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+    }
+    &-login {
+        background-color: $pia-blue;
+        padding-bottom: 10px;
+        fieldset {
+            border: none;
+            margin: 0;
+            padding: 0;
+
+        }
+        legend {
+            margin: 0;
+            font-size: 1.3rem;
+            color: #fff;
+            padding-top: 12px;
+            padding-left: 15px;
+            font-weight: 500;
+        }
+        label {
+            padding-top: 10px;
+            display: block;
+            margin: auto;
+            color: #fff;
+            font-size: 1rem;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            margin: 3px auto;
+            margin-top: 0;
+        }
+        div {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+        div:last-of-type {
+            label {
+                padding-top: 1px;
+            }
+        }
+        button[type="submit"] {
+            display: block;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 120px;
+            text-align: center;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            background-color: $pia-green;
+            color: #fff;
+        }
+        a {
+            display: block;
+            text-align: center;
+            padding: 5px;
+            padding-top: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}
+
+.pia-navigationBlock {
+  margin-top: 0 !important;
+  &-languages {
+    border-right: 1px solid #fff;
+    > ul {
+      left: inherit;
+      right: -1px;
+    }
+  }
+}
