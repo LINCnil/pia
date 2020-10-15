@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PiaItemComponent } from './pia-item.component';
+import { PiaCardComponent } from './pia-card.component';
 
-describe('PiaItemComponent', () => {
-  let component: PiaItemComponent;
-  let fixture: ComponentFixture<PiaItemComponent>;
+describe('PiaCardComponent', () => {
+  let component: PiaCardComponent;
+  let fixture: ComponentFixture<PiaCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PiaItemComponent ]
+      declarations: [ PiaCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PiaItemComponent);
+    fixture = TestBed.createComponent(PiaCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

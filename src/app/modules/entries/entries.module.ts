@@ -9,12 +9,12 @@ import { AnswerStructureService } from 'src/app/services/answer-structure.servic
 import { MeasureService } from 'src/app/services/measures.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
 import { NewPiaComponent } from './forms/new-pia/new-pia.component';
-import { PiaItemComponent } from './cards/pia-item/pia-item.component';
+import { PiaCardComponent } from './cards/pia-card/pia-card.component';
 
 
 
 @NgModule({
-  declarations: [EntriesComponent, NewPiaComponent, PiaItemComponent],
+  declarations: [EntriesComponent, NewPiaComponent, PiaCardComponent],
   imports: [
     SharedModule,
     CommonModule,

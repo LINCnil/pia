@@ -13,12 +13,13 @@ import * as FileSaver from 'file-saver';
 import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
 
+
 @Component({
-  selector: 'app-pia-item',
-  templateUrl: './pia-item.component.html',
-  styleUrls: ['./pia-item.component.scss']
+  selector: 'app-pia-card',
+  templateUrl: './pia-card.component.html',
+  styleUrls: ['./pia-card.component.scss']
 })
-export class PiaItemComponent implements OnInit {
+export class PiaCardComponent implements OnInit {
   @Input() pia: any;
   @Input() previousPia: any;
   @Output() piaEvent = new EventEmitter<Pia>();

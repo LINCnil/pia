@@ -121,18 +121,18 @@
               title="{{ 'homepage.cards.title_close_creation' | translate }}">
               <span class="pia-icons pia-icon-close"></span>
             </button>
-            <app-new-pia (submit)="onSubmit($event)"></app-new-pia>
+            <app-new-pia (submit)="onPiaSubmited($event)"></app-new-pia>
           </div>
         </div>
       </div>
 
       <!-- PIA list -->
-      <app-pia-item
+      <app-pia-card
         *ngFor="let pia of piaService.pias | filterForUser : searchText; let i=index"
         (piaEvent)="piaChange($event)"
         [pia]="pia"
         [previousPia]="i > 0 ? piaService.pias[i-1] : null">
-      </app-pia-item>
+      </app-pia-card>
     </div>
 
     <!-- "List" mode -->

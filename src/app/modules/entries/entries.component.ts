@@ -29,11 +29,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private el: ElementRef,
-    private route: ActivatedRoute,
     public modalsService: ModalsService,
-    public piaService: PiaService,
-    private translateService: TranslateService,
-    private introjsService: IntrojsService) { }
+    public piaService: PiaService) { }
 
   ngOnInit(): void {
 
@@ -80,7 +77,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
   sortBy(fieldToSort: string): void {
     this.sortValue = fieldToSort;
     this.sortOrder = this.sortOrder === 'down' ? 'up' : 'down';
-    this.sortPia();
+    this.sort();
     localStorage.setItem('sortValue', this.sortValue);
     localStorage.setItem('sortOrder', this.sortOrder);
   }
@@ -117,73 +114,76 @@ export class EntriesComponent implements OnInit, OnDestroy {
         this.piaService.calculProgress();
         this.sortOrder = localStorage.getItem('sortOrder');
         this.sortValue = localStorage.getItem('sortValue');
-        this.sortPia();
+        this.sort();
       });
     }, 200);
   }
 
+  // ONLY FOR PIA FORMS (create, edit)
 
-  /**
-   * On PIA change.
-   * @param {any} pia - Any PIA.
-   */
-  piaChange(pia): void {
-    if (this.piaService.pias.includes(pia)) {
-      this.piaService.pias.forEach(item => {
-        if (item.id === pia.id) item = pia;
-      });
-    } else {
-      this.piaService.pias.push(pia);
+    /**
+     * On PIA change.
+     * @param {any} pia - Any PIA.
+     */
+    piaChange(pia): void {
+      if (this.piaService.pias.includes(pia)) {
+        this.piaService.pias.forEach(item => {
+          if (item.id === pia.id) {
+            item = pia;
+          }
+        });
+      } else {
+        this.piaService.pias.push(pia);
+      }
     }
-  }
 
-  /**
-   * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
-   */
-  newPIA(): void {
-    this.newPia = new Pia();
-    const cardsToSwitch = document.getElementById('cardsSwitch');
-    cardsToSwitch.classList.toggle('flipped');
-    const rocketToHide = document.getElementById('pia-rocket');
-    if (rocketToHide) {
-      rocketToHide.style.display = 'none';
+    /**
+     * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
+     */
+    newPIA(): void {
+      this.newPia = new Pia();
+      const cardsToSwitch = document.getElementById('cardsSwitch');
+      cardsToSwitch.classList.toggle('flipped');
+      const rocketToHide = document.getElementById('pia-rocket');
+      if (rocketToHide) {
+        rocketToHide.style.display = 'none';
+      }
     }
-  }
 
-  /**
-   * Inverse the order of the list.
-   */
-  reversePIA(): void {
-    const cardsToSwitchReverse = document.getElementById('cardsSwitch');
-    cardsToSwitchReverse.classList.remove('flipped');
-  }
-
-  /**
-   * Import a new PIA.
-   * @param {*} [event] - Any Event.
-   */
-  importPia(event?: any): void {
-    if (event) {
-      this.piaService.import(event.target.files[0]);
-    } else {
-      this.el.nativeElement.querySelector('#import_file').click();
+    /**
+     * Inverse the order of the list.
+     */
+    reversePIA(): void {
+      const cardsToSwitchReverse = document.getElementById('cardsSwitch');
+      cardsToSwitchReverse.classList.remove('flipped');
     }
-  }
 
-  /**
-   * Save the newly created PIA.
-   * Sends to the path associated to this new PIA.
-   */
-  onSubmit(): void {
-    this.piaService.saveNewPia(this.piaForm).then((id: number) => {
+    /**
+     * Import a new PIA.
+     * @param {*} [event] - Any Event.
+     */
+    importPia(event?: any): void {
+      if (event) {
+        this.piaService.import(event.target.files[0]);
+      } else {
+        this.el.nativeElement.querySelector('#import_file').click();
+      }
+    }
+
+    /**
+     * Go to the new entry route
+     * @param id
+     */
+    onPiaSubmited(id): void {
       this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
-    });
-  }
+    }
+
+  // END ONLY FOR PIA FORMS
 
   /**
    * Define how to sort the list.
    */
-  private sortPia(): void {
+  private sort(): void {
     this.piaService.pias.sort((a, b) => {
       let firstValue = a[this.sortValue];
       let secondValue = b[this.sortValue];
@@ -212,5 +212,4 @@ export class EntriesComponent implements OnInit, OnDestroy {
       this.piaService.pias.reverse();
     }
   }
-
 }

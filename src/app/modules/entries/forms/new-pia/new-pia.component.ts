@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class NewPiaComponent implements OnInit {
   piaForm: FormGroup;
 
   constructor(
+    private piaService: PiaService,
     public structureService: StructureService) { }
 
   ngOnInit(): void {
@@ -25,8 +27,13 @@ export class NewPiaComponent implements OnInit {
     });
   }
 
+  /**
+   * Save the newly created PIA.
+   */
   onSubmit(): void {
-    this.submit.emit(this.piaForm);
+    this.piaService.saveNewPia(this.piaForm).then((id: number) => {
+      this.submit.emit(id);
+    });
   }
 
 }
