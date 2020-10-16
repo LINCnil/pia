@@ -6,7 +6,8 @@ import { ModalsService } from 'src/app/services/modals.service';
 import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
-  selector: 'app-structure-line',
+  // tslint:disable-next-line: component-selector
+  selector: '[app-structure-line]',
   templateUrl: './structure-line.component.html',
   styleUrls: ['./structure-line.component.scss']
 })

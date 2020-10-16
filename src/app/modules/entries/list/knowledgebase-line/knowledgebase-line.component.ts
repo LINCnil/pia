@@ -8,7 +8,8 @@ import { ModalsService } from 'src/app/services/modals.service';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 
 @Component({
-  selector: 'app-knowledgebase-line',
+  // tslint:disable-next-line: component-selector
+  selector: '[app-knowledgebase-line]',
   templateUrl: './knowledgebase-line.component.html',
   styleUrls: ['./knowledgebase-line.component.scss']
 })

@@ -29,7 +29,7 @@
             <i class="fa fa-list" aria-hidden="true"></i>
             <div>{{ 'homepage.filters.list' | translate }}</div>
           </button>
-          <ng-container  *ngIf="type_entries === 'pia' || type_entries === 'structure'">
+          <ng-container  *ngIf="type_entries === 'pia' || type_entries === 'structure' || type_entries === 'knowledgeBase'">
             <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
               <button type="button" class="btn btn-green" (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>
                 <ng-container *ngIf="type_entries === 'pia'">
@@ -256,103 +256,66 @@
       <div class="small-12 medium-12 columns">
         <table class="pia-list-table">
           <thead>
-            <tr>
-              <th>
-                <span></span>
-              </th>
-              <th>
-                <a (click)="sortBy('name')">
-                  <span>{{ 'homepage.lists.column_pia' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('updated_at')">
-                  <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'updated_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('author_name')">
-                  <span>{{ 'homepage.lists.column_author' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'author_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('evaluator_name')">
-                  <span>{{ 'homepage.lists.column_evaluation' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'evaluator_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('validator_name')">
-                  <span>{{ 'homepage.lists.column_validation' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'validator_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('structure_name')">
-                  <span>{{ 'homepage.lists.column_structure_name' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'structure_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('progress')">
-                  <span>{{ 'homepage.lists.column_status' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'progress' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-            </tr>
+              <ng-container [ngSwitch]="type_entries">
+                <ng-container *ngSwitchCase="'structure'">
+                  <tr app-structure-heading
+                    (sorting)="sortBy($event)"
+                  >
+                  </tr>
+                </ng-container>
+                <ng-container *ngSwitchCase="'knowledgeBase'">
+                  <tr app-knowledgebase-heading
+                    (sorting)="sortBy($event)"
+                  >
+                  </tr>
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                  <tr app-pia-heading
+                    (sorting)="sortBy($event)"
+                  >
+                  </tr>
+                </ng-container>
+              </ng-container>
           </thead>
           <tbody>
             <ng-container [ngSwitch]="type_entries">
               <ng-container *ngSwitchCase="'pia'">
-                <app-pia-line class="app-list-item"
+                <tr app-pia-line
+                  class="app-list-item"
                   *ngFor="let pia of entries | filterForUser : searchText; let i=index"
-                  [ngClass]="{'pia-exampleBlock': pia.is_example === 1}"
                   [attr.data-id]="pia.id"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
                   [pia]="pia">
-                </app-pia-line>
+                </tr>
               </ng-container>
               <ng-container *ngSwitchCase="'archive'">
-                <app-archive-line class="app-list-item"
+                <tr app-archive-line
+                  class="app-list-item"
                   *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index"
                   [attr.data-id]="archivedPia.id"
                   [archivedPia]="archivedPia">
-                </app-archive-line>
+                </tr>
               </ng-container>
               <ng-container *ngSwitchCase="'structure'">
-                <app-structure-line class="app-list-item"
+                <tr app-structure-line
+                  class="app-list-item"
                   *ngFor="let structure of entries | filterForUser : searchText; let i=index"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
                   [attr.data-id]="structure.id"
                   [structure]="structure">
-                </app-structure-line>
+              </tr>
               </ng-container>
               <ng-container *ngSwitchCase="'knowledgeBase'">
-                <app-knowledgebase-line class="app-list-item"
+                <tr app-knowledgebase-line
+                  class="app-list-item"
                   *ngFor="let base of entries | filterForUser : searchText; let i=index"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
                   [attr.data-id]="base.id"
                   [base]="base">
-                </app-knowledgebase-line>
+              </tr>
               </ng-container>
               <ng-container *ngSwitchDefault>
 

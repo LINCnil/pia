@@ -11,7 +11,8 @@ import * as FileSaver from 'file-saver';
 declare const require: any;
 
 @Component({
-  selector: 'app-pia-line',
+  // tslint:disable-next-line: component-selector
+  selector: '[app-pia-line]',
   templateUrl: './pia-line.component.html',
   styleUrls: ['./pia-line.component.scss']
 })

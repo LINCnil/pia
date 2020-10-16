@@ -20,6 +20,9 @@ import { KnowledgebaseCardComponent } from './cards/knowledgebase-card/knowledge
 import { NewKnowledgebaseComponent } from './forms/new-knowledgebase/new-knowledgebase.component';
 import { KnowledgebaseLineComponent } from './list/knowledgebase-line/knowledgebase-line.component';
 import { StructureLineComponent } from './list/structure-line/structure-line.component';
+import { PiaHeadingComponent } from './list/heading/pia-heading/pia-heading.component';
+import { StructureHeadingComponent } from './list/heading/structure-heading/structure-heading.component';
+import { KnowledgebaseHeadingComponent } from './list/heading/knowledgebase-heading/knowledgebase-heading.component';
 
 
 
@@ -36,7 +39,10 @@ import { StructureLineComponent } from './list/structure-line/structure-line.com
     KnowledgebaseCardComponent,
     NewKnowledgebaseComponent,
     KnowledgebaseLineComponent,
-    StructureLineComponent
+    StructureLineComponent,
+    PiaHeadingComponent,
+    StructureHeadingComponent,
+    KnowledgebaseHeadingComponent
   ],
   imports: [
     SharedModule,
