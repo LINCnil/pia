@@ -70,6 +70,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    // TODO: Mode params
     // this.paramsSubscribe.unsubscribe();
   }
 
@@ -95,6 +96,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
   viewOnList(): void {
     this.viewStyle.view = 'list';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    // TODO: Mode params
     // this.router.navigate(['entries', 'list']);
     this.refreshContent();
   }
@@ -105,6 +107,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
   viewOnCard(): void {
     this.viewStyle.view = 'card';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
+    // TODO: Mode params
     // this.router.navigate(['entries', 'card']);
     this.refreshContent();
   }
