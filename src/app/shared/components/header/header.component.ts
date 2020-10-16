@@ -31,7 +31,6 @@ export class HeaderComponent implements OnInit {
     public languagesService: LanguagesService) { }
 
   ngOnInit(): void {
-    console.log(this.router.url)
     const displayMessage = document.querySelector('.pia-closeFullScreenModeAlertBlock');
     window.screenTop === 0 && window.screenY === 0 ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
     window.onresize = () => {

@@ -1,0 +1,130 @@
+<div class="pia-cardsBlock pia" [ngClass]="{'pia-exampleBlock': pia.is_example === 1, 'pia-archiveBlock': pia.status > 1, 'pia-doingBlock': pia.status < 2}" [attr.data-id]="pia.id">
+  <div class="pia-cardsBlock-header-title" *ngIf="pia.id !== null">
+    <span *ngIf="!previousPia || previousPia.status !== pia.status">{{ pia.getStatusName() | translate }}</span>
+  </div>
+  <div class="pia-cardsBlock-item pia-doingBlock-item">
+    <div *ngIf="attachments && attachments.length > 0" class="pia-cardsBlock-item-attachment" aria-hidden="true">
+      <span class="pia-icons pia-icon-attachment"></span>
+      <ul>
+        <ng-container *ngFor="let attachment of attachments">
+          <li>{{ attachment.name }}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="pia-cardsBlock-toolbar">
+      <div class="pia-cardsBlock-toolbar-export">
+        <a *ngIf="pia.status != 0 && pia.status != 1" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn pia-tooltip">
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+          <span title="{{ 'homepage.cards.item.edit_pia' | translate }}" class="pia-tooltip-text">{{ 'homepage.cards.item.edit_pia' | translate }}</span>
+        </a>
+        <a href="javascript:;" (click)="piaService.duplicate(pia.id)" class="btn pia-tooltip">
+          <i class="fa fa-files-o" aria-hidden="true"></i>
+          <span title="{{ 'homepage.cards.item.tools.duplicate' | translate }}" class="pia-tooltip-text">{{ 'homepage.cards.item.tools.duplicate' | translate }}</span>
+        </a>
+        <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
+          <i class="fa fa-download" aria-hidden="true"></i>
+          <span title="{{ 'homepage.cards.item.tools.export' | translate }}" class="pia-tooltip-text">{{ 'homepage.cards.item.tools.export' | translate }}</span>
+        </a>
+        <a href="javascript:;" (click)="archivePia(pia.id)" class="btn pia-tooltip">
+          <i class="fa fa-archive" aria-hidden="true"></i>
+          <span title="{{ 'homepage.cards.item.tools.archive' | translate }}" class="pia-tooltip-text">{{ 'homepage.cards.item.tools.archive' | translate }}</span>
+        </a>
+
+      </div>
+    </div>
+
+    <form class="pia-cardsBlock-item-form"
+          [formGroup]="piaForm">
+      <input type="hidden" formControlName="id">
+      <div (click)="piaNameFocusIn()" style="margin-top:20px;">
+          <label for="pia-edit-{{pia.id}}-name">{{ 'homepage.cards.pia_name' | translate }}</label>
+          <input type="text"
+                  #piaName
+                  formControlName="name"
+                  required
+                  placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}"
+                  id="pia-edit-{{pia.id}}-name"
+                  (focusout)="piaNameFocusOut()">
+      </div>
+      <div (click)="piaAuthorNameFocusIn()">
+          <label for="pia-edit-{{pia.id}}-author-name">{{ 'homepage.cards.author' | translate }}</label>
+          <input type="text"
+                  #piaAuthorName
+                  formControlName="author_name"
+                  required
+                  placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
+                  id="pia-edit-{{pia.id}}-author-name"
+                  (focusout)="piaAuthorNameFocusOut()">
+      </div>
+      <div (click)="piaEvaluatorNameFocusIn()">
+          <label for="pia-edit-{{pia.id}}-evaluator-name">{{ 'homepage.cards.evaluation' | translate }}</label>
+          <input type="text"
+                  #piaEvaluatorName
+                  formControlName="evaluator_name"
+                  required
+                  placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
+                  id="pia-edit-{{pia.id}}-evaluator-name"
+                  (focusout)="piaEvaluatorNameFocusOut()">
+      </div>
+      <div (click)="piaValidatorNameFocusIn()">
+          <label for="pia-edit-{{pia.id}}-validator-name">{{ 'homepage.cards.validation' | translate }}</label>
+          <input type="text"
+                  #piaValidatorName
+                  formControlName="validator_name"
+                  required
+                  placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
+                  id="pia-edit-{{pia.id}}-validator-name"
+                  (focusout)="piaValidatorNameFocusOut()">
+      </div>
+      <div (click)="piaCategoryFocusIn()">
+          <label for="pia-edit-{{pia.id}}-category">{{ 'homepage.cards.category' | translate }}</label>
+          <input type="text"
+                  #piaCategory
+                  formControlName="category"
+                  required
+                  placeholder="{{ 'homepage.cards.placeholder_category' | translate }}"
+                  id="pia-edit-{{pia.id}}-category"
+                  (focusout)="piaCategoryFocusOut()">
+      </div>
+      <div class="pia-cardsBlock-item-structure" *ngIf="pia.structure_id">
+        <div>{{ 'homepage.cards.structure' | translate }}</div>
+        <span>{{ pia.structure_name }}</span>
+      </div>
+      <div class="pia-cardsBlock-item-date">
+        <div>{{ 'homepage.cards.date' | translate }}</div>
+        <time>{{ pia.created_at | date: "shortDate":"":languagesService.selectedLanguage }}</time>
+      </div>
+      <div class="pia-cardsBlock-item-status">
+        <div class="pia-cardsBlock-item-status-infos">
+          <div>{{ 'homepage.cards.status' | translate }}</div>
+          <div class="pendingValidation" *ngIf="pia.status === 0 && pia.progress === 100;else defaultStatuses">
+            {{ 'pia.statuses.5' | translate }}
+          </div>
+          <ng-template #defaultStatuses>
+            <div>{{ pia.getStatusName() | translate }}</div>
+          </ng-template>
+        </div>
+        <div class="pia-cardsBlock-item-status-progressBar">
+          <div>{{ pia.progress }}%</div>
+          <progress max="100" value="{{ pia.progress }}"></progress>
+        </div>
+      </div>
+      <div class="pia-cardsBlock-item-btn">
+        <div *ngIf="pia.status === 0 || pia.status === 1" class="pia-cardsBlock-item-btn-single">
+          <a *ngIf="pia.progress >= 96;else editBlock" routerLink="/entry/{{pia.id}}/section/1/item/1"
+            title="{{ 'homepage.cards.item.edit_pia' | translate }}"
+              class="btn btn-green" >{{ 'homepage.cards.item.validate_pia' | translate }}
+          </a>
+          <ng-template #editBlock>
+              <a routerLink="/entry/{{pia.id}}/section/1/item/1"
+            title="{{ 'homepage.cards.item.edit_pia' | translate }}"
+              class="btn btn-green">{{ 'homepage.cards.item.edit_pia' | translate }}</a>
+          </ng-template>
+        </div>
+        <div *ngIf="pia.status != 0 && pia.status != 1" class="pia-cardsBlock-item-btn-single">
+          <a routerLink="/preview/{{pia.id}}" title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="btn btn-green">{{ 'homepage.cards.item.consult_pia' | translate }}</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
