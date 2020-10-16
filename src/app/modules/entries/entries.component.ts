@@ -1,12 +1,13 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { Pia } from 'src/app/models/pia.model';
+import { ArchiveService } from 'src/app/services/archive.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -26,11 +27,19 @@ export class EntriesComponent implements OnInit, OnDestroy {
   paramsSubscribe: Subscription;
   searchText: string;
 
+  // Update
+  public type_entries: string; // 'pia' or 'archive'
+  public entries: Array<any> = []; // storage for pia or archive
+
   constructor(
     private router: Router,
     private el: ElementRef,
     public modalsService: ModalsService,
-    public piaService: PiaService) { }
+    public archiveService: ArchiveService,
+    public piaService: PiaService) {
+      // get entries type (pia or archive)
+      this.type_entries = (this.router.url === '/entries/archive') ? 'archive' : 'pia';
+    }
 
   ngOnInit(): void {
 
@@ -61,10 +70,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.paramsSubscribe.unsubscribe();
+    // this.paramsSubscribe.unsubscribe();
   }
-
-
 
   onCleanSearch(): void {
     this.searchText = '';
@@ -109,13 +116,28 @@ export class EntriesComponent implements OnInit, OnDestroy {
   async refreshContent(): Promise<void> {
     const pia = new Pia();
     setTimeout(async () => {
-      await pia.getAllActives().then((data: Array<Pia>) => {
-        this.piaService.pias = data;
-        this.piaService.calculProgress();
-        this.sortOrder = localStorage.getItem('sortOrder');
-        this.sortValue = localStorage.getItem('sortValue');
-        this.sort();
-      });
+
+      switch (this.type_entries) {
+        case 'pia':
+          pia.getAllActives().then((data: Array<Pia>) => {
+            this.entries = data;
+            this.entries.forEach(entrie => this.piaService.calculPiaProgress(entrie));
+          });
+          break;
+        case 'archive':
+          pia.getAllArchives().then((data: Array<Pia>) => {
+            this.entries = data;
+            this.entries.forEach(entrie => this.archiveService.calculPiaProgress(entrie));
+          });
+          break;
+        default:
+          break;
+      }
+
+      this.sortOrder = localStorage.getItem('sortOrder');
+      this.sortValue = localStorage.getItem('sortValue');
+      this.sort();
+
     }, 200);
   }
 
@@ -126,14 +148,14 @@ export class EntriesComponent implements OnInit, OnDestroy {
      * @param pia - Any PIA.
      */
     piaChange(pia): void {
-      if (this.piaService.pias.includes(pia)) {
-        this.piaService.pias.forEach(item => {
+      if (this.entries.includes(pia)) {
+        this.entries.forEach(item => {
           if (item.id === pia.id) {
             item = pia;
           }
         });
       } else {
-        this.piaService.pias.push(pia);
+        this.entries.push(pia);
       }
     }
 
@@ -184,7 +206,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
    * Define how to sort the list.
    */
   private sort(): void {
-    this.piaService.pias.sort((a, b) => {
+    this.entries.sort((a, b) => {
       let firstValue = a[this.sortValue];
       let secondValue = b[this.sortValue];
       if (this.sortValue === 'updated_at' || this.sortValue === 'created_at') {
@@ -209,7 +231,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
       }
     });
     if (this.sortOrder === 'up') {
-      this.piaService.pias.reverse();
+      this.entries.reverse();
     }
   }
 }

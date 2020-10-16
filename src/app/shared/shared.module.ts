@@ -63,18 +63,19 @@ import { SidStatusService } from '../services/sid-status.service';
 import { AppDataService } from '../services/app-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalsComponent } from './components/modals/modals.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-    ModalsComponent,
     FormatTheDate,
     SafeHtmlPipe,
     Nl2brPipe,
     FormatTheDate,
-    FilterForUser
+    FilterForUser,
+    HeaderComponent,
+    ModalsComponent,
   ],
   imports: [
     CommonModule,
@@ -82,6 +83,7 @@ import { ModalsComponent } from './components/modals/modals.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -95,15 +97,15 @@ import { ModalsComponent } from './components/modals/modals.component';
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,
-    HeaderComponent,
-    ModalsComponent,
     TranslateModule,
     SafeHtmlPipe,
     Nl2brPipe,
     FormsModule,
     FormatTheDate,
     TagInputModule,
-    FilterForUser
+    FilterForUser,
+    HeaderComponent,
+    ModalsComponent,
   ],
   providers: [
     AppDataService,

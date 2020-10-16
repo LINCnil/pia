@@ -23,7 +23,7 @@
           </div>
           <div class="pia-filtersBlock-hint"
             *ngIf="viewStyle.view === 'list'
-            && piaService.pias && piaService.pias.length === 0">
+            && entries && entries.length === 0">
             <div>
               <span class="pia-icons pia-icon-rocket-small"></span>
               <p [innerHTML]="'homepage.filters.list_rocket_content' | translate"></p>
@@ -126,13 +126,27 @@
         </div>
       </div>
 
-      <!-- PIA list -->
-      <app-pia-card
-        *ngFor="let pia of piaService.pias | filterForUser : searchText; let i=index"
-        (piaEvent)="piaChange($event)"
-        [pia]="pia"
-        [previousPia]="i > 0 ? piaService.pias[i-1] : null">
-      </app-pia-card>
+      <!-- PIA, ARCHIVE Cards switch -->
+      <ng-container [ngSwitch]="type_entries">
+        <ng-container *ngSwitchCase="'pia'">
+          <app-pia-card
+            *ngFor="let pia of entries | filterForUser : searchText; let i=index"
+            (piaEvent)="piaChange($event)"
+            [pia]="pia"
+            [previousPia]="i > 0 ? entries[i-1] : null">
+          </app-pia-card>
+        </ng-container>
+        <ng-container *ngSwitchCase="'archive'">
+          <app-archive-card
+            *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index" [archivedPia]="archivedPia"
+            [previousArchivedPia]="i > 0 ? entries[i-1] : null">
+          </app-archive-card>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+
+        </ng-container>
+      </ng-container>
+
     </div>
 
     <!-- "List" mode -->
@@ -214,14 +228,27 @@
             </tr>
           </thead>
           <tbody>
-            <app-pia-line
-              class="app-list-item"
-              [ngClass]="{'pia-exampleBlock': pia.is_example === 1}"
-              [attr.data-id]="pia.id"
-              *ngFor="let pia of piaService.pias | filterForUser : searchText; let i=index"
-              (piaEvent)="piaChange($event)"
-              [pia]="pia">
-            </app-pia-line>
+            <ng-container [ngSwitch]="type_entries">
+              <ng-container *ngSwitchCase="'pia'">
+                <app-pia-line class="app-list-item"
+                  [ngClass]="{'pia-exampleBlock': pia.is_example === 1}"
+                  [attr.data-id]="pia.id"
+                  *ngFor="let pia of entries | filterForUser : searchText; let i=index"
+                  (piaEvent)="piaChange($event)"
+                  [pia]="pia">
+                </app-pia-line>
+              </ng-container>
+              <ng-container *ngSwitchCase="'archive'">
+                <app-archive-line class="app-list-item"
+                  [attr.data-id]="archivedPia.id"
+                  *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index"
+                  [archivedPia]="archivedPia">
+                </app-archive-line>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+
+              </ng-container>
+            </ng-container>
           </tbody>
         </table>
       </div>

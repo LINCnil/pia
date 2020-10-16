@@ -22,8 +22,8 @@
                 <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
               </a>
               <ul>
-                <li><a routerLink="/entries">{{ 'header.current_pias' | translate }}</a></li>
-                <li><a routerLink="/archives">{{ 'header.archives' | translate }}</a></li>
+                <li><a [routerLink]="['entries']">{{ 'header.current_pias' | translate }}</a></li>
+                <li><a [routerLink]="['entries', 'archive']">{{ 'header.archives' | translate }}</a></li>
               </ul>
             </li>
             <li class="pia-navigationBlock-noSub" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
