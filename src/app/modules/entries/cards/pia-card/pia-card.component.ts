@@ -23,7 +23,8 @@ declare const require: any;
 export class PiaCardComponent implements OnInit {
   @Input() pia: any;
   @Input() previousPia: any;
-  @Output() piaEvent = new EventEmitter<Pia>();
+  @Output() changed = new EventEmitter<Pia>();
+  @Output() duplicated = new EventEmitter<Pia>();
   piaForm: FormGroup;
   attachments: any;
 
@@ -141,7 +142,7 @@ export class PiaCardComponent implements OnInit {
     if (userText !== '') {
       this.pia.name = this.piaForm.value.name;
       this.pia.update();
-      this.piaEvent.emit(this.pia);
+      this.changed.emit(this.pia);
     }
   }
 
@@ -163,7 +164,7 @@ export class PiaCardComponent implements OnInit {
     if (userText !== '') {
       this.pia.author_name = this.piaForm.value.author_name;
       this.pia.update();
-      this.piaEvent.emit(this.pia);
+      this.changed.emit(this.pia);
     }
   }
 
@@ -185,7 +186,7 @@ export class PiaCardComponent implements OnInit {
     if (userText !== '') {
       this.pia.evaluator_name = this.piaForm.value.evaluator_name;
       this.pia.update();
-      this.piaEvent.emit(this.pia);
+      this.changed.emit(this.pia);
     }
   }
 
@@ -207,7 +208,7 @@ export class PiaCardComponent implements OnInit {
     if (userText !== '') {
       this.pia.validator_name = this.piaForm.value.validator_name;
       this.pia.update();
-      this.piaEvent.emit(this.pia);
+      this.changed.emit(this.pia);
     }
   }
 
@@ -229,7 +230,7 @@ export class PiaCardComponent implements OnInit {
     if (userText !== '') {
       this.pia.category = this.piaForm.value.category;
       this.pia.update();
-      this.piaEvent.emit(this.pia);
+      this.changed.emit(this.pia);
     }
   }
 
@@ -240,5 +241,13 @@ export class PiaCardComponent implements OnInit {
   archivePia(id: string): void {
     localStorage.setItem('pia-to-archive-id', id);
     this.modalsService.openModal('modal-archive-pia');
+  }
+
+  /**
+   * Click on duplicate, clone the pia
+   */
+  onDuplicate(id): void {
+    this.piaService.duplicate(id);
+    this.duplicated.emit(id);
   }
 }

@@ -186,42 +186,18 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
 
 
-  // ONLY FOR PIA FORMS (create, edit)
-    /**
-     * On PIA change.
-     * @param pia - Any PIA.
-     */
-    piaChange(pia): void {
-      if (this.entries.includes(pia)) {
-        this.entries.forEach(item => {
-          if (item.id === pia.id) {
-            item = pia;
-          }
-        });
-      } else {
-        this.entries.push(pia);
-      }
-    }
-  // END ONLY FOR PIA FORMS
 
-
-  // ONLY FOR STRUCTURE FORMS
-    /**
-     * On structure change.
-     * @param structure - Any Structure.
-     */
-    structChange(structure): void {
-      if (this.entries.includes(structure)) {
-        this.entries.forEach(struct => {
-          if (struct.id === structure.id) {
-            struct = structure;
-          }
-        });
-      } else {
-        this.entries.push(structure);
-      }
+  updateEntrie(entrie): void {
+    if (this.entries.includes(entrie)) {
+      this.entries.forEach(item => {
+        if (item.id === entrie.id) {
+          item = entrie;
+        }
+      });
+    } else {
+      this.entries.push(entrie);
     }
-  // END ONLY FOR STRUCTURE FORMS
+  }
 
   open(): void {
     const cardsToSwitch = document.getElementById('cardsSwitch');

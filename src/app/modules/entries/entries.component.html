@@ -193,7 +193,8 @@
         <ng-container *ngSwitchCase="'pia'">
           <app-pia-card
             *ngFor="let pia of entries | filterForUser : searchText; let i=index"
-            (piaEvent)="piaChange($event)"
+            (changed)="updateEntrie($event)"
+            (duplicated)="refreshContent()"
             [pia]="pia"
             [previousPia]="i > 0 ? entries[i-1] : null">
           </app-pia-card>
@@ -208,7 +209,8 @@
         <ng-container *ngSwitchCase="'structure'">
           <app-structure-card
             *ngFor="let structure of entries | filterForUser : searchText; let i=index"
-              (structEvent)="structChange($event)"
+              (changed)="updateEntrie($event)"
+              (duplicated)="refreshContent()"
               [structure]="structure"
               [previousStructure]="i > 0 ? entries[i-1] : null">
           </app-structure-card>
@@ -216,6 +218,8 @@
         <ng-container *ngSwitchCase="'knowledgeBase'">
           <app-knowledgebase-card
             *ngFor="let base of entries | filterForUser : searchText; let i=index"
+            (changed)="updateEntrie($event)"
+            (duplicated)="refreshContent()"
             [base]="base">
           </app-knowledgebase-card>
         </ng-container>
@@ -311,7 +315,8 @@
                   [ngClass]="{'pia-exampleBlock': pia.is_example === 1}"
                   [attr.data-id]="pia.id"
                   *ngFor="let pia of entries | filterForUser : searchText; let i=index"
-                  (piaEvent)="piaChange($event)"
+                  (changed)="updateEntrie($event)"
+                  (duplicated)="refreshContent()"
                   [pia]="pia">
                 </app-pia-line>
               </ng-container>

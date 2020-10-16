@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
+import { Structure } from 'src/app/models/structure.model';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { ModalsService } from 'src/app/services/modals.service';
 
@@ -16,6 +17,8 @@ export class KnowledgebaseCardComponent implements OnInit {
   knowledgeBaseForm: FormGroup;
   public nbEntries = 0;
   @Input() base: KnowledgeBase;
+  @Output() changed = new EventEmitter<Structure>();
+  @Output() duplicated = new EventEmitter<Structure>();
 
 
   constructor(private modalsService: ModalsService, private knowledgesService: KnowledgesService) {}
@@ -92,5 +95,6 @@ export class KnowledgebaseCardComponent implements OnInit {
 
   duplicate(id): void {
     this.knowledgesService.duplicate(id);
+    this.duplicated.emit(id);
   }
 }

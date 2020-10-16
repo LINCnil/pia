@@ -15,7 +15,8 @@ import { StructureService } from 'src/app/services/structure.service';
 export class StructureCardComponent implements OnInit {
   @Input() structure: any;
   @Input() previousStructure: any;
-  @Output() structEvent = new EventEmitter<Structure>();
+  @Output() changed = new EventEmitter<Structure>();
+  @Output() duplicated = new EventEmitter<Structure>();
   structureForm: FormGroup;
 
   @ViewChild('structureName', { static: true })
@@ -66,7 +67,7 @@ export class StructureCardComponent implements OnInit {
     if (userText !== '') {
       this.structure.name = this.structureForm.value.name;
       this.structure.update();
-      this.structEvent.emit(this.structure);
+      this.changed.emit(this.structure);
     }
   }
 
@@ -91,7 +92,7 @@ export class StructureCardComponent implements OnInit {
     if (userText !== '') {
       this.structure.sector_name = this.structureForm.value.sector_name;
       this.structure.update();
-      this.structEvent.emit(this.structure);
+      this.changed.emit(this.structure);
     }
   }
 
@@ -116,11 +117,11 @@ export class StructureCardComponent implements OnInit {
    *
    * @param id structure ID
    */
-  async duplicate(id: number) {
+  async duplicate(id: number): Promise<void> {
     this.structureService
       .duplicateStructure(id)
       .then((structure: Structure) => {
-        this.structEvent.emit(structure);
+        this.duplicated.emit(structure);
       });
   }
 
