@@ -17,7 +17,8 @@ declare const require: any;
 })
 export class PiaLineComponent implements OnInit {
   @Input() pia: any;
-  @Output() piaEvent = new EventEmitter<Pia>();
+  @Output() changed = new EventEmitter<Pia>();
+  @Output() duplicated = new EventEmitter<Pia>();
   attachments: any;
 
   constructor(
@@ -91,7 +92,7 @@ export class PiaLineComponent implements OnInit {
     const text = event.target.innerText;
     this.pia[attribute] = text;
     this.pia.update();
-    this.piaEvent.emit(this.pia);
+    this.changed.emit(this.pia);
   }
 
   /**
@@ -101,5 +102,13 @@ export class PiaLineComponent implements OnInit {
   archivePia(id: string): void {
     localStorage.setItem('pia-to-archive-id', id);
     this.modalsService.openModal('modal-archive-pia');
+  }
+
+  /**
+   * Click on duplicate, clone the pia
+   */
+  onDuplicate(id): void {
+    this.piaService.duplicate(id);
+    this.duplicated.emit(id);
   }
 }

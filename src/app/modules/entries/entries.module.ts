@@ -18,6 +18,8 @@ import { StructureCardComponent } from './cards/structure-card/structure-card.co
 import { NewStructureComponent } from './forms/new-structure/new-structure.component';
 import { KnowledgebaseCardComponent } from './cards/knowledgebase-card/knowledgebase-card.component';
 import { NewKnowledgebaseComponent } from './forms/new-knowledgebase/new-knowledgebase.component';
+import { KnowledgebaseLineComponent } from './list/knowledgebase-line/knowledgebase-line.component';
+import { StructureLineComponent } from './list/structure-line/structure-line.component';
 
 
 
@@ -32,7 +34,9 @@ import { NewKnowledgebaseComponent } from './forms/new-knowledgebase/new-knowled
     StructureCardComponent,
     NewStructureComponent,
     KnowledgebaseCardComponent,
-    NewKnowledgebaseComponent
+    NewKnowledgebaseComponent,
+    KnowledgebaseLineComponent,
+    StructureLineComponent
   ],
   imports: [
     SharedModule,

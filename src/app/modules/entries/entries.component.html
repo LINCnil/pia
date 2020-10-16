@@ -312,9 +312,9 @@
             <ng-container [ngSwitch]="type_entries">
               <ng-container *ngSwitchCase="'pia'">
                 <app-pia-line class="app-list-item"
+                  *ngFor="let pia of entries | filterForUser : searchText; let i=index"
                   [ngClass]="{'pia-exampleBlock': pia.is_example === 1}"
                   [attr.data-id]="pia.id"
-                  *ngFor="let pia of entries | filterForUser : searchText; let i=index"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
                   [pia]="pia">
@@ -322,10 +322,19 @@
               </ng-container>
               <ng-container *ngSwitchCase="'archive'">
                 <app-archive-line class="app-list-item"
-                  [attr.data-id]="archivedPia.id"
                   *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index"
+                  [attr.data-id]="archivedPia.id"
                   [archivedPia]="archivedPia">
                 </app-archive-line>
+              </ng-container>
+              <ng-container *ngSwitchCase="'structure'">
+                <app-structure-line class="app-list-item"
+                  *ngFor="let structure of entries | filterForUser : searchText; let i=index"
+                  (changed)="updateEntrie($event)"
+                  (duplicated)="refreshContent()"
+                  [attr.data-id]="structure.id"
+                  [structure]="structure">
+                </app-structure-line>
               </ng-container>
               <ng-container *ngSwitchDefault>
 

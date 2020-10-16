@@ -183,10 +183,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
   }
 
 
-
-
-
-
   updateEntrie(entrie): void {
     if (this.entries.includes(entrie)) {
       this.entries.forEach(item => {
