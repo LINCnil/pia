@@ -1,7 +1,14 @@
 <div class="container pia-mainContainerBlock">
   <div class="row">
     <div class="pia-breadcrumb">
-      <strong>{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }}</strong>
+      <strong>{{ 'header.homepage_link' | translate }} >
+        <ng-container *ngIf="type_entries === 'pia'">
+          {{ 'header.current_pias' | translate }}
+        </ng-container>
+        <ng-container *ngIf="type_entries === 'archive'">
+          {{ 'header.archives' | translate }}
+        </ng-container>
+      </strong>
     </div>
 
     <div class="small-12 medium-12 columns">
@@ -16,26 +23,27 @@
             <i class="fa fa-list" aria-hidden="true"></i>
             <div>{{ 'homepage.filters.list' | translate }}</div>
           </button>
-
-          <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
-            <button type="button" class="btn btn-green" (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
-            <button type="button" (click)="importPia()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
-          </div>
-          <div class="pia-filtersBlock-hint"
-            *ngIf="viewStyle.view === 'list'
-            && entries && entries.length === 0">
-            <div>
-              <span class="pia-icons pia-icon-rocket-small"></span>
-              <p [innerHTML]="'homepage.filters.list_rocket_content' | translate"></p>
+          <ng-container  *ngIf="type_entries === 'pia'">
+            <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
+              <button type="button" class="btn btn-green" (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
+              <button type="button" (click)="importPia()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
             </div>
-          </div>
-          <div class="hide">
-            <form enctype="multipart/form-data" [formGroup]="importPiaForm">
-              <input type="file" formControlName="import_file" id="import_file"
-              (change)="importPia($event)" class="hide">
-            </form>
-            <a href="" id="pia-exportBlock"></a>
-          </div>
+            <div class="pia-filtersBlock-hint"
+              *ngIf="viewStyle.view === 'list'
+              && entries && entries.length === 0">
+              <div>
+                <span class="pia-icons pia-icon-rocket-small"></span>
+                <p [innerHTML]="'homepage.filters.list_rocket_content' | translate"></p>
+              </div>
+            </div>
+            <div class="hide">
+              <form enctype="multipart/form-data" [formGroup]="importPiaForm">
+                <input type="file" formControlName="import_file" id="import_file"
+                (change)="importPia($event)" class="hide">
+              </form>
+              <a href="" id="pia-exportBlock"></a>
+            </div>
+          </ng-container>
         </div>
 
         <div class="pia-filtersBlock-right">
@@ -86,10 +94,11 @@
   </div>
   <div class="row">
     <!-- "Card" mode -->
-    <div *ngIf="viewStyle.view === 'card'; else viewList" class="small-12 medium-12 columns">
+    <div *ngIf="viewStyle.view === 'card'; else viewList"
+      class="small-12 medium-12 columns">
 
       <!-- New PIA -->
-      <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch">
+      <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch" *ngIf="type_entries === 'pia'">
         <div class="pia-newBlock-item front" id="pia-new-card">
           <div class="pia-newBlock-item-new">
             <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_pia' | translate }}</div>
