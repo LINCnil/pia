@@ -336,6 +336,15 @@
                   [structure]="structure">
                 </app-structure-line>
               </ng-container>
+              <ng-container *ngSwitchCase="'knowledgeBase'">
+                <app-knowledgebase-line class="app-list-item"
+                  *ngFor="let base of entries | filterForUser : searchText; let i=index"
+                  (changed)="updateEntrie($event)"
+                  (duplicated)="refreshContent()"
+                  [attr.data-id]="base.id"
+                  [base]="base">
+                </app-knowledgebase-line>
+              </ng-container>
               <ng-container *ngSwitchDefault>
 
               </ng-container>
