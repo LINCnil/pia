@@ -1,0 +1,42 @@
+@import '~src/assets/stylesheets/variables';
+.pia {
+  &-versionInfoBlock {
+    color: $pia-green;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  &-closeFullScreenModeAlertBlock {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: initial !important;
+    font-size: 1rem !important;
+  }
+  &-headerBlock {
+    background-color: #fff;
+    margin-bottom: 24px;
+  }
+  &-logoBlock {
+    text-align: center;
+    height: 48px;
+    a {
+      img {
+        vertical-align: middle;
+      }
+    }
+    div {
+      text-align: left;
+      display: inline-block;
+      vertical-align: middle;
+      font-weight: bold;
+      color: $pia-blue;
+      padding-top: 2px;
+      line-height: 1.25;
+      font-size: 1.15rem;
+      span {
+        font-weight: normal;
+      }
+    }
+  }
+}

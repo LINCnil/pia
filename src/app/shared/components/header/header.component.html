@@ -3,7 +3,7 @@
   <div class="pia-logoBlock container">
     <div class="row">
       <div class="small-12 medium-12 columns">
-        <a routerLink="/home"><img src="assets/images/pia-logo.jpg" alt="Logo PIA"></a>
+        <a routerLink="/entries"><img src="assets/images/pia-logo.jpg" alt="Logo PIA"></a>
         <div>{{ 'header.logo_title' | translate }}<br><span>{{ 'header.logo_subtitle' | translate }}</span></div>
         <div class="hide-for-print pia-closeFullScreenModeAlertBlock hide">
           {{ 'header.exit_full_screen_mode' | translate }}
@@ -22,8 +22,8 @@
                 <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
               </a>
               <ul>
-                <li><a routerLink="/entries">{{ 'header.current_pias' | translate }}</a></li>
-                <li><a routerLink="/archives">{{ 'header.archives' | translate }}</a></li>
+                <li><a [routerLink]="['entries']">{{ 'header.current_pias' | translate }}</a></li>
+                <li><a [routerLink]="['entries', 'archive']">{{ 'header.archives' | translate }}</a></li>
               </ul>
             </li>
             <li class="pia-navigationBlock-noSub" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">

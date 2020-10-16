@@ -11,6 +11,9 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { NewPiaComponent } from './forms/new-pia/new-pia.component';
 import { PiaCardComponent } from './cards/pia-card/pia-card.component';
 import { PiaLineComponent } from './list/pia-line/pia-line.component';
+import { ArchiveService } from 'src/app/services/archive.service';
+import { ArchiveCardComponent } from './cards/archive-card/archive-card.component';
+import { ArchiveLineComponent } from './list/archive-line/archive-line.component';
 
 
 
@@ -19,7 +22,9 @@ import { PiaLineComponent } from './list/pia-line/pia-line.component';
     EntriesComponent,
     NewPiaComponent,
     PiaCardComponent,
-    PiaLineComponent
+    PiaLineComponent,
+    ArchiveCardComponent,
+    ArchiveLineComponent
   ],
   imports: [
     SharedModule,
@@ -28,6 +33,7 @@ import { PiaLineComponent } from './list/pia-line/pia-line.component';
   ],
   providers: [
     PiaService,
+    ArchiveService,
     StructureService,
     AnswerStructureService,
     MeasureService,
