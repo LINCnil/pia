@@ -6,6 +6,7 @@ import { EntriesComponent } from './entries.component';
   imports: [RouterModule.forChild([
     { path: 'entries', component: EntriesComponent },
     { path: 'entries/archive', component: EntriesComponent },
+    { path: 'entries/structure', component: EntriesComponent },
   ])],
   exports: [RouterModule]
 })

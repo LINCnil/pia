@@ -8,6 +8,8 @@ import { IntrojsService } from 'src/app/services/introjs.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Structure } from 'src/app/models/structure.model';
+import { StructureService } from 'src/app/services/structure.service';
 
 
 @Component({
@@ -17,9 +19,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class EntriesComponent implements OnInit, OnDestroy {
   @Input() pia: any;
-  newPia: Pia;
-  piaForm: FormGroup;
-  importPiaForm: FormGroup;
+  importForm: FormGroup;
   sortOrder: string;
   sortValue: string;
   viewStyle: { view: string } = { view: 'card'};
@@ -36,9 +36,24 @@ export class EntriesComponent implements OnInit, OnDestroy {
     private el: ElementRef,
     public modalsService: ModalsService,
     public archiveService: ArchiveService,
+    public structureService: StructureService,
     public piaService: PiaService) {
+
       // get entries type (pia or archive)
-      this.type_entries = (this.router.url === '/entries/archive') ? 'archive' : 'pia';
+      switch (this.router.url) {
+        case '/entries/archive':
+          this.type_entries = 'archive';
+          break;
+        case '/entries/structure':
+          this.type_entries = 'structure';
+          break;
+        case '/entries':
+          this.type_entries = 'pia';
+          break;
+        default:
+          break;
+      }
+
     }
 
   ngOnInit(): void {
@@ -64,7 +79,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
     }
 
     // INIT IMPORT FORM
-    this.importPiaForm = new FormGroup({
+    this.importForm = new FormGroup({
       import_file: new FormControl('', [])
     });
   }
@@ -133,6 +148,20 @@ export class EntriesComponent implements OnInit, OnDestroy {
             this.entries.forEach(entrie => this.archiveService.calculPiaProgress(entrie));
           });
           break;
+        case 'structure':
+          const structure = new Structure();
+          let data;
+          structure.getAll()
+            .then((response) => {
+              data = response;
+              this.structureService
+                .loadExample()
+                .then((structureExample: Structure) => {
+                  data.push(structureExample);
+                });
+              this.entries = data;
+            });
+          break;
         default:
           break;
       }
@@ -144,8 +173,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
     }, 200);
   }
 
-  // ONLY FOR PIA FORMS (create, edit)
 
+
+
+
+  // ONLY FOR PIA FORMS (create, edit)
     /**
      * On PIA change.
      * @param pia - Any PIA.
@@ -161,49 +193,70 @@ export class EntriesComponent implements OnInit, OnDestroy {
         this.entries.push(pia);
       }
     }
-
-    /**
-     * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
-     */
-    newPIA(): void {
-      this.newPia = new Pia();
-      const cardsToSwitch = document.getElementById('cardsSwitch');
-      cardsToSwitch.classList.toggle('flipped');
-      const rocketToHide = document.getElementById('pia-rocket');
-      if (rocketToHide) {
-        rocketToHide.style.display = 'none';
-      }
-    }
-
-    /**
-     * Inverse the order of the list.
-     */
-    reversePIA(): void {
-      const cardsToSwitchReverse = document.getElementById('cardsSwitch');
-      cardsToSwitchReverse.classList.remove('flipped');
-    }
-
-    /**
-     * Import a new PIA.
-     * @param [event] - Any Event.
-     */
-    importPia(event?: any): void {
-      if (event) {
-        this.piaService.import(event.target.files[0]);
-      } else {
-        this.el.nativeElement.querySelector('#import_file').click();
-      }
-    }
-
-    /**
-     * Go to the new entry route
-     * @param id id
-     */
-    onPiaSubmited(id): void {
-      this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
-    }
-
   // END ONLY FOR PIA FORMS
+
+
+  // ONLY FOR STRUCTURE FORMS
+    /**
+     * On structure change.
+     * @param structure - Any Structure.
+     */
+    structChange(structure): void {
+      if (this.entries.includes(structure)) {
+        this.entries.forEach(struct => {
+          if (struct.id === structure.id) {
+            struct = structure;
+          }
+        });
+      } else {
+        this.entries.push(structure);
+      }
+    }
+  // END ONLY FOR STRUCTURE FORMS
+
+  open(): void {
+    const cardsToSwitch = document.getElementById('cardsSwitch');
+    cardsToSwitch.classList.toggle('flipped');
+    const rocketToHide = document.getElementById('pia-rocket');
+    if (rocketToHide) {
+      rocketToHide.style.display = 'none';
+    }
+  }
+
+  /**
+   * Inverse the order of the list.
+   */
+  reverse(): void {
+    const cardsToSwitchReverse = document.getElementById('cardsSwitch');
+    cardsToSwitchReverse.classList.remove('flipped');
+  }
+
+  /**
+   * Go to the new entry route
+   * @param id id
+   */
+  onFormSubmited(id): void {
+    this.refreshContent();
+    // TODO: entry module
+    // this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
+  }
+
+  /**
+   * Import a new PIA.
+   * @param [event] - Any Event.
+   */
+  import(event?: any): void {
+    if (event) {
+      if (this.type_entries === 'pia') {
+        this.piaService.import(event.target.files[0]);
+      }
+      if (this.type_entries === 'structure') {
+        this.structureService.importStructure(event.target.files[0]);
+      }
+    } else {
+      this.el.nativeElement.querySelector('#import_file').click();
+    }
+  }
 
   /**
    * Define how to sort the list.
