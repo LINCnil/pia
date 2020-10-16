@@ -19,12 +19,14 @@ export class KnowledgesService {
     return new Promise((resolve, reject) => {
       kbTemp.findAll()
         .then((response: any) => {
-          let result: KnowledgeBase[] = [];
+
+          const result: KnowledgeBase[] = [];
           response.forEach(e => {
             result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.created_at));
           });
+
           // Parse default Knowledge base json
-          let cnilKnowledgeBase = new KnowledgeBase(
+          const cnilKnowledgeBase = new KnowledgeBase(
             0,
             this.translateService.instant('knowledge_base.default_knowledge_base'),
             'CNIL',
@@ -32,10 +34,12 @@ export class KnowledgesService {
           );
           cnilKnowledgeBase.is_example = true;
 
+          // TODO: remove this.list
           this.list.push(cnilKnowledgeBase);
           this.list = this.list.concat(result);
 
-          resolve(this.list);
+          result.push(cnilKnowledgeBase);
+          resolve(result);
         })
         .catch(error => {
           reject(error);

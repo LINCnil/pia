@@ -168,8 +168,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
         case 'knowledgeBase':
           this.knowledgesService.getAll()
           .then((result: any) => {
-              console.log(result);
-              this.entries = result;
+            this.entries = result;
           });
           break;
         default:
@@ -262,6 +261,14 @@ export class EntriesComponent implements OnInit, OnDestroy {
       }
       if (this.type_entries === 'structure') {
         this.structureService.importStructure(event.target.files[0]);
+      }
+      if (this.type_entries === 'knowledgeBase') {
+        const reader = new FileReader();
+        reader.readAsText(event.target.files[0], 'UTF-8');
+        reader.onload = (event2: any) => {
+          const jsonFile = JSON.parse(event2.target.result);
+          this.knowledgesService.import(jsonFile);
+        };
       }
     } else {
       this.el.nativeElement.querySelector('#import_file').click();
