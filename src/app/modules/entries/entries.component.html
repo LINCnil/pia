@@ -11,6 +11,9 @@
         <ng-container *ngIf="type_entries === 'archive'">
           {{ 'header.archives' | translate }}
         </ng-container>
+        <ng-container *ngIf="type_entries === 'knowledgeBase'">
+          {{ 'header.knowledge_base_link' | translate }}
+        </ng-container>
       </strong>
     </div>
 
@@ -26,10 +29,31 @@
             <i class="fa fa-list" aria-hidden="true"></i>
             <div>{{ 'homepage.filters.list' | translate }}</div>
           </button>
-          <ng-container  *ngIf="type_entries === 'pia' || type_entries === 'structure'">
+          <ng-container  *ngIf="type_entries === 'pia' || type_entries === 'structure' || type_entries === 'knowledgeBase'">
             <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
-              <button type="button" class="btn btn-green" (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
-              <button type="button" (click)="import()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
+              <button type="button" class="btn btn-green" (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>
+                <ng-container *ngIf="type_entries === 'pia'">
+                  {{ 'homepage.cards.new_pia' | translate }}
+                </ng-container>
+                <ng-container *ngIf="type_entries === 'structure'">
+                  {{ 'homepage.cards.new_structure' | translate }}
+                </ng-container>
+                <ng-container *ngIf="type_entries === 'knowledgeBase'">
+                  {{ 'homepage.cards.knowledges.new' | translate }}
+                </ng-container>
+              </button>
+              <button type="button" (click)="import()" class="btn btn-green">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                <ng-container *ngIf="type_entries === 'pia'">
+                  {{ 'homepage.cards.import_pia' | translate }}
+                </ng-container>
+                <ng-container *ngIf="type_entries === 'structure'">
+                  {{ 'homepage.cards.import_structure' | translate }}
+                </ng-container>
+                <ng-container *ngIf="type_entries === 'knowledgeBase'">
+                  {{ 'homepage.cards.knowledges.import' | translate }}
+                </ng-container>
+              </button>
             </div>
             <div class="pia-filtersBlock-hint"
               *ngIf="viewStyle.view === 'list'
@@ -101,7 +125,7 @@
       class="small-12 medium-12 columns">
 
       <!-- New PIA -->
-      <div *ngIf="type_entries === 'pia' || type_entries === 'structure'"
+      <div *ngIf="type_entries === 'pia' || type_entries === 'structure' || type_entries === 'knowledgeBase'"
         class="pia-cardsBlock pia-newBlock" id="cardsSwitch" >
         <div class="pia-newBlock-item front" id="pia-new-card">
           <div class="pia-newBlock-item-new">
@@ -112,6 +136,9 @@
               </ng-container>
               <ng-container *ngIf="type_entries === 'structure'">
                 {{ 'homepage.cards.new_structure' | translate }}
+              </ng-container>
+              <ng-container *ngIf="type_entries === 'knowledgeBase'">
+                {{ 'homepage.cards.knowledges.new' | translate }}
               </ng-container>
 
             </div>
@@ -136,7 +163,9 @@
               <ng-container *ngIf="type_entries === 'structure'">
                 {{ 'homepage.cards.import_structure' | translate }}
               </ng-container>
-
+              <ng-container *ngIf="type_entries === 'knowledgeBase'">
+                {{ 'homepage.cards.knowledges.import' | translate }}
+              </ng-container>
             </div>
             <div class="pia-newBlock-item-import-btn">
               <i class="fa fa-upload" aria-hidden="true"></i>
@@ -166,6 +195,11 @@
                   (submit)="onFormSubmited($event)">
                 </app-new-structure>
               </ng-container>
+              <ng-container *ngSwitchCase="'knowledgeBase'">
+                <app-new-knowledgebase
+                  (submit)="onFormSubmited($event)">
+                </app-new-knowledgebase>
+              </ng-container>
               <ng-container *ngSwitchDefault>
               </ng-container>
             </ng-container>
@@ -180,7 +214,8 @@
         <ng-container *ngSwitchCase="'pia'">
           <app-pia-card
             *ngFor="let pia of entries | filterForUser : searchText; let i=index"
-            (piaEvent)="piaChange($event)"
+            (changed)="updateEntrie($event)"
+            (duplicated)="refreshContent()"
             [pia]="pia"
             [previousPia]="i > 0 ? entries[i-1] : null">
           </app-pia-card>
@@ -195,10 +230,19 @@
         <ng-container *ngSwitchCase="'structure'">
           <app-structure-card
             *ngFor="let structure of entries | filterForUser : searchText; let i=index"
-              (structEvent)="structChange($event)"
+              (changed)="updateEntrie($event)"
+              (duplicated)="refreshContent()"
               [structure]="structure"
               [previousStructure]="i > 0 ? entries[i-1] : null">
           </app-structure-card>
+        </ng-container>
+        <ng-container *ngSwitchCase="'knowledgeBase'">
+          <app-knowledgebase-card
+            *ngFor="let base of entries | filterForUser : searchText; let i=index"
+            (changed)="updateEntrie($event)"
+            (duplicated)="refreshContent()"
+            [base]="base">
+          </app-knowledgebase-card>
         </ng-container>
         <ng-container *ngSwitchDefault>
 
@@ -212,96 +256,66 @@
       <div class="small-12 medium-12 columns">
         <table class="pia-list-table">
           <thead>
-            <tr>
-              <th>
-                <span></span>
-              </th>
-              <th>
-                <a (click)="sortBy('name')">
-                  <span>{{ 'homepage.lists.column_pia' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('updated_at')">
-                  <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'updated_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('author_name')">
-                  <span>{{ 'homepage.lists.column_author' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'author_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('evaluator_name')">
-                  <span>{{ 'homepage.lists.column_evaluation' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'evaluator_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('validator_name')">
-                  <span>{{ 'homepage.lists.column_validation' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'validator_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <th>
-                <a (click)="sortBy('structure_name')">
-                  <span>{{ 'homepage.lists.column_structure_name' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'structure_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-              <!-- <th>
-                <a (click)="sortBy('created_at')">
-                  <span>{{ 'homepage.lists.column_creation' | translate }}</span>
-                  <i *ngIf="sortValue === 'created_at'" class="fa fa-caret-{{sortOrder}}"></i>
-                </a>
-              </th> -->
-              <!-- <th>
-                <a (click)="sortBy('status')">
-                  <span>{{ 'homepage.lists.column_status' | translate }}</span>
-                  <i *ngIf="sortValue === 'status'" class="fa fa-caret-{{sortOrder}}"></i>
-                </a>
-              </th> -->
-              <th>
-                <a (click)="sortBy('progress')">
-                  <span>{{ 'homepage.lists.column_status' | translate }}</span>
-                  <i class="fa"
-                    [ngClass]="[sortValue === 'progress' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
-                  ></i>
-                </a>
-              </th>
-            </tr>
+              <ng-container [ngSwitch]="type_entries">
+                <ng-container *ngSwitchCase="'structure'">
+                  <tr app-structure-heading
+                    (sorting)="sortBy($event)"
+                  >
+                  </tr>
+                </ng-container>
+                <ng-container *ngSwitchCase="'knowledgeBase'">
+                  <tr app-knowledgebase-heading
+                    (sorting)="sortBy($event)"
+                  >
+                  </tr>
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                  <tr app-pia-heading
+                    (sorting)="sortBy($event)"
+                  >
+                  </tr>
+                </ng-container>
+              </ng-container>
           </thead>
           <tbody>
             <ng-container [ngSwitch]="type_entries">
               <ng-container *ngSwitchCase="'pia'">
-                <app-pia-line class="app-list-item"
-                  [ngClass]="{'pia-exampleBlock': pia.is_example === 1}"
-                  [attr.data-id]="pia.id"
+                <tr app-pia-line
+                  class="app-list-item"
                   *ngFor="let pia of entries | filterForUser : searchText; let i=index"
-                  (piaEvent)="piaChange($event)"
+                  [attr.data-id]="pia.id"
+                  (changed)="updateEntrie($event)"
+                  (duplicated)="refreshContent()"
                   [pia]="pia">
-                </app-pia-line>
+                </tr>
               </ng-container>
               <ng-container *ngSwitchCase="'archive'">
-                <app-archive-line class="app-list-item"
-                  [attr.data-id]="archivedPia.id"
+                <tr app-archive-line
+                  class="app-list-item"
                   *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index"
+                  [attr.data-id]="archivedPia.id"
                   [archivedPia]="archivedPia">
-                </app-archive-line>
+                </tr>
+              </ng-container>
+              <ng-container *ngSwitchCase="'structure'">
+                <tr app-structure-line
+                  class="app-list-item"
+                  *ngFor="let structure of entries | filterForUser : searchText; let i=index"
+                  (changed)="updateEntrie($event)"
+                  (duplicated)="refreshContent()"
+                  [attr.data-id]="structure.id"
+                  [structure]="structure">
+              </tr>
+              </ng-container>
+              <ng-container *ngSwitchCase="'knowledgeBase'">
+                <tr app-knowledgebase-line
+                  class="app-list-item"
+                  *ngFor="let base of entries | filterForUser : searchText; let i=index"
+                  (changed)="updateEntrie($event)"
+                  (duplicated)="refreshContent()"
+                  [attr.data-id]="base.id"
+                  [base]="base">
+              </tr>
               </ng-container>
               <ng-container *ngSwitchDefault>
 

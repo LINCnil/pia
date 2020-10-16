@@ -100,11 +100,11 @@ export class KnowledgeBase extends ApplicationDb {
               return response.json();
             })
             .then((result: any) => {
-              resolve();
+              resolve(result);
             })
             .catch(error => {
               console.error('Request failed', error);
-              reject();
+              reject(error);
             });
         } else {
           this.getObjectStore().then(() => {
@@ -114,7 +114,7 @@ export class KnowledgeBase extends ApplicationDb {
               reject(Error(event));
             };
             evt.onsuccess = () => {
-              resolve();
+              resolve(true);
             };
           });
         }

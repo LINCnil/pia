@@ -16,6 +16,13 @@ import { ArchiveCardComponent } from './cards/archive-card/archive-card.componen
 import { ArchiveLineComponent } from './list/archive-line/archive-line.component';
 import { StructureCardComponent } from './cards/structure-card/structure-card.component';
 import { NewStructureComponent } from './forms/new-structure/new-structure.component';
+import { KnowledgebaseCardComponent } from './cards/knowledgebase-card/knowledgebase-card.component';
+import { NewKnowledgebaseComponent } from './forms/new-knowledgebase/new-knowledgebase.component';
+import { KnowledgebaseLineComponent } from './list/knowledgebase-line/knowledgebase-line.component';
+import { StructureLineComponent } from './list/structure-line/structure-line.component';
+import { PiaHeadingComponent } from './list/heading/pia-heading/pia-heading.component';
+import { StructureHeadingComponent } from './list/heading/structure-heading/structure-heading.component';
+import { KnowledgebaseHeadingComponent } from './list/heading/knowledgebase-heading/knowledgebase-heading.component';
 
 
 
@@ -28,7 +35,14 @@ import { NewStructureComponent } from './forms/new-structure/new-structure.compo
     ArchiveCardComponent,
     ArchiveLineComponent,
     StructureCardComponent,
-    NewStructureComponent
+    NewStructureComponent,
+    KnowledgebaseCardComponent,
+    NewKnowledgebaseComponent,
+    KnowledgebaseLineComponent,
+    StructureLineComponent,
+    PiaHeadingComponent,
+    StructureHeadingComponent,
+    KnowledgebaseHeadingComponent
   ],
   imports: [
     SharedModule,

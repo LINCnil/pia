@@ -10,6 +10,8 @@ import { PiaService } from 'src/app/services/pia.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
+import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
+import { KnowledgesService } from 'src/app/services/knowledges.service';
 
 
 @Component({
@@ -37,6 +39,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
     public modalsService: ModalsService,
     public archiveService: ArchiveService,
     public structureService: StructureService,
+    private knowledgesService: KnowledgesService,
     public piaService: PiaService) {
 
       // get entries type (pia or archive)
@@ -46,6 +49,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
           break;
         case '/entries/structure':
           this.type_entries = 'structure';
+          break;
+        case '/entries/knowledgebase':
+          this.type_entries = 'knowledgeBase';
           break;
         case '/entries':
           this.type_entries = 'pia';
@@ -67,9 +73,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
       localStorage.setItem('sortOrder', this.sortOrder);
       localStorage.setItem('sortValue', this.sortValue);
     }
-
-    // INIT CONTENT
-    this.refreshContent();
 
     // PREPARE VIEW MODE
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
@@ -162,6 +165,12 @@ export class EntriesComponent implements OnInit, OnDestroy {
               this.entries = data;
             });
           break;
+        case 'knowledgeBase':
+          this.knowledgesService.getAll()
+          .then((result: any) => {
+            this.entries = result;
+          });
+          break;
         default:
           break;
       }
@@ -174,45 +183,17 @@ export class EntriesComponent implements OnInit, OnDestroy {
   }
 
 
-
-
-
-  // ONLY FOR PIA FORMS (create, edit)
-    /**
-     * On PIA change.
-     * @param pia - Any PIA.
-     */
-    piaChange(pia): void {
-      if (this.entries.includes(pia)) {
-        this.entries.forEach(item => {
-          if (item.id === pia.id) {
-            item = pia;
-          }
-        });
-      } else {
-        this.entries.push(pia);
-      }
+  updateEntrie(entrie): void {
+    if (this.entries.includes(entrie)) {
+      this.entries.forEach(item => {
+        if (item.id === entrie.id) {
+          item = entrie;
+        }
+      });
+    } else {
+      this.entries.push(entrie);
     }
-  // END ONLY FOR PIA FORMS
-
-
-  // ONLY FOR STRUCTURE FORMS
-    /**
-     * On structure change.
-     * @param structure - Any Structure.
-     */
-    structChange(structure): void {
-      if (this.entries.includes(structure)) {
-        this.entries.forEach(struct => {
-          if (struct.id === structure.id) {
-            struct = structure;
-          }
-        });
-      } else {
-        this.entries.push(structure);
-      }
-    }
-  // END ONLY FOR STRUCTURE FORMS
+  }
 
   open(): void {
     const cardsToSwitch = document.getElementById('cardsSwitch');
@@ -252,6 +233,14 @@ export class EntriesComponent implements OnInit, OnDestroy {
       }
       if (this.type_entries === 'structure') {
         this.structureService.importStructure(event.target.files[0]);
+      }
+      if (this.type_entries === 'knowledgeBase') {
+        const reader = new FileReader();
+        reader.readAsText(event.target.files[0], 'UTF-8');
+        reader.onload = (event2: any) => {
+          const jsonFile = JSON.parse(event2.target.result);
+          this.knowledgesService.import(jsonFile);
+        };
       }
     } else {
       this.el.nativeElement.querySelector('#import_file').click();

@@ -1,28 +1,9 @@
 @import '~src/assets/stylesheets/variables';
-tr {
-  display: table-row;
-}
-.app-list-item {
-  display: table-row;
-  &:nth-child(even) {
-    background-color: rgba(62, 224, 149, 0.15);
-  }
-  &:hover {
-    background-color: rgba(62, 224, 149, 0.25);
-  }
-}
+
 .pia-listsBlock-item {
   position: relative;
   padding: 0 10px;
   cursor: pointer;
-  white-space: nowrap;
-  /* overflow: hidden; */
-  &-title {
-    width: 270px !important;
-    div:first-child {
-      width: 230px !important;
-    }
-  }
   &:first-child {
     div[contenteditable] {
       vertical-align: middle;
@@ -32,12 +13,13 @@ tr {
   }
   div[contenteditable] {
     cursor: text;
-    white-space: nowrap;
-    overflow: hidden;
-    &:focus, &:hover, &:active {
-      outline: 1px dotted $pia-green;
+    &:focus,
+    &:hover,
+    &:active {
+      outline: 1px dotted $pia-red;
     }
-    &:focus, &:active {
+    &:focus,
+    &:active {
       background-color: #fff;
     }
   }
@@ -46,12 +28,20 @@ tr {
   }
   &-actions {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
     a {
-      color: $pia-green;
+      color: $pia-red;
       font-size: 1.8rem;
-      margin: 0 4px;
+      margin: 0 10px 0 0;
+      text-decoration: none;
       width: 18px;
+    }
+    span {
+      background-color: $pia-red;
     }
   }
   &-attachment {
@@ -84,7 +74,9 @@ tr {
         }
       }
     }
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       ul {
         display: block;
       }

@@ -4,7 +4,8 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { ModalsService } from 'src/app/services/modals.service';
 
 @Component({
-  selector: 'app-archive-line',
+  // tslint:disable-next-line: component-selector
+  selector: '[app-archive-line]',
   templateUrl: './archive-line.component.html',
   styleUrls: ['./archive-line.component.scss']
 })
