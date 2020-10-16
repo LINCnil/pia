@@ -5,6 +5,9 @@
         <ng-container *ngIf="type_entries === 'pia'">
           {{ 'header.current_pias' | translate }}
         </ng-container>
+        <ng-container *ngIf="type_entries === 'structure'">
+          {{ 'header.structures' | translate }}
+        </ng-container>
         <ng-container *ngIf="type_entries === 'archive'">
           {{ 'header.archives' | translate }}
         </ng-container>
@@ -23,10 +26,10 @@
             <i class="fa fa-list" aria-hidden="true"></i>
             <div>{{ 'homepage.filters.list' | translate }}</div>
           </button>
-          <ng-container  *ngIf="type_entries === 'pia'">
+          <ng-container  *ngIf="type_entries === 'pia' || type_entries === 'structure'">
             <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
               <button type="button" class="btn btn-green" (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
-              <button type="button" (click)="importPia()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
+              <button type="button" (click)="import()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
             </div>
             <div class="pia-filtersBlock-hint"
               *ngIf="viewStyle.view === 'list'
@@ -37,9 +40,9 @@
               </div>
             </div>
             <div class="hide">
-              <form enctype="multipart/form-data" [formGroup]="importPiaForm">
+              <form enctype="multipart/form-data" [formGroup]="importForm">
                 <input type="file" formControlName="import_file" id="import_file"
-                (change)="importPia($event)" class="hide">
+                (change)="import($event)" class="hide">
               </form>
               <a href="" id="pia-exportBlock"></a>
             </div>
@@ -98,42 +101,79 @@
       class="small-12 medium-12 columns">
 
       <!-- New PIA -->
-      <div class="pia-cardsBlock pia-newBlock" id="cardsSwitch" *ngIf="type_entries === 'pia'">
+      <div *ngIf="type_entries === 'pia' || type_entries === 'structure'"
+        class="pia-cardsBlock pia-newBlock" id="cardsSwitch" >
         <div class="pia-newBlock-item front" id="pia-new-card">
           <div class="pia-newBlock-item-new">
-            <div class="pia-newBlock-item-new-title">{{ 'homepage.cards.new_pia' | translate }}</div>
+            <div class="pia-newBlock-item-new-title">
+
+              <ng-container *ngIf="type_entries === 'pia'">
+                {{ 'homepage.cards.new_pia' | translate }}
+              </ng-container>
+              <ng-container *ngIf="type_entries === 'structure'">
+                {{ 'homepage.cards.new_structure' | translate }}
+              </ng-container>
+
+            </div>
             <div class="pia-newBlock-item-new-btn">
               <i class="fa fa-folder-open" aria-hidden="true"></i>
               <button
                 class="btn"
-                (click)="newPIA()"
+                (click)="open()"
                 type="button"
-                title="{{ 'homepage.cards.placeholder_new_pia' | translate }}">
+                title="{{ (type_entries === 'pia') ? 'homepage.cards.placeholder_new_pia' : 'homepage.cards.new_structure' | translate }}">
                 <span class="pia-icons pia-icon-pia-plus"></span>
               </button>
             </div>
           </div>
           <span>{{ 'homepage.cards.or' | translate }}</span>
           <div class="pia-newBlock-item-import">
-            <div class="pia-newBlock-item-import-title">{{ 'homepage.cards.import_pia' | translate }}</div>
+            <div class="pia-newBlock-item-import-title">
+
+              <ng-container *ngIf="type_entries === 'pia'">
+                {{ 'homepage.cards.import_pia' | translate }}
+              </ng-container>
+              <ng-container *ngIf="type_entries === 'structure'">
+                {{ 'homepage.cards.import_structure' | translate }}
+              </ng-container>
+
+            </div>
             <div class="pia-newBlock-item-import-btn">
               <i class="fa fa-upload" aria-hidden="true"></i>
-              <button class="btn" (click)="importPia()" type="button" title="{{ 'homepage.cards.placeholder_import_pia' | translate }}">
-                  <span class="pia-icons pia-icon-pia-plus"></span>
+              <button class="btn"
+                (click)="import()" type="button"
+                title="{{ (type_entries === 'pia') ? 'homepage.cards.placeholder_import_pia' : 'homepage.cards.import_structure' | translate }}">
+                <span class="pia-icons pia-icon-pia-plus"></span>
               </button>
             </div>
           </div>
         </div>
         <div class="pia-cardsBlock pia-editBlock back">
           <div class="pia-cardsBlock-item pia-editBlock-item">
-            <button class="btn" (click)="reversePIA()" type="button"
+            <button class="btn" (click)="reverse()" type="button"
               title="{{ 'homepage.cards.title_close_creation' | translate }}">
               <span class="pia-icons pia-icon-close"></span>
             </button>
-            <app-new-pia (submit)="onPiaSubmited($event)"></app-new-pia>
+
+            <ng-container [ngSwitch]="type_entries">
+              <ng-container *ngSwitchCase="'pia'">
+                <app-new-pia
+                  (submit)="onFormSubmited($event)">
+                </app-new-pia>
+              </ng-container>
+              <ng-container *ngSwitchCase="'structure'">
+                <app-new-structure
+                  (submit)="onFormSubmited($event)">
+                </app-new-structure>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+              </ng-container>
+            </ng-container>
+
           </div>
         </div>
       </div>
+      <!-- END New PIA -->
 
       <!-- PIA, ARCHIVE Cards switch -->
       <ng-container [ngSwitch]="type_entries">

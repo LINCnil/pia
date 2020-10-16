@@ -19,9 +19,7 @@ import { StructureService } from 'src/app/services/structure.service';
 })
 export class EntriesComponent implements OnInit, OnDestroy {
   @Input() pia: any;
-  newPia: Pia;
-  piaForm: FormGroup;
-  importPiaForm: FormGroup;
+  importForm: FormGroup;
   sortOrder: string;
   sortValue: string;
   viewStyle: { view: string } = { view: 'card'};
@@ -49,7 +47,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
         case '/entries/structure':
           this.type_entries = 'structure';
           break;
-        case '/entries/pia':
+        case '/entries':
           this.type_entries = 'pia';
           break;
         default:
@@ -81,7 +79,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
     }
 
     // INIT IMPORT FORM
-    this.importPiaForm = new FormGroup({
+    this.importForm = new FormGroup({
       import_file: new FormControl('', [])
     });
   }
@@ -200,48 +198,25 @@ export class EntriesComponent implements OnInit, OnDestroy {
     /**
      * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
      */
-    newPIA(): void {
-      this.newPia = new Pia();
-      const cardsToSwitch = document.getElementById('cardsSwitch');
-      cardsToSwitch.classList.toggle('flipped');
-      const rocketToHide = document.getElementById('pia-rocket');
-      if (rocketToHide) {
-        rocketToHide.style.display = 'none';
-      }
-    }
-
-    /**
-     * Inverse the order of the list.
-     */
-    reversePIA(): void {
-      const cardsToSwitchReverse = document.getElementById('cardsSwitch');
-      cardsToSwitchReverse.classList.remove('flipped');
-    }
 
     /**
      * Import a new PIA.
      * @param [event] - Any Event.
      */
-    importPia(event?: any): void {
+    import(event?: any): void {
       if (event) {
-        this.piaService.import(event.target.files[0]);
+        if (this.type_entries === 'pia') {
+          this.piaService.import(event.target.files[0]);
+        }
+        if (this.type_entries === 'structure') {
+          this.structureService.importStructure(event.target.files[0]);
+        }
       } else {
         this.el.nativeElement.querySelector('#import_file').click();
       }
     }
 
-    /**
-     * Go to the new entry route
-     * @param id id
-     */
-    onPiaSubmited(id): void {
-      this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
-    }
-
   // END ONLY FOR PIA FORMS
-
-
-
 
 
   // ONLY FOR STRUCTURE FORMS
@@ -262,7 +237,32 @@ export class EntriesComponent implements OnInit, OnDestroy {
     }
   // END ONLY FOR STRUCTURE FORMS
 
+  open(): void {
+    const cardsToSwitch = document.getElementById('cardsSwitch');
+    cardsToSwitch.classList.toggle('flipped');
+    const rocketToHide = document.getElementById('pia-rocket');
+    if (rocketToHide) {
+      rocketToHide.style.display = 'none';
+    }
+  }
 
+  /**
+   * Inverse the order of the list.
+   */
+  reverse(): void {
+    const cardsToSwitchReverse = document.getElementById('cardsSwitch');
+    cardsToSwitchReverse.classList.remove('flipped');
+  }
+
+  /**
+   * Go to the new entry route
+   * @param id id
+   */
+  onFormSubmited(id): void {
+    this.refreshContent();
+    // TODO: entry module
+    // this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
+  }
 
   /**
    * Define how to sort the list.
