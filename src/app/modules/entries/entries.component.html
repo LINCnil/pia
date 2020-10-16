@@ -31,8 +31,29 @@
           </button>
           <ng-container  *ngIf="type_entries === 'pia' || type_entries === 'structure'">
             <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
-              <button type="button" class="btn btn-green" (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.filters.new_pia' | translate }}</button>
-              <button type="button" (click)="import()" class="btn btn-green"><i class="fa fa-upload" aria-hidden="true"></i>{{ 'homepage.filters.import_pia' | translate }}</button>
+              <button type="button" class="btn btn-green" (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>
+                <ng-container *ngIf="type_entries === 'pia'">
+                  {{ 'homepage.cards.new_pia' | translate }}
+                </ng-container>
+                <ng-container *ngIf="type_entries === 'structure'">
+                  {{ 'homepage.cards.new_structure' | translate }}
+                </ng-container>
+                <ng-container *ngIf="type_entries === 'knowledgeBase'">
+                  {{ 'homepage.cards.knowledges.new' | translate }}
+                </ng-container>
+              </button>
+              <button type="button" (click)="import()" class="btn btn-green">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                <ng-container *ngIf="type_entries === 'pia'">
+                  {{ 'homepage.cards.import_pia' | translate }}
+                </ng-container>
+                <ng-container *ngIf="type_entries === 'structure'">
+                  {{ 'homepage.cards.import_structure' | translate }}
+                </ng-container>
+                <ng-container *ngIf="type_entries === 'knowledgeBase'">
+                  {{ 'homepage.cards.knowledges.import' | translate }}
+                </ng-container>
+              </button>
             </div>
             <div class="pia-filtersBlock-hint"
               *ngIf="viewStyle.view === 'list'
@@ -286,18 +307,6 @@
                   ></i>
                 </a>
               </th>
-              <!-- <th>
-                <a (click)="sortBy('created_at')">
-                  <span>{{ 'homepage.lists.column_creation' | translate }}</span>
-                  <i *ngIf="sortValue === 'created_at'" class="fa fa-caret-{{sortOrder}}"></i>
-                </a>
-              </th> -->
-              <!-- <th>
-                <a (click)="sortBy('status')">
-                  <span>{{ 'homepage.lists.column_status' | translate }}</span>
-                  <i *ngIf="sortValue === 'status'" class="fa fa-caret-{{sortOrder}}"></i>
-                </a>
-              </th> -->
               <th>
                 <a (click)="sortBy('progress')">
                   <span>{{ 'homepage.lists.column_status' | translate }}</span>
