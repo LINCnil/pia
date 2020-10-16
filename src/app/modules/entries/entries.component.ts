@@ -178,7 +178,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
 
   // ONLY FOR PIA FORMS (create, edit)
-
     /**
      * On PIA change.
      * @param pia - Any PIA.
@@ -194,28 +193,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
         this.entries.push(pia);
       }
     }
-
-    /**
-     * Creates a new PIA card and adds a flip effect to go switch between new PIA and edit PIA events.
-     */
-
-    /**
-     * Import a new PIA.
-     * @param [event] - Any Event.
-     */
-    import(event?: any): void {
-      if (event) {
-        if (this.type_entries === 'pia') {
-          this.piaService.import(event.target.files[0]);
-        }
-        if (this.type_entries === 'structure') {
-          this.structureService.importStructure(event.target.files[0]);
-        }
-      } else {
-        this.el.nativeElement.querySelector('#import_file').click();
-      }
-    }
-
   // END ONLY FOR PIA FORMS
 
 
@@ -262,6 +239,23 @@ export class EntriesComponent implements OnInit, OnDestroy {
     this.refreshContent();
     // TODO: entry module
     // this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
+  }
+
+  /**
+   * Import a new PIA.
+   * @param [event] - Any Event.
+   */
+  import(event?: any): void {
+    if (event) {
+      if (this.type_entries === 'pia') {
+        this.piaService.import(event.target.files[0]);
+      }
+      if (this.type_entries === 'structure') {
+        this.structureService.importStructure(event.target.files[0]);
+      }
+    } else {
+      this.el.nativeElement.querySelector('#import_file').click();
+    }
   }
 
   /**
