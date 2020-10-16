@@ -8,6 +8,8 @@ import { IntrojsService } from 'src/app/services/introjs.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Structure } from 'src/app/models/structure.model';
+import { StructureService } from 'src/app/services/structure.service';
 
 
 @Component({
@@ -36,9 +38,24 @@ export class EntriesComponent implements OnInit, OnDestroy {
     private el: ElementRef,
     public modalsService: ModalsService,
     public archiveService: ArchiveService,
+    public structureService: StructureService,
     public piaService: PiaService) {
+
       // get entries type (pia or archive)
-      this.type_entries = (this.router.url === '/entries/archive') ? 'archive' : 'pia';
+      switch (this.router.url) {
+        case '/entries/archive':
+          this.type_entries = 'archive';
+          break;
+        case '/entries/structure':
+          this.type_entries = 'structure';
+          break;
+        case '/entries/pia':
+          this.type_entries = 'pia';
+          break;
+        default:
+          break;
+      }
+
     }
 
   ngOnInit(): void {
@@ -133,6 +150,20 @@ export class EntriesComponent implements OnInit, OnDestroy {
             this.entries.forEach(entrie => this.archiveService.calculPiaProgress(entrie));
           });
           break;
+        case 'structure':
+          const structure = new Structure();
+          let data;
+          structure.getAll()
+            .then((response) => {
+              data = response;
+              this.structureService
+                .loadExample()
+                .then((structureExample: Structure) => {
+                  data.push(structureExample);
+                });
+              this.entries = data;
+            });
+          break;
         default:
           break;
       }
@@ -143,6 +174,10 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
     }, 200);
   }
+
+
+
+
 
   // ONLY FOR PIA FORMS (create, edit)
 
@@ -204,6 +239,30 @@ export class EntriesComponent implements OnInit, OnDestroy {
     }
 
   // END ONLY FOR PIA FORMS
+
+
+
+
+
+  // ONLY FOR STRUCTURE FORMS
+    /**
+     * On structure change.
+     * @param structure - Any Structure.
+     */
+    structChange(structure): void {
+      if (this.entries.includes(structure)) {
+        this.entries.forEach(struct => {
+          if (struct.id === structure.id) {
+            struct = structure;
+          }
+        });
+      } else {
+        this.entries.push(structure);
+      }
+    }
+  // END ONLY FOR STRUCTURE FORMS
+
+
 
   /**
    * Define how to sort the list.

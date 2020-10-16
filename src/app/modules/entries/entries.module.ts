@@ -14,6 +14,7 @@ import { PiaLineComponent } from './list/pia-line/pia-line.component';
 import { ArchiveService } from 'src/app/services/archive.service';
 import { ArchiveCardComponent } from './cards/archive-card/archive-card.component';
 import { ArchiveLineComponent } from './list/archive-line/archive-line.component';
+import { StructureCardComponent } from './cards/structure-card/structure-card.component';
 
 
 
@@ -24,7 +25,8 @@ import { ArchiveLineComponent } from './list/archive-line/archive-line.component
     PiaCardComponent,
     PiaLineComponent,
     ArchiveCardComponent,
-    ArchiveLineComponent
+    ArchiveLineComponent,
+    StructureCardComponent
   ],
   imports: [
     SharedModule,

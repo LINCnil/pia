@@ -147,9 +147,18 @@
         </ng-container>
         <ng-container *ngSwitchCase="'archive'">
           <app-archive-card
-            *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index" [archivedPia]="archivedPia"
+            *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index"
+            [archivedPia]="archivedPia"
             [previousArchivedPia]="i > 0 ? entries[i-1] : null">
           </app-archive-card>
+        </ng-container>
+        <ng-container *ngSwitchCase="'structure'">
+          <app-structure-card
+            *ngFor="let structure of entries | filterForUser : searchText; let i=index"
+              (structEvent)="structChange($event)"
+              [structure]="structure"
+              [previousStructure]="i > 0 ? entries[i-1] : null">
+          </app-structure-card>
         </ng-container>
         <ng-container *ngSwitchDefault>
 
