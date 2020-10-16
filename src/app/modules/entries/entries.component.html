@@ -200,6 +200,12 @@
               [previousStructure]="i > 0 ? entries[i-1] : null">
           </app-structure-card>
         </ng-container>
+        <ng-container *ngSwitchCase="'knowledgeBase'">
+          <app-knowledgebase-card
+            *ngFor="let base of entries | filterForUser : searchText; let i=index"
+            [base]="base">
+          </app-knowledgebase-card>
+        </ng-container>
         <ng-container *ngSwitchDefault>
 
         </ng-container>

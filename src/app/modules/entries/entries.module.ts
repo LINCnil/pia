@@ -16,6 +16,7 @@ import { ArchiveCardComponent } from './cards/archive-card/archive-card.componen
 import { ArchiveLineComponent } from './list/archive-line/archive-line.component';
 import { StructureCardComponent } from './cards/structure-card/structure-card.component';
 import { NewStructureComponent } from './forms/new-structure/new-structure.component';
+import { KnowledgebaseCardComponent } from './cards/knowledgebase-card/knowledgebase-card.component';
 
 
 
@@ -28,7 +29,8 @@ import { NewStructureComponent } from './forms/new-structure/new-structure.compo
     ArchiveCardComponent,
     ArchiveLineComponent,
     StructureCardComponent,
-    NewStructureComponent
+    NewStructureComponent,
+    KnowledgebaseCardComponent
   ],
   imports: [
     SharedModule,

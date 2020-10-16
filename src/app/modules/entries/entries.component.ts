@@ -10,6 +10,8 @@ import { PiaService } from 'src/app/services/pia.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
+import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
+import { KnowledgesService } from 'src/app/services/knowledges.service';
 
 
 @Component({
@@ -37,6 +39,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
     public modalsService: ModalsService,
     public archiveService: ArchiveService,
     public structureService: StructureService,
+    private knowledgesService: KnowledgesService,
     public piaService: PiaService) {
 
       // get entries type (pia or archive)
@@ -46,6 +49,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
           break;
         case '/entries/structure':
           this.type_entries = 'structure';
+          break;
+        case '/entries/knowledgebase':
+          this.type_entries = 'knowledgeBase';
           break;
         case '/entries':
           this.type_entries = 'pia';
@@ -67,9 +73,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
       localStorage.setItem('sortOrder', this.sortOrder);
       localStorage.setItem('sortValue', this.sortValue);
     }
-
-    // INIT CONTENT
-    this.refreshContent();
 
     // PREPARE VIEW MODE
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
@@ -161,6 +164,13 @@ export class EntriesComponent implements OnInit, OnDestroy {
                 });
               this.entries = data;
             });
+          break;
+        case 'knowledgeBase':
+          this.knowledgesService.getAll()
+          .then((result: any) => {
+              console.log(result);
+              this.entries = result;
+          });
           break;
         default:
           break;

@@ -17,8 +17,7 @@ export class KnowledgesService {
   public getAll() {
     let kbTemp = new KnowledgeBase();
     return new Promise((resolve, reject) => {
-      kbTemp
-        .findAll()
+      kbTemp.findAll()
         .then((response: any) => {
           let result: KnowledgeBase[] = [];
           response.forEach(e => {
@@ -36,7 +35,7 @@ export class KnowledgesService {
           this.list.push(cnilKnowledgeBase);
           this.list = this.list.concat(result);
 
-          resolve(result);
+          resolve(this.list);
         })
         .catch(error => {
           reject(error);

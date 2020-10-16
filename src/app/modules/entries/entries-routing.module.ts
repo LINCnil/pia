@@ -7,6 +7,7 @@ import { EntriesComponent } from './entries.component';
     { path: 'entries', component: EntriesComponent },
     { path: 'entries/archive', component: EntriesComponent },
     { path: 'entries/structure', component: EntriesComponent },
+    { path: 'entries/knowledgebase', component: EntriesComponent },
   ])],
   exports: [RouterModule]
 })
