@@ -1,0 +1,154 @@
+<div class="container pia-mainContainerBlock pia-knowledges_base">
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <div class="pia-breadcrumb"><a routerLink="/knowledges">{{ 'header.knowledge_base_link' | translate }}</a><strong> > {{base.name}}</strong></div>
+      <div class="pia-filtersBlock">
+
+        <div class="small-12 medium-9 columns pia-sectionBlock-header">
+          <h1 class="truncate" title="{{base.name}}">{{ base.name }}</h1>
+          <a class="pia-icons pia-icon-close-big" routerLink="/knowledges" title="{{ 'summary.previous_page' | translate }}"></a>
+        </div>
+
+        <div class="pia-filtersBlock-left">
+          <div class="pia-filtersBlock-buttons">
+            <button *ngIf="!base.is_example" type="button" class="btn btn-red" (click)="showForm = true;  editMode = 'new'; entryForm.reset(); selectedKnowledgeId = null; itemsSelected = []">
+              <i class="fa fa-folder-open" aria-hidden="true"></i>{{ 'homepage.cards.knowledges_entry.new' | translate }}
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-9 medium-9 columns">
+      <table class="pia-list-table">
+        <thead>
+          <tr>
+            <th style="width:75px;" *ngIf="!base.is_example"></th>
+            <th colspan="2">
+              <a><span>{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}</span></a>
+            </th>
+            <th style="width:260px;">
+              <a><span>{{ 'homepage.cards.knowledges_entry.placeholder_category' | translate }}</span></a>
+            </th>
+            <th style="width:130px;text-align:center;">
+              <a><span>{{ 'homepage.cards.knowledges_entry.placeholder_updated_at' | translate }}</span></a>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="knowledges && knowledges.length > 0">
+          <tr *ngFor="let item of knowledges" [ngClass]="{'noElementsDisplaying': showForm}">
+            <td class="pia-listsBlock-item"  *ngIf="!base.is_example">
+              <a href="javascript:;" (click)="duplicateEntry(item.id)" class="btn pia-tooltip">
+                <i class="fa fa-files-o" aria-hidden="true"></i>
+                <span title="{{ 'homepage.cards.item.tools.duplicate' | translate }}" class="pia-tooltip-text">
+                    {{ 'homepage.cards.item.tools.duplicate' | translate }}
+                </span>
+              </a>
+              <a (click)="deleteModal(item.id)" class="btn pia-tooltip">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                <span title="{{ 'homepage.cards.item.tools.remove' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
+              </a>
+            </td>
+            <td class="pia-listsBlock-item-click" (click)="editEntry(item.id)" colspan="2">
+              <ng-container *ngIf="!base.is_example;else elseblock">{{item.name}}</ng-container>
+              <ng-template #elseblock>
+                {{item.name | translate }}
+              </ng-template>
+            </td>
+            <td class="pia-listsBlock-item-click" (click)="editEntry(item.id)">{{item.category  | translate}}</td>
+            <td class="pia-listsBlock-item-click" (click)="editEntry(item.id)" style="text-align:center;">{{item.updated_at  | date: "shortDate":"":languagesService.selectedLanguage}}</td>
+            <!-- Display element data block in absolute -->
+            <td class="pia-knowledges_base-displayData">
+              <h3>{{ 'homepage.cards.knowledges_entry.contents' | translate }}</h3>
+              <div class="pia-knowledges_base-displayData-category">{{item.category  | translate}}</div>
+              <div class="pia-knowledges_base-displayData-name">
+                <ng-container *ngIf="!base.is_example;else elseblock2">{{item.name}}</ng-container>
+                <ng-template #elseblock2>
+                  {{item.name | translate }}
+                </ng-template>
+              </div>
+              <div class="pia-knowledges_base-displayData-description">
+                <ng-container *ngIf="!base.is_example;else elseblock3">
+                  <div [innerHTML]="item.description"></div>
+                </ng-container>
+                <ng-template #elseblock3>
+                  <div [innerHTML]="item.description | translate"></div>
+                </ng-template>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- NEW ENTRY FORM -->
+    <div class="small-3 medium-3 columns">
+      <form (ngSubmit)="onSubmit()" [formGroup]="entryForm" class="pia-knowledges_base-form" *ngIf="showForm">
+        <button (click)="closeNewElementForm()" class="pia-knowledges_base-form-close" type="button">
+          <span class="pia-icons pia-icon-close"></span>
+        </button>
+        <h3>{{ 'homepage.cards.knowledges_entry.contents' | translate }}</h3>
+        <div>
+          <div class="pia-elementCategory-wrapper">
+            <select name="category" formControlName="category" (change)="checkLockedChoice(); focusOut()" required>
+              <option value="null" disabled>{{ 'homepage.cards.knowledges_entry.choose_category' | translate }}</option>
+              <option value="{{category}}" *ngFor="let category of categories">{{category  | translate }}</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <input (focusout)="focusOut()" formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_name' | translate }}" name="name"  required>
+        </div>
+        <div>
+          <textarea (focusout)="focusOut()" formControlName="description"
+          type="text"
+          placeholder="{{ 'homepage.cards.knowledges_entry.placeholder_description' | translate }}"
+          name="description" required></textarea>
+        </div>
+
+
+        <!-- Navigation associations (checkboxes) -->
+        <h3>{{ 'homepage.cards.knowledges_entry.linked_to' | translate }}</h3>
+        <div class="pia-knowledges_base-form-checkboxes" *ngIf="data && data.sections.length > 0">
+          <div class="pia-knowledges_base-form-checkboxes-title" *ngIf="!this.lockedChoice">
+            <input id="select_all_sections" name="select_all_sections" type="checkbox" [disabled]="lockedChoice" (click)="globalCheckingAllElementInDataSection($event)" [checked]="allSectionCheckedVerification(data?.sections)">
+            <label for="select_all_sections">{{ 'homepage.cards.knowledges_entry.all_sections' | translate }}</label>
+          </div>
+          <div class="pia-knowledges_base-form-checkboxes-body">
+            <div *ngFor="let dataSection of data?.sections">
+              <div class="pia-knowledges_base-form-checkboxes-title">
+                <input id="{{dataSection.title}}" name="{{dataSection.title}}" type="checkbox" [disabled]="lockedChoice" (click)="globalCheckingElementInDataSection(dataSection, $event)" [checked]="sectionCheckedVerification(dataSection)">
+                <label for="{{dataSection.title}}">{{ dataSection.title | translate }}</label>
+              </div>
+              <ul class="pia-knowledges_base-form-checkboxes-list">
+                <ng-container *ngFor="let dataItem of dataSection?.items">
+                  <li>
+                    <label for="{{dataItem.title}}">
+                      <input [checked]="itemsSelected.includes(dataSection.id.toString() + dataItem.id.toString())"
+                        (change)="onCheckboxChange($event)" type="checkbox"
+                        name="{{dataItem.title}}" id="{{dataItem.title}}"
+                        value="{{dataSection.id.toString() + dataItem.id.toString()}}" [disabled]="(lockedChoice && dataSection.id.toString() + dataItem.id.toString() !== '31') || (!lockedChoice && dataSection.id.toString() + dataItem.id.toString() === '31' && entryForm.value.category !== 'knowledge_base.category.definition')">
+                      <span title="{{ dataItem.title | translate }}" class="truncate">{{ dataItem.title | translate }}</span>
+                    </label>
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit button (new element) -->
+        <div *ngIf="editMode === 'new'">
+          <button type="submit" [disabled]="entryForm.invalid" class="btn btn-red" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">
+            {{ 'homepage.cards.knowledges_entry.create' | translate }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-modals (continueEvent)="deleteEntry()"></app-modals>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './modules/home/home.module';
 import { EntriesModule } from './modules/entries/entries.module';
+import { BaseModule } from './modules/base/base.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { EntriesModule } from './modules/entries/entries.module';
     BrowserModule,
     HomeModule,
     EntriesModule,
+    BaseModule,
     AppRoutingModule
   ],
   providers: [],
