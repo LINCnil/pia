@@ -58,6 +58,7 @@ export class BaseComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
+    this.appDataService.entrieMode = 'knowledgeBase';
     const sectionId = parseInt(this.route.snapshot.params.id, 10);
     this.knowledgesService.selected = sectionId;
     if (sectionId) {
