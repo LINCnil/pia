@@ -1,4 +1,8 @@
-<div class="container pia-mainContainerBlock">
+<div class="container pia-mainContainerBlock" [ngClass]="{
+  'pia-mainContainerBlock-structures' : appDataService.entrieMode === 'structure',
+  'pia-mainContainerBlock-archives' :  appDataService.entrieMode === 'archive',
+  'pia-mainContainerBlock-knowledges' :  appDataService.entrieMode === 'knowledgeBase'
+  }">
   <div class="row">
     <div class="pia-breadcrumb">
       <strong>{{ 'header.homepage_link' | translate }} >
@@ -31,7 +35,9 @@
           </button>
           <ng-container  *ngIf="type_entries === 'pia' || type_entries === 'structure' || type_entries === 'knowledgeBase'">
             <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
-              <button type="button" class="btn btn-green" (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>
+              <button type="button" class="btn"
+                [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'btn-red' : 'btn-green'"
+                (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>
                 <ng-container *ngIf="type_entries === 'pia'">
                   {{ 'homepage.cards.new_pia' | translate }}
                 </ng-container>
@@ -42,7 +48,9 @@
                   {{ 'homepage.cards.knowledges.new' | translate }}
                 </ng-container>
               </button>
-              <button type="button" (click)="import()" class="btn btn-green">
+              <button type="button" class="btn"
+                [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'btn-red' : 'btn-green'"
+                (click)="import()">
                 <i class="fa fa-upload" aria-hidden="true"></i>
                 <ng-container *ngIf="type_entries === 'pia'">
                   {{ 'homepage.cards.import_pia' | translate }}
@@ -149,7 +157,7 @@
                 (click)="open()"
                 type="button"
                 title="{{ (type_entries === 'pia') ? 'homepage.cards.placeholder_new_pia' : 'homepage.cards.new_structure' | translate }}">
-                <span class="pia-icons pia-icon-pia-plus"></span>
+                <span class="pia-icons" [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'pia-icon-pia-plus-red' : 'pia-icon-pia-plus'"></span>
               </button>
             </div>
           </div>
@@ -172,7 +180,7 @@
               <button class="btn"
                 (click)="import()" type="button"
                 title="{{ (type_entries === 'pia') ? 'homepage.cards.placeholder_import_pia' : 'homepage.cards.import_structure' | translate }}">
-                <span class="pia-icons pia-icon-pia-plus"></span>
+                <span class="pia-icons" [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'pia-icon-pia-plus-red' : 'pia-icon-pia-plus'"></span>
               </button>
             </div>
           </div>

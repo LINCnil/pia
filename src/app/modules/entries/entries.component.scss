@@ -403,3 +403,44 @@
     outline: 1px dotted $pia-green;
   }
 }
+
+
+/* UPDATE */
+.pia-mainContainerBlock {
+  // default
+
+
+  // modes
+  &-structure {
+
+  }
+  &-archive {
+
+  }
+  &-knowledges {
+    .pia-newBlock-item-new-btn, .pia-newBlock-item-new-title,
+    .pia-newBlock-item-import-btn, .pia-newBlock-item-import-title, .pia-icon-pia-plus, .pia-filtersBlock-switch {
+      color: $pia-red !important;
+    }
+    .pia-filtersBlock-switch {
+      border: 1px solid $pia-red !important;
+    }
+
+    .pia-searchInput {
+      input.btn.btn-search  {
+        border: 1px solid $pia-red;
+        color: $pia-red;
+        &::placeholder {
+          color: $pia-red;
+        }
+        &:focus, &.typed {
+          border: 1px solid $pia-red;
+          color: $pia-red;
+        }
+      }
+      .search-icon {
+        color: $pia-red;
+      }
+    }
+  }
+}
