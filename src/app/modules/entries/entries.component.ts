@@ -7,10 +7,8 @@ import { ArchiveService } from 'src/app/services/archive.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
-import { TranslateService } from '@ngx-translate/core';
 import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
-import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 
@@ -143,14 +141,14 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
       switch (this.type_entries) {
         case 'pia':
-          pia.getAllActives().then((data: Array<Pia>) => {
-            this.entries = data;
+          pia.getAllActives().then((entries: Array<Pia>) => {
+            this.entries = entries;
             this.entries.forEach(entrie => this.piaService.calculPiaProgress(entrie));
           });
           break;
         case 'archive':
-          pia.getAllArchives().then((data: Array<Pia>) => {
-            this.entries = data;
+          pia.getAllArchives().then((entries: Array<Pia>) => {
+            this.entries = entries;
             this.entries.forEach(entrie => this.archiveService.calculPiaProgress(entrie));
           });
           break;
