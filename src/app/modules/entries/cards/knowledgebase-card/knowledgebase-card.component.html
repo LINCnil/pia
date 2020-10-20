@@ -64,7 +64,7 @@
           </div>
 
           <div class="pia-cardsBlock-item-btn">
-              <a routerLink="/knowledges/base/{{base.id}}" class="btn btn-red">
+              <a [routerLink]="['/base', base.id]" class="btn btn-red">
                 <ng-container *ngIf="!base.is_example;else elseblock">
                   {{ 'homepage.cards.knowledges.edit' | translate }}
                 </ng-container>

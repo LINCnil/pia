@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BaseRoutingModule } from './modules/base/base-routing.module';
+import { EntriesRoutingModule } from './modules/entries/entries-routing.module';
 import { EntriesComponent } from './modules/entries/entries.component';
-import { EntriesModule } from './modules/entries/entries.module';
 import { HomeRoutingModule } from './modules/home/home-routing.module';
 import { HomeComponent } from './modules/home/home.component';
 
@@ -19,7 +20,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     HomeRoutingModule,
-    EntriesModule,
+    EntriesRoutingModule,
+    BaseRoutingModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
