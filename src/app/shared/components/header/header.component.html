@@ -11,7 +11,11 @@
       </div>
     </div>
   </div>
-  <nav class="pia-navigationBlock" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader, 'pia-navigationBlock-archives' : isArchiveHeader, 'pia-navigationBlock-knowledges' : isKnowledgeHeader}">
+  <nav class="pia-navigationBlock" [ngClass]="{
+    'pia-navigationBlock-structures' : appDataService.entrieMode === 'structure',
+    'pia-navigationBlock-archives' :  appDataService.entrieMode === 'archive',
+    'pia-navigationBlock-knowledges' :  appDataService.entrieMode === 'knowledgeBase'
+  }">
     <div class="container">
       <div class="row">
         <div class="small-12 medium-12 columns">
@@ -26,10 +30,10 @@
                 <li><a [routerLink]="['entries', 'archive']">{{ 'header.archives' | translate }}</a></li>
               </ul>
             </li>
-            <li class="pia-navigationBlock-noSub" [ngClass]="{'pia-navigationBlock-structures' : isStructureHeader}">
+            <li class="pia-navigationBlock-noSub" [ngClass]="{'pia-navigationBlock-structures' : appDataService.entrieMode === 'structure'}">
               <a style="text-transform:uppercase;" [routerLink]="['entries', 'structure']">{{ 'header.structures' | translate }}</a>
             </li>
-            <li class="pia-navigationBlock-noSub" [ngClass]="{'pia-navigationBlock-knowledges' : isKnowledgeHeader}">
+            <li class="pia-navigationBlock-noSub" [ngClass]="{'pia-navigationBlock-knowledges' : appDataService.entrieMode === 'knowledgeBase'}">
               <a style="text-transform:uppercase;" [routerLink]="['entries', 'knowledgebase']">{{ 'header.knowledge_base_link' | translate }}</a>
             </li>
           </ul>

@@ -8,6 +8,7 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { Renderer2 } from '@angular/core';
 import { Pia } from 'src/app/models/pia.model';
+import { AppDataService } from 'src/app/services/app-data.service';
 
 @Component({
   selector: 'app-header',
@@ -28,7 +29,8 @@ export class HeaderComponent implements OnInit {
     public router: Router,
     private introjsService: IntrojsService,
     public translateService: TranslateService,
-    public languagesService: LanguagesService) { }
+    public languagesService: LanguagesService,
+    public appDataService: AppDataService) { }
 
   ngOnInit(): void {
     const displayMessage = document.querySelector('.pia-closeFullScreenModeAlertBlock');

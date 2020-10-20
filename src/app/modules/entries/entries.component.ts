@@ -12,6 +12,7 @@ import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
+import { AppDataService } from 'src/app/services/app-data.service';
 
 
 @Component({
@@ -40,7 +41,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
     public archiveService: ArchiveService,
     public structureService: StructureService,
     private knowledgesService: KnowledgesService,
-    public piaService: PiaService) {
+    public piaService: PiaService,
+    public appDataService: AppDataService) {
 
       // get entries type (pia or archive)
       switch (this.router.url) {
@@ -60,6 +62,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
           break;
       }
 
+      this.appDataService.entrieMode = this.type_entries;
     }
 
   ngOnInit(): void {

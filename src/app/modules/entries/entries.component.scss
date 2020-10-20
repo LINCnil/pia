@@ -403,3 +403,27 @@
     outline: 1px dotted $pia-green;
   }
 }
+
+
+/* UPDATE */
+.pia-mainContainerBlock {
+  // default
+
+
+  // modes
+  &-structure {
+
+  }
+  &-archive {
+
+  }
+  &-knowledges {
+    .pia-newBlock-item-new-btn, .pia-newBlock-item-new-title,
+    .pia-newBlock-item-import-btn, .pia-newBlock-item-import-title, .pia-icon-pia-plus, .pia-filtersBlock-switch {
+      color: #FD4664 !important;
+    }
+    .pia-filtersBlock-switch {
+      border: 1px solid #FD4664 !important;
+    }
+  }
+}

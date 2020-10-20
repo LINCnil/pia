@@ -1,4 +1,8 @@
-<div class="container pia-mainContainerBlock">
+<div class="container pia-mainContainerBlock" [ngClass]="{
+  'pia-mainContainerBlock-structures' : appDataService.entrieMode === 'structure',
+  'pia-mainContainerBlock-archives' :  appDataService.entrieMode === 'archive',
+  'pia-mainContainerBlock-knowledges' :  appDataService.entrieMode === 'knowledgeBase'
+  }">
   <div class="row">
     <div class="pia-breadcrumb">
       <strong>{{ 'header.homepage_link' | translate }} >
@@ -149,7 +153,7 @@
                 (click)="open()"
                 type="button"
                 title="{{ (type_entries === 'pia') ? 'homepage.cards.placeholder_new_pia' : 'homepage.cards.new_structure' | translate }}">
-                <span class="pia-icons pia-icon-pia-plus"></span>
+                <span class="pia-icons" [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'pia-icon-pia-plus-red' : 'pia-icon-pia-plus'"></span>
               </button>
             </div>
           </div>
@@ -172,7 +176,7 @@
               <button class="btn"
                 (click)="import()" type="button"
                 title="{{ (type_entries === 'pia') ? 'homepage.cards.placeholder_import_pia' : 'homepage.cards.import_structure' | translate }}">
-                <span class="pia-icons pia-icon-pia-plus"></span>
+                <span class="pia-icons" [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'pia-icon-pia-plus-red' : 'pia-icon-pia-plus'"></span>
               </button>
             </div>
           </div>
