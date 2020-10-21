@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { Structure } from 'src/app/models/structure.model';
+import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
@@ -15,15 +16,17 @@ import piakb from 'src/assets/files/pia_knowledge-base.json';
 })
 export class KnowledgebaseLineComponent implements OnInit {
   @Input() base: KnowledgeBase;
-  @Output() changed = new EventEmitter<Structure>();
-  @Output() duplicated = new EventEmitter<Structure>();
+  @Output() changed = new EventEmitter<any>();
+  @Output() duplicated = new EventEmitter<any>();
+  @Output() deleted = new EventEmitter<any>();
   nbEntries = 0;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private modalsService: ModalsService,
-    private knowledgesService: KnowledgesService
+    private knowledgesService: KnowledgesService,
+    private confirmDialogService: ConfirmDialogService
   ) {}
 
   ngOnInit(): void {
@@ -51,8 +54,23 @@ export class KnowledgebaseLineComponent implements OnInit {
 
   remove(id): void {
     this.knowledgesService.selected = id;
-    this.modalsService.openModal('modal-remove-knowledgebase');
-    this.changed.emit();
+    // this.modalsService.openModal('modal-remove-knowledgebase');
+    this.confirmDialogService.confirmThis({
+      text: 'modals.knowledges.content',
+      yes: 'modals.knowledges.remove',
+      no: 'modals.cancel'},
+      () => {
+        this.knowledgesService.removeKnowledgeBase()
+          .then(() => {
+            this.deleted.emit();
+          })
+          .catch(() => {
+            return;
+          });
+      },
+      () => {
+        return;
+      });
   }
 
   export(id): void {

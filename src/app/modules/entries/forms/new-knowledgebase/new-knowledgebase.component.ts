@@ -30,9 +30,10 @@ export class NewKnowledgebaseComponent implements OnInit {
     kb.name = this.knowledgeBaseForm.value.name;
     kb.author = this.knowledgeBaseForm.value.author;
     kb.contributors = this.knowledgeBaseForm.value.contributors;
-    kb.create().then((result: KnowledgeBase) => {
-      this.submit.emit(result.id);
-    });
+    kb.create()
+      .then((result: KnowledgeBase) => {
+        this.submit.emit(result.id);
+      });
   }
 
 }

@@ -63,19 +63,23 @@ export class KnowledgesService {
 
   public removeKnowledgeBase() {
     let kbTemp = new KnowledgeBase();
-    kbTemp
+    return new Promise((resolve, reject) => {
+      kbTemp
       .delete(this.selected)
       .then(() => {
         // removeFrom this.list
         let index = this.list.findIndex(e => e.id === this.selected);
         if (index !== -1) {
           this.list.splice(index, 1);
+          resolve();
           this.mmodalsService.closeModal();
         }
       })
       .catch(error => {
-        console.log(error);
+        reject(true);
       });
+    });
+
   }
 
   /**

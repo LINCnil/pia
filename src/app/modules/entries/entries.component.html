@@ -37,7 +37,7 @@
             <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
               <button type="button" class="btn"
                 [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'btn-red' : 'btn-green'"
-                (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>
+                (click)="showModal = true"><i class="fa fa-folder-open" aria-hidden="true"></i>
                 <ng-container *ngIf="type_entries === 'pia'">
                   {{ 'homepage.cards.new_pia' | translate }}
                 </ng-container>
@@ -249,6 +249,7 @@
             *ngFor="let base of entries | filterForUser : searchText; let i=index"
             (changed)="updateEntrie($event)"
             (duplicated)="refreshContent()"
+            (deleted)="refreshContent()"
             [base]="base">
           </app-knowledgebase-card>
         </ng-container>
@@ -291,7 +292,6 @@
                 <tr app-pia-line
                   class="app-list-item"
                   *ngFor="let pia of entries | filterForUser : searchText; let i=index"
-                  [attr.data-id]="pia.id"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
                   [pia]="pia">
@@ -301,7 +301,6 @@
                 <tr app-archive-line
                   class="app-list-item"
                   *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index"
-                  [attr.data-id]="archivedPia.id"
                   [archivedPia]="archivedPia">
                 </tr>
               </ng-container>
@@ -311,7 +310,6 @@
                   *ngFor="let structure of entries | filterForUser : searchText; let i=index"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
-                  [attr.data-id]="structure.id"
                   [structure]="structure">
               </tr>
               </ng-container>
@@ -321,7 +319,7 @@
                   *ngFor="let base of entries | filterForUser : searchText; let i=index"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
-                  [attr.data-id]="base.id"
+                  (deleted)="refreshContent()"
                   [base]="base">
               </tr>
               </ng-container>
@@ -335,4 +333,28 @@
     </ng-template>
   </div>
 </div>
+
 <app-modals (continueEvent)="refreshContent()"></app-modals>
+<app-modal *ngIf="showModal" specialClass="card" (clickOnClose)="showModal = false">
+  <ng-container [ngSwitch]="type_entries">
+    <ng-container *ngSwitchCase="'pia'">
+      <app-new-pia
+        (submit)="onFormSubmited($event); showModal = false;">
+      </app-new-pia>
+    </ng-container>
+    <ng-container *ngSwitchCase="'structure'">
+      <app-new-structure
+        (submit)="onFormSubmited($event); showModal = false;">
+      </app-new-structure>
+    </ng-container>
+    <ng-container *ngSwitchCase="'knowledgeBase'">
+      <app-new-knowledgebase
+        (submit)="onFormSubmited($event); showModal = false;">
+      </app-new-knowledgebase>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+    </ng-container>
+  </ng-container>
+</app-modal>
+
+<app-confirm-dialog></app-confirm-dialog>
