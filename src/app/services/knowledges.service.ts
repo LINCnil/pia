@@ -7,17 +7,21 @@ import { KnowledgeBase } from '../models/knowledgeBase.model';
 import { ModalsService } from './modals.service';
 import { Knowledge } from '../models/knowledge.model';
 import { TranslateService } from '@ngx-translate/core';
+import { ApplicationDb } from '../application.db';
 @Injectable()
-export class KnowledgesService {
+export class KnowledgesService extends ApplicationDb {
 
-  constructor(private router: Router, private mmodalsService: ModalsService, private translateService: TranslateService) {}
+  constructor(
+    private router: Router,
+    private mmodalsService: ModalsService,
+    private translateService: TranslateService) {
+      super(201911191636, 'knowledgeBase');
+    }
 
   public getAll(): Promise<any> {
-    let kbTemp = new KnowledgeBase();
     return new Promise((resolve, reject) => {
-      kbTemp.findAll()
+      this.findAll()
         .then((response: any) => {
-
           const result: KnowledgeBase[] = [];
           response.forEach(e => {
             result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.created_at));
@@ -43,23 +47,19 @@ export class KnowledgesService {
 
   public getEntries(baseId): Promise<any> {
     return new Promise((resolve, reject) => {
-      let kTemp = new Knowledge();
-      kTemp
-        .findAllByBaseId(baseId)
-        .then(response => {
-          resolve(response);
-        })
-        .catch(err => {
-          reject(err);
-        });
+        this.findAllByBaseId(baseId)
+          .then(response => {
+            resolve(response);
+          })
+          .catch(err => {
+            reject(err);
+          });
     });
   }
 
-  public remove(id): Promise<void> {
-    let kbTemp = new KnowledgeBase();
+  public remove(id: number): Promise<void> {
     return new Promise((resolve, reject) => {
-      kbTemp
-      .delete(id)
+      this.delete(id)
         .then(() => {
           resolve();
         })
@@ -75,8 +75,7 @@ export class KnowledgesService {
    */
   export(id: number): void {
     const date = new Date().getTime();
-    let kbTemp = new KnowledgeBase();
-    kbTemp.find(id).then(data => {
+    this.find(id).then(data => {
       const a = document.getElementById('pia-exportBlock');
       const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
       a.setAttribute('href', url);
@@ -90,7 +89,7 @@ export class KnowledgesService {
 
   import(data): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
-      let newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
+      const newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
       newKnowledgeBase
         .create()
         .then((resp: KnowledgeBase) => {
@@ -107,14 +106,13 @@ export class KnowledgesService {
   duplicate(id: number): Promise<void> {
     return new Promise((resolve, reject) => {
       const date = new Date().getTime();
-      let kbTemp = new KnowledgeBase();
-      kbTemp.find(id).then((data: KnowledgeBase) => {
+      this.find(id).then((data: KnowledgeBase) => {
         this.import(data)
         .then((newKnowledgeBase: KnowledgeBase) => {
           // Duplicate entries
           this.getEntries(id).then((knowledges: Knowledge[]) => {
             knowledges.forEach((entry: Knowledge) => {
-              let temp = new Knowledge();
+              const temp = new Knowledge();
               temp.id = entry.id;
               temp.slug = entry.slug;
               temp.filters = entry.filters;
@@ -136,6 +134,50 @@ export class KnowledgesService {
           console.error(err);
         });
       });
+    });
+  }
+
+  /**
+  * List all Knowledge by base id
+  * @param piaId - The PIA id
+  */
+  private async findAllByBaseId(baseId: number) {
+    const items = [];
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        fetch(this.getServerUrl(), {
+          mode: 'cors'
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
+      } else {
+        this.getObjectStore()
+          .then(() => {
+            const index1 = this.objectStore.index('index1');
+            const evt = index1.openCursor(IDBKeyRange.only(baseId));
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            };
+            evt.onsuccess = (event: any) => {
+              const cursor = event.target.result;
+              if (cursor) {
+                items.push(cursor.value);
+                cursor.continue();
+              } else {
+                resolve(items);
+              }
+            };
+          });
+      }
     });
   }
 }
