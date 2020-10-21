@@ -9,7 +9,6 @@ import { Knowledge } from '../models/knowledge.model';
 import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class KnowledgesService {
-  public selected: number = null;
   public list: KnowledgeBase[] = [];
 
   constructor(private router: Router, private mmodalsService: ModalsService, private translateService: TranslateService) {}
@@ -61,14 +60,14 @@ export class KnowledgesService {
     });
   }
 
-  public removeKnowledgeBase() {
+  public remove(id) {
     let kbTemp = new KnowledgeBase();
     return new Promise((resolve, reject) => {
       kbTemp
-      .delete(this.selected)
+      .delete(id)
       .then(() => {
         // removeFrom this.list
-        let index = this.list.findIndex(e => e.id === this.selected);
+        let index = this.list.findIndex(e => e.id === id);
         if (index !== -1) {
           this.list.splice(index, 1);
           resolve();
@@ -79,7 +78,6 @@ export class KnowledgesService {
         reject(true);
       });
     });
-
   }
 
   /**

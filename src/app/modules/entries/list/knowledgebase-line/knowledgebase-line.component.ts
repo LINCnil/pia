@@ -53,14 +53,14 @@ export class KnowledgebaseLineComponent implements OnInit {
   }
 
   remove(id): void {
-    this.knowledgesService.selected = id;
+    // this.knowledgesService.selected = id;
     // this.modalsService.openModal('modal-remove-knowledgebase');
     this.confirmDialogService.confirmThis({
       text: 'modals.knowledges.content',
       yes: 'modals.knowledges.remove',
       no: 'modals.cancel'},
       () => {
-        this.knowledgesService.removeKnowledgeBase()
+        this.knowledgesService.remove(id)
           .then(() => {
             this.deleted.emit();
           })
