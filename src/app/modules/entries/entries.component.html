@@ -242,6 +242,7 @@
             *ngFor="let structure of entries | filterForUser : searchText; let i=index"
               (changed)="updateEntrie($event)"
               (duplicated)="refreshContent()"
+              (deleted)="refreshContent()"
               [structure]="structure"
               [previousStructure]="i > 0 ? entries[i-1] : null">
           </app-structure-card>
@@ -314,6 +315,7 @@
                   *ngFor="let structure of entries | filterForUser : searchText; let i=index"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
+                  (deleted)="refreshContent()"
                   [structure]="structure">
               </tr>
               </ng-container>
