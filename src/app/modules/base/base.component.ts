@@ -60,7 +60,6 @@ export class BaseComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.appDataService.entrieMode = 'knowledgeBase';
     const sectionId = parseInt(this.route.snapshot.params.id, 10);
-    this.knowledgesService.selected = sectionId;
     if (sectionId) {
       this.base = new KnowledgeBase();
       this.base
@@ -153,7 +152,7 @@ export class BaseComponent implements OnInit {
 
     entry.filters = this.checkFilters();
 
-    entry.create(this.knowledgesService.selected).then((result: Knowledge) => {
+    entry.create(this.base.id).then((result: Knowledge) => {
       this.knowledges.push(result);
       this.entryForm.reset();
       this.showForm = false;

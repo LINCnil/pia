@@ -369,7 +369,7 @@
   </div>
 </div>
 
-<app-modals (continueEvent)="refreshContent()"></app-modals>
+<!-- <app-modals (continueEvent)="refreshContent()"></app-modals> -->
 <app-modal *ngIf="showModal" specialClass="card" (clickOnClose)="showModal = false">
   <ng-container [ngSwitch]="type_entries">
     <ng-container *ngSwitchCase="'pia'">
