@@ -86,7 +86,10 @@
             <button class="pia-filtersBlock-filters-btn btn" type="button">
               <i class="fa fa-filter"></i>
               {{ 'homepage.filters.sort' | translate }}
-              <span class="pia-icons pia-icon-scroll-green"></span>
+              <span
+              class="pia-icons"
+              [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'pia-icon-scroll-red' : 'pia-icon-scroll-green'"
+              ></span>
             </button>
             <div class="pia-filtersBlock-filters-list">
               <span>{{ 'homepage.filters.sort_by' | translate }}</span>
