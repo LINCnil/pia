@@ -91,4 +91,20 @@ export class ArchiveService {
       });
     });
   }
+
+  // UPDATE
+  remove(id): Promise<void> {
+    return new Promise((resolve, reject) => {
+      // Removes from DB
+      const archivedPia = new Pia();
+      archivedPia.delete(id)
+        .then(() => {
+          localStorage.removeItem('pia-to-remove-id');
+          resolve();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
+  }
 }
