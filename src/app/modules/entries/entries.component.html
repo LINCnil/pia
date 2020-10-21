@@ -94,27 +94,53 @@
             <div class="pia-filtersBlock-filters-list">
               <span>{{ 'homepage.filters.sort_by' | translate }}</span>
               <ul>
-                <li [ngClass]="{'active': sortValue === 'name'}">
-                  <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'category'}">
-                  <a (click)="sortBy('category');">{{ 'homepage.filters.category' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'created_at'}">
-                  <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'status'}">
-                  <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'author_name'}">
-                  <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
-                  <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'validator_name'}">
-                  <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
-                </li>
+                <ng-container [ngSwitch]="type_entries">
+                  <ng-container *ngSwitchCase="'structure'">
+                    <li [ngClass]="{'active': sortValue === 'name'}">
+                      <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'sector_name'}">
+                      <a (click)="sortBy('sector_name');">{{ 'homepage.filters.sector_name' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'created_at'}">
+                      <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'knowledgeBase'">
+                    <li [ngClass]="{'active': sortValue === 'name'}">
+                      <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'author'}">
+                      <a (click)="sortBy('author');">{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'contributors'}">
+                      <a (click)="sortBy('contributors');">{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}</a>
+                    </li>
+                  </ng-container>
+                  <ng-container  *ngSwitchDefault>
+                    <li [ngClass]="{'active': sortValue === 'name'}">
+                      <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'category'}">
+                      <a (click)="sortBy('category');">{{ 'homepage.filters.category' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'created_at'}">
+                      <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'status'}">
+                      <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'author_name'}">
+                      <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
+                      <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'validator_name'}">
+                      <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
+                    </li>
+                  </ng-container>
+                </ng-container>
               </ul>
             </div>
           </div>
