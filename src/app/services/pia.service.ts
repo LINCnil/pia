@@ -624,6 +624,34 @@ export class PiaService {
     }
   }
 
+  // UPDATE
+  archive(id): Promise<void> {
+    return new Promise((resolve, reject) => {
+
+      // Update the PIA in DB.
+      const pia = new Pia();
+      pia.get(id)
+        .then(() => {
+          pia.is_archive = 1;
+          pia.update();
+
+          const index = this.pias.findIndex(item => item.id === id);
+          if (index !== -1) {
+            this.pias[index] = pia;
+            this.pias.splice(index, 1);
+          }
+          localStorage.removeItem('pia-to-archive-id');
+          resolve();
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    });
+  }
+
+
+  // END UPDATe
+
   /**
    * Import all comments
    * @param comments - The list of comments

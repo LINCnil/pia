@@ -12,6 +12,7 @@ import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
 
 import * as FileSaver from 'file-saver';
+import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 declare const require: any;
 
 
@@ -25,6 +26,8 @@ export class PiaCardComponent implements OnInit {
   @Input() previousPia: any;
   @Output() changed = new EventEmitter<Pia>();
   @Output() duplicated = new EventEmitter<Pia>();
+  @Output() archived = new EventEmitter<Pia>();
+
   piaForm: FormGroup;
   attachments: any;
 
@@ -42,7 +45,8 @@ export class PiaCardComponent implements OnInit {
     public piaService: PiaService,
     private translateService: TranslateService,
     public languagesService: LanguagesService,
-    public structureService: StructureService
+    public structureService: StructureService,
+    private confirmDialogService: ConfirmDialogService
   ) {}
 
   ngOnInit(): void {
@@ -235,12 +239,27 @@ export class PiaCardComponent implements OnInit {
   }
 
   /**
-   * Archive a PIA with a given id.
-   * @param id - The PIA id.
+   * Archive a PIA with a given id
+   * @param id - The PIA id
    */
   archivePia(id: string): void {
-    localStorage.setItem('pia-to-archive-id', id);
-    this.modalsService.openModal('modal-archive-pia');
+    // this.modalsService.openModal('modal-archive-pia');
+    this.confirmDialogService.confirmThis({
+      text: 'modals.archive_pia.content',
+      yes: 'modals.archive_pia.archive',
+      no: 'modals.cancel'},
+      () => {
+        this.piaService.archive(id)
+          .then(() => {
+            this.archived.emit();
+          })
+          .catch(() => {
+            return;
+          });
+      },
+      () => {
+        return;
+      });
   }
 
   /**
