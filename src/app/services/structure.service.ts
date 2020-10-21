@@ -208,4 +208,27 @@ export class StructureService {
       }
     });
   }
+
+  // UPDATE
+  remove(id): Promise<void> {
+    return new Promise((resolve, reject) => {
+      // Removes from DB.
+      const structure = new Structure();
+      structure.delete(id)
+        .then( () => {
+          const pia = new Pia();
+          pia.getAllWithStructure(id).then((items: any) => {
+            items.forEach(item => {
+              item.structure_id = null;
+              pia.updateEntry(item);
+            });
+          });
+          localStorage.removeItem('structure-id');
+          resolve();
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    });
+  }
 }

@@ -64,6 +64,9 @@ import { AppDataService } from '../services/app-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalsComponent } from './components/modals/modals.component';
 import { RouterModule } from '@angular/router';
+import { ModalComponent } from './components/modal/modal.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogService } from '../services/confirm-dialog.service';
 
 
 
@@ -76,6 +79,8 @@ import { RouterModule } from '@angular/router';
     FilterForUser,
     HeaderComponent,
     ModalsComponent,
+    ModalComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -106,6 +111,8 @@ import { RouterModule } from '@angular/router';
     FilterForUser,
     HeaderComponent,
     ModalsComponent,
+    ModalComponent,
+    ConfirmDialogComponent
   ],
   providers: [
     AppDataService,
@@ -117,7 +124,8 @@ import { RouterModule } from '@angular/router';
     LanguagesService,
     GlobalEvaluationService,
     FormatTheDate,
-    IntrojsService
+    IntrojsService,
+    ConfirmDialogService,
   ]
 })
 export class SharedModule { }

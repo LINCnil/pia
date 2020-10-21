@@ -32,6 +32,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
   public type_entries: string; // 'pia' or 'archive'
   public entries: Array<any> = []; // storage for pia or archive
 
+  public showModal = false;
+
   constructor(
     private router: Router,
     private el: ElementRef,
@@ -219,6 +221,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
    */
   onFormSubmited(id): void {
     this.refreshContent();
+    this.showModal = false;
     // TODO: entry module
     // this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
   }

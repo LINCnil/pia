@@ -6,7 +6,7 @@
 
         <div class="small-12 medium-9 columns pia-sectionBlock-header">
           <h1 class="truncate" title="{{base.name}}">{{ base.name }}</h1>
-          <a class="pia-icons pia-icon-close-big" routerLink="/knowledges" title="{{ 'summary.previous_page' | translate }}"></a>
+          <a class="pia-icons pia-icon-close-big" [routerLink]="['/entries', 'knowledgebase']" title="{{ 'summary.previous_page' | translate }}"></a>
         </div>
 
         <div class="pia-filtersBlock-left">

@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Attachment } from 'src/app/models/attachment.model';
+import { ArchiveService } from 'src/app/services/archive.service';
+import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ModalsService } from 'src/app/services/modals.service';
 
@@ -11,11 +13,14 @@ import { ModalsService } from 'src/app/services/modals.service';
 })
 export class ArchiveLineComponent implements OnInit {
   @Input() archivedPia: any;
+  @Output() deleted = new EventEmitter<any>();
   attachments: any;
 
   constructor(
     private modalsService: ModalsService,
-    public languagesService: LanguagesService
+    public languagesService: LanguagesService,
+    public archiveService: ArchiveService,
+    private confirmDialogService: ConfirmDialogService
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +50,24 @@ export class ArchiveLineComponent implements OnInit {
    * @param id - The archived PIA id.
    */
   remove(id: string): void {
-    localStorage.setItem('pia-to-remove-id', id);
-    this.modalsService.openModal('modal-remove-archived-pia');
+    // TODO: remove comment
+    // localStorage.setItem('pia-to-remove-id', id);
+    // this.modalsService.openModal('modal-remove-archived-pia');
+    this.confirmDialogService.confirmThis({
+      text: 'modals.remove_pia.content',
+      yes: 'modals.remove_pia.remove',
+      no: 'modals.cancel'},
+      () => {
+        this.archiveService.remove(id)
+          .then(() => {
+            this.deleted.emit();
+          })
+          .catch(() => {
+            return;
+          });
+      },
+      () => {
+        return;
+      });
   }
 }

@@ -37,7 +37,7 @@
             <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
               <button type="button" class="btn"
                 [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'btn-red' : 'btn-green'"
-                (click)="modalsService.openModal('modal-list-new-pia')"><i class="fa fa-folder-open" aria-hidden="true"></i>
+                (click)="showModal = true"><i class="fa fa-folder-open" aria-hidden="true"></i>
                 <ng-container *ngIf="type_entries === 'pia'">
                   {{ 'homepage.cards.new_pia' | translate }}
                 </ng-container>
@@ -86,32 +86,61 @@
             <button class="pia-filtersBlock-filters-btn btn" type="button">
               <i class="fa fa-filter"></i>
               {{ 'homepage.filters.sort' | translate }}
-              <span class="pia-icons pia-icon-scroll-green"></span>
+              <span
+              class="pia-icons"
+              [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'pia-icon-scroll-red' : 'pia-icon-scroll-green'"
+              ></span>
             </button>
             <div class="pia-filtersBlock-filters-list">
               <span>{{ 'homepage.filters.sort_by' | translate }}</span>
               <ul>
-                <li [ngClass]="{'active': sortValue === 'name'}">
-                  <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'category'}">
-                  <a (click)="sortBy('category');">{{ 'homepage.filters.category' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'created_at'}">
-                  <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'status'}">
-                  <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'author_name'}">
-                  <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
-                  <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
-                </li>
-                <li [ngClass]="{'active': sortValue === 'validator_name'}">
-                  <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
-                </li>
+                <ng-container [ngSwitch]="type_entries">
+                  <ng-container *ngSwitchCase="'structure'">
+                    <li [ngClass]="{'active': sortValue === 'name'}">
+                      <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'sector_name'}">
+                      <a (click)="sortBy('sector_name');">{{ 'homepage.filters.sector_name' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'created_at'}">
+                      <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'knowledgeBase'">
+                    <li [ngClass]="{'active': sortValue === 'name'}">
+                      <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'author'}">
+                      <a (click)="sortBy('author');">{{ 'homepage.cards.knowledges.placeholder_author' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'contributors'}">
+                      <a (click)="sortBy('contributors');">{{ 'homepage.cards.knowledges.placeholder_contributors' | translate }}</a>
+                    </li>
+                  </ng-container>
+                  <ng-container  *ngSwitchDefault>
+                    <li [ngClass]="{'active': sortValue === 'name'}">
+                      <a (click)="sortBy('name');">{{ 'homepage.filters.name' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'category'}">
+                      <a (click)="sortBy('category');">{{ 'homepage.filters.category' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'created_at'}">
+                      <a (click)="sortBy('created_at');">{{ 'homepage.filters.date' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'status'}">
+                      <a (click)="sortBy('status');">{{ 'homepage.filters.status' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'author_name'}">
+                      <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
+                      <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
+                    </li>
+                    <li [ngClass]="{'active': sortValue === 'validator_name'}">
+                      <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
+                    </li>
+                  </ng-container>
+                </ng-container>
               </ul>
             </div>
           </div>
@@ -224,6 +253,7 @@
             *ngFor="let pia of entries | filterForUser : searchText; let i=index"
             (changed)="updateEntrie($event)"
             (duplicated)="refreshContent()"
+            (archived)="refreshContent()"
             [pia]="pia"
             [previousPia]="i > 0 ? entries[i-1] : null">
           </app-pia-card>
@@ -232,6 +262,7 @@
           <app-archive-card
             *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index"
             [archivedPia]="archivedPia"
+            (deleted)="refreshContent()"
             [previousArchivedPia]="i > 0 ? entries[i-1] : null">
           </app-archive-card>
         </ng-container>
@@ -240,6 +271,7 @@
             *ngFor="let structure of entries | filterForUser : searchText; let i=index"
               (changed)="updateEntrie($event)"
               (duplicated)="refreshContent()"
+              (deleted)="refreshContent()"
               [structure]="structure"
               [previousStructure]="i > 0 ? entries[i-1] : null">
           </app-structure-card>
@@ -249,6 +281,7 @@
             *ngFor="let base of entries | filterForUser : searchText; let i=index"
             (changed)="updateEntrie($event)"
             (duplicated)="refreshContent()"
+            (deleted)="refreshContent()"
             [base]="base">
           </app-knowledgebase-card>
         </ng-container>
@@ -291,9 +324,9 @@
                 <tr app-pia-line
                   class="app-list-item"
                   *ngFor="let pia of entries | filterForUser : searchText; let i=index"
-                  [attr.data-id]="pia.id"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
+                  (archived)="refreshContent()"
                   [pia]="pia">
                 </tr>
               </ng-container>
@@ -301,8 +334,8 @@
                 <tr app-archive-line
                   class="app-list-item"
                   *ngFor="let archivedPia of entries | filterForUser : searchText; let i=index"
-                  [attr.data-id]="archivedPia.id"
-                  [archivedPia]="archivedPia">
+                  [archivedPia]="archivedPia"
+                  (deleted)="refreshContent()">
                 </tr>
               </ng-container>
               <ng-container *ngSwitchCase="'structure'">
@@ -311,7 +344,7 @@
                   *ngFor="let structure of entries | filterForUser : searchText; let i=index"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
-                  [attr.data-id]="structure.id"
+                  (deleted)="refreshContent()"
                   [structure]="structure">
               </tr>
               </ng-container>
@@ -321,7 +354,7 @@
                   *ngFor="let base of entries | filterForUser : searchText; let i=index"
                   (changed)="updateEntrie($event)"
                   (duplicated)="refreshContent()"
-                  [attr.data-id]="base.id"
+                  (deleted)="refreshContent()"
                   [base]="base">
               </tr>
               </ng-container>
@@ -335,4 +368,28 @@
     </ng-template>
   </div>
 </div>
+
 <app-modals (continueEvent)="refreshContent()"></app-modals>
+<app-modal *ngIf="showModal" specialClass="card" (clickOnClose)="showModal = false">
+  <ng-container [ngSwitch]="type_entries">
+    <ng-container *ngSwitchCase="'pia'">
+      <app-new-pia
+        (submit)="onFormSubmited($event); showModal = false;">
+      </app-new-pia>
+    </ng-container>
+    <ng-container *ngSwitchCase="'structure'">
+      <app-new-structure
+        (submit)="onFormSubmited($event); showModal = false;">
+      </app-new-structure>
+    </ng-container>
+    <ng-container *ngSwitchCase="'knowledgeBase'">
+      <app-new-knowledgebase
+        (submit)="onFormSubmited($event); showModal = false;">
+      </app-new-knowledgebase>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+    </ng-container>
+  </ng-container>
+</app-modal>
+
+<app-confirm-dialog></app-confirm-dialog>

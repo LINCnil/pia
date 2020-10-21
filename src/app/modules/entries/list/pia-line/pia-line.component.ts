@@ -8,6 +8,7 @@ import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 
 import * as FileSaver from 'file-saver';
+import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 declare const require: any;
 
 @Component({
@@ -20,6 +21,7 @@ export class PiaLineComponent implements OnInit {
   @Input() pia: any;
   @Output() changed = new EventEmitter<Pia>();
   @Output() duplicated = new EventEmitter<Pia>();
+  @Output() archived = new EventEmitter<Pia>();
   attachments: any;
 
   constructor(
@@ -28,7 +30,8 @@ export class PiaLineComponent implements OnInit {
     public piaService: PiaService,
     private modalsService: ModalsService,
     private translateService: TranslateService,
-    public languagesService: LanguagesService
+    public languagesService: LanguagesService,
+    private confirmDialogService: ConfirmDialogService
   ) {}
 
   ngOnInit(): void {
@@ -101,8 +104,23 @@ export class PiaLineComponent implements OnInit {
    * @param id - The PIA id
    */
   archivePia(id: string): void {
-    localStorage.setItem('pia-to-archive-id', id);
-    this.modalsService.openModal('modal-archive-pia');
+    // this.modalsService.openModal('modal-archive-pia');
+    this.confirmDialogService.confirmThis({
+      text: 'modals.archive_pia.content',
+      yes: 'modals.archive_pia.archive',
+      no: 'modals.cancel'},
+      () => {
+        this.piaService.archive(id)
+          .then(() => {
+            this.archived.emit();
+          })
+          .catch(() => {
+            return;
+          });
+      },
+      () => {
+        return;
+      });
   }
 
   /**

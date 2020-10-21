@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { Structure } from 'src/app/models/structure.model';
+import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { ModalsService } from 'src/app/services/modals.service';
 
@@ -19,9 +20,13 @@ export class KnowledgebaseCardComponent implements OnInit {
   @Input() base: KnowledgeBase;
   @Output() changed = new EventEmitter<Structure>();
   @Output() duplicated = new EventEmitter<Structure>();
+  @Output() deleted = new EventEmitter<any>();
 
 
-  constructor(private modalsService: ModalsService, private knowledgesService: KnowledgesService) {}
+  constructor(
+    private modalsService: ModalsService,
+    private knowledgesService: KnowledgesService,
+    private confirmDialogService: ConfirmDialogService) {}
 
   ngOnInit(): void {
     this.knowledgeBaseForm = new FormGroup({
@@ -86,7 +91,23 @@ export class KnowledgebaseCardComponent implements OnInit {
 
   remove(id): void {
     this.knowledgesService.selected = id;
-    this.modalsService.openModal('modal-remove-knowledgebase');
+    // this.modalsService.openModal('modal-remove-knowledgebase');
+    this.confirmDialogService.confirmThis({
+      text: 'modals.knowledges.content',
+      yes: 'modals.knowledges.remove',
+      no: 'modals.cancel'},
+      () => {
+        this.knowledgesService.removeKnowledgeBase()
+          .then(() => {
+            this.deleted.emit();
+          })
+          .catch(() => {
+            return;
+          });
+      },
+      () => {
+        return;
+      });
   }
 
   export(id): void {

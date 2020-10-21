@@ -436,5 +436,33 @@
         color: $pia-red;
       }
     }
+
+    .pia-filtersBlock-filters {
+      .pia-filtersBlock-filters-btn{
+        border: 1px solid $pia-red;
+        color: $pia-red;
+        .pia-icon-scroll-red {
+          margin-left: 35px;
+        }
+      }
+      .pia-filtersBlock-filters-list {
+        border: 2px solid #FD4664;
+        li:focus, li:hover, li:active, li .active {
+          background-color: #FD4664;
+        }
+      }
+      &:focus, &:hover, &:active {
+        .pia-filtersBlock-filters-btn {
+          background-color: #FD4664;
+          color: white;
+        }
+        + .pia-filtersBlock-filters-list {
+          display: block;
+        }
+        .pia-icon-scroll-red {
+          background-position: -367px -39px;
+        }
+      }
+    }
   }
 }
