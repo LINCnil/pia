@@ -75,8 +75,8 @@ export class StructureService extends ApplicationDb {
       name: structure.name,
       sector_name: structure.sector_name,
       data: structure.data,
-      created_at: structure.created_at,
-      updated_at: structure.updated_at
+      created_at: new Date(),
+      updated_at: new Date()
     };
 
     return new Promise((resolve, reject) => {
@@ -150,7 +150,7 @@ export class StructureService extends ApplicationDb {
           }).then((response) => {
             return response.json();
           }).then((result: any) => {
-            resolve();
+            resolve(result);
           }).catch ((error) => {
             console.error('Request failed', error);
             reject();
@@ -162,8 +162,8 @@ export class StructureService extends ApplicationDb {
               console.error(event);
               reject(Error(event));
             };
-            evt.onsuccess = (event: any) => {
-              resolve(event.target.result);
+            evt.onsuccess = () => {
+              resolve(entry);
             };
           });
         }
@@ -316,7 +316,6 @@ export class StructureService extends ApplicationDb {
   remove(id): Promise<void> {
     return new Promise((resolve, reject) => {
       // Removes from DB.
-      const structure = new Structure();
       this.delete(id)
         .then( () => {
           const pia = new Pia();

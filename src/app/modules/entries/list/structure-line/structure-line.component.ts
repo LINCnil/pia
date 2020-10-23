@@ -19,10 +19,7 @@ export class StructureLineComponent implements OnInit {
   @Output() deleted = new EventEmitter<any>();
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     public structureService: StructureService,
-    private modalsService: ModalsService,
     public languagesService: LanguagesService,
     private confirmDialogService: ConfirmDialogService
   ) {}
@@ -37,8 +34,13 @@ export class StructureLineComponent implements OnInit {
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
     this.structure[attribute] = text;
-    this.structure.update();
-    this.changed.emit(this.structure);
+    this.structureService.update(this.structure)
+      .then((result: Structure) => {
+        this.changed.emit(result);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   /**

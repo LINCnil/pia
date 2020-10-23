@@ -194,9 +194,10 @@ export class EntriesComponent implements OnInit, OnDestroy {
           item = entrie;
         }
       });
-    } else {
-      this.entries.push(entrie);
     }
+    // else {
+    //   this.entries.push(entrie);
+    // }
   }
 
   open(): void {
