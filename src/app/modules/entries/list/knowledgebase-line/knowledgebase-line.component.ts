@@ -46,7 +46,7 @@ export class KnowledgebaseLineComponent implements OnInit {
     this.base[attribute] = text;
     this.knowledgeBaseService.update(this.base)
       .then(() => {
-        this.changed.emit();
+        this.changed.emit(this.base);
       })
       .catch((err) => {
         console.error(err);
