@@ -54,51 +54,6 @@ export class KnowledgesService extends ApplicationDb {
     });
   }
 
-  public remove(id: number): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.delete(id)
-        .then(() => {
-          resolve();
-        })
-        .catch(error => {
-          reject(true);
-        });
-    });
-  }
-
-  /**
-   * Download the Knowledges exported.
-   * @param {number} id - The Structure id.
-   */
-  export(id: number): void {
-    const date = new Date().getTime();
-    this.find(id).then(data => {
-      const a = document.getElementById('pia-exportBlock');
-      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-      a.setAttribute('href', url);
-      a.setAttribute('download', date + '_export_knowledgebase_' + id + '.json');
-      const event = new MouseEvent('click', {
-        view: window
-      });
-      a.dispatchEvent(event);
-    });
-  }
-
-  import(data): Promise<KnowledgeBase> {
-    return new Promise((resolve, reject) => {
-      const newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
-      newKnowledgeBase
-        .create()
-        .then((resp: KnowledgeBase) => {
-          newKnowledgeBase.id = resp.id;
-          resolve(newKnowledgeBase);
-        })
-        .catch(error => {
-          console.log(error);
-          reject(error);
-        });
-    });
-  }
 
   /**
    * List all Knowledge by base id

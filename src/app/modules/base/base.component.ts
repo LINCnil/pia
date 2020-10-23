@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ModalsService } from 'src/app/services/modals.service';
@@ -54,6 +55,7 @@ export class BaseComponent implements OnInit {
     private modalsService: ModalsService,
     private knowledgesService: KnowledgesService,
     private appDataService: AppDataService,
+    private confirmDialogService: ConfirmDialogService,
     private route: ActivatedRoute
   ) {}
 
@@ -208,26 +210,27 @@ export class BaseComponent implements OnInit {
       });
   }
 
-  deleteModal(id): void {
-    this.modalsService.openModal('modal-remove-knowledgeEntry');
-    this.selectedKnowledgeId = id;
-  }
-
-  deleteEntry(): void {
-    const tempk = new Knowledge();
-    tempk
-      .delete(this.selectedKnowledgeId)
-      .then(() => {
-        const index = this.knowledges.findIndex(e => e.id === this.selectedKnowledgeId);
-        if (index !== -1) {
-          this.knowledges.splice(index, 1);
-          this.modalsService.closeModal();
-          this.selectedKnowledgeId = null;
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        this.selectedKnowledgeId = null;
+  delete(id): void {
+    // this.modalsService.openModal('modal-remove-knowledgeEntry');
+    // this.selectedKnowledgeId = id;
+    this.confirmDialogService.confirmThis({
+      text: 'modals.knowledge.content',
+      yes: 'modals.knowledge.remove',
+      no: 'modals.cancel'},
+      () => {
+        this.knowledgesService.delete(id)
+          .then(() => {
+            const index = this.knowledges.findIndex(e => e.id === id);
+            if (index !== -1) {
+              this.knowledges.splice(index, 1);
+            }
+          })
+          .catch(() => {
+            return;
+          });
+      },
+      () => {
+        return;
       });
   }
 
