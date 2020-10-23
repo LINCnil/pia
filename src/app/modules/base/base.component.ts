@@ -193,20 +193,14 @@ export class BaseComponent implements OnInit {
     }
   }
 
-  duplicateEntry(id): void {
+  duplicate(id): void {
     const tempk = new Knowledge();
-    tempk
-      .get(id)
-      .then(() => {
-        console.log(tempk);
-        tempk.id = null;
-        tempk.create(this.base.id).then((response: Knowledge) => {
-          tempk.id = response.id;
-          this.knowledges.push(tempk);
-        });
+    this.knowledgesService.duplicate(this.base.id, id)
+      .then((entry: Knowledge) => {
+        this.knowledges.push(entry);
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
       });
   }
 

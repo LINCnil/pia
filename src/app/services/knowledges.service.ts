@@ -54,6 +54,31 @@ export class KnowledgesService extends ApplicationDb {
     });
   }
 
+  async duplicate(baseId: number, id: number) {
+    return new Promise((resolve, reject) => {
+      this.find(id)
+        .then((entry: Knowledge) => {
+          const temp = new Knowledge();
+          temp.slug = entry.slug;
+          temp.filters = entry.filters;
+          temp.category = entry.category;
+          temp.placeholder = entry.placeholder;
+          temp.name = entry.name;
+          temp.description = entry.description;
+          temp.items = entry.items;
+          temp.created_at = new Date(entry.created_at);
+          temp.updated_at = new Date(entry.updated_at);
+          this.create(baseId, temp)
+            .then((entry: Knowledge) => {
+              resolve(entry);
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+    });
+  }
+
 
   /**
    * List all Knowledge by base id

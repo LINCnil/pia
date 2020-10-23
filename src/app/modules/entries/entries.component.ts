@@ -245,7 +245,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
         reader.readAsText(event.target.files[0], 'UTF-8');
         reader.onload = (event2: any) => {
           const jsonFile = JSON.parse(event2.target.result);
-          this.knowledgesService.import(jsonFile);
+          this.knowledgeBaseService.import(jsonFile);
         };
       }
     } else {
