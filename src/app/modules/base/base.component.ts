@@ -154,12 +154,13 @@ export class BaseComponent implements OnInit {
 
     entry.filters = this.checkFilters();
 
-    entry.create(this.base.id).then((result: Knowledge) => {
-      this.knowledges.push(result);
-      this.entryForm.reset();
-      this.showForm = false;
-      this.editEntry(result.id); // Go to edition mode
-    });
+    this.knowledgesService.create(this.base.id, entry)
+      .then((result: Knowledge) => {
+        this.knowledges.push(result);
+        this.entryForm.reset();
+        this.showForm = false;
+        this.editEntry(result.id); // Go to edition mode
+      });
   }
 
   /**
