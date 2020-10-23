@@ -157,9 +157,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
           });
           break;
         case 'structure':
-          const structure = new Structure();
           let data;
-          structure.getAll()
+          this.structureService.getAll()
             .then((response) => {
               data = response;
               this.structureService
