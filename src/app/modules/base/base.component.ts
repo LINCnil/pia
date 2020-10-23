@@ -6,9 +6,9 @@ import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { ModalsService } from 'src/app/services/modals.service';
 
 
 import piakb from 'src/assets/files/pia_knowledge-base.json';
@@ -52,8 +52,8 @@ export class BaseComponent implements OnInit {
   constructor(
     public languagesService: LanguagesService,
     private translateService: TranslateService,
-    private modalsService: ModalsService,
     private knowledgesService: KnowledgesService,
+    private knowledgeBaseService: KnowledgeBaseService,
     private appDataService: AppDataService,
     private confirmDialogService: ConfirmDialogService,
     private route: ActivatedRoute
@@ -61,12 +61,12 @@ export class BaseComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.appDataService.entrieMode = 'knowledgeBase';
+    this.base = new KnowledgeBase();
     const sectionId = parseInt(this.route.snapshot.params.id, 10);
     if (sectionId) {
-      this.base = new KnowledgeBase();
-      this.base
-        .get(sectionId)
-        .then(() => {
+      this.knowledgeBaseService.get(sectionId)
+        .then((base: KnowledgeBase) => {
+          this.base = base;
           // GET Knowledges entries from selected base
           this.knowledgesService.getEntries(this.base.id).then((result: Knowledge[]) => {
             this.knowledges = result;

@@ -55,6 +55,96 @@ export class KnowledgeBaseService extends ApplicationDb {
   }
 
   /**
+   * Get a KnowledgeBase.
+   * @param id - The KnowledgeBase id.
+   * @returns - New Promise
+   */
+  async get(id: number) {
+    return new Promise((resolve, reject) => {
+      this.find(id)
+        .then((entry: any) => {
+          resolve(entry);
+        })
+        .catch(err => {
+          console.log(err);
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   * Create a new Structure.
+   * @returns - New Promise
+   */
+  async create(base: KnowledgeBase) {
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+      } else {
+        this.getObjectStore().then(() => {
+          const evt = this.objectStore.add(base);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            resolve({ ...this, id: event.target.result });
+          };
+        });
+      }
+    });
+  }
+
+  async update(base: KnowledgeBase) {
+    return new Promise((resolve, reject) => {
+      this.find(base.id).then((entry: any) => {
+        entry.name = base.name;
+        entry.author = base.author;
+        entry.contributors = base.contributors;
+        entry.updated_at = new Date();
+
+        if (this.serverUrl) {
+          const formData = new FormData();
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d)) {
+              let value = entry[d];
+              if (d === 'data') {
+                value = JSON.stringify(value);
+              }
+              formData.append('structure[' + d + ']', value);
+            }
+          }
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
+            body: formData,
+            mode: 'cors'
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve(result);
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject(error);
+            });
+        } else {
+          this.getObjectStore().then(() => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            };
+            evt.onsuccess = () => {
+              resolve(true);
+            };
+          });
+        }
+      });
+    });
+  }
+
+  /**
    * Download the Knowledges exported.
    * @param {number} id - The Structure id.
    */
@@ -75,8 +165,7 @@ export class KnowledgeBaseService extends ApplicationDb {
   import(data): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
       const newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
-      newKnowledgeBase
-        .create()
+      this.create(newKnowledgeBase)
         .then((resp: KnowledgeBase) => {
           newKnowledgeBase.id = resp.id;
           resolve(newKnowledgeBase);

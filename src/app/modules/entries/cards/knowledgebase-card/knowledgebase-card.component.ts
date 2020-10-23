@@ -81,7 +81,7 @@ export class KnowledgebaseCardComponent implements OnInit {
       this.base.name = this.knowledgeBaseForm.value.name;
       this.base.author = this.knowledgeBaseForm.value.author;
       this.base.contributors = this.knowledgeBaseForm.value.contributors;
-      this.base.update()
+      this.knowledgeBaseService.update(this.base)
         .then((result) => {
           // this.structEvent.emit(this.structure);
         })
