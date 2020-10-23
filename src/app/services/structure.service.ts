@@ -187,27 +187,10 @@ export class StructureService extends ApplicationDb {
   }
 
   /**
-   * Allows an user to remove a Structure.
-   */
-  removeStructure(id): void {
-    // Removes from DB.
-    const structure = new Structure();
-    this.delete(id).then( () => {
-      const pia = new Pia();
-      pia.getAllWithStructure(id).then((items: any) => {
-        items.forEach(item => {
-          item.structure_id = null;
-          pia.updateEntry(item);
-        });
-      });
-    });
-  }
-
-  /**
    * Allow an user to duplicate a Structure.
    * @param {number} id - The Structure id.
    */
-  async duplicateStructure(id: number) {
+  async duplicateStructure(id: number): Promise<any> {
     return new Promise((resolve, reject) => {
       this.exportStructureData(id).then((data) => {
         this.importStructureData(data, 'COPY', true).then((structure) => {
@@ -226,9 +209,10 @@ export class StructureService extends ApplicationDb {
     return new Promise((resolve, reject) => {
       const structure = new Structure();
       if (id > 0) {
-        this.find(id).then((structure: Structure) => {
+        this.find(id).then((result) => {
+          console.log(result)
           const data = {
-            structure
+            structure: result
           };
           resolve(data);
         });
@@ -267,8 +251,8 @@ export class StructureService extends ApplicationDb {
       }
 
       this.create(structure).then((result: Structure) => {
-        structure.id = result.id;
-        resolve(structure);
+        console.log("finish", result)
+        resolve(result);
       });
     });
   }
