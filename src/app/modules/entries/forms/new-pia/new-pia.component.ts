@@ -9,7 +9,7 @@ import { StructureService } from 'src/app/services/structure.service';
   styleUrls: ['./new-pia.component.scss']
 })
 export class NewPiaComponent implements OnInit {
-  @Output() submit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() submited: EventEmitter<any> = new EventEmitter<any>();
   piaForm: FormGroup;
 
   constructor(
@@ -32,7 +32,7 @@ export class NewPiaComponent implements OnInit {
    */
   onSubmit(): void {
     this.piaService.saveNewPia(this.piaForm).then((id: number) => {
-      this.submit.emit(id);
+      this.submited.emit(id);
     });
   }
 

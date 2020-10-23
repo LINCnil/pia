@@ -4,6 +4,7 @@
     "codelyzer"
   ],
   "rules": {
+    "radix": false,
     "align": {
       "options": [
         "parameters",

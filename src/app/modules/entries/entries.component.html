@@ -224,17 +224,17 @@
             <ng-container [ngSwitch]="type_entries">
               <ng-container *ngSwitchCase="'pia'">
                 <app-new-pia
-                  (submit)="onFormSubmited($event)">
+                  (submited)="onFormSubmited($event)">
                 </app-new-pia>
               </ng-container>
               <ng-container *ngSwitchCase="'structure'">
                 <app-new-structure
-                  (submit)="onFormSubmited($event)">
+                  (submited)="onFormSubmited($event)">
                 </app-new-structure>
               </ng-container>
               <ng-container *ngSwitchCase="'knowledgeBase'">
                 <app-new-knowledgebase
-                  (submit)="onFormSubmited($event)">
+                  (submited)="onFormSubmited($event)">
                 </app-new-knowledgebase>
               </ng-container>
               <ng-container *ngSwitchDefault>
@@ -374,17 +374,17 @@
   <ng-container [ngSwitch]="type_entries">
     <ng-container *ngSwitchCase="'pia'">
       <app-new-pia
-        (submit)="onFormSubmited($event); showModal = false;">
+        (submited)="onFormSubmited($event); showModal = false;">
       </app-new-pia>
     </ng-container>
     <ng-container *ngSwitchCase="'structure'">
       <app-new-structure
-        (submit)="onFormSubmited($event); showModal = false;">
+        (submited)="onFormSubmited($event); showModal = false;">
       </app-new-structure>
     </ng-container>
     <ng-container *ngSwitchCase="'knowledgeBase'">
       <app-new-knowledgebase
-        (submit)="onFormSubmited($event); showModal = false;">
+        (submited)="onFormSubmited($event); showModal = false;">
       </app-new-knowledgebase>
     </ng-container>
     <ng-container *ngSwitchDefault>

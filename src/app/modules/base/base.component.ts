@@ -240,7 +240,7 @@ export class BaseComponent implements OnInit {
           this.knowledgesService.update(entry)
             .then(() => {
               // Update list
-              const index = this.knowledges.findIndex(e => e.id == entry.id);
+              const index = this.knowledges.findIndex(e => e.id === entry.id);
               if (index !== -1) {
                 this.knowledges[index] = entry;
               }

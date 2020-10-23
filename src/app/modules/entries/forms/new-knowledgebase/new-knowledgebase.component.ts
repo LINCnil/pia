@@ -11,13 +11,10 @@ import { KnowledgesService } from 'src/app/services/knowledges.service';
   styleUrls: ['./new-knowledgebase.component.scss']
 })
 export class NewKnowledgebaseComponent implements OnInit {
-  @Output() submit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() submited = new EventEmitter();
   knowledgeBaseForm: FormGroup;
 
-  constructor(
-    private router: Router,
-    private knowledgeBaseService: KnowledgeBaseService,
-    private knowledgesService: KnowledgesService) { }
+  constructor(private knowledgeBaseService: KnowledgeBaseService) { }
 
   ngOnInit(): void {
     this.knowledgeBaseForm = new FormGroup({
@@ -37,7 +34,7 @@ export class NewKnowledgebaseComponent implements OnInit {
     );
     this.knowledgeBaseService.create(kb)
       .then((result: KnowledgeBase) => {
-        this.submit.emit(result.id);
+        this.submited.emit(result.id);
       });
   }
 

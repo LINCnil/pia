@@ -59,7 +59,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * @param id - The KnowledgeBase id.
    * @returns - New Promise
    */
-  async get(id: number) {
+  async get(id: number): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
       this.find(id)
         .then((entry: any) => {
@@ -76,7 +76,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * Create a new Structure.
    * @returns - New Promise
    */
-  async create(base: KnowledgeBase) {
+  async create(base: KnowledgeBase): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
       } else {
@@ -87,14 +87,14 @@ export class KnowledgeBaseService extends ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            resolve({ ...this, id: event.target.result });
+            resolve({ ...base, id: event.target.result });
           };
         });
       }
     });
   }
 
-  async update(base: KnowledgeBase) {
+  async update(base: KnowledgeBase): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
       this.find(base.id).then((entry: any) => {
         entry.name = base.name;
@@ -136,7 +136,7 @@ export class KnowledgeBaseService extends ApplicationDb {
               reject(Error(event));
             };
             evt.onsuccess = () => {
-              resolve(true);
+              resolve(entry);
             };
           });
         }
@@ -219,7 +219,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * Load the knowledge base
    * @param {any} http
    */
-  loadData(http: HttpClient) {
+  loadData(http: HttpClient): void {
     this.knowledgeBaseData = piakb;
     this.allKnowledgeBaseData = piakb;
     // Parse IndexDb's Knowledge here
@@ -229,14 +229,14 @@ export class KnowledgeBaseService extends ApplicationDb {
    * Replace current Knowledge base by CUSTOM ENTRIES
    * @param params Knowledge Base Id
    */
-  switch(params) {
+  switch(params): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (parseInt(params) !== 0) {
         this.knowledgesService
           .getEntries(parseInt(params))
           .then((result: Knowledge[]) => {
-            let newBase = [];
-            // TODO: parsing
+            const newBase = [];
+            // parsing
             result.forEach(e => {
               if (e.items) {
                 e.items.forEach(item => {
@@ -261,7 +261,7 @@ export class KnowledgeBaseService extends ApplicationDb {
             reject(err);
           });
       } else {
-        // TODO: default knowledge base
+        // default knowledge base
         this.knowledgeBaseData = piakb;
         this.allKnowledgeBaseData = piakb;
         this.previousKnowledgeBaseData = piakb;
@@ -276,7 +276,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * @param {*} [event] - Any Event.
    * @param {*} [linkKnowledgeBase] - Link knowledge base.
    */
-  search(filter?: string, event?: any, linkKnowledgeBase?: any) {
+  search(filter?: string, event?: any, linkKnowledgeBase?: any): void {
     this.filter = filter && filter.length > 0 ? filter : '';
     this.linkKnowledgeBase = linkKnowledgeBase && linkKnowledgeBase.length > 0 ? linkKnowledgeBase : '';
     this.knowledgeBaseData = this.previousKnowledgeBaseData;
@@ -299,7 +299,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * @param {*} item - An item of a section.
    * @param {*} [event] - List of Events.
    */
-  loadByItem(item: any, event?: any) {
+  loadByItem(item: any, event?: any): void {
     if (this.allKnowledgeBaseData && item) {
       this.knowledgeBaseData = this.allKnowledgeBaseData;
       let kbSlugs = [];
@@ -340,7 +340,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * Switch between element.
    * @param {*} event - Any Event.
    */
-  switchSelectedElement(event: any) {
+  switchSelectedElement(event: any): void {
     if (event) {
       event.target.parentNode.querySelectorAll('button').forEach(element => {
         element.classList.remove('active');
@@ -354,7 +354,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * @param {string} newItemTitle - New title to compare.
    * @param {string} previousItemTitle  - Previous title to compare.
    */
-  removeItemIfPresent(newItemTitle: string, previousItemTitle: string) {
+  removeItemIfPresent(newItemTitle: string, previousItemTitle: string): void {
     if (!this.toHide.includes(newItemTitle)) {
       this.toHide.push(newItemTitle);
       if (this.toHide.includes(previousItemTitle)) {
@@ -368,7 +368,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * New specific search in the knowledge base.
    * @private
    */
-  private specificSearch() {
+  private specificSearch(): void {
     if (this.q && this.q.length > 0) {
       const re = new RegExp(this.q, 'i');
       this.knowledgeBaseData = this.knowledgeBaseData.filter(

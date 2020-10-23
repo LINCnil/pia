@@ -7,7 +7,7 @@ export class KnowledgeBase{
   public contributors: string;
   public knowledges: Knowledge[] = [];
   public created_at: Date;
-  public is_example: Boolean = false;
+  public is_example = false;
 
   constructor(id = null, name = null, author = null, contributors = null, createdAt = null) {
     if (id) {

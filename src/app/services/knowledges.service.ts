@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Router } from '@angular/router';
-import { utf8Encode } from '@angular/compiler/src/util';
-import { KnowledgeBase } from '../models/knowledgeBase.model';
-
-import { ModalsService } from './modals.service';
 import { Knowledge } from '../models/knowledge.model';
 import { TranslateService } from '@ngx-translate/core';
 import { ApplicationDb } from '../application.db';
+
 @Injectable()
 export class KnowledgesService extends ApplicationDb {
 
@@ -32,7 +28,7 @@ export class KnowledgesService extends ApplicationDb {
    * Create a new Knowledge ENTRY.
    * @returns - New Promise
    */
-  async create(baseId: number, knowledge: Knowledge) {
+  async create(baseId: number, knowledge: Knowledge): Promise<Knowledge> {
     knowledge.knowledgeBase_id = baseId;
 
     return new Promise((resolve, reject) => {
@@ -105,7 +101,7 @@ export class KnowledgesService extends ApplicationDb {
     });
   }
 
-  async duplicate(baseId: number, id: number) {
+  async duplicate(baseId: number, id: number): Promise<Knowledge> {
     return new Promise((resolve, reject) => {
       this.find(id)
         .then((entry: Knowledge) => {
@@ -120,8 +116,8 @@ export class KnowledgesService extends ApplicationDb {
           temp.created_at = new Date(entry.created_at);
           temp.updated_at = new Date(entry.updated_at);
           this.create(baseId, temp)
-            .then((entry: Knowledge) => {
-              resolve(entry);
+            .then((result: Knowledge) => {
+              resolve(result);
             })
             .catch(err => {
               console.error(err);
@@ -135,7 +131,7 @@ export class KnowledgesService extends ApplicationDb {
    * List all Knowledge by base id
    * @param baseId Id of base
    */
-  private async findAllByBaseId(baseId: number) {
+  private async findAllByBaseId(baseId: number): Promise<Array<Knowledge>> {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
