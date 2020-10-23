@@ -202,8 +202,6 @@ export class BaseComponent implements OnInit {
   }
 
   delete(id): void {
-    // this.modalsService.openModal('modal-remove-knowledgeEntry');
-    // this.selectedKnowledgeId = id;
     this.confirmDialogService.confirmThis({
       text: 'modals.knowledge.content',
       yes: 'modals.knowledge.remove',

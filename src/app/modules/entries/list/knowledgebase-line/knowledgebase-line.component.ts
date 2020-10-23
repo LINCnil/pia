@@ -1,12 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
-import { Structure } from 'src/app/models/structure.model';
 import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 
 @Component({
@@ -47,13 +44,16 @@ export class KnowledgebaseLineComponent implements OnInit {
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
     this.base[attribute] = text;
-    this.base.update();
-    this.changed.emit();
+    this.knowledgeBaseService.update(this.base)
+      .then(() => {
+        this.changed.emit();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   remove(id): void {
-    // this.knowledgesService.selected = id;
-    // this.modalsService.openModal('modal-remove-knowledgebase');
     this.confirmDialogService.confirmThis({
       text: 'modals.knowledges.content',
       yes: 'modals.knowledges.remove',
