@@ -10,7 +10,7 @@ import { StructureService } from 'src/app/services/structure.service';
   styleUrls: ['./new-structure.component.scss']
 })
 export class NewStructureComponent implements OnInit {
-  @Output() submit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() submited: EventEmitter<any> = new EventEmitter<any>();
   structureForm: FormGroup;
 
   constructor(
@@ -34,7 +34,7 @@ export class NewStructureComponent implements OnInit {
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this.appDataService.dataNav;
     const p = structure.create();
-    p.then(id => this.submit.emit(id));
+    p.then(id => this.submited.emit(id));
   }
 
 }

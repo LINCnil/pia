@@ -19,61 +19,6 @@ export class ArchiveService {
     this.data = this._appDataService.dataNav;
   }
 
-  /**
-   * Sends back an archived PIA to an active PIA
-   */
-  unarchivePia() {
-    const id = parseInt(localStorage.getItem('pia-to-unarchive-id'), 10);
-
-    // Update the PIA in DB.
-    const pia = new Pia();
-    pia.get(id).then(() => {
-      pia.is_archive = 0;
-      pia.update();
-    });
-
-    // Deletes the PIA from the view
-    if (
-      localStorage.getItem('homepageDisplayMode') &&
-      localStorage.getItem('homepageDisplayMode') === 'list'
-    ) {
-      document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
-    } else {
-      document
-        .querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]')
-        .remove();
-    }
-
-    localStorage.removeItem('pia-to-unarchive-id');
-    this.modalsService.closeModal();
-  }
-
-  /**
-   * Allows an user to definitely remove an archived PIA
-   */
-  removeArchivedPia() {
-    const id = parseInt(localStorage.getItem('pia-to-remove-id'), 10);
-
-    // Removes from DB
-    const archivedPia = new Pia();
-    archivedPia.delete(id);
-
-    // Deletes the PIA from the view
-    if (
-      localStorage.getItem('homepageDisplayMode') &&
-      localStorage.getItem('homepageDisplayMode') === 'list'
-    ) {
-      document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
-    } else {
-      document
-        .querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]')
-        .remove();
-    }
-
-    localStorage.removeItem('pia-to-remove-id');
-    this.modalsService.closeModal();
-  }
-
   async calculProgress() {
     this.archivedPias.forEach((archivedPia: Pia) => {
       this.calculPiaProgress(archivedPia);
@@ -104,6 +49,21 @@ export class ArchiveService {
         })
         .catch((err) => {
           console.error(err);
+        });
+    });
+  }
+
+  unarchive(id): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const pia = new Pia();
+      pia.get(id)
+        .then(() => {
+          pia.is_archive = 0;
+          pia.update();
+          resolve();
+        })
+        .catch((err) => {
+          reject(err);
         });
     });
   }

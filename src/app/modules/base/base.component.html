@@ -41,13 +41,13 @@
         <tbody *ngIf="knowledges && knowledges.length > 0">
           <tr *ngFor="let item of knowledges" [ngClass]="{'noElementsDisplaying': showForm}">
             <td class="pia-listsBlock-item"  *ngIf="!base.is_example">
-              <a href="javascript:;" (click)="duplicateEntry(item.id)" class="btn pia-tooltip">
+              <a href="javascript:;" (click)="duplicate(item.id)" class="btn pia-tooltip">
                 <i class="fa fa-files-o" aria-hidden="true"></i>
                 <span title="{{ 'homepage.cards.item.tools.duplicate' | translate }}" class="pia-tooltip-text">
                     {{ 'homepage.cards.item.tools.duplicate' | translate }}
                 </span>
               </a>
-              <a (click)="deleteModal(item.id)" class="btn pia-tooltip">
+              <a (click)="delete(item.id)" class="btn pia-tooltip">
                 <i class="fa fa-trash" aria-hidden="true"></i>
                 <span title="{{ 'homepage.cards.item.tools.remove' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.remove' | translate }}</span>
               </a>
@@ -151,4 +151,4 @@
   </div>
 </div>
 
-<app-modals (continueEvent)="deleteEntry()"></app-modals>
+<app-confirm-dialog></app-confirm-dialog>

@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
+import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 
 @Component({
@@ -10,12 +11,10 @@ import { KnowledgesService } from 'src/app/services/knowledges.service';
   styleUrls: ['./new-knowledgebase.component.scss']
 })
 export class NewKnowledgebaseComponent implements OnInit {
-  @Output() submit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() submited = new EventEmitter();
   knowledgeBaseForm: FormGroup;
 
-  constructor(
-    private router: Router,
-    private knowledgesService: KnowledgesService) { }
+  constructor(private knowledgeBaseService: KnowledgeBaseService) { }
 
   ngOnInit(): void {
     this.knowledgeBaseForm = new FormGroup({
@@ -26,13 +25,16 @@ export class NewKnowledgebaseComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const kb = new KnowledgeBase();
-    kb.name = this.knowledgeBaseForm.value.name;
-    kb.author = this.knowledgeBaseForm.value.author;
-    kb.contributors = this.knowledgeBaseForm.value.contributors;
-    kb.create()
+    const kb = new KnowledgeBase(
+      null,
+      this.knowledgeBaseForm.value.name,
+      this.knowledgeBaseForm.value.author,
+      this.knowledgeBaseForm.value.contributors,
+      new Date()
+    );
+    this.knowledgeBaseService.create(kb)
       .then((result: KnowledgeBase) => {
-        this.submit.emit(result.id);
+        this.submited.emit(result.id);
       });
   }
 

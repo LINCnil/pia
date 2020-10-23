@@ -41,8 +41,22 @@ export class ArchiveLineComponent implements OnInit {
    * @param id - The archived PIA id.
    */
   unarchive(id: string): void {
-    localStorage.setItem('pia-to-unarchive-id', id);
-    this.modalsService.openModal('modal-unarchive-pia');
+    this.confirmDialogService.confirmThis({
+      text: 'modals.unarchive_pia.content',
+      yes: 'modals.unarchive_pia.unarchive',
+      no: 'modals.cancel'},
+      () => {
+        this.archiveService.unarchive(id)
+          .then(() => {
+            this.deleted.emit();
+          })
+          .catch(() => {
+            return;
+          });
+      },
+      () => {
+        return;
+      });
   }
 
   /**
@@ -50,9 +64,6 @@ export class ArchiveLineComponent implements OnInit {
    * @param id - The archived PIA id.
    */
   remove(id: string): void {
-    // TODO: remove comment
-    // localStorage.setItem('pia-to-remove-id', id);
-    // this.modalsService.openModal('modal-remove-archived-pia');
     this.confirmDialogService.confirmThis({
       text: 'modals.remove_pia.content',
       yes: 'modals.remove_pia.remove',

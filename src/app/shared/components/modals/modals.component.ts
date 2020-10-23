@@ -118,13 +118,13 @@ export class ModalsComponent implements OnInit, OnDestroy {
     p.then(id => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
   }
 
-  onSubmitKnowledgeBase() {
-    const kb = new KnowledgeBase();
-    kb.name = this.knowledgeBaseForm.value.name;
-    kb.author = this.knowledgeBaseForm.value.author;
-    kb.contributors = this.knowledgeBaseForm.value.contributors;
-    kb.create().then((result: KnowledgeBase) => this.router.navigate(['knowledges', 'base', result.id]));
-  }
+  // onSubmitKnowledgeBase() {
+  //   const kb = new KnowledgeBase();
+  //   kb.name = this.knowledgeBaseForm.value.name;
+  //   kb.author = this.knowledgeBaseForm.value.author;
+  //   kb.contributors = this.knowledgeBaseForm.value.contributors;
+  //   kb.create().then((result: KnowledgeBase) => this.router.navigate(['knowledges', 'base', result.id]));
+  // }
 
   /**
    * Focuses out from the comment attachment field.

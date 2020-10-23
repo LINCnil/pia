@@ -132,7 +132,11 @@ export class ApplicationDb {
     };
     return new Promise((resolve, reject) => {
       this.objectStore = db.transaction(this.tableName, 'readwrite').objectStore(this.tableName);
-      resolve(this.objectStore);
+      if (this.objectStore) {
+        resolve(this.objectStore);
+      } else {
+        reject(false);
+      }
     });
   }
 

@@ -5,9 +5,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { ModalsService } from 'src/app/services/modals.service';
 
 
 import piakb from 'src/assets/files/pia_knowledge-base.json';
@@ -51,21 +52,21 @@ export class BaseComponent implements OnInit {
   constructor(
     public languagesService: LanguagesService,
     private translateService: TranslateService,
-    private modalsService: ModalsService,
     private knowledgesService: KnowledgesService,
+    private knowledgeBaseService: KnowledgeBaseService,
     private appDataService: AppDataService,
+    private confirmDialogService: ConfirmDialogService,
     private route: ActivatedRoute
   ) {}
 
   async ngOnInit(): Promise<void> {
     this.appDataService.entrieMode = 'knowledgeBase';
+    this.base = new KnowledgeBase();
     const sectionId = parseInt(this.route.snapshot.params.id, 10);
-    this.knowledgesService.selected = sectionId;
     if (sectionId) {
-      this.base = new KnowledgeBase();
-      this.base
-        .get(sectionId)
-        .then(() => {
+      this.knowledgeBaseService.get(sectionId)
+        .then((base: KnowledgeBase) => {
+          this.base = base;
           // GET Knowledges entries from selected base
           this.knowledgesService.getEntries(this.base.id).then((result: Knowledge[]) => {
             this.knowledges = result;
@@ -153,12 +154,13 @@ export class BaseComponent implements OnInit {
 
     entry.filters = this.checkFilters();
 
-    entry.create(this.knowledgesService.selected).then((result: Knowledge) => {
-      this.knowledges.push(result);
-      this.entryForm.reset();
-      this.showForm = false;
-      this.editEntry(result.id); // Go to edition mode
-    });
+    this.knowledgesService.create(this.base.id, entry)
+      .then((result: Knowledge) => {
+        this.knowledges.push(result);
+        this.entryForm.reset();
+        this.showForm = false;
+        this.editEntry(result.id); // Go to edition mode
+      });
   }
 
   /**
@@ -169,11 +171,8 @@ export class BaseComponent implements OnInit {
     if (id) {
       this.selectedKnowledgeId = id;
       const tempk = new Knowledge();
-      tempk
-        .find(id)
+      this.knowledgesService.find(id)
         .then((result: Knowledge) => {
-          // SET FORM CONTROL
-
           this.entryForm.controls['name'].setValue(result.name);
           this.entryForm.controls['category'].setValue(result.category);
           this.entryForm.controls['description'].setValue(result.description);
@@ -192,43 +191,35 @@ export class BaseComponent implements OnInit {
     }
   }
 
-  duplicateEntry(id): void {
-    const tempk = new Knowledge();
-    tempk
-      .get(id)
-      .then(() => {
-        console.log(tempk);
-        tempk.id = null;
-        tempk.create(this.base.id).then((response: Knowledge) => {
-          tempk.id = response.id;
-          this.knowledges.push(tempk);
-        });
+  duplicate(id): void {
+    this.knowledgesService.duplicate(this.base.id, id)
+      .then((entry: Knowledge) => {
+        this.knowledges.push(entry);
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
       });
   }
 
-  deleteModal(id): void {
-    this.modalsService.openModal('modal-remove-knowledgeEntry');
-    this.selectedKnowledgeId = id;
-  }
-
-  deleteEntry(): void {
-    const tempk = new Knowledge();
-    tempk
-      .delete(this.selectedKnowledgeId)
-      .then(() => {
-        const index = this.knowledges.findIndex(e => e.id === this.selectedKnowledgeId);
-        if (index !== -1) {
-          this.knowledges.splice(index, 1);
-          this.modalsService.closeModal();
-          this.selectedKnowledgeId = null;
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        this.selectedKnowledgeId = null;
+  delete(id): void {
+    this.confirmDialogService.confirmThis({
+      text: 'modals.knowledge.content',
+      yes: 'modals.knowledge.remove',
+      no: 'modals.cancel'},
+      () => {
+        this.knowledgesService.delete(id)
+          .then(() => {
+            const index = this.knowledges.findIndex(e => e.id === id);
+            if (index !== -1) {
+              this.knowledges.splice(index, 1);
+            }
+          })
+          .catch(() => {
+            return;
+          });
+      },
+      () => {
+        return;
       });
   }
 
@@ -237,31 +228,30 @@ export class BaseComponent implements OnInit {
    */
   focusOut(): void {
     if (this.selectedKnowledgeId) {
-      const entry = new Knowledge();
-      entry.get(this.selectedKnowledgeId).then(() => {
-        // set new properties values
-        entry.name = this.entryForm.value.name;
-        entry.description = this.entryForm.value.description;
-        entry.slug = slugify(entry.name);
-        entry.category = this.entryForm.value.category;
-        entry.items = this.itemsSelected;
-
-        entry.filters = this.checkFilters();
-
-        // Update object
-        entry
-          .update()
-          .then(() => {
-            // Update list
-            const index = this.knowledges.findIndex(e => e.id == entry.id);
-            if (index !== -1) {
-              this.knowledges[index] = entry;
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      });
+      this.knowledgesService.find(this.selectedKnowledgeId)
+        .then((entry: Knowledge) => {
+          entry.name = this.entryForm.value.name;
+          entry.description = this.entryForm.value.description;
+          entry.slug = slugify(entry.name);
+          entry.category = this.entryForm.value.category;
+          entry.items = this.itemsSelected;
+          entry.filters = this.checkFilters();
+          // Update object
+          this.knowledgesService.update(entry)
+            .then(() => {
+              // Update list
+              const index = this.knowledges.findIndex(e => e.id === entry.id);
+              if (index !== -1) {
+                this.knowledges[index] = entry;
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 

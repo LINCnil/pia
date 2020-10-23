@@ -4,10 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { Knowledge } from '../models/knowledge.model';
+import { ApplicationDb } from '../application.db';
+import { KnowledgeBase } from '../models/knowledgeBase.model';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable()
-export class KnowledgeBaseService {
+export class KnowledgeBaseService extends ApplicationDb {
   allKnowledgeBaseData: any[];
   knowledgeBaseData: any[];
   previousKnowledgeBaseData: any[];
@@ -16,16 +19,207 @@ export class KnowledgeBaseService {
   linkKnowledgeBase: string[] = [];
   hasKnowledgeBaseData = true;
   placeholder: string;
-  translateService: any;
   toHide = [];
 
-  constructor(private knowledgesService: KnowledgesService) {}
+  constructor(
+    private translateService: TranslateService,
+    private knowledgesService: KnowledgesService) {
+    super(201911191636, 'knowledgeBase');
+  }
+
+  public getAll(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.findAll()
+        .then((response: any) => {
+          const result: KnowledgeBase[] = [];
+          response.forEach(e => {
+            result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.created_at));
+          });
+
+          // Parse default Knowledge base json
+          const cnilKnowledgeBase = new KnowledgeBase(
+            0,
+            this.translateService.instant('knowledge_base.default_knowledge_base'),
+            'CNIL',
+            'CNIL'
+          );
+          cnilKnowledgeBase.is_example = true;
+
+          result.push(cnilKnowledgeBase);
+          resolve(result);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
+  /**
+   * Get a KnowledgeBase.
+   * @param id - The KnowledgeBase id.
+   * @returns - New Promise
+   */
+  async get(id: number): Promise<KnowledgeBase> {
+    return new Promise((resolve, reject) => {
+      this.find(id)
+        .then((entry: any) => {
+          resolve(entry);
+        })
+        .catch(err => {
+          console.log(err);
+          reject(err);
+        });
+    });
+  }
+
+  /**
+   * Create a new Structure.
+   * @returns - New Promise
+   */
+  async create(base: KnowledgeBase): Promise<KnowledgeBase> {
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+      } else {
+        this.getObjectStore().then(() => {
+          const evt = this.objectStore.add(base);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            resolve({ ...base, id: event.target.result });
+          };
+        });
+      }
+    });
+  }
+
+  async update(base: KnowledgeBase): Promise<KnowledgeBase> {
+    return new Promise((resolve, reject) => {
+      this.find(base.id).then((entry: any) => {
+        entry.name = base.name;
+        entry.author = base.author;
+        entry.contributors = base.contributors;
+        entry.updated_at = new Date();
+
+        if (this.serverUrl) {
+          const formData = new FormData();
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d)) {
+              let value = entry[d];
+              if (d === 'data') {
+                value = JSON.stringify(value);
+              }
+              formData.append('structure[' + d + ']', value);
+            }
+          }
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
+            body: formData,
+            mode: 'cors'
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve(result);
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject(error);
+            });
+        } else {
+          this.getObjectStore().then(() => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            };
+            evt.onsuccess = () => {
+              resolve(entry);
+            };
+          });
+        }
+      });
+    });
+  }
+
+  /**
+   * Download the Knowledges exported.
+   * @param {number} id - The Structure id.
+   */
+  export(id: number): void {
+    const date = new Date().getTime();
+    this.find(id).then(data => {
+      const a = document.getElementById('pia-exportBlock');
+      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+      a.setAttribute('href', url);
+      a.setAttribute('download', date + '_export_knowledgebase_' + id + '.json');
+      const event = new MouseEvent('click', {
+        view: window
+      });
+      a.dispatchEvent(event);
+    });
+  }
+
+  import(data): Promise<KnowledgeBase> {
+    return new Promise((resolve, reject) => {
+      const newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
+      this.create(newKnowledgeBase)
+        .then((resp: KnowledgeBase) => {
+          newKnowledgeBase.id = resp.id;
+          resolve(newKnowledgeBase);
+        })
+        .catch(error => {
+          console.log(error);
+          reject(error);
+        });
+    });
+  }
+
+  /**
+   * Duplicate base and it's knowleges
+   * @param id base's id
+   */
+  duplicate(id: number): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const date = new Date().getTime();
+      this.find(id).then((data: KnowledgeBase) => {
+        this.import(data)
+        .then((newKnowledgeBase: KnowledgeBase) => {
+          // Duplicate entries
+          this.knowledgesService.getEntries(id).then((knowledges: Knowledge[]) => {
+            knowledges.forEach((entry: Knowledge) => {
+              const temp = new Knowledge();
+              temp.slug = entry.slug;
+              temp.filters = entry.filters;
+              temp.category = entry.category;
+              temp.placeholder = entry.placeholder;
+              temp.name = entry.name;
+              temp.description = entry.description;
+              temp.items = entry.items;
+              temp.created_at = new Date(entry.created_at);
+              temp.updated_at = new Date(entry.updated_at);
+              this.knowledgesService.create(newKnowledgeBase.id, temp).then(e => {
+                console.log(e);
+              });
+            });
+          });
+          resolve();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      });
+    });
+  }
+
 
   /**
    * Load the knowledge base
    * @param {any} http
    */
-  loadData(http: HttpClient) {
+  loadData(http: HttpClient): void {
     this.knowledgeBaseData = piakb;
     this.allKnowledgeBaseData = piakb;
     // Parse IndexDb's Knowledge here
@@ -35,14 +229,14 @@ export class KnowledgeBaseService {
    * Replace current Knowledge base by CUSTOM ENTRIES
    * @param params Knowledge Base Id
    */
-  switch(params) {
+  switch(params): Promise<boolean> {
     return new Promise((resolve, reject) => {
       if (parseInt(params) !== 0) {
         this.knowledgesService
           .getEntries(parseInt(params))
           .then((result: Knowledge[]) => {
-            let newBase = [];
-            // TODO: parsing
+            const newBase = [];
+            // parsing
             result.forEach(e => {
               if (e.items) {
                 e.items.forEach(item => {
@@ -67,7 +261,7 @@ export class KnowledgeBaseService {
             reject(err);
           });
       } else {
-        // TODO: default knowledge base
+        // default knowledge base
         this.knowledgeBaseData = piakb;
         this.allKnowledgeBaseData = piakb;
         this.previousKnowledgeBaseData = piakb;
@@ -82,7 +276,7 @@ export class KnowledgeBaseService {
    * @param {*} [event] - Any Event.
    * @param {*} [linkKnowledgeBase] - Link knowledge base.
    */
-  search(filter?: string, event?: any, linkKnowledgeBase?: any) {
+  search(filter?: string, event?: any, linkKnowledgeBase?: any): void {
     this.filter = filter && filter.length > 0 ? filter : '';
     this.linkKnowledgeBase = linkKnowledgeBase && linkKnowledgeBase.length > 0 ? linkKnowledgeBase : '';
     this.knowledgeBaseData = this.previousKnowledgeBaseData;
@@ -105,7 +299,7 @@ export class KnowledgeBaseService {
    * @param {*} item - An item of a section.
    * @param {*} [event] - List of Events.
    */
-  loadByItem(item: any, event?: any) {
+  loadByItem(item: any, event?: any): void {
     if (this.allKnowledgeBaseData && item) {
       this.knowledgeBaseData = this.allKnowledgeBaseData;
       let kbSlugs = [];
@@ -146,7 +340,7 @@ export class KnowledgeBaseService {
    * Switch between element.
    * @param {*} event - Any Event.
    */
-  switchSelectedElement(event: any) {
+  switchSelectedElement(event: any): void {
     if (event) {
       event.target.parentNode.querySelectorAll('button').forEach(element => {
         element.classList.remove('active');
@@ -160,7 +354,7 @@ export class KnowledgeBaseService {
    * @param {string} newItemTitle - New title to compare.
    * @param {string} previousItemTitle  - Previous title to compare.
    */
-  removeItemIfPresent(newItemTitle: string, previousItemTitle: string) {
+  removeItemIfPresent(newItemTitle: string, previousItemTitle: string): void {
     if (!this.toHide.includes(newItemTitle)) {
       this.toHide.push(newItemTitle);
       if (this.toHide.includes(previousItemTitle)) {
@@ -174,7 +368,7 @@ export class KnowledgeBaseService {
    * New specific search in the knowledge base.
    * @private
    */
-  private specificSearch() {
+  private specificSearch(): void {
     if (this.q && this.q.length > 0) {
       const re = new RegExp(this.q, 'i');
       this.knowledgeBaseData = this.knowledgeBaseData.filter(
