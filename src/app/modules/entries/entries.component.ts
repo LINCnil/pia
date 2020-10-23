@@ -11,6 +11,7 @@ import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 
 
 @Component({
@@ -41,6 +42,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
     public archiveService: ArchiveService,
     public structureService: StructureService,
     private knowledgesService: KnowledgesService,
+    private knowledgeBaseService: KnowledgeBaseService,
     public piaService: PiaService,
     public appDataService: AppDataService) {
 
@@ -169,7 +171,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
             });
           break;
         case 'knowledgeBase':
-          this.knowledgesService.getAll()
+          this.knowledgeBaseService.getAll()
           .then((result: any) => {
             this.entries = result;
           });

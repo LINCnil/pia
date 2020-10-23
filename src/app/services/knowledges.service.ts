@@ -12,38 +12,9 @@ import { ApplicationDb } from '../application.db';
 export class KnowledgesService extends ApplicationDb {
 
   constructor(
-    private router: Router,
-    private mmodalsService: ModalsService,
     private translateService: TranslateService) {
-      super(201911191636, 'knowledgeBase');
+      super(201911191636, 'knowledge');
     }
-
-  public getAll(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.findAll()
-        .then((response: any) => {
-          const result: KnowledgeBase[] = [];
-          response.forEach(e => {
-            result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.created_at));
-          });
-
-          // Parse default Knowledge base json
-          const cnilKnowledgeBase = new KnowledgeBase(
-            0,
-            this.translateService.instant('knowledge_base.default_knowledge_base'),
-            'CNIL',
-            'CNIL'
-          );
-          cnilKnowledgeBase.is_example = true;
-
-          result.push(cnilKnowledgeBase);
-          resolve(result);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
 
   public getEntries(baseId): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -54,6 +25,32 @@ export class KnowledgesService extends ApplicationDb {
           .catch(err => {
             reject(err);
           });
+    });
+  }
+
+
+
+  /**
+   * Create a new Knowledge ENTRY.
+   * @returns - New Promise
+   */
+  async create(baseId: number, knowledge: Knowledge) {
+    knowledge.knowledgeBase_id = baseId;
+
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+      } else {
+        this.getObjectStore().then(() => {
+          const evt = this.objectStore.add(knowledge);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            resolve({ ...knowledge, id: event.target.result });
+          };
+        });
+      }
     });
   }
 
@@ -103,44 +100,10 @@ export class KnowledgesService extends ApplicationDb {
     });
   }
 
-  duplicate(id: number): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const date = new Date().getTime();
-      this.find(id).then((data: KnowledgeBase) => {
-        this.import(data)
-        .then((newKnowledgeBase: KnowledgeBase) => {
-          // Duplicate entries
-          this.getEntries(id).then((knowledges: Knowledge[]) => {
-            knowledges.forEach((entry: Knowledge) => {
-              const temp = new Knowledge();
-              temp.id = entry.id;
-              temp.slug = entry.slug;
-              temp.filters = entry.filters;
-              temp.category = entry.category;
-              temp.placeholder = entry.placeholder;
-              temp.name = entry.name;
-              temp.description = entry.description;
-              temp.items = entry.items;
-              temp.created_at = new Date(entry.created_at);
-              temp.updated_at = new Date(entry.updated_at);
-              temp.create(newKnowledgeBase.id).then(e => {
-                console.log(e);
-              });
-            });
-          });
-          resolve();
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-      });
-    });
-  }
-
   /**
-  * List all Knowledge by base id
-  * @param piaId - The PIA id
-  */
+   * List all Knowledge by base id
+   * @param baseId Id of base
+   */
   private async findAllByBaseId(baseId: number) {
     const items = [];
     return new Promise((resolve, reject) => {
@@ -160,8 +123,8 @@ export class KnowledgesService extends ApplicationDb {
           });
       } else {
         this.getObjectStore()
-          .then(() => {
-            const index1 = this.objectStore.index('index1');
+          .then((obj: any) => {
+            const index1 = obj.index('index1');
             const evt = index1.openCursor(IDBKeyRange.only(baseId));
             evt.onerror = (event: any) => {
               console.error(event);

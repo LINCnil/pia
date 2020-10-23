@@ -4,6 +4,7 @@ import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { Structure } from 'src/app/models/structure.model';
 import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { ModalsService } from 'src/app/services/modals.service';
 
@@ -26,6 +27,7 @@ export class KnowledgebaseCardComponent implements OnInit {
   constructor(
     private modalsService: ModalsService,
     private knowledgesService: KnowledgesService,
+    private knowledgeBaseService: KnowledgeBaseService,
     private confirmDialogService: ConfirmDialogService) {}
 
   ngOnInit(): void {
@@ -97,7 +99,7 @@ export class KnowledgebaseCardComponent implements OnInit {
       yes: 'modals.knowledges.remove',
       no: 'modals.cancel'},
       () => {
-        this.knowledgesService.remove(id)
+        this.knowledgeBaseService.delete(id)
           .then(() => {
             this.deleted.emit();
           })
@@ -111,11 +113,11 @@ export class KnowledgebaseCardComponent implements OnInit {
   }
 
   export(id): void {
-    this.knowledgesService.export(id);
+    this.knowledgeBaseService.export(id);
   }
 
   duplicate(id): void {
-    this.knowledgesService.duplicate(id);
+    this.knowledgeBaseService.duplicate(id);
     this.duplicated.emit(id);
   }
 }

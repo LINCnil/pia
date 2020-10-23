@@ -4,10 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { Knowledge } from '../models/knowledge.model';
+import { ApplicationDb } from '../application.db';
+import { KnowledgeBase } from '../models/knowledgeBase.model';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable()
-export class KnowledgeBaseService {
+export class KnowledgeBaseService extends ApplicationDb {
   allKnowledgeBaseData: any[];
   knowledgeBaseData: any[];
   previousKnowledgeBaseData: any[];
@@ -16,10 +19,112 @@ export class KnowledgeBaseService {
   linkKnowledgeBase: string[] = [];
   hasKnowledgeBaseData = true;
   placeholder: string;
-  translateService: any;
   toHide = [];
 
-  constructor(private knowledgesService: KnowledgesService) {}
+  constructor(
+    private translateService: TranslateService,
+    private knowledgesService: KnowledgesService) {
+    super(201911191636, 'knowledgeBase');
+  }
+
+  public getAll(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.findAll()
+        .then((response: any) => {
+          const result: KnowledgeBase[] = [];
+          response.forEach(e => {
+            result.push(new KnowledgeBase(e.id, e.name, e.author, e.contributors, e.created_at));
+          });
+
+          // Parse default Knowledge base json
+          const cnilKnowledgeBase = new KnowledgeBase(
+            0,
+            this.translateService.instant('knowledge_base.default_knowledge_base'),
+            'CNIL',
+            'CNIL'
+          );
+          cnilKnowledgeBase.is_example = true;
+
+          result.push(cnilKnowledgeBase);
+          resolve(result);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
+  /**
+   * Download the Knowledges exported.
+   * @param {number} id - The Structure id.
+   */
+  export(id: number): void {
+    const date = new Date().getTime();
+    this.find(id).then(data => {
+      const a = document.getElementById('pia-exportBlock');
+      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+      a.setAttribute('href', url);
+      a.setAttribute('download', date + '_export_knowledgebase_' + id + '.json');
+      const event = new MouseEvent('click', {
+        view: window
+      });
+      a.dispatchEvent(event);
+    });
+  }
+
+  import(data): Promise<KnowledgeBase> {
+    return new Promise((resolve, reject) => {
+      const newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
+      newKnowledgeBase
+        .create()
+        .then((resp: KnowledgeBase) => {
+          newKnowledgeBase.id = resp.id;
+          resolve(newKnowledgeBase);
+        })
+        .catch(error => {
+          console.log(error);
+          reject(error);
+        });
+    });
+  }
+
+  /**
+   * Duplicate base and it's knowleges
+   * @param id base's id
+   */
+  duplicate(id: number): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const date = new Date().getTime();
+      this.find(id).then((data: KnowledgeBase) => {
+        this.import(data)
+        .then((newKnowledgeBase: KnowledgeBase) => {
+          // Duplicate entries
+          this.knowledgesService.getEntries(id).then((knowledges: Knowledge[]) => {
+            knowledges.forEach((entry: Knowledge) => {
+              const temp = new Knowledge();
+              temp.slug = entry.slug;
+              temp.filters = entry.filters;
+              temp.category = entry.category;
+              temp.placeholder = entry.placeholder;
+              temp.name = entry.name;
+              temp.description = entry.description;
+              temp.items = entry.items;
+              temp.created_at = new Date(entry.created_at);
+              temp.updated_at = new Date(entry.updated_at);
+              this.knowledgesService.create(newKnowledgeBase.id, temp).then(e => {
+                console.log(e);
+              });
+            });
+          });
+          resolve();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      });
+    });
+  }
+
 
   /**
    * Load the knowledge base
