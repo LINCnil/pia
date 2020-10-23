@@ -28,8 +28,6 @@ export class KnowledgesService extends ApplicationDb {
     });
   }
 
-
-
   /**
    * Create a new Knowledge ENTRY.
    * @returns - New Promise
@@ -51,6 +49,59 @@ export class KnowledgesService extends ApplicationDb {
           };
         });
       }
+    });
+  }
+
+  async update(knowledge: Knowledge): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.find(knowledge.id).then((entry: any) => {
+        entry.slug = knowledge.slug;
+        entry.filters = knowledge.filters;
+        entry.category = knowledge.category;
+        entry.placeholder = knowledge.placeholder;
+        entry.name = knowledge.name;
+        entry.description = knowledge.description;
+        entry.knowledgeBase_id = knowledge.knowledgeBase_id;
+        (entry.items = knowledge.items), (entry.created_at = entry.created_at);
+        entry.updated_at = new Date();
+
+        if (this.serverUrl) {
+          const formData = new FormData();
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d)) {
+              let value = entry[d];
+              if (d === 'data') {
+                value = JSON.stringify(value);
+              }
+              formData.append('structure[' + d + ']', value);
+            }
+          }
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
+            body: formData,
+            mode: 'cors'
+          })
+            .then(response => {
+              resolve();
+              return response.json();
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
+        } else {
+          this.getObjectStore().then(() => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            };
+            evt.onsuccess = () => {
+              resolve();
+            };
+          });
+        }
+      });
     });
   }
 

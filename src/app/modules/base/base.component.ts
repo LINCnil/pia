@@ -170,11 +170,8 @@ export class BaseComponent implements OnInit {
     if (id) {
       this.selectedKnowledgeId = id;
       const tempk = new Knowledge();
-      tempk
-        .find(id)
+      this.knowledgesService.find(id)
         .then((result: Knowledge) => {
-          // SET FORM CONTROL
-
           this.entryForm.controls['name'].setValue(result.name);
           this.entryForm.controls['category'].setValue(result.category);
           this.entryForm.controls['description'].setValue(result.description);
@@ -194,7 +191,6 @@ export class BaseComponent implements OnInit {
   }
 
   duplicate(id): void {
-    const tempk = new Knowledge();
     this.knowledgesService.duplicate(this.base.id, id)
       .then((entry: Knowledge) => {
         this.knowledges.push(entry);
@@ -233,31 +229,30 @@ export class BaseComponent implements OnInit {
    */
   focusOut(): void {
     if (this.selectedKnowledgeId) {
-      const entry = new Knowledge();
-      entry.get(this.selectedKnowledgeId).then(() => {
-        // set new properties values
-        entry.name = this.entryForm.value.name;
-        entry.description = this.entryForm.value.description;
-        entry.slug = slugify(entry.name);
-        entry.category = this.entryForm.value.category;
-        entry.items = this.itemsSelected;
-
-        entry.filters = this.checkFilters();
-
-        // Update object
-        entry
-          .update()
-          .then(() => {
-            // Update list
-            const index = this.knowledges.findIndex(e => e.id == entry.id);
-            if (index !== -1) {
-              this.knowledges[index] = entry;
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      });
+      this.knowledgesService.find(this.selectedKnowledgeId)
+        .then((entry: Knowledge) => {
+          entry.name = this.entryForm.value.name;
+          entry.description = this.entryForm.value.description;
+          entry.slug = slugify(entry.name);
+          entry.category = this.entryForm.value.category;
+          entry.items = this.itemsSelected;
+          entry.filters = this.checkFilters();
+          // Update object
+          this.knowledgesService.update(entry)
+            .then(() => {
+              // Update list
+              const index = this.knowledges.findIndex(e => e.id == entry.id);
+              if (index !== -1) {
+                this.knowledges[index] = entry;
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 
