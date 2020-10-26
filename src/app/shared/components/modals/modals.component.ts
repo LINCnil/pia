@@ -57,9 +57,9 @@ export class ModalsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {});
     const structure = new Structure();
-    structure.getAll().then((data: any) => {
-      this._structureService.structures = data;
-    });
+    // structure.getAll().then((data: any) => {
+    //   this._structureService.structures = data;
+    // });
 
     this._piaService.getPIA();
     this.piaForm = new FormGroup({
@@ -109,14 +109,14 @@ export class ModalsComponent implements OnInit, OnDestroy {
    * Save the newly created Structure.
    * Sends to the path associated to this new Structure.
    */
-  onSubmitStructure() {
-    const structure = new Structure();
-    structure.name = this.structureForm.value.name;
-    structure.sector_name = this.structureForm.value.sector_name;
-    structure.data = this._piaService.data;
-    const p = structure.create();
-    p.then(id => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
-  }
+  // onSubmitStructure() {
+  //   const structure = new Structure();
+  //   structure.name = this.structureForm.value.name;
+  //   structure.sector_name = this.structureForm.value.sector_name;
+  //   structure.data = this._piaService.data;
+  //   const p = structure.create();
+  //   p.then(id => this.router.navigate(['structures', 'entry', id, 'section', 1, 'item', 1]));
+  // }
 
   // onSubmitKnowledgeBase() {
   //   const kb = new KnowledgeBase();

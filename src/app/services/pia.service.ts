@@ -13,6 +13,7 @@ import { Pia } from '../models/pia.model';
 import { Comment } from '../models/comment.model';
 import { Structure } from '../models/structure.model';
 import { ModalsService } from './modals.service';
+import { StructureService } from './structure.service';
 
 @Injectable()
 export class PiaService {
@@ -27,7 +28,8 @@ export class PiaService {
     private route: ActivatedRoute,
     public _appDataService: AppDataService,
     private modalsService: ModalsService,
-    public _sidStatusService: SidStatusService
+    public _sidStatusService: SidStatusService,
+    private structureService: StructureService
   ) {
     if (this.pia.structure_data) {
       this._appDataService.dataNav = this.pia.structure_data;
@@ -88,8 +90,7 @@ export class PiaService {
       pia.updated_at = new Date();
       const structure_id = piaForm.value.structure;
       if (structure_id && structure_id > 0) {
-        const structure = new Structure();
-        structure.get(structure_id).then(() => {
+        this.structureService.find(structure_id).then((structure: Structure) => {
           pia.structure_id = structure.id;
           pia.structure_name = structure.name;
           pia.structure_sector_name = structure.sector_name;

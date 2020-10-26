@@ -52,10 +52,10 @@ export class PiaCardComponent implements OnInit {
   ngOnInit(): void {
 
     // GET STRUCTURE LIST
-    const structure = new Structure();
-    structure.getAll().then((data: any) => {
-      this.structureService.structures = data;
-    });
+    // const structure = new Structure();
+    // this.structureService.getAll().then((data: any) => {
+    //   this.structureService.structures = data;
+    // });
 
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),

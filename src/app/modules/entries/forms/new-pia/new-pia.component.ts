@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Structure } from 'src/app/models/structure.model';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 
@@ -11,10 +12,19 @@ import { StructureService } from 'src/app/services/structure.service';
 export class NewPiaComponent implements OnInit {
   @Output() submited: EventEmitter<any> = new EventEmitter<any>();
   piaForm: FormGroup;
+  structureList: Array<Structure> = [];
 
   constructor(
     private piaService: PiaService,
-    public structureService: StructureService) { }
+    public structureService: StructureService) {
+      this.structureService.getAll()
+        .then((response: Array<Structure>) => {
+          this.structureList = response;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
 
   ngOnInit(): void {
     this.piaForm = new FormGroup({
