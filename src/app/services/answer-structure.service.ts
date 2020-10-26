@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Structure } from '../models/structure.model';
 import { ModalsService } from './modals.service';
+import { StructureService } from './structure.service';
 
 
 @Injectable()
@@ -11,7 +12,7 @@ export class AnswerStructureService {
   measureToRemove = new Subject<number>();
   questionToRemove = new Subject<number>();
 
-  constructor(private modalsService: ModalsService) {}
+  constructor(private modalsService: ModalsService, private structureService: StructureService) {}
 
 
   async addQuestion(structure: Structure, section: any, item: any) {
@@ -28,7 +29,7 @@ export class AnswerStructureService {
           'active': true
         };
         structure.data.sections.filter(s => s.id === section.id)[0].items.filter(i => i.id === item.id)[0].questions.push(question);
-        structure.update().then(() => {
+        this.structureService.update(this.structure).then(() => {
           this.structure = structure;
           resolve(question);
         });
@@ -42,7 +43,7 @@ export class AnswerStructureService {
           'content': ''
         }
         structure.data.sections.filter(s => s.id === section.id)[0].items.filter(i => i.id === item.id)[0].answers.push(measure);
-        structure.update().then(() => {
+        this.structureService.update(structure).then(() => {
           resolve(measure);
         });
       });
@@ -55,7 +56,7 @@ export class AnswerStructureService {
     const item_id = parseInt(sid[1], 10);
     const measure_id = parseInt(sid[2], 10);
     this.structure.data.sections.filter(s => s.id === section_id)[0].items.filter(i => i.id === item_id)[0].answers.splice(measure_id, 1);
-    this.structure.update().then(() => {
+    this.structureService.update(this.structure).then(() => {
       this.measureToRemove.next(measure_id);
       localStorage.removeItem('measure-id');
       this.modalsService.closeModal();
@@ -70,7 +71,7 @@ export class AnswerStructureService {
     const index = this.structure.data.sections.filter(s => s.id === section_id)[0].items.filter(i => i.id === item_id)[0].questions.findIndex(q => q.id === question_id);
     if (index !== -1) {
       this.structure.data.sections.filter(s => s.id === section_id)[0].items.filter(i => i.id === item_id)[0].questions.splice(index, 1);
-      this.structure.update();
+      this.structureService.update(this.structure);
       this.questionToRemove.next(index);
     }
     localStorage.removeItem('question-id');

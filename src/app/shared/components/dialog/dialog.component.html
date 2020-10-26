@@ -6,9 +6,9 @@
       <span class="pia-icons pia-icon-close-big"></span>
     </button>
     <p [innerHTML]="message.text | translate"></p>
-    <span class="pia-icons pia-icon-sad"></span>
+    <p><br></p>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="2" class="btn btn-red" (click)="message.noFn()" type="button">
+      <button tabindex="2" class="btn btn-red" (click)="message.noFn()" type="button" *ngIf="message.type === 'confirm'">
         {{ message.no | translate}}
       </button>
       <button tabindex="1" class="btn btn-green  get-focus" type="button" (click)="message.yesFn()">

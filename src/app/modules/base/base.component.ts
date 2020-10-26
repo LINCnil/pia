@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { AppDataService } from 'src/app/services/app-data.service';
-import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { DialogService } from 'src/app/services/dialog.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
@@ -55,7 +55,7 @@ export class BaseComponent implements OnInit {
     private knowledgesService: KnowledgesService,
     private knowledgeBaseService: KnowledgeBaseService,
     private appDataService: AppDataService,
-    private confirmDialogService: ConfirmDialogService,
+    private dialogService: DialogService,
     private route: ActivatedRoute
   ) {}
 
@@ -202,8 +202,9 @@ export class BaseComponent implements OnInit {
   }
 
   delete(id): void {
-    this.confirmDialogService.confirmThis({
+    this.dialogService.confirmThis({
       text: 'modals.knowledge.content',
+      type: 'confirm',
       yes: 'modals.knowledge.remove',
       no: 'modals.cancel'},
       () => {

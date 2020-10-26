@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { Structure } from 'src/app/models/structure.model';
-import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { DialogService } from 'src/app/services/dialog.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { ModalsService } from 'src/app/services/modals.service';
@@ -28,7 +28,7 @@ export class KnowledgebaseCardComponent implements OnInit {
     private modalsService: ModalsService,
     private knowledgesService: KnowledgesService,
     private knowledgeBaseService: KnowledgeBaseService,
-    private confirmDialogService: ConfirmDialogService) {}
+    private dialogService: DialogService) {}
 
   ngOnInit(): void {
     this.knowledgeBaseForm = new FormGroup({
@@ -94,8 +94,9 @@ export class KnowledgebaseCardComponent implements OnInit {
   remove(id): void {
     // this.knowledgesService.selected = id;
     // this.modalsService.openModal('modal-remove-knowledgebase');
-    this.confirmDialogService.confirmThis({
+    this.dialogService.confirmThis({
       text: 'modals.knowledges.content',
+      type: 'confirm',
       yes: 'modals.knowledges.remove',
       no: 'modals.cancel'},
       () => {

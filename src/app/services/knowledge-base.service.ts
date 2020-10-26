@@ -162,18 +162,24 @@ export class KnowledgeBaseService extends ApplicationDb {
     });
   }
 
-  import(data): Promise<KnowledgeBase> {
+  import(file): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
-      const newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
-      this.create(newKnowledgeBase)
-        .then((resp: KnowledgeBase) => {
-          newKnowledgeBase.id = resp.id;
-          resolve(newKnowledgeBase);
-        })
-        .catch(error => {
-          console.log(error);
-          reject(error);
-        });
+      const reader = new FileReader();
+      reader.readAsText(file, 'UTF-8');
+      reader.onload = (event2: any) => {
+        const data = JSON.parse(event2.target.result);
+
+        const newKnowledgeBase = new KnowledgeBase(null, data.name + ' (copy)', data.author, data.contributors, data.knowleges);
+        this.create(newKnowledgeBase)
+          .then((resp: KnowledgeBase) => {
+            newKnowledgeBase.id = resp.id;
+            resolve(newKnowledgeBase);
+          })
+          .catch(error => {
+            console.log(error);
+            reject(error);
+          });
+      };
     });
   }
 

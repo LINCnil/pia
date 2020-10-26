@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Structure } from 'src/app/models/structure.model';
-import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { StructureService } from 'src/app/services/structure.service';
@@ -31,7 +31,7 @@ export class StructureCardComponent implements OnInit {
     private modalsService: ModalsService,
     public structureService: StructureService,
     public languagesService: LanguagesService,
-    private confirmDialogService: ConfirmDialogService
+    private dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -69,8 +69,9 @@ export class StructureCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.structure.name = this.structureForm.value.name;
-      this.structure.update();
-      this.changed.emit(this.structure);
+      this.structureService.update(this.structure).then(() => {
+        this.changed.emit(this.structure);
+      });
     }
   }
 
@@ -94,8 +95,13 @@ export class StructureCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.structure.sector_name = this.structureForm.value.sector_name;
-      this.structure.update();
-      this.changed.emit(this.structure);
+      this.structureService.update(this.structure)
+      .then(() => {
+        this.changed.emit(this.structure);
+      })
+      .catch(err => {
+        console.error(err);
+      });
     }
   }
 
@@ -106,8 +112,9 @@ export class StructureCardComponent implements OnInit {
   remove(id: string): void {
     // localStorage.setItem('structure-id', id);
     // this.modalsService.openModal('modal-remove-structure');
-    this.confirmDialogService.confirmThis({
+    this.dialogService.confirmThis({
       text: 'modals.remove_structure.content',
+      type: 'confirm',
       yes: 'modals.remove_structure.remove',
       no: 'modals.cancel'},
       () => {

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Structure } from 'src/app/models/structure.model';
-import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { StructureService } from 'src/app/services/structure.service';
@@ -19,12 +19,9 @@ export class StructureLineComponent implements OnInit {
   @Output() deleted = new EventEmitter<any>();
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     public structureService: StructureService,
-    private modalsService: ModalsService,
     public languagesService: LanguagesService,
-    private confirmDialogService: ConfirmDialogService
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {}
@@ -37,8 +34,13 @@ export class StructureLineComponent implements OnInit {
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
     this.structure[attribute] = text;
-    this.structure.update();
-    this.changed.emit(this.structure);
+    this.structureService.update(this.structure)
+      .then((result: Structure) => {
+        this.changed.emit(result);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   /**
@@ -48,8 +50,9 @@ export class StructureLineComponent implements OnInit {
   remove(id: string): void {
     // localStorage.setItem('structure-id', id);
     // this.modalsService.openModal('modal-remove-structure');
-    this.confirmDialogService.confirmThis({
+    this.dialogService.confirmThis({
       text: 'modals.remove_structure.content',
+      type: 'confirm',
       yes: 'modals.remove_structure.remove',
       no: 'modals.cancel'},
       () => {

@@ -33,8 +33,7 @@ export class NewStructureComponent implements OnInit {
     structure.name = this.structureForm.value.name;
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this.appDataService.dataNav;
-    const p = structure.create();
-    p.then(id => this.submited.emit(id));
+    this.structureService.create(structure).then(result => this.submited.emit(result));
   }
 
 }

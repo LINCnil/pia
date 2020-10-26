@@ -8,7 +8,7 @@ import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 
 import * as FileSaver from 'file-saver';
-import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { DialogService } from 'src/app/services/dialog.service';
 declare const require: any;
 
 @Component({
@@ -31,7 +31,7 @@ export class PiaLineComponent implements OnInit {
     private modalsService: ModalsService,
     private translateService: TranslateService,
     public languagesService: LanguagesService,
-    private confirmDialogService: ConfirmDialogService
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -104,9 +104,9 @@ export class PiaLineComponent implements OnInit {
    * @param id - The PIA id
    */
   archivePia(id: string): void {
-    // this.modalsService.openModal('modal-archive-pia');
-    this.confirmDialogService.confirmThis({
+    this.dialogService.confirmThis({
       text: 'modals.archive_pia.content',
+      type: 'confirm',
       yes: 'modals.archive_pia.archive',
       no: 'modals.cancel'},
       () => {
