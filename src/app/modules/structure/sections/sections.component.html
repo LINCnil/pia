@@ -5,7 +5,7 @@
   </div>
 
   <div class="pia-sectionBlock-body">
-    <div *ngFor="let dataSection of data?.sections">
+    <div *ngFor="let dataSection of data.sections">
       <ng-container *ngIf="[1, 2, 3].includes(dataSection.id)">
         <div class="pia-sectionBlock-title">
           {{ dataSection.title | translate }}
@@ -14,7 +14,7 @@
         <ul class="pia-sectionBlock-list" *ngIf="structure && section && item">
           <ng-container *ngFor="let dataItem of dataSection?.items">
             <li *ngIf="!dataItem.hide && !['3.2', '3.3', '3.4', '3.5'].includes(dataSection.id + '.' + dataItem.id)">
-              <a routerLink="/structures/{{structure.id}}/section/{{dataSection.id}}/item/{{dataItem.id}}"
+              <a [routerLink]="['/structures', structure.id, 'section', dataSection.id, 'item', dataItem.id]"
                 [ngClass]="{'active': section.id == dataSection.id && item.id == dataItem.id}"
                 class="truncate">
                 {{ dataItem.title | translate }}</a>

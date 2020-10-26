@@ -16,8 +16,7 @@ export class SectionsComponent implements OnInit {
   data: { sections: any };
 
   constructor(public structureService: StructureService,
-              public sidStatusService: SidStatusService,
-              private appDataService: AppDataService) {
+              public sidStatusService: SidStatusService) {
   }
 
   async ngOnInit() {

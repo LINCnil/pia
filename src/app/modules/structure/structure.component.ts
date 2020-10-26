@@ -74,13 +74,13 @@ export class StructureComponent implements OnInit {
         console.error(err);
       });
 
-
-    // this.route.params.subscribe((params: Params) => {
-    //   sectionId = parseInt(params.section_id, 10);
-    //   itemId = parseInt(params.item_id, 10);
-    //   this.getSectionAndItem(sectionId, itemId);
-    //   window.scroll(0, 0);
-    // });
+    // On params changing
+    this.route.params.subscribe((params: Params) => {
+      sectionId = parseInt(params.section_id, 10);
+      itemId = parseInt(params.item_id, 10);
+      this.getSectionAndItem(sectionId, itemId);
+      window.scroll(0, 0);
+    });
 
     // Suscribe to measure service messages
     this.subscription = this.measureService.behaviorSubject.subscribe(val => {
@@ -101,9 +101,11 @@ export class StructureComponent implements OnInit {
   private getSectionAndItem(sectionId: number, itemId: number): void {
     this.questions = [];
     this.data = this.structure.data;
+
     this.section = this.data.sections.filter(section => {
       return section.id === sectionId;
     })[0];
+
     this.item = this.section.items.filter(item => {
       return item.id === itemId;
     })[0];
@@ -121,17 +123,17 @@ export class StructureComponent implements OnInit {
     this.actionPlanService.data = this.data;
 
     // Update on knowledge base (scroll / content / search field)
-    const knowledgeBaseScroll = document.querySelector(
-      '.pia-knowledgeBaseBlock-list'
-    );
-    const knowledgeBaseContent = document.querySelector(
-      '.pia-knowledgeBaseBlock-searchForm input'
-    ) as HTMLInputElement;
-    knowledgeBaseScroll.scrollTop = 0;
-    knowledgeBaseContent.value = '';
+    // const knowledgeBaseScroll = document.querySelector(
+    //   '.pia-knowledgeBaseBlock-list'
+    // );
+    // const knowledgeBaseContent = document.querySelector(
+    //   '.pia-knowledgeBaseBlock-searchForm input'
+    // ) as HTMLInputElement;
+    // knowledgeBaseScroll.scrollTop = 0;
+    // knowledgeBaseContent.value = '';
 
-    this.knowledgeBaseService.q = null;
-    this.knowledgeBaseService.loadByItem(this.item);
-    this.knowledgeBaseService.placeholder = null;
+    // this.knowledgeBaseService.q = null;
+    // this.knowledgeBaseService.loadByItem(this.item);
+    // this.knowledgeBaseService.placeholder = null;
   }
 }
