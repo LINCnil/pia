@@ -12,7 +12,7 @@ import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
 
 import * as FileSaver from 'file-saver';
-import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { DialogService } from 'src/app/services/dialog.service';
 declare const require: any;
 
 
@@ -46,7 +46,7 @@ export class PiaCardComponent implements OnInit {
     private translateService: TranslateService,
     public languagesService: LanguagesService,
     public structureService: StructureService,
-    private confirmDialogService: ConfirmDialogService
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -244,8 +244,9 @@ export class PiaCardComponent implements OnInit {
    */
   archivePia(id: string): void {
     // this.modalsService.openModal('modal-archive-pia');
-    this.confirmDialogService.confirmThis({
+    this.dialogService.confirmThis({
       text: 'modals.archive_pia.content',
+      type: 'confirm',
       yes: 'modals.archive_pia.archive',
       no: 'modals.cancel'},
       () => {

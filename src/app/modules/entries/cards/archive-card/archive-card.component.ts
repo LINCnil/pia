@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Attachment } from 'src/app/models/attachment.model';
 import { ArchiveService } from 'src/app/services/archive.service';
-import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ModalsService } from 'src/app/services/modals.service';
 
@@ -20,7 +20,7 @@ export class ArchiveCardComponent implements OnInit {
   constructor(
     public languagesService: LanguagesService,
     public archiveService: ArchiveService,
-    private confirmDialogService: ConfirmDialogService
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -41,8 +41,9 @@ export class ArchiveCardComponent implements OnInit {
    * @param {string} id - The archived PIA id.
    */
   unarchive(id: string): void {
-    this.confirmDialogService.confirmThis({
+    this.dialogService.confirmThis({
       text: 'modals.unarchive_pia.content',
+      type: 'confirm',
       yes: 'modals.unarchive_pia.unarchive',
       no: 'modals.cancel'},
       () => {
@@ -64,8 +65,9 @@ export class ArchiveCardComponent implements OnInit {
    * @param {string} id - The archived PIA id.
    */
   remove(id: string): void {
-    this.confirmDialogService.confirmThis({
+    this.dialogService.confirmThis({
       text: 'modals.remove_pia.content',
+      type: 'confirm',
       yes: 'modals.remove_pia.remove',
       no: 'modals.cancel'},
       () => {

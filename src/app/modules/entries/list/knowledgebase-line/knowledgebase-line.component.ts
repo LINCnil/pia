@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
-import { ConfirmDialogService } from 'src/app/services/confirm-dialog.service';
+import { DialogService } from 'src/app/services/dialog.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
@@ -22,7 +22,7 @@ export class KnowledgebaseLineComponent implements OnInit {
   constructor(
     private knowledgesService: KnowledgesService,
     private knowledgeBaseService: KnowledgeBaseService,
-    private confirmDialogService: ConfirmDialogService
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -54,8 +54,9 @@ export class KnowledgebaseLineComponent implements OnInit {
   }
 
   remove(id): void {
-    this.confirmDialogService.confirmThis({
+    this.dialogService.confirmThis({
       text: 'modals.knowledges.content',
+      type: 'confirm',
       yes: 'modals.knowledges.remove',
       no: 'modals.cancel'},
       () => {
