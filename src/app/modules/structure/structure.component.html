@@ -1,7 +1,12 @@
 <main class="container pia-mainContainerBlock" *ngIf="structure">
   <div class="pia-breadcrumb hide-for-print"><a [routerLink]="['/entries', 'structure']">{{ 'header.structures' | translate }}</a><strong> > {{ structure.name }}</strong></div>
   <div class="row">
-
+      <!-- Left sidebar (sections) -->
+      <div class="small-12 medium-3 columns">
+        <aside class="pia-leftSidebarBlock">
+            <app-sections [structure]="structure" [section]="section" [item]="item"></app-sections>
+        </aside>
+      </div>
 
 
   </div>

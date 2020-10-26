@@ -50,7 +50,7 @@ export class StructureComponent implements OnInit {
 
     await this.structureService.find(parseInt(this.route.snapshot.params.structure_id))
       .then((structure: Structure) => {
-        console.log(structure);
+
         this.structure = structure;
         this.data = structure.data;
         this.answerStructureService.structure = structure;
