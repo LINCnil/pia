@@ -235,10 +235,14 @@ export class EntriesComponent implements OnInit, OnDestroy {
   import(event?: any): void {
     if (event) {
       if (this.type_entries === 'pia') {
-        this.piaService.import(event.target.files[0]);
+        this.piaService.import(event.target.files[0]).then(() => {
+          this.refreshContent();
+        });
       }
       if (this.type_entries === 'structure') {
-        this.structureService.importStructure(event.target.files[0]);
+        this.structureService.importStructure(event.target.files[0]).then(() => {
+          this.refreshContent();
+        });
       }
       if (this.type_entries === 'knowledgeBase') {
         const reader = new FileReader();

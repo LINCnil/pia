@@ -210,7 +210,6 @@ export class StructureService extends ApplicationDb {
       const structure = new Structure();
       if (id > 0) {
         this.find(id).then((result) => {
-          console.log(result)
           const data = {
             structure: result
           };
@@ -231,10 +230,10 @@ export class StructureService extends ApplicationDb {
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
-      if (!('structure' in data) || !('dbVersion' in data.structure)) {
-        // this.modalsService.openModal('import-wrong-structure-file');
-        return;
-      }
+      // if (!('structure' in data) || !('dbVersion' in data.structure)) {
+      //   // this.modalsService.openModal('import-wrong-structure-file');
+      //   return;
+      // }
       const structure = new Structure();
       structure.name = '(' + prefix + ') ' + data.structure.name;
       structure.sector_name = data.structure.sector_name;
@@ -251,7 +250,7 @@ export class StructureService extends ApplicationDb {
       }
 
       this.create(structure).then((result: Structure) => {
-        console.log("finish", result)
+        console.log("finish", result);
         resolve(result);
       });
     });

@@ -69,8 +69,9 @@ export class StructureCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.structure.name = this.structureForm.value.name;
-      this.structure.update();
-      this.changed.emit(this.structure);
+      this.structureService.update(this.structure).then(() => {
+        this.changed.emit(this.structure);
+      });
     }
   }
 
@@ -94,8 +95,13 @@ export class StructureCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.structure.sector_name = this.structureForm.value.sector_name;
-      this.structure.update();
-      this.changed.emit(this.structure);
+      this.structureService.update(this.structure)
+      .then(() => {
+        this.changed.emit(this.structure);
+      })
+      .catch(err => {
+        console.error(err);
+      });
     }
   }
 
