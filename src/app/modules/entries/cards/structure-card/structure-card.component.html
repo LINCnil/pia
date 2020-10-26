@@ -45,8 +45,8 @@
           <time>{{ structure.created_at | date: "shortDate":"":languagesService.selectedLanguage }}</time>
       </div>
       <div class="pia-cardsBlock-item-btn">
-        <a *ngIf="structure.is_example" routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_structure' | translate }}</a>
-        <a *ngIf="!structure.is_example" routerLink="/structures/entry/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
+        <a *ngIf="structure.is_example" routerLink="/structures/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.consult_structure' | translate }}</a>
+        <a *ngIf="!structure.is_example" routerLink="/structures/{{structure.id}}/section/1/item/1" class="btn btn-green">{{ 'homepage.cards.item.edit_structure' | translate }}</a>
       </div>
     </form>
 </div>
