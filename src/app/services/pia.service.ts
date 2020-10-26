@@ -520,17 +520,21 @@ export class PiaService {
    * @param file - The exported PIA file.
    */
   async import(file: any) {
-    const reader = new FileReader();
-    reader.readAsText(file, 'UTF-8');
-    reader.onload = (event: any) => {
-      try {
-        const jsonFile = JSON.parse(event.target.result);
-        this.importData(jsonFile, 'IMPORT', false);
-      } catch (error) {
-        this.modalsService.openModal('modal-general-error');
-        console.error('Unable to parse JSON file.');
-      }
-    };
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsText(file, 'UTF-8');
+      reader.onload = (event: any) => {
+        try {
+          const jsonFile = JSON.parse(event.target.result);
+          this.importData(jsonFile, 'IMPORT', false);
+          resolve(true);
+        } catch (error) {
+          // this.modalsService.openModal('modal-general-error');
+          // console.error('Unable to parse JSON file.');
+          reject(error);
+        }
+      };
+    });
   }
 
   /**

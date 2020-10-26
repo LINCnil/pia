@@ -235,22 +235,31 @@ export class EntriesComponent implements OnInit, OnDestroy {
   import(event?: any): void {
     if (event) {
       if (this.type_entries === 'pia') {
-        this.piaService.import(event.target.files[0]).then(() => {
+        this.piaService.import(event.target.files[0])
+        .then(() => {
           this.refreshContent();
+        })
+        .catch((err) => {
+          console.log(err);
         });
       }
       if (this.type_entries === 'structure') {
-        this.structureService.importStructure(event.target.files[0]).then(() => {
-          this.refreshContent();
-        });
+        this.structureService.importStructure(event.target.files[0])
+          .then(() => {
+            this.refreshContent();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
       if (this.type_entries === 'knowledgeBase') {
-        const reader = new FileReader();
-        reader.readAsText(event.target.files[0], 'UTF-8');
-        reader.onload = (event2: any) => {
-          const jsonFile = JSON.parse(event2.target.result);
-          this.knowledgeBaseService.import(jsonFile);
-        };
+        this.knowledgeBaseService.import(event.target.files[0])
+          .then(() => {
+            this.refreshContent();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     } else {
       this.el.nativeElement.querySelector('#import_file').click();
