@@ -22,7 +22,7 @@ export class KnowledgeBaseService extends ApplicationDb {
   toHide = [];
 
   constructor(
-    private translateService: TranslateService,
+    public translateService: TranslateService,
     private knowledgesService: KnowledgesService) {
     super(201911191636, 'knowledgeBase');
   }

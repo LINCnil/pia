@@ -8,6 +8,17 @@
         </aside>
       </div>
 
+      <!-- Main entry content -->
+      <div class="small-12 medium-6 columns">
+        <app-content [structure]="structure" [questions]="questions" [section]="section" [item]="item" [data]="data"></app-content>
+      </div>
+
+      <!-- Right sidebar (knowledge base) -->
+      <div class="small-12 medium-3 columns">
+        <div class="pia-rightSidebarBlock">
+            <app-knowledge-base [structure]="structure" [item]="item"></app-knowledge-base>
+        </div>
+      </div>
 
   </div>
 </main>

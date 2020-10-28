@@ -68,7 +68,9 @@ export class AnswerStructureService {
     const section_id = parseInt(sid[0], 10);
     const item_id = parseInt(sid[1], 10);
     const question_id = parseInt(sid[2], 10);
-    const index = this.structure.data.sections.filter(s => s.id === section_id)[0].items.filter(i => i.id === item_id)[0].questions.findIndex(q => q.id === question_id);
+    const index = this.structure.data.sections.filter(
+      s => s.id === section_id)[0].items.filter(
+        i => i.id === item_id)[0].questions.findIndex(q => q.id === question_id);
     if (index !== -1) {
       this.structure.data.sections.filter(s => s.id === section_id)[0].items.filter(i => i.id === item_id)[0].questions.splice(index, 1);
       this.structureService.update(this.structure);

@@ -11,11 +11,24 @@ import { StructureService } from 'src/app/services/structure.service';
 import { StructureComponent } from './structure.component';
 import { SectionsComponent } from './sections/sections.component';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
+import { KnowledgeBaseComponent } from 'src/app/shared/components/knowledge-base/knowledge-base.component';
+import { KnowledgeBaseItemComponent } from 'src/app/shared/components/knowledge-base/knowledge-base-item/knowledge-base-item.component';
+import { ContentComponent } from './content/content.component';
+import { MeasuresComponent } from './content/measures/measures.component';
+import { QuestionsComponent } from './content/questions/questions.component';
 
 
 
 @NgModule({
-  declarations: [StructureComponent, SectionsComponent],
+  declarations: [
+    StructureComponent,
+    SectionsComponent,
+    KnowledgeBaseComponent,
+    KnowledgeBaseItemComponent,
+    ContentComponent,
+    MeasuresComponent,
+    QuestionsComponent
+  ],
   imports: [
     SharedModule,
     CommonModule,
