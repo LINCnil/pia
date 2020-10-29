@@ -10,6 +10,8 @@ import { SidStatusService } from 'src/app/services/sid-status.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { Structure } from 'src/app/models/structure.model';
+import { DialogService } from 'src/app/services/dialog.service';
+import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 
 @Component({
   selector: 'app-questions',
@@ -35,7 +37,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private ngZone: NgZone,
               public globalEvaluationService: GlobalEvaluationService,
               private sidStatusService: SidStatusService,
-              private structureService: StructureService) { }
+              private structureService: StructureService,
+              private answerStructureService: AnswerStructureService,
+              private dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.globalEvaluationService.answerEditionEnabled = true;
@@ -61,8 +65,23 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   removeQuestion(): void {
-    localStorage.setItem('question-id', [this.section.id, this.item.id, this.question.id].toString());
-    this.modalsService.openModal('remove-question');
+    // localStorage.setItem('question-id', [this.section.id, this.item.id, this.question.id].toString());
+    // this.modalsService.openModal('remove-question');
+    this.dialogService.confirmThis({
+      text: 'modals.remove_question.content',
+      type: 'confirm',
+      yes: 'modals.remove_question.remove',
+      no: 'modals.remove_question.keep'},
+      () => {
+        this.answerStructureService.removeQuestion({
+          section_id: this.section.id,
+          item_id: this.item.id,
+          question_id: this.question.id
+        });
+      },
+      () => {
+        return;
+      });
   }
 
   /**

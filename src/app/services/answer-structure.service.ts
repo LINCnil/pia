@@ -49,7 +49,7 @@ export class AnswerStructureService {
       });
   }
 
-  removeMeasure() {
+  removeMeasure(): void {
     const sid = localStorage.getItem('measure-id').split(',');
 
     const section_id = parseInt(sid[0], 10);
@@ -63,20 +63,17 @@ export class AnswerStructureService {
     });
   }
 
-  removeQuestion() {
-    const sid = localStorage.getItem('question-id').split(',');
-    const section_id = parseInt(sid[0], 10);
-    const item_id = parseInt(sid[1], 10);
-    const question_id = parseInt(sid[2], 10);
+  removeQuestion(sid: {section_id: number, item_id: number, question_id}): void {
     const index = this.structure.data.sections.filter(
-      s => s.id === section_id)[0].items.filter(
-        i => i.id === item_id)[0].questions.findIndex(q => q.id === question_id);
+      s => s.id === sid.section_id)[0].items.filter(
+        i => i.id === sid.item_id)[0].questions.findIndex(q => q.id === sid.question_id);
     if (index !== -1) {
-      this.structure.data.sections.filter(s => s.id === section_id)[0].items.filter(i => i.id === item_id)[0].questions.splice(index, 1);
+      this.structure.data.sections.filter(
+        s => s.id === sid.section_id)[0].items.filter(
+          i => i.id === sid.item_id)[0].questions.splice(index, 1);
       this.structureService.update(this.structure);
       this.questionToRemove.next(index);
     }
-    localStorage.removeItem('question-id');
     this.modalsService.closeModal();
   }
 }
