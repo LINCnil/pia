@@ -48,39 +48,21 @@ export class StructureComponent implements OnInit {
     let sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     let itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
-    await this.structureService.find(parseInt(this.route.snapshot.params.structure_id))
+    if (parseInt(this.route.snapshot.params.structure_id)) {
+      await this.structureService.find(parseInt(this.route.snapshot.params.structure_id))
       .then((structure: Structure) => {
-
-        this.structure = structure;
-        this.data = structure.data;
-        this.answerStructureService.structure = structure;
-
-        // define section
-        this.data.sections.forEach(section => {
-          section.items.forEach(item => {
-            this.sidStatusService.setStructureStatus(section, item);
-          });
-        });
-
-        if (this.route.snapshot.params.section_id && this.route.snapshot.params.item_id) {
-          sectionId = parseInt(this.route.snapshot.params.section_id, 10);
-          itemId = parseInt(this.route.snapshot.params.item_id, 10);
-          this.getSectionAndItem(sectionId, itemId);
-        }
-
-
+        this.initStructure(structure);
+        this.getSectionAndItem(sectionId, itemId);
       })
       .catch((err) => {
         console.error(err);
       });
-
-    // On params changing
-    this.route.params.subscribe((params: Params) => {
-      sectionId = parseInt(params.section_id, 10);
-      itemId = parseInt(params.item_id, 10);
-      this.getSectionAndItem(sectionId, itemId);
-      window.scroll(0, 0);
-    });
+    } else {
+      this.structureService.loadExample().then((structure: Structure) => {
+        this.initStructure(structure);
+        this.getSectionAndItem(sectionId, itemId);
+      });
+    }
 
     // Suscribe to measure service messages
     this.subscription = this.measureService.behaviorSubject.subscribe(val => {
@@ -92,6 +74,25 @@ export class StructureComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
+  initStructure(structure): void {
+    this.structure = structure;
+    this.data = structure.data;
+    this.answerStructureService.structure = structure;
+
+    // define section
+    this.data.sections.forEach(section => {
+      section.items.forEach(item => {
+        this.sidStatusService.setStructureStatus(section, item);
+      });
+    });
+
+    // On params changing
+    this.route.params.subscribe((params: Params) => {
+      this.getSectionAndItem(parseInt(params.section_id, 10), parseInt(params.item_id, 10));
+      window.scroll(0, 0);
+    });
+  }
+
   /**
    * Get the current Section and Item and initialize others information.
    * @private
@@ -100,6 +101,7 @@ export class StructureComponent implements OnInit {
    */
   private getSectionAndItem(sectionId: number, itemId: number): void {
     this.questions = [];
+
     this.data = this.structure.data;
 
     this.section = this.data.sections.filter(section => {
