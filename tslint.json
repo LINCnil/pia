@@ -4,6 +4,7 @@
     "codelyzer"
   ],
   "rules": {
+    "no-string-literal": false,
     "radix": false,
     "align": {
       "options": [

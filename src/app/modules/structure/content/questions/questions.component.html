@@ -1,0 +1,50 @@
+<div class="pia-questionBlock" [attr.data-id]="question.id">
+  <form [formGroup]="questionForm">
+    <ng-container *ngIf="question.title && question.title.startsWith('sections'); else inputTitle">
+      <div [innerHTML]="question.title | translate" class="pia-questionBlock-title"></div>
+    </ng-container>
+    <ng-template #inputTitle>
+      <div (click)="questionTitleFocusIn()"
+            class="pia-questionBlock-title"
+            [ngClass]="{ 'hide': editTitle }"
+            [innerHTML]="questionForm.controls['title'].value | safeHtml"></div>
+      <div class="pia-questionBlock-title" style="padding:0;">
+        <textarea maxlength="120"
+                  rows="2"
+                  [ngClass]="{ 'hide': !editTitle }"
+                  [attr.data-id]="question.id"
+                  id="pia-questionBlock-title-{{question.id}}"
+                  formControlName="title"
+                  placeholder="{{ 'questions.placeholder_title' | translate }}"
+                  (focusout)="questionTitleFocusOut($event)"></textarea>
+      </div>
+      <button type="button"
+              class="btn pia-questionBlock-delete"
+              (click)="removeQuestion(question.id)"
+              title="{{ 'question.remove' | translate }}">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </button>
+    </ng-template>
+    <button class="pia-icons pia-accordeon pia-icon-accordeon-up" type="button" (click)="displayQuestion($event)" title="{{ 'misc.display' | translate }}"></button>
+    <div class="pia-questionBlock-displayer fadeIn">
+      <div class="pia-questionBlock-content">
+        <!-- Question answer -->
+        <div (click)="questionContentFocusIn()"
+              class="pia-questionBlock-contentText"
+              [innerHTML]="questionForm.controls['text'].value | safeHtml"
+              [ngClass]="{ 'hide': editor || !questionForm.controls['text'].value }"></div>
+        <textarea *ngIf="question.answer_type == 'text' || question.answer_type == 'gauge'"
+                  [attr.data-id]="question.id"
+                  id="pia-question-content-{{question.id}}"
+                  formControlName="text"
+                  name="pia-question"
+                  minRows="8"
+                  cols="50"
+                  [ngClass]="{ 'hide': (!editor && questionForm.controls['text'].value && questionForm.controls['text'].value.length > 0) }"
+                  (focusin)="questionContentFocusIn()"
+                  placeholder="{{ question.placeholder | translate }}">
+        </textarea>
+      </div>
+    </div>
+  </form>
+</div>

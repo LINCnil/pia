@@ -10,7 +10,7 @@ export class KnowledgeBase{
   public is_example = false;
 
   constructor(id = null, name = null, author = null, contributors = null, createdAt = null) {
-    if (id) {
+    if (id !== null) {
       this.id = id;
     }
     this.name = name;

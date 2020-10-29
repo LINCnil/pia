@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './modules/home/home.module';
 import { EntriesModule } from './modules/entries/entries.module';
 import { BaseModule } from './modules/base/base.module';
+import { StructureModule } from './modules/structure/structure.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BaseModule } from './modules/base/base.module';
     HomeModule,
     EntriesModule,
     BaseModule,
+    StructureModule,
     AppRoutingModule
   ],
   providers: [],
