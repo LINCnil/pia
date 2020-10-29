@@ -22,7 +22,7 @@
     <div class="pia-measureBlock-displayer fadeIn">
       <button type="button"
               class="btn pia-measureBlock-delete"
-              *ngIf="structure.is_example"
+              *ngIf="!structure.is_example"
               (click)="removeMeasure()"
               title="{{ 'measures.remove' | translate }}">
         <i class="fa fa-trash-o" aria-hidden="true"></i>

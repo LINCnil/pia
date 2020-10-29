@@ -41,8 +41,11 @@ export class AnswerStructureService {
         const measure = {
           'title': '',
           'content': ''
-        }
-        structure.data.sections.filter(s => s.id === section.id)[0].items.filter(i => i.id === item.id)[0].answers.push(measure);
+        };
+
+        structure.data.sections.filter(s => s.id === section.id)[0].
+          items.filter(i => i.id === item.id)[0].answers.push(measure);
+
         this.structureService.update(structure).then(() => {
           resolve(measure);
         });

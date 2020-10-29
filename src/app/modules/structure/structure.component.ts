@@ -41,12 +41,15 @@ export class StructureComponent implements OnInit {
     private answerStructureService: AnswerStructureService,
     private actionPlanService: ActionPlanService,
     private globalEvaluationService: GlobalEvaluationService,
-    private measureService: MeasureService
+    private measureService: MeasureService,
+    private appDataService: AppDataService
   ) {}
 
   async ngOnInit(): Promise<void> {
-    let sectionId = parseInt(this.route.snapshot.params.section_id, 10);
-    let itemId = parseInt(this.route.snapshot.params.item_id, 10);
+    this.appDataService.entrieMode = 'structure';
+
+    const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
+    const itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
     if (parseInt(this.route.snapshot.params.structure_id)) {
       await this.structureService.find(parseInt(this.route.snapshot.params.structure_id))

@@ -74,7 +74,7 @@ export class ContentComponent implements OnInit {
    */
   async addMeasure() {
     this.answerStructureService.addMeasure(this.structure, this.section, this.item).then((measure: any) => {
-      this.item.answers.push(measure);
+      // this.item.answers.push(measure);
     });
   }
 
