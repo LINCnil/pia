@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Structure } from '../models/structure.model';
-import { ModalsService } from './modals.service';
 import { StructureService } from './structure.service';
 
 
