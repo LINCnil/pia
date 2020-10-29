@@ -33,7 +33,7 @@ export class GlobalEvaluationService {
    * @param {boolean} [callSubject=true]
    * @returns {Promise}
    */
-  async validate(callSubject = true) {
+  async validate(callSubject = true): Promise<any> {
     this.reference_to = this.section.id + '.' + this.item.id;
     return new Promise(async (resolve, reject) => {
       if (this.item.evaluation_mode === 'item' || this.item.evaluation_mode === 'question') {
@@ -65,7 +65,7 @@ export class GlobalEvaluationService {
    * Prepare all evaluations for the current item, it depends on "evaluation_mode".
    * @returns {Promise}
    */
-  async prepareForEvaluation() {
+  async prepareForEvaluation(): Promise<void> {
     return new Promise(async (resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
         await this.createOrUpdateEvaluation();
@@ -90,7 +90,7 @@ export class GlobalEvaluationService {
    * Validate all evaluations.
    * @returns {Promise}
    */
-  async validateAllEvaluation() {
+  async validateAllEvaluation(): Promise<any> {
     return new Promise((resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
         const evaluation = new Evaluation();
@@ -142,7 +142,7 @@ export class GlobalEvaluationService {
   /**
    * Cancel evaluation and return in edit mode.
    */
-  cancelForEvaluation() {
+  cancelForEvaluation(): void {
     if (this.item.evaluation_mode === 'item') {
       this.deleteEvaluationInDb(this.reference_to).then(() => {
         this.validate();
@@ -163,7 +163,7 @@ export class GlobalEvaluationService {
   /**
    * Cancel validation and return in evaluation mode.
    */
-  cancelValidation() {
+  cancelValidation(): void {
     if (this.item.evaluation_mode === 'item') {
       const evaluation = new Evaluation();
       evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
@@ -193,7 +193,7 @@ export class GlobalEvaluationService {
    * Verification for DPD fields.
    * @private
    */
-  private dpoValidation() {
+  private dpoValidation(): void {
     let dpoFilled = false;
     let concernedPeopleOpinionSearchedFieldsFilled = false;
     let concernedPeopleOpinionUnsearchedFieldsFilled = false;
@@ -242,7 +242,7 @@ export class GlobalEvaluationService {
    * @param {any} answerOrMeasure - Any Answer or Measure.
    * @returns {string} - The reference.
    */
-  private getAnswerReferenceTo(answerOrMeasure) {
+  private getAnswerReferenceTo(answerOrMeasure): string {
     let reference_to = this.reference_to;
     if (this.item.is_measure) {
       // For measure
@@ -260,7 +260,7 @@ export class GlobalEvaluationService {
    * @param {string} [new_reference_to] - The reference.
    * @returns {Promise}
    */
-  private async createOrUpdateEvaluation(new_reference_to?: string) {
+  private async createOrUpdateEvaluation(new_reference_to?: string): Promise<void> {
     return new Promise((resolve, reject) => {
       const reference_to = new_reference_to ? new_reference_to : this.reference_to;
       const evaluation = new Evaluation();
@@ -287,7 +287,7 @@ export class GlobalEvaluationService {
    * Do a global verification.
    * @private
    */
-  private verification() {
+  private verification(): void {
     if (!this.answersOrMeasures) {
       return;
     }
@@ -357,7 +357,7 @@ export class GlobalEvaluationService {
    * @param {Evaluation} evaluation - An Evaluation.
    * @returns {boolean}
    */
-  private evaluationsToBeFixed(evaluation: Evaluation) {
+  private evaluationsToBeFixed(evaluation: Evaluation): boolean {
     if (evaluation.status === 1 && evaluation.global_status === 1) {
       return true;
     }
@@ -370,7 +370,7 @@ export class GlobalEvaluationService {
    * @param {Evaluation} evaluation - An Evaluation.
    * @returns {boolean}
    */
-  private evaluationStarted(evaluation: Evaluation) {
+  private evaluationStarted(evaluation: Evaluation): boolean {
     if (evaluation.status > 0) {
       return true;
     }
@@ -383,7 +383,7 @@ export class GlobalEvaluationService {
    * @param {Evaluation} evaluation - An Evaluation.
    * @returns {boolean}
    */
-  private evaluationCompleted(evaluation: Evaluation) {
+  private evaluationCompleted(evaluation: Evaluation): boolean {
     if (evaluation.status > 1 && evaluation.global_status === 2) {
       return true;
     }
@@ -396,7 +396,7 @@ export class GlobalEvaluationService {
    * @param {Evaluation} evaluation - An Evaluation.
    * @returns {boolean}
    */
-  private evaluationNotStarted(evaluation: Evaluation) {
+  private evaluationNotStarted(evaluation: Evaluation): boolean {
     if (evaluation.status === 0) {
       return true;
     }
@@ -409,7 +409,7 @@ export class GlobalEvaluationService {
    * @param {Measure} measure - A Measure.
    * @returns {boolean}
    */
-  private measureIsValid(measure: Measure) {
+  private measureIsValid(measure: Measure): boolean {
     if (measure.content && measure.content.length > 0 ||
         measure.title && measure.title.length > 0) {
       return true;
@@ -423,7 +423,7 @@ export class GlobalEvaluationService {
    * @param {Answer} answer - An Answer.
    * @returns {boolean}
    */
-  private answerIsValid(answer: Answer) {
+  private answerIsValid(answer: Answer): boolean {
     let valid = false;
     const gauge = answer.data.gauge;
     const text = answer.data.text;
@@ -454,7 +454,7 @@ export class GlobalEvaluationService {
    * @param {Evaluation} evaluation - An Evaluation.
    * @returns {boolean}
    */
-  private evaluationIsValid(evaluation: Evaluation) {
+  private evaluationIsValid(evaluation: Evaluation): boolean {
     if (evaluation.status === 1) {
       return evaluation.evaluation_comment && evaluation.evaluation_comment.length > 0;
     } else if (evaluation.status === 2) {
@@ -478,7 +478,7 @@ export class GlobalEvaluationService {
    * @private
    * @returns {Promise}
    */
-  private async answersVerification() {
+  private async answersVerification(): Promise<any> {
     let count = 0;
     this.answersOrMeasures = [];
     return new Promise((resolve, reject) => {
@@ -510,7 +510,7 @@ export class GlobalEvaluationService {
               if (result) {
                 this.answersOrMeasures.push(result);
               }
-              if (count === this.item.questions.length) {
+              if (this.item.questions && count === this.item.questions.length) {
                 resolve();
               }
             });
@@ -527,7 +527,7 @@ export class GlobalEvaluationService {
    * @private
    * @returns {Promise}
    */
-  private async evaluationsVerification() {
+  private async evaluationsVerification(): Promise<any> {
     let count = 0;
     this.evaluations = [];
     return new Promise((resolve, reject) => {
@@ -587,7 +587,7 @@ export class GlobalEvaluationService {
    * @param {string} reference_to - The reference.
    * @returns {Promise}
    */
-  private async deleteEvaluationInDb(reference_to: string) {
+  private async deleteEvaluationInDb(reference_to: string): Promise<void> {
     const evaluation = new Evaluation();
     return new Promise((resolve, reject) => {
       evaluation.getByReference(this.pia.id, reference_to).then((entry: any) => {
@@ -605,14 +605,14 @@ export class GlobalEvaluationService {
   /**
    * Set answer edition by status.
    */
-  setAnswerEditionEnabled() {
+  setAnswerEditionEnabled(): void {
     this.answerEditionEnabled = [0, 1, 2, 3].includes(this.status);
   }
 
   /**
    * Set evaluation edition by status.
    */
-  setEvaluationEditionEnabled() {
+  setEvaluationEditionEnabled(): void {
     this.evaluationEditionEnabled = [4, 5, 6].includes(this.status);
   }
 }
