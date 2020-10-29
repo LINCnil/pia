@@ -34,8 +34,6 @@ export class KnowledgeBaseComponent implements OnInit {
     private el: ElementRef,
     private translateService: TranslateService,
     private piaService: PiaService,
-    private answerStructureService: AnswerStructureService,
-    private knowledgesService: KnowledgesService,
     private structureService: StructureService
   ) {}
 

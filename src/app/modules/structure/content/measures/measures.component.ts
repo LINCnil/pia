@@ -170,11 +170,12 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       yes: 'modals.remove_measure.remove',
       no: 'modals.remove_measure.keep'},
       () => {
-        this.answerStructureService.removeMeasure({
-          section_id: this.section.id,
-          item_id: this.item.id,
-          measure_id: this.id
-        });
+        this.answerStructureService.removeMeasure(
+          this.structure,
+          this.section.id,
+          this.item.id,
+          this.id
+        );
       },
       () => {
         return;
