@@ -15,7 +15,6 @@ import { Structure } from 'src/app/models/structure.model';
   selector: 'app-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss'],
-  providers: [StructureService]
 })
 
 export class QuestionsComponent implements OnInit, OnDestroy {
@@ -26,21 +25,20 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   @Input() section: any;
   questionForm: FormGroup;
   lastSelectedTag: string;
-  elementId: String;
+  elementId: string;
   editor: any;
   editTitle = true;
 
   constructor(private el: ElementRef,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _modalsService: ModalsService,
-              private _ngZone: NgZone,
-              public _globalEvaluationService: GlobalEvaluationService,
-              private renderer: Renderer2,
-              private _sidStatusService: SidStatusService,
+              private knowledgeBaseService: KnowledgeBaseService,
+              private modalsService: ModalsService,
+              private ngZone: NgZone,
+              public globalEvaluationService: GlobalEvaluationService,
+              private sidStatusService: SidStatusService,
               private structureService: StructureService) { }
 
-  ngOnInit() {
-    this._globalEvaluationService.answerEditionEnabled = true;
+  ngOnInit(): void {
+    this.globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new FormGroup({
       title: new FormControl(),
@@ -58,19 +56,19 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.questionForm.controls['text'].patchValue(this.question.answer);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     tinymce.remove(this.editor);
   }
 
-  removeQuestion() {
+  removeQuestion(): void {
     localStorage.setItem('question-id', [this.section.id, this.item.id, this.question.id].toString());
-    this._modalsService.openModal('remove-question');
+    this.modalsService.openModal('remove-question');
   }
 
   /**
    * Enables edition for question title.
    */
-  questionTitleFocusIn() {
+  questionTitleFocusIn(): void {
     if (this.structure.is_example) {
       return;
     }
@@ -88,7 +86,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Saves data from title field.
    * @param {event} event - Any Event.
    */
-  questionTitleFocusOut(event: Event) {
+  questionTitleFocusOut(event: Event): void {
     let userText = this.questionForm.controls['title'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -108,7 +106,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Loads WYSIWYG editor.
    */
-  questionContentFocusIn() {
+  questionContentFocusIn(): void {
     if (this.structure.is_example) {
       return;
     }
@@ -117,7 +115,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (questionTitleTextarea && !questionTitle) {
         questionTitleTextarea.classList.add('pia-required');
         questionTitleTextarea.focus();
-    } else if (this._globalEvaluationService.answerEditionEnabled) {
+    } else if (this.globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
     }
   }
@@ -125,16 +123,16 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Disables question field + shows edit button + save data.
    */
-  questionContentFocusOut() {
+  questionContentFocusOut(): void {
     let userText = this.questionForm.controls['text'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
 
-    this._ngZone.run(() => {
+    this.ngZone.run(() => {
       this.question.answer = userText;
       this.structureService.updateJson(this.section, this.item, this.question, this.structure);
-      this._sidStatusService.setStructureStatus(this.section, this.item);
+      this.sidStatusService.setStructureStatus(this.section, this.item);
     });
   }
 
@@ -142,7 +140,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Shows or hides a question.
    * @param {*} event - Any Event.
    */
-  displayQuestion(event: any) {
+  displayQuestion(event: any): void {
     const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
@@ -152,9 +150,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Loads wysiwyg editor.
    */
-  loadEditor() {
-    this._knowledgeBaseService.placeholder = this.question.placeholder;
-    this._knowledgeBaseService.search('', '', this.question.link_knowledge_base);
+  loadEditor(): void {
+    this.knowledgeBaseService.placeholder = this.question.placeholder;
+    this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
     tinymce.init({
       branding: false,
       menubar: false,
@@ -182,8 +180,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Close the editor.
    * @private
    */
-  private closeEditor() {
-    this._knowledgeBaseService.placeholder = null;
+  private closeEditor(): void {
+    this.knowledgeBaseService.placeholder = null;
     tinymce.remove(this.editor);
     this.editor = null;
   }

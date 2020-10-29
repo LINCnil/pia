@@ -12,7 +12,6 @@ import { ModalsService } from 'src/app/services/modals.service';
   selector: 'app-measures',
   templateUrl: './measures.component.html',
   styleUrls: ['./measures.component.scss'],
-  providers: [StructureService]
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
 
@@ -28,15 +27,15 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   editTitle = true;
 
   constructor(
-    public _globalEvaluationService: GlobalEvaluationService,
+    public globalEvaluationService: GlobalEvaluationService,
     public structureService: StructureService,
     private el: ElementRef,
-    private _modalsService: ModalsService,
-    private _knowledgeBaseService: KnowledgeBaseService,
-    private _ngZone: NgZone,
-    private _sidStatusService: SidStatusService) { }
+    private modalsService: ModalsService,
+    private knowledgeBaseService: KnowledgeBaseService,
+    private ngZone: NgZone,
+    private sidStatusService: SidStatusService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.measureForm = new FormGroup({
       measureTitle: new FormControl(),
       measureContent: new FormControl()
@@ -55,7 +54,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.elementId = 'pia-measure-content-' + this.id;
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     tinymce.remove(this.editor);
   }
 
@@ -64,7 +63,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @param {*} event - Any Event.
    * @param {HTMLElement} textarea - Any textarea.
    */
-  autoTextareaResize(event: any, textarea?: HTMLElement) {
+  autoTextareaResize(event: any, textarea?: HTMLElement): void {
     if (event) {
       textarea = event.target;
     }
@@ -79,7 +78,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   /**
    * Enables edition for measure title.
    */
-  measureTitleFocusIn() {
+  measureTitleFocusIn(): void {
     if (this.structure.is_example) {
       return;
     }
@@ -98,7 +97,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Saves data from title field.
    * @param {event} event - Any Event.
    */
-  measureTitleFocusOut(event: Event) {
+  measureTitleFocusOut(event: Event): void {
     let userText = this.measureForm.controls['measureTitle'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -111,8 +110,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (this.measureForm.value.measureTitle && this.measureForm.value.measureTitle.length > 0) {
       this.measureForm.controls['measureTitle'].disable();
     }
-    this._ngZone.run(() => {
-      this._sidStatusService.setStructureStatus(this.section, this.item);
+    this.ngZone.run(() => {
+      this.sidStatusService.setStructureStatus(this.section, this.item);
     });
 
   }
@@ -120,7 +119,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   /**
    * Loads WYSIWYG editor for measure answer.
    */
-  measureContentFocusIn() {
+  measureContentFocusIn(): void {
     if (this.structure.is_example) {
       return;
     }
@@ -132,18 +131,18 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Shows measure edit button.
    * Saves data from content field.
    */
-  measureContentFocusOut() {
-    this._knowledgeBaseService.placeholder = null;
+  measureContentFocusOut(): void {
+    this.knowledgeBaseService.placeholder = null;
     this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
 
-    this._ngZone.run(() => {
+    this.ngZone.run(() => {
       this.measure.content = userText;
       this.structureService.updateMeasureJson(this.section, this.item, this.measure, this.id, this.structure);
-      this._sidStatusService.setStructureStatus(this.section, this.item);
+      this.sidStatusService.setStructureStatus(this.section, this.item);
     });
   }
 
@@ -151,7 +150,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Shows or hides a measure.
    * @param {*} event - Any Event.
    */
-  displayMeasure(event: any) {
+  displayMeasure(event: any): void {
     const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-measureBlock-displayer');
@@ -161,16 +160,16 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   /**
    * Allows an user to remove a measure.
    */
-  removeMeasure() {
+  removeMeasure(): void {
     localStorage.setItem('measure-id', [this.section.id, this.item.id, this.id].toString());
-    this._modalsService.openModal('remove-structure-measure');
+    this.modalsService.openModal('remove-structure-measure');
   }
 
   /**
    * Loads wysiwyg editor.
    */
-  loadEditor() {
-    // this._knowledgeBaseService.placeholder = this.measure.placeholder;
+  loadEditor(): void {
+    // this.knowledgeBaseService.placeholder = this.measure.placeholder;
     tinymce.init({
       branding: false,
       menubar: false,
