@@ -385,6 +385,6 @@ export class KnowledgeBaseService extends ApplicationDb {
           item2.description.match(re)
       );
     }
-    this.hasKnowledgeBaseData = this.knowledgeBaseData.length > 0 ? true : false;
+    this.hasKnowledgeBaseData = this.knowledgeBaseData && this.knowledgeBaseData.length > 0 ? true : false;
   }
 }
