@@ -65,8 +65,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   removeQuestion(): void {
-    // localStorage.setItem('question-id', [this.section.id, this.item.id, this.question.id].toString());
-    // this.modalsService.openModal('remove-question');
     this.dialogService.confirmThis({
       text: 'modals.remove_question.content',
       type: 'confirm',

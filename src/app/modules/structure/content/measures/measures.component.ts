@@ -7,6 +7,8 @@ import { SidStatusService } from 'src/app/services/sid-status.service';
 import { Structure } from 'src/app/models/structure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { ModalsService } from 'src/app/services/modals.service';
+import { DialogService } from 'src/app/services/dialog.service';
+import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 
 @Component({
   selector: 'app-measures',
@@ -30,10 +32,11 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     public globalEvaluationService: GlobalEvaluationService,
     public structureService: StructureService,
     private el: ElementRef,
-    private modalsService: ModalsService,
     private knowledgeBaseService: KnowledgeBaseService,
     private ngZone: NgZone,
-    private sidStatusService: SidStatusService) { }
+    private sidStatusService: SidStatusService,
+    private dialogService: DialogService,
+    private answerStructureService: AnswerStructureService) { }
 
   ngOnInit(): void {
     this.measureForm = new FormGroup({
@@ -161,8 +164,21 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Allows an user to remove a measure.
    */
   removeMeasure(): void {
-    localStorage.setItem('measure-id', [this.section.id, this.item.id, this.id].toString());
-    this.modalsService.openModal('remove-structure-measure');
+    this.dialogService.confirmThis({
+      text: 'modals.remove_measure.content',
+      type: 'confirm',
+      yes: 'modals.remove_measure.remove',
+      no: 'modals.remove_measure.keep'},
+      () => {
+        this.answerStructureService.removeMeasure({
+          section_id: this.section.id,
+          item_id: this.item.id,
+          measure_id: this.id
+        });
+      },
+      () => {
+        return;
+      });
   }
 
   /**
