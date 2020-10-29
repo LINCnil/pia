@@ -4,6 +4,7 @@ import { Answer } from '../models/answer.model';
 import { Evaluation } from '../models/evaluation.model';
 import { Measure } from '../models/measure.model';
 import { Pia } from '../models/pia.model';
+import { AnswerService } from './answer.service';
 
 
 @Injectable()
@@ -22,6 +23,10 @@ export class GlobalEvaluationService {
   private evaluations: Array<Evaluation>;
 
   public behaviorSubject = new BehaviorSubject<object>({});
+
+  constructor(private answerService: AnswerService) {
+
+  }
 
   /**
    * Verifications for answers and evaluations.
@@ -500,11 +505,10 @@ export class GlobalEvaluationService {
         this.questionsOrMeasures = this.item.questions;
         if (this.item.questions) {
           this.item.questions.forEach((question: any) => {
-            const answerModel = new Answer();
-            answerModel.getByReferenceAndPia(this.pia.id, question.id).then((result: boolean) => {
+            this.answerService.getByReferenceAndPia(this.pia.id, question.id).then((result) => {
               count++;
               if (result) {
-                this.answersOrMeasures.push(answerModel);
+                this.answersOrMeasures.push(result);
               }
               if (count === this.item.questions.length) {
                 resolve();
@@ -556,11 +560,10 @@ export class GlobalEvaluationService {
         });
       } else if (this.item.evaluation_mode === 'question') {
         this.item.questions.forEach(question => {
-          const answerModel = new Answer();
-          answerModel.getByReferenceAndPia(this.pia.id, question.id).then((result: any) => {
+          this.answerService.getByReferenceAndPia(this.pia.id, question.id).then((result: Answer) => {
             if (result) {
               const evaluationModel = new Evaluation();
-              evaluationModel.getByReference(this.pia.id, this.reference_to + '.' + answerModel.reference_to).then((result2: any) => {
+              evaluationModel.getByReference(this.pia.id, this.reference_to + '.' + result.reference_to).then((result2: any) => {
                 count++;
                 if (result2) {
                   this.evaluations.push(evaluationModel);

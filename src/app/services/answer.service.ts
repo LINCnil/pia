@@ -3,14 +3,14 @@ import { ApplicationDb } from '../application.db';
 import { Answer } from '../models/answer.model';
 
 @Injectable()
-export class AnswerStructureService extends ApplicationDb {
+export class AnswerService extends ApplicationDb {
 
   constructor() {
     super(201707071818, 'answer');
   }
 
   // TODO: Move Methods from model here
-  async create(answer: Answer) {
+  async create(answer: Answer): Promise<Answer> {
     this.created_at = new Date();
     const data = {
       pia_id: this.pia_id,
@@ -52,7 +52,7 @@ export class AnswerStructureService extends ApplicationDb {
     });
   }
 
-  async update(answer: Answer) {
+  async update(answer: Answer): Promise<any> {
     return new Promise((resolve, reject) => {
       this.find(answer.id).then((entry: any) => {
         entry.data = answer.data;
@@ -89,7 +89,7 @@ export class AnswerStructureService extends ApplicationDb {
     });
   }
 
-  private setFormData(data) {
+  private setFormData(data): FormData{
     const formData = new FormData();
     for (const d in data) {
       if (data.hasOwnProperty(d)) {
@@ -139,7 +139,7 @@ export class AnswerStructureService extends ApplicationDb {
   //   });
   // }
 
-  async getByReferenceAndPia(pia_id: number, reference_to: any) {
+  async getByReferenceAndPia(pia_id: number, reference_to: any): Promise<any> {
     this.pia_id = pia_id;
     this.reference_to = reference_to;
     return new Promise((resolve, reject) => {
@@ -152,13 +152,7 @@ export class AnswerStructureService extends ApplicationDb {
           })
           .then((result: any) => {
             if (result) {
-              const answer: Answer = new Answer();
-              answer.id = result.id;
-              answer.reference_to = result.reference_to;
-              answer.data = result.data;
-              answer.created_at = new Date(result.created_at);
-              answer.updated_at = new Date(result.updated_at);
-              resolve(answer);
+              resolve(result);
             } else {
               resolve(false);
             }
@@ -178,13 +172,7 @@ export class AnswerStructureService extends ApplicationDb {
           evt.onsuccess = (event: any) => {
             const entry = event.target.result;
             if (entry) {
-              const answer: Answer = new Answer();
-              answer.id = entry.id;
-              answer.reference_to = entry.reference_to;
-              answer.data = entry.data;
-              answer.created_at = new Date(entry.created_at);
-              answer.updated_at = new Date(entry.updated_at);
-              resolve(true);
+              resolve(entry);
             } else {
               resolve(false);
             }
@@ -194,7 +182,7 @@ export class AnswerStructureService extends ApplicationDb {
     });
   }
 
-  async findAllByPia(pia_id: number) {
+  async findAllByPia(pia_id: number): Promise<any> {
     const items = [];
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
@@ -234,7 +222,7 @@ export class AnswerStructureService extends ApplicationDb {
     });
   }
 
-  async getGaugeByPia(pia_id: number) {
+  async getGaugeByPia(pia_id: number): Promise<any> {
     const items = [];
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
