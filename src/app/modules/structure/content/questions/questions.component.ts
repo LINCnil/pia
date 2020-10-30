@@ -71,11 +71,12 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       yes: 'modals.remove_question.remove',
       no: 'modals.remove_question.keep'},
       () => {
-        this.answerStructureService.removeQuestion({
-          section_id: this.section.id,
-          item_id: this.item.id,
-          question_id: this.question.id
-        });
+        this.answerStructureService.removeQuestion(
+          this.structure,
+          this.section.id,
+          this.item.id,
+          this.question.id
+        );
       },
       () => {
         return;

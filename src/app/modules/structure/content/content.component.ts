@@ -32,7 +32,7 @@ export class ContentComponent implements OnInit {
               private answerStructureService: AnswerStructureService,
               private knowledgeBaseService: KnowledgeBaseService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Reset measures no longer addable from KB when switching Structure
     this.knowledgeBaseService.toHide = [];
 
@@ -51,7 +51,7 @@ export class ContentComponent implements OnInit {
     );
   }
 
-  async ngOnChanges() {
+  async ngOnChanges(): Promise<void> {
     this.paginationService.dataNav = this.structure.data;
 
     const sectionId = parseInt(this.activatedRoute.snapshot.params.section_id, 10);
@@ -63,7 +63,7 @@ export class ContentComponent implements OnInit {
   /**
    * Add new question.
    */
-  async addQuestion() {
+  async addQuestion(): Promise<void> {
       this.answerStructureService.addQuestion(this.structure, this.section, this.item).then((question: any) => {
         this.questions.push(question);
       });
@@ -72,7 +72,7 @@ export class ContentComponent implements OnInit {
   /**
    * Add new measure.
    */
-  async addMeasure() {
+  async addMeasure(): Promise<void> {
     this.answerStructureService.addMeasure(this.structure, this.section, this.item).then((measure: any) => {
       // this.item.answers.push(measure);
     });
@@ -97,7 +97,7 @@ export class ContentComponent implements OnInit {
     ]);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     // this.subscriptionMeasure.unsubscribe();
     this.subscriptionQuestion.unsubscribe();
   }

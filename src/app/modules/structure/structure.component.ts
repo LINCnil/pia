@@ -80,7 +80,6 @@ export class StructureComponent implements OnInit {
   initStructure(structure): void {
     this.structure = structure;
     this.data = structure.data;
-    this.answerStructureService.structure = structure;
 
     // define section
     this.data.sections.forEach(section => {

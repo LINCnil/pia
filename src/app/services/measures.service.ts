@@ -14,17 +14,17 @@ export class MeasureService {
   measureToAdd: any;
   pia_id: number;
 
-  constructor(private _translateService: TranslateService,
-              private _modalsService: ModalsService,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _globalEvaluationService: GlobalEvaluationService) {}
+  constructor(private translateService: TranslateService,
+              private modalsService: ModalsService,
+              private knowledgeBaseService: KnowledgeBaseService,
+              private globalEvaluationService: GlobalEvaluationService) {}
 
   /**
    * List the measures.
    * @param {number} pia_id - The Pia id.
    * @returns {Promise}
    */
-  async listMeasures(pia_id: number) {
+  async listMeasures(pia_id: number): Promise<void>{
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       const measuresModel = new Measure();
@@ -39,14 +39,14 @@ export class MeasureService {
   /**
    * Allows an user to remove a measure ("RISKS" section).
    */
-  removeMeasure() {
+  removeMeasure(): void {
     const measure_id = parseInt(localStorage.getItem('measure-id'), 10);
     const measure = new Measure();
     measure.pia_id = this.pia_id;
 
     measure.get(measure_id).then(() => {
       this.behaviorSubject.next(measure.title);
-      this._knowledgeBaseService.toHide = this._knowledgeBaseService.toHide.filter(item => item !== measure.title);
+      this.knowledgeBaseService.toHide = this.knowledgeBaseService.toHide.filter(item => item !== measure.title);
     });
 
     /* Removing from DB */
@@ -63,7 +63,7 @@ export class MeasureService {
     }
 
     localStorage.removeItem('measure-id');
-    this._modalsService.closeModal();
+    this.modalsService.closeModal();
   }
 
   /**
@@ -72,12 +72,12 @@ export class MeasureService {
    * @param {string} [measureTitle] - The title of the measure to be added (used in some cases).
    * @param {string} [measurePlaceholder] - The placeholder of the measure.
    */
-  addNewMeasure(pia: any, measureTitle?: string, measurePlaceholder?: string) {
+  addNewMeasure(pia: any, measureTitle?: string, measurePlaceholder?: string): void {
     const newMeasureRecord = new Measure();
     newMeasureRecord.pia_id = pia.id;
     newMeasureRecord.title = '';
     if (measureTitle) {
-      this._translateService.get(measureTitle).subscribe(val => this.measureToAdd = val);
+      this.translateService.get(measureTitle).subscribe(val => this.measureToAdd = val);
       newMeasureRecord.title = this.measureToAdd;
     }
     newMeasureRecord.content = '';
@@ -87,7 +87,7 @@ export class MeasureService {
       newMeasureRecord.placeholder = 'measures.default_placeholder';
     }
     newMeasureRecord.create().then((entry: number) => {
-      this._globalEvaluationService.validate();
+      this.globalEvaluationService.validate();
       newMeasureRecord.id = entry;
       this.measures.unshift(newMeasureRecord);
     });

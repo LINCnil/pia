@@ -14,6 +14,7 @@ import { Comment } from '../models/comment.model';
 import { Structure } from '../models/structure.model';
 import { ModalsService } from './modals.service';
 import { StructureService } from './structure.service';
+import { AnswerService } from './answer.service';
 
 @Injectable()
 export class PiaService {
@@ -29,7 +30,8 @@ export class PiaService {
     public _appDataService: AppDataService,
     private modalsService: ModalsService,
     public _sidStatusService: SidStatusService,
-    private structureService: StructureService
+    private structureService: StructureService,
+    private answerService: AnswerService
   ) {
     if (this.pia.structure_data) {
       this._appDataService.dataNav = this.pia.structure_data;
@@ -186,7 +188,7 @@ export class PiaService {
           answer.pia_id = id;
           answer.reference_to = question.id;
           answer.data = { text: question.answer, gauge: null, list: null };
-          answer.create().then(() => {
+          this.answerService.create(answer).then(() => {
             i++;
             if (i === questions.length) {
               resolve();
@@ -310,7 +312,7 @@ export class PiaService {
           evaluations: null,
           comments: null
         };
-        answer.findAllByPia(id).then(answers => {
+        this.answerService.findAllByPia(id).then(answers => {
           data['answers'] = answers;
           measure.findAll().then(measures => {
             data['measures'] = measures;
@@ -544,9 +546,9 @@ export class PiaService {
   private async destroyData(piaId: number) {
     const answer = new Answer();
     answer.pia_id = piaId;
-    await answer.findAllByPia(piaId).then(async (response: Array<Answer>) => {
+    await this.answerService.findAllByPia(piaId).then(async (response: Array<Answer>) => {
       for (const c of response) {
-        await answer.delete(c.id);
+        await this.answerService.delete(c.id);
       }
     });
 
@@ -590,7 +592,7 @@ export class PiaService {
       if (answer.updated_at) {
         answerModel.updated_at = new Date(answer.updated_at);
       }
-      answerModel.create();
+      this.answerService.create(answerModel);
     });
   }
 

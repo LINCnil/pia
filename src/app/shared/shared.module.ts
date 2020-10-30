@@ -67,6 +67,7 @@ import { RouterModule } from '@angular/router';
 import { ModalComponent } from './components/modal/modal.component';
 import { DialogService } from '../services/dialog.service';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { AnswerService } from '../services/answer.service';
 
 
 
@@ -122,6 +123,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     PaginationService,
     SidStatusService,
     LanguagesService,
+    AnswerService,
     GlobalEvaluationService,
     FormatTheDate,
     IntrojsService,

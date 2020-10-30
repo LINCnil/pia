@@ -78,15 +78,15 @@ export class SidStatusService {
   setSidStatus(pia: any, section: any, item: any) {
     const referenceTo = section.id + '.' + item.id;
     // We need to instanciate a new instance of globalEvaluationService
-    const globalEvaluationService = new GlobalEvaluationService();
-    globalEvaluationService.pia = pia;
-    globalEvaluationService.section = section;
-    globalEvaluationService.item = item;
+    // const globalEvaluationService = new GlobalEvaluationService();
+    this.globalEvaluationService.pia = pia;
+    this.globalEvaluationService.section = section;
+    this.globalEvaluationService.item = item;
     if (item.evaluation_mode === 'item' || item.evaluation_mode === 'question' || referenceTo === '4.3') {
-      globalEvaluationService.validate(false).then((obj: { reference_to: string; status: number }) => {
+      this.globalEvaluationService.validate(false).then((obj: { reference_to: string; status: number }) => {
         if (referenceTo === '4.3') {
-          this.enablePiaValidation = globalEvaluationService.enablePiaValidation;
-          this.piaIsRefused = globalEvaluationService.piaIsRefused;
+          this.enablePiaValidation = this.globalEvaluationService.enablePiaValidation;
+          this.piaIsRefused = this.globalEvaluationService.piaIsRefused;
         }
         this.itemStatus[obj.reference_to] = obj.status;
         this.verifEnableDpo();
