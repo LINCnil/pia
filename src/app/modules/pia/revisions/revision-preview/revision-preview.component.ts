@@ -51,7 +51,7 @@ export class RevisionPreviewComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     this.export = JSON.parse(this.revision.export);
 
@@ -66,7 +66,7 @@ export class RevisionPreviewComponent implements OnInit {
 
   }
 
-  private async getJsonInfo() {
+  private async getJsonInfo(): Promise<any> {
     this.allData = {};
     this.data.sections.forEach(async section => {
       this.allData[section.id] = {};
@@ -89,7 +89,7 @@ export class RevisionPreviewComponent implements OnInit {
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
-                evaluation: evaluation
+                evaluation
               });
             }
           });
@@ -100,7 +100,7 @@ export class RevisionPreviewComponent implements OnInit {
 
             // Find answer
             const answerModel = new Answer();
-            let answer = this.export.answers.find(a => a.reference_to === question.id);
+            const answer = this.export.answers.find(a => a.reference_to === question.id);
             if (answer) {
               answerModel.data = this.export.answers.find(a => a.reference_to === question.id).data;
 
@@ -135,7 +135,7 @@ export class RevisionPreviewComponent implements OnInit {
     });
   }
 
-  private async getEvaluation(section_id: string, item_id: string, ref: string) {
+  private async getEvaluation(section_id: string, item_id: string, ref: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
       let evaluation = null;
       const evaluationModel = new Evaluation();
@@ -171,7 +171,7 @@ export class RevisionPreviewComponent implements OnInit {
     });
   }
 
-  public exportJson() {
+  public exportJson(): void {
     const revisionDate = this.datePipe.transform(localStorage.getItem('currentRevisionDate'), '-yyyy-MM-dd-HH-mm');
     const fileTitle = 'pia-' + slugify(this.export.pia.name) + revisionDate;
     let downloadLink = document.createElement('a');
@@ -187,11 +187,6 @@ export class RevisionPreviewComponent implements OnInit {
   }
 
   public restoreRevision(): void {
-    // this.modalsService.closeModal();
-    // this.revisionService.prepareLoadRevision(this.revision.id, this.export.pia.id).then((createdAt: Date) => {
-    //   this.modalsService.revisionDate = new Date(createdAt);
-    //   this.modalsService.openModal('revision-selection');
-    // });
     this.dialogService.confirmThis({
       text: 'modals.recover_version.message',
       type: 'confirm',
@@ -212,7 +207,7 @@ export class RevisionPreviewComponent implements OnInit {
     });
   }
 
-  public print() {
+  public print(): void {
     window.print();
   }
 }

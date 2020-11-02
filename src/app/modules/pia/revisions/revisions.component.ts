@@ -58,7 +58,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     public revisionService: RevisionService,
     ) {}
 
-  ngOnInit() {
+  ngOnInit(): void  {
     // Load PIA's revisions
     const revision = new Revision();
     revision.findAllByPia(this.pia.id).then((resp: any) => {
@@ -67,7 +67,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges): void {
     // Update RevisionGroupByMonth on this.revisions changements
     this.generateDates(changes);
     this.subscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
@@ -75,7 +75,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
 
-  generateDates(changes) {
+  generateDates(changes): void  {
     if (changes.revisions && changes.revisions.currentValue) {
       this.parsingDate();
     }
@@ -165,7 +165,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   }
 
 
-  ngOnDestroy() {
+  ngOnDestroy(): void  {
     this.subscription.unsubscribe();
   }
 }

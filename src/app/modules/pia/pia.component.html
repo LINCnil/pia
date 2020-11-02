@@ -20,9 +20,8 @@
                 <app-revisions *ngIf="pia.is_example == 0 && pia.is_archive  == 0"
                     [pia]="pia"
                     [title]="false"
-                    [currentVersion]="pia.updated_at"
-                    [revisions]="revisions"
-                    ></app-revisions>
+                    [currentVersion]="pia.updated_at">
+                </app-revisions>
             </aside>
         </nav>
 
