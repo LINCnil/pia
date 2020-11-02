@@ -140,8 +140,6 @@ export class AnswerService extends ApplicationDb {
   // }
 
   async getByReferenceAndPia(pia_id: number, reference_to: any): Promise<any> {
-    console.log(pia_id, reference_to);
-
     this.pia_id = pia_id;
     this.reference_to = reference_to;
     return new Promise((resolve, reject) => {

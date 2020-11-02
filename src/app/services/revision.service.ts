@@ -4,12 +4,15 @@ import { PiaService } from './pia.service';
 import { Router } from '@angular/router';
 import { utf8Encode } from '@angular/compiler/src/util';
 import { Revision } from '../models/revision.model';
+import { ApplicationDb } from '../application.db';
 
 @Injectable()
-export class RevisionService {
+export class RevisionService extends ApplicationDb {
   public revisionSelected: number;
 
-  constructor(public piaService: PiaService, private router: Router) {}
+  constructor(public piaService: PiaService, private router: Router) {
+    super(201911191636, 'revision');
+  }
 
   /**
    * Load a new revision

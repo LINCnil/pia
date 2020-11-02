@@ -8,6 +8,7 @@ import { DatePipe } from '@angular/common';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { RelativeDate } from './RelativeDate.class';
+import { Pia } from 'src/app/models/pia.model';
 
 function slugify(data) {
   const a = 'àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹńňñòóöôœøṕŕřßşśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;';
@@ -33,6 +34,7 @@ function slugify(data) {
   providers: [RevisionService, TranslateService]
 })
 export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
+  @Input() pia: Pia;
   @Input() currentVersion: Date;
   @Input() revisions: Array<any>;
   @Input() title = true;
@@ -48,14 +50,20 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   public objectKeys = Object.entries;
   public activeRevision: any = null;
 
-  constructor(private _translateService: TranslateService, public _languagesService: LanguagesService) {}
+  public preview = null;
+
+  constructor(
+    private translateService: TranslateService,
+    public languagesService: LanguagesService,
+    public revisionService: RevisionService,
+    ) {}
 
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
     // Update RevisionGroupByMonth on this.revisions changements
     this.generateDates(changes);
-    this.subscription = this._translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.subscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       this.generateDates(changes);
     });
   }
@@ -71,12 +79,12 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
         let temp = slugify(new RelativeDate(obj.created_at).simple());
         if (/\d/.test(temp)) {
           temp = temp.split('-');
-          temp = this._translateService.instant('date.' + temp[0]) + ' ' + temp[1];
+          temp = this.translateService.instant('date.' + temp[0]) + ' ' + temp[1];
         } else {
           if (temp === 'translate-month') {
-            temp = new DatePipe(this._translateService.currentLang).transform(obj.created_at, 'MMMM y');
+            temp = new DatePipe(this.translateService.currentLang).transform(obj.created_at, 'MMMM y');
           } else {
-            temp = this._translateService.instant('date.' + temp);
+            temp = this.translateService.instant('date.' + temp);
           }
         }
         const key = temp;
@@ -96,13 +104,25 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  newRevision() {
+  /**
+   * Create a new Revision record in indexDB
+   */
+  newRevision(): void {
     // emit revision query
-    this.newRevisionEmitter.emit();
+    // this.newRevisionEmitter.emit();
+    this.revisionService.export(this.pia.id).then(exportResult => {
+      this.revisionService.add(exportResult, this.pia.id).then(resp => {
+        // because ngOnchanges no detect simply array push
+        this.revisions.push(resp);
+        this.revisions = this.revisions.slice();
+      });
+    });
   }
 
-  previewRevision(revisionId: number, event: Event, revisionDate: any) {
-    localStorage.setItem('currentRevisionDate', revisionDate);
+  previewRevision(revisionId: number, event: Event, revisionDate: any): void {
+    // localStorage.setItem('currentRevisionDate', revisionDate);
+
+    // Change circle color
     document.querySelectorAll('.pia-revisions-box-content-revision-item').forEach(revision => {
       if (revision.classList.contains('revision-active')) {
         revision.querySelector('.fa').classList.toggle('fa-circle-o');
@@ -123,8 +143,12 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
       displayRevisionData.classList.toggle('revision-active');
     }
 
-    this.activeRevision = revisionId;
-    this.previewRevisionEmitter.emit(this.activeRevision);
+    // Emit event
+    // this.previewRevisionEmitter.emit(revisionId);
+    this.revisionService.find(revisionId)
+      .then(revisionExport => {
+        this.preview = revisionExport;
+      });
   }
 
   onRevisionSelection(revisionId: number, event: Event) {

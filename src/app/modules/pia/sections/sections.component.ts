@@ -35,23 +35,23 @@ export class SectionsComponent implements OnInit {
   data: { sections: any };
 
   constructor(
-    private _appDataService: AppDataService,
-    public _sidStatusService: SidStatusService,
-    private _introjsService: IntrojsService
+    private appDataService: AppDataService,
+    public sidStatusService: SidStatusService,
+    private introjsService: IntrojsService
   ) {}
 
-  async ngOnInit() {
-    this.data = this._appDataService.dataNav;
+  async ngOnInit(): Promise<void> {
+    this.data = this.appDataService.dataNav;
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
-        this._sidStatusService.setSidStatus(this.pia, section, item);
+        this.sidStatusService.setSidStatus(this.pia, section, item);
       });
     });
   }
 
-  ngAfterViewChecked() {
-    if (!this._introjsService.sectionsLoaded) {
-      this._introjsService.sections(true);
+  ngAfterViewChecked(): void {
+    if (!this.introjsService.sectionsLoaded) {
+      this.introjsService.sections(true);
     }
   }
 }

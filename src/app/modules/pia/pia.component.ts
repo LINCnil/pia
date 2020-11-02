@@ -8,6 +8,7 @@ import { Revision } from 'src/app/models/revision.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { DialogService } from 'src/app/services/dialog.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
@@ -44,7 +45,6 @@ export class PiaComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private http: HttpClient,
     private modalsService: ModalsService,
     private appDataService: AppDataService,
     private sidStatusService: SidStatusService,
@@ -56,7 +56,8 @@ export class PiaComponent implements OnInit {
     private measureService: MeasureService,
     private router: Router,
     private answerService: AnswerService,
-    private introjsService: IntrojsService
+    private introjsService: IntrojsService,
+    private dialogService: DialogService
   ) {
     this.introjsService.entrySideViewChange.subscribe(value => {
       this.sideView = value;
@@ -187,18 +188,67 @@ export class PiaComponent implements OnInit {
             });
           }
           if (displayModal) {
-            this.modalsService.openModal('pia-declare-measures');
+            // this.modalsService.openModal('pia-declare-measures');
+            this.dialogService.confirmThis(
+              {
+                text: 'modals.declare_measures.content',
+                type: 'yes',
+                yes: 'modals.declare_measures.declare',
+                no: ''
+              },
+              () => {
+                this.router.navigate(
+                  ['/pia', 'piaService.pia.id', 'section', 3, 'item', 1]
+                );
+              },
+              () => {
+                return false;
+              }
+            );
           }
         }
 
         /* Modal for action plan if no evaluations yet */
         if (this.section.id === 4 && this.item.id === 2 && !this.sidStatusService.verifEnableActionPlan()) {
-          this.modalsService.openModal('pia-action-plan-no-evaluation');
+          // this.modalsService.openModal('pia-action-plan-no-evaluation');
+          this.dialogService.confirmThis(
+            {
+              text: 'modals.action_plan_no_evaluation.content',
+              type: 'yes',
+              yes: 'modals.action_plan_no_evaluation.review_section',
+              no: ''
+            },
+            () => {
+              this.router.navigate(
+                ['/pia', this.pia.id, 'section', 4, 'item', 5]
+              );
+            },
+            () => {
+              return false;
+            }
+          );
         }
 
         /* Modal for dpo page if all evaluations are not done yet */
         if (this.section.id === 4 && this.item.id === 3 && !this.sidStatusService.enableDpoValidation) {
-          this.modalsService.openModal('pia-dpo-missing-evaluations');
+          // this.modalsService.openModal('pia-dpo-missing-evaluations');
+          this.dialogService.confirmThis(
+            {
+              text: 'modals.dpo_missing_evaluations.content',
+              type: 'yes',
+              yes: 'modals.action_plan_no_evaluation.review_section',
+              no: ''
+            },
+            () => {
+              this.router.navigate(
+                ['/pia', this.pia.id, 'section', 4, 'item', 7]
+              );
+            },
+            () => {
+              return false;
+            }
+          );
+
         }
       });
 
@@ -232,48 +282,53 @@ export class PiaComponent implements OnInit {
   /**
    * Create a new Revision record in indexDB
    */
-  onNewRevision() {
-    this.revisionService.export(this.piaService.pia.id).then(exportResult => {
-      this.revisionService.add(exportResult, this.piaService.pia.id).then(resp => {
-        // because ngOnchanges no detect simply array push
-        this.revisions.push(resp);
-        this.revisions = this.revisions.slice();
-      });
-    });
-  }
 
   /**
    * Save revision as selection in revision service
    * and open a modal, waiting for confirmation
    * @param revisionId - The revision id
    */
-  onSelectedRevision(revisionId: number) {
-    this.revisionService.prepareLoadRevision(revisionId, this.piaService.pia.id).then((createdAt: Date) => {
-      this.modalsService.revisionDate = createdAt;
-      this.modalsService.openModal('revision-selection');
-    });
-  }
+  // onSelectedRevision(revisionId: number) {
+  //   this.revisionService.prepareLoadRevision(revisionId, this.pia.id).then((createdAt: Date) => {
+  //     this.modalsService.revisionDate = createdAt;
+  //     // this.modalsService.openModal('revision-selection');
+  //     this.dialogService.confirmThis(
+  //       {
+  //         text: 'modals.recover_version.message',
+  //         type: 'confirm',
+  //         yes: 'modals.recover_version.continue',
+  //         no: ''
+  //       },
+  //       () => {
+  //         this.loadPiaRevision();
+  //       },
+  //       () => {
+  //         return false;
+  //       }
+  //     );
+  //   });
+  // }
 
   /**
    * On modal confirmation, replace current pia version by selected revision
    */
-  async loadPiaRevision() {
-    localStorage.removeItem('revision-date-id');
-    this.onNewRevision();
-    this.revisionOverlay = true;
-    this.revisionService.loadRevision().then(() => {
-      this.revisionOverlay = false;
-    });
-  }
+  // async loadPiaRevision() {
+  //   localStorage.removeItem('revision-date-id');
+  //   this.onNewRevision();
+  //   this.revisionOverlay = true;
+  //   this.revisionService.loadRevision().then(() => {
+  //     this.revisionOverlay = false;
+  //   });
+  // }
 
-  onPreviewRevision(id) {
-    this.revisionService.revisionSelected = id;
-    this.revisionService.getRevisionById(id).then(revisionExport => {
-      this.preview = revisionExport;
-      this.preview.id = id;
-      this.modalsService.openModal('revision-preview-selection');
-    });
-  }
+  // onPreviewRevision(id) {
+  //   this.revisionService.revisionSelected = id;
+  //   this.revisionService.getRevisionById(id).then(revisionExport => {
+  //     this.preview = revisionExport;
+  //     this.preview.id = id;
+  //     // this.modalsService.openModal('revision-preview-selection');
+  //   });
+  // }
 
   /********** END REVISIONS ACTIONS ***********/
 }

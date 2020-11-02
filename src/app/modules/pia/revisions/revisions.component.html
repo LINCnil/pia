@@ -5,7 +5,7 @@
   <div class="pia-revisions-box" *ngIf="revisions">
     <h4>{{ 'summary.revision.pia_version' | translate }}</h4>
     <p>
-      <i class="fa fa-circle"></i> {{ currentVersion  | date: "short":"":_languagesService.selectedLanguage }} - {{ 'summary.revision.current_version' | translate }}
+      <i class="fa fa-circle"></i> {{ currentVersion  | date: "short":"":languagesService.selectedLanguage }} - {{ 'summary.revision.current_version' | translate }}
     </p>
     <a *ngIf="revisions.length > 0" href="javascript;" class="pia-revisions-box-footer" (click)="opened = !opened; $event.preventDefault();">
         <span>{{ 'summary.revision.show' | translate:{'length': revisions.length} }}</span>
@@ -18,8 +18,10 @@
       <div class="pia-revisions-box-content-revision" *ngFor="let date of revisionsGroupByMonthInArray.reverse()">
         <h5>{{ date }}</h5>
         <ul>
-          <li *ngFor="let revision of revisionsGroupByMonth[date]" class="pia-revisions-box-content-revision-item" [attr.revision-id]="revision.id">
-            <span  (click)="previewRevision(revision.id, $event, revision.created_at)"><i class="fa fa-circle-o"></i> {{ revision.created_at  | date: "short":"":_languagesService.selectedLanguage }}</span>
+          <li *ngFor="let revision of revisionsGroupByMonth[date]"
+            class="pia-revisions-box-content-revision-item"
+            [attr.revision-id]="revision.id">
+            <span  (click)="previewRevision(revision.id, $event, revision.created_at)"><i class="fa fa-circle-o"></i> {{ revision.created_at  | date: "short":"":languagesService.selectedLanguage }}</span>
             <!-- <a href="javascript;" (click)="onRevisionSelection(revision.id, $event)">{{ 'summary.revision.restore_version' | translate }}</a> -->
           </li>
         </ul>
@@ -31,3 +33,7 @@
     </button>
   </div>
 </div>
+<app-modal *ngIf="preview">
+  test revision
+  <!-- <app-preview [onlyData]="true" *ngIf="download"></app-preview> -->
+</app-modal>

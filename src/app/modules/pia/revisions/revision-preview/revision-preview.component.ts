@@ -35,11 +35,11 @@ export class RevisionPreviewComponent implements OnInit {
   @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
 
   constructor(
-    private _translateService: TranslateService,
-    public _appDataService: AppDataService,
-    public _sidStatusService: SidStatusService,
-    public _revisionService: RevisionService,
-    public _modalsService: ModalsService,
+    private translateService: TranslateService,
+    public appDataService: AppDataService,
+    public sidStatusService: SidStatusService,
+    public revisionService: RevisionService,
+    public modalsService: ModalsService,
     private datePipe: DatePipe
   ) {}
 
@@ -74,12 +74,12 @@ export class RevisionPreviewComponent implements OnInit {
       this.pia.structure_data = changes.revision.currentValue.pia.structure_data;
 
       if (this.pia.structure_data) {
-        this._appDataService.dataNav = this.pia.structure_data;
+        this.appDataService.dataNav = this.pia.structure_data;
       } else {
-        this._appDataService.resetDataNav();
+        this.appDataService.resetDataNav();
       }
 
-      this.data = this._appDataService.dataNav;
+      this.data = this.appDataService.dataNav;
       this.getJsonInfo();
 
       // CALCUL PROGRESS BAR
@@ -90,7 +90,7 @@ export class RevisionPreviewComponent implements OnInit {
       }
       this.data.sections.forEach((section: any) => {
         section.items.forEach((item: any) => {
-          this._sidStatusService.setSidStatus(this.pia, section, item);
+          this.sidStatusService.setSidStatus(this.pia, section, item);
         });
       });*/
     }
@@ -138,7 +138,7 @@ export class RevisionPreviewComponent implements OnInit {
               if (answerModel.data) {
                 const content = [];
                 if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                  content.push(this._translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
+                  content.push(this.translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
                 }
                 if (answerModel.data.text && answerModel.data.text.length > 0) {
                   content.push(answerModel.data.text);
@@ -190,7 +190,7 @@ export class RevisionPreviewComponent implements OnInit {
           evaluation_comment: evaluationModel.evaluation_comment,
           gauges: {
             riskName: {
-              value: this._translateService.instant('sections.' + section_id + '.items.' + item_id + '.title')
+              value: this.translateService.instant('sections.' + section_id + '.items.' + item_id + '.title')
             },
             seriousness: evaluationModel.gauges ? evaluationModel.gauges.x : null,
             likelihood: evaluationModel.gauges ? evaluationModel.gauges.y : null
@@ -217,10 +217,10 @@ export class RevisionPreviewComponent implements OnInit {
   }
 
   public restoreRevision() {
-    this._modalsService.closeModal();
-    this._revisionService.prepareLoadRevision(this.revision.id, this.pia.id).then((createdAt: Date) => {
-      this._modalsService.revisionDate = new Date(createdAt);
-      this._modalsService.openModal('revision-selection');
+    this.modalsService.closeModal();
+    this.revisionService.prepareLoadRevision(this.revision.id, this.pia.id).then((createdAt: Date) => {
+      this.modalsService.revisionDate = new Date(createdAt);
+      this.modalsService.openModal('revision-selection');
     });
   }
 
