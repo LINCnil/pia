@@ -15,9 +15,10 @@ import { Structure } from '../models/structure.model';
 import { ModalsService } from './modals.service';
 import { StructureService } from './structure.service';
 import { AnswerService } from './answer.service';
+import { ApplicationDb } from '../application.db';
 
 @Injectable()
-export class PiaService {
+export class PiaService extends ApplicationDb  {
   pias = [];
   pia: Pia = new Pia();
   answer: Answer = new Answer();
@@ -33,6 +34,7 @@ export class PiaService {
     private structureService: StructureService,
     private answerService: AnswerService
   ) {
+    super(201910230914, 'pia');
     if (this.pia.structure_data) {
       this._appDataService.dataNav = this.pia.structure_data;
     } else {

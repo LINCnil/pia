@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { Answer } from 'src/app/models/answer.model';
+import { Pia } from 'src/app/models/pia.model';
 import { Revision } from 'src/app/models/revision.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
@@ -68,30 +68,38 @@ export class PiaComponent implements OnInit {
     let sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     let itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
-    await this.piaService.getPIA();
+    this.piaService.find(parseInt(this.route.snapshot.params.id))
+      .then((pia: Pia) => {
+        // INIT PIA
 
-    if (!sectionId || !itemId) {
-      this.router.navigate(['entry', this.piaService.pia.id, 'section', 1, 'item', 1]);
-    } else {
-      if (this.piaService.pia.structure_data) {
-        this.appDataService.dataNav = this.piaService.pia.structure_data;
-      } else {
-        this.appDataService.resetDataNav();
-      }
-      this.data = this.appDataService.dataNav;
+        this.pia = pia;
+        if (!sectionId || !itemId) {
+          this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
+        } else {
+          if (this.pia.structure_data) {
+            this.appDataService.dataNav = this.pia.structure_data;
+          } else {
+            this.appDataService.resetDataNav();
+          }
+          this.data = this.appDataService.dataNav;
 
-      this.route.params.subscribe((params: Params) => {
-        sectionId = parseInt(params.section_id, 10);
-        itemId = parseInt(params.item_id, 10);
-        this.getSectionAndItem(sectionId, itemId);
-        window.scroll(0, 0);
+          this.route.params.subscribe((params: Params) => {
+            sectionId = parseInt(params.section_id, 10);
+            itemId = parseInt(params.item_id, 10);
+            this.getSectionAndItem(sectionId, itemId);
+            window.scroll(0, 0);
+          });
+        }
+
+        // Suscribe to measure service messages
+        this.subscription = this.measureService.behaviorSubject.subscribe(val => {
+          this.measureToRemoveFromTags = val;
+        });
+      })
+      .catch((err) => {
+        console.error(err);
       });
-    }
 
-    // Suscribe to measure service messages
-    this.subscription = this.measureService.behaviorSubject.subscribe(val => {
-      this.measureToRemoveFromTags = val;
-    });
   }
 
   ngDoCheck() {
@@ -101,7 +109,7 @@ export class PiaComponent implements OnInit {
 
       // Update tags when removing measures from 3.1
       const itemsQuestions = [];
-      this.piaService.data.sections.forEach(section => {
+      this.pia.data.sections.forEach(section => {
         section.items.forEach(item => {
           if (item.questions) {
             itemsQuestions.push(
@@ -120,13 +128,14 @@ export class PiaComponent implements OnInit {
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
           // const answer = new Answer();
-          this.answerService.getByReferenceAndPia(this.piaService.pia.id, q.id).then((answer: Answer) => {
-            if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
-              const index = answer.data.list.indexOf(measureName);
-              answer.data.list.splice(index, 1);
-              this.answerService.update(answer);
-            }
-          });
+          this.answerService.getByReferenceAndPia(parseInt(this.route.snapshot.params.id), q.id)
+            .then((answer: Answer) => {
+              if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
+                const index = answer.data.list.indexOf(measureName);
+                answer.data.list.splice(index, 1);
+                this.answerService.update(answer);
+              }
+            });
         });
       });
     }
@@ -142,8 +151,8 @@ export class PiaComponent implements OnInit {
    * @param itemId - The item id.
    */
   private async getSectionAndItem(sectionId: number, itemId: number) {
-    if (this.piaService.pia.structure_data) {
-      this.appDataService.dataNav = this.piaService.pia.structure_data;
+    if (this.pia.structure_data) {
+      this.appDataService.dataNav = this.pia.structure_data;
     }
     this.data = this.appDataService.dataNav;
     this.section = this.data.sections.filter(section => {
@@ -163,10 +172,10 @@ export class PiaComponent implements OnInit {
       });
     }
 
-    this.piaService.getPIA().then(() => {
-      this.globalEvaluationService.pia = this.piaService.pia;
+    this.piaService.find(parseInt(this.route.snapshot.params.id)).then((pia: Pia) => {
+      this.globalEvaluationService.pia = pia;
       this.globalEvaluationService.validate();
-      this.measureService.listMeasures(this.piaService.pia.id).then(() => {
+      this.measureService.listMeasures(pia.id).then(() => {
         /* Modal for risks if no measures yet */
         let displayModal = true;
         if (this.section.id === 3 && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
@@ -194,10 +203,10 @@ export class PiaComponent implements OnInit {
       });
 
       this.actionPlanService.data = this.data;
-      this.actionPlanService.pia = this.piaService.pia;
+      this.actionPlanService.pia = pia;
       this.actionPlanService.listActionPlan();
 
-      this.pia = this.piaService.pia;
+      this.pia = pia;
 
       // Load PIA's revisions
       const revision = new Revision();

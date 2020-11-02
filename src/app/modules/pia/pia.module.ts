@@ -14,9 +14,10 @@ import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 
 
-
 @NgModule({
-  declarations: [PiaComponent],
+  declarations: [
+    PiaComponent,
+  ],
   imports: [
     SharedModule,
     CommonModule,
