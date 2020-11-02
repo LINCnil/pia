@@ -12,11 +12,15 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { MeasureService } from 'src/app/services/measures.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
+import { RevisionsComponent } from './revisions/revisions.component';
+import { RevisionPreviewComponent } from './revisions/revision-preview/revision-preview.component';
 
 
 @NgModule({
   declarations: [
     PiaComponent,
+    RevisionsComponent,
+    RevisionPreviewComponent
   ],
   imports: [
     SharedModule,

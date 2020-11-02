@@ -1,30 +1,30 @@
-<main class="container pia-mainContainerBlock">
+<main class="container pia-mainContainerBlock" *ngIf="pia">
     <div class="row">
-        <div *ngIf="this.piaService.pia.is_example === 1"
+        <div *ngIf="pia.is_example === 1"
           class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
           <strong>{{ 'header.help.title' | translate }} >
             {{ 'header.help.pia_example_link' | translate }}
           </strong>
         </div>
-        <div *ngIf="this.piaService.pia.is_example === 0"
+        <div *ngIf="pia.is_example === 0"
           class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
           <a routerLink="/home">{{ 'header.homepage_link' | translate }} >
             {{ 'header.current_pias' | translate }}
           </a>
-          <strong> > {{ this.piaService.pia.name }}</strong>
+          <strong> > {{ pia.name }}</strong>
         </div>
         <!-- Left sidebar (sections) -->
         <nav class="hide-for-print small-12 medium-3 columns">
             <aside class="pia-leftSidebarBlock">
-                <!-- <app-sections [section]="section" [item]="item"></app-sections>
-                <app-revisions *ngIf="_piaService.pia && _piaService.pia.is_example == 0 && _piaService.pia.is_archive  == 0"
+                <!-- <app-sections [section]="section" [item]="item"></app-sections>-->
+                <app-revisions *ngIf="pia && pia.is_example == 0 && pia.is_archive  == 0"
                     [title]="false"
-                    [currentVersion]="_piaService.pia.updated_at"
+                    [currentVersion]="pia.updated_at"
                     [revisions]="revisions"
                     (newRevisionQuery)="onNewRevision()"
                     (selectedRevisionQuery)="onSelectedRevision($event)"
                     (peviewRevisionQuery)="onPreviewRevision($event)"
-                    ></app-revisions> -->
+                    ></app-revisions>
             </aside>
         </nav>
 
@@ -50,7 +50,7 @@
                    *ngIf="pia && sideView === 'export'"
                   (downloading)="download = $event"></app-export> -->
                 <app-knowledge-base
-                  [pia]="this.piaService.pia"
+                  [pia]="pia"
                   *ngIf="sideView === 'knowledge'"
                   [item]="item">
                 </app-knowledge-base>
