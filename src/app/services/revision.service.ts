@@ -90,4 +90,25 @@ export class RevisionService extends ApplicationDb {
       });
     });
   }
+
+  /**
+   * Get the status of the PIA.
+   * @returns {string} - Locale for translation.
+   */
+  getStatusName(status) {
+    if (status >= 0) {
+      return `pia.statuses.${status}`;
+    }
+  }
+
+  /**
+   * Get gauge name.
+   * @param {*} value - The gauge value.
+   * @returns {string} - Locale for translation.
+   */
+  getGaugeName(value: any) {
+    if (value) {
+      return `summary.gauges.${value}`;
+    }
+  }
 }

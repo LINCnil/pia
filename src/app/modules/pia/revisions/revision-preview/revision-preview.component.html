@@ -33,29 +33,29 @@
             <div>
               <div>
                 <div>{{ 'homepage.cards.placeholder_pia_name' | translate }} :</div>
-                <div><strong>{{ pia.name }}</strong></div>
+                <div><strong>{{ export.pia.name }}</strong></div>
               </div>
               <div>
                 <div>{{ 'summary.preview_edition' | translate }} :</div>
-                <div>{{ pia.author_name }}</div>
+                <div>{{ export.pia.author_name }}</div>
               </div>
               <div>
                 <div>{{ 'summary.preview_evaluation' | translate }} :</div>
-                <div>{{ pia.evaluator_name }}</div>
+                <div>{{ export.pia.evaluator_name }}</div>
               </div>
               <div>
                 <div>{{ 'summary.preview_validation' | translate }} :</div>
-                <div>{{ pia.validator_name }}</div>
+                <div>{{ export.pia.validator_name }}</div>
               </div>
             </div>
             <div>
               <div>
                 <div>{{ 'summary.preview_status' | translate }} :</div>
-                <div>{{ pia.getStatusName() | translate }}</div>
+                <div>{{ piaService.getStatusName(export.pia.status) | translate }}</div>
               </div>
               <div class="pia-fullPreviewBlock-header-progressBar">
-                  <div>{{ pia.progress }}%</div>
-                  <progress max="100" value="{{ pia.progress }}"></progress>
+                  <div>{{ export.pia.progress }}%</div>
+                  <progress max="100" value="{{ export.pia.progress }}"></progress>
               </div>
             </div>
           </div>

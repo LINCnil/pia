@@ -146,9 +146,11 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     // Emit event
     // this.previewRevisionEmitter.emit(revisionId);
     this.revisionService.find(revisionId)
-      .then(revisionExport => {
-        this.preview = revisionExport;
-      });
+      .then((revision: any) => {
+        console.log(revision);
+        this.preview = revision;
+      })
+      .catch(err => console.log(err));
   }
 
   onRevisionSelection(revisionId: number, event: Event) {
