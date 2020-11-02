@@ -36,12 +36,12 @@ function slugify(data) {
 export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() pia: Pia;
   @Input() currentVersion: Date;
-  @Input() revisions: Array<any>;
   @Input() title = true;
   @Output('newRevisionQuery') newRevisionEmitter = new EventEmitter();
   @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
   @Output('peviewRevisionQuery') previewRevisionEmitter = new EventEmitter();
 
+  revisions: Array<any>;
   subscription: Subscription;
   public opened = false;
   subject = new Subject();
@@ -58,7 +58,14 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     public revisionService: RevisionService,
     ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Load PIA's revisions
+    const revision = new Revision();
+    revision.findAllByPia(this.pia.id).then((resp: any) => {
+      this.revisions = resp;
+      this.parsingDate();
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     // Update RevisionGroupByMonth on this.revisions changements
@@ -70,38 +77,42 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
 
   generateDates(changes) {
     if (changes.revisions && changes.revisions.currentValue) {
-      this.revisionsGroupByMonth = {};
-      this.revisionsGroupByMonthInArray = [];
-
-      changes.revisions.currentValue.forEach(obj => {
-        // Determite key and translate it
-
-        let temp = slugify(new RelativeDate(obj.created_at).simple());
-        if (/\d/.test(temp)) {
-          temp = temp.split('-');
-          temp = this.translateService.instant('date.' + temp[0]) + ' ' + temp[1];
-        } else {
-          if (temp === 'translate-month') {
-            temp = new DatePipe(this.translateService.currentLang).transform(obj.created_at, 'MMMM y');
-          } else {
-            temp = this.translateService.instant('date.' + temp);
-          }
-        }
-        const key = temp;
-        // Group by key
-        if (this.revisionsGroupByMonth[key]) {
-          this.revisionsGroupByMonth[key].push(obj);
-          // ORDER DATE ARRAY
-          this.revisionsGroupByMonth[key].sort(function(a, b) {
-            return b.created_at - a.created_at;
-          });
-        } else {
-          this.revisionsGroupByMonth[key] = [];
-          this.revisionsGroupByMonth[key].push(obj);
-        }
-      });
-      this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth); // Get Properties on array
+      this.parsingDate();
     }
+  }
+
+  parsingDate(): void {
+    this.revisionsGroupByMonth = {};
+    this.revisionsGroupByMonthInArray = [];
+
+    this.revisions.forEach(obj => {
+      // Determite key and translate it
+
+      let temp = slugify(new RelativeDate(obj.created_at).simple());
+      if (/\d/.test(temp)) {
+        temp = temp.split('-');
+        temp = this.translateService.instant('date.' + temp[0]) + ' ' + temp[1];
+      } else {
+        if (temp === 'translate-month') {
+          temp = new DatePipe(this.translateService.currentLang).transform(obj.created_at, 'MMMM y');
+        } else {
+          temp = this.translateService.instant('date.' + temp);
+        }
+      }
+      const key = temp;
+      // Group by key
+      if (this.revisionsGroupByMonth[key]) {
+        this.revisionsGroupByMonth[key].push(obj);
+        // ORDER DATE ARRAY
+        this.revisionsGroupByMonth[key].sort(function(a, b) {
+          return b.created_at - a.created_at;
+        });
+      } else {
+        this.revisionsGroupByMonth[key] = [];
+        this.revisionsGroupByMonth[key].push(obj);
+      }
+    });
+    this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth); // Get Properties on array
   }
 
   /**
@@ -114,7 +125,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
       this.revisionService.add(exportResult, this.pia.id).then(resp => {
         // because ngOnchanges no detect simply array push
         this.revisions.push(resp);
-        this.revisions = this.revisions.slice();
+        this.parsingDate();
       });
     });
   }
@@ -153,11 +164,6 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
       .catch(err => console.log(err));
   }
 
-  onRevisionSelection(revisionId: number, event: Event) {
-    // emit revision selection
-    this.selectedRevisionEmitter.emit(revisionId);
-    event.preventDefault();
-  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

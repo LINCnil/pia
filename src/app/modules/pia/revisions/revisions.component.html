@@ -22,7 +22,6 @@
             class="pia-revisions-box-content-revision-item"
             [attr.revision-id]="revision.id">
             <span  (click)="previewRevision(revision.id, $event, revision.created_at)"><i class="fa fa-circle-o"></i> {{ revision.created_at  | date: "short":"":languagesService.selectedLanguage }}</span>
-            <!-- <a href="javascript;" (click)="onRevisionSelection(revision.id, $event)">{{ 'summary.revision.restore_version' | translate }}</a> -->
           </li>
         </ul>
       </div>

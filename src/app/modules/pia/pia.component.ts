@@ -257,12 +257,6 @@ export class PiaComponent implements OnInit {
       this.actionPlanService.listActionPlan();
 
       this.pia = pia;
-
-      // Load PIA's revisions
-      const revision = new Revision();
-      revision.findAllByPia(this.pia.id).then(resp => {
-        this.revisions = resp;
-      });
     });
 
     // Update on knowledge base (scroll / content / search field)
