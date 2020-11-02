@@ -17,14 +17,12 @@ export class RevisionService extends ApplicationDb {
   /**
    * Load a new revision
    */
-  async loadRevision() {
+  async loadRevision(revisionId) {
     return new Promise(resolve => {
-      const revision = new Revision();
-      revision.pia_id = this.piaService.pia.id;
-      revision.get(this.revisionSelected).then(() => {
+      this.find(revisionId).then((revision: Revision) => {
         const piaExport = JSON.parse(revision.export);
         this.piaService.replacePiaByExport(piaExport, true, true, revision.created_at).then(() => {
-          this.router.navigate(['entry', this.piaService.pia.id]);
+          this.router.navigate(['pia', piaExport.pia.id]);
           resolve();
         });
       });
@@ -60,23 +58,6 @@ export class RevisionService extends ApplicationDb {
         // BETTER SOLUTION BUT REFRESH SCREEN:
         // this.router.navigate(['entry', this.piaService.pia.id]);
         resolve(response);
-      });
-    });
-  }
-
-  /**
-   * Prepare to load a revision
-   * @param revisionId - The revision id
-   * @param piaId - The PIA id
-   */
-  async prepareLoadRevision(revisionId: number, piaId: number) {
-    this.revisionSelected = revisionId;
-    localStorage.setItem('revision-date-id', revisionId.toString());
-    return new Promise(resolve => {
-      const revision = new Revision();
-      revision.pia_id = piaId;
-      revision.get(revisionId).then(() => {
-        resolve(revision.created_at);
       });
     });
   }

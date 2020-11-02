@@ -11,6 +11,7 @@ import { Pia } from 'src/app/models/pia.model';
 import { ModalsService } from 'src/app/services/modals.service';
 import { Revision } from 'src/app/models/revision.model';
 import { PiaService } from 'src/app/services/pia.service';
+import { DialogService } from 'src/app/services/dialog.service';
 
 function slugify(text) {
   return text
@@ -44,7 +45,8 @@ export class RevisionPreviewComponent implements OnInit {
     public revisionService: RevisionService,
     public piaService: PiaService,
     public modalsService: ModalsService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private dialogService: DialogService
   ) {
 
   }
@@ -184,11 +186,29 @@ export class RevisionPreviewComponent implements OnInit {
     localStorage.removeItem('currentRevisionDate');
   }
 
-  public restoreRevision() {
-    this.modalsService.closeModal();
-    this.revisionService.prepareLoadRevision(this.revision.id, this.export.pia.id).then((createdAt: Date) => {
-      this.modalsService.revisionDate = new Date(createdAt);
-      this.modalsService.openModal('revision-selection');
+  public restoreRevision(): void {
+    // this.modalsService.closeModal();
+    // this.revisionService.prepareLoadRevision(this.revision.id, this.export.pia.id).then((createdAt: Date) => {
+    //   this.modalsService.revisionDate = new Date(createdAt);
+    //   this.modalsService.openModal('revision-selection');
+    // });
+    this.dialogService.confirmThis({
+      text: 'modals.recover_version.message',
+      type: 'confirm',
+      yes: 'modals.recover_version.continue',
+      no: 'modals.cancel',
+      data: {
+        date: new Date(this.revision.created_at)
+      },
+    },
+    () => {
+      this.revisionService.loadRevision(this.revision.id)
+        .then(() => {
+          return false;
+        });
+    },
+    () => {
+      return false;
     });
   }
 

@@ -75,7 +75,7 @@ export class PiaComponent implements OnInit {
 
         this.pia = pia;
         if (!sectionId || !itemId) {
-          this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
+          this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);
         } else {
           if (this.pia.structure_data) {
             this.appDataService.dataNav = this.pia.structure_data;
