@@ -14,18 +14,26 @@ import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 import { RevisionsComponent } from './revisions/revisions.component';
 import { RevisionPreviewComponent } from './revisions/revision-preview/revision-preview.component';
+import { SectionsComponent } from './sections/sections.component';
 
 
 @NgModule({
-  declarations: [
-    PiaComponent,
-    RevisionsComponent,
-    RevisionPreviewComponent
-  ],
   imports: [
     SharedModule,
     CommonModule,
     PiaRoutingModule,
+  ],
+  declarations: [
+    PiaComponent,
+    RevisionsComponent,
+    RevisionPreviewComponent,
+    SectionsComponent
+  ],
+  exports: [
+    PiaComponent,
+    RevisionsComponent,
+    RevisionPreviewComponent,
+    SectionsComponent
   ],
   providers: [
     PiaService,
