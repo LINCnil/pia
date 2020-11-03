@@ -52,7 +52,7 @@ export class ExportComponent implements OnInit {
     public attachmentsService: AttachmentsService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataNav = this.appDataService.dataNav;
     this.piaService.calculPiaProgress(this.pia);
 
@@ -71,7 +71,7 @@ export class ExportComponent implements OnInit {
   }
 
   /****************************** DOWNLOAD FILES ************************************/
-  onSelectDownload(type: string, isChecked: boolean) {
+  onSelectDownload(type: string, isChecked: boolean): void  {
     if (isChecked) {
       this.exportSelected.push(type);
     } else {
@@ -80,7 +80,7 @@ export class ExportComponent implements OnInit {
     }
   }
 
-  async launchDownload() {
+  async launchDownload(): Promise<void>  {
     if (this.editMode) {
       this.downloading.emit(true);
       setTimeout(async () => {
@@ -93,7 +93,7 @@ export class ExportComponent implements OnInit {
     }
   }
 
-  async onDownload() {
+  async onDownload(): Promise<void>  {
     if (this.exportSelected) {
       if (this.exportSelected.length > 1) {
         // download by selection
@@ -156,7 +156,7 @@ export class ExportComponent implements OnInit {
    * @param element block in the HTML view used to generate the docx in the zip
    * @param exports files to exports array ['doc', 'images', 'csv', 'json']
    */
-  async generateExportsZip(element, exports: Array<string>) {
+  async generateExportsZip(element, exports: Array<string>): Promise<void>   {
     // await setTimeout(async () => {
     const zipName = 'pia-' + slugify(this.pia.name) + '.zip';
     const JSZip = require('jszip');
@@ -206,21 +206,21 @@ export class ExportComponent implements OnInit {
   }
 
   /****************************** CSV EXPORT ************************************/
-  exportCSVFile(headers, items, fileTitle) {
+  exportCSVFile(headers, items, fileTitle): Blob {
     if (headers) {
       items.unshift(headers);
     }
     // Convert Object to JSON
-    var jsonObject = JSON.stringify(items);
-    var csv = this.convertToCSV(jsonObject);
-    var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
-    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const jsonObject = JSON.stringify(items);
+    const csv = this.convertToCSV(jsonObject);
+    const exportedFilenmae = fileTitle + '.csv' || 'export.csv';
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     return blob;
   }
 
-  convertToCSV(objArray) {
-    var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
-    var str = '';
+  convertToCSV(objArray): string {
+    const array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    let str = '';
     for (var i = 0; i < array.length; i++) {
       var line = '';
       for (var index in array[i]) {
@@ -235,7 +235,7 @@ export class ExportComponent implements OnInit {
   /**
    * Prepare for CSV export
    */
-  prepareCsv() {
+  prepareCsv(): void {
     this.csvOptions = {
       fieldSeparator: ';',
       quoteStrings: '"',
@@ -258,7 +258,7 @@ export class ExportComponent implements OnInit {
     this.csvContent = this.actionPlanService.csvRows;
   }
 
-  csvToBlob(fileTitle) {
+  csvToBlob(fileTitle): Blob {
     const headers = {
       section: `"${this.translateService.instant('summary.csv_section')}"`,
       title: `"${this.translateService.instant('summary.csv_title_object')}"`,
@@ -327,7 +327,7 @@ export class ExportComponent implements OnInit {
    *
    * @param element block in the HTML view used to generate the docx
    */
-  async generateDocx(element) {
+  async generateDocx(element): Promise<boolean> {
     return new Promise((resolve, reject) => {
       this.prepareDocFile(element).then(dataDoc => {
         setTimeout(() => {
@@ -350,7 +350,7 @@ export class ExportComponent implements OnInit {
   /**
    * Prepare .doc file
    */
-  async prepareDocFile(element) {
+  async prepareDocFile(element): Promise<any> {
     const risksCartography = document.querySelector('#risksCartographyImg');
     const actionPlanOverview = document.querySelector('#actionPlanOverviewImg');
     const risksOverview = document.querySelector('#risksOverviewSvg');
@@ -401,7 +401,7 @@ export class ExportComponent implements OnInit {
    * Add all active attachments (not the removed ones) to the zip after converting them as blob files
    * @param zip
    */
-  async addAttachmentsToZip(zip) {
+  async addAttachmentsToZip(zip): Promise<void> {
     return new Promise(async (resolve, reject) => {
       this.attachmentsService.attachments.forEach(attachment => {
         if (attachment.file && attachment.file.length > 0) {
@@ -422,7 +422,7 @@ export class ExportComponent implements OnInit {
    * Download all graphs as images
    * @private
    */
-  async downloadAllGraphsAsImages() {
+  async downloadAllGraphsAsImages(): Promise<void> {
     const JSZip = require('jszip');
     const zip = new JSZip();
     this.addImagesToZip(zip).then((zip2: any) => {
@@ -436,7 +436,7 @@ export class ExportComponent implements OnInit {
    * Add images to the zip after converting them as blob files
    * @param zip
    */
-  async addImagesToZip(zip) {
+  async addImagesToZip(zip): Promise<void> {
     return new Promise(async (resolve, reject) => {
       const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
       const risksCartographyImg = await this.getRisksCartographyImg();
@@ -464,7 +464,7 @@ export class ExportComponent implements OnInit {
    * Download the action plan overview as an image
    * @async
    */
-  async getActionPlanOverviewImg() {
+  async getActionPlanOverviewImg(): Promise<void> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const actionPlanOverviewImg = document.querySelector(
@@ -486,7 +486,7 @@ export class ExportComponent implements OnInit {
    * Download the risks cartography as an image
    * @async
    */
-  async getRisksCartographyImg() {
+  async getRisksCartographyImg(): Promise<void> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const risksCartographyImg = document.querySelector(
@@ -508,7 +508,7 @@ export class ExportComponent implements OnInit {
    * Generate a data format from the risk overview image. It can then be used in the Zip.
    * @async
    */
-  async getRisksOverviewImgForZip() {
+  async getRisksOverviewImgForZip(): Promise<void> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const mysvg = document.getElementById('risksOverviewSvg');
