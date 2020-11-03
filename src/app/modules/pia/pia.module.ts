@@ -21,6 +21,7 @@ import { ExportComponent } from './export/export.component';
 import { PreviewComponent } from './preview/preview.component';
 import { ContentComponent } from './content/content.component';
 import { OverviewRisksComponent } from './content/overview-risks/overview-risks.component';
+import { RisksCartographyComponent } from './content/risks-cartography/risks-cartography.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { OverviewRisksComponent } from './content/overview-risks/overview-risks.
     ExportComponent,
     PreviewComponent,
     ContentComponent,
-    OverviewRisksComponent
+    OverviewRisksComponent,
+    RisksCartographyComponent
   ],
   exports: [
     PiaComponent,
@@ -50,7 +52,8 @@ import { OverviewRisksComponent } from './content/overview-risks/overview-risks.
     AttachmentItemComponent,
     ExportComponent,
     PreviewComponent,
-    OverviewRisksComponent
+    OverviewRisksComponent,
+    RisksCartographyComponent
   ],
   providers: [
     PiaService,

@@ -1,6 +1,6 @@
 <div class="pia-cardsBlock pia" [ngClass]="{'pia-exampleBlock': pia.is_example === 1, 'pia-archiveBlock': pia.status > 1, 'pia-doingBlock': pia.status < 2}" [attr.data-id]="pia.id">
   <div class="pia-cardsBlock-header-title" *ngIf="pia.id !== null">
-    <span *ngIf="!previousPia || previousPia.status !== pia.status">{{ pia.getStatusName() | translate }}</span>
+    <span *ngIf="!previousPia || previousPia.status !== pia.status">{{ piaService.getStatusName(pia.status) | translate }}</span>
   </div>
   <div class="pia-cardsBlock-item pia-doingBlock-item">
     <div *ngIf="attachments && attachments.length > 0" class="pia-cardsBlock-item-attachment" aria-hidden="true">
@@ -101,7 +101,7 @@
             {{ 'pia.statuses.5' | translate }}
           </div>
           <ng-template #defaultStatuses>
-            <div>{{ pia.getStatusName() | translate }}</div>
+            <div>{{ piaService.getStatusName(pia.status) | translate }}</div>
           </ng-template>
         </div>
         <div class="pia-cardsBlock-item-status-progressBar">

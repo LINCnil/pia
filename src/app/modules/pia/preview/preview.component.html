@@ -5,13 +5,13 @@
   <!-- Preview navigation -->
   <div class="row">
     <ng-container  *ngIf="!onlyData">
-      <div *ngIf="this.piaService.pia.is_example === 1" class="pia-breadcrumb hide-for-print small-12 medium-12 columns"><a routerLink="/home">{{ 'header.help.title' | translate }} > {{ 'header.current_pias' | translate }}</a><strong> > {{ 'header.help.pia_example_link' | translate }}</strong></div>
-      <div *ngIf="this.piaService.pia.is_example === 0" class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
-        <span *ngIf=" this.piaService.pia.is_archive === 1; else noArchivedPIA">
-          <a routerLink="/archives">{{ 'header.homepage_link' | translate }} > {{ 'header.archives' | translate }}</a><strong> > {{ this.piaService.pia.name }}</strong>
+      <div *ngIf="pia.is_example === 1" class="pia-breadcrumb hide-for-print small-12 medium-12 columns"><a routerLink="/home">{{ 'header.help.title' | translate }} > {{ 'header.current_pias' | translate }}</a><strong> > {{ 'header.help.pia_example_link' | translate }}</strong></div>
+      <div *ngIf="pia.is_example === 0" class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+        <span *ngIf=" pia.is_archive === 1; else noArchivedPIA">
+          <a routerLink="/archives">{{ 'header.homepage_link' | translate }} > {{ 'header.archives' | translate }}</a><strong> > {{ pia.name }}</strong>
         </span>
         <ng-template #noArchivedPIA>
-          <a routerLink="/home">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }}</a><strong> > {{ this.piaService.pia.name }}</strong>
+          <a routerLink="/home">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }}</a><strong> > {{ pia.name }}</strong>
         </ng-template>
       </div>
     </ng-container>
@@ -20,17 +20,17 @@
       <div class="pia-leftSidebarBlock pia-fullPreviewBlock-section">
           <div class="pia-sectionsBlock">
             <div class="pia-sectionBlock-header">
-              <h1 class="truncate" title="{{piaService.pia.name}}">{{ piaService.pia.name }}</h1>
+              <h1 class="truncate" title="{{pia.name}}">{{ pia.name }}</h1>
               <a class="pia-icons pia-icon-close-big" routerLink="{{ fromArchives ? '/archives' : '/home' }}" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
             </div>
 
-            <div class="pia-sectionBlock-structure" *ngIf="piaService.pia.structure_id">
+            <div class="pia-sectionBlock-structure" *ngIf="pia.structure_id">
               {{ 'pia.sections.based_on_structure_name' | translate }}
-              {{ piaService.pia.structure_name }}
+              {{ pia.structure_name }}
             </div>
 
-            <div class="pia-sectionBlock-category" *ngIf="piaService.pia.category">
-              {{ 'homepage.cards.category' | translate }} "{{ piaService.pia.category }}"
+            <div class="pia-sectionBlock-category" *ngIf="pia.category">
+              {{ 'homepage.cards.category' | translate }} "{{ pia.category }}"
             </div>
 
             <div class="pia-sectionBlock-body">
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Attachments -->
-            <app-attachments [isPreview]="true" [pia]="piaService.pia"></app-attachments>
+            <app-attachments [isPreview]="true" [pia]="pia"></app-attachments>
 
           </div>
         </div>
@@ -75,30 +75,30 @@
                 <div>
                   <div>
                     <div>{{ 'summary.preview_edition' | translate }} :</div>
-                    <div>{{ piaService.pia.author_name }}</div>
+                    <div>{{ pia.author_name }}</div>
                   </div>
                   <div>
                     <div>{{ 'summary.preview_evaluation' | translate }} :</div>
-                    <div>{{ piaService.pia.evaluator_name }}</div>
+                    <div>{{ pia.evaluator_name }}</div>
                   </div>
                   <div>
                     <div>{{ 'summary.preview_validation' | translate }} :</div>
-                    <div>{{ piaService.pia.validator_name }}</div>
+                    <div>{{ pia.validator_name }}</div>
                   </div>
                 </div>
                 <div>
                   <div>
                     <div>{{ 'summary.preview_status' | translate }} :</div>
-                    <div>{{ piaService.pia.getStatusName() | translate }}</div>
+                    <div>{{ piaService.getStatusName(pia.status) | translate }}</div>
                   </div>
                   <div class="pia-fullPreviewBlock-header-progressBar">
-                      <div>{{ piaService.pia.progress }}%</div>
-                      <progress max="100" value="{{ piaService.pia.progress }}"></progress>
+                      <div>{{ pia.progress }}%</div>
+                      <progress max="100" value="{{ pia.progress }}"></progress>
                   </div>
                 </div>
               </div>
             </div>
-            <a *ngIf="!fromArchives || piaService.pia.is_example === 1" routerLink="/entry/{{piaService.pia.id}}/section/1/item/1" class="btn pia-previewBlock">
+            <a *ngIf="!fromArchives || pia.is_example === 1" routerLink="/pia/{{pia.id}}/section/1/item/1" class="btn pia-previewBlock">
               <i class="fa fa-pencil"></i>
               <div>{{ 'homepage.cards.item.edit_pia' | translate }}</div>
             </a>
@@ -116,7 +116,7 @@
                 </div>
                 <div class="pia-previewRisksCartographyBlock ">
                   <div class="pia-risksCartographyContainer pagebreak">
-                    <div class="pagebreak app-risks-cartography"></div>
+                    <div [pia]="pia" class="pagebreak app-risks-cartography"></div>
                   </div>
                 </div>
 
@@ -394,7 +394,7 @@
 
               <!-- CONTEXT + FUNDAMENTAL PRINCIPLES + RISKS -->
               <div *ngIf="allData" ng-class="{'text-success': model.copied, 'text-danger': !model.copied}" ng-copy="events.onCopy($event)">
-                <div *ngFor="let section of piaService.data.sections">
+                <div *ngFor="let section of data.sections">
                   <div class="fadeIn section-{{section.id}} pagebreak" *ngIf="section.id !== 4">
 
                     <div *ngFor="let item of section.items">

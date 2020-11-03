@@ -40,7 +40,7 @@
 <td class="pia-listsBlock-item"><div *ngIf="pia.structure_id">{{ pia.structure_name }}</div></td>
 <td class="pia-listsBlock-item progress">
   <div class="pia-cardsBlock-item-status-progressBar">
-    <span title="{{ pia.getStatusName() | translate }}">{{ pia.getStatusName() | translate }}</span>
+    <span title="{{ piaService.getStatusName(pia.status) | translate }}">{{ piaService.getStatusName(pia.status) | translate }}</span>
     <progress max="100" value="{{ pia.progress }}"></progress>
   </div>
 </td>
