@@ -36,7 +36,6 @@ export class RevisionPreviewComponent implements OnInit {
   pia: Pia;
   allData: any;
   data: any;
-  @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
 
   constructor(
     private translateService: TranslateService,

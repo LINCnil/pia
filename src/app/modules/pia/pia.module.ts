@@ -15,6 +15,8 @@ import { StructureService } from 'src/app/services/structure.service';
 import { RevisionsComponent } from './revisions/revisions.component';
 import { RevisionPreviewComponent } from './revisions/revision-preview/revision-preview.component';
 import { SectionsComponent } from './sections/sections.component';
+import { AttachmentsComponent } from './attachments/attachments.component';
+import { AttachmentItemComponent } from './attachments/attachment-item/attachment-item.component';
 
 
 @NgModule({
@@ -27,13 +29,17 @@ import { SectionsComponent } from './sections/sections.component';
     PiaComponent,
     RevisionsComponent,
     RevisionPreviewComponent,
-    SectionsComponent
+    SectionsComponent,
+    AttachmentsComponent,
+    AttachmentItemComponent
   ],
   exports: [
     PiaComponent,
     RevisionsComponent,
     RevisionPreviewComponent,
-    SectionsComponent
+    SectionsComponent,
+    AttachmentsComponent,
+    AttachmentItemComponent
   ],
   providers: [
     PiaService,

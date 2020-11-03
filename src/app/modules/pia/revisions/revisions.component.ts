@@ -126,7 +126,6 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   previewRevision(revisionId: number, event: Event, revisionDate: any): void {
-    // localStorage.setItem('currentRevisionDate', revisionDate);
 
     // Change circle color
     document.querySelectorAll('.pia-revisions-box-content-revision-item').forEach(revision => {
