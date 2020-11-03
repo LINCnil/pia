@@ -710,7 +710,7 @@ export class PiaService extends ApplicationDb  {
    * @param {string} status - The opinion status.
    * @returns {string} - Locale for translation.
    */
-  getOpinionsStatus(status: string) {
+  getOpinionsStatus(status: string): string {
     if (status) {
       return `summary.content_choice.${status}`;
     }
@@ -721,7 +721,7 @@ export class PiaService extends ApplicationDb  {
    * @param {*} value - The gauge value.
    * @returns {string} - Locale for translation.
    */
-  getGaugeName(value: any) {
+  getGaugeName(value: any): string {
     if (value) {
       return `summary.gauges.${value}`;
     }

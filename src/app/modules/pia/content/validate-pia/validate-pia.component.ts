@@ -1,12 +1,13 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { PiaService } from 'src/app/services/pia.service';
-import { ModalsService } from 'src/app/modals/modals.service';
-import { AttachmentsService } from 'src/app/entry/attachments/attachments.service';
-import { ActionPlanService } from 'src/app/entry/entry-content/action-plan//action-plan.service';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
+import { ActionPlanService } from 'src/app/services/action-plan.service';
+import { AttachmentsService } from 'src/app/services/attachments.service';
+import { ModalsService } from 'src/app/services/modals.service';
+import { Pia } from 'src/app/models/pia.model';
 
 @Component({
   selector: 'app-validate-pia',
@@ -15,18 +16,17 @@ import { LanguagesService } from 'src/app/services/languages.service';
   providers: [PiaService]
 })
 export class ValidatePIAComponent implements OnInit {
+  @Input() pia: Pia = null;
   data: { sections: any };
   validateForm: FormGroup;
   attachment: any;
 
   constructor(
-    private el: ElementRef,
-    private _modalsService: ModalsService,
-    public _attachmentsService: AttachmentsService,
-    private _actionPlanService: ActionPlanService,
-    private _translateService: TranslateService,
-    public _piaService: PiaService,
-    public _languagesService: LanguagesService
+    private modalsService: ModalsService,
+    public attachmentsService: AttachmentsService,
+    private actionPlanService: ActionPlanService,
+    public piaService: PiaService,
+    public languagesService: LanguagesService
   ) {}
 
   ngOnInit() {
@@ -36,23 +36,22 @@ export class ValidatePIAComponent implements OnInit {
       validateStatus3: new FormControl(),
       validateStatus4: new FormControl()
     });
-    this._piaService.getPIA().then(() => {
-      this.validateForm.controls['validateStatus1'].patchValue(
-        this._piaService.pia.status > 1
-      );
-      this.validateForm.controls['validateStatus2'].patchValue(
-        this._piaService.pia.status > 1
-      );
-      this.validateForm.controls['validateStatus3'].patchValue(
-        this._piaService.pia.status > 1
-      );
-      this.validateForm.controls['validateStatus4'].patchValue(
-        this._piaService.pia.status > 1
-      );
 
-      this._attachmentsService.updateSignedAttachmentsList();
-      this._actionPlanService.listActionPlan();
-    });
+    this.validateForm.controls['validateStatus1'].patchValue(
+      this.pia.status > 1
+    );
+    this.validateForm.controls['validateStatus2'].patchValue(
+      this.pia.status > 1
+    );
+    this.validateForm.controls['validateStatus3'].patchValue(
+      this.pia.status > 1
+    );
+    this.validateForm.controls['validateStatus4'].patchValue(
+      this.pia.status > 1
+    );
+
+    this.attachmentsService.updateSignedAttachmentsList();
+    this.actionPlanService.listActionPlan();
   }
 
   /**
@@ -62,7 +61,7 @@ export class ValidatePIAComponent implements OnInit {
     const attachment: any = document.querySelector(
       '[formcontrolname="attachment_file"]'
     );
-    this._attachmentsService.pia_signed = 1;
+    this.attachmentsService.pia_signed = 1;
     attachment.click();
   }
 
@@ -71,7 +70,7 @@ export class ValidatePIAComponent implements OnInit {
    * @param {number} id - Attachment id.
    */
   downloadAttachment(id: number) {
-    this._attachmentsService.downloadAttachment(id);
+    this.attachmentsService.downloadAttachment(id);
   }
 
   /**
@@ -80,7 +79,7 @@ export class ValidatePIAComponent implements OnInit {
    */
   removeAttachment(id: number) {
     localStorage.setItem('attachment-id', id.toString());
-    this._modalsService.openModal('modal-remove-attachment');
+    this.modalsService.openModal('modal-remove-attachment');
   }
 
   /**
@@ -89,8 +88,8 @@ export class ValidatePIAComponent implements OnInit {
    */
   lockStatus(event: any) {
     if (
-      this._piaService.pia.status > 1 ||
-      this._piaService.pia.is_example === 1
+      this.pia.status > 1 ||
+      this.pia.is_example === 1
     ) {
       return false;
     } else {
@@ -105,9 +104,9 @@ export class ValidatePIAComponent implements OnInit {
    * Allows users to make a simple validation of a PIA.
    */
   simplePIAValidation() {
-    this._piaService.pia.status = 2;
-    this._piaService.pia.update().then(() => {
-      this._modalsService.openModal('modal-simple-pia-validation');
+    this.pia.status = 2;
+    this.pia.update().then(() => {
+      this.modalsService.openModal('modal-simple-pia-validation');
     });
   }
 
@@ -115,9 +114,9 @@ export class ValidatePIAComponent implements OnInit {
    * Allows users to make a signed validation of a PIA.
    */
   signedPIAValidation() {
-    this._piaService.pia.status = 3;
-    this._piaService.pia.update().then(() => {
-      this._modalsService.openModal('modal-signed-pia-validation');
+    this.pia.status = 3;
+    this.pia.update().then(() => {
+      this.modalsService.openModal('modal-signed-pia-validation');
     });
   }
 
@@ -135,7 +134,7 @@ export class ValidatePIAComponent implements OnInit {
     );
     const signValidationBtn = document.getElementById('pia-sign-validation');
 
-    [].forEach.call(radioButtons, function(currentRadioBtn) {
+    [].forEach.call(radioButtons, (currentRadioBtn) => {
       if (!currentRadioBtn.checked) {
         allBtnChecked = false;
       }

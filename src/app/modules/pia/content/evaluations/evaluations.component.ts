@@ -22,6 +22,7 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
+import { AnswerService } from 'src/app/services/answer.service';
 
 @Component({
   selector: 'app-evaluations',
@@ -53,13 +54,12 @@ export class EvaluationsComponent
 
   constructor(
     private el: ElementRef,
-    public _globalEvaluationService: GlobalEvaluationService,
-    private _ngZone: NgZone,
-    private _knowledgeBaseService: KnowledgeBaseService,
-    private _sidStatusService: SidStatusService,
-    private _piaService: PiaService,
-    private _translateService: TranslateService,
-    public _languagesService: LanguagesService
+    public globalEvaluationService: GlobalEvaluationService,
+    private ngZone: NgZone,
+    private knowledgeBaseService: KnowledgeBaseService,
+    private translateService: TranslateService,
+    public languagesService: LanguagesService,
+    private aswerService: AnswerService
   ) {}
 
   ngOnInit() {
@@ -68,16 +68,16 @@ export class EvaluationsComponent
     this.checkEvaluationValidation();
 
     this.riskName = {
-      value: this._translateService.instant(
+      value: this.translateService.instant(
         'sections.3.items.' + this.item.id + '.title'
       )
     };
 
     // Updating translations when changing language (risks' names)
-    this.riskSubscription = this._translateService.onLangChange.subscribe(
+    this.riskSubscription = this.translateService.onLangChange.subscribe(
       (event: LangChangeEvent) => {
         this.riskName = {
-          value: this._translateService.instant(
+          value: this.translateService.instant(
             'sections.3.items.' + this.item.id + '.title'
           )
         };
@@ -85,19 +85,19 @@ export class EvaluationsComponent
     );
 
     // Updating translations when changing language (comments' placeholders)
-    this.placeholderSubscription = this._translateService.onLangChange.subscribe(
+    this.placeholderSubscription = this.translateService.onLangChange.subscribe(
       (event: LangChangeEvent) => {
         if (this.evaluation.status) {
           if (this.evaluation.status === 1) {
-            this.comment_placeholder = this._translateService.instant(
+            this.comment_placeholder = this.translateService.instant(
               'evaluations.placeholder_to_correct'
             );
           } else if (this.evaluation.status === 3) {
-            this.comment_placeholder = this._translateService.instant(
+            this.comment_placeholder = this.translateService.instant(
               'evaluations.placeholder_acceptable'
             );
           } else {
-            this.comment_placeholder = this._translateService.instant(
+            this.comment_placeholder = this.translateService.instant(
               'evaluations.placeholder_improvable2'
             );
           }
@@ -169,15 +169,15 @@ export class EvaluationsComponent
       // Translation for comment's placeholder
       if (this.evaluation.status) {
         if (this.evaluation.status === 1) {
-          this.comment_placeholder = this._translateService.instant(
+          this.comment_placeholder = this.translateService.instant(
             'evaluations.placeholder_to_correct'
           );
         } else if (this.evaluation.status === 3) {
-          this.comment_placeholder = this._translateService.instant(
+          this.comment_placeholder = this.translateService.instant(
             'evaluations.placeholder_acceptable'
           );
         } else {
-          this.comment_placeholder = this._translateService.instant(
+          this.comment_placeholder = this.translateService.instant(
             'evaluations.placeholder_improvable2'
           );
         }
@@ -213,8 +213,7 @@ export class EvaluationsComponent
         return question.answer_type === 'gauge';
       });
       questions.forEach(question => {
-        const answersModel = new Answer();
-        answersModel.getByReferenceAndPia(this.pia.id, question.id).then(() => {
+        this.aswerService.getByReferenceAndPia(this.pia.id, question.id).then((answersModel: Answer) => {
           if (answersModel.data) {
             this.previousGauges[question.cartography.split('_')[1]] =
               answersModel.data.gauge;
@@ -259,11 +258,11 @@ export class EvaluationsComponent
 
       // Sets up the adequate placeholder for comment
       if (status === 1) {
-        this.comment_placeholder = this._translateService.instant(
+        this.comment_placeholder = this.translateService.instant(
           'evaluations.placeholder_to_correct'
         );
       } else {
-        this.comment_placeholder = this._translateService.instant(
+        this.comment_placeholder = this.translateService.instant(
           'evaluations.placeholder_acceptable'
         );
       }
@@ -286,7 +285,7 @@ export class EvaluationsComponent
         this.evaluation.action_plan_comment = undefined;
       }
     } else {
-      this.comment_placeholder = this._translateService.instant(
+      this.comment_placeholder = this.translateService.instant(
         'evaluations.placeholder_improvable2'
       );
     }
@@ -294,7 +293,7 @@ export class EvaluationsComponent
     this.evaluation.update().then(() => {
       // Pass the evaluation to the parent component
       this.evaluationEvent.emit(this.evaluation);
-      this._globalEvaluationService.validate();
+      this.globalEvaluationService.validate();
     });
 
     // Displays content (action plan & comment fields).
@@ -308,8 +307,8 @@ export class EvaluationsComponent
    * Loads editor (if not final validation) on action plan comment focus.
    */
   actionPlanCommentFocusIn() {
-    if (this._globalEvaluationService.evaluationEditionEnabled) {
-      this._knowledgeBaseService.placeholder = this._translateService.instant(
+    if (this.globalEvaluationService.evaluationEditionEnabled) {
+      this.knowledgeBaseService.placeholder = this.translateService.instant(
         'evaluations.placeholder_improvable1'
       );
       this.loadEditor('actionPlanComment', true);
@@ -320,7 +319,7 @@ export class EvaluationsComponent
    * Executes actions when losing focus from action plan comment.
    */
   actionPlanCommentFocusOut() {
-    this._knowledgeBaseService.placeholder = null;
+    this.knowledgeBaseService.placeholder = null;
     this.editor = null;
     let userText = this.evaluationForm.controls['actionPlanComment'].value;
     if (userText) {
@@ -328,9 +327,9 @@ export class EvaluationsComponent
     }
     this.evaluation.action_plan_comment = userText;
     this.evaluation.update().then(() => {
-      this._ngZone.run(() => {
-        this._globalEvaluationService.validate();
-        // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+      this.ngZone.run(() => {
+        this.globalEvaluationService.validate();
+        // this.globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       });
     });
   }
@@ -339,8 +338,8 @@ export class EvaluationsComponent
    * Activates (or not) evaluation comment when focusing it.
    */
   evaluationCommentFocusIn() {
-    if (this._globalEvaluationService.evaluationEditionEnabled) {
-      this._knowledgeBaseService.placeholder = this.comment_placeholder;
+    if (this.globalEvaluationService.evaluationEditionEnabled) {
+      this.knowledgeBaseService.placeholder = this.comment_placeholder;
       this.loadEditor('evaluationComment', true);
     }
   }
@@ -349,7 +348,7 @@ export class EvaluationsComponent
    * Executes actions when losing focus from evaluation comment.
    */
   evaluationCommentFocusOut() {
-    this._knowledgeBaseService.placeholder = null;
+    this.knowledgeBaseService.placeholder = null;
     this.editorEvaluationComment = false;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
     if (userText) {
@@ -357,9 +356,9 @@ export class EvaluationsComponent
     }
     this.evaluation.evaluation_comment = userText;
     this.evaluation.update().then(() => {
-      this._ngZone.run(() => {
-        this._globalEvaluationService.validate();
-        // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+      this.ngZone.run(() => {
+        this.globalEvaluationService.validate();
+        // this.globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       });
     });
   }
@@ -368,7 +367,7 @@ export class EvaluationsComponent
    * Enables 'x' gauge.
    */
   enableGaugeX() {
-    if (this._globalEvaluationService.evaluationEditionEnabled) {
+    if (this.globalEvaluationService.evaluationEditionEnabled) {
       this.evaluationForm.controls['gaugeX'].enable();
     } else {
       this.evaluationForm.controls['gaugeX'].disable();
@@ -379,7 +378,7 @@ export class EvaluationsComponent
    * Enables 'y' gauge.
    */
   enableGaugeY() {
-    if (this._globalEvaluationService.evaluationEditionEnabled) {
+    if (this.globalEvaluationService.evaluationEditionEnabled) {
       this.evaluationForm.controls['gaugeY'].enable();
     } else {
       this.evaluationForm.controls['gaugeY'].disable();
@@ -413,8 +412,8 @@ export class EvaluationsComponent
       this.evaluation.gauges['y'] = gaugeValueY;
     }
     this.evaluation.update().then(() => {
-      this._globalEvaluationService.validate();
-      // this._globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
+      this.globalEvaluationService.validate();
+      // this.globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
   }
 

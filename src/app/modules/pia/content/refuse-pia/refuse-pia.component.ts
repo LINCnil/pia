@@ -1,11 +1,11 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { ModalsService } from 'src/app/modals/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
-import { TranslateService } from '@ngx-translate/core';
+import { ModalsService } from 'src/app/services/modals.service';
+import { Pia } from 'src/app/models/pia.model';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -13,7 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./refuse-pia.component.scss']
 })
 export class RefusePIAComponent implements OnInit {
-
+  @Input() pia: Pia = null;
   rejectionReasonForm: FormGroup;
   rejectionState: boolean;
   showRejectionReasonButtons: boolean;
@@ -22,10 +22,9 @@ export class RefusePIAComponent implements OnInit {
 
   constructor(private router: Router,
               private el: ElementRef,
-              private _modalsService: ModalsService,
-              private _sidStatusService: SidStatusService,
-              public _piaService: PiaService,
-              private _translateService: TranslateService) { }
+              private modalsService: ModalsService,
+              private sidStatusService: SidStatusService,
+              public piaService: PiaService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
@@ -35,32 +34,30 @@ export class RefusePIAComponent implements OnInit {
       modificationsMade: new FormControl()
     });
 
-    this._piaService.getPIA().then(() => {
-      if (this._piaService.pia.rejected_reason && this._piaService.pia.rejected_reason.length > 0) {
-        this.rejectionReasonForm.controls['rejectionReason'].patchValue(this._piaService.pia.rejected_reason);
-        this.rejectionReasonForm.controls['rejectionReason'].disable();
-        this.showRejectionReasonButtons = true;
-      }
+    if (this.pia.rejected_reason && this.pia.rejected_reason.length > 0) {
+      this.rejectionReasonForm.controls['rejectionReason'].patchValue(this.pia.rejected_reason);
+      this.rejectionReasonForm.controls['rejectionReason'].disable();
+      this.showRejectionReasonButtons = true;
+    }
 
-      if (this._piaService.pia.applied_adjustements && this._piaService.pia.rejected_reason
-          && this._piaService.pia.applied_adjustements.length > 0 && this._piaService.pia.rejected_reason.length > 0) {
-        this.modificationsMadeForm.controls['modificationsMade'].patchValue(this._piaService.pia.applied_adjustements);
-        this.modificationsMadeForm.controls['modificationsMade'].disable();
-        if (this._piaService.pia.status === 1) {
-          this.showResendValidationButton = true;
-        }
+    if (this.pia.applied_adjustements && this.pia.rejected_reason
+        && this.pia.applied_adjustements.length > 0 && this.pia.rejected_reason.length > 0) {
+      this.modificationsMadeForm.controls['modificationsMade'].patchValue(this.pia.applied_adjustements);
+      this.modificationsMadeForm.controls['modificationsMade'].disable();
+      if (this.pia.status === 1) {
+        this.showResendValidationButton = true;
       }
+    }
 
-      // Textareas auto resize
-      const rejectionTextarea = document.getElementById('pia-refuse-reason');
-      if (rejectionTextarea) {
-        this.autoTextareaResize(null, rejectionTextarea);
-      }
-      const modificationsTextarea = document.getElementById('pia-refuse-modifications');
-      if (modificationsTextarea) {
-        this.autoTextareaResize(null, modificationsTextarea);
-      }
-    });
+    // Textareas auto resize
+    const rejectionTextarea = document.getElementById('pia-refuse-reason');
+    if (rejectionTextarea) {
+      this.autoTextareaResize(null, rejectionTextarea);
+    }
+    const modificationsTextarea = document.getElementById('pia-refuse-modifications');
+    if (modificationsTextarea) {
+      this.autoTextareaResize(null, modificationsTextarea);
+    }
 
   }
 
@@ -68,19 +65,19 @@ export class RefusePIAComponent implements OnInit {
    * Display the modal to abandon the PIA.
    */
   abandon() {
-    this._modalsService.openModal('modal-abandon-pia');
+    this.modalsService.openModal('modal-abandon-pia');
   }
 
   /**
    * Refuse the PIA and navigate to the root page of the PIA.
    */
   refuse() {
-    this._piaService.pia.status = 1;
-    this._piaService.pia.update().then(() => {
-      this._piaService.cancelAllValidatedEvaluation().then(() => {
-        this._sidStatusService.refusePia(this._piaService).then(() => {
-          this.router.navigate(['entry', this._piaService.pia.id, 'section', 1, 'item', 1]);
-          this._modalsService.openModal('modal-refuse-pia');
+    this.pia.status = 1;
+    this.piaService.pia.update().then(() => {
+      this.piaService.cancelAllValidatedEvaluation().then(() => {
+        this.sidStatusService.refusePia(this.piaService).then(() => {
+          this.router.navigate(['entry', this.piaService.pia.id, 'section', 1, 'item', 1]);
+          this.modalsService.openModal('modal-refuse-pia');
         });
       });
     });
@@ -90,7 +87,7 @@ export class RefusePIAComponent implements OnInit {
    * Focuses rejection reason field.
    */
   rejectionReasonFocusIn() {
-    if (this._piaService.pia.status === 1) {
+    if (this.pia.status === 1) {
       return false;
     } else {
       this.rejectionReasonForm.controls['rejectionReason'].enable();
@@ -106,8 +103,8 @@ export class RefusePIAComponent implements OnInit {
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
-    this._piaService.pia.rejected_reason = userText;
-    this._piaService.pia.update().then(() => {
+    this.pia.rejected_reason = userText;
+    this.piaService.pia.update().then(() => {
       if (userText && userText.length > 0) {
         this.rejectionReasonForm.controls['rejectionReason'].disable();
         this.showRejectionReasonButtons = true;
@@ -121,7 +118,7 @@ export class RefusePIAComponent implements OnInit {
    * Focuses modification made field.
    */
   modificationsMadeFocusIn() {
-    if (this._piaService.pia.status !== 1) {
+    if (this.pia.status !== 1) {
       return false;
     } else {
       this.modificationsMadeForm.controls['modificationsMade'].enable();
@@ -138,8 +135,8 @@ export class RefusePIAComponent implements OnInit {
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
-    this._piaService.pia.applied_adjustements = userText;
-    this._piaService.pia.update().then(() => {
+    this.pia.applied_adjustements = userText;
+    this.piaService.pia.update().then(() => {
       if (userText && userText.length > 0) {
         this.modificationsMadeForm.controls['modificationsMade'].disable();
         this.showResendValidationButton = true;

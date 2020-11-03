@@ -1,8 +1,8 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 
 import { PiaService } from 'src/app/services/pia.service';
-import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
+import { Pia } from 'src/app/models/pia.model';
 
 @Component({
   selector: 'app-pia-validate-history',
@@ -11,15 +11,15 @@ import { LanguagesService } from 'src/app/services/languages.service';
   providers: [PiaService]
 })
 export class PiaValidateHistoryComponent implements OnInit {
+  @Input() pia: Pia = null;
+
   constructor(
     private el: ElementRef,
-    public _piaService: PiaService,
-    private _translateService: TranslateService,
-    public _languagesService: LanguagesService
+    public piaService: PiaService,
+    public languagesService: LanguagesService
   ) {}
 
   ngOnInit() {
-    this._piaService.getPIA();
   }
 
   /**
@@ -56,10 +56,10 @@ export class PiaValidateHistoryComponent implements OnInit {
    */
   showValidationHistory() {
     return (
-      (this._piaService.pia.status === 2 ||
-        this._piaService.pia.status === 3) &&
-      this._piaService.pia.applied_adjustements &&
-      this._piaService.pia.rejected_reason
+      (this.pia.status === 2 ||
+        this.pia.status === 3) &&
+      this.pia.applied_adjustements &&
+      this.pia.rejected_reason
     );
   }
 
@@ -68,6 +68,6 @@ export class PiaValidateHistoryComponent implements OnInit {
    * @returns {boolean} - True if the PIA is refused, False otherwise.
    */
   showRejectionHistory() {
-    return this._piaService.pia.status === 1;
+    return this.pia.status === 1;
   }
 }

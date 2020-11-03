@@ -8,6 +8,7 @@ import { Evaluation } from 'src/app/models/evaluation.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { Measure } from 'src/app/models/measure.model';
+import { AnswerService } from 'src/app/services/answer.service';
 
 @Component({
   selector: 'app-measures',
@@ -29,12 +30,12 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   editTitle = true;
 
   constructor(
-    public _globalEvaluationService: GlobalEvaluationService,
+    public globalEvaluationService: GlobalEvaluationService,
     private el: ElementRef,
-    private _modalsService: ModalsService,
-    private _knowledgeBaseService: KnowledgeBaseService,
-    private _ngZone: NgZone,
-    private renderer: Renderer2) { }
+    private modalsService: ModalsService,
+    private knowledgeBaseService: KnowledgeBaseService,
+    private answerService: AnswerService,
+    private ngZone: NgZone) { }
 
   ngOnInit() {
     this.measureForm = new FormGroup({
@@ -43,7 +44,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     });
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.get(this.measure.id).then(() => {
-      this._knowledgeBaseService.toHide.push(this.measure.title);
+      this.knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
       if (this.measureModel) {
         this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
@@ -94,7 +95,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Enables edition for measure title.
    */
   measureTitleFocusIn() {
-    if (this._globalEvaluationService.answerEditionEnabled) {
+    if (this.globalEvaluationService.answerEditionEnabled) {
       this.editTitle = true;
       this.measureForm.controls['measureTitle'].enable();
       const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
@@ -121,39 +122,36 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.title = userText;
     this.measureModel.update().then(() => {
       if (previousTitle !== this.measureModel.title) {
-        this._knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
+        this.knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
       }
 
       // Update tags
-      const answer = new Answer();
-      answer.getByReferenceAndPia(this.pia.id, 324).then(() => {
+      this.answerService.getByReferenceAndPia(this.pia.id, 324).then((answer: Answer) => {
         if (answer.data && answer.data.list) {
           const index = answer.data.list.indexOf(previousTitle);
           if (~index) {
             answer.data.list[index] = this.measureModel.title;
-            answer.update();
+            this.answerService.update(answer);
           }
         }
       });
 
-      const answer2 = new Answer();
-      answer2.getByReferenceAndPia(this.pia.id, 334).then(() => {
-        if (answer2.data && answer2.data.list) {
-          const index = answer2.data.list.indexOf(previousTitle);
+      this.answerService.getByReferenceAndPia(this.pia.id, 334).then((answer: Answer) => {
+        if (answer.data && answer.data.list) {
+          const index = answer.data.list.indexOf(previousTitle);
           if (~index) {
-            answer2.data.list[index] = this.measureModel.title;
-            answer2.update();
+            answer.data.list[index] = this.measureModel.title;
+            this.answerService.update(answer);
           }
         }
       });
 
-      const answer3 = new Answer();
-      answer3.getByReferenceAndPia(this.pia.id, 344).then(() => {
-        if (answer3.data && answer3.data.list) {
-          const index = answer3.data.list.indexOf(previousTitle);
+      this.answerService.getByReferenceAndPia(this.pia.id, 344).then((answer: Answer) => {
+        if (answer.data && answer.data.list) {
+          const index = answer.data.list.indexOf(previousTitle);
           if (~index) {
-            answer3.data.list[index] = this.measureModel.title;
-            answer3.update();
+            answer.data.list[index] = this.measureModel.title;
+            this.answerService.update(answer);
           }
         }
       });
@@ -162,7 +160,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         this.measureForm.controls['measureTitle'].disable();
       }
 
-      this._globalEvaluationService.validate();
+      this.globalEvaluationService.validate();
     });
 
   }
@@ -171,7 +169,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Loads WYSIWYG editor for measure answer.
    */
   measureContentFocusIn() {
-    if (this._globalEvaluationService.answerEditionEnabled) {
+    if (this.globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
     }
   }
@@ -182,7 +180,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Saves data from content field.
    */
   measureContentFocusOut() {
-    this._knowledgeBaseService.placeholder = null;
+    this.knowledgeBaseService.placeholder = null;
     this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
     if (userText) {
@@ -191,8 +189,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.content = userText;
     this.measureModel.update().then(() => {
-      this._ngZone.run(() => {
-        this._globalEvaluationService.validate();
+      this.ngZone.run(() => {
+        this.globalEvaluationService.validate();
       });
     });
   }
@@ -232,10 +230,10 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   removeMeasure(measureId: string) {
     const measuresCount = document.querySelectorAll('.pia-measureBlock');
     if (measuresCount && measuresCount.length <= 1) {
-      this._modalsService.openModal('not-enough-measures-to-remove');
+      this.modalsService.openModal('not-enough-measures-to-remove');
     } else {
       localStorage.setItem('measure-id', measureId);
-      this._modalsService.openModal('remove-measure');
+      this.modalsService.openModal('remove-measure');
     }
   }
 
@@ -243,7 +241,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor() {
-    this._knowledgeBaseService.placeholder = this.measure.placeholder;
+    this.knowledgeBaseService.placeholder = this.measure.placeholder;
     tinymce.init({
       branding: false,
       menubar: false,

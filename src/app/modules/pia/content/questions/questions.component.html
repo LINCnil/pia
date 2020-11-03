@@ -29,7 +29,7 @@
                     [theme]="'foundation-theme'"
                     [placeholder]="question.placeholder | translate"
                     [editable]="false"
-                    [disable]="!_globalEvaluationService.answerEditionEnabled"
+                    [disable]="!globalEvaluationService.answerEditionEnabled"
                     [onlyFromAutocomplete]="true"
                     (focusin)="questionContentFocusIn()"
                     [secondaryPlaceholder]="question.placeholder | translate">
@@ -49,7 +49,7 @@
                     [placeholder]="question.placeholder | translate"
                     (focusin)="questionContentFocusIn()"
                     [editable]="true"
-                    [disable]="!_globalEvaluationService.answerEditionEnabled"
+                    [disable]="!globalEvaluationService.answerEditionEnabled"
                     [secondaryPlaceholder]="question.placeholder | translate">
             <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="userAnswersToDisplay"></tag-input-dropdown>
           </tag-input>

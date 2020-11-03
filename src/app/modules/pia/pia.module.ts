@@ -30,6 +30,8 @@ import { QuestionsComponent } from './content/questions/questions.component';
 import { ValidatePIAComponent } from './content/validate-pia/validate-pia.component';
 import { DPOPeopleOpinionsComponent } from './content/dpo-people-opinions/dpo-people-opinions.component';
 import { RefusePIAComponent } from './content/refuse-pia/refuse-pia.component';
+import { CommentsComponent } from './content/comments/comments.component';
+import { PiaValidateHistoryComponent } from './content/validate-pia/pia-validate-history/pia-validate-history.component';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { RefusePIAComponent } from './content/refuse-pia/refuse-pia.component';
     QuestionsComponent,
     ValidatePIAComponent,
     DPOPeopleOpinionsComponent,
-    RefusePIAComponent
+    RefusePIAComponent,
+    CommentsComponent,
+    PiaValidateHistoryComponent
   ],
   exports: [
     PiaComponent,
@@ -71,7 +75,7 @@ import { RefusePIAComponent } from './content/refuse-pia/refuse-pia.component';
     OverviewRisksComponent,
     RisksCartographyComponent,
     ActionPlanComponent,
-    ActionPlanImplementationComponent
+    ActionPlanImplementationComponent,
   ],
   providers: [
     PiaService,

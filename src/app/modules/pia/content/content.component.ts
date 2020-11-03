@@ -28,43 +28,42 @@ export class ContentComponent implements OnInit {
   userAnswersForSources = [];
 
   constructor(
-    private _router: Router,
-    private _appDataService: AppDataService,
-    private _activatedRoute: ActivatedRoute,
-    public _measureService: MeasureService,
-    private _modalsService: ModalsService,
-    public _piaService: PiaService,
-    public _sidStatusService: SidStatusService,
-    public _globalEvaluationService: GlobalEvaluationService,
-    public _paginationService: PaginationService,
-    private _translateService: TranslateService,
-    private _knowledgeBaseService: KnowledgeBaseService
+    private router: Router,
+    private appDataService: AppDataService,
+    private activatedRoute: ActivatedRoute,
+    public measureService: MeasureService,
+    private modalsService: ModalsService,
+    public piaService: PiaService,
+    public sidStatusService: SidStatusService,
+    public globalEvaluationService: GlobalEvaluationService,
+    public paginationService: PaginationService,
+    private knowledgeBaseService: KnowledgeBaseService
   ) {}
 
   ngOnInit() {
     // Reset measures no longer addable from KB when switching PIA
-    this._knowledgeBaseService.toHide = [];
+    this.knowledgeBaseService.toHide = [];
 
     // Update the last edited date for this PIA
-    this._piaService.getPIA().then(() => {
-      this._piaService.pia.updated_at = new Date();
-      this._piaService.pia.update();
+    this.piaService.getPIA().then(() => {
+      this.piaService.pia.updated_at = new Date();
+      this.piaService.pia.update();
 
-      if (this._piaService.pia.is_archive === 1) {
-        this._router.navigate(['home']);
+      if (this.piaService.pia.is_archive === 1) {
+        this.router.navigate(['home']);
       }
     });
   }
 
   async ngOnChanges() {
-    await this._piaService.getPIA();
-    this._paginationService.dataNav = this._appDataService.dataNav;
+    await this.piaService.getPIA();
+    this.paginationService.dataNav = this.appDataService.dataNav;
 
-    const sectionId = parseInt(this._activatedRoute.snapshot.params.section_id, 10);
-    const itemId = parseInt(this._activatedRoute.snapshot.params.item_id, 10);
+    const sectionId = parseInt(this.activatedRoute.snapshot.params.section_id, 10);
+    const itemId = parseInt(this.activatedRoute.snapshot.params.item_id, 10);
 
     if (sectionId && itemId) {
-      this._paginationService.setPagination(sectionId, itemId);
+      this.paginationService.setPagination(sectionId, itemId);
     }
   }
 
@@ -72,19 +71,19 @@ export class ContentComponent implements OnInit {
    * Prepare entry for evaluation.
    */
   prepareForEvaluation() {
-    this._globalEvaluationService.prepareForEvaluation().then(() => {
+    this.globalEvaluationService.prepareForEvaluation().then(() => {
       let isPiaFullyEdited = true;
-      for (const el in this._sidStatusService.itemStatus) {
-        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
+      for (const el in this.sidStatusService.itemStatus) {
+        if (this.sidStatusService.itemStatus.hasOwnProperty(el) && this.sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
           isPiaFullyEdited = false;
         }
       }
       if (isPiaFullyEdited) {
         this.goToNextSectionItem(4, 5);
-        this._modalsService.openModal('completed-edition');
+        this.modalsService.openModal('completed-edition');
       } else {
         this.goToNextSectionItem(0, 4);
-        this._modalsService.openModal('ask-for-evaluation');
+        this.modalsService.openModal('ask-for-evaluation');
       }
     });
   }
@@ -93,20 +92,20 @@ export class ContentComponent implements OnInit {
    * Allow an user to validate evaluation for a section.
    */
   validateEvaluation() {
-    this._globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
+    this.globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
       this.goToNextSectionItem(5, 7);
       let isPiaFullyEvaluated = true;
-      for (const el in this._sidStatusService.itemStatus) {
-        if (this._sidStatusService.itemStatus.hasOwnProperty(el) && this._sidStatusService.itemStatus[el] !== 7 && el !== '4.3') {
+      for (const el in this.sidStatusService.itemStatus) {
+        if (this.sidStatusService.itemStatus.hasOwnProperty(el) && this.sidStatusService.itemStatus[el] !== 7 && el !== '4.3') {
           isPiaFullyEvaluated = false;
         }
       }
       if (isPiaFullyEvaluated) {
-        this._modalsService.openModal('completed-evaluation');
+        this.modalsService.openModal('completed-evaluation');
       } else if (toFix) {
-        this._modalsService.openModal('validate-evaluation-to-correct');
+        this.modalsService.openModal('validate-evaluation-to-correct');
       } else {
-        this._modalsService.openModal('validate-evaluation');
+        this.modalsService.openModal('validate-evaluation');
       }
     });
   }
@@ -118,24 +117,24 @@ export class ContentComponent implements OnInit {
    * @param {number} status_end - To status.
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
-    const goto_section_item = this._paginationService.getNextSectionItem(status_start, status_end);
+    const goto_section_item = this.paginationService.getNextSectionItem(status_start, status_end);
 
-    this._router.navigate(['entry', this._piaService.pia.id, 'section', goto_section_item[0], 'item', goto_section_item[1]]);
+    this.router.navigate(['entry', this.piaService.pia.id, 'section', goto_section_item[0], 'item', goto_section_item[1]]);
   }
 
   /**
    * Allow an user to return in edit mode.
    */
   cancelAskForEvaluation() {
-    this._globalEvaluationService.cancelForEvaluation();
-    this._modalsService.openModal('back-to-edition');
+    this.globalEvaluationService.cancelForEvaluation();
+    this.modalsService.openModal('back-to-edition');
   }
 
   /**
    * Allow an user to cancel the validation.
    */
   cancelValidateEvaluation() {
-    this._globalEvaluationService.cancelValidation();
-    this._modalsService.openModal('back-to-evaluation');
+    this.globalEvaluationService.cancelValidation();
+    this.modalsService.openModal('back-to-evaluation');
   }
 }

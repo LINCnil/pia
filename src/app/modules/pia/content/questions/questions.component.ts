@@ -10,6 +10,7 @@ import { Measure } from 'src/app/models/measure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { Answer } from 'src/app/models/answer.model';
+import { AnswerService } from 'src/app/services/answer.service';
 
 @Component({
   selector: 'app-questions',
@@ -37,14 +38,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   editor: any;
 
   constructor(private el: ElementRef,
-              private _knowledgeBaseService: KnowledgeBaseService,
-              private _modalsService: ModalsService,
-              private _ngZone: NgZone,
-              public _globalEvaluationService: GlobalEvaluationService,
-              private renderer: Renderer2) { }
+              private knowledgeBaseService: KnowledgeBaseService,
+              private ngZone: NgZone,
+              public globalEvaluationService: GlobalEvaluationService,
+              private answerService: AnswerService) { }
 
   ngOnInit() {
-    this._globalEvaluationService.answerEditionEnabled = true;
+    this.globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new FormGroup({
       gauge: new FormControl(0),
@@ -52,7 +52,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
-    this.answer.getByReferenceAndPia(this.pia.id, this.question.id).then(async () => {
+    this.answerService.getByReferenceAndPia(this.pia.id, this.question.id).then((answer: Answer) => {
+      this.answer = answer;
       if (this.answer.data) {
         // let evaluationRefTo: string = this.answer.id.toString();
         // if (this.item.evaluation_mode === 'item') {
@@ -68,7 +69,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           this.questionForm.controls['list'].patchValue(dataList);
         }
         if (this.el.nativeElement.querySelector('.pia-gaugeBlock-background')) {
-          this.el.nativeElement.querySelector('.pia-gaugeBlock-background').classList.add('pia-gaugeBlock-background-' + this.answer.data.gauge);
+          this.el.nativeElement.querySelector('.pia-gaugeBlock-background')
+            .classList.add('pia-gaugeBlock-background-' + this.answer.data.gauge);
         }
       }
     });
@@ -87,8 +89,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     });
 
     // Fill tags list for Impacts, Threats and Sources from all risks (1, 2 & 3)
-    const answer = new Answer();
-    answer.findAllByPia(this.pia.id).then((entries: any[]) => {
+    this.answerService.findAllByPia(this.pia.id).then((entries: any[]) => {
       this.allUserAnswersForImpacts = [];
       this.allUserAnswersForThreats = [];
       this.allUserAnswersForSources = [];
@@ -140,7 +141,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Enable the gauge.
    */
   enableGauge() {
-    if (this._globalEvaluationService.answerEditionEnabled) {
+    if (this.globalEvaluationService.answerEditionEnabled) {
       this.questionForm.controls['gauge'].enable();
     } else {
       this.questionForm.controls['gauge'].disable();
@@ -162,18 +163,18 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: gaugeValue, list: this.answer.data.list };
-      this.answer.update().then(() => {
-        this._ngZone.run(() => {
-          this._globalEvaluationService.validate();
+      this.answerService.update(this.answer).then(() => {
+        this.ngZone.run(() => {
+          this.globalEvaluationService.validate();
         });
       });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
-      this.answer.create().then(() => {
-        this._ngZone.run(() => {
-          this._globalEvaluationService.validate();
+      this.answerService.create(this.answer).then(() => {
+        this.ngZone.run(() => {
+          this.globalEvaluationService.validate();
         });
       });
     }
@@ -183,7 +184,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads WYSIWYG editor.
    */
   questionContentFocusIn() {
-    if (this._globalEvaluationService.answerEditionEnabled) {
+    if (this.globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
     }
   }
@@ -198,9 +199,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     }
     if (this.answer.id) {
       this.answer.data = { text: userText, gauge: this.answer.data.gauge, list: this.answer.data.list };
-      this.answer.update().then(() => {
-        this._ngZone.run(() => {
-          this._globalEvaluationService.validate();
+      this.answerService.update(this.answer).then(() => {
+        this.ngZone.run(() => {
+          this.globalEvaluationService.validate();
         });
       });
     } else if (!this.answer.id && userText !== '') {
@@ -209,9 +210,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.answer.reference_to = this.question.id;
         const gaugeValueForCurrentQuestion = this.question.answer_type === 'gauge' ? 0 : null;
         this.answer.data = { text: this.questionForm.value.text, gauge: gaugeValueForCurrentQuestion, list: [] };
-        this.answer.create().then(() => {
-          this._ngZone.run(() => {
-            this._globalEvaluationService.validate();
+        this.answerService.create(this.answer).then(() => {
+          this.ngZone.run(() => {
+            this.globalEvaluationService.validate();
           });
         });
       }
@@ -316,15 +317,15 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   private createOrUpdateList(list: string[]) {
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
-      this.answer.update().then(() => {
-        this._globalEvaluationService.validate();
+      this.answerService.update(this.answer).then(() => {
+        this.globalEvaluationService.validate();
       });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
-      this.answer.create().then(() => {
-        this._globalEvaluationService.validate();
+      this.answerService.create(this.answer).then(() => {
+        this.globalEvaluationService.validate();
       });
     }
   }
@@ -361,8 +362,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor() {
-    this._knowledgeBaseService.placeholder = this.question.placeholder;
-    this._knowledgeBaseService.search('', '', this.question.link_knowledge_base);
+    this.knowledgeBaseService.placeholder = this.question.placeholder;
+    this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
     tinymce.init({
       branding: false,
       menubar: false,
@@ -392,7 +393,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @private
    */
   private closeEditor() {
-    this._knowledgeBaseService.placeholder = null;
+    this.knowledgeBaseService.placeholder = null;
     tinymce.remove(this.editor);
     this.editor = null;
   }
