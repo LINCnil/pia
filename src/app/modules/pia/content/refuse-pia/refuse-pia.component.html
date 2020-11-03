@@ -24,12 +24,12 @@
                 </div>
                 <div (click)="modificationsMadeFocusIn()" class="pia-entryContentBlock-content-subject-textarea">
                     <textarea (focusout)="modificationsMadeFocusOut()"
-                              (keyup)="autoTextareaResize($event)"
-                              id="pia-refuse-modifications"
-                              rows="8"
-                              cols="50"
-                              formControlName="modificationsMade"
-                              placeholder="{{ 'rejection_page.applied_adjustments_placeholder' | translate }}"></textarea>
+                      (keyup)="autoTextareaResize($event)"
+                      id="pia-refuse-modifications"
+                      rows="8"
+                      cols="50"
+                      formControlName="modificationsMade"
+                      placeholder="{{ 'rejection_page.applied_adjustments_placeholder' | translate }}"></textarea>
                 </div>
             </div>
         </form>
