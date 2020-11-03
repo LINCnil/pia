@@ -19,6 +19,8 @@ import { AttachmentsComponent } from './attachments/attachments.component';
 import { AttachmentItemComponent } from './attachments/attachment-item/attachment-item.component';
 import { ExportComponent } from './export/export.component';
 import { PreviewComponent } from './preview/preview.component';
+import { ContentComponent } from './content/content.component';
+import { OverviewRisksComponent } from './content/overview-risks/overview-risks.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { PreviewComponent } from './preview/preview.component';
     AttachmentsComponent,
     AttachmentItemComponent,
     ExportComponent,
-    PreviewComponent
+    PreviewComponent,
+    ContentComponent,
+    OverviewRisksComponent
   ],
   exports: [
     PiaComponent,
@@ -45,7 +49,8 @@ import { PreviewComponent } from './preview/preview.component';
     AttachmentsComponent,
     AttachmentItemComponent,
     ExportComponent,
-    PreviewComponent
+    PreviewComponent,
+    OverviewRisksComponent
   ],
   providers: [
     PiaService,
