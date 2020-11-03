@@ -1,10 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Answer } from 'src/app/models/answer.model';
 import { Pia } from 'src/app/models/pia.model';
-import { Revision } from 'src/app/models/revision.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { AppDataService } from 'src/app/services/app-data.service';
@@ -13,7 +11,6 @@ import { GlobalEvaluationService } from 'src/app/services/global-evaluation.serv
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { MeasureService } from 'src/app/services/measures.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { RevisionService } from 'src/app/services/revision.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
@@ -45,7 +42,6 @@ export class PiaComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private modalsService: ModalsService,
     private appDataService: AppDataService,
     private sidStatusService: SidStatusService,
     private knowledgeBaseService: KnowledgeBaseService,

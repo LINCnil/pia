@@ -70,6 +70,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { AnswerService } from '../services/answer.service';
 import { KnowledgeBaseItemComponent } from './components/knowledge-base/knowledge-base-item/knowledge-base-item.component';
 import { KnowledgeBaseComponent } from './components/knowledge-base/knowledge-base.component';
+import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 
 
 
@@ -85,7 +86,8 @@ import { KnowledgeBaseComponent } from './components/knowledge-base/knowledge-ba
     ModalComponent,
     DialogComponent,
     KnowledgeBaseComponent,
-    KnowledgeBaseItemComponent
+    KnowledgeBaseItemComponent,
+    LoadingOverlayComponent
   ],
   imports: [
     CommonModule,
@@ -119,7 +121,8 @@ import { KnowledgeBaseComponent } from './components/knowledge-base/knowledge-ba
     ModalComponent,
     DialogComponent,
     KnowledgeBaseComponent,
-    KnowledgeBaseItemComponent
+    KnowledgeBaseItemComponent,
+    LoadingOverlayComponent
   ],
   providers: [
     AppDataService,

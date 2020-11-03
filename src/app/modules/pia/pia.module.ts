@@ -18,6 +18,7 @@ import { SectionsComponent } from './sections/sections.component';
 import { AttachmentsComponent } from './attachments/attachments.component';
 import { AttachmentItemComponent } from './attachments/attachment-item/attachment-item.component';
 import { ExportComponent } from './export/export.component';
+import { PreviewComponent } from './preview/preview.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ExportComponent } from './export/export.component';
     SectionsComponent,
     AttachmentsComponent,
     AttachmentItemComponent,
-    ExportComponent
+    ExportComponent,
+    PreviewComponent
   ],
   exports: [
     PiaComponent,
@@ -42,7 +44,8 @@ import { ExportComponent } from './export/export.component';
     SectionsComponent,
     AttachmentsComponent,
     AttachmentItemComponent,
-    ExportComponent
+    ExportComponent,
+    PreviewComponent
   ],
   providers: [
     PiaService,
