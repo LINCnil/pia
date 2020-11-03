@@ -17,6 +17,7 @@ import { RevisionPreviewComponent } from './revisions/revision-preview/revision-
 import { SectionsComponent } from './sections/sections.component';
 import { AttachmentsComponent } from './attachments/attachments.component';
 import { AttachmentItemComponent } from './attachments/attachment-item/attachment-item.component';
+import { ExportComponent } from './export/export.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AttachmentItemComponent } from './attachments/attachment-item/attachmen
     RevisionPreviewComponent,
     SectionsComponent,
     AttachmentsComponent,
-    AttachmentItemComponent
+    AttachmentItemComponent,
+    ExportComponent
   ],
   exports: [
     PiaComponent,
@@ -39,7 +41,8 @@ import { AttachmentItemComponent } from './attachments/attachment-item/attachmen
     RevisionPreviewComponent,
     SectionsComponent,
     AttachmentsComponent,
-    AttachmentItemComponent
+    AttachmentItemComponent,
+    ExportComponent
   ],
   providers: [
     PiaService,

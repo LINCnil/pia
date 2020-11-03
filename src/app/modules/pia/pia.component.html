@@ -44,10 +44,10 @@
                         <span *ngIf="sideView === 'export'">{{ 'summary.actions.print_and_download' | translate }}</span>
                     </h1>
                 </div>
-                <!-- <app-export [editMode]="true"
+                <app-export [editMode]="true" [pia]="pia"
                    *ngIf="pia && sideView === 'export'"
                   (downloading)="download = $event">
-                </app-export> -->
+                </app-export>
                 <app-knowledge-base
                   [pia]="pia"
                   *ngIf="sideView === 'knowledge'"
