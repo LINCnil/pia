@@ -43,7 +43,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     private answerService: AnswerService
   ) {}
 
-  async ngOnInit() {
+  ngOnInit(): void {
     this.content = [];
     this.dataNav = this.appDataService.dataNav;
 
@@ -67,7 +67,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     this.data = this.appDataService.dataNav;
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked(): void {
     // scroll spy
     const sections = document.querySelectorAll('.pia-fullPreviewBlock-headline-title h2') as NodeListOf<HTMLElement>;
     const menus = document.querySelectorAll('.pia-sectionBlock-body li a') as NodeListOf<HTMLElement>;
@@ -91,7 +91,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
    * @param {any} event - Any Event.
    * @param {any} text - The title or subtitle.
    */
-  getAnchor(event, text) {
+  getAnchor(event, text): void {
     event.preventDefault();
     const allSubtitles = document.querySelectorAll('h2');
     allSubtitles.forEach.call(allSubtitles, (el, i) => {
@@ -104,7 +104,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
   /**
    * Prepare and display the PIA information
    */
-  async showPia() {
+  async showPia(): Promise<void> {
     this.prepareDpoData();
     this.actionPlanService.data = this.dataNav;
     this.actionPlanService.pia = this.pia;
@@ -116,7 +116,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
    * Get PIA information.
    * @private
    */
-  private prepareDpoData() {
+  private prepareDpoData(): void {
     const el = { title: 'summary.title', data: [] };
     if (this.pia.dpos_names && this.pia.dpos_names.length > 0) {
       el.data.push({
@@ -198,7 +198,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
    * @returns {Promise}
    * @private
    */
-  private async getJsonInfo() {
+  private async getJsonInfo(): Promise<void> {
     this.allData = {};
     this.piaService.data.sections.forEach(async section => {
       this.allData[section.id] = {};
@@ -271,7 +271,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
    * @param {string} ref - The reference.
    * @returns {Promise}
    */
-  private async getEvaluation(section_id: string, item_id: string, ref: string) {
+  private async getEvaluation(section_id: string, item_id: string, ref: string): Promise<void> {
     return new Promise(async (resolve, reject) => {
       let evaluation = null;
       const evaluationModel = new Evaluation();

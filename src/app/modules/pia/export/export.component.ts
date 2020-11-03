@@ -75,7 +75,7 @@ export class ExportComponent implements OnInit {
     if (isChecked) {
       this.exportSelected.push(type);
     } else {
-      let index = this.exportSelected.indexOf(type);
+      const index = this.exportSelected.indexOf(type);
       this.exportSelected.splice(index, 1);
     }
   }
@@ -130,7 +130,7 @@ export class ExportComponent implements OnInit {
               ) +
               '.csv';
             const blob = this.csvToBlob(csvName);
-            let downloadLink = document.createElement('a');
+            const downloadLink = document.createElement('a');
             document.body.appendChild(downloadLink);
 
             if (navigator.msSaveOrOpenBlob) {
@@ -201,8 +201,6 @@ export class ExportComponent implements OnInit {
         });
       }
     });
-
-    // }, 500);
   }
 
   /****************************** CSV EXPORT ************************************/
