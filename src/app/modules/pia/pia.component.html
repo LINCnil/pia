@@ -28,7 +28,13 @@
 
         <!-- Main entry content -->
         <section class="small-12 medium-6 columns pia-mainContentForPrint">
-            <!-- <app-entry-content [questions]="questions" [section]="section" [item]="item" [data]="data"></app-entry-content> -->
+            <app-content
+              [pia]="pia"
+              [questions]="questions"
+              [section]="section"
+              [item]="item"
+              [data]="data">
+            </app-content>
         </section>
 
         <!-- Right sidebar (knowledge base) -->

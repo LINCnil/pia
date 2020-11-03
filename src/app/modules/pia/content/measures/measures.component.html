@@ -1,0 +1,54 @@
+<div class="pia-measureBlock" [ngClass]="{'approved': evaluation.status === 2 || evaluation.status === 3}" [attr.data-id]="measure.id">
+  <form [formGroup]="measureForm">
+    <div class="pia-measureBlock-title">
+      <button  class="pia-icons pia-icon-accordeon-up" type="button" (click)="displayMeasure($event)" title="{{ 'misc.display' | translate }}"></button>
+
+      <!-- Measure title -->
+      <div (click)="measureTitleFocusIn()"
+            class="pia-measure-title"
+            [ngClass]="{ 'hide': editTitle }"
+            [innerHTML]="measureForm.controls['measureTitle'].value | safeHtml"></div>
+        <textarea maxlength="120"
+                  rows="2"
+                  (keyup)="autoTextareaResize($event)"
+                  [attr.data-id]="measure.id"
+                  id="pia-measure-title-{{measure.id}}"
+                  formControlName="measureTitle"
+                  (focusout)="measureTitleFocusOut($event)"
+                  [ngClass]="{ 'hide': !editTitle }"
+                  placeholder="{{ 'measures.placeholder_title' | translate }}"></textarea>
+    </div>
+
+    <div class="pia-measureBlock-displayer fadeIn">
+      <button type="button"
+              class="btn pia-measureBlock-delete"
+              *ngIf="_globalEvaluationService.answerEditionEnabled"
+              (click)="removeMeasure(measure.id)"
+              title="{{ 'measures.remove' | translate }}">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </button>
+
+      <!-- Measure answer -->
+      <div class="pia-measureBlock-content">
+        <div (click)="measureContentFocusIn()"
+              class="pia-measureBlock-contentText"
+              [innerHTML]="measureForm.controls['measureContent'].value | safeHtml"
+              [ngClass]="{ 'hide': editor || !measureForm.controls['measureContent'].value }"></div>
+        <textarea [attr.data-id]="measure.id"
+                  id="pia-measure-content-{{measure.id}}"
+                  formControlName="measureContent"
+                  (focusin)="measureContentFocusIn()"
+                  [ngClass]="{ 'hide': (!editor && measureForm.controls['measureContent'].value && measureForm.controls['measureContent'].value.length > 0) }"
+                  rows="8"
+                  cols="50"
+                  placeholder="{{ measure.placeholder | translate }}"></textarea>
+      </div>
+    </div>
+  </form>
+
+  <app-comments [pia]="pia" [measure]="measure" [measureId]="measure.id" [answer]="measure"></app-comments>
+
+  <app-evaluations *ngIf="item.evaluation_mode == 'question'"
+                   (evaluationEvent)="evaluationChange($event)"
+                   [pia]="pia" [section]="section" [item]="item" [measureId]="measure.id"></app-evaluations>
+</div>

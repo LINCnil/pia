@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, Input } from '@angular/core';
 import * as d3 from 'd3';
 
 import { PiaService } from 'src/app/services/pia.service';
@@ -6,6 +6,7 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Answer } from 'src/app/models/answer.model';
 import { AnswerService } from 'src/app/services/answer.service';
+import { Pia } from 'src/app/models/pia.model';
 
 @Component({
   selector: `.app-overview-risks`,
@@ -14,22 +15,23 @@ import { AnswerService } from 'src/app/services/answer.service';
   providers: [PiaService]
 })
 export class OverviewRisksComponent implements OnInit {
+  @Input() pia: Pia = null;
   data = [];
   items = [];
   linkFromTo = [];
   svg: any;
 
-  constructor(private _piaService: PiaService,
-              private el: ElementRef,
-              private _appDataService: AppDataService,
-              private _ngZone: NgZone,
-              private _translateService: TranslateService,
-              private answerService: AnswerService) { }
+  constructor(private appDataService: AppDataService,
+              private ngZone: NgZone,
+              private translateService: TranslateService,
+              private answerService: AnswerService) {
+
+              }
 
   async ngOnInit() {
     await this.initData();
 
-    this._ngZone.run(() => {
+    this.ngZone.run(() => {
       this.initSvg();
     });
   }
@@ -39,33 +41,32 @@ export class OverviewRisksComponent implements OnInit {
    * @private
    */
   private async initData() {
-    await this._piaService.getPIA();
     const dataTags = [
       {
         id: 1,
-        name: this._translateService.instant('overview-risks.potential_impacts'),
+        name: this.translateService.instant('overview-risks.potential_impacts'),
         reference_to: [321, 331, 341]
       },
       {
         id: 2,
-        name: this._translateService.instant('overview-risks.threat'),
+        name: this.translateService.instant('overview-risks.threat'),
         reference_to: [322, 332, 342]
       },
       {
         id: 3,
-        name: this._translateService.instant('overview-risks.sources'),
+        name: this.translateService.instant('overview-risks.sources'),
         reference_to: [323, 333, 343]
       },
       {
         id: 4,
-        name: this._translateService.instant('overview-risks.measures'),
+        name: this.translateService.instant('overview-risks.measures'),
         reference_to: [324, 334, 344]
       }
     ];
     for (const dt of dataTags) {
       const tags = {};
       for (const reference_to of dt.reference_to) {
-        this.answerService.getByReferenceAndPia(this._piaService.pia.id, reference_to)
+        this.answerService.getByReferenceAndPia(this.pia.id, reference_to)
           .then((result: Answer) => {
             if (result.data && result.data.list.length > 0) {
               const list = result.data.list;
@@ -91,7 +92,7 @@ export class OverviewRisksComponent implements OnInit {
    * @private
    */
   private async initSvg() {
-    const dataNav = this._appDataService.dataNav;
+    const dataNav = this.appDataService.dataNav;
     this.svg = d3.select('svg');
     this.svg.attr('viewBox', '0 0 590 800');
     let y = 20;
@@ -224,7 +225,7 @@ export class OverviewRisksComponent implements OnInit {
               });
             }
           });
-          const name = this._translateService.instant(item.title).split('\n');
+          const name = this.translateService.instant(item.title).split('\n');
           const name_1 = name[0];
           const name_2 = name[1];
           g.append('text').attr('x', x).attr('y', y).text(name_1).attr('class', 'c' + id);
@@ -266,19 +267,19 @@ export class OverviewRisksComponent implements OnInit {
     let i = 0;
     const data = [];
     const gauges_value = {
-      1: this._translateService.instant('overview-risks.negligible'),
-      2: this._translateService.instant('overview-risks.limited'),
-      3: this._translateService.instant('overview-risks.important'),
-      4: this._translateService.instant('overview-risks.maximal')
+      1: this.translateService.instant('overview-risks.negligible'),
+      2: this.translateService.instant('overview-risks.limited'),
+      3: this.translateService.instant('overview-risks.important'),
+      4: this.translateService.instant('overview-risks.maximal')
     };
     return new Promise((resolve, reject) => {
       questionGauges.forEach(async question => {
         i++;
-        this.answerService.getByReferenceAndPia(this._piaService.pia.id, question.id)
+        this.answerService.getByReferenceAndPia(this.pia.id, question.id)
           .then((result: Answer) => {
             if (result.data && result.data.gauge > 0) {
               const value = result.data.gauge;
-              const name = this._translateService.instant('overview-risks.' + question.cartography);
+              const name = this.translateService.instant('overview-risks.' + question.cartography);
               y += 25;
               g.append('text').attr('x', x).attr('y', y).text(name + ' : ' + gauges_value[value]).attr('class', 'gauge_prefix');
               y += 10;

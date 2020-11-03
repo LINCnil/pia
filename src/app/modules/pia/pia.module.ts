@@ -22,6 +22,14 @@ import { PreviewComponent } from './preview/preview.component';
 import { ContentComponent } from './content/content.component';
 import { OverviewRisksComponent } from './content/overview-risks/overview-risks.component';
 import { RisksCartographyComponent } from './content/risks-cartography/risks-cartography.component';
+import { ActionPlanComponent } from './content/action-plan/action-plan.component';
+import { ActionPlanImplementationComponent } from './content/action-plan/action-plan-implementation/action-plan-implementation.component';
+import { EvaluationsComponent } from './content/evaluations/evaluations.component';
+import { MeasuresComponent } from './content/measures/measures.component';
+import { QuestionsComponent } from './content/questions/questions.component';
+import { ValidatePIAComponent } from './content/validate-pia/validate-pia.component';
+import { DPOPeopleOpinionsComponent } from './content/dpo-people-opinions/dpo-people-opinions.component';
+import { RefusePIAComponent } from './content/refuse-pia/refuse-pia.component';
 
 
 @NgModule({
@@ -41,7 +49,15 @@ import { RisksCartographyComponent } from './content/risks-cartography/risks-car
     PreviewComponent,
     ContentComponent,
     OverviewRisksComponent,
-    RisksCartographyComponent
+    RisksCartographyComponent,
+    ActionPlanComponent,
+    ActionPlanImplementationComponent,
+    EvaluationsComponent,
+    MeasuresComponent,
+    QuestionsComponent,
+    ValidatePIAComponent,
+    DPOPeopleOpinionsComponent,
+    RefusePIAComponent
   ],
   exports: [
     PiaComponent,
@@ -53,7 +69,9 @@ import { RisksCartographyComponent } from './content/risks-cartography/risks-car
     ExportComponent,
     PreviewComponent,
     OverviewRisksComponent,
-    RisksCartographyComponent
+    RisksCartographyComponent,
+    ActionPlanComponent,
+    ActionPlanImplementationComponent
   ],
   providers: [
     PiaService,

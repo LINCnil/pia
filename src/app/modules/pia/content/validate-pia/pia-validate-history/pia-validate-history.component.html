@@ -1,0 +1,34 @@
+<div *ngIf="showValidationHistory()" class="pia-validationHistoryBlock">
+  <div class="pia-validationHistoryBlock-title">
+    <p>{{ 'rejection_page.title' | translate }}</p>
+    <div>
+      <button class="btn pia-historyBlock-btn" type="button" (click)="displayHistoryList()" title="{{ 'misc.display' | translate }}"><span class="pia-icons pia-icon-accordeon-up"></span></button>
+    </div>
+  </div>
+  <div class="pia-validationHistoryBlock-content">
+    <article>
+      <time>{{_piaService.pia.updated_at | date: "shortDate":"":_languagesService.selectedLanguage}}</time>
+      <h4>{{ 'rejection_page.rejection_reason' | translate }}</h4>
+      <p>{{_piaService.pia.rejected_reason}}</p>
+      <h4>{{ 'rejection_page.applied_adjustments' | translate }}</h4>
+      <p>{{_piaService.pia.applied_adjustements}}</p>
+    </article>
+  </div>
+</div>
+<div *ngIf="showRejectionHistory()" class="pia-validationHistoryBlock-refuse">
+  <div class="pia-validationHistoryBlock-refuse-title">
+    <p>{{ 'rejection_page.previous_rejection' | translate }}</p>
+    <div>
+      <button class="btn pia-refuseBlock-btn " type="button" (click)="displayRefuseList()" title="{{ 'misc.display' | translate }}"><span class="pia-icons pia-icon-accordeon-up"></span></button>
+    </div>
+  </div>
+  <div class="pia-validationHistoryBlock-refuse-content">
+    <article>
+      <time>{{_piaService.pia.updated_at | date: "shortDate":"":_languagesService.selectedLanguage}}</time>
+      <h4>{{ 'rejection_page.rejection_reason' | translate }}</h4>
+      <p>{{_piaService.pia.rejected_reason}}</p>
+      <h4>{{ 'rejection_page.applied_adjustments' | translate }}</h4>
+      <p>{{_piaService.pia.applied_adjustements}}</p>
+    </article>
+  </div>
+</div>
