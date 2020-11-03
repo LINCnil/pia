@@ -37,9 +37,6 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() pia: Pia;
   @Input() currentVersion: Date;
   @Input() title = true;
-  @Output('newRevisionQuery') newRevisionEmitter = new EventEmitter();
-  @Output('selectedRevisionQuery') selectedRevisionEmitter = new EventEmitter();
-  @Output('peviewRevisionQuery') previewRevisionEmitter = new EventEmitter();
 
   revisions: Array<any>;
   subscription: Subscription;
@@ -120,12 +117,10 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
    */
   newRevision(): void {
     // emit revision query
-    // this.newRevisionEmitter.emit();
     this.revisionService.export(this.pia.id).then(exportResult => {
-      this.revisionService.add(exportResult, this.pia.id).then(resp => {
-        // because ngOnchanges no detect simply array push
-        this.revisions.push(resp);
-        this.parsingDate();
+      this.revisionService.add(exportResult, this.pia.id).then((resp: Revision) => {
+        // Make this new revision the current version
+        this.revisionService.loadRevision(resp.id);
       });
     });
   }
@@ -155,7 +150,6 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     // Emit event
-    // this.previewRevisionEmitter.emit(revisionId);
     this.revisionService.find(revisionId)
       .then((revision: any) => {
         console.log(revision);
