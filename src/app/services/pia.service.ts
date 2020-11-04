@@ -1,5 +1,4 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { utf8Encode } from '@angular/compiler/src/util';
 
 
@@ -16,18 +15,16 @@ import { ModalsService } from './modals.service';
 import { StructureService } from './structure.service';
 import { AnswerService } from './answer.service';
 import { ApplicationDb } from '../application.db';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class PiaService extends ApplicationDb  {
-  // pias = [];
-  // pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
   @Output() piaEvent = new EventEmitter<Pia>();
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     public _appDataService: AppDataService,
     private modalsService: ModalsService,
     public _sidStatusService: SidStatusService,
@@ -35,38 +32,189 @@ export class PiaService extends ApplicationDb  {
     private answerService: AnswerService
   ) {
     super(201910230914, 'pia');
-
-    // if (this.pia.structure_data) {
-    //   this._appDataService.dataNav = this.pia.structure_data;
-    // } else {
-    //   this._appDataService.resetDataNav();
-    // }
-
     this.data = this._appDataService.dataNav;
   }
 
   /**
-   * Get the PIA.
-   * @return - Return a new Promise
+   * Create a new PIA.
+   * @returns {Promise} - Return new Promise
    */
-  // async getPIA() {
-  //   return new Promise((resolve, reject) => {
-  //     const piaId = parseInt(this.route.snapshot.params.id, 10);
-  //     if (piaId) {
-  //       this.pia.get(piaId).then(() => {
-  //         resolve();
-  //       });
-  //     } else {
-  //       resolve();
-  //     }
-  //   });
-  // }
+  async create(pia) {
+    if (this.created_at === undefined) {
+      this.created_at = new Date();
+    }
+    const data = {
+      ...pia,
+      structure_id: pia.structure_id ? pia.structure_id : '',
+    };
 
-  // async calculProgress() {
-  //   this.pias.forEach((pia: Pia) => {
-  //     this.calculPiaProgress(pia);
-  //   });
-  // }
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        const formData = new FormData();
+        for (const d in data) {
+          if (data.hasOwnProperty(d)) {
+            let value = data[d];
+            if (d === 'structure_data') {
+              value = JSON.stringify(value);
+            }
+            formData.append('pia[' + d + ']', value);
+          }
+        }
+        fetch(this.getServerUrl(), {
+          method: 'POST',
+          body: formData,
+          mode: 'cors'
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result.id);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
+      } else {
+        this.getObjectStore().then(() => {
+          const evt = this.objectStore.add(data);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            resolve(event.target.result);
+          };
+        });
+      }
+    });
+  }
+
+
+  /**
+   * Find all archived PIAs
+   * @param structure_id the structure id
+   */
+  async findAllArchives() {
+    const items = [];
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        fetch(`${this.getServerUrl()}?is_archive=true`, {
+          mode: 'cors'
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
+      } else {
+        this.getObjectStore().then(() => {
+          const index5 = this.objectStore.index('index5');
+          const evt = index5.openCursor(IDBKeyRange.only(1));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          };
+        });
+      }
+    });
+  }
+
+
+  /**
+   * Get all PIA linked to a specific structure
+   * @param structure_id the structure id
+   */
+  async getAllWithStructure(structure_id: number) {
+    const items = [];
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        fetch(this.getServerUrl(), {
+          mode: 'cors'
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
+      } else {
+        this.getObjectStore().then(() => {
+          const index4 = this.objectStore.index('index4');
+          const evt = index4.openCursor(IDBKeyRange.only(structure_id));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          };
+        });
+      }
+    });
+  }
+
+
+  /**
+   * Get the PIA example.
+   * @returns {Promise}
+   */
+  async getPiaExample() {
+    return new Promise((resolve, reject) => {
+      if (this.serverUrl) {
+        fetch(this.getServerUrl() + '/' + 'example', {
+          mode: 'cors'
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
+      } else {
+        this.getObjectStore().then(() => {
+          const index3 = this.objectStore.index('index3');
+          const evt = index3.get(IDBKeyRange.only(1));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            const entry = event.target.result;
+            resolve(entry)
+          };
+        });
+      }
+    });
+  }
 
   async calculPiaProgress(pia) {
     pia.progress = 0.0;
@@ -100,14 +248,14 @@ export class PiaService extends ApplicationDb  {
           pia.structure_name = structure.name;
           pia.structure_sector_name = structure.sector_name;
           pia.structure_data = this.removeEmptyElements(structure.data);
-          pia.create().then(id => {
+          this.create(pia).then(id => {
             this.structureCreateMeasures(pia, id).then(() => {
               this.structureCreateAnswers(pia, id).then(() => resolve(id));
             });
           });
         });
       } else {
-        pia.create().then(id => resolve(id));
+        this.create(pia).then(id => resolve(id));
       }
     });
   }
@@ -205,38 +353,6 @@ export class PiaService extends ApplicationDb  {
   }
 
   /**
-   * Allows an user to archive a PIA.
-   */
-  // archivePia() {
-  //   const piaID = parseInt(localStorage.getItem('pia-to-archive-id'), 10);
-
-  //   // Update the PIA in DB.
-  //   const pia = new Pia();
-  //   pia.get(piaID).then(() => {
-  //     pia.is_archive = 1;
-  //     pia.update();
-
-  //     const index = this.pias.findIndex(item => item.id === piaID);
-  //     if (index !== -1) {
-  //       this.pias[index] = pia;
-
-  //       this.pias.splice(index, 1);
-  //     }
-  //   });
-
-  //   // Removes the PIA from the view.
-  //   if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
-  //     document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
-  //   } else {
-  //     document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
-  //   }
-
-  //   localStorage.removeItem('pia-to-archive-id');
-
-  //   this.modalsService.closeModal();
-  // }
-
-  /**
    * Cancel all validated evaluations.
    * @returns - Return a new Promise
    */
@@ -294,8 +410,6 @@ export class PiaService extends ApplicationDb  {
    */
   exportData(id: number) {
     return new Promise((resolve, reject) => {
-      const pia = new Pia();
-      const answer = new Answer();
       const measure = new Measure();
       measure.pia_id = id;
       const evaluation = new Evaluation();
@@ -305,11 +419,11 @@ export class PiaService extends ApplicationDb  {
       // const attachment = new Attachment();
       // attachment.pia_id = id;
 
-      pia.get(id).then(() => {
+      this.find(id).then((pia: PiaService) => {
         // SET progress attribute
         this.calculPiaProgress(pia);
         const data = {
-          pia: pia,
+          pia,
           answers: null,
           measures: null,
           evaluations: null,
@@ -400,7 +514,7 @@ export class PiaService extends ApplicationDb  {
       }
     }
 
-    pia.create().then((piaId: number) => {
+    this.create(pia).then((piaId: number) => {
       pia.id = piaId;
 
       this.importAnswers(data.answers, piaId);

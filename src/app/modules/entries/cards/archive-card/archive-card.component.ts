@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Attachment } from 'src/app/models/attachment.model';
 import { ArchiveService } from 'src/app/services/archive.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { ModalsService } from 'src/app/services/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
 
 @Component({
   selector: 'app-archive-card',
@@ -20,7 +19,8 @@ export class ArchiveCardComponent implements OnInit {
   constructor(
     public languagesService: LanguagesService,
     public archiveService: ArchiveService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    public piaService: PiaService,
   ) {}
 
   ngOnInit(): void {

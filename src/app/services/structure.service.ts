@@ -11,13 +11,13 @@ import { Pia } from '../models/pia.model';
 import { Structure } from '../models/structure.model';
 import { ModalsService } from './modals.service';
 import { ApplicationDb } from '../application.db';
+import { PiaService } from './pia.service';
 
 
 @Injectable()
 export class StructureService extends ApplicationDb {
 
-  constructor(private route: ActivatedRoute,
-              private languagesService: LanguagesService) {
+  constructor(private languagesService: LanguagesService) {
                 super(201808011000, 'structure');
 
   }
@@ -301,13 +301,12 @@ export class StructureService extends ApplicationDb {
       // Removes from DB.
       this.delete(id)
         .then( () => {
-          const pia = new Pia();
-          pia.getAllWithStructure(id).then((items: any) => {
-            items.forEach(item => {
-              item.structure_id = null;
-              pia.updateEntry(item);
-            });
-          });
+          // this.piaService.getAllWithStructure(id).then((items: any) => {
+          //   items.forEach(item => {
+          //     item.structure_id = null;
+          //     this.piaService.update(item);
+          //   });
+          // });
           localStorage.removeItem('structure-id');
           resolve();
         })

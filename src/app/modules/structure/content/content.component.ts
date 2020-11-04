@@ -51,7 +51,7 @@ export class ContentComponent implements OnInit {
     );
   }
 
-  async ngOnChanges(): Promise<void> {
+  ngOnChanges(): void {
     this.paginationService.dataNav = this.structure.data;
 
     const sectionId = parseInt(this.activatedRoute.snapshot.params.section_id, 10);

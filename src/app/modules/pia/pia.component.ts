@@ -82,17 +82,13 @@ export class PiaComponent implements OnInit {
           }
 
           this.data = this.appDataService.dataNav;
-          this.getSectionAndItem(sectionId, itemId);
-
-
-          this.route.params.subscribe((params: Params) => {
-            this.getSectionAndItem(parseInt(params.section_id, 10), parseInt(params.item_id, 10));
-            window.scroll(0, 0);
-          });
-
-
         }
 
+        this.globalEvaluationService.pia = this.pia;
+        this.route.params.subscribe((params: Params) => {
+          this.getSectionAndItem(parseInt(params.section_id, 10), parseInt(params.item_id, 10));
+          window.scroll(0, 0);
+        });
         // Suscribe to measure service messages
         this.subscription = this.measureService.behaviorSubject.subscribe(val => {
           this.measureToRemoveFromTags = val;
@@ -153,13 +149,17 @@ export class PiaComponent implements OnInit {
    * @param itemId - The item id.
    */
   private async getSectionAndItem(sectionId: number, itemId: number) {
+
     if (this.pia.structure_data) {
       this.appDataService.dataNav = this.pia.structure_data;
     }
+
     this.data = this.appDataService.dataNav;
+
     this.section = this.data.sections.filter(section => {
       return section.id === sectionId;
     })[0];
+
     this.item = this.section.items.filter(item => {
       return item.id === itemId;
     })[0];
@@ -168,97 +168,94 @@ export class PiaComponent implements OnInit {
     this.globalEvaluationService.item = this.item;
 
     this.questions = [];
+
     if (this.item.questions) {
       this.item.questions.forEach(question => {
         this.questions.push(question);
       });
     }
 
-    this.piaService.find(parseInt(this.route.snapshot.params.id)).then((pia: Pia) => {
-      this.globalEvaluationService.pia = pia;
-      this.globalEvaluationService.validate();
-      this.measureService.listMeasures(pia.id).then(() => {
-        /* Modal for risks if no measures yet */
-        let displayModal = true;
-        if (this.section.id === 3 && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
-          if (this.measureService.measures.length > 0) {
-            this.measureService.measures.forEach(element => {
-              if (element.title && element.title.length > 0) {
-                displayModal = false;
-              }
-            });
-          }
-          if (displayModal) {
-            // this.modalsService.openModal('pia-declare-measures');
-            this.dialogService.confirmThis(
-              {
-                text: 'modals.declare_measures.content',
-                type: 'yes',
-                yes: 'modals.declare_measures.declare',
-                no: ''
-              },
-              () => {
-                this.router.navigate(
-                  ['/pia', this.pia.id, 'section', 3, 'item', 1]
-                );
-              },
-              () => {
-                return false;
-              }
+    this.globalEvaluationService.validate();
+
+    this.measureService.listMeasures(this.pia.id).then(() => {
+      /* Modal for risks if no measures yet */
+      let displayModal = true;
+      if (this.section.id === 3 && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
+        if (this.measureService.measures.length > 0) {
+          this.measureService.measures.forEach(element => {
+            if (element.title && element.title.length > 0) {
+              displayModal = false;
+            }
+          });
+        }
+        if (displayModal) {
+          // this.modalsService.openModal('pia-declare-measures');
+          this.dialogService.confirmThis(
+            {
+              text: 'modals.declare_measures.content',
+              type: 'yes',
+              yes: 'modals.declare_measures.declare',
+              no: ''
+            },
+            () => {
+              this.router.navigate(
+                ['/pia', this.pia.id, 'section', 3, 'item', 1]
+              );
+            },
+            () => {
+              return false;
+            }
+          );
+        }
+      }
+
+      /* Modal for action plan if no evaluations yet */
+      if (this.section.id === 4 && this.item.id === 2 && !this.sidStatusService.verifEnableActionPlan()) {
+        // this.modalsService.openModal('pia-action-plan-no-evaluation');
+        this.dialogService.confirmThis(
+          {
+            text: 'modals.action_plan_no_evaluation.content',
+            type: 'yes',
+            yes: 'modals.action_plan_no_evaluation.review_section',
+            no: ''
+          },
+          () => {
+            this.router.navigate(
+              ['/pia', this.pia.id, 'section', 4, 'item', 5]
             );
+          },
+          () => {
+            return false;
           }
-        }
+        );
+      }
 
-        /* Modal for action plan if no evaluations yet */
-        if (this.section.id === 4 && this.item.id === 2 && !this.sidStatusService.verifEnableActionPlan()) {
-          // this.modalsService.openModal('pia-action-plan-no-evaluation');
-          this.dialogService.confirmThis(
-            {
-              text: 'modals.action_plan_no_evaluation.content',
-              type: 'yes',
-              yes: 'modals.action_plan_no_evaluation.review_section',
-              no: ''
-            },
-            () => {
-              this.router.navigate(
-                ['/pia', this.pia.id, 'section', 4, 'item', 5]
-              );
-            },
-            () => {
-              return false;
-            }
-          );
-        }
+      /* Modal for dpo page if all evaluations are not done yet */
+      if (this.section.id === 4 && this.item.id === 3 && !this.sidStatusService.enableDpoValidation) {
+        // this.modalsService.openModal('pia-dpo-missing-evaluations');
+        this.dialogService.confirmThis(
+          {
+            text: 'modals.dpo_missing_evaluations.content',
+            type: 'yes',
+            yes: 'modals.action_plan_no_evaluation.review_section',
+            no: ''
+          },
+          () => {
+            this.router.navigate(
+              ['/pia', this.pia.id, 'section', 4, 'item', 7]
+            );
+          },
+          () => {
+            return false;
+          }
+        );
 
-        /* Modal for dpo page if all evaluations are not done yet */
-        if (this.section.id === 4 && this.item.id === 3 && !this.sidStatusService.enableDpoValidation) {
-          // this.modalsService.openModal('pia-dpo-missing-evaluations');
-          this.dialogService.confirmThis(
-            {
-              text: 'modals.dpo_missing_evaluations.content',
-              type: 'yes',
-              yes: 'modals.action_plan_no_evaluation.review_section',
-              no: ''
-            },
-            () => {
-              this.router.navigate(
-                ['/pia', this.pia.id, 'section', 4, 'item', 7]
-              );
-            },
-            () => {
-              return false;
-            }
-          );
-
-        }
-      });
-
-      this.actionPlanService.data = this.data;
-      this.actionPlanService.pia = pia;
-      this.actionPlanService.listActionPlan();
-
-      this.pia = pia;
+      }
     });
+
+    this.actionPlanService.data = this.data;
+    this.actionPlanService.pia = this.pia;
+    this.actionPlanService.listActionPlan();
 
     // Update on knowledge base (scroll / content / search field)
     const knowledgeBaseScroll = document.querySelector('.pia-knowledgeBaseBlock-list');

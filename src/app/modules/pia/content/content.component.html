@@ -93,7 +93,7 @@
     *ngIf="section.id == 4 && item.id == 2"
     [pia]="pia" [data]="data"></app-action-plan>
 
-  <app-dpo-people-opinions *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
+  <app-dpo-people-opinions [pia]="pia" *ngIf="section.id == 4 && item.id == 3"></app-dpo-people-opinions>
 
   <footer class="pia-entryContentBlock-footer">
     <div *ngIf="globalEvaluationService.status > 0">
@@ -123,12 +123,12 @@
     <div class="pia-entryContentBlock-footer-nav">
       <a [ngClass]="{'mask': paginationService.hasPreviousLink === false}"
           class="pia-previousLink"
-          routerLink="/entry/{{pia.id}}/section/{{paginationService.previousLink[0]}}/item/{{paginationService.previousLink[1]}}">
+          routerLink="/pia/{{pia.id}}/section/{{paginationService.previousLink[0]}}/item/{{paginationService.previousLink[1]}}">
           <i class="fa fa-angle-double-left" aria-hidden="true"></i>
           {{ paginationService.previousLink[2] | translate }}
       </a><a [ngClass]="{'mask': paginationService.hasNextLink === false}"
           class="pia-nextLink"
-          routerLink="/entry/{{pia.id}}/section/{{paginationService.nextLink[0]}}/item/{{paginationService.nextLink[1]}}">
+          routerLink="/pia/{{pia.id}}/section/{{paginationService.nextLink[0]}}/item/{{paginationService.nextLink[1]}}">
           {{ paginationService.nextLink[2] | translate }}
           <i class="fa fa-angle-double-right" aria-hidden="true"></i>
       </a>

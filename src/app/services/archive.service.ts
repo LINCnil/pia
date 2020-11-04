@@ -41,8 +41,7 @@ export class ArchiveService {
   remove(id): Promise<void> {
     return new Promise((resolve, reject) => {
       // Removes from DB
-      const archivedPia = new Pia();
-      archivedPia.delete(id)
+      this.piaService.delete(id)
         .then(() => {
           localStorage.removeItem('pia-to-remove-id');
           resolve();
