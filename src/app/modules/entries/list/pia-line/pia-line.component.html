@@ -1,6 +1,6 @@
 <td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">
-    <a *ngIf="pia.status === 0 || pia.status === 1" routerLink="/entry/{{pia.id}}/section/1/item/1" class="btn pia-tooltip">
+    <a *ngIf="pia.status === 0 || pia.status === 1" [routerLink]="['/pia', pia.id, 'section', 1, 'item', 1]" class="btn pia-tooltip">
       <i class="fa fa-pencil" aria-hidden="true"></i>
       <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
     </a>
@@ -40,7 +40,7 @@
 <td class="pia-listsBlock-item"><div *ngIf="pia.structure_id">{{ pia.structure_name }}</div></td>
 <td class="pia-listsBlock-item progress">
   <div class="pia-cardsBlock-item-status-progressBar">
-    <span title="{{ pia.getStatusName() | translate }}">{{ pia.getStatusName() | translate }}</span>
+    <span title="{{ piaService.getStatusName(pia.status) | translate }}">{{ piaService.getStatusName(pia.status) | translate }}</span>
     <progress max="100" value="{{ pia.progress }}"></progress>
   </div>
 </td>

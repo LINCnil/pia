@@ -5,7 +5,12 @@
       title="{{ 'modals.close' | translate }}">
       <span class="pia-icons pia-icon-close-big"></span>
     </button>
-    <p [innerHTML]="message.text | translate"></p>
+    <ng-container *ngIf="message.data && message.data.date; else templateElse">
+      <p [innerHTML]="message.text | translate: {date: message.data.date | date: 'short':'':languagesService.selectedLanguage }"></p>
+    </ng-container>
+    <ng-template #templateElse>
+      <p [innerHTML]="message.text | translate"></p>
+    </ng-template>
     <p><br></p>
     <div class="pia-modalBlock-buttons-choice">
       <button tabindex="2" class="btn btn-red" (click)="message.noFn()" type="button" *ngIf="message.type === 'confirm'">

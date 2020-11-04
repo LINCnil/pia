@@ -33,13 +33,10 @@ export class KnowledgeBaseComponent implements OnInit {
     public knowledgeBaseService: KnowledgeBaseService,
     private el: ElementRef,
     private translateService: TranslateService,
-    private piaService: PiaService,
     private structureService: StructureService
   ) {}
 
   ngOnInit() {
-    this.piaService.getPIA();
-
     this.searchForm = new FormGroup({
       q: new FormControl()
     });

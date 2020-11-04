@@ -1,0 +1,70 @@
+<main class="container pia-mainContainerBlock" *ngIf="pia">
+    <div class="row">
+        <div *ngIf="pia.is_example === 1"
+          class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+          <strong>{{ 'header.help.title' | translate }} >
+            {{ 'header.help.pia_example_link' | translate }}
+          </strong>
+        </div>
+        <div *ngIf="pia.is_example === 0"
+          class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+          <a routerLink="/home">{{ 'header.homepage_link' | translate }} >
+            {{ 'header.current_pias' | translate }}
+          </a>
+          <strong> > {{ pia.name }}</strong>
+        </div>
+        <!-- Left sidebar (sections) -->
+        <nav class="hide-for-print small-12 medium-3 columns">
+            <aside class="pia-leftSidebarBlock">
+                <app-sections [pia]="pia" [section]="section" [item]="item"></app-sections>
+                <app-attachments [pia]="pia"></app-attachments>
+                <app-revisions *ngIf="pia.is_example == 0 && pia.is_archive  == 0"
+                    [pia]="pia"
+                    [title]="false"
+                    [currentVersion]="pia.updated_at">
+                </app-revisions>
+            </aside>
+        </nav>
+
+        <!-- Main entry content -->
+        <section class="small-12 medium-6 columns pia-mainContentForPrint">
+            <app-content
+              [pia]="pia"
+              [questions]="questions"
+              [section]="section"
+              [item]="item"
+              [data]="data">
+            </app-content>
+        </section>
+
+        <!-- Right sidebar (knowledge base) -->
+        <aside class="hide-for-print small-12 medium-3 columns pia-rightSidebarBlock">
+            <div class="pia-rightSidebarBlock-content">
+                <div class="pia-rightSidebarBlock-content-header">
+                    <h1>
+                        <span>
+                            <i [ngClass]="{'active': sideView === 'knowledge'}" class="fa fa-book" aria-hidden="true" (click)="sideView = 'knowledge'"></i>
+                            <i [ngClass]="{'active': sideView === 'export'}" class="fa fa-download" aria-hidden="true" (click)="sideView = 'export'"></i>
+                        </span>
+                        <span *ngIf="sideView === 'knowledge'">{{ 'knowledge_base.title' | translate }}</span>
+                        <span *ngIf="sideView === 'export'">{{ 'summary.actions.print_and_download' | translate }}</span>
+                    </h1>
+                </div>
+                <app-export [editMode]="true" [pia]="pia"
+                   *ngIf="pia && sideView === 'export'"
+                  (downloading)="download = $event">
+                </app-export>
+                <app-knowledge-base
+                answerService [pia]="pia"
+                  *ngIf="sideView === 'knowledge'"
+                  [item]="item">
+                </app-knowledge-base>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<app-loading-overlay [visibility]="download"></app-loading-overlay>
+<app-preview [pia]="pia" [onlyData]="true" *ngIf="download"></app-preview>
+<app-dialog></app-dialog>
+

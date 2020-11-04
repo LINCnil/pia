@@ -4,24 +4,25 @@ import { PiaService } from './pia.service';
 import { Router } from '@angular/router';
 import { utf8Encode } from '@angular/compiler/src/util';
 import { Revision } from '../models/revision.model';
+import { ApplicationDb } from '../application.db';
 
 @Injectable()
-export class RevisionService {
+export class RevisionService extends ApplicationDb {
   public revisionSelected: number;
 
-  constructor(public piaService: PiaService, private router: Router) {}
+  constructor(public piaService: PiaService, private router: Router) {
+    super(201911191636, 'revision');
+  }
 
   /**
    * Load a new revision
    */
-  async loadRevision() {
+  async loadRevision(revisionId) {
     return new Promise(resolve => {
-      const revision = new Revision();
-      revision.pia_id = this.piaService.pia.id;
-      revision.get(this.revisionSelected).then(() => {
+      this.find(revisionId).then((revision: Revision) => {
         const piaExport = JSON.parse(revision.export);
         this.piaService.replacePiaByExport(piaExport, true, true, revision.created_at).then(() => {
-          this.router.navigate(['entry', this.piaService.pia.id]);
+          this.router.navigate(['pia', piaExport.pia.id]);
           resolve();
         });
       });
@@ -61,23 +62,6 @@ export class RevisionService {
     });
   }
 
-  /**
-   * Prepare to load a revision
-   * @param revisionId - The revision id
-   * @param piaId - The PIA id
-   */
-  async prepareLoadRevision(revisionId: number, piaId: number) {
-    this.revisionSelected = revisionId;
-    localStorage.setItem('revision-date-id', revisionId.toString());
-    return new Promise(resolve => {
-      const revision = new Revision();
-      revision.pia_id = piaId;
-      revision.get(revisionId).then(() => {
-        resolve(revision.created_at);
-      });
-    });
-  }
-
   async export(id: number) {
     return new Promise(async (resolve, reject) => {
       this.piaService.calculPiaProgress;
@@ -86,5 +70,26 @@ export class RevisionService {
         resolve(finalData);
       });
     });
+  }
+
+  /**
+   * Get the status of the PIA.
+   * @returns {string} - Locale for translation.
+   */
+  getStatusName(status) {
+    if (status >= 0) {
+      return `pia.statuses.${status}`;
+    }
+  }
+
+  /**
+   * Get gauge name.
+   * @param {*} value - The gauge value.
+   * @returns {string} - Locale for translation.
+   */
+  getGaugeName(value: any) {
+    if (value) {
+      return `summary.gauges.${value}`;
+    }
   }
 }

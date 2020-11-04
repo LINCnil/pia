@@ -1,0 +1,140 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { Pia } from 'src/app/models/pia.model';
+import { AppDataService } from 'src/app/services/app-data.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
+import { MeasureService } from 'src/app/services/measures.service';
+import { ModalsService } from 'src/app/services/modals.service';
+import { PaginationService } from 'src/app/services/pagination.service';
+import { PiaService } from 'src/app/services/pia.service';
+import { SidStatusService } from 'src/app/services/sid-status.service';
+
+@Component({
+  selector: 'app-content',
+  templateUrl: './content.component.html',
+  styleUrls: ['./content.component.scss']
+})
+export class ContentComponent implements OnInit {
+  @Input() pia: Pia = null;
+  @Input() section: any;
+  @Input() item: any;
+  @Input() questions: any;
+  @Input() data: any;
+
+  userAnswersForImpacts = [];
+  userAnswersForThreats = [];
+  userAnswersForSources = [];
+
+  constructor(
+    private router: Router,
+    private appDataService: AppDataService,
+    private activatedRoute: ActivatedRoute,
+    public measureService: MeasureService,
+    private modalsService: ModalsService,
+    public piaService: PiaService,
+    public sidStatusService: SidStatusService,
+    public globalEvaluationService: GlobalEvaluationService,
+    public paginationService: PaginationService,
+    private knowledgeBaseService: KnowledgeBaseService
+  ) {}
+
+  ngOnInit() {
+    // Reset measures no longer addable from KB when switching PIA
+    this.knowledgeBaseService.toHide = [];
+
+    // Update the last edited date for this PIA
+    this.piaService.getPIA().then(() => {
+      this.piaService.pia.updated_at = new Date();
+      this.piaService.pia.update();
+
+      if (this.piaService.pia.is_archive === 1) {
+        this.router.navigate(['home']);
+      }
+    });
+  }
+
+  async ngOnChanges() {
+    await this.piaService.getPIA();
+    this.paginationService.dataNav = this.appDataService.dataNav;
+
+    const sectionId = parseInt(this.activatedRoute.snapshot.params.section_id, 10);
+    const itemId = parseInt(this.activatedRoute.snapshot.params.item_id, 10);
+
+    if (sectionId && itemId) {
+      this.paginationService.setPagination(sectionId, itemId);
+    }
+  }
+
+  /**
+   * Prepare entry for evaluation.
+   */
+  prepareForEvaluation() {
+    this.globalEvaluationService.prepareForEvaluation().then(() => {
+      let isPiaFullyEdited = true;
+      for (const el in this.sidStatusService.itemStatus) {
+        if (this.sidStatusService.itemStatus.hasOwnProperty(el) && this.sidStatusService.itemStatus[el] < 4 && el !== '4.3') {
+          isPiaFullyEdited = false;
+        }
+      }
+      if (isPiaFullyEdited) {
+        this.goToNextSectionItem(4, 5);
+        this.modalsService.openModal('completed-edition');
+      } else {
+        this.goToNextSectionItem(0, 4);
+        this.modalsService.openModal('ask-for-evaluation');
+      }
+    });
+  }
+
+  /**
+   * Allow an user to validate evaluation for a section.
+   */
+  validateEvaluation() {
+    this.globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
+      this.goToNextSectionItem(5, 7);
+      let isPiaFullyEvaluated = true;
+      for (const el in this.sidStatusService.itemStatus) {
+        if (this.sidStatusService.itemStatus.hasOwnProperty(el) && this.sidStatusService.itemStatus[el] !== 7 && el !== '4.3') {
+          isPiaFullyEvaluated = false;
+        }
+      }
+      if (isPiaFullyEvaluated) {
+        this.modalsService.openModal('completed-evaluation');
+      } else if (toFix) {
+        this.modalsService.openModal('validate-evaluation-to-correct');
+      } else {
+        this.modalsService.openModal('validate-evaluation');
+      }
+    });
+  }
+
+  /**
+   * Go to next item.
+   * @private
+   * @param {number} status_start - From status.
+   * @param {number} status_end - To status.
+   */
+  private goToNextSectionItem(status_start: number, status_end: number) {
+    const goto_section_item = this.paginationService.getNextSectionItem(status_start, status_end);
+
+    this.router.navigate(['entry', this.piaService.pia.id, 'section', goto_section_item[0], 'item', goto_section_item[1]]);
+  }
+
+  /**
+   * Allow an user to return in edit mode.
+   */
+  cancelAskForEvaluation() {
+    this.globalEvaluationService.cancelForEvaluation();
+    this.modalsService.openModal('back-to-edition');
+  }
+
+  /**
+   * Allow an user to cancel the validation.
+   */
+  cancelValidateEvaluation() {
+    this.globalEvaluationService.cancelValidation();
+    this.modalsService.openModal('back-to-evaluation');
+  }
+}

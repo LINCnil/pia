@@ -179,35 +179,40 @@
   </div>
 </div>
 
-<div class="pia-modalBlock" style="background-color:transparent;" id="pia-declare-measures">
+<!-- <div class="pia-modalBlock" style="background-color:transparent;" id="pia-declare-measures">
   <div class="pia-modalBlock-content pia-modalBlock-declareMeasuresForRisks bounceIn">
     <p [innerHTML]="'modals.declare_measures.content' | translate"></p>
     <i class="fa fa-arrow-left icon-blue" aria-hidden="true"></i>
     <div class="pia-modalBlock-validate">
-      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1" (click)="_modalsService.closeModal()" class="btn btn-green get-focus">{{ 'modals.declare_measures.declare' | translate }}</a>
+      <a routerLink="/entry/{{_piaService.pia.id}}/section/3/item/1"
+      (click)="_modalsService.closeModal()" class="btn btn-green get-focus">{{ 'modals.declare_measures.declare' | translate }}</a>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="pia-modalBlock" style="background-color:transparent;" id="pia-action-plan-no-evaluation">
+<!-- <div class="pia-modalBlock" style="background-color:transparent;" id="pia-action-plan-no-evaluation">
   <div class="pia-modalBlock-content pia-modalBlock-haveEvaluationsForActionPlan bounceIn">
     <p [innerHTML]="'modals.action_plan_no_evaluation.content' | translate"></p>
     <i class="fa fa-cog icon-blue" aria-hidden="true"></i>
     <div class="pia-modalBlock-validate">
-      <button tabindex="1" class="btn btn-blue get-focus" type="button" (click)="_modalsService.closeModal(_piaService.pia.id, '4-5')" data-dismiss="modal">{{ 'modals.action_plan_no_evaluation.review_section' | translate }}</button>
+      <button tabindex="1" class="btn btn-blue get-focus" type="button"
+      (click)="_modalsService.closeModal(_piaService.pia.id, '4-5')"
+      data-dismiss="modal">{{ 'modals.action_plan_no_evaluation.review_section' | translate }}</button>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="pia-modalBlock" style="background-color:transparent;" id="pia-dpo-missing-evaluations">
+<!-- <div class="pia-modalBlock" style="background-color:transparent;" id="pia-dpo-missing-evaluations">
   <div class="pia-modalBlock-content pia-modalBlock-allEvaluationsForDpo bounceIn">
     <p [innerHTML]="'modals.dpo_missing_evaluations.content' | translate"></p>
     <i class="fa fa-cog icon-blue" aria-hidden="true"></i>
     <div class="pia-modalBlock-validate">
-      <button tabindex="1" class="btn btn-blue get-focus" type="button" (click)="_modalsService.closeModal(_piaService.pia.id, '4-7')" data-dismiss="modal">{{ 'modals.action_plan_no_evaluation.review_section' | translate }}</button>
+      <button tabindex="1" class="btn btn-blue get-focus" type="button"
+      (click)="_modalsService.closeModal(_piaService.pia.id, '4-7')"
+      data-dismiss="modal">{{ 'modals.action_plan_no_evaluation.review_section' | translate }}</button>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- <div class="pia-modalBlock" id="modal-archive-pia">
   <div class="pia-modalBlock-content pia-modalBlock-archivePIA bounceIn">
@@ -325,7 +330,7 @@
   </div>
 </div>
 
-<div class="pia-modalBlock" id="revision-selection">
+<!-- <div class="pia-modalBlock" id="revision-selection">
   <div class="pia-modalBlock-content pia-modalBlock-recoverVersion bounceIn">
     <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
     <h3>{{ 'modals.recover_version.title' | translate }}</h3>
@@ -335,15 +340,15 @@
       <button tabindex="2" class="btn btn-green get-focus" (click)="continueEvent.emit(); _modalsService.closeModal()" type="button">{{ 'modals.recover_version.continue' | translate }}</button>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="pia-modalBlock fullsize" id="revision-preview-selection">
+<!-- <div class="pia-modalBlock fullsize" id="revision-preview-selection">
   <div class="pia-modalBlock-content pia-modalBlock-recoverVersion">
     <button tabindex="2" type="button" class="pia-modalBlock-close btn" title="{{ 'modals.close' | translate }}" (click)="_modalsService.closeModal()"><span class="pia-icons pia-icon-close-big"></span></button>
-    <!--TODO-->
-    <!-- <app-revision-preview [revision]="revisionPreview"></app-revision-preview> -->
+
+    <app-revision-preview [revision]="revisionPreview"></app-revision-preview>
   </div>
-</div>
+</div> -->
 
 <!-- <div class="pia-modalBlock" id="modal-list-new-pia">
   <div class="pia-modalBlock-content bounceIn">

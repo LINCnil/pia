@@ -5,6 +5,7 @@ import { EntriesRoutingModule } from './modules/entries/entries-routing.module';
 import { EntriesComponent } from './modules/entries/entries.component';
 import { HomeRoutingModule } from './modules/home/home-routing.module';
 import { HomeComponent } from './modules/home/home.component';
+import { PiaRoutingModule } from './modules/pia/pia-routing.module';
 import { StructureRoutingModule } from './modules/structure/structure-routing.module';
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     EntriesRoutingModule,
     BaseRoutingModule,
     StructureRoutingModule,
+    PiaRoutingModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]

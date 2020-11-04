@@ -1,5 +1,3 @@
-import { ApplicationDb } from '../application.db';
-
 export class Answer {
   public id: number;
   public data: { text: string; gauge: number; list: string[] };

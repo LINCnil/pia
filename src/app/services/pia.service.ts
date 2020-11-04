@@ -15,9 +15,10 @@ import { Structure } from '../models/structure.model';
 import { ModalsService } from './modals.service';
 import { StructureService } from './structure.service';
 import { AnswerService } from './answer.service';
+import { ApplicationDb } from '../application.db';
 
 @Injectable()
-export class PiaService {
+export class PiaService extends ApplicationDb  {
   pias = [];
   pia: Pia = new Pia();
   answer: Answer = new Answer();
@@ -33,6 +34,8 @@ export class PiaService {
     private structureService: StructureService,
     private answerService: AnswerService
   ) {
+    super(201910230914, 'pia');
+
     if (this.pia.structure_data) {
       this._appDataService.dataNav = this.pia.structure_data;
     } else {
@@ -677,5 +680,50 @@ export class PiaService {
       }
       commentModel.create();
     });
+  }
+
+  /**
+   * Get the status of the PIA.
+   * @returns {string} - Locale for translation.
+   */
+  getStatusName(status) {
+    if (status >= 0) {
+      return `pia.statuses.${status}`;
+    }
+  }
+
+  /**
+   * Get people status.
+   * @param {boolean} status - The people search status.
+   * @returns {string} - Locale for translation.
+   */
+  getPeopleSearchStatus(status: boolean) {
+    if (status === true) {
+      return 'summary.people_search_status_ok';
+    } else {
+      return 'summary.people_search_status_nok';
+    }
+  }
+
+  /**
+   * Get opinion status.
+   * @param {string} status - The opinion status.
+   * @returns {string} - Locale for translation.
+   */
+  getOpinionsStatus(status: string): string {
+    if (status) {
+      return `summary.content_choice.${status}`;
+    }
+  }
+
+  /**
+   * Get gauge name.
+   * @param {*} value - The gauge value.
+   * @returns {string} - Locale for translation.
+   */
+  getGaugeName(value: any): string {
+    if (value) {
+      return `summary.gauges.${value}`;
+    }
   }
 }
