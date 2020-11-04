@@ -273,7 +273,7 @@ export class PiaService extends ApplicationDb  {
     pia.status = 4;
     this.update(pia).then(() => {
       this.modalsService.closeModal();
-      this.router.navigate(['home']);
+      this.router.navigate(['/entries']);
     });
   }
 

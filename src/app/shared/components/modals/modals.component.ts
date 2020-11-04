@@ -92,7 +92,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
    */
   returnToHomepage() {
     this._modalsService.closeModal();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/entries']);
   }
 
   /**

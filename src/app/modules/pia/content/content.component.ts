@@ -49,7 +49,7 @@ export class ContentComponent implements OnInit {
     this.piaService.update(this.pia);
 
     if (this.pia.is_archive === 1) {
-      this.router.navigate(['home']);
+      this.router.navigate(['/entries']);
     }
   }
 

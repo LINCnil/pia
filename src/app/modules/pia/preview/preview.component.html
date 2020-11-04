@@ -5,13 +5,13 @@
   <!-- Preview navigation -->
   <div class="row">
     <ng-container  *ngIf="!onlyData">
-      <div *ngIf="pia.is_example === 1" class="pia-breadcrumb hide-for-print small-12 medium-12 columns"><a routerLink="/home">{{ 'header.help.title' | translate }} > {{ 'header.current_pias' | translate }}</a><strong> > {{ 'header.help.pia_example_link' | translate }}</strong></div>
+      <div *ngIf="pia.is_example === 1" class="pia-breadcrumb hide-for-print small-12 medium-12 columns"><a [routerLink]="['/entries']">{{ 'header.help.title' | translate }} > {{ 'header.current_pias' | translate }}</a><strong> > {{ 'header.help.pia_example_link' | translate }}</strong></div>
       <div *ngIf="pia.is_example === 0" class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
         <span *ngIf=" pia.is_archive === 1; else noArchivedPIA">
-          <a routerLink="/archives">{{ 'header.homepage_link' | translate }} > {{ 'header.archives' | translate }}</a><strong> > {{ pia.name }}</strong>
+          <a [routerLink]="['/entries', 'archive']">{{ 'header.homepage_link' | translate }} > {{ 'header.archives' | translate }}</a><strong> > {{ pia.name }}</strong>
         </span>
         <ng-template #noArchivedPIA>
-          <a routerLink="/home">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }}</a><strong> > {{ pia.name }}</strong>
+          <a [routerLink]="['/entries']">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }}</a><strong> > {{ pia.name }}</strong>
         </ng-template>
       </div>
     </ng-container>
@@ -21,7 +21,7 @@
           <div class="pia-sectionsBlock">
             <div class="pia-sectionBlock-header">
               <h1 class="truncate" title="{{pia.name}}">{{ pia.name }}</h1>
-              <a class="pia-icons pia-icon-close-big" routerLink="{{ fromArchives ? '/archives' : '/home' }}" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
+              <a class="pia-icons pia-icon-close-big" [routerLink]="fromArchives ? ['/entries', 'archive'] : ['/entries']" title="{{ 'pia.sections.homepage_link' | translate }}"></a>
             </div>
 
             <div class="pia-sectionBlock-structure" *ngIf="pia.structure_id">

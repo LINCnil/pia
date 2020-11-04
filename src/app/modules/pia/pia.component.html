@@ -8,7 +8,7 @@
         </div>
         <div *ngIf="pia.is_example === 0"
           class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
-          <a routerLink="/home">{{ 'header.homepage_link' | translate }} >
+          <a [routerLink]="['/entries']">{{ 'header.homepage_link' | translate }} >
             {{ 'header.current_pias' | translate }}
           </a>
           <strong> > {{ pia.name }}</strong>
