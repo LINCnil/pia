@@ -213,10 +213,10 @@ export class EvaluationsComponent
         return question.answer_type === 'gauge';
       });
       questions.forEach(question => {
-        this.aswerService.getByReferenceAndPia(this.pia.id, question.id).then((answersModel: Answer) => {
-          if (answersModel.data) {
+        this.aswerService.getByReferenceAndPia(this.pia.id, question.id).then((answer: Answer) => {
+          if (answer && answer.data) {
             this.previousGauges[question.cartography.split('_')[1]] =
-              answersModel.data.gauge;
+            answer.data.gauge;
           }
         });
       });

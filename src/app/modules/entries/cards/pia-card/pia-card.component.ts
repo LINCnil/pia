@@ -242,7 +242,7 @@ export class PiaCardComponent implements OnInit {
    * Archive a PIA with a given id
    * @param id - The PIA id
    */
-  archivePia(id: string): void {
+  archivePia(id: number): void {
     // this.modalsService.openModal('modal-archive-pia');
     this.dialogService.confirmThis({
       text: 'modals.archive_pia.content',

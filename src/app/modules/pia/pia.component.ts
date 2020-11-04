@@ -70,22 +70,27 @@ export class PiaComponent implements OnInit {
         // INIT PIA
 
         this.pia = pia;
+
         if (!sectionId || !itemId) {
           this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);
         } else {
+
           if (this.pia.structure_data) {
             this.appDataService.dataNav = this.pia.structure_data;
           } else {
             this.appDataService.resetDataNav();
           }
+
           this.data = this.appDataService.dataNav;
+          this.getSectionAndItem(sectionId, itemId);
+
 
           this.route.params.subscribe((params: Params) => {
-            sectionId = parseInt(params.section_id, 10);
-            itemId = parseInt(params.item_id, 10);
-            this.getSectionAndItem(sectionId, itemId);
+            this.getSectionAndItem(parseInt(params.section_id, 10), parseInt(params.item_id, 10));
             window.scroll(0, 0);
           });
+
+
         }
 
         // Suscribe to measure service messages
@@ -127,7 +132,7 @@ export class PiaComponent implements OnInit {
           // const answer = new Answer();
           this.answerService.getByReferenceAndPia(parseInt(this.route.snapshot.params.id), q.id)
             .then((answer: Answer) => {
-              if (answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
+              if (answer && answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
                 const index = answer.data.list.indexOf(measureName);
                 answer.data.list.splice(index, 1);
                 this.answerService.update(answer);
@@ -194,7 +199,7 @@ export class PiaComponent implements OnInit {
               },
               () => {
                 this.router.navigate(
-                  ['/pia', 'piaService.pia.id', 'section', 3, 'item', 1]
+                  ['/pia', this.pia.id, 'section', 3, 'item', 1]
                 );
               },
               () => {

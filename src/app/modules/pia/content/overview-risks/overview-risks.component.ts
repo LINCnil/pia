@@ -68,7 +68,7 @@ export class OverviewRisksComponent implements OnInit {
       for (const reference_to of dt.reference_to) {
         this.answerService.getByReferenceAndPia(this.pia.id, reference_to)
           .then((result: Answer) => {
-            if (result.data && result.data.list.length > 0) {
+            if (result && result.data && result.data.list.length > 0) {
               const list = result.data.list;
               for (const l of list) {
                 if (!tags[l]) {
@@ -277,7 +277,7 @@ export class OverviewRisksComponent implements OnInit {
         i++;
         this.answerService.getByReferenceAndPia(this.pia.id, question.id)
           .then((result: Answer) => {
-            if (result.data && result.data.gauge > 0) {
+            if (result && result.data && result.data.gauge > 0) {
               const value = result.data.gauge;
               const name = this.translateService.instant('overview-risks.' + question.cartography);
               y += 25;

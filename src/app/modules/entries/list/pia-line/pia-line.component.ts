@@ -103,7 +103,7 @@ export class PiaLineComponent implements OnInit {
    * Archive a PIA with a given id
    * @param id - The PIA id
    */
-  archivePia(id: string): void {
+  archivePia(id: number): void {
     this.dialogService.confirmThis({
       text: 'modals.archive_pia.content',
       type: 'confirm',

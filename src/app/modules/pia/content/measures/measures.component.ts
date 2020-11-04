@@ -127,7 +127,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
       // Update tags
       this.answerService.getByReferenceAndPia(this.pia.id, 324).then((answer: Answer) => {
-        if (answer.data && answer.data.list) {
+        if (answer && answer.data && answer.data.list) {
           const index = answer.data.list.indexOf(previousTitle);
           if (~index) {
             answer.data.list[index] = this.measureModel.title;
@@ -137,7 +137,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       });
 
       this.answerService.getByReferenceAndPia(this.pia.id, 334).then((answer: Answer) => {
-        if (answer.data && answer.data.list) {
+        if (answer && answer.data && answer.data.list) {
           const index = answer.data.list.indexOf(previousTitle);
           if (~index) {
             answer.data.list[index] = this.measureModel.title;

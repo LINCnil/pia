@@ -6,6 +6,7 @@ import { PiaService } from 'src/app/services/pia.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { Pia } from 'src/app/models/pia.model';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -24,7 +25,8 @@ export class RefusePIAComponent implements OnInit {
               private el: ElementRef,
               private modalsService: ModalsService,
               private sidStatusService: SidStatusService,
-              public piaService: PiaService) { }
+              public piaService: PiaService,
+              private dialogService: DialogService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
@@ -65,7 +67,22 @@ export class RefusePIAComponent implements OnInit {
    * Display the modal to abandon the PIA.
    */
   abandon() {
-    this.modalsService.openModal('modal-abandon-pia');
+    // this.modalsService.openModal('modal-abandon-pia');
+    this.dialogService.confirmThis({
+        text: 'modals.abandon_pia.content',
+        type: 'confirm',
+        yes: 'modals.archive',
+        no: 'modals.cancel',
+        data: {
+          additional_text: 'modals.abandon_pia.additional_text'
+        }
+      },
+      () => {
+        this.piaService.abandonTreatment(this.pia);
+      },
+      () => {
+        return;
+      });
   }
 
   /**

@@ -53,7 +53,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     });
 
     this.answerService.getByReferenceAndPia(this.pia.id, this.question.id).then((answer: Answer) => {
-
       if (answer) {
         this.answer = answer;
         // let evaluationRefTo: string = this.answer.id.toString();
