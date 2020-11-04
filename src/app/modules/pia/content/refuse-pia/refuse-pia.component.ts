@@ -73,10 +73,10 @@ export class RefusePIAComponent implements OnInit {
    */
   refuse() {
     this.pia.status = 1;
-    this.piaService.pia.update().then(() => {
-      this.piaService.cancelAllValidatedEvaluation().then(() => {
+    this.piaService.update(this.pia).then(() => {
+      this.piaService.cancelAllValidatedEvaluation(this.pia).then(() => {
         this.sidStatusService.refusePia(this.piaService).then(() => {
-          this.router.navigate(['entry', this.piaService.pia.id, 'section', 1, 'item', 1]);
+          this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
           this.modalsService.openModal('modal-refuse-pia');
         });
       });
@@ -104,7 +104,7 @@ export class RefusePIAComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.rejected_reason = userText;
-    this.piaService.pia.update().then(() => {
+    this.piaService.update(this.pia).then(() => {
       if (userText && userText.length > 0) {
         this.rejectionReasonForm.controls['rejectionReason'].disable();
         this.showRejectionReasonButtons = true;
@@ -136,7 +136,7 @@ export class RefusePIAComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.applied_adjustements = userText;
-    this.piaService.pia.update().then(() => {
+    this.piaService.update(this.pia).then(() => {
       if (userText && userText.length > 0) {
         this.modificationsMadeForm.controls['modificationsMade'].disable();
         this.showResendValidationButton = true;

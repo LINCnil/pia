@@ -53,8 +53,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     });
 
     this.answerService.getByReferenceAndPia(this.pia.id, this.question.id).then((answer: Answer) => {
-      this.answer = answer;
-      if (this.answer.data) {
+
+      if (answer) {
+        this.answer = answer;
         // let evaluationRefTo: string = this.answer.id.toString();
         // if (this.item.evaluation_mode === 'item') {
         //   evaluationRefTo = this.section.id + '.' + this.item.id;
@@ -193,6 +194,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Disables question field + shows edit button + save data.
    */
   questionContentFocusOut() {
+    console.log(this.answer, this.pia, this.question.id)
+    this.answer.pia_id = this.pia.id;
+    this.answer.reference_to = this.question.id;
     let userText = this.questionForm.controls['text'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -206,8 +210,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       });
     } else if (!this.answer.id && userText !== '') {
       if (this.questionForm.value.text && this.questionForm.value.text.length > 0) {
-        this.answer.pia_id = this.pia.id;
-        this.answer.reference_to = this.question.id;
         const gaugeValueForCurrentQuestion = this.question.answer_type === 'gauge' ? 0 : null;
         this.answer.data = { text: this.questionForm.value.text, gauge: gaugeValueForCurrentQuestion, list: [] };
         this.answerService.create(this.answer).then(() => {

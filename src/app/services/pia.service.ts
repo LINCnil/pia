@@ -19,8 +19,8 @@ import { ApplicationDb } from '../application.db';
 
 @Injectable()
 export class PiaService extends ApplicationDb  {
-  pias = [];
-  pia: Pia = new Pia();
+  // pias = [];
+  // pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
   @Output() piaEvent = new EventEmitter<Pia>();
@@ -36,11 +36,11 @@ export class PiaService extends ApplicationDb  {
   ) {
     super(201910230914, 'pia');
 
-    if (this.pia.structure_data) {
-      this._appDataService.dataNav = this.pia.structure_data;
-    } else {
-      this._appDataService.resetDataNav();
-    }
+    // if (this.pia.structure_data) {
+    //   this._appDataService.dataNav = this.pia.structure_data;
+    // } else {
+    //   this._appDataService.resetDataNav();
+    // }
 
     this.data = this._appDataService.dataNav;
   }
@@ -49,24 +49,24 @@ export class PiaService extends ApplicationDb  {
    * Get the PIA.
    * @return - Return a new Promise
    */
-  async getPIA() {
-    return new Promise((resolve, reject) => {
-      const piaId = parseInt(this.route.snapshot.params.id, 10);
-      if (piaId) {
-        this.pia.get(piaId).then(() => {
-          resolve();
-        });
-      } else {
-        resolve();
-      }
-    });
-  }
+  // async getPIA() {
+  //   return new Promise((resolve, reject) => {
+  //     const piaId = parseInt(this.route.snapshot.params.id, 10);
+  //     if (piaId) {
+  //       this.pia.get(piaId).then(() => {
+  //         resolve();
+  //       });
+  //     } else {
+  //       resolve();
+  //     }
+  //   });
+  // }
 
-  async calculProgress() {
-    this.pias.forEach((pia: Pia) => {
-      this.calculPiaProgress(pia);
-    });
-  }
+  // async calculProgress() {
+  //   this.pias.forEach((pia: Pia) => {
+  //     this.calculPiaProgress(pia);
+  //   });
+  // }
 
   async calculPiaProgress(pia) {
     pia.progress = 0.0;
@@ -207,44 +207,44 @@ export class PiaService extends ApplicationDb  {
   /**
    * Allows an user to archive a PIA.
    */
-  archivePia() {
-    const piaID = parseInt(localStorage.getItem('pia-to-archive-id'), 10);
+  // archivePia() {
+  //   const piaID = parseInt(localStorage.getItem('pia-to-archive-id'), 10);
 
-    // Update the PIA in DB.
-    const pia = new Pia();
-    pia.get(piaID).then(() => {
-      pia.is_archive = 1;
-      pia.update();
+  //   // Update the PIA in DB.
+  //   const pia = new Pia();
+  //   pia.get(piaID).then(() => {
+  //     pia.is_archive = 1;
+  //     pia.update();
 
-      const index = this.pias.findIndex(item => item.id === piaID);
-      if (index !== -1) {
-        this.pias[index] = pia;
+  //     const index = this.pias.findIndex(item => item.id === piaID);
+  //     if (index !== -1) {
+  //       this.pias[index] = pia;
 
-        this.pias.splice(index, 1);
-      }
-    });
+  //       this.pias.splice(index, 1);
+  //     }
+  //   });
 
-    // Removes the PIA from the view.
-    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
-      document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
-    } else {
-      document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
-    }
+  //   // Removes the PIA from the view.
+  //   if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+  //     document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
+  //   } else {
+  //     document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
+  //   }
 
-    localStorage.removeItem('pia-to-archive-id');
+  //   localStorage.removeItem('pia-to-archive-id');
 
-    this.modalsService.closeModal();
-  }
+  //   this.modalsService.closeModal();
+  // }
 
   /**
    * Cancel all validated evaluations.
    * @returns - Return a new Promise
    */
-  async cancelAllValidatedEvaluation() {
+  async cancelAllValidatedEvaluation(pia: Pia) {
     return new Promise((resolve, reject) => {
       let count = 0;
       let evaluation = new Evaluation();
-      evaluation.pia_id = this.pia.id;
+      evaluation.pia_id = pia.id;
       evaluation.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
@@ -269,9 +269,9 @@ export class PiaService extends ApplicationDb  {
   /**
    * Allows an user to abandon a treatment (archive a PIA).
    */
-  abandonTreatment() {
-    this.pia.status = 4;
-    this.pia.update().then(() => {
+  abandonTreatment(pia: Pia) {
+    pia.status = 4;
+    this.update(pia).then(() => {
       this.modalsService.closeModal();
       this.router.navigate(['home']);
     });
@@ -409,7 +409,7 @@ export class PiaService extends ApplicationDb  {
         this.importComments(data.comments, piaId);
       }
 
-      this.pias.push(pia);
+      // this.pias.push(pia);
       this.calculPiaProgress(pia);
     });
   }
@@ -445,9 +445,8 @@ export class PiaService extends ApplicationDb  {
       }
 
       if (updateOption) {
-        pia
-          .update(dateExport) // update pia storage
-          .then(async () => {
+        this.update(pia, dateExport) // update pia storage
+          .then(async (entry) => {
             // DELETE EVERY ANSWERS, MEASURES AND COMMENT
             await this.destroyData(pia.id);
             // CREATE NEW ANSWERS, MEASURES AND COMMENT
@@ -640,17 +639,16 @@ export class PiaService extends ApplicationDb  {
 
       // Update the PIA in DB.
       const pia = new Pia();
-      pia.get(id)
-        .then(() => {
-          pia.is_archive = 1;
-          pia.update();
-
-          const index = this.pias.findIndex(item => item.id === id);
-          if (index !== -1) {
-            this.pias[index] = pia;
-            this.pias.splice(index, 1);
-          }
-          localStorage.removeItem('pia-to-archive-id');
+      this.find(id)
+        .then((entry: Pia) => {
+          entry.is_archive = 1;
+          this.update(entry);
+          // const index = this.pias.findIndex(item => item.id === id);
+          // if (index !== -1) {
+          //   this.pias[index] = pia;
+          //   this.pias.splice(index, 1);
+          // }
+          // localStorage.removeItem('pia-to-archive-id');
           resolve();
         })
         .catch(err => {
@@ -659,8 +657,79 @@ export class PiaService extends ApplicationDb  {
     });
   }
 
+  update(pia: Pia, date = null): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.find(pia.id).then((entry: any) => {
+        entry.name = pia.name;
+        entry.category = pia.category;
+        entry.author_name = pia.author_name;
+        entry.evaluator_name = pia.evaluator_name;
+        entry.validator_name = pia.validator_name;
+        entry.dpo_status = pia.dpo_status;
+        entry.dpo_opinion = pia.dpo_opinion;
+        entry.concerned_people_opinion = pia.concerned_people_opinion;
+        entry.concerned_people_status = pia.concerned_people_status;
+        entry.rejected_reason = pia.rejected_reason;
+        entry.applied_adjustements = pia.applied_adjustements;
+        entry.status = pia.status;
+        entry.is_example = pia.is_example;
+        if (entry.is_archive === undefined || entry.is_archive === null) {
+          entry.is_archive = 0;
+        } else {
+          entry.is_archive = pia.is_archive;
+        }
+        entry.dpos_names = pia.dpos_names;
+        entry.people_names = pia.people_names;
+        entry.concerned_people_searched_opinion = pia.concerned_people_searched_opinion;
+        entry.concerned_people_searched_content = pia.concerned_people_searched_content;
+        entry.structure_id = pia.structure_id ? pia.structure_id : '';
+        entry.structure_name = pia.structure_name;
+        entry.structure_sector_name = pia.structure_sector_name;
+        entry.structure_data = pia.structure_data ? pia.structure_data : '';
+        entry.updated_at = date ? date : new Date();
+        if (this.serverUrl) {
+          const formData = new FormData();
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d)) {
+              let value = entry[d];
+              if (d === 'structure_data') {
+                value = JSON.stringify(value);
+              }
+              formData.append('pia[' + d + ']', value);
+            }
+          }
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
+            body: formData,
+            mode: 'cors'
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve(result);
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
+        } else {
+          this.getObjectStore().then(() => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            };
+            evt.onsuccess = (event: any) => {
+              resolve(event.target.result);
+            };
+          });
+        }
+      });
+    });
+  }
 
-  // END UPDATe
+  // END UPDATE
 
   /**
    * Import all comments

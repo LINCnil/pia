@@ -2,12 +2,13 @@ import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { PiaService } from 'src/app/services/pia.service';
-import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { Pia } from 'src/app/models/pia.model';
+import { DialogService } from 'src/app/services/dialog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-validate-pia',
@@ -22,11 +23,13 @@ export class ValidatePIAComponent implements OnInit {
   attachment: any;
 
   constructor(
+    private router: Router,
     private modalsService: ModalsService,
     public attachmentsService: AttachmentsService,
     private actionPlanService: ActionPlanService,
     public piaService: PiaService,
-    public languagesService: LanguagesService
+    public languagesService: LanguagesService,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit() {
@@ -105,8 +108,19 @@ export class ValidatePIAComponent implements OnInit {
    */
   simplePIAValidation() {
     this.pia.status = 2;
-    this.pia.update().then(() => {
-      this.modalsService.openModal('modal-simple-pia-validation');
+    this.piaService.update(this.pia).then(() => {
+      // this.modalsService.openModal('modal-simple-pia-validation');
+      this.dialogService.confirmThis({
+        text: 'modals.signed_pia_validation.content',
+        type: 'yes',
+        yes: 'modals.signed_pia_validation.download_pia',
+        no: ''},
+        () => {
+          this.router.navigate(['/preview', this.pia.id]);
+        },
+        () => {
+          return;
+        });
     });
   }
 
@@ -115,8 +129,19 @@ export class ValidatePIAComponent implements OnInit {
    */
   signedPIAValidation() {
     this.pia.status = 3;
-    this.pia.update().then(() => {
-      this.modalsService.openModal('modal-signed-pia-validation');
+    this.piaService.update(this.pia).then(() => {
+      // this.modalsService.openModal('modal-signed-pia-validation');
+      this.dialogService.confirmThis({
+        text: 'modals.signed_pia_validation.content',
+        type: 'yes',
+        yes: 'modals.signed_pia_validation.download_pia',
+        no: ''},
+        () => {
+          this.router.navigate(['/preview', this.pia.id]);
+        },
+        () => {
+          return;
+        });
     });
   }
 

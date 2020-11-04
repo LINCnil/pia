@@ -18,7 +18,7 @@ declare const require: any;
   styleUrls: ['./pia-line.component.scss']
 })
 export class PiaLineComponent implements OnInit {
-  @Input() pia: any;
+  @Input() pia: Pia;
   @Output() changed = new EventEmitter<Pia>();
   @Output() duplicated = new EventEmitter<Pia>();
   @Output() archived = new EventEmitter<Pia>();
@@ -95,7 +95,7 @@ export class PiaLineComponent implements OnInit {
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
     this.pia[attribute] = text;
-    this.pia.update();
+    this.piaService.update(this.pia);
     this.changed.emit(this.pia);
   }
 

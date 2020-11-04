@@ -289,77 +289,77 @@ export class Pia extends ApplicationDb {
    * Update a PIA.
    * @returns {Promise} - Return new Promise
    */
-  async update(date = null) {
-    return new Promise((resolve, reject) => {
-      this.find(this.id).then((entry: any) => {
-        entry.name = this.name;
-        entry.category = this.category;
-        entry.author_name = this.author_name;
-        entry.evaluator_name = this.evaluator_name;
-        entry.validator_name = this.validator_name;
-        entry.dpo_status = this.dpo_status;
-        entry.dpo_opinion = this.dpo_opinion;
-        entry.concerned_people_opinion = this.concerned_people_opinion;
-        entry.concerned_people_status = this.concerned_people_status;
-        entry.rejected_reason = this.rejected_reason;
-        entry.applied_adjustements = this.applied_adjustements;
-        entry.status = this.status;
-        entry.is_example = this.is_example;
-        if (entry.is_archive === undefined || entry.is_archive === null) {
-          entry.is_archive = 0;
-        } else {
-          entry.is_archive = this.is_archive;
-        }
-        entry.dpos_names = this.dpos_names;
-        entry.people_names = this.people_names;
-        entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
-        entry.concerned_people_searched_content = this.concerned_people_searched_content;
-        entry.structure_id = this.structure_id ? this.structure_id : '';
-        entry.structure_name = this.structure_name;
-        entry.structure_sector_name = this.structure_sector_name;
-        entry.structure_data = this.structure_data ? this.structure_data : '';
-        entry.updated_at = date ? date : new Date();
-        if (this.serverUrl) {
-          const formData = new FormData();
-          for (const d in entry) {
-            if (entry.hasOwnProperty(d)) {
-              let value = entry[d];
-              if (d === 'structure_data') {
-                value = JSON.stringify(value);
-              }
-              formData.append('pia[' + d + ']', value);
-            }
-          }
-          fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
-            body: formData,
-            mode: 'cors'
-          })
-            .then(response => {
-              return response.json();
-            })
-            .then((result: any) => {
-              resolve();
-            })
-            .catch(error => {
-              console.error('Request failed', error);
-              reject();
-            });
-        } else {
-          this.getObjectStore().then(() => {
-            const evt = this.objectStore.put(entry);
-            evt.onerror = (event: any) => {
-              console.error(event);
-              reject(Error(event));
-            };
-            evt.onsuccess = () => {
-              resolve();
-            };
-          });
-        }
-      });
-    });
-  }
+  // async update(date = null) {
+  //   return new Promise((resolve, reject) => {
+  //     this.find(this.id).then((entry: any) => {
+  //       entry.name = this.name;
+  //       entry.category = this.category;
+  //       entry.author_name = this.author_name;
+  //       entry.evaluator_name = this.evaluator_name;
+  //       entry.validator_name = this.validator_name;
+  //       entry.dpo_status = this.dpo_status;
+  //       entry.dpo_opinion = this.dpo_opinion;
+  //       entry.concerned_people_opinion = this.concerned_people_opinion;
+  //       entry.concerned_people_status = this.concerned_people_status;
+  //       entry.rejected_reason = this.rejected_reason;
+  //       entry.applied_adjustements = this.applied_adjustements;
+  //       entry.status = this.status;
+  //       entry.is_example = this.is_example;
+  //       if (entry.is_archive === undefined || entry.is_archive === null) {
+  //         entry.is_archive = 0;
+  //       } else {
+  //         entry.is_archive = this.is_archive;
+  //       }
+  //       entry.dpos_names = this.dpos_names;
+  //       entry.people_names = this.people_names;
+  //       entry.concerned_people_searched_opinion = this.concerned_people_searched_opinion;
+  //       entry.concerned_people_searched_content = this.concerned_people_searched_content;
+  //       entry.structure_id = this.structure_id ? this.structure_id : '';
+  //       entry.structure_name = this.structure_name;
+  //       entry.structure_sector_name = this.structure_sector_name;
+  //       entry.structure_data = this.structure_data ? this.structure_data : '';
+  //       entry.updated_at = date ? date : new Date();
+  //       if (this.serverUrl) {
+  //         const formData = new FormData();
+  //         for (const d in entry) {
+  //           if (entry.hasOwnProperty(d)) {
+  //             let value = entry[d];
+  //             if (d === 'structure_data') {
+  //               value = JSON.stringify(value);
+  //             }
+  //             formData.append('pia[' + d + ']', value);
+  //           }
+  //         }
+  //         fetch(this.getServerUrl() + '/' + entry.id, {
+  //           method: 'PATCH',
+  //           body: formData,
+  //           mode: 'cors'
+  //         })
+  //           .then(response => {
+  //             return response.json();
+  //           })
+  //           .then((result: any) => {
+  //             resolve();
+  //           })
+  //           .catch(error => {
+  //             console.error('Request failed', error);
+  //             reject();
+  //           });
+  //       } else {
+  //         this.getObjectStore().then(() => {
+  //           const evt = this.objectStore.put(entry);
+  //           evt.onerror = (event: any) => {
+  //             console.error(event);
+  //             reject(Error(event));
+  //           };
+  //           evt.onsuccess = () => {
+  //             resolve();
+  //           };
+  //         });
+  //       }
+  //     });
+  //   });
+  // }
 
   /**
    * Update a PIA.

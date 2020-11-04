@@ -61,7 +61,7 @@ export class ModalsComponent implements OnInit, OnDestroy {
     //   this._structureService.structures = data;
     // });
 
-    this._piaService.getPIA();
+    // this._piaService.getPIA();
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),

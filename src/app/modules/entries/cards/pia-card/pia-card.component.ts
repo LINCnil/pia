@@ -22,7 +22,7 @@ declare const require: any;
   styleUrls: ['./pia-card.component.scss']
 })
 export class PiaCardComponent implements OnInit {
-  @Input() pia: any;
+  @Input() pia: Pia;
   @Input() previousPia: any;
   @Output() changed = new EventEmitter<Pia>();
   @Output() duplicated = new EventEmitter<Pia>();
@@ -145,7 +145,7 @@ export class PiaCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.pia.name = this.piaForm.value.name;
-      this.pia.update();
+      this.piaService.update(this.pia);
       this.changed.emit(this.pia);
     }
   }
@@ -167,7 +167,7 @@ export class PiaCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.pia.author_name = this.piaForm.value.author_name;
-      this.pia.update();
+      this.piaService.update(this.pia);
       this.changed.emit(this.pia);
     }
   }
@@ -189,7 +189,7 @@ export class PiaCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.pia.evaluator_name = this.piaForm.value.evaluator_name;
-      this.pia.update();
+      this.piaService.update(this.pia);
       this.changed.emit(this.pia);
     }
   }
@@ -211,7 +211,7 @@ export class PiaCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.pia.validator_name = this.piaForm.value.validator_name;
-      this.pia.update();
+      this.piaService.update(this.pia);
       this.changed.emit(this.pia);
     }
   }
@@ -233,7 +233,7 @@ export class PiaCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.pia.category = this.piaForm.value.category;
-      this.pia.update();
+      this.piaService.update(this.pia);
       this.changed.emit(this.pia);
     }
   }

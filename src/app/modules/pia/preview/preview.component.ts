@@ -61,8 +61,8 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
       this.revisions = resp;
     });
 
-    if (this.piaService.pia.structure_data) {
-      this.appDataService.dataNav = this.piaService.pia.structure_data;
+    if (this.pia.structure_data) {
+      this.appDataService.dataNav = this.pia.structure_data;
     }
     this.data = this.appDataService.dataNav;
   }

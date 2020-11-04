@@ -13,6 +13,7 @@ import { AnswerService } from 'src/app/services/answer.service';
 import { Pia } from 'src/app/models/pia.model';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: `.app-risks-cartography`,
   templateUrl: './risks-cartography.component.html',
   styleUrls: ['./risks-cartography.component.scss']

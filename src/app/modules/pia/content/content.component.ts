@@ -45,18 +45,15 @@ export class ContentComponent implements OnInit {
     this.knowledgeBaseService.toHide = [];
 
     // Update the last edited date for this PIA
-    this.piaService.getPIA().then(() => {
-      this.piaService.pia.updated_at = new Date();
-      this.piaService.pia.update();
+    this.pia.updated_at = new Date();
+    this.piaService.update(this.pia);
 
-      if (this.piaService.pia.is_archive === 1) {
-        this.router.navigate(['home']);
-      }
-    });
+    if (this.pia.is_archive === 1) {
+      this.router.navigate(['home']);
+    }
   }
 
   async ngOnChanges() {
-    await this.piaService.getPIA();
     this.paginationService.dataNav = this.appDataService.dataNav;
 
     const sectionId = parseInt(this.activatedRoute.snapshot.params.section_id, 10);
@@ -119,7 +116,7 @@ export class ContentComponent implements OnInit {
   private goToNextSectionItem(status_start: number, status_end: number) {
     const goto_section_item = this.paginationService.getNextSectionItem(status_start, status_end);
 
-    this.router.navigate(['entry', this.piaService.pia.id, 'section', goto_section_item[0], 'item', goto_section_item[1]]);
+    this.router.navigate(['entry', this.pia.id, 'section', goto_section_item[0], 'item', goto_section_item[1]]);
   }
 
   /**
