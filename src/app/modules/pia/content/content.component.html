@@ -81,13 +81,13 @@
     [pia]="pia" [section]="section" [item]="item">
   </app-evaluations>
 
-  <div class="app-overview-risks" *ngIf="section.id == 3 && item.id == 5"></div>
+  <div [pia]="pia" class="app-overview-risks" *ngIf="section.id == 3 && item.id == 5"></div>
 
-  <app-validate-pia *ngIf="section.id == 4 && item.id == 4"></app-validate-pia>
+  <app-validate-pia [pia]="pia" *ngIf="section.id == 4 && item.id == 4"></app-validate-pia>
 
   <app-refuse-pia [pia]="pia" *ngIf="section.id == 4 && item.id == 5"></app-refuse-pia>
 
-  <div class="app-risks-cartography" *ngIf="section.id == 4 && item.id == 1"></div>
+  <div [pia]="pia" class="app-risks-cartography" *ngIf="section.id == 4 && item.id == 1"></div>
 
   <app-action-plan
     *ngIf="section.id == 4 && item.id == 2"
