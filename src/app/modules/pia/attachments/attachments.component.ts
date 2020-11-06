@@ -62,13 +62,15 @@ export class AttachmentsComponent implements OnInit {
     this._attachmentsService
       .upload((<HTMLInputElement>event.target).files[0], this.pia.id)
       .then((attachment: Attachment) => {
+        console.log(this.attachments);
         this.attachments.unshift(attachment);
-        if (attachment.pia_signed === 1) {
-          // Add the last previous signed attachment in the signed attachments array
-          this._attachmentsService.signedAttachments.unshift(this._attachmentsService.attachment_signed);
-          // Allocate the new one
-          this._attachmentsService.attachment_signed = attachment;
-        }
+        console.log(this.attachments);
+        // if (attachment.pia_signed === 1) {
+        //   // Add the last previous signed attachment in the signed attachments array
+        //   this._attachmentsService.signedAttachments.unshift(this._attachmentsService.attachment_signed);
+        //   // Allocate the new one
+        //   this._attachmentsService.attachment_signed = attachment;
+        // }
         this.loading = false;
 
       })

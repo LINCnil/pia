@@ -28,11 +28,11 @@ export class AttachmentsService extends ApplicationDb {
         if (this.serverUrl) {
           fetch(this.getServerUrl(),{
             mode: 'cors'
-          }).then(function(response) {
+          }).then((response) => {
             return response.json();
-          }).then(function(result: any) {
+          }).then((result: any) => {
             resolve(result);
-          }).catch (function (error) {
+          }).catch ((error) => {
             console.error('Request failed', error);
             reject();
           });
@@ -198,7 +198,7 @@ export class AttachmentsService extends ApplicationDb {
             // To refresh signed attachments on validation page
             this.updateSignedAttachmentsList(piaId).then(() => {
               // ---
-              resolve(res);
+              resolve(attachment);
             });
           })
           .catch(() => {
