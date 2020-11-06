@@ -39,8 +39,7 @@ export class MeasureService {
   /**
    * Allows an user to remove a measure ("RISKS" section).
    */
-  removeMeasure(): void {
-    const measure_id = parseInt(localStorage.getItem('measure-id'), 10);
+  removeMeasure(measure_id): void {
     const measure = new Measure();
     measure.pia_id = this.pia_id;
 
@@ -61,9 +60,6 @@ export class MeasureService {
     if (index !== -1) {
       this.measures.splice(index, 1);
     }
-
-    localStorage.removeItem('measure-id');
-    this.modalsService.closeModal();
   }
 
   /**
