@@ -16,7 +16,12 @@
         <!-- Left sidebar (sections) -->
         <nav class="hide-for-print small-12 medium-3 columns">
             <aside class="pia-leftSidebarBlock">
-                <app-sections [pia]="pia" [section]="section" [item]="item"></app-sections>
+                <app-sections
+                  [data]="data"
+                  [pia]="pia"
+                  [section]="section"
+                  [item]="item"
+                ></app-sections>
                 <app-attachments [pia]="pia"></app-attachments>
                 <app-revisions *ngIf="pia.is_example == 0 && pia.is_archive  == 0"
                     [pia]="pia"

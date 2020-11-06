@@ -216,7 +216,7 @@ export class PiaService extends ApplicationDb  {
     });
   }
 
-  async calculPiaProgress(pia) {
+  calculPiaProgress(pia): void {
     pia.progress = 0.0;
     if (pia.status > 0) {
       pia.progress += 4;

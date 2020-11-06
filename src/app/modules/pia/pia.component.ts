@@ -85,14 +85,17 @@ export class PiaComponent implements OnInit {
         }
 
         this.globalEvaluationService.pia = this.pia;
+
         this.route.params.subscribe((params: Params) => {
           this.getSectionAndItem(parseInt(params.section_id, 10), parseInt(params.item_id, 10));
           window.scroll(0, 0);
         });
+
         // Suscribe to measure service messages
         this.subscription = this.measureService.behaviorSubject.subscribe(val => {
           this.measureToRemoveFromTags = val;
         });
+
       })
       .catch((err) => {
         console.error(err);
@@ -100,7 +103,7 @@ export class PiaComponent implements OnInit {
 
   }
 
-  ngDoCheck() {
+  ngDoCheck(): void {
     if (this.measureToRemoveFromTags && this.measureToRemoveFromTags.length > 0) {
       const measureName = this.measureToRemoveFromTags;
       this.measureToRemoveFromTags = null;
@@ -149,7 +152,6 @@ export class PiaComponent implements OnInit {
    * @param itemId - The item id.
    */
   private async getSectionAndItem(sectionId: number, itemId: number) {
-
     if (this.pia.structure_data) {
       this.appDataService.dataNav = this.pia.structure_data;
     }
