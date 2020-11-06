@@ -4,7 +4,6 @@ import { BehaviorSubject } from 'rxjs';
 import { Measure } from '../models/measure.model';
 import { GlobalEvaluationService } from './global-evaluation.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
-import { ModalsService } from './modals.service';
 
 
 @Injectable()
@@ -15,7 +14,6 @@ export class MeasureService {
   pia_id: number;
 
   constructor(private translateService: TranslateService,
-              private modalsService: ModalsService,
               private knowledgeBaseService: KnowledgeBaseService,
               private globalEvaluationService: GlobalEvaluationService) {}
 
@@ -39,8 +37,7 @@ export class MeasureService {
   /**
    * Allows an user to remove a measure ("RISKS" section).
    */
-  removeMeasure(): void {
-    const measure_id = parseInt(localStorage.getItem('measure-id'), 10);
+  removeMeasure(measure_id): void {
     const measure = new Measure();
     measure.pia_id = this.pia_id;
 
@@ -61,9 +58,6 @@ export class MeasureService {
     if (index !== -1) {
       this.measures.splice(index, 1);
     }
-
-    localStorage.removeItem('measure-id');
-    this.modalsService.closeModal();
   }
 
   /**

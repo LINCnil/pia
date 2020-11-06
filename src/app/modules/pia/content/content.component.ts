@@ -1,12 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { Pia } from 'src/app/models/pia.model';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { DialogService } from 'src/app/services/dialog.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { MeasureService } from 'src/app/services/measures.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { PaginationService } from 'src/app/services/pagination.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
@@ -32,31 +31,28 @@ export class ContentComponent implements OnInit {
     private appDataService: AppDataService,
     private activatedRoute: ActivatedRoute,
     public measureService: MeasureService,
-    private modalsService: ModalsService,
     public piaService: PiaService,
     public sidStatusService: SidStatusService,
     public globalEvaluationService: GlobalEvaluationService,
     public paginationService: PaginationService,
-    private knowledgeBaseService: KnowledgeBaseService
+    private knowledgeBaseService: KnowledgeBaseService,
+    private dialogService: DialogService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Reset measures no longer addable from KB when switching PIA
     this.knowledgeBaseService.toHide = [];
 
     // Update the last edited date for this PIA
-    this.piaService.getPIA().then(() => {
-      this.piaService.pia.updated_at = new Date();
-      this.piaService.pia.update();
+    this.pia.updated_at = new Date();
+    this.piaService.update(this.pia);
 
-      if (this.piaService.pia.is_archive === 1) {
-        this.router.navigate(['home']);
-      }
-    });
+    if (this.pia.is_archive === 1) {
+      this.router.navigate(['/entries']);
+    }
   }
 
-  async ngOnChanges() {
-    await this.piaService.getPIA();
+  ngOnChanges(): void {
     this.paginationService.dataNav = this.appDataService.dataNav;
 
     const sectionId = parseInt(this.activatedRoute.snapshot.params.section_id, 10);
@@ -70,7 +66,7 @@ export class ContentComponent implements OnInit {
   /**
    * Prepare entry for evaluation.
    */
-  prepareForEvaluation() {
+  prepareForEvaluation(): void {
     this.globalEvaluationService.prepareForEvaluation().then(() => {
       let isPiaFullyEdited = true;
       for (const el in this.sidStatusService.itemStatus) {
@@ -80,10 +76,32 @@ export class ContentComponent implements OnInit {
       }
       if (isPiaFullyEdited) {
         this.goToNextSectionItem(4, 5);
-        this.modalsService.openModal('completed-edition');
+        this.dialogService.confirmThis({
+          text: 'modals.completed_edition.content',
+          type: 'yes',
+          yes: 'modals.continue',
+          no: ''
+        },
+        () => {
+          return;
+        },
+        () => {
+          return;
+        });
       } else {
         this.goToNextSectionItem(0, 4);
-        this.modalsService.openModal('ask-for-evaluation');
+        this.dialogService.confirmThis({
+          text: 'modals.ask_for_evaluation.content',
+          type: 'yes',
+          yes: 'modals.continue',
+          no: ''
+        },
+        () => {
+          return;
+        },
+        () => {
+          return;
+        });
       }
     });
   }
@@ -101,11 +119,44 @@ export class ContentComponent implements OnInit {
         }
       }
       if (isPiaFullyEvaluated) {
-        this.modalsService.openModal('completed-evaluation');
+        this.dialogService.confirmThis({
+          text: 'modals.completed_evaluation.content',
+          type: 'yes',
+          yes: 'modals.continue',
+          no: ''
+        },
+        () => {
+          return;
+        },
+        () => {
+          return;
+        });
       } else if (toFix) {
-        this.modalsService.openModal('validate-evaluation-to-correct');
+        this.dialogService.confirmThis({
+          text: 'modals.validate_evaluation_to_correct.content',
+          type: 'yes',
+          yes: 'modals.continue',
+          no: ''
+        },
+        () => {
+          return;
+        },
+        () => {
+          return;
+        });
       } else {
-        this.modalsService.openModal('validate-evaluation');
+        this.dialogService.confirmThis({
+          text: 'modals.validate_evaluation.content',
+          type: 'yes',
+          yes: 'modals.continue',
+          no: ''
+        },
+        () => {
+          return;
+        },
+        () => {
+          return;
+        });
       }
     });
   }
@@ -113,28 +164,50 @@ export class ContentComponent implements OnInit {
   /**
    * Go to next item.
    * @private
-   * @param {number} status_start - From status.
-   * @param {number} status_end - To status.
+   * @param status_start - From status.
+   * @param status_end - To status.
    */
-  private goToNextSectionItem(status_start: number, status_end: number) {
+  private goToNextSectionItem(status_start: number, status_end: number): void {
     const goto_section_item = this.paginationService.getNextSectionItem(status_start, status_end);
 
-    this.router.navigate(['entry', this.piaService.pia.id, 'section', goto_section_item[0], 'item', goto_section_item[1]]);
+    this.router.navigate(['pia', this.pia.id, 'section', goto_section_item[0], 'item', goto_section_item[1]]);
   }
 
   /**
    * Allow an user to return in edit mode.
    */
-  cancelAskForEvaluation() {
+  cancelAskForEvaluation(): void {
     this.globalEvaluationService.cancelForEvaluation();
-    this.modalsService.openModal('back-to-edition');
+    this.dialogService.confirmThis({
+      text: 'modals.back_to_edition.content',
+      type: 'yes',
+      yes: 'modals.continue',
+      no: ''
+    },
+    () => {
+      return;
+    },
+    () => {
+      return;
+    });
   }
 
   /**
    * Allow an user to cancel the validation.
    */
-  cancelValidateEvaluation() {
+  cancelValidateEvaluation(): void {
     this.globalEvaluationService.cancelValidation();
-    this.modalsService.openModal('back-to-evaluation');
+    this.dialogService.confirmThis({
+      text: 'modals.back_to_evaluation.content',
+      type: 'yes',
+      yes: 'modals.continue',
+      no: ''
+    },
+    () => {
+      return;
+    },
+    () => {
+      return;
+    });
   }
 }

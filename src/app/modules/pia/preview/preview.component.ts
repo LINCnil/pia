@@ -32,11 +32,9 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
 
   constructor(
     public actionPlanService: ActionPlanService,
-    private el: ElementRef,
     private translateService: TranslateService,
     public piaService: PiaService,
     private appDataService: AppDataService,
-    public attachmentsService: AttachmentsService,
     public revisionService: RevisionService,
     public modalsService: ModalsService,
     public languagesService: LanguagesService,
@@ -48,8 +46,6 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     this.dataNav = this.appDataService.dataNav;
 
     this.showPia();
-    this.attachmentsService.pia = this.pia;
-    this.attachmentsService.listAttachments();
 
     if (this.pia.is_archive === 1) {
       this.fromArchives = true;
@@ -61,8 +57,8 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
       this.revisions = resp;
     });
 
-    if (this.piaService.pia.structure_data) {
-      this.appDataService.dataNav = this.piaService.pia.structure_data;
+    if (this.pia.structure_data) {
+      this.appDataService.dataNav = this.pia.structure_data;
     }
     this.data = this.appDataService.dataNav;
   }
@@ -230,29 +226,30 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
           // Question
           item.questions.forEach(async question => {
             this.allData[section.id][item.id][question.id] = {};
-            const answerModel = new Answer();
-            await this.answerService.getByReferenceAndPia(this.pia.id, question.id);
-
-            /* An answer exists */
-            if (answerModel.data) {
-              const content = [];
-              if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                content.push(this.translateService.instant(this.pia.getGaugeName(answerModel.data.gauge)));
-              }
-              if (answerModel.data.text && answerModel.data.text.length > 0) {
-                content.push(answerModel.data.text);
-              }
-              if (answerModel.data.list && answerModel.data.list.length > 0) {
-                content.push(answerModel.data.list.join(', '));
-              }
-              if (content.length > 0) {
-                if (item.evaluation_mode === 'question') {
-                  const evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + question.id);
-                  this.allData[section.id][item.id][question.id].evaluation = evaluation;
+            this.answerService.getByReferenceAndPia(this.pia.id, question.id)
+              .then((answer: Answer) => {
+                /* An answer exists */
+                if (answer && answer.data) {
+                  const content = [];
+                  if (answer.data.gauge && answer.data.gauge > 0) {
+                    content.push(this.translateService.instant(this.pia.getGaugeName(answer.data.gauge)));
+                  }
+                  if (answer.data.text && answer.data.text.length > 0) {
+                    content.push(answer.data.text);
+                  }
+                  if (answer.data.list && answer.data.list.length > 0) {
+                    content.push(answer.data.list.join(', '));
+                  }
+                  if (content.length > 0) {
+                    if (item.evaluation_mode === 'question') {
+                      this.getEvaluation(section.id, item.id, ref + '.' + question.id).then(evaluation => {
+                        this.allData[section.id][item.id][question.id].evaluation = evaluation;
+                      });
+                    }
+                    this.allData[section.id][item.id][question.id].content = content.join(', ');
+                  }
                 }
-                this.allData[section.id][item.id][question.id].content = content.join(', ');
-              }
-            }
+              });
           });
         }
         if (item.evaluation_mode === 'item') {

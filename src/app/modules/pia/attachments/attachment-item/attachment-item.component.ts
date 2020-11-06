@@ -1,4 +1,5 @@
-import { Component, ViewChild, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, ViewChild, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import {DomSanitizer} from "@angular/platform-browser";
 import { AttachmentsService } from 'src/app/services/attachments.service';
@@ -14,30 +15,38 @@ export class AttachmentItemComponent implements OnInit {
   @Input() isPreview: boolean;
   @Input() attachment: any;
   @Input() pia: any;
+  @Output() deleted = new EventEmitter();
   fileUrl:any = null;
 
+  showRemoveAttachmentForm = false;
+  removeAttachmentForm: FormGroup;
 
-  constructor(private domSanitizer : DomSanitizer,
-              private _modalsService: ModalsService,
-              private _attachmentsService: AttachmentsService,
-              private el: ElementRef) { }
+
+  constructor(private formBuilder: FormBuilder,
+              private attachmentsService: AttachmentsService,
+              private el: ElementRef) {
+                this.removeAttachmentForm = this.formBuilder.group({
+                  comment: ['', [Validators.required, Validators.minLength(3)]]
+                });
+              }
 
   ngOnInit() { }
+
+
 
   /**
    * Deletes an attachment with a given id.
    * @param {string} id - Unique id of the attachment to be deleted.
    */
-  removeAttachment(id: string) {
-    localStorage.setItem('attachment-id', id);
-    this._modalsService.openModal('modal-remove-attachment');
+  removeAttachment(id: number) {
+    this.showRemoveAttachmentForm = true;
   }
 
   /**
    * Allows an user to download a specific attachment.
    */
   downloadAttachment() {
-    this._attachmentsService.downloadAttachment(this.attachment.id);
+    this.attachmentsService.downloadAttachment(this.attachment.id);
   }
 
   /**
@@ -94,6 +103,16 @@ export class AttachmentItemComponent implements OnInit {
    */
   showAddAttachmentButton() {
     return (this.pia.status !== 2 && this.pia.status !== 3);
+  }
+
+
+  submitRemoveAttachment() {
+    this.attachmentsService
+      .removeAttachment(this.attachment.id, this.pia.id, this.removeAttachmentForm.controls['comment'].value)
+        .then(() => {
+          this.deleted.emit(this.attachment.id);
+          this.showRemoveAttachmentForm = false;
+        });
   }
 
 }

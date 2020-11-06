@@ -6,6 +6,7 @@ import { PiaService } from 'src/app/services/pia.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { Pia } from 'src/app/models/pia.model';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-refuse-pia',
@@ -24,7 +25,8 @@ export class RefusePIAComponent implements OnInit {
               private el: ElementRef,
               private modalsService: ModalsService,
               private sidStatusService: SidStatusService,
-              public piaService: PiaService) { }
+              public piaService: PiaService,
+              private dialogService: DialogService) { }
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
@@ -65,7 +67,22 @@ export class RefusePIAComponent implements OnInit {
    * Display the modal to abandon the PIA.
    */
   abandon() {
-    this.modalsService.openModal('modal-abandon-pia');
+    // this.modalsService.openModal('modal-abandon-pia');
+    this.dialogService.confirmThis({
+        text: 'modals.abandon_pia.content',
+        type: 'confirm',
+        yes: 'modals.archive',
+        no: 'modals.cancel',
+        data: {
+          additional_text: 'modals.abandon_pia.additional_text'
+        }
+      },
+      () => {
+        this.piaService.abandonTreatment(this.pia);
+      },
+      () => {
+        return;
+      });
   }
 
   /**
@@ -73,10 +90,10 @@ export class RefusePIAComponent implements OnInit {
    */
   refuse() {
     this.pia.status = 1;
-    this.piaService.pia.update().then(() => {
-      this.piaService.cancelAllValidatedEvaluation().then(() => {
+    this.piaService.update(this.pia).then(() => {
+      this.piaService.cancelAllValidatedEvaluation(this.pia).then(() => {
         this.sidStatusService.refusePia(this.piaService).then(() => {
-          this.router.navigate(['entry', this.piaService.pia.id, 'section', 1, 'item', 1]);
+          this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
           this.modalsService.openModal('modal-refuse-pia');
         });
       });
@@ -104,7 +121,7 @@ export class RefusePIAComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.rejected_reason = userText;
-    this.piaService.pia.update().then(() => {
+    this.piaService.update(this.pia).then(() => {
       if (userText && userText.length > 0) {
         this.rejectionReasonForm.controls['rejectionReason'].disable();
         this.showRejectionReasonButtons = true;
@@ -136,7 +153,7 @@ export class RefusePIAComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.applied_adjustements = userText;
-    this.piaService.pia.update().then(() => {
+    this.piaService.update(this.pia).then(() => {
       if (userText && userText.length > 0) {
         this.modificationsMadeForm.controls['modificationsMade'].disable();
         this.showResendValidationButton = true;

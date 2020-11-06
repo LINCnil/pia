@@ -59,7 +59,7 @@
             {{ 'pia.statuses.5' | translate }}
           </div>
           <ng-template #defaultStatuses>
-            <div>{{ archivedPia.getStatusName() | translate }}</div>
+            <div>{{ piaService.getStatusName(archivedPia.status) | translate }}</div>
           </ng-template>
         </div>
         <div class="pia-cardsBlock-item-status-progressBar">

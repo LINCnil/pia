@@ -4,6 +4,7 @@ import { Structure } from 'src/app/models/structure.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ModalsService } from 'src/app/services/modals.service';
+import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class StructureLineComponent implements OnInit {
   @Output() deleted = new EventEmitter<any>();
 
   constructor(
+    private piaService: PiaService,
     public structureService: StructureService,
     public languagesService: LanguagesService,
     private dialogService: DialogService
@@ -47,7 +49,7 @@ export class StructureLineComponent implements OnInit {
    * Opens the modal to confirm deletion of a Structure
    * @param id - The Structure id.
    */
-  remove(id: string): void {
+  remove(id: number): void {
     // localStorage.setItem('structure-id', id);
     // this.modalsService.openModal('modal-remove-structure');
     this.dialogService.confirmThis({
@@ -58,7 +60,13 @@ export class StructureLineComponent implements OnInit {
       () => {
         this.structureService.remove(id)
           .then(() => {
-            this.deleted.emit();
+            this.piaService.getAllWithStructure(id).then((items: any) => {
+              items.forEach(item => {
+                item.structure_id = null;
+                this.piaService.update(item);
+              });
+              this.deleted.emit();
+            });
           })
           .catch(() => {
             return;

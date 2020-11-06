@@ -4,11 +4,10 @@ import {
   Input,
   Output,
   EventEmitter,
-  SimpleChanges
 } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import * as html2canvas from 'html2canvas';
-import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png';
+import { svgAsPngUri } from 'save-svg-as-png';
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -62,9 +61,6 @@ export class ExportComponent implements OnInit {
       this.piaJson = json;
     });
 
-    this.attachmentsService.pia = this.pia;
-    this.attachmentsService.listAttachments();
-
     if (this.pia.is_archive === 1) {
       this.fromArchives = true;
     }
@@ -84,9 +80,10 @@ export class ExportComponent implements OnInit {
     if (this.editMode) {
       this.downloading.emit(true);
       setTimeout(async () => {
-        await this.onDownload().then(() => {
-          this.downloading.emit(false);
-        });
+        this.onDownload()
+          .then(() => {
+            this.downloading.emit(false);
+          });
       }, 5000);
     } else {
       this.onDownload();
@@ -94,58 +91,71 @@ export class ExportComponent implements OnInit {
   }
 
   async onDownload(): Promise<void>  {
-    if (this.exportSelected) {
-      if (this.exportSelected.length > 1) {
-        // download by selection
-        await this.generateExportsZip('pia-full-content', this.exportSelected);
-      } else {
-        // download only one element
-        const fileTitle = 'pia-' + slugify(this.pia.name);
-        switch (this.exportSelected[0]) {
-          case 'doc': // Only doc
-            await this.generateDocx('pia-full-content');
-            break;
-          case 'images': // Only images
-            await this.downloadAllGraphsAsImages();
-            break;
-          case 'json': // Only json
-            this.piaService.export(this.pia.id).then((json: any) => {
-              let downloadLink = document.createElement('a');
+    return new Promise((resolve, reject) => {
+      if (this.exportSelected) {
+        if (this.exportSelected.length > 1) {
+          // download by selection
+          this.generateExportsZip('pia-full-content', this.exportSelected)
+            .then(() => {
+              resolve();
+            });
+        } else {
+          // download only one element
+          const fileTitle = 'pia-' + slugify(this.pia.name);
+          switch (this.exportSelected[0]) {
+            case 'doc': // Only doc
+              this.generateDocx('pia-full-content')
+                .then(() => {
+                  resolve();
+                });
+              break;
+            case 'images': // Only images
+              this.downloadAllGraphsAsImages()
+                .then(() => {
+                  resolve();
+                });
+              break;
+            case 'json': // Only json
+              this.piaService.export(this.pia.id).then((json: any) => {
+                let downloadLink = document.createElement('a');
+                document.body.appendChild(downloadLink);
+                if (navigator.msSaveOrOpenBlob) {
+                  window.navigator.msSaveBlob(json, fileTitle + '.json');
+                } else {
+                  downloadLink.href = json;
+                  downloadLink.download = fileTitle + '.json';
+                  downloadLink.click();
+                }
+                resolve()
+              });
+              break;
+            case 'csv': // Only csv
+              const csvName =
+                fileTitle +
+                '-' +
+                slugify(
+                  this.translateService.instant('summary.action_plan.title')
+                ) +
+                '.csv';
+              const blob = this.csvToBlob(csvName);
+              const downloadLink = document.createElement('a');
               document.body.appendChild(downloadLink);
+
               if (navigator.msSaveOrOpenBlob) {
-                window.navigator.msSaveBlob(json, fileTitle + '.json');
+                window.navigator.msSaveBlob(blob, csvName);
               } else {
-                downloadLink.href = json;
-                downloadLink.download = fileTitle + '.json';
+                downloadLink.href = URL.createObjectURL(blob);
+                downloadLink.download = csvName;
                 downloadLink.click();
               }
-            });
-            break;
-          case 'csv': // Only csv
-            const csvName =
-              fileTitle +
-              '-' +
-              slugify(
-                this.translateService.instant('summary.action_plan.title')
-              ) +
-              '.csv';
-            const blob = this.csvToBlob(csvName);
-            const downloadLink = document.createElement('a');
-            document.body.appendChild(downloadLink);
-
-            if (navigator.msSaveOrOpenBlob) {
-              window.navigator.msSaveBlob(blob, csvName);
-            } else {
-              downloadLink.href = URL.createObjectURL(blob);
-              downloadLink.download = csvName;
-              downloadLink.click();
-            }
-            break;
-          default:
-            break;
+              resolve();
+              break;
+            default:
+              break;
+          }
         }
       }
-    }
+    });
   }
   /****************************** END DOWNLOAD FILES *********************************/
 
@@ -401,16 +411,19 @@ export class ExportComponent implements OnInit {
    */
   async addAttachmentsToZip(zip): Promise<void> {
     return new Promise(async (resolve, reject) => {
-      this.attachmentsService.attachments.forEach(attachment => {
-        if (attachment.file && attachment.file.length > 0) {
-          const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
-          const folderName = this.translateService.instant(
-            'summary.attachments'
-          );
-          zip.file(folderName + '/' + attachment.name, byteCharacters1, {
-            binary: true
-          });
-        }
+      this.attachmentsService.findAllByPia(this.pia.id)
+        .then((attachments: Array<any>) => {
+          attachments.forEach(attachment => {
+            if (attachment.file && attachment.file.length > 0) {
+              const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
+              const folderName = this.translateService.instant(
+                'summary.attachments'
+              );
+              zip.file(folderName + '/' + attachment.name, byteCharacters1, {
+                binary: true
+              });
+            }
+        });
       });
       resolve(zip);
     });
@@ -423,9 +436,12 @@ export class ExportComponent implements OnInit {
   async downloadAllGraphsAsImages(): Promise<void> {
     const JSZip = require('jszip');
     const zip = new JSZip();
-    this.addImagesToZip(zip).then((zip2: any) => {
-      zip2.generateAsync({ type: 'blob' }).then(blobContent => {
-        FileSaver.saveAs(blobContent, 'pia-images.zip');
+    return new Promise((resolve, reject) => {
+      this.addImagesToZip(zip).then((zip2: any) => {
+        zip2.generateAsync({ type: 'blob' }).then(blobContent => {
+          FileSaver.saveAs(blobContent, 'pia-images.zip');
+          resolve();
+        });
       });
     });
   }
@@ -453,7 +469,6 @@ export class ExportComponent implements OnInit {
         binary: true
       });
       zip.file('Images/risksOverview.png', byteCharacters3, { binary: true });
-
       resolve(zip);
     });
   }
@@ -465,9 +480,8 @@ export class ExportComponent implements OnInit {
   async getActionPlanOverviewImg(): Promise<void> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const actionPlanOverviewImg = document.querySelector(
-          '#actionPlanOverviewImg'
-        );
+        const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
+        console.log(actionPlanOverviewImg)
         if (actionPlanOverviewImg) {
           html2canvas(actionPlanOverviewImg, { scale: 1.4 }).then(canvas => {
             if (canvas) {
@@ -476,7 +490,7 @@ export class ExportComponent implements OnInit {
             }
           });
         }
-      }, 250);
+      }, 0);
     });
   }
 

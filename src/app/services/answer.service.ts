@@ -11,12 +11,9 @@ export class AnswerService extends ApplicationDb {
 
   // TODO: Move Methods from model here
   async create(answer: Answer): Promise<Answer> {
-    this.created_at = new Date();
     const data = {
-      pia_id: this.pia_id,
-      reference_to: this.reference_to,
-      data: answer.data,
-      created_at: this.created_at
+      ...answer,
+      created_at: new Date()
     };
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
@@ -140,22 +137,16 @@ export class AnswerService extends ApplicationDb {
   // }
 
   async getByReferenceAndPia(pia_id: number, reference_to: any): Promise<any> {
-    this.pia_id = pia_id;
-    this.reference_to = reference_to;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl() + '?reference_to=' + this.reference_to, {
+        fetch(this.getServerUrl() + '?reference_to=' + reference_to, {
           mode: 'cors'
         })
           .then(response => {
             return response.json();
           })
           .then((result: any) => {
-            if (result) {
-              resolve(result);
-            } else {
-              resolve(false);
-            }
+            resolve(result);
           })
           .catch(error => {
             console.error('Request failed', error);
@@ -164,18 +155,14 @@ export class AnswerService extends ApplicationDb {
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
-          const evt = index1.get(IDBKeyRange.only([this.pia_id, this.reference_to]));
+          const evt = index1.get(IDBKeyRange.only([pia_id, reference_to]));
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
             const entry = event.target.result;
-            if (entry) {
-              resolve(entry);
-            } else {
-              resolve(false);
-            }
+            resolve(entry);
           };
         });
       }
@@ -184,7 +171,6 @@ export class AnswerService extends ApplicationDb {
 
   async findAllByPia(pia_id: number): Promise<any> {
     const items = [];
-    this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
@@ -203,7 +189,7 @@ export class AnswerService extends ApplicationDb {
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index2');
-          const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
+          const evt = index1.openCursor(IDBKeyRange.only(pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
@@ -224,7 +210,6 @@ export class AnswerService extends ApplicationDb {
 
   async getGaugeByPia(pia_id: number): Promise<any> {
     const items = [];
-    this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
@@ -243,7 +228,7 @@ export class AnswerService extends ApplicationDb {
       } else {
         this.getObjectStore().then(() => {
           const index2 = this.objectStore.index('index2');
-          const evt = index2.openCursor(IDBKeyRange.only(this.pia_id));
+          const evt = index2.openCursor(IDBKeyRange.only(pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));

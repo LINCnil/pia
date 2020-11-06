@@ -9,6 +9,8 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { ModalsService } from 'src/app/services/modals.service';
 import { Measure } from 'src/app/models/measure.model';
 import { AnswerService } from 'src/app/services/answer.service';
+import { DialogService } from 'src/app/services/dialog.service';
+import { MeasureService } from 'src/app/services/measures.service';
 
 @Component({
   selector: 'app-measures',
@@ -31,10 +33,11 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   constructor(
     public globalEvaluationService: GlobalEvaluationService,
+    private dialogService: DialogService,
     private el: ElementRef,
-    private modalsService: ModalsService,
     private knowledgeBaseService: KnowledgeBaseService,
     private answerService: AnswerService,
+    private measuresService: MeasureService,
     private ngZone: NgZone) { }
 
   ngOnInit() {
@@ -127,7 +130,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
       // Update tags
       this.answerService.getByReferenceAndPia(this.pia.id, 324).then((answer: Answer) => {
-        if (answer.data && answer.data.list) {
+        if (answer && answer.data && answer.data.list) {
           const index = answer.data.list.indexOf(previousTitle);
           if (~index) {
             answer.data.list[index] = this.measureModel.title;
@@ -137,7 +140,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       });
 
       this.answerService.getByReferenceAndPia(this.pia.id, 334).then((answer: Answer) => {
-        if (answer.data && answer.data.list) {
+        if (answer && answer.data && answer.data.list) {
           const index = answer.data.list.indexOf(previousTitle);
           if (~index) {
             answer.data.list[index] = this.measureModel.title;
@@ -230,10 +233,33 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   removeMeasure(measureId: string) {
     const measuresCount = document.querySelectorAll('.pia-measureBlock');
     if (measuresCount && measuresCount.length <= 1) {
-      this.modalsService.openModal('not-enough-measures-to-remove');
+      this.dialogService.confirmThis(
+        {
+          text: 'modals.not_enough_measures_to_remove.content',
+          type: 'yes',
+          yes: 'modals.close',
+          no: ''
+        },
+        () => {
+          return false;
+        },
+        () => {
+          return false;
+        }
+      );
     } else {
-      localStorage.setItem('measure-id', measureId);
-      this.modalsService.openModal('remove-measure');
+      this.dialogService.confirmThis(
+        {
+          text: 'modals.remove_measure.content',
+          type: 'confirm',
+          yes: 'modals.remove_measure.remove',
+          no: 'modals.remove_measure.keep'},
+          () => {
+            this.measuresService.removeMeasure(measureId);
+          },
+          () => {
+            return;
+          });
     }
   }
 

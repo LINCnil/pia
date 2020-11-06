@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { AppDataService } from 'src/app/services/app-data.service';
 import { Pia } from '../models/pia.model';
-import { ModalsService } from './modals.service';
+import { PiaService } from './pia.service';
 import { SidStatusService } from './sid-status.service';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class ArchiveService {
   data: { sections: any };
 
   constructor(
-    private modalsService: ModalsService,
+    private piaService: PiaService,
     public _appDataService: AppDataService,
     public _sidStatusService: SidStatusService
   ) {
@@ -41,8 +41,7 @@ export class ArchiveService {
   remove(id): Promise<void> {
     return new Promise((resolve, reject) => {
       // Removes from DB
-      const archivedPia = new Pia();
-      archivedPia.delete(id)
+      this.piaService.delete(id)
         .then(() => {
           localStorage.removeItem('pia-to-remove-id');
           resolve();
@@ -55,11 +54,10 @@ export class ArchiveService {
 
   unarchive(id): Promise<void> {
     return new Promise((resolve, reject) => {
-      const pia = new Pia();
-      pia.get(id)
-        .then(() => {
-          pia.is_archive = 0;
-          pia.update();
+      this.piaService.find(id)
+        .then((entry: Pia) => {
+          entry.is_archive = 0;
+          this.piaService.update(entry);
           resolve();
         })
         .catch((err) => {

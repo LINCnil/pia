@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { PiaService } from './pia.service';
 import { Router } from '@angular/router';
-import { utf8Encode } from '@angular/compiler/src/util';
 import { Revision } from '../models/revision.model';
 import { ApplicationDb } from '../application.db';
 
@@ -32,16 +31,16 @@ export class RevisionService extends ApplicationDb {
   /**
    * Load a new revision
    */
-  async getRevisionById(id) {
-    return new Promise(resolve => {
-      const revision = new Revision();
-      revision.pia_id = this.piaService.pia.id;
-      revision.get(this.revisionSelected).then(() => {
-        const piaExport = JSON.parse(revision.export);
-        resolve(piaExport);
-      });
-    });
-  }
+  // async getRevisionById(id) {
+  //   return new Promise(resolve => {
+  //     const revision = new Revision();
+  //     revision.pia_id = this.piaService.pia.id;
+  //     revision.get(this.revisionSelected).then(() => {
+  //       const piaExport = JSON.parse(revision.export);
+  //       resolve(piaExport);
+  //     });
+  //   });
+  // }
 
   /**
    * Create new revision
@@ -54,7 +53,7 @@ export class RevisionService extends ApplicationDb {
       revision.pia_id = piaId;
       revision.export = piaExport;
       revision.create().then((response: any) => {
-        this.piaService.pia.updated_at = new Date(); // Update current version's date
+        // this.piaService.pia.updated_at = new Date(); // Update current version's date
         // BETTER SOLUTION BUT REFRESH SCREEN:
         // this.router.navigate(['entry', this.piaService.pia.id]);
         resolve(response);
@@ -64,7 +63,7 @@ export class RevisionService extends ApplicationDb {
 
   async export(id: number) {
     return new Promise(async (resolve, reject) => {
-      this.piaService.calculPiaProgress;
+      await this.piaService.calculPiaProgress;
       this.piaService.exportData(id).then(data => {
         const finalData = JSON.stringify(data);
         resolve(finalData);

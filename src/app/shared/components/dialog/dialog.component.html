@@ -20,5 +20,7 @@
         {{ message.yes | translate}}
       </button>
     </div>
+    <div *ngIf="message.data && message.data.additional_text"
+      class="abandonText" [innerHTML]=" message.data.additional_text | translate"></div>
   </div>
 </div>

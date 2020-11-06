@@ -1,29 +1,139 @@
 import { Injectable } from '@angular/core';
+import { ApplicationDb } from '../application.db';
 import { Attachment } from '../models/attachment.model';
 import { ModalsService } from './modals.service';
 
 
 @Injectable()
-export class AttachmentsService {
-  attachments: any[];
+export class AttachmentsService extends ApplicationDb {
+  // attachments: any[];
   signedAttachments: any[] = [];
   attachment_signed: any;
   pia: any;
   pia_signed = 0;
 
-  constructor(private _modalsService: ModalsService) {}
+  constructor() {
+    super(201708291502, 'attachment');
+  }
 
   /**
    * List all attachments.
    * @returns {Promise}
    */
-  async listAttachments() {
+  async findAllByPia(pia_id) {
+    const items = [];
+    if (pia_id) {
+      await this.getObjectStore();
+      return new Promise((resolve, reject) => {
+        if (this.serverUrl) {
+          fetch(this.getServerUrl(),{
+            mode: 'cors'
+          }).then((response) => {
+            return response.json();
+          }).then((result: any) => {
+            resolve(result);
+          }).catch ((error) => {
+            console.error('Request failed', error);
+            reject();
+          });
+        } else {
+          const index1 = this.objectStore.index('index1');
+          const evt = index1.openCursor(IDBKeyRange.only(pia_id));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          }
+        }
+      });
+    }
+  }
+
+  async create(attachment) {
+    this.created_at = new Date();
+    const data = {
+      pia_id: this.pia_id,
+      ...attachment
+    };
+    await this.getObjectStore();
     return new Promise((resolve, reject) => {
-      const attachment = new Attachment();
-      attachment.pia_id = this.pia.id;
-      attachment.findAll().then((data: any[]) => {
-        this.attachments = data;
-        resolve();
+      if (this.serverUrl) {
+        const formData = new FormData();
+        for (const d in data) {
+          if (data.hasOwnProperty(d)) {
+            formData.append('attachment[' + d + ']', data[d]);
+          }
+        }
+        fetch(this.getServerUrl(), {
+          method: 'POST',
+          body: formData,
+          mode: 'cors'
+        }).then((response) => {
+          return response.json();
+        }).then((result: any) => {
+          resolve(result);
+        }).catch ((error) => {
+          console.error('Request failed', error);
+          reject();
+        });
+      } else {
+        const evt = this.objectStore.add(data);
+        evt.onsuccess = (event: any) => {
+          resolve(event.target.result);
+        };
+        evt.onerror = (event: any) => {
+          console.error(event);
+          reject(Error(event));
+        }
+      }
+    });
+  }
+
+  async remove(comment: string, attachmentId) {
+    return new Promise((resolve, reject) => {
+      this.find(attachmentId).then((entry: any) => {
+        entry.file = null;
+        entry.comment = comment;
+        entry.updated_at = new Date();
+        if (this.serverUrl) {
+          const formData = new FormData();
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d)) {
+              formData.append('attachment[' + d + ']', entry[d]);
+            }
+          }
+          fetch(this.getServerUrl() + '/' + entry.id, {
+            method: 'PATCH',
+            body: formData,
+            mode: 'cors'
+          }).then((response) => {
+            return response.json();
+          }).then((result: any) => {
+            resolve();
+          }).catch ((error) => {
+            console.error('Request failed', error);
+            reject();
+          });
+        } else {
+          this.getObjectStore().then(() => {
+            const evt = this.objectStore.put(entry);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            }
+            evt.onsuccess = () => {
+              resolve();
+            };
+          });
+        }
       });
     });
   }
@@ -32,12 +142,10 @@ export class AttachmentsService {
    * Update all signed attachement.
    * @returns {Promise}
    */
-  async updateSignedAttachmentsList() {
+  async updateSignedAttachmentsList(piaId) {
     return new Promise((resolve, reject) => {
       this.signedAttachments = [];
-      const attachment = new Attachment();
-      attachment.pia_id = this.pia.id;
-      attachment.findAll().then((data: any[]) => {
+      this.findAllByPia(piaId).then((data: any[]) => {
         // Store all signed attachments if they are not yet stored
         data.forEach(a => {
           if (a.pia_signed && a.pia_signed === 1) {
@@ -63,7 +171,7 @@ export class AttachmentsService {
    * Upload a new attachment.
    * @param {*} attachment_file - The attachment file.
    */
-  upload(attachment_file: any) {
+  upload(attachment_file: any, piaId) {
     return new Promise((resolve, reject) => {
       const file = new Blob([attachment_file]);
       const reader = new FileReader();
@@ -82,24 +190,15 @@ export class AttachmentsService {
           .replace(/^-+/, '')
           .replace(/-+$/, '');
         attachment.mime_type = attachment_file.type;
-        attachment.pia_id = this.pia.id;
+        attachment.pia_id = piaId;
         attachment.pia_signed = this.pia_signed;
         attachment.comment = '';
-        attachment
-          .create()
-          .then((id: number) => {
-            attachment.id = id;
-            this.attachments.unshift(attachment);
-            if (attachment.pia_signed === 1) {
-              // Add the last previous signed attachment in the signed attachments array
-              this.signedAttachments.unshift(this.attachment_signed);
-              // Allocate the new one
-              this.attachment_signed = attachment;
-            }
+        this.create(attachment)
+          .then((res: Attachment) => {
             // To refresh signed attachments on validation page
-            this.updateSignedAttachmentsList().then(() => {
+            this.updateSignedAttachmentsList(piaId).then(() => {
               // ---
-              resolve(true);
+              resolve(attachment);
             });
           })
           .catch(() => {
@@ -113,7 +212,7 @@ export class AttachmentsService {
    * Download an attachment by id.
    * @param {number} id - Id of the attachment.
    */
-  downloadAttachment(id: number) {
+  downloadAttachment(id: number): void {
     const attachment = new Attachment();
     attachment.pia_id = this.pia.id;
     attachment.find(id).then((entry: any) => {
@@ -137,30 +236,25 @@ export class AttachmentsService {
    * Allows an user to remove a PIA.
    * @param {string} comment - Comment to justify deletion.
    */
-  removeAttachment(comment: string) {
-    if (comment && comment.length > 0) {
-      const attachmentId = parseInt(localStorage.getItem('attachment-id'), 10);
-
-      // Remove from DB by erasing only the "file" field
-      const attachment = new Attachment();
-      attachment.pia_id = this.pia.id;
-      attachment.id = attachmentId;
-      attachment.remove(comment);
-
-      // Deletes from the attachments array.
-      const index = this.attachments.findIndex(p => p.id === attachmentId);
-      if (index !== -1) {
-        this.attachments.splice(index, 1);
+  removeAttachment(attachmentId: number, piaId: number, comment: string) {
+    return new Promise((resolve, reject) => {
+      if (comment && comment.length > 0) {
+        // Remove from DB by erasing only the "file" field
+        this.remove(comment, attachmentId)
+          .then(() => {
+            if (this.attachment_signed && this.attachment_signed.id === attachmentId) {
+              this.attachment_signed.comment = comment;
+              this.attachment_signed.file = null;
+              this.signedAttachments.unshift(this.attachment_signed);
+              this.attachment_signed = null;
+            }
+            resolve();
+          })
+          .catch(err => {
+            reject(err);
+          });
       }
-      if (this.attachment_signed && this.attachment_signed.id === attachmentId) {
-        this.attachment_signed.comment = comment;
-        this.attachment_signed.file = null;
-        this.signedAttachments.unshift(this.attachment_signed);
-        this.attachment_signed = null;
-      }
+    });
 
-      localStorage.removeItem('attachment-id');
-      this._modalsService.closeModal();
-    }
   }
 }
