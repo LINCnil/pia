@@ -137,13 +137,11 @@ export class AttachmentsService {
    * Allows an user to remove a PIA.
    * @param {string} comment - Comment to justify deletion.
    */
-  removeAttachment(comment: string) {
+  removeAttachment(attachmentId: number, piaId: number, comment: string) {
     if (comment && comment.length > 0) {
-      const attachmentId = parseInt(localStorage.getItem('attachment-id'), 10);
-
       // Remove from DB by erasing only the "file" field
       const attachment = new Attachment();
-      attachment.pia_id = this.pia.id;
+      attachment.pia_id = piaId;
       attachment.id = attachmentId;
       attachment.remove(comment);
 
@@ -158,9 +156,6 @@ export class AttachmentsService {
         this.signedAttachments.unshift(this.attachment_signed);
         this.attachment_signed = null;
       }
-
-      localStorage.removeItem('attachment-id');
-      this._modalsService.closeModal();
     }
   }
 }

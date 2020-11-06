@@ -4,7 +4,6 @@ import { BehaviorSubject } from 'rxjs';
 import { Measure } from '../models/measure.model';
 import { GlobalEvaluationService } from './global-evaluation.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
-import { ModalsService } from './modals.service';
 
 
 @Injectable()
@@ -15,7 +14,6 @@ export class MeasureService {
   pia_id: number;
 
   constructor(private translateService: TranslateService,
-              private modalsService: ModalsService,
               private knowledgeBaseService: KnowledgeBaseService,
               private globalEvaluationService: GlobalEvaluationService) {}
 

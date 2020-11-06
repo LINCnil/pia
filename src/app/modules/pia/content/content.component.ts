@@ -76,7 +76,6 @@ export class ContentComponent implements OnInit {
       }
       if (isPiaFullyEdited) {
         this.goToNextSectionItem(4, 5);
-        // this.modalsService.openModal('completed-edition');
         this.dialogService.confirmThis({
           text: 'modals.completed_edition.content',
           type: 'yes',
@@ -91,7 +90,6 @@ export class ContentComponent implements OnInit {
         });
       } else {
         this.goToNextSectionItem(0, 4);
-        // this.modalsService.openModal('ask-for-evaluation');
         this.dialogService.confirmThis({
           text: 'modals.ask_for_evaluation.content',
           type: 'yes',
@@ -121,7 +119,6 @@ export class ContentComponent implements OnInit {
         }
       }
       if (isPiaFullyEvaluated) {
-        // this.modalsService.openModal('completed-evaluation');
         this.dialogService.confirmThis({
           text: 'modals.completed_evaluation.content',
           type: 'yes',
@@ -135,7 +132,6 @@ export class ContentComponent implements OnInit {
           return;
         });
       } else if (toFix) {
-        // this.modalsService.openModal('validate-evaluation-to-correct');
         this.dialogService.confirmThis({
           text: 'modals.validate_evaluation_to_correct.content',
           type: 'yes',
@@ -149,7 +145,6 @@ export class ContentComponent implements OnInit {
           return;
         });
       } else {
-        // this.modalsService.openModal('validate-evaluation');
         this.dialogService.confirmThis({
           text: 'modals.validate_evaluation.content',
           type: 'yes',
@@ -183,7 +178,6 @@ export class ContentComponent implements OnInit {
    */
   cancelAskForEvaluation(): void {
     this.globalEvaluationService.cancelForEvaluation();
-    // this.modalsService.openModal('back-to-edition');
     this.dialogService.confirmThis({
       text: 'modals.back_to_edition.content',
       type: 'yes',
@@ -203,7 +197,6 @@ export class ContentComponent implements OnInit {
    */
   cancelValidateEvaluation(): void {
     this.globalEvaluationService.cancelValidation();
-    // this.modalsService.openModal('back-to-evaluation');
     this.dialogService.confirmThis({
       text: 'modals.back_to_evaluation.content',
       type: 'yes',

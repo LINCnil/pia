@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit, Input, ElementRef } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import {DomSanitizer} from "@angular/platform-browser";
 import { AttachmentsService } from 'src/app/services/attachments.service';
@@ -16,21 +17,32 @@ export class AttachmentItemComponent implements OnInit {
   @Input() pia: any;
   fileUrl:any = null;
 
+  showRemoveAttachmentForm = false;
+  removeAttachmentForm: FormGroup;
+  selectedAttachment: number;
 
-  constructor(private domSanitizer : DomSanitizer,
-              private _modalsService: ModalsService,
+
+  constructor(private formBuilder: FormBuilder,
               private _attachmentsService: AttachmentsService,
-              private el: ElementRef) { }
+              private el: ElementRef) {
+                this.removeAttachmentForm = this.formBuilder.group({
+                  comment: ['', [Validators.required, Validators.minLength(3)]]
+                });
+              }
 
   ngOnInit() { }
+
+
 
   /**
    * Deletes an attachment with a given id.
    * @param {string} id - Unique id of the attachment to be deleted.
    */
-  removeAttachment(id: string) {
-    localStorage.setItem('attachment-id', id);
-    this._modalsService.openModal('modal-remove-attachment');
+  removeAttachment(id: number) {
+    // localStorage.setItem('attachment-id', id);
+    // this._modalsService.openModal('modal-remove-attachment');
+    this.showRemoveAttachmentForm = true;
+    this.selectedAttachment = id;
   }
 
   /**
@@ -94,6 +106,13 @@ export class AttachmentItemComponent implements OnInit {
    */
   showAddAttachmentButton() {
     return (this.pia.status !== 2 && this.pia.status !== 3);
+  }
+
+
+  submitRemoveAttachment() {
+    console.log(this.removeAttachmentForm.controls['comment'].value)
+    this._attachmentsService
+      .removeAttachment(this.selectedAttachment, this.pia.id, this.removeAttachmentForm.controls['comment'].value);
   }
 
 }
