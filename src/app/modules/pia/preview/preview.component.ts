@@ -32,11 +32,9 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
 
   constructor(
     public actionPlanService: ActionPlanService,
-    private el: ElementRef,
     private translateService: TranslateService,
     public piaService: PiaService,
     private appDataService: AppDataService,
-    public attachmentsService: AttachmentsService,
     public revisionService: RevisionService,
     public modalsService: ModalsService,
     public languagesService: LanguagesService,
@@ -48,8 +46,6 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     this.dataNav = this.appDataService.dataNav;
 
     this.showPia();
-    this.attachmentsService.pia = this.pia;
-    this.attachmentsService.listAttachments();
 
     if (this.pia.is_archive === 1) {
       this.fromArchives = true;

@@ -1,7 +1,12 @@
 <div class="pia-attachmentsBlock">
   <p>{{ 'pia.attachments.title' | translate }}</p>
 
-  <app-attachment-item *ngFor="let attachment of _attachmentsService.attachments;let i=index" [attachment]="attachment" [isPreview]="isPreview" [pia]="pia"></app-attachment-item>
+  <app-attachment-item
+    *ngFor="let attachment of attachments;let i=index"
+    [attachment]="attachment"
+    (deleted)="onDeleted($event)"
+    [isPreview]="isPreview" [pia]="pia">
+  </app-attachment-item>
 
   <form *ngIf="!isPreview" enctype="multipart/form-data" [formGroup]="attachmentForm">
     <input type="file" formControlName="attachment_file" id="attachment_file" (change)="uploadAttachement($event)" class="hide">

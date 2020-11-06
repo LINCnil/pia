@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, ViewChild, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import {DomSanitizer} from "@angular/platform-browser";
@@ -15,15 +15,15 @@ export class AttachmentItemComponent implements OnInit {
   @Input() isPreview: boolean;
   @Input() attachment: any;
   @Input() pia: any;
+  @Output() deleted = new EventEmitter();
   fileUrl:any = null;
 
   showRemoveAttachmentForm = false;
   removeAttachmentForm: FormGroup;
-  selectedAttachment: number;
 
 
   constructor(private formBuilder: FormBuilder,
-              private _attachmentsService: AttachmentsService,
+              private attachmentsService: AttachmentsService,
               private el: ElementRef) {
                 this.removeAttachmentForm = this.formBuilder.group({
                   comment: ['', [Validators.required, Validators.minLength(3)]]
@@ -39,17 +39,14 @@ export class AttachmentItemComponent implements OnInit {
    * @param {string} id - Unique id of the attachment to be deleted.
    */
   removeAttachment(id: number) {
-    // localStorage.setItem('attachment-id', id);
-    // this._modalsService.openModal('modal-remove-attachment');
     this.showRemoveAttachmentForm = true;
-    this.selectedAttachment = id;
   }
 
   /**
    * Allows an user to download a specific attachment.
    */
   downloadAttachment() {
-    this._attachmentsService.downloadAttachment(this.attachment.id);
+    this.attachmentsService.downloadAttachment(this.attachment.id);
   }
 
   /**
@@ -110,9 +107,12 @@ export class AttachmentItemComponent implements OnInit {
 
 
   submitRemoveAttachment() {
-    console.log(this.removeAttachmentForm.controls['comment'].value)
-    this._attachmentsService
-      .removeAttachment(this.selectedAttachment, this.pia.id, this.removeAttachmentForm.controls['comment'].value);
+    this.attachmentsService
+      .removeAttachment(this.attachment.id, this.pia.id, this.removeAttachmentForm.controls['comment'].value)
+        .then(() => {
+          this.deleted.emit(this.attachment.id);
+          this.showRemoveAttachmentForm = false;
+        });
   }
 
 }

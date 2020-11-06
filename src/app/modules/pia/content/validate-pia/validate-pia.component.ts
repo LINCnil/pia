@@ -53,7 +53,7 @@ export class ValidatePIAComponent implements OnInit {
       this.pia.status > 1
     );
 
-    this.attachmentsService.updateSignedAttachmentsList();
+    this.attachmentsService.updateSignedAttachmentsList(this.pia.id);
     this.actionPlanService.listActionPlan();
   }
 
