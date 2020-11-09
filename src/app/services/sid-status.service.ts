@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { GlobalEvaluationService } from './global-evaluation.service';
-import { PiaService } from './pia.service';
 import { IntrojsService } from '../services/introjs.service';
 import { ActivatedRoute } from '@angular/router';
 import { AnswerService } from './answer.service';
@@ -76,7 +75,7 @@ export class SidStatusService {
    * @param section - The section.
    * @param item - The item.
    */
-  setSidStatus(pia: any, section: any, item: any) {
+  setSidStatus(pia: any, section: any, item: any): void {
     const referenceTo = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
     const globalEvaluationService = new GlobalEvaluationService(new AnswerService());
@@ -96,7 +95,7 @@ export class SidStatusService {
     }
   }
 
-  setPiaProgress(pia: any, referenceTo: string, status: number) {
+  setPiaProgress(pia: any, referenceTo: string, status: number): void {
     let percent = 0;
     let basePoint = 3.75;
 
@@ -115,10 +114,10 @@ export class SidStatusService {
 
   /**
    * Set status structure
-   * @param {*} section - The section.
-   * @param {*} item - The item.
+   * @param section - The section.
+   * @param item - The item.
    */
-  setStructureStatus(section: any, item: any) {
+  setStructureStatus(section: any, item: any): void {
     let contentExist = false;
     if (item.is_measure) {
       if (item.answers) {
@@ -136,32 +135,26 @@ export class SidStatusService {
 
   /**
    * Reset all statuses.
-   * @param {*} piaService - The PIA Service.
-   * @param {*} section - The section.
-   * @param {*} item - The item.
+   * @param section - The section.
+   * @param item - The item.
    */
-  removeSidStatus(piaService: any, section: any, item: any) {
+  removeSidStatus(section: any, item: any) {
     const sid = section.id + '.' + item.id;
     if (!this.noIconFor.includes(sid)) {
       this.itemStatus[sid] = 0;
-      // TODO the code below isn't useful
-      piaService.getPIA().then(() => {
-        // Special behaviour for DPO page
-        if (sid === '4.3') {
-          // Nothing to do
-        } else {
-          this.itemStatus[sid] = 0;
-        }
-      });
+      if (sid === '4.3') {
+        // Nothing to do
+      } else {
+        this.itemStatus[sid] = 0;
+      }
     }
   }
 
   /**
    * Update PIA status to refused.
-   * @param {*} piaService - The PIA Service.
-   * @returns {Promise}
+   * @param piaId - The PIA Service.
    */
-  async refusePia(piaService: any) {
+  async refusePia(piaId: number): Promise<void> {
     this.enablePiaValidation = false;
     return new Promise((resolve, reject) => {
       for (const el in this.itemStatus) {
@@ -169,7 +162,7 @@ export class SidStatusService {
           this.itemStatus[el] = 6;
         }
       }
-      this.resetDpoPage(piaService);
+      this.enableDpoValidation = false;
       resolve();
     });
   }
@@ -177,7 +170,7 @@ export class SidStatusService {
   /**
    * Verification to enable the DPD page fields.
    */
-  verifEnableDpo() {
+  verifEnableDpo(): void {
     this.enableDpoValidation = false;
     let count = 0;
     for (const el in this.itemStatus) {
@@ -193,7 +186,7 @@ export class SidStatusService {
   /**
    * Verification to enable Action Plan page.
    */
-  verifEnableActionPlan() {
+  verifEnableActionPlan(): boolean {
     let valid = false;
     for (const el in this.itemStatus) {
       if (this.itemStatus.hasOwnProperty(el) && this.itemStatus[el] >= 5) {
@@ -201,23 +194,5 @@ export class SidStatusService {
       }
     }
     return valid;
-  }
-
-  /**
-   * Erase all contents on the DPD page.
-   * @private
-   * @param {*} piaService - The PIA Service.
-   */
-  private resetDpoPage(piaService: any) {
-    piaService.pia.dpos_names = null;
-    piaService.pia.dpo_status = null;
-    piaService.pia.dpo_opinion = null;
-    piaService.pia.concerned_people_searched_opinion = null;
-    piaService.pia.concerned_people_searched_content = null;
-    piaService.pia.people_names = null;
-    piaService.pia.concerned_people_status = null;
-    piaService.pia.concerned_people_opinion = null;
-    piaService.pia.update();
-    this.enableDpoValidation = false;
   }
 }

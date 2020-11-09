@@ -11,6 +11,7 @@ import { GlobalEvaluationService } from 'src/app/services/global-evaluation.serv
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { MeasureService } from 'src/app/services/measures.service';
+import { PaginationService } from 'src/app/services/pagination.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { RevisionService } from 'src/app/services/revision.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
@@ -53,6 +54,7 @@ export class PiaComponent implements OnInit {
     private router: Router,
     private answerService: AnswerService,
     private introjsService: IntrojsService,
+    private paginationService: PaginationService,
     private dialogService: DialogService
   ) {
     this.introjsService.entrySideViewChange.subscribe(value => {
@@ -62,8 +64,8 @@ export class PiaComponent implements OnInit {
 
   async ngOnInit() {
     this.appDataService.entrieMode = 'pia';
-    let sectionId = parseInt(this.route.snapshot.params.section_id, 10);
-    let itemId = parseInt(this.route.snapshot.params.item_id, 10);
+    const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
+    const itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
     this.piaService.find(parseInt(this.route.snapshot.params.id))
       .then((pia: Pia) => {
@@ -191,7 +193,6 @@ export class PiaComponent implements OnInit {
           });
         }
         if (displayModal) {
-          // this.modalsService.openModal('pia-declare-measures');
           this.dialogService.confirmThis(
             {
               text: 'modals.declare_measures.content',
@@ -200,8 +201,9 @@ export class PiaComponent implements OnInit {
               no: ''
             },
             () => {
+              const gotoSectionItem = this.paginationService.getNextSectionItem(3, 1);
               this.router.navigate(
-                ['/pia', this.pia.id, 'section', 3, 'item', 1]
+                ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
               );
             },
             () => {
@@ -213,7 +215,6 @@ export class PiaComponent implements OnInit {
 
       /* Modal for action plan if no evaluations yet */
       if (this.section.id === 4 && this.item.id === 2 && !this.sidStatusService.verifEnableActionPlan()) {
-        // this.modalsService.openModal('pia-action-plan-no-evaluation');
         this.dialogService.confirmThis(
           {
             text: 'modals.action_plan_no_evaluation.content',
@@ -222,8 +223,9 @@ export class PiaComponent implements OnInit {
             no: ''
           },
           () => {
+            const gotoSectionItem = this.paginationService.getNextSectionItem(4, 5);
             this.router.navigate(
-              ['/pia', this.pia.id, 'section', 4, 'item', 5]
+              ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
             );
           },
           () => {
@@ -234,7 +236,6 @@ export class PiaComponent implements OnInit {
 
       /* Modal for dpo page if all evaluations are not done yet */
       if (this.section.id === 4 && this.item.id === 3 && !this.sidStatusService.enableDpoValidation) {
-        // this.modalsService.openModal('pia-dpo-missing-evaluations');
         this.dialogService.confirmThis(
           {
             text: 'modals.dpo_missing_evaluations.content',
@@ -243,8 +244,9 @@ export class PiaComponent implements OnInit {
             no: ''
           },
           () => {
+            const gotoSectionItem = this.paginationService.getNextSectionItem(4, 7);
             this.router.navigate(
-              ['/pia', this.pia.id, 'section', 4, 'item', 7]
+              ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
             );
           },
           () => {

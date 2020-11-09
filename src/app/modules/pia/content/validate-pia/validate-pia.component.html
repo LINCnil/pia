@@ -110,3 +110,23 @@
 
   </div>
 </div>
+
+<app-modal *ngIf="removeAttachmentId">
+  <p [innerHTML]="'modals.remove_attachment.content' | translate"></p>
+    <form [formGroup]="removeAttachmentForm" class="pia-remove-attachment-comment">
+      <label for="pia-remove-attachment-comment">{{ 'modals.remove_attachment.comment' | translate }}</label>
+      <br>
+      <textarea id="pia-remove-attachment-comment"
+        formControlName="comment">
+      </textarea>
+    </form>
+    <div class="pia-modalBlock-buttons-choice">
+      <button tabindex="1" class="btn btn-red" type="button" (click)="removeAttachmentId = null">
+          {{ 'modals.remove_attachment.keep' | translate }}
+      </button>
+      <button tabindex="2" class="btn btn-red get-focus" [disabled]="removeAttachmentForm.invalid"
+        (click)="submitRemoveAttachment()" type="button">
+        {{ 'modals.remove_attachment.remove' | translate }}
+      </button>
+    </div>
+</app-modal>

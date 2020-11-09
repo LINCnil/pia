@@ -1,6 +1,6 @@
 <div class="pia-modalBlock open" *ngIf="message">
   <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">
-    <button tabindex="3" type="button" class="pia-modalBlock-close btn"
+    <button *ngIf="message.type === 'confirm'" tabindex="3" type="button" class="pia-modalBlock-close btn"
       (click)="message.noFn()"
       title="{{ 'modals.close' | translate }}">
       <span class="pia-icons pia-icon-close-big"></span>

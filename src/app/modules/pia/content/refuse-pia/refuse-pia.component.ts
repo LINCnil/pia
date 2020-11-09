@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 import { PiaService } from 'src/app/services/pia.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { Pia } from 'src/app/models/pia.model';
 import { DialogService } from 'src/app/services/dialog.service';
 
@@ -23,7 +22,6 @@ export class RefusePIAComponent implements OnInit {
 
   constructor(private router: Router,
               private el: ElementRef,
-              private modalsService: ModalsService,
               private sidStatusService: SidStatusService,
               public piaService: PiaService,
               private dialogService: DialogService) { }
@@ -67,7 +65,6 @@ export class RefusePIAComponent implements OnInit {
    * Display the modal to abandon the PIA.
    */
   abandon() {
-    // this.modalsService.openModal('modal-abandon-pia');
     this.dialogService.confirmThis({
         text: 'modals.abandon_pia.content',
         type: 'confirm',
@@ -92,9 +89,27 @@ export class RefusePIAComponent implements OnInit {
     this.pia.status = 1;
     this.piaService.update(this.pia).then(() => {
       this.piaService.cancelAllValidatedEvaluation(this.pia).then(() => {
-        this.sidStatusService.refusePia(this.piaService).then(() => {
-          this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
-          this.modalsService.openModal('modal-refuse-pia');
+        this.sidStatusService.refusePia(this.pia.id).then(() => {
+          this.dialogService.confirmThis(
+            {
+              text: 'modals.refuse_pia.content',
+              type: 'yes',
+              yes: 'modals.close',
+              no: ''
+            },
+            () => {
+              this.piaService.resetDpoPage(this.pia.id)
+                .then(() => {
+                  this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            },
+            () => {
+              return false;
+            }
+          );
         });
       });
     });
@@ -103,7 +118,7 @@ export class RefusePIAComponent implements OnInit {
   /**
    * Focuses rejection reason field.
    */
-  rejectionReasonFocusIn() {
+  rejectionReasonFocusIn(): boolean {
     if (this.pia.status === 1) {
       return false;
     } else {
@@ -115,7 +130,7 @@ export class RefusePIAComponent implements OnInit {
   /**
    * Executes functionnalities when losing focus from rejection reason field.
    */
-  rejectionReasonFocusOut() {
+  rejectionReasonFocusOut(): void {
     let userText = this.rejectionReasonForm.controls['rejectionReason'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -134,7 +149,7 @@ export class RefusePIAComponent implements OnInit {
   /**
    * Focuses modification made field.
    */
-  modificationsMadeFocusIn() {
+  modificationsMadeFocusIn(): boolean {
     if (this.pia.status !== 1) {
       return false;
     } else {
@@ -146,7 +161,7 @@ export class RefusePIAComponent implements OnInit {
   /**
    * Executes functionnalities when losing focus from modifications made field.
    */
-  modificationsMadeFocusOut() {
+  modificationsMadeFocusOut(): void {
     let userText = this.modificationsMadeForm.controls['modificationsMade'].value;
     const resendButton = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer > button');
     if (userText) {
@@ -175,7 +190,7 @@ export class RefusePIAComponent implements OnInit {
    * @param {*} event - Any Event.
    * @param {HTMLElement} textarea - Texarea element.
    */
-  autoTextareaResize(event: any, textarea?: HTMLElement) {
+  autoTextareaResize(event: any, textarea?: HTMLElement): void {
     if (event) {
       textarea = event.target;
     }

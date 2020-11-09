@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -9,7 +8,6 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { MeasureService } from 'src/app/services/measures.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { StructureService } from 'src/app/services/structure.service';
 

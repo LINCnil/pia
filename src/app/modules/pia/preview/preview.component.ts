@@ -9,8 +9,6 @@ import { Evaluation } from 'src/app/models/evaluation.model';
 import { Measure } from 'src/app/models/measure.model';
 import { Revision } from 'src/app/models/revision.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
-import { AttachmentsService } from 'src/app/services/attachments.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { AnswerService } from 'src/app/services/answer.service';
 
 @Component({
@@ -36,7 +34,6 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     public piaService: PiaService,
     private appDataService: AppDataService,
     public revisionService: RevisionService,
-    public modalsService: ModalsService,
     public languagesService: LanguagesService,
     private answerService: AnswerService
   ) {}

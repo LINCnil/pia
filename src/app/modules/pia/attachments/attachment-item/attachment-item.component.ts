@@ -1,9 +1,8 @@
 import { Component, ViewChild, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import {DomSanitizer} from "@angular/platform-browser";
 import { AttachmentsService } from 'src/app/services/attachments.service';
-import { ModalsService } from 'src/app/services/modals.service';
+
 @Component({
   selector: 'app-attachment-item',
   templateUrl: './attachment-item.component.html',
@@ -16,7 +15,7 @@ export class AttachmentItemComponent implements OnInit {
   @Input() attachment: any;
   @Input() pia: any;
   @Output() deleted = new EventEmitter();
-  fileUrl:any = null;
+  fileUrl: any = null;
 
   showRemoveAttachmentForm = false;
   removeAttachmentForm: FormGroup;
@@ -108,7 +107,7 @@ export class AttachmentItemComponent implements OnInit {
 
   submitRemoveAttachment() {
     this.attachmentsService
-      .removeAttachment(this.attachment.id, this.pia.id, this.removeAttachmentForm.controls['comment'].value)
+      .removeAttachment(this.attachment.id, this.removeAttachmentForm.controls['comment'].value)
         .then(() => {
           this.deleted.emit(this.attachment.id);
           this.showRemoveAttachmentForm = false;

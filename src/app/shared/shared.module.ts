@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -57,12 +57,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { KnowledgesService } from '../services/knowledges.service';
 import { KnowledgeBaseService } from '../services/knowledge-base.service';
 import { GlobalEvaluationService } from '../services/global-evaluation.service';
-import { ModalsService } from '../services/modals.service';
 import { PaginationService } from '../services/pagination.service';
 import { SidStatusService } from '../services/sid-status.service';
 import { AppDataService } from '../services/app-data.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { ModalsComponent } from './components/modals/modals.component';
 import { RouterModule } from '@angular/router';
 import { ModalComponent } from './components/modal/modal.component';
 import { DialogService } from '../services/dialog.service';
@@ -71,6 +69,7 @@ import { AnswerService } from '../services/answer.service';
 import { KnowledgeBaseItemComponent } from './components/knowledge-base/knowledge-base-item/knowledge-base-item.component';
 import { KnowledgeBaseComponent } from './components/knowledge-base/knowledge-base.component';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
+import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 
 
 
@@ -82,12 +81,11 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     FormatTheDate,
     FilterForUser,
     HeaderComponent,
-    ModalsComponent,
     ModalComponent,
     DialogComponent,
     KnowledgeBaseComponent,
     KnowledgeBaseItemComponent,
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
   ],
   imports: [
     CommonModule,
@@ -96,6 +94,7 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    PdfJsViewerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -117,16 +116,15 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     TagInputModule,
     FilterForUser,
     HeaderComponent,
-    ModalsComponent,
     ModalComponent,
     DialogComponent,
     KnowledgeBaseComponent,
     KnowledgeBaseItemComponent,
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
+    PdfJsViewerModule,
   ],
   providers: [
     AppDataService,
-    ModalsService,
     KnowledgeBaseService,
     KnowledgesService,
     PaginationService,
@@ -137,6 +135,13 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     FormatTheDate,
     IntrojsService,
     DialogService,
+    PdfJsViewerModule,
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+  static forRoot(): ModuleWithProviders<SharedModule> {
+    return {
+      ngModule: SharedModule
+    };
+  }
+ }

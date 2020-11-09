@@ -21,7 +21,9 @@
           <li *ngFor="let revision of revisionsGroupByMonth[date]"
             class="pia-revisions-box-content-revision-item"
             [attr.revision-id]="revision.id">
-            <span  (click)="previewRevision(revision.id, $event, revision.created_at)"><i class="fa fa-circle-o"></i> {{ revision.created_at  | date: "short":"":languagesService.selectedLanguage }}</span>
+            <span  (click)="previewRevision(revision.id, $event, revision.created_at)">
+              <i class="fa fa-circle-o"></i> {{ revision.created_at  | date: "short":"":languagesService.selectedLanguage }}
+            </span>
           </li>
         </ul>
       </div>
@@ -33,5 +35,8 @@
   </div>
 </div>
 <app-modal *ngIf="preview" (clickOnClose)="preview = null">
-  <app-revision-preview *ngIf="preview" [revision]="preview"></app-revision-preview>
+  <app-revision-preview
+    *ngIf="preview"
+    [revision]="preview">
+  </app-revision-preview>
 </app-modal>

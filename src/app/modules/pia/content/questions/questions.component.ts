@@ -8,7 +8,6 @@ import { GlobalEvaluationService } from 'src/app/services/global-evaluation.serv
 import { Evaluation } from 'src/app/models/evaluation.model';
 import { Measure } from 'src/app/models/measure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { Answer } from 'src/app/models/answer.model';
 import { AnswerService } from 'src/app/services/answer.service';
 

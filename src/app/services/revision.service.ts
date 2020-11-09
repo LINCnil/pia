@@ -16,31 +16,17 @@ export class RevisionService extends ApplicationDb {
   /**
    * Load a new revision
    */
-  async loadRevision(revisionId) {
+  async loadRevision(revisionId): Promise<void> {
     return new Promise(resolve => {
       this.find(revisionId).then((revision: Revision) => {
         const piaExport = JSON.parse(revision.export);
-        this.piaService.replacePiaByExport(piaExport, true, true, revision.created_at).then(() => {
-          this.router.navigate(['pia', piaExport.pia.id]);
-          resolve();
+        this.piaService.replacePiaByExport(piaExport, true, true, revision.created_at)
+        .then((pia) => {
+          resolve(piaExport);
         });
       });
     });
   }
-
-  /**
-   * Load a new revision
-   */
-  // async getRevisionById(id) {
-  //   return new Promise(resolve => {
-  //     const revision = new Revision();
-  //     revision.pia_id = this.piaService.pia.id;
-  //     revision.get(this.revisionSelected).then(() => {
-  //       const piaExport = JSON.parse(revision.export);
-  //       resolve(piaExport);
-  //     });
-  //   });
-  // }
 
   /**
    * Create new revision
@@ -53,9 +39,6 @@ export class RevisionService extends ApplicationDb {
       revision.pia_id = piaId;
       revision.export = piaExport;
       revision.create().then((response: any) => {
-        // this.piaService.pia.updated_at = new Date(); // Update current version's date
-        // BETTER SOLUTION BUT REFRESH SCREEN:
-        // this.router.navigate(['entry', this.piaService.pia.id]);
         resolve(response);
       });
     });

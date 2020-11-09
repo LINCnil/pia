@@ -4,8 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Comment } from '../../../../models/comment.model';
 
 import { LanguagesService } from 'src/app/services/languages.service';
-import { MeasureService } from 'src/app/services/measures.service';
-import { ModalsService } from 'src/app/services/modals.service';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-comments',
@@ -27,9 +26,8 @@ export class CommentsComponent implements OnInit {
 
   constructor(
     private el: ElementRef,
-    private _measureService: MeasureService,
-    private _modalsService: ModalsService,
-    public _languagesService: LanguagesService
+    public _languagesService: LanguagesService,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit() {
@@ -119,7 +117,20 @@ export class CommentsComponent implements OnInit {
         this.comments.length > 0 &&
         this.comments[0].description === this.commentsForm.value.description
       ) {
-        this._modalsService.openModal('modal-same-comment');
+        this.dialogService.confirmThis(
+          {
+            text: 'modals.same_comment.content',
+            type: 'yes',
+            yes: 'modals.close',
+            no: ''
+          },
+          () => {
+            return false;
+          },
+          () => {
+            return false;
+          }
+        );
       } else {
         // Creates the new comment and pushes it as the first comment in list.
         // Updates accordeon and counter + removes the written comment.

@@ -6,7 +6,6 @@ import { Structure } from 'src/app/models/structure.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
-import { ModalsService } from 'src/app/services/modals.service';
 
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 
@@ -25,7 +24,6 @@ export class KnowledgebaseCardComponent implements OnInit {
 
 
   constructor(
-    private modalsService: ModalsService,
     private knowledgesService: KnowledgesService,
     private knowledgeBaseService: KnowledgeBaseService,
     private dialogService: DialogService) {}
@@ -92,8 +90,6 @@ export class KnowledgebaseCardComponent implements OnInit {
   }
 
   remove(id): void {
-    // this.knowledgesService.selected = id;
-    // this.modalsService.openModal('modal-remove-knowledgebase');
     this.dialogService.confirmThis({
       text: 'modals.knowledges.content',
       type: 'confirm',
