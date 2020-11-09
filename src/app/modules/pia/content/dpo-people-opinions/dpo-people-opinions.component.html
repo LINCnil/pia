@@ -9,13 +9,13 @@
         <form (click)="checkDpoName()" [formGroup]="DPOForm">
           <p>
             <span>
-              <ng-container *ngIf="!_piaService.pia.status || _piaService.pia.status < 2; else displayNames1">
+              <ng-container *ngIf="!pia.status || pia.status < 2; else displayNames1">
                 <div style="display:inline-block;" (click)="dpoNameFocusIn()">
                   <input (focusout)="dpoNameFocusOut()" #DpoNames type="text" class="DPOName" formControlName="DPONames" placeholder="{{ 'opinions.placeholder_dpo_name' | translate }}">
                 </div>
               </ng-container>
               <ng-template #displayNames1>
-                {{_piaService.pia.dpos_names}}
+                {{pia.dpos_names}}
               </ng-template>
             </span>{{ 'opinions.content' | translate }}
           </p>
@@ -23,8 +23,8 @@
             <div>
               <input type="radio"
                      id="treatment-1"
-                     [attr.dirty]="_piaService.pia.dpo_status === 1"
-                     [checked]="_piaService.pia.dpo_status === 1"
+                     [attr.dirty]="pia.dpo_status === 1"
+                     [checked]="pia.dpo_status === 1"
                      (click)="enableDpoStatusRadioButtons()"
                      (change)="dpoStatusFocusOut()"
                      formControlName="DPOStatus"
@@ -38,8 +38,8 @@
             <div>
               <input type="radio"
                      id="treatment-2"
-                     [attr.dirty]="_piaService.pia.dpo_status === 0"
-                     [checked]="_piaService.pia.dpo_status === 0"
+                     [attr.dirty]="pia.dpo_status === 0"
+                     [checked]="pia.dpo_status === 0"
                      (click)="enableDpoStatusRadioButtons()"
                      (change)="dpoStatusFocusOut()"
                      formControlName="DPOStatus"
@@ -76,8 +76,8 @@
             <div>
               <input type="radio"
                       id="concerned-people-choice-searched"
-                      [attr.dirty]="_piaService.pia.concerned_people_searched_opinion === true"
-                      [checked]="_piaService.pia.concerned_people_searched_opinion === true"
+                      [attr.dirty]="pia.concerned_people_searched_opinion === true"
+                      [checked]="pia.concerned_people_searched_opinion === true"
                       (click)="enableConcernedPeopleSearchedOpinionRadioButtons()"
                       (change)="searchedOpinionsFocusOut()"
                       formControlName="searchStatus"
@@ -91,8 +91,8 @@
             <div>
               <input type="radio"
                       id="concerned-people-choice-unsearched"
-                      [attr.dirty]="_piaService.pia.concerned_people_searched_opinion === false"
-                      [checked]="_piaService.pia.concerned_people_searched_opinion === false"
+                      [attr.dirty]="pia.concerned_people_searched_opinion === false"
+                      [checked]="pia.concerned_people_searched_opinion === false"
                       (click)="enableConcernedPeopleSearchedOpinionRadioButtons()"
                       (change)="searchedOpinionsFocusOut()"
                       formControlName="searchStatus"
@@ -113,13 +113,13 @@
         <form style="margin-top:30px;" *ngIf="displayPeopleOpinions" (click)="checkConcernedPeopleName()" [formGroup]="peopleForm">
           <p>
             <span>
-              <ng-container *ngIf="!_piaService.pia.status || _piaService.pia.status < 2; else displayNames2">
+              <ng-container *ngIf="!pia.status || pia.status < 2; else displayNames2">
                 <div style="display:inline-block;" (click)="concernedPeopleNameFocusIn()">
                   <input #PeopleNames type="text" class="DPOName" (change)="concernedPeopleNameFocusOut()" formControlName="peopleNames" placeholder="{{ 'opinions.placeholder_concerned_people_name' | translate }}">
                 </div>
               </ng-container>
               <ng-template #displayNames2>
-                {{_piaService.pia.people_names}}
+                {{pia.people_names}}
               </ng-template>
             </span>{{ 'opinions.content' | translate }}
           </p>
@@ -127,7 +127,7 @@
             <div>
               <input type="radio"
                       id="dpoAvis-1"
-                      [checked]="_piaService.pia.concerned_people_status == 1"
+                      [checked]="pia.concerned_people_status == 1"
                       (click)="enableConcernedPeopleStatusRadioButtons()"
                       (change)="concernedPeopleStatusFocusOut()"
                       formControlName="peopleStatus"
@@ -141,7 +141,7 @@
             <div>
               <input type="radio"
                       id="dpoAvis-2"
-                      [checked]="_piaService.pia.concerned_people_status == 0"
+                      [checked]="pia.concerned_people_status == 0"
                       (click)="enableConcernedPeopleStatusRadioButtons()"
                       (change)="concernedPeopleStatusFocusOut()"
                       formControlName="peopleStatus"

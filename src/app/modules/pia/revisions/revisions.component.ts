@@ -151,7 +151,6 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     // Emit event
     this.revisionService.find(revisionId)
       .then((revision: any) => {
-        console.log(revision);
         this.preview = revision;
       })
       .catch(err => console.log(err));

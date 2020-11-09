@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActionPlanService } from 'src/app/services/action-plan.service';
 
-import { ActionPlanService } from './action-plan.service';
 
 @Component({
   selector: 'app-action-plan',

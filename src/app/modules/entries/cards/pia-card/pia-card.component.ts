@@ -6,9 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Attachment } from 'src/app/models/attachment.model';
 import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
-import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
 
 import * as FileSaver from 'file-saver';
@@ -41,7 +39,6 @@ export class PiaCardComponent implements OnInit {
   private piaValidatorName: ElementRef;
 
   constructor(
-    private modalsService: ModalsService,
     public piaService: PiaService,
     private translateService: TranslateService,
     public languagesService: LanguagesService,
@@ -243,7 +240,6 @@ export class PiaCardComponent implements OnInit {
    * @param id - The PIA id
    */
   archivePia(id: number): void {
-    // this.modalsService.openModal('modal-archive-pia');
     this.dialogService.confirmThis({
       text: 'modals.archive_pia.content',
       type: 'confirm',

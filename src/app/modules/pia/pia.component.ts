@@ -62,8 +62,8 @@ export class PiaComponent implements OnInit {
 
   async ngOnInit() {
     this.appDataService.entrieMode = 'pia';
-    let sectionId = parseInt(this.route.snapshot.params.section_id, 10);
-    let itemId = parseInt(this.route.snapshot.params.item_id, 10);
+    const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
+    const itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
     this.piaService.find(parseInt(this.route.snapshot.params.id))
       .then((pia: Pia) => {
@@ -191,7 +191,6 @@ export class PiaComponent implements OnInit {
           });
         }
         if (displayModal) {
-          // this.modalsService.openModal('pia-declare-measures');
           this.dialogService.confirmThis(
             {
               text: 'modals.declare_measures.content',
@@ -213,7 +212,6 @@ export class PiaComponent implements OnInit {
 
       /* Modal for action plan if no evaluations yet */
       if (this.section.id === 4 && this.item.id === 2 && !this.sidStatusService.verifEnableActionPlan()) {
-        // this.modalsService.openModal('pia-action-plan-no-evaluation');
         this.dialogService.confirmThis(
           {
             text: 'modals.action_plan_no_evaluation.content',
@@ -234,7 +232,6 @@ export class PiaComponent implements OnInit {
 
       /* Modal for dpo page if all evaluations are not done yet */
       if (this.section.id === 4 && this.item.id === 3 && !this.sidStatusService.enableDpoValidation) {
-        // this.modalsService.openModal('pia-dpo-missing-evaluations');
         this.dialogService.confirmThis(
           {
             text: 'modals.dpo_missing_evaluations.content',

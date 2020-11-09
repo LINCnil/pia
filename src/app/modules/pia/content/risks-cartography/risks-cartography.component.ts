@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 
 
@@ -29,7 +28,6 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
   risk2Letter;
 
   constructor(
-    private http: HttpClient,
     private appDataService: AppDataService,
     private translateService: TranslateService,
     public piaService: PiaService,

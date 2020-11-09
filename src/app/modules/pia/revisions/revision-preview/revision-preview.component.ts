@@ -12,6 +12,7 @@ import { ModalsService } from 'src/app/services/modals.service';
 import { Revision } from 'src/app/models/revision.model';
 import { PiaService } from 'src/app/services/pia.service';
 import { DialogService } from 'src/app/services/dialog.service';
+import { Router } from '@angular/router';
 
 function slugify(text) {
   return text
@@ -32,6 +33,8 @@ function slugify(text) {
 })
 export class RevisionPreviewComponent implements OnInit {
   @Input() revision: Revision;
+  @Input() date: Date;
+  @Output() restored = new EventEmitter();
   export: any;
   pia: Pia;
   allData: any;
@@ -45,6 +48,7 @@ export class RevisionPreviewComponent implements OnInit {
     public piaService: PiaService,
     public modalsService: ModalsService,
     private datePipe: DatePipe,
+    private router: Router,
     private dialogService: DialogService
   ) {
 
@@ -197,8 +201,8 @@ export class RevisionPreviewComponent implements OnInit {
     },
     () => {
       this.revisionService.loadRevision(this.revision.id)
-        .then(() => {
-          return false;
+        .then((piaExport: any) => {
+          this.router.navigate(['pia', piaExport.pia.id]);
         });
     },
     () => {

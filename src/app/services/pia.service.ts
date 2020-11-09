@@ -25,14 +25,14 @@ export class PiaService extends ApplicationDb  {
 
   constructor(
     private router: Router,
-    public _appDataService: AppDataService,
+    public appDataService: AppDataService,
     private modalsService: ModalsService,
-    public _sidStatusService: SidStatusService,
+    public sidStatusService: SidStatusService,
     private structureService: StructureService,
     private answerService: AnswerService
   ) {
     super(201910230914, 'pia');
-    this.data = this._appDataService.dataNav;
+    this.data = this.appDataService.dataNav;
   }
 
   /**
@@ -223,7 +223,7 @@ export class PiaService extends ApplicationDb  {
     }
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
-        this._sidStatusService.setSidStatus(pia, section, item);
+        this.sidStatusService.setSidStatus(pia, section, item);
       });
     });
   }
@@ -528,26 +528,13 @@ export class PiaService extends ApplicationDb  {
     });
   }
 
-  async replacePiaByExport(piaExport, resetOption, updateOption, dateExport) {
+  async replacePiaByExport(piaExport, resetOption, updateOption, dateExport): Promise<void> {
     return new Promise(async resolve => {
-      const pia = new Pia();
-      pia.id = piaExport.pia.id;
-      pia.name = piaExport.pia.name;
-      pia.category = piaExport.pia.category;
-      pia.author_name = piaExport.pia.author_name;
-      pia.evaluator_name = piaExport.pia.evaluator_name;
-      pia.validator_name = piaExport.pia.validator_name;
-      pia.dpo_status = piaExport.pia.dpo_status;
-      pia.dpo_opinion = piaExport.pia.dpo_opinion;
-      pia.concerned_people_opinion = piaExport.pia.concerned_people_opinion;
-      pia.concerned_people_status = piaExport.pia.concerned_people_status;
-      pia.concerned_people_searched_opinion = piaExport.pia.concerned_people_searched_opinion;
-      pia.concerned_people_searched_content = piaExport.pia.concerned_people_searched_content;
-      pia.rejected_reason = piaExport.pia.rejected_reason;
-      pia.applied_adjustements = piaExport.pia.applied_adjustements;
-      pia.created_at = piaExport.pia.created_at;
-      pia.dpos_names = piaExport.pia.dpos_names;
-      pia.people_names = piaExport.pia.people_names;
+      let pia = new Pia();
+      pia = {
+        pia,
+        ...piaExport.pia
+      };
       pia.updated_at = dateExport;
       pia.status = resetOption ? 0 : piaExport.status;
       /* Structure import if there is a specific one associated to this PIA */
@@ -567,7 +554,10 @@ export class PiaService extends ApplicationDb  {
             await this.importAnswers(piaExport.answers, pia.id);
             await this.importMeasures(piaExport, pia.id, false);
             await this.importComments(piaExport.comments, pia.id);
-            resolve();
+            resolve(entry);
+          })
+          .catch((err) => {
+            console.log(err);
           });
       } else {
         resolve();
@@ -757,12 +747,6 @@ export class PiaService extends ApplicationDb  {
         .then((entry: Pia) => {
           entry.is_archive = 1;
           this.update(entry);
-          // const index = this.pias.findIndex(item => item.id === id);
-          // if (index !== -1) {
-          //   this.pias[index] = pia;
-          //   this.pias.splice(index, 1);
-          // }
-          // localStorage.removeItem('pia-to-archive-id');
           resolve();
         })
         .catch(err => {
@@ -774,33 +758,17 @@ export class PiaService extends ApplicationDb  {
   update(pia: Pia, date = null): Promise<any> {
     return new Promise((resolve, reject) => {
       this.find(pia.id).then((entry: any) => {
-        entry.name = pia.name;
-        entry.category = pia.category;
-        entry.author_name = pia.author_name;
-        entry.evaluator_name = pia.evaluator_name;
-        entry.validator_name = pia.validator_name;
-        entry.dpo_status = pia.dpo_status;
-        entry.dpo_opinion = pia.dpo_opinion;
-        entry.concerned_people_opinion = pia.concerned_people_opinion;
-        entry.concerned_people_status = pia.concerned_people_status;
-        entry.rejected_reason = pia.rejected_reason;
-        entry.applied_adjustements = pia.applied_adjustements;
-        entry.status = pia.status;
-        entry.is_example = pia.is_example;
+        entry = {
+          entry,
+          ...pia
+        };
         if (entry.is_archive === undefined || entry.is_archive === null) {
           entry.is_archive = 0;
         } else {
           entry.is_archive = pia.is_archive;
         }
-        entry.dpos_names = pia.dpos_names;
-        entry.people_names = pia.people_names;
-        entry.concerned_people_searched_opinion = pia.concerned_people_searched_opinion;
-        entry.concerned_people_searched_content = pia.concerned_people_searched_content;
-        entry.structure_id = pia.structure_id ? pia.structure_id : '';
-        entry.structure_name = pia.structure_name;
-        entry.structure_sector_name = pia.structure_sector_name;
-        entry.structure_data = pia.structure_data ? pia.structure_data : '';
         entry.updated_at = date ? date : new Date();
+
         if (this.serverUrl) {
           const formData = new FormData();
           for (const d in entry) {
