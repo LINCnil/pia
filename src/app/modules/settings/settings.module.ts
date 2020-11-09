@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about/about.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SettingsRoutingModule } from './settings-routing.module';
+import { UrlComponent } from './url/url.component';
 
 
 
 @NgModule({
-  declarations: [AboutComponent],
+  declarations: [AboutComponent, UrlComponent],
   imports: [
     SharedModule,
     CommonModule,

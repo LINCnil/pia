@@ -61,9 +61,7 @@ export class AttachmentsComponent implements OnInit {
     this._attachmentsService
       .upload((<HTMLInputElement>event.target).files[0], this.pia.id)
       .then((attachment: Attachment) => {
-        console.log(this.attachments);
         this.attachments.unshift(attachment);
-        console.log(this.attachments);
         // if (attachment.pia_signed === 1) {
         //   // Add the last previous signed attachment in the signed attachments array
         //   this._attachmentsService.signedAttachments.unshift(this._attachmentsService.attachment_signed);
