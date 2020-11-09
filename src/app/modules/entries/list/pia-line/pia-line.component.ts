@@ -1,10 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Attachment } from 'src/app/models/attachment.model';
 import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 
 import * as FileSaver from 'file-saver';
@@ -25,10 +23,7 @@ export class PiaLineComponent implements OnInit {
   attachments: any;
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     public piaService: PiaService,
-    private modalsService: ModalsService,
     private translateService: TranslateService,
     public languagesService: LanguagesService,
     private dialogService: DialogService

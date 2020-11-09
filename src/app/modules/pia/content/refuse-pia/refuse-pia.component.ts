@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 import { PiaService } from 'src/app/services/pia.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { Pia } from 'src/app/models/pia.model';
 import { DialogService } from 'src/app/services/dialog.service';
 
@@ -23,7 +22,6 @@ export class RefusePIAComponent implements OnInit {
 
   constructor(private router: Router,
               private el: ElementRef,
-              private modalsService: ModalsService,
               private sidStatusService: SidStatusService,
               public piaService: PiaService,
               private dialogService: DialogService) { }
@@ -92,8 +90,20 @@ export class RefusePIAComponent implements OnInit {
     this.piaService.update(this.pia).then(() => {
       this.piaService.cancelAllValidatedEvaluation(this.pia).then(() => {
         this.sidStatusService.refusePia(this.piaService).then(() => {
-          this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
-          this.modalsService.openModal('modal-refuse-pia');
+          this.dialogService.confirmThis(
+            {
+              text: 'modals.refuse_pia.content',
+              type: 'yes',
+              yes: 'modals.close',
+              no: ''
+            },
+            () => {
+              this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
+            },
+            () => {
+              return false;
+            }
+          );
         });
       });
     });

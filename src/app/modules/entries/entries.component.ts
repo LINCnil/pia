@@ -1,11 +1,9 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Pia } from 'src/app/models/pia.model';
 import { ArchiveService } from 'src/app/services/archive.service';
-import { IntrojsService } from 'src/app/services/introjs.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
@@ -38,7 +36,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private el: ElementRef,
-    public modalsService: ModalsService,
     public archiveService: ArchiveService,
     public structureService: StructureService,
     private knowledgesService: KnowledgesService,

@@ -3,7 +3,6 @@ import { Attachment } from 'src/app/models/attachment.model';
 import { ArchiveService } from 'src/app/services/archive.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { ModalsService } from 'src/app/services/modals.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -17,7 +16,6 @@ export class ArchiveLineComponent implements OnInit {
   attachments: any;
 
   constructor(
-    private modalsService: ModalsService,
     public languagesService: LanguagesService,
     public archiveService: ArchiveService,
     private dialogService: DialogService

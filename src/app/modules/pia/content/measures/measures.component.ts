@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, Renderer2, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
@@ -6,7 +6,6 @@ import { GlobalEvaluationService } from 'src/app/services/global-evaluation.serv
 import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { Measure } from 'src/app/models/measure.model';
 import { AnswerService } from 'src/app/services/answer.service';
 import { DialogService } from 'src/app/services/dialog.service';
