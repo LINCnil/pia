@@ -11,6 +11,7 @@ import { GlobalEvaluationService } from 'src/app/services/global-evaluation.serv
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { MeasureService } from 'src/app/services/measures.service';
+import { PaginationService } from 'src/app/services/pagination.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { RevisionService } from 'src/app/services/revision.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
@@ -53,6 +54,7 @@ export class PiaComponent implements OnInit {
     private router: Router,
     private answerService: AnswerService,
     private introjsService: IntrojsService,
+    private paginationService: PaginationService,
     private dialogService: DialogService
   ) {
     this.introjsService.entrySideViewChange.subscribe(value => {
@@ -199,8 +201,9 @@ export class PiaComponent implements OnInit {
               no: ''
             },
             () => {
+              const gotoSectionItem = this.paginationService.getNextSectionItem(3, 1);
               this.router.navigate(
-                ['/pia', this.pia.id, 'section', 3, 'item', 1]
+                ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
               );
             },
             () => {
@@ -220,8 +223,9 @@ export class PiaComponent implements OnInit {
             no: ''
           },
           () => {
+            const gotoSectionItem = this.paginationService.getNextSectionItem(4, 5);
             this.router.navigate(
-              ['/pia', this.pia.id, 'section', 4, 'item', 5]
+              ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
             );
           },
           () => {
@@ -240,8 +244,9 @@ export class PiaComponent implements OnInit {
             no: ''
           },
           () => {
+            const gotoSectionItem = this.paginationService.getNextSectionItem(4, 7);
             this.router.navigate(
-              ['/pia', this.pia.id, 'section', 4, 'item', 7]
+              ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
             );
           },
           () => {
