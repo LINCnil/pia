@@ -107,7 +107,7 @@ export class AttachmentItemComponent implements OnInit {
 
   submitRemoveAttachment() {
     this.attachmentsService
-      .removeAttachment(this.attachment.id, this.pia.id, this.removeAttachmentForm.controls['comment'].value)
+      .removeAttachment(this.attachment.id, this.removeAttachmentForm.controls['comment'].value)
         .then(() => {
           this.deleted.emit(this.attachment.id);
           this.showRemoveAttachmentForm = false;

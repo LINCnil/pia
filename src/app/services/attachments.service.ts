@@ -7,8 +7,6 @@ export class AttachmentsService extends ApplicationDb {
   // attachments: any[];
   signedAttachments: any[] = [];
   attachment_signed: any;
-  pia: any;
-  pia_signed = 0;
 
   constructor() {
     super(201708291502, 'attachment');
@@ -16,7 +14,6 @@ export class AttachmentsService extends ApplicationDb {
 
   /**
    * List all attachments.
-   * @returns {Promise}
    */
   async findAllByPia(pia_id) {
     const items = [];
@@ -55,10 +52,9 @@ export class AttachmentsService extends ApplicationDb {
     }
   }
 
-  async create(attachment) {
+  async create(attachment): Promise<Attachment> {
     this.created_at = new Date();
     const data = {
-      pia_id: this.pia_id,
       ...attachment
     };
     await this.getObjectStore();
@@ -95,7 +91,7 @@ export class AttachmentsService extends ApplicationDb {
     });
   }
 
-  async remove(comment: string, attachmentId) {
+  async remove(comment: string, attachmentId): Promise<void> {
     return new Promise((resolve, reject) => {
       this.find(attachmentId).then((entry: any) => {
         entry.file = null;
@@ -138,9 +134,8 @@ export class AttachmentsService extends ApplicationDb {
 
   /**
    * Update all signed attachement.
-   * @returns {Promise}
    */
-  async updateSignedAttachmentsList(piaId) {
+  async updateSignedAttachmentsList(piaId): Promise<void>  {
     return new Promise((resolve, reject) => {
       this.signedAttachments = [];
       this.findAllByPia(piaId).then((data: any[]) => {
@@ -169,7 +164,7 @@ export class AttachmentsService extends ApplicationDb {
    * Upload a new attachment.
    * @param {*} attachment_file - The attachment file.
    */
-  upload(attachment_file: any, piaId) {
+  upload(attachment_file: any, piaId, piaSigned = 0): Promise<Attachment>  {
     return new Promise((resolve, reject) => {
       const file = new Blob([attachment_file]);
       const reader = new FileReader();
@@ -189,7 +184,7 @@ export class AttachmentsService extends ApplicationDb {
           .replace(/-+$/, '');
         attachment.mime_type = attachment_file.type;
         attachment.pia_id = piaId;
-        attachment.pia_signed = this.pia_signed;
+        attachment.pia_signed = piaSigned;
         attachment.comment = '';
         this.create(attachment)
           .then((res: Attachment) => {
@@ -212,7 +207,6 @@ export class AttachmentsService extends ApplicationDb {
    */
   downloadAttachment(id: number): void {
     const attachment = new Attachment();
-    attachment.pia_id = this.pia.id;
     attachment.find(id).then((entry: any) => {
       fetch(entry.file, {
         mode: 'cors'
@@ -234,7 +228,7 @@ export class AttachmentsService extends ApplicationDb {
    * Allows an user to remove a PIA.
    * @param {string} comment - Comment to justify deletion.
    */
-  removeAttachment(attachmentId: number, piaId: number, comment: string) {
+  removeAttachment(attachmentId: number, comment: string): Promise<void> {
     return new Promise((resolve, reject) => {
       if (comment && comment.length > 0) {
         // Remove from DB by erasing only the "file" field

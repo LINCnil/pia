@@ -69,7 +69,6 @@ export class ValidatePIAComponent implements OnInit {
     const attachment: any = document.querySelector(
       '[formcontrolname="attachment_file"]'
     );
-    this.attachmentsService.pia_signed = 1;
     attachment.click();
   }
 
@@ -88,8 +87,7 @@ export class ValidatePIAComponent implements OnInit {
   removeAttachment(id: number) {
     this.removeAttachmentId = id;
     this.attachmentsService
-      .removeAttachment(id, this.pia.id,
-          this.removeAttachmentForm.controls['comment'].value)
+      .removeAttachment(id, this.removeAttachmentForm.controls['comment'].value)
         .then(() => {
           this.removeAttachmentId = null;
         });
@@ -97,8 +95,7 @@ export class ValidatePIAComponent implements OnInit {
 
   submitRemoveAttachment() {
     this.attachmentsService
-      .removeAttachment(this.removeAttachmentId, this.pia.id,
-          this.removeAttachmentForm.controls['comment'].value)
+      .removeAttachment(this.removeAttachmentId, this.removeAttachmentForm.controls['comment'].value)
         .then(() => {
           this.removeAttachmentId = null;
         });
