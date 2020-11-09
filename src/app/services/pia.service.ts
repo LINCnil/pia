@@ -229,6 +229,30 @@ export class PiaService extends ApplicationDb  {
   }
 
   /**
+   * Erase all contents on the DPD page.
+   * @private
+   * @param {*} piaService - The PIA Service.
+   */
+  public resetDpoPage(piaId: number) {
+    return new Promise((resolve, reject) => {
+      this.find(piaId).then((pia: Pia) => {
+        pia.dpos_names = null;
+        pia.dpo_status = null;
+        pia.dpo_opinion = null;
+        pia.concerned_people_searched_opinion = null;
+        pia.concerned_people_searched_content = null;
+        pia.people_names = null;
+        pia.concerned_people_status = null;
+        pia.concerned_people_opinion = null;
+        this.update(pia)
+          .then(() => {
+            resolve();
+          });
+      });
+    });
+  }
+
+  /**
    * Create a new PIA
    */
   async saveNewPia(piaForm: any) {

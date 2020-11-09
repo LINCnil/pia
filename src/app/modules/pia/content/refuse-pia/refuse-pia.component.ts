@@ -89,7 +89,7 @@ export class RefusePIAComponent implements OnInit {
     this.pia.status = 1;
     this.piaService.update(this.pia).then(() => {
       this.piaService.cancelAllValidatedEvaluation(this.pia).then(() => {
-        this.sidStatusService.refusePia(this.piaService).then(() => {
+        this.sidStatusService.refusePia(this.pia.id).then(() => {
           this.dialogService.confirmThis(
             {
               text: 'modals.refuse_pia.content',
@@ -98,7 +98,13 @@ export class RefusePIAComponent implements OnInit {
               no: ''
             },
             () => {
-              this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
+              this.piaService.resetDpoPage(this.pia.id)
+                .then(() => {
+                  this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
             },
             () => {
               return false;

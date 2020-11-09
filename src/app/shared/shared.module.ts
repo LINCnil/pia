@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -69,6 +69,7 @@ import { AnswerService } from '../services/answer.service';
 import { KnowledgeBaseItemComponent } from './components/knowledge-base/knowledge-base-item/knowledge-base-item.component';
 import { KnowledgeBaseComponent } from './components/knowledge-base/knowledge-base.component';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
+import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 
 
 
@@ -84,7 +85,7 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     DialogComponent,
     KnowledgeBaseComponent,
     KnowledgeBaseItemComponent,
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
   ],
   imports: [
     CommonModule,
@@ -93,6 +94,7 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    PdfJsViewerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -118,7 +120,8 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     DialogComponent,
     KnowledgeBaseComponent,
     KnowledgeBaseItemComponent,
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
+    PdfJsViewerModule,
   ],
   providers: [
     AppDataService,
@@ -132,6 +135,13 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     FormatTheDate,
     IntrojsService,
     DialogService,
+    PdfJsViewerModule,
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+  static forRoot(): ModuleWithProviders<SharedModule> {
+    return {
+      ngModule: SharedModule
+    };
+  }
+ }
