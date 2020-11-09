@@ -4,11 +4,9 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { RevisionService } from 'src/app/services/revision.service';
-import { utf8Encode } from '@angular/compiler/src/util';
 import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
 import { Pia } from 'src/app/models/pia.model';
-import { ModalsService } from 'src/app/services/modals.service';
 import { Revision } from 'src/app/models/revision.model';
 import { PiaService } from 'src/app/services/pia.service';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -46,7 +44,6 @@ export class RevisionPreviewComponent implements OnInit {
     public sidStatusService: SidStatusService,
     public revisionService: RevisionService,
     public piaService: PiaService,
-    public modalsService: ModalsService,
     private datePipe: DatePipe,
     private router: Router,
     private dialogService: DialogService

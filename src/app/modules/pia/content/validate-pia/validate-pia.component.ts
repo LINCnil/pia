@@ -1,11 +1,10 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { PiaService } from 'src/app/services/pia.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { Pia } from 'src/app/models/pia.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { Router } from '@angular/router';
@@ -21,16 +20,22 @@ export class ValidatePIAComponent implements OnInit {
   data: { sections: any };
   validateForm: FormGroup;
   attachment: any;
+  removeAttachmentId = null;
+  removeAttachmentForm: FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
     private router: Router,
-    private modalsService: ModalsService,
     public attachmentsService: AttachmentsService,
     private actionPlanService: ActionPlanService,
     public piaService: PiaService,
     public languagesService: LanguagesService,
     private dialogService: DialogService
-  ) {}
+  ) {
+    this.removeAttachmentForm = this.formBuilder.group({
+      comment: ['', [Validators.required, Validators.minLength(3)]]
+    });
+  }
 
   ngOnInit() {
     this.validateForm = new FormGroup({
@@ -81,8 +86,22 @@ export class ValidatePIAComponent implements OnInit {
    * @param {number} id - Attachment id.
    */
   removeAttachment(id: number) {
-    localStorage.setItem('attachment-id', id.toString());
-    this.modalsService.openModal('modal-remove-attachment');
+    this.removeAttachmentId = id;
+    this.attachmentsService
+      .removeAttachment(id, this.pia.id,
+          this.removeAttachmentForm.controls['comment'].value)
+        .then(() => {
+          this.removeAttachmentId = null;
+        });
+  }
+
+  submitRemoveAttachment() {
+    this.attachmentsService
+      .removeAttachment(this.removeAttachmentId, this.pia.id,
+          this.removeAttachmentForm.controls['comment'].value)
+        .then(() => {
+          this.removeAttachmentId = null;
+        });
   }
 
   /**

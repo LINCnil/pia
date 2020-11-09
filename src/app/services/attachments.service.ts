@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApplicationDb } from '../application.db';
 import { Attachment } from '../models/attachment.model';
-import { ModalsService } from './modals.service';
-
 
 @Injectable()
 export class AttachmentsService extends ApplicationDb {

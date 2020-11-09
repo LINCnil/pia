@@ -8,7 +8,6 @@ import { GlobalEvaluationService } from 'src/app/services/global-evaluation.serv
 import { StructureService } from 'src/app/services/structure.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { Structure } from 'src/app/models/structure.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
@@ -33,7 +32,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
   constructor(private el: ElementRef,
               private knowledgeBaseService: KnowledgeBaseService,
-              private modalsService: ModalsService,
               private ngZone: NgZone,
               public globalEvaluationService: GlobalEvaluationService,
               private sidStatusService: SidStatusService,

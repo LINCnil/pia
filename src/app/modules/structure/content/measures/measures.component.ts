@@ -6,7 +6,6 @@ import { StructureService } from 'src/app/services/structure.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { Structure } from 'src/app/models/structure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
-import { ModalsService } from 'src/app/services/modals.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 

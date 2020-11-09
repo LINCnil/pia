@@ -11,11 +11,11 @@ import { Measure } from '../models/measure.model';
 import { Pia } from '../models/pia.model';
 import { Comment } from '../models/comment.model';
 import { Structure } from '../models/structure.model';
-import { ModalsService } from './modals.service';
 import { StructureService } from './structure.service';
 import { AnswerService } from './answer.service';
 import { ApplicationDb } from '../application.db';
 import { Router } from '@angular/router';
+import { DialogService } from './dialog.service';
 
 @Injectable()
 export class PiaService extends ApplicationDb  {
@@ -26,10 +26,10 @@ export class PiaService extends ApplicationDb  {
   constructor(
     private router: Router,
     public appDataService: AppDataService,
-    private modalsService: ModalsService,
     public sidStatusService: SidStatusService,
     private structureService: StructureService,
-    private answerService: AnswerService
+    private answerService: AnswerService,
+    private dialogService: DialogService
   ) {
     super(201910230914, 'pia');
     this.data = this.appDataService.dataNav;
@@ -388,7 +388,6 @@ export class PiaService extends ApplicationDb  {
   abandonTreatment(pia: Pia) {
     pia.status = 4;
     this.update(pia).then(() => {
-      this.modalsService.closeModal();
       this.router.navigate(['/entries']);
     });
   }
@@ -458,7 +457,17 @@ export class PiaService extends ApplicationDb  {
    */
   async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
     if (!('pia' in data) || !('dbVersion' in data.pia)) {
-      this.modalsService.openModal('import-wrong-pia-file');
+      this.dialogService.confirmThis({
+        text: 'modals.import_wrong_pia_file.content',
+        type: 'yes',
+        yes: 'modals.close',
+        no: ''},
+        () => {
+          return;
+        },
+        () => {
+          return;
+        });
       return;
     }
     const pia = new Pia();
@@ -637,8 +646,6 @@ export class PiaService extends ApplicationDb  {
           this.importData(jsonFile, 'IMPORT', false);
           resolve(true);
         } catch (error) {
-          // this.modalsService.openModal('modal-general-error');
-          // console.error('Unable to parse JSON file.');
           reject(error);
         }
       };

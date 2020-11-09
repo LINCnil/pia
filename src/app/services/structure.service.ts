@@ -1,17 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
 
 import structureExampleFr from 'src/assets/files/2018-11-21-structure-example-fr.json';
 import structureExampleEn from 'src/assets/files/2018-11-21-structure-example-en.json';
 
 import { LanguagesService } from 'src/app/services/languages.service';
-import { Pia } from '../models/pia.model';
 import { Structure } from '../models/structure.model';
-import { ModalsService } from './modals.service';
 import { ApplicationDb } from '../application.db';
-import { PiaService } from './pia.service';
 
 
 @Injectable()
@@ -230,10 +224,6 @@ export class StructureService extends ApplicationDb {
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
-      // if (!('structure' in data) || !('dbVersion' in data.structure)) {
-      //   // this.modalsService.openModal('import-wrong-structure-file');
-      //   return;
-      // }
       const structure = new Structure();
       structure.name = '(' + prefix + ') ' + data.structure.name;
       structure.sector_name = data.structure.sector_name;

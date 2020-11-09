@@ -15,7 +15,7 @@ export class AttachmentItemComponent implements OnInit {
   @Input() attachment: any;
   @Input() pia: any;
   @Output() deleted = new EventEmitter();
-  fileUrl:any = null;
+  fileUrl: any = null;
 
   showRemoveAttachmentForm = false;
   removeAttachmentForm: FormGroup;
