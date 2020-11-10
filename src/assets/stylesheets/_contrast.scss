@@ -1,35 +1,35 @@
 /* CONTRAST CHANGES */
-.pia-contrast {
+main.pia-contrast {
   /* buttons */
   .btn {
     &-inactive,
     &[disabled] {
-      color: $pia-gray-dark !important;
-      border-color: $pia-gray-dark !important;
+      color: $pia-gray-dark;
+      border-color: $pia-gray-dark;
       &:focus,
       &:hover {
-        color: $pia-gray-dark !important;
-        background-color: transparent !important;
+        color: $pia-gray-dark;
+        background-color: transparent;
       }
     }
     &-white {
-      color: $pia-green-dark !important;
+      color: $pia-green-dark;
       &:focus,
       &:hover,
       &.btn-active,
       &.btn-active[disabled] {
-        color: $pia-green-dark !important;
+        color: $pia-green-dark;
       }
     }
     &-green {
-      color: $pia-green-dark !important;
-      border-color: $pia-green-dark !important;
+      color: $pia-green-dark;
+      border-color: $pia-green-dark;
       &:focus,
       &:hover,
       &.btn-active,
       &.btn-active[disabled] {
-        background-color: $pia-green-dark !important;
-        color: #fff !important;
+        background-color: $pia-green-dark;
+        color: #fff;
       }
     }
     &-blue {
@@ -40,7 +40,7 @@
       &.btn-active,
       &.btn-active[disabled] {
         background-color: $pia-blue;
-        color: #fff !important;
+        color: #fff;
       }
     }
     &-red {
@@ -51,7 +51,7 @@
       &.btn-active,
       &.btn-active[disabled] {
         background-color: $pia-red-dark;
-        color: #fff !important;
+        color: #fff;
       }
     }
   }
@@ -69,19 +69,19 @@
   /* risks overview */
   .pia-risksOverviewBlock {
     .rect_2 {
-      color: $pia-gray-dark !important;
+      color: $pia-gray-dark;
     }
     .c32 {
-      fill: $pia-red-dark !important;
+      fill: $pia-red-dark;
     }
     .path_32 {
-      stroke: $pia-red-dark !important;
+      stroke: $pia-red-dark;
     }
     .c33 {
-      fill: $pia-green-dark !important;
+      fill: $pia-green-dark;
     }
     .path_33 {
-      stroke: $pia-green-dark !important;
+      stroke: $pia-green-dark;
     }
   }
 
@@ -118,10 +118,10 @@
       }
     }
     &-structures {
-      background-color: $pia-green-dark !important;
+      background-color: $pia-green-dark;
     }
     &-knowledges {
-      background-color: $pia-red-dark !important;
+      background-color: $pia-red-dark;
     }
   }
 
@@ -129,13 +129,13 @@
   .pia-filtersBlock {
     &-switch,
     &-filters-btn {
-      border-color: $pia-green-dark !important;
-      color: $pia-green-dark !important;
+      border-color: $pia-green-dark;
+      color: $pia-green-dark;
       &:focus,
       &:hover,
       &:active {
-        background-color: $pia-green-dark !important;
-        border-color: $pia-green-dark !important;
+        background-color: $pia-green-dark;
+        border-color: $pia-green-dark;
         color: #fff;
       }
     }
@@ -148,7 +148,7 @@
         }
       }
       &-list {
-        border-color: $pia-green-dark !important;
+        border-color: $pia-green-dark;
         > span {
           color: $pia-gray-dark !important;
         }
@@ -162,47 +162,47 @@
   .pia-cardsBlock {
     &.pia-doingBlock {
       .pia-cardsBlock-header-title {
-        border-bottom-color: $pia-red-dark !important;
-        color: $pia-red-dark !important;
+        border-bottom-color: $pia-red-dark;
+        color: $pia-red-dark;
       }
     }
     &.pia-archiveBlock {
       .pia-cardsBlock-header-title {
-        border-bottom-color: $pia-green-dark !important;
-        color: $pia-green-dark !important;
+        border-bottom-color: $pia-green-dark;
+        color: $pia-green-dark;
       }
     }
     &-item {
       &-status {
         &-infos {
           > div:first-child {
-            color: $pia-gray-dark !important;
+            color: $pia-gray-dark;
           }
         }
         &-progressBar {
           > div {
-            color: $pia-green-dark !important;
+            color: $pia-green-dark;
           }
           progress {
             appearance: none;
             -moz-appearance: none;
             -webkit-appearance: none;
-            color: $pia-green-dark !important;
+            color: $pia-green-dark;
             &::-moz-progress-bar {
-              background: $pia-green-dark !important;
+              background: $pia-green-dark;
             }
             &::-webkit-progress-value {
-              background: $pia-green-dark !important;
+              background: $pia-green-dark;
             }
           }
         }
       }
       &-btn {
-        border-top-color: $pia-green-dark !important;
+        border-top-color: $pia-green-dark;
       }
       &-form {
         label {
-          color: $pia-gray-dark !important;
+          color: $pia-gray-dark;
         }
         input::placeholder {
           color: $pia-gray-dark !important;
@@ -210,7 +210,7 @@
         div {
           #structure:hover,
           input:hover {
-            outline-color: $pia-green-dark !important;
+            outline-color: $pia-green-dark;
           }
         }
         .pia-structure-wrapper {
@@ -221,13 +221,13 @@
       }
       &-date {
         div {
-          color: $pia-gray-dark !important;
+          color: $pia-gray-dark;
         }
       }
     }
     &-toolbar {
       a {
-        color: $pia-green-dark !important;
+        color: $pia-green-dark;
       }
     }
   }
@@ -236,7 +236,7 @@
   .pia-editBlock,
   .pia-archiveBlock {
     &-item {
-      color: $pia-green-dark !important;
+      color: $pia-green-dark;
     }
   }
 
@@ -255,12 +255,12 @@
   }
 
   .pia-editBlock {
-    border-color: $pia-green-dark !important;
+    border-color: $pia-green-dark;
   }
 
   .pia-tooltip {
     &-text {
-      background-color: $pia-green-dark !important;
+      background-color: $pia-green-dark;
       &:before {
         background-position: -392px -93px;
       }
@@ -286,15 +286,15 @@
       appearance: none;
       -moz-appearance: none;
       -webkit-appearance: none;
-      color: $pia-green-dark !important;
+      color: $pia-green-dark;
       &:after {
         color: $pia-green-dark !important;
       }
       &::-moz-progress-bar {
-        background: $pia-green-dark !important;
+        background: $pia-green-dark;
       }
       &::-webkit-progress-value {
-        background: $pia-green-dark !important;
+        background: $pia-green-dark;
       }
     }
     &-actions {
@@ -314,11 +314,11 @@
     &-section1 {
       .pia-entryContentBlock-header {
         div:first-child {
-          background-color: $pia-green-dark !important;
+          background-color: $pia-green-dark;
         }
         h1,
         h2 {
-          color: $pia-green-dark !important;
+          color: $pia-green-dark;
         }
       }
     }
@@ -504,7 +504,7 @@
       border-color: $pia-gray-dark;
     }
     &-addBtn {
-      color: $pia-green-dark !important;
+      color: $pia-green-dark;
       .pia-icon-add {
         background-position: -223px -3px;
       }
@@ -534,7 +534,7 @@
       }
     }
     &-item {
-      border-top-color: $pia-green-dark !important;
+      border-top-color: $pia-green-dark;
       .pia-icon-accordeon-up {
         background-position: -343px -140px;
       }
@@ -579,7 +579,7 @@
         background-position: -341px -166px;
       }
       .green-highlight {
-        color: $pia-green-dark !important;
+        color: $pia-green-dark;
       }
     }
     &-edit {
@@ -599,7 +599,7 @@
   /* comments */
   .pia-commentsBlock {
     &-infos {
-      border-top-color: $pia-green-dark !important;
+      border-top-color: $pia-green-dark;
     }
     &-btn {
       button {
@@ -759,7 +759,7 @@
       }
     }
     &-date {
-      border-top: 1px solid $pia-green-dark !important;
+      border-top: 1px solid $pia-green-dark;
       time {
         color: $pia-gray-dark !important;
       }
@@ -799,7 +799,7 @@
   }
   .pia-details-blocks-content {
     > p {
-      border-bottom: 1px solid $pia-green-dark !important;
+      border-bottom: 1px solid $pia-green-dark;
     }
     form {
       input {

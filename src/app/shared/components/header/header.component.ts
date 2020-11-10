@@ -91,19 +91,6 @@ export class HeaderComponent implements OnInit {
     this.appDataService.contrastMode = event.target.checked;
   }
 
-  /**
-   * Updates colors contrast on the whole application for people with visual disabilities.
-   * @private
-   */
-  private updateContrast(): void {
-    // this.increaseContrast = localStorage.getItem('increaseContrast');
-    // if (this.increaseContrast === 'true') {
-    //   this.renderer.addClass(document.body, 'pia-contrast');
-    // } else {
-    //   this.renderer.removeClass(document.body, 'pia-contrast');
-    // }
-  }
-
   // TODO: move in .html only
   goToExample(): void {
     if (this.pia_example) {
