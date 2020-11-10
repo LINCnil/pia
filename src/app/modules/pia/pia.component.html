@@ -1,4 +1,4 @@
-<main class="container pia-mainContainerBlock" *ngIf="pia">
+<section class="container pia-mainContainerBlock" *ngIf="pia">
     <div class="row">
         <div *ngIf="pia.is_example === 1"
           class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
@@ -67,7 +67,7 @@
             </div>
         </aside>
     </div>
-</main>
+</section>
 
 <app-loading-overlay [visibility]="download"></app-loading-overlay>
 <app-preview [pia]="pia" [onlyData]="true" *ngIf="download"></app-preview>

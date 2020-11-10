@@ -47,9 +47,9 @@
                 </a>
                 <form>
                   <fieldset>
-                    <a routerLink="/settings">{{ 'header.tools.url_setting' | translate }}</a>
+                    <a routerLink="/url">{{ 'header.tools.url_setting' | translate }}</a>
                     <div>
-                      <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="increaseContrast === 'true'" (change)="changeContrast($event)">
+                      <input type="checkbox" name="pia-accessibility" id="pia-accessibility" [checked]="appDataService.contrastMode" (change)="changeContrast($event)">
                       <label for="pia-accessibility">{{ 'header.tools.accessibility' | translate }}</label>
                     </div>
                     <div>
