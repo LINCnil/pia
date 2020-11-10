@@ -1,35 +1,35 @@
 /* CONTRAST CHANGES */
-body.pia-contrast {
+.pia-contrast {
   /* buttons */
   .btn {
     &-inactive,
     &[disabled] {
-      color: $pia-gray-dark;
-      border-color: $pia-gray-dark;
+      color: $pia-gray-dark !important;
+      border-color: $pia-gray-dark !important;
       &:focus,
       &:hover {
-        color: $pia-gray-dark;
-        background-color: transparent;
+        color: $pia-gray-dark !important;
+        background-color: transparent !important;
       }
     }
     &-white {
-      color: $pia-green-dark;
+      color: $pia-green-dark !important;
       &:focus,
       &:hover,
       &.btn-active,
       &.btn-active[disabled] {
-        color: $pia-green-dark;
+        color: $pia-green-dark !important;
       }
     }
     &-green {
-      color: $pia-green-dark;
-      border-color: $pia-green-dark;
+      color: $pia-green-dark !important;
+      border-color: $pia-green-dark !important;
       &:focus,
       &:hover,
       &.btn-active,
       &.btn-active[disabled] {
-        background-color: $pia-green-dark;
-        color: #fff;
+        background-color: $pia-green-dark !important;
+        color: #fff !important;
       }
     }
     &-blue {
@@ -40,7 +40,7 @@ body.pia-contrast {
       &.btn-active,
       &.btn-active[disabled] {
         background-color: $pia-blue;
-        color: #fff;
+        color: #fff !important;
       }
     }
     &-red {
@@ -51,7 +51,7 @@ body.pia-contrast {
       &.btn-active,
       &.btn-active[disabled] {
         background-color: $pia-red-dark;
-        color: #fff;
+        color: #fff !important;
       }
     }
   }
@@ -69,19 +69,19 @@ body.pia-contrast {
   /* risks overview */
   .pia-risksOverviewBlock {
     .rect_2 {
-      color: $pia-gray-dark;
+      color: $pia-gray-dark !important;
     }
     .c32 {
-      fill: $pia-red-dark;
+      fill: $pia-red-dark !important;
     }
     .path_32 {
-      stroke: $pia-red-dark;
+      stroke: $pia-red-dark !important;
     }
     .c33 {
-      fill: $pia-green-dark;
+      fill: $pia-green-dark !important;
     }
     .path_33 {
-      stroke: $pia-green-dark;
+      stroke: $pia-green-dark !important;
     }
   }
 
@@ -118,10 +118,10 @@ body.pia-contrast {
       }
     }
     &-structures {
-      background-color: $pia-green-dark;
+      background-color: $pia-green-dark !important;
     }
     &-knowledges {
-      background-color: $pia-red-dark;
+      background-color: $pia-red-dark !important;
     }
   }
 
@@ -129,13 +129,13 @@ body.pia-contrast {
   .pia-filtersBlock {
     &-switch,
     &-filters-btn {
-      border-color: $pia-green-dark;
-      color: $pia-green-dark;
+      border-color: $pia-green-dark !important;
+      color: $pia-green-dark !important;
       &:focus,
       &:hover,
       &:active {
-        background-color: $pia-green-dark;
-        border-color: $pia-green-dark;
+        background-color: $pia-green-dark !important;
+        border-color: $pia-green-dark !important;
         color: #fff;
       }
     }
@@ -148,7 +148,7 @@ body.pia-contrast {
         }
       }
       &-list {
-        border-color: $pia-green-dark;
+        border-color: $pia-green-dark !important;
         > span {
           color: $pia-gray-dark !important;
         }
@@ -162,47 +162,47 @@ body.pia-contrast {
   .pia-cardsBlock {
     &.pia-doingBlock {
       .pia-cardsBlock-header-title {
-        border-bottom-color: $pia-red-dark;
-        color: $pia-red-dark;
+        border-bottom-color: $pia-red-dark !important;
+        color: $pia-red-dark !important;
       }
     }
     &.pia-archiveBlock {
       .pia-cardsBlock-header-title {
-        border-bottom-color: $pia-green-dark;
-        color: $pia-green-dark;
+        border-bottom-color: $pia-green-dark !important;
+        color: $pia-green-dark !important;
       }
     }
     &-item {
       &-status {
         &-infos {
           > div:first-child {
-            color: $pia-gray-dark;
+            color: $pia-gray-dark !important;
           }
         }
         &-progressBar {
           > div {
-            color: $pia-green-dark;
+            color: $pia-green-dark !important;
           }
           progress {
             appearance: none;
             -moz-appearance: none;
             -webkit-appearance: none;
-            color: $pia-green-dark;
+            color: $pia-green-dark !important;
             &::-moz-progress-bar {
-              background: $pia-green-dark;
+              background: $pia-green-dark !important;
             }
             &::-webkit-progress-value {
-              background: $pia-green-dark;
+              background: $pia-green-dark !important;
             }
           }
         }
       }
       &-btn {
-        border-top-color: $pia-green-dark;
+        border-top-color: $pia-green-dark !important;
       }
       &-form {
         label {
-          color: $pia-gray-dark;
+          color: $pia-gray-dark !important;
         }
         input::placeholder {
           color: $pia-gray-dark !important;
@@ -210,7 +210,7 @@ body.pia-contrast {
         div {
           #structure:hover,
           input:hover {
-            outline-color: $pia-green-dark;
+            outline-color: $pia-green-dark !important;
           }
         }
         .pia-structure-wrapper {
@@ -221,13 +221,13 @@ body.pia-contrast {
       }
       &-date {
         div {
-          color: $pia-gray-dark;
+          color: $pia-gray-dark !important;
         }
       }
     }
     &-toolbar {
       a {
-        color: $pia-green-dark;
+        color: $pia-green-dark !important;
       }
     }
   }
@@ -236,7 +236,7 @@ body.pia-contrast {
   .pia-editBlock,
   .pia-archiveBlock {
     &-item {
-      color: $pia-green-dark;
+      color: $pia-green-dark !important;
     }
   }
 
@@ -255,12 +255,12 @@ body.pia-contrast {
   }
 
   .pia-editBlock {
-    border-color: $pia-green-dark;
+    border-color: $pia-green-dark !important;
   }
 
   .pia-tooltip {
     &-text {
-      background-color: $pia-green-dark;
+      background-color: $pia-green-dark !important;
       &:before {
         background-position: -392px -93px;
       }
@@ -286,15 +286,15 @@ body.pia-contrast {
       appearance: none;
       -moz-appearance: none;
       -webkit-appearance: none;
-      color: $pia-green-dark;
+      color: $pia-green-dark !important;
       &:after {
         color: $pia-green-dark !important;
       }
       &::-moz-progress-bar {
-        background: $pia-green-dark;
+        background: $pia-green-dark !important;
       }
       &::-webkit-progress-value {
-        background: $pia-green-dark;
+        background: $pia-green-dark !important;
       }
     }
     &-actions {
@@ -314,11 +314,11 @@ body.pia-contrast {
     &-section1 {
       .pia-entryContentBlock-header {
         div:first-child {
-          background-color: $pia-green-dark;
+          background-color: $pia-green-dark !important;
         }
         h1,
         h2 {
-          color: $pia-green-dark;
+          color: $pia-green-dark !important;
         }
       }
     }
@@ -504,7 +504,7 @@ body.pia-contrast {
       border-color: $pia-gray-dark;
     }
     &-addBtn {
-      color: $pia-green-dark;
+      color: $pia-green-dark !important;
       .pia-icon-add {
         background-position: -223px -3px;
       }
@@ -534,7 +534,7 @@ body.pia-contrast {
       }
     }
     &-item {
-      border-top-color: $pia-green-dark;
+      border-top-color: $pia-green-dark !important;
       .pia-icon-accordeon-up {
         background-position: -343px -140px;
       }
@@ -579,7 +579,7 @@ body.pia-contrast {
         background-position: -341px -166px;
       }
       .green-highlight {
-        color: $pia-green-dark;
+        color: $pia-green-dark !important;
       }
     }
     &-edit {
@@ -599,7 +599,7 @@ body.pia-contrast {
   /* comments */
   .pia-commentsBlock {
     &-infos {
-      border-top-color: $pia-green-dark;
+      border-top-color: $pia-green-dark !important;
     }
     &-btn {
       button {
@@ -759,7 +759,7 @@ body.pia-contrast {
       }
     }
     &-date {
-      border-top: 1px solid $pia-green-dark;
+      border-top: 1px solid $pia-green-dark !important;
       time {
         color: $pia-gray-dark !important;
       }
@@ -799,7 +799,7 @@ body.pia-contrast {
   }
   .pia-details-blocks-content {
     > p {
-      border-bottom: 1px solid $pia-green-dark;
+      border-bottom: 1px solid $pia-green-dark !important;
     }
     form {
       input {

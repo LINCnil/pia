@@ -21,12 +21,12 @@ $fa-font-path: '~font-awesome/fonts';
 @import './assets/stylesheets/tags';
 @import './assets/stylesheets/gauges';
 @import './assets/stylesheets/action-plan';
-@import './assets/stylesheets/contrast';
 @import './assets/stylesheets/breadcrumb';
 @import './assets/stylesheets/editor';
 @import './assets/stylesheets/print';
 @import './assets/stylesheets/header';
 @import './assets/stylesheets/onboarding';
+@import './assets/stylesheets/contrast';
 
 @-moz-document url-prefix() {
   .pia-gaugeBlock-user-choice {
