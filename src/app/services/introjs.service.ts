@@ -19,7 +19,7 @@ export class IntrojsService {
 
   private introjsChecked = false;
 
-  constructor(private router: Router, private translateService: TranslateService) {
+  constructor(private translateService: TranslateService) {
     this.sectionsChange.subscribe(bool => {
       if (!this.introjsChecked) {
         console.log('changements sections', bool);
@@ -472,7 +472,7 @@ export class IntrojsService {
               this.prepareValidatedOnBoarding();
               clearInterval(interval);
             }
-          }, 2000);
+          }, 5000);
         }
         break;
       case 'evaluation':
