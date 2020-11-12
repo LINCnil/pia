@@ -472,7 +472,7 @@ export class IntrojsService {
               this.prepareValidatedOnBoarding();
               clearInterval(interval);
             }
-          }, 5000);
+          }, 2000);
         }
         break;
       case 'evaluation':

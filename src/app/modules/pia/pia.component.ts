@@ -98,6 +98,10 @@ export class PiaComponent implements OnInit {
           this.measureToRemoveFromTags = val;
         });
 
+        if (!localStorage.getItem('onboardingEntryConfirmed')) {
+          this.introjsService.start('entry');
+        }
+
       })
       .catch((err) => {
         console.error(err);
