@@ -32,8 +32,7 @@ export class SectionsComponent implements OnInit {
   @Input() data: { sections: any };
 
   constructor(
-    public sidStatusService: SidStatusService,
-    private introjsService: IntrojsService
+    public sidStatusService: SidStatusService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -42,12 +41,5 @@ export class SectionsComponent implements OnInit {
         this.sidStatusService.setSidStatus(this.pia, section, item);
       });
     });
-  }
-
-  // tslint:disable-next-line: use-lifecycle-interface
-  ngAfterViewChecked(): void {
-    if (!this.introjsService.sectionsLoaded) {
-      this.introjsService.sections(true);
-    }
   }
 }

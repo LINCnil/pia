@@ -51,21 +51,10 @@ export class SidStatusService {
         this.verifEnableDpo();
       }
 
-      // Algo for IntroJs: Entry page ? and Evaluation mode ?
-      if (this.route.snapshot.params.id && this.route.snapshot.params.section_id && this.route.snapshot.params.item_id) {
-        if (this.globalEvaluationService.status != undefined) {
-          if (this.introjsService.evaluationsLoaded === null) {
-            if (this.globalEvaluationService.status > 0) {
-              this.introjsService.evaluations(true);
-            } else {
-              this.introjsService.evaluations(false);
-            }
-          }
-        }
-      } else {
-        this.introjsService.sectionsLoaded = null;
-        this.introjsService.evaluationsLoaded = null;
+      if (localStorage.getItem('onboardingEntryConfirmed')) {
+        this.introjsService.start('evaluation');
       }
+
     });
   }
 
