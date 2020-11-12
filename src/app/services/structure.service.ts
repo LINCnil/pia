@@ -6,12 +6,15 @@ import structureExampleEn from 'src/assets/files/2018-11-21-structure-example-en
 import { LanguagesService } from 'src/app/services/languages.service';
 import { Structure } from '../models/structure.model';
 import { ApplicationDb } from '../application.db';
+import { DialogService } from './dialog.service';
 
 
 @Injectable()
 export class StructureService extends ApplicationDb {
 
-  constructor(private languagesService: LanguagesService) {
+  constructor(
+    private dialogService: DialogService,
+    private languagesService: LanguagesService) {
                 super(201808011000, 'structure');
 
   }
@@ -224,6 +227,22 @@ export class StructureService extends ApplicationDb {
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
+
+      if (!('structure' in data) || !('dbVersion' in data.structure)) {
+        this.dialogService.confirmThis({
+          text: 'modals.import_wrong_structure_file.content',
+          type: 'yes',
+          yes: 'modals.close',
+          no: ''},
+          () => {
+            return;
+          },
+          () => {
+            return;
+          });
+        return;
+      }
+
       const structure = new Structure();
       structure.name = '(' + prefix + ') ' + data.structure.name;
       structure.sector_name = data.structure.sector_name;
