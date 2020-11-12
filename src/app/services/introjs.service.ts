@@ -1,10 +1,8 @@
 import { Injectable, OnChanges } from '@angular/core';
 
-import { Router } from '@angular/router';
 import * as introJs from 'intro.js/intro.js';
 
 import { TranslateService } from '@ngx-translate/core';
-import { SimpleChanges } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable()
@@ -19,51 +17,14 @@ export class IntrojsService {
 
   private introjsChecked = false;
 
-  constructor(private router: Router, private translateService: TranslateService) {
-    this.sectionsChange.subscribe(bool => {
-      if (!this.introjsChecked) {
-        console.log('changements sections', bool);
-        this.sectionsLoaded = bool;
-        this.autoSelectOnBoarding();
-      }
-    });
-    this.evaluationsChange.subscribe(bool => {
-      if (!this.introjsChecked) {
-        console.log('changements evaluations', bool);
-        this.evaluationsLoaded = bool;
-        this.autoSelectOnBoarding();
-      }
-    });
+  constructor(private translateService: TranslateService) {
+
   }
 
   reset(): void {
     this.sectionsLoaded = null;
     this.evaluationsLoaded = null;
     this.introjsChecked = false;
-  }
-
-  sections(bool): void {
-    this.sectionsChange.next(bool);
-  }
-
-  evaluations(bool): void {
-    this.evaluationsChange.next(bool);
-  }
-
-  public autoSelectOnBoarding(): void {
-    if (this.sectionsLoaded !== null && this.evaluationsLoaded !== null) {
-      if (this.evaluationsLoaded === true) {
-        console.log('EVALUATION INTROJS');
-        this.start('evaluation');
-        this.introjsChecked = true;
-      } else {
-        if (!localStorage.getItem('onboardingEntryConfirmed')) {
-          console.log('ENTRY INTROJS');
-          this.start('entry');
-          this.introjsChecked = true;
-        }
-      }
-    }
   }
 
   /**

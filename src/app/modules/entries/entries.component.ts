@@ -7,9 +7,9 @@ import { ArchiveService } from 'src/app/services/archive.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { Structure } from 'src/app/models/structure.model';
 import { StructureService } from 'src/app/services/structure.service';
-import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
+import { IntrojsService } from 'src/app/services/introjs.service';
 
 
 @Component({
@@ -27,9 +27,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
   paramsSubscribe: Subscription;
   searchText: string;
 
-  // Update
-  public type_entries: string; // 'pia' or 'archive'
-  public entries: Array<any> = []; // storage for pia or archive
+  public type_entries: string; // pia / archive / knowledgeBase / structure
+  public entries: Array<any> = [];
 
   public showModal = false;
 
@@ -38,9 +37,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
     private el: ElementRef,
     public archiveService: ArchiveService,
     public structureService: StructureService,
-    private knowledgesService: KnowledgesService,
     private knowledgeBaseService: KnowledgeBaseService,
     public piaService: PiaService,
+    private introJsService: IntrojsService,
     public appDataService: AppDataService) {
 
       // get entries type (pia or archive)
@@ -145,6 +144,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
           this.piaService.findAll().then((entries: Array<Pia>) => {
             this.entries = entries;
             this.entries.forEach(entrie => this.piaService.calculPiaProgress(entrie));
+            this.startIntroJs('pia');
           });
           break;
         case 'archive':
@@ -192,9 +192,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
         }
       });
     }
-    // else {
-    //   this.entries.push(entrie);
-    // }
   }
 
   open(): void {
@@ -293,6 +290,32 @@ export class EntriesComponent implements OnInit, OnDestroy {
     });
     if (this.sortOrder === 'up') {
       this.entries.reverse();
+    }
+  }
+
+  startIntroJs(type): void {
+    switch (type) {
+      case 'pia':
+        const validated = this.entries.filter((e: Pia) => e.status === 2 || e.status === 3);
+        if (validated.length > 0) {
+          // Validated introjs
+          if (!localStorage.getItem('onboardingValidatedConfirmed')) {
+            this.introJsService.start('validated');
+          }
+        } else {
+          // dashboard introjs
+          const inProgress = this.entries.filter((e: Pia) => e.status === 1);
+          if (inProgress && inProgress.length === 0) {
+            if (!localStorage.getItem('onboardingDashboardConfirmed')) {
+              if (localStorage.getItem('homepageDisplayMode') === 'card') {
+                this.introJsService.start('dashboard');
+              }
+            }
+          }
+        }
+        break;
+      default:
+        break;
     }
   }
 }
