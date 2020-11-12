@@ -53,22 +53,22 @@
 		"send": "Senden"
 	},
 	"date": {
-		"april": "TO TRANSLATE - April",
-		"august": "TO TRANSLATE - August",
-		"december": "TO TRANSLATE - December",
-		"earlier-in-this-month": "TO TRANSLATE - Earlier this month",
-		"earlier-in-this-week": "TO TRANSLATE - Earlier this week",
-		"february": "TO TRANSLATE - February",
-		"january": "TO TRANSLATE - January",
-		"july": "TO TRANSLATE - July",
-		"june": "TO TRANSLATE - June",
-		"march": "TO TRANSLATE - March",
-		"may": "TO TRANSLATE - May",
-		"november": "TO TRANSLATE - November",
-		"october": "TO TRANSLATE - October",
-		"september": "TO TRANSLATE - September",
-		"today": "TO TRANSLATE - Today",
-		"yesterday": "TO TRANSLATE - Yesterday"
+		"april": "April",
+		"august": "August",
+		"december": "Dezember",
+		"earlier-in-this-month": "Anfang dieses Monats",
+		"earlier-in-this-week": "Anfang dieser Woche",
+		"february": "Februar",
+		"january": "Januar",
+		"july": "Juli",
+		"june": "Juni",
+		"march": "März",
+		"may": "Mai",
+		"november": "November",
+		"october": "Oktober",
+		"september": "September",
+		"today": "Heute",
+		"yesterday": "Gestern"
 	},
 	"errors": {
 		"content": "Wenn Sie auf andere Probleme stoßen oder Verbesserungsvorschläge haben, können Sie diese über das folgende Formular zurücksenden: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
@@ -102,16 +102,16 @@
 		"to_correct": "zu berichtigen"
 	},
 	"header": {
-		"archives": "TO TRANSLATE - PIA Archives",
-		"current_pias": "TO TRANSLATE - Current PIAs",
+		"archives": "DSFA Archiv",
+		"current_pias": "Aktuelle DSFAs",
 		"exit_full_screen_mode": "Drücken Sie F11, um den Vollbildmodus zu verlassen.",
 		"help": {
-			"issue_reporting": "TO TRANSLATE - Report an issue",
-			"manual": "TO TRANSLATE - User manual",
+			"issue_reporting": "Ein Problem melden",
+			"manual": "Benutzerhandbuch",
 			"pia_example_link": "Beispiel DSFA",
 			"title": "Hilfe"
 		},
-		"homepage_link": "TO TRANSLATE - My PIAs",
+		"homepage_link": "Meine DSFAs",
 		"knowledge_base_link": "Wissensbasis",
 		"languages": {
 			"cnil_translations": "Von der CNIL bereitgestellte Übersetzungen",
@@ -147,7 +147,7 @@
 			"accessibility": "Unterstützung für Sehbehinderte (kontrastreiche Farben, bei Rot-Grün-Sehschwäche)",
 			"settings": "Einstellungen",
 			"title": "Tools",
-			"url_setting": "TO TRANSLATE - Server URL configuration"
+			"url_setting": "Server (URL) Konfiguration"
 		}
 	},
 	"help": {
@@ -194,7 +194,7 @@
 	"homepage": {
 		"cards": {
 			"author": "Bearbeiter",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorie",
 			"creation_status": "Anlegen",
 			"date": "Datum",
 			"evaluation": "Prüfer",
@@ -202,19 +202,19 @@
 			"import_structure": "Vorlage importieren",
 			"item": {
 				"consult_pia": "Ansehen",
-				"consult_structure": "TO TRANSLATE - Consult template",
-        "validate_pia": "TO TRANSLATE - Validate",
+				"consult_structure": "Vorlage anzeigen",
+        "validate_pia": "Prüfen",
 				"edit_pia": "Bearbeiten",
 				"edit_structure": "Bearbeiten der Vorlage",
 				"tools": {
 					"action_plan": "Aktionsplan<br>anzeigen",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archivieren",
 					"duplicate": "Kopieren",
 					"export": "Exportieren",
 					"more_options": "Weitere Optionen",
 					"pia": "DSFA<br>anzeigen",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Löschen",
+					"unarchive": "Wiederherstellen"
 				}
 			},
 			"new_pia": "Neue DSFA",
@@ -222,7 +222,7 @@
 			"or": "oder",
 			"pia_name": "DSFA",
 			"placeholder_author": "Vorname Nachname",
-			"placeholder_category": "TO TRANSLATE - Category",
+			"placeholder_category": "Kategorie",
 			"placeholder_evaluation": "Vorname Nachname",
 			"placeholder_import_pia": "DSFA importieren",
 			"placeholder_import_structure": "Vorlage importieren",
@@ -245,14 +245,14 @@
 		"filters": {
 			"assessor": "Überprüft von",
 			"author": "Bearbeitet von",
-			"card": "TO TRANSLATE - Card view",
+			"card": "Rasteransicht",
 			"card_rocket_content": "Für eine neue DSFA,<br> klicken Sie auf \"+\"",
 			"card_rocket_content_structure": "Fangen Sia an!<br><br>Um eine Vorlage<br>zu beginnen, klicken Sie auf<br> auf das +.",
-			"category": "TO TRANSLATE - Category",
+			"category": "Kategorie",
 			"date": "Datum",
 			"import_pia": "DSFA importieren",
 			"import_structure": "Vorlage importieren",
-			"list": "TO TRANSLATE - List view",
+			"list": "Listansicht",
 			"list_rocket_content": "Fangen Sie an! Um eine DSFA anzulegen, klicken Sie auf \"Neue DSFA\"",
 			"list_rocket_content_structure": "Fangen Sie an! Um eine Vorlage<br>zu beginnen, klicken Sie auf die Schaltfläche +.",
 			"name": "Name",
@@ -267,7 +267,7 @@
 		"lists": {
 			"column_actions": "Aktionen",
 			"column_author": "Bearbeitet von",
-			"column_category": "TO TRANSLATE - Category",
+			"column_category": "Kategorie",
 			"column_creation": "Bearbeitet",
 			"column_evaluation": "Überprüft von",
 			"column_pia": "DSFA",
@@ -281,18 +281,18 @@
 			"item": {
 				"tools": {
 					"action_plan": "Aktionsplan anzeigen",
-					"archive": "TO TRANSLATE - Archive",
+					"archive": "Archivieren",
 					"consult": "Ansehen",
 					"duplicate": "Kopieren",
 					"edit": "Bearbeiten",
 					"export": "Exportieren",
 					"pia": "DSFA anzeigen",
-					"remove": "TO TRANSLATE - Delete",
-					"unarchive": "TO TRANSLATE - Unarchive"
+					"remove": "Löschen",
+					"unarchive": "Wiederherstellen"
 				}
 			}
 		},
-		"search_filter": "TO TRANSLATE - Search"
+		"search_filter": "Suchen"
 	},
 	"knowledge_base": {
 		"add_measure": "Hinzufügen",
@@ -878,8 +878,8 @@
 		},
 		"archive": "Archivieren",
 		"archive_pia": {
-			"archive": "TO TRANSLATE - Archive PIA",
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+			"archive": "DSFA archivieren",
+			"content": "<span class='strong'>Warning,</span><br>Sind Sie sicher, dass Sie<br>die DSFA archivieren möchten?"
 		},
 		"ask_for_evaluation": {
 			"content": "Der Unterabschnitt steht jetzt zur Überprüfung bereit."
@@ -924,8 +924,8 @@
 		},
 		"recover_version": {
 			"continue": "Fortsetzen",
-			"message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
-			"title": "TO TRANSLATE - Restore a previous version"
+			"message": "Beim Fortsetzen wird diese Report-Version wiederhergestellt: {{date}}.<br><br>Die aktuelle Version wird gesichert.",
+			"title": "Vorherige Version wiederherstellen"
 		},
 		"refuse_pia": {
 			"content": "Nach Ihrer Ablehnung wird vom Analyse-<br>in den Überprüfungsmodus zurückgesetzt,<br>um die notwendigen Änderungen vorzunehmen."
@@ -942,7 +942,7 @@
 			"remove": "Entfernen Sie<br>diese Maßnahme"
 		},
 		"remove_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+			"content": "<span class='strong'>Warning,</span><br>Sind Sie sicher, dass Sie<br>diese DSFA endgültig löschen möchten?",
 			"remove": "Diese DSFA entfernen"
 		},
 		"remove_question": {
@@ -951,7 +951,7 @@
 			"remove": "Löschen"
 		},
 		"remove_structure": {
-			"content": "<span class='strong'>Achtung,</span><br>Sind Sie sicher, dass Sie dieses Modell löschen wollen?",
+			"content": "<span class='strong'>Achtung,</span><br>Sind Sie sicher, dass Sie dieses Modell löschen möchten?",
 			"remove": "Diese Vorlage löschen"
 		},
 		"same_comment": {
@@ -966,8 +966,8 @@
 		},
 		"start_evaluation": "Beginnen Sie die Überprüfung",
 		"unarchive_pia": {
-			"content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-			"unarchive": "TO TRANSLATE - Unarchive PIA"
+			"content": "<span class='strong'>Warning,</span><br>Sind Sie sicher, dass Sie<br>diese DSFA wiederherstellen möchten?",
+			"unarchive": "DSFA wiederherstellen"
 		},
 		"update_server_url_nok": {
 			"content": "Keine Verbindung möglich."
@@ -1016,7 +1016,7 @@
 	"pia": {
 		"attachments": {
 			"add": "Hinzufügen",
-			"download": "TO TRANSLATE - Download the attachment",
+			"download": "Herunterladen",
 			"remove": "Löschen",
 			"title": "Anlagen"
 		},
@@ -1412,12 +1412,12 @@
 		"previous_page": "Zurück zur vorherigen Seite",
 		"rejection_reason": "Ablehnungsgrund",
 		"revision": {
-			"current_version": "TO TRANSLATE - Current version",
-			"pia_version": "TO TRANSLATE - PIA versions",
-			"restore_version": "TO TRANSLATE - Restore",
-			"revision": "TO TRANSLATE - Versions and revision",
-			"save": "TO TRANSLATE - Create a new version",
-			"show": "TO TRANSLATE - Display the {{length}} versions"
+			"current_version": "Aktuelle Version",
+			"pia_version": "DSFA Versionen",
+			"restore_version": "Wiederherstellen",
+			"revision": "Versionen und Aktualisierungen",
+			"save": "Neue Version erstellen",
+			"show": "Die {{length}} Versionen anzeigen"
 		},
 		"risks_cartography_title": "Risikokartierung",
 		"risks_overview_title": "Risikokübersicht",
