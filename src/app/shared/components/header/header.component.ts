@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
@@ -6,7 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { LanguagesService } from 'src/app/services/languages.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
-import { Renderer2 } from '@angular/core';
 import { Pia } from 'src/app/models/pia.model';
 import { AppDataService } from 'src/app/services/app-data.service';
 

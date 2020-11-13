@@ -8,7 +8,6 @@ import { HomeModule } from './modules/home/home.module';
 import { EntriesModule } from './modules/entries/entries.module';
 import { BaseModule } from './modules/base/base.module';
 import { StructureModule } from './modules/structure/structure.module';
-import { PiaRoutingModule } from './modules/pia/pia-routing.module';
 import { PiaModule } from './modules/pia/pia.module';
 import { SettingsModule } from './modules/settings/settings.module';
 
