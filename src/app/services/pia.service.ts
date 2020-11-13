@@ -15,6 +15,8 @@ import { ApplicationDb } from '../application.db';
 import { Router } from '@angular/router';
 import { DialogService } from './dialog.service';
 
+import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
+
 function encode_utf8(s) {
   return unescape(encodeURIComponent(s));
 }
@@ -35,6 +37,14 @@ export class PiaService extends ApplicationDb  {
   ) {
     super(201910230914, 'pia');
     this.data = this.appDataService.dataNav;
+
+    // there isn't pia ? load it
+    this.getPiaExample()
+      .then((entry) => {
+        if (!entry) {
+          this.importData(piaExample, 'EXAMPLE', false, true);
+        }
+      });
   }
 
   /**
@@ -198,7 +208,7 @@ export class PiaService extends ApplicationDb  {
    * Get the PIA example.
    * @returns {Promise}
    */
-  async getPiaExample() {
+  async getPiaExample(): Promise<Pia> {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '/' + 'example', {
@@ -224,7 +234,7 @@ export class PiaService extends ApplicationDb  {
           };
           evt.onsuccess = (event: any) => {
             const entry = event.target.result;
-            resolve(entry)
+            resolve(entry);
           };
         });
       }
