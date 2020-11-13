@@ -666,11 +666,25 @@ export class PiaService extends ApplicationDb  {
       reader.readAsText(file, 'UTF-8');
       reader.onload = (event: any) => {
         try {
+
           const jsonFile = JSON.parse(event.target.result);
           this.importData(jsonFile, 'IMPORT', false);
           resolve(true);
+
         } catch (error) {
-          reject(error);
+
+          this.dialogService.confirmThis({
+            text: 'modals.general_error.content',
+            type: 'yes',
+            yes: 'modals.close',
+            no: ''},
+            () => {
+              return;
+            },
+            () => {
+              return;
+            });
+
         }
       };
     });

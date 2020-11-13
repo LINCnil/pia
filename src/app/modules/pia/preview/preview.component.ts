@@ -10,6 +10,7 @@ import { Measure } from 'src/app/models/measure.model';
 import { Revision } from 'src/app/models/revision.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
+import { Pia } from 'src/app/models/pia.model';
 
 @Component({
   selector: 'app-preview',
@@ -21,7 +22,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
   data: { sections: any };
   content: any[];
   dataNav: any;
-  @Input() pia: any;
+  @Input() pia: Pia;
   allData: object;
   fromArchives = false;
   @Input() onlyData = false;
@@ -117,10 +118,10 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
         content: this.pia.dpos_names
       });
     }
-    if (this.pia.dpo_status && this.pia.dpo_status.length > 0) {
+    if (this.pia.dpo_status && this.pia.dpo_status > 0) {
       el.data.push({
         title: 'summary.dpo_status',
-        content: this.pia.getOpinionsStatus(this.pia.dpo_status.toString())
+        content: this.piaService.getOpinionsStatus(this.pia.dpo_status.toString())
       });
     }
     if (this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
@@ -134,7 +135,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     if (this.pia.concerned_people_searched_opinion === true) {
       el.data.push({
         title: 'summary.concerned_people_searched_opinion',
-        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+        content: this.piaService.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
       });
       if (this.pia.people_names && this.pia.people_names.length > 0) {
         el.data.push({
@@ -145,7 +146,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
       if (this.pia.concerned_people_status >= 0) {
         el.data.push({
           title: 'summary.concerned_people_status',
-          content: this.pia.getOpinionsStatus(this.pia.concerned_people_status.toString())
+          content: this.piaService.getOpinionsStatus(this.pia.concerned_people_status.toString())
         });
       }
       if (this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
@@ -160,7 +161,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     if (this.pia.concerned_people_searched_opinion === false) {
       el.data.push({
         title: 'summary.concerned_people_searched_opinion',
-        content: this.pia.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+        content: this.piaService.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
       });
       if (this.pia.concerned_people_searched_content && this.pia.concerned_people_searched_content.length > 0) {
         el.data.push({
@@ -229,7 +230,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
                 if (answer && answer.data) {
                   const content = [];
                   if (answer.data.gauge && answer.data.gauge > 0) {
-                    content.push(this.translateService.instant(this.pia.getGaugeName(answer.data.gauge)));
+                    content.push(this.translateService.instant(this.piaService.getGaugeName(answer.data.gauge)));
                   }
                   if (answer.data.text && answer.data.text.length > 0) {
                     content.push(answer.data.text);
