@@ -15,6 +15,10 @@ import { ApplicationDb } from '../application.db';
 import { Router } from '@angular/router';
 import { DialogService } from './dialog.service';
 
+function encode_utf8(s) {
+  return unescape(encodeURIComponent(s));
+}
+
 @Injectable()
 export class PiaService extends ApplicationDb  {
   answer: Answer = new Answer();
@@ -391,7 +395,7 @@ export class PiaService extends ApplicationDb  {
    * Cancel all validated evaluations.
    * @returns - Return a new Promise
    */
-  async cancelAllValidatedEvaluation(pia: Pia) {
+  async cancelAllValidatedEvaluation(pia: Pia): Promise<void> {
     return new Promise((resolve, reject) => {
       let count = 0;
       let evaluation = new Evaluation();
@@ -420,7 +424,7 @@ export class PiaService extends ApplicationDb  {
   /**
    * Allows an user to abandon a treatment (archive a PIA).
    */
-  abandonTreatment(pia: Pia) {
+  abandonTreatment(pia: Pia): void {
     pia.status = 4;
     this.update(pia).then(() => {
       this.router.navigate(['/entries']);
@@ -431,7 +435,7 @@ export class PiaService extends ApplicationDb  {
    * Allow an user to duplicate a PIA.
    * @param id - The PIA id.
    */
-  duplicate(id: number) {
+  duplicate(id: number): void {
     this.exportData(id).then(data => {
       this.importData(data, 'COPY', true);
     });
@@ -442,7 +446,7 @@ export class PiaService extends ApplicationDb  {
    * @param id - The PIA id.
    * @returns - Return a new Promise
    */
-  exportData(id: number) {
+  exportData(id: number): Promise<any> {
     return new Promise((resolve, reject) => {
       const measure = new Measure();
       measure.pia_id = id;
@@ -490,8 +494,26 @@ export class PiaService extends ApplicationDb  {
    * @param is_duplicate - Is a duplicate PIA?
    * @param [is_example] - Is the PIA example?
    */
-  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
-    if (data.pia) {
+  async importData(data: any, prefix: string,
+                   is_duplicate: boolean, is_example?: boolean): Promise<any> {
+    return new Promise((resolve, reject) => {
+
+      if (!data.pia) {
+        this.dialogService.confirmThis({
+          text: 'modals.import_wrong_pia_file.content',
+          type: 'yes',
+          yes: 'modals.close',
+          no: ''},
+          () => {
+            return;
+          },
+          () => {
+            return;
+          });
+        reject(new Error('wrong pia file'));
+        return;
+      }
+
       const pia = new Pia();
       pia.name = '(' + prefix + ') ' + data.pia.name;
       pia.category = data.pia.category;
@@ -556,21 +578,10 @@ export class PiaService extends ApplicationDb  {
 
         // this.pias.push(pia);
         this.calculPiaProgress(pia);
+        resolve(pia);
       });
-    } else {
-      this.dialogService.confirmThis({
-        text: 'modals.import_wrong_pia_file.content',
-        type: 'yes',
-        yes: 'modals.close',
-        no: ''},
-        () => {
-          return;
-        },
-        () => {
-          return;
-        });
-      return;
-    }
+    });
+
   }
 
   async replacePiaByExport(piaExport, resetOption, updateOption, dateExport): Promise<void> {
@@ -662,7 +673,7 @@ export class PiaService extends ApplicationDb  {
   async export(id: number) {
     return new Promise(async (resolve, reject) => {
       this.exportData(id).then(data => {
-        const finalData = JSON.stringify(data);
+        const finalData = encode_utf8(JSON.stringify(data));
         resolve(finalData);
       });
     });
@@ -675,29 +686,33 @@ export class PiaService extends ApplicationDb  {
   async import(file: any) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.readAsText(file, 'UTF-8');
+      reader.readAsText(file);
       reader.onload = (event: any) => {
-        try {
 
           const jsonFile = JSON.parse(event.target.result);
-          this.importData(jsonFile, 'IMPORT', false);
-          resolve(true);
-
-        } catch (error) {
-
-          this.dialogService.confirmThis({
-            text: 'modals.general_error.content',
-            type: 'yes',
-            yes: 'modals.close',
-            no: ''},
-            () => {
-              return;
-            },
-            () => {
-              return;
+          this.importData(jsonFile, 'IMPORT', false)
+            .then(() => {
+              resolve(true);
+            })
+            .catch((err) => {
+              reject(err);
             });
 
-        }
+
+
+          // this.dialogService.confirmThis({
+          //   text: 'modals.general_error.content',
+          //   type: 'yes',
+          //   yes: 'modals.close',
+          //   no: ''},
+          //   () => {
+          //     return;
+          //   },
+          //   () => {
+          //     return;
+          //   });
+
+
       };
     });
   }
