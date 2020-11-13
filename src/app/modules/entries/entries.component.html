@@ -187,17 +187,17 @@
             <ng-container [ngSwitch]="type_entries">
               <ng-container *ngSwitchCase="'pia'">
                 <app-new-pia
-                  (submited)="onFormSubmited($event)">
+                  (submited)="onFormSubmited($event, 'pia')">
                 </app-new-pia>
               </ng-container>
               <ng-container *ngSwitchCase="'structure'">
                 <app-new-structure
-                  (submited)="onFormSubmited($event)">
+                  (submited)="onFormSubmited($event, 'structure')">
                 </app-new-structure>
               </ng-container>
               <ng-container *ngSwitchCase="'knowledgeBase'">
                 <app-new-knowledgebase
-                  (submited)="onFormSubmited($event)">
+                  (submited)="onFormSubmited($event, 'knowledgeBase')">
                 </app-new-knowledgebase>
               </ng-container>
               <ng-container *ngSwitchDefault>

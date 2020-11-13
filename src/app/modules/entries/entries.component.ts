@@ -215,11 +215,25 @@ export class EntriesComponent implements OnInit, OnDestroy {
    * Go to the new entry route
    * @param id id
    */
-  onFormSubmited(id): void {
+  onFormSubmited(id, type: string = null): void {
     this.refreshContent();
     this.showModal = false;
-    // TODO: entry module
-    // this.router.navigate(['entry', id, 'section', 1, 'item', 1]);
+    // go to the edit page
+    if (type) {
+      switch (type) {
+        case 'pia':
+          this.router.navigate(['pia', id, 'section', 1, 'item', 1]);
+          break;
+        case 'structure':
+          this.router.navigate(['structures', id, 'section', 1, 'item', 1]);
+          break;
+        case 'knowledgeBase':
+          this.router.navigate(['base', id]);
+          break;
+        default:
+          break;
+      }
+    }
   }
 
   /**
