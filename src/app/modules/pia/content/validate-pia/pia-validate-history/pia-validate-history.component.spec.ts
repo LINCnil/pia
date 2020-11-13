@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PiaValidateHistoryComponent } from './pia-validate-history.component';
 
@@ -6,7 +6,7 @@ describe('PiaValidateHistoryComponent', () => {
   let component: PiaValidateHistoryComponent;
   let fixture: ComponentFixture<PiaValidateHistoryComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PiaValidateHistoryComponent ]
     })
