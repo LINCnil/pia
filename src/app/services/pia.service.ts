@@ -88,6 +88,19 @@ export class PiaService extends ApplicationDb  {
     });
   }
 
+  /**
+   * Find all entries without conditions.
+   * @returns {Promise} - Return new Promise
+   */
+  async getAllActives() {
+    const items = [];
+    return new Promise((resolve, reject) => {
+      this.findAll().then((entries: any) => {
+        resolve(entries.filter(element => element.is_example === 1 || element.is_archive !== 1));
+      });
+    });
+  }
+
 
   /**
    * Find all archived PIAs
@@ -478,7 +491,73 @@ export class PiaService extends ApplicationDb  {
    * @param [is_example] - Is the PIA example?
    */
   async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
-    if (!('pia' in data) || !('dbVersion' in data.pia)) {
+    if (data.pia) {
+      const pia = new Pia();
+      pia.name = '(' + prefix + ') ' + data.pia.name;
+      pia.category = data.pia.category;
+      pia.author_name = data.pia.author_name;
+      pia.evaluator_name = data.pia.evaluator_name;
+      pia.validator_name = data.pia.validator_name;
+      pia.dpo_status = data.pia.dpo_status;
+      pia.dpo_opinion = data.pia.dpo_opinion;
+      pia.concerned_people_opinion = data.pia.concerned_people_opinion;
+      pia.concerned_people_status = data.pia.concerned_people_status;
+      pia.concerned_people_searched_opinion = data.pia.concerned_people_searched_opinion;
+      pia.concerned_people_searched_content = data.pia.concerned_people_searched_content;
+      pia.rejected_reason = data.pia.rejected_reason;
+      pia.applied_adjustements = data.pia.applied_adjustements;
+      pia.created_at = data.pia.created_at;
+      pia.dpos_names = data.pia.dpos_names;
+      pia.people_names = data.pia.people_names;
+      /* Structure import if there is a specific one associated to this PIA */
+      if (data.pia.structure_id) {
+        pia.structure_id = data.pia.structure_id;
+        pia.structure_data = data.pia.structure_data;
+        pia.structure_name = data.pia.structure_name;
+        pia.structure_sector_name = data.pia.structure_sector_name;
+      }
+
+      /* Set this PIA as the example PIA if needed, else default value affected on creation */
+      if (is_example) {
+        pia.is_example = 1;
+      }
+
+      if (is_duplicate) {
+        pia.status = 0;
+        pia.created_at = new Date();
+        pia.updated_at = new Date();
+        pia.dpos_names = null;
+        pia.dpo_status = null;
+        pia.dpo_opinion = null;
+        pia.concerned_people_searched_opinion = null;
+        pia.concerned_people_searched_content = null;
+        pia.people_names = null;
+        pia.concerned_people_status = null;
+        pia.concerned_people_opinion = null;
+      } else {
+        pia.status = parseInt(data.pia.status, 10);
+        if (Number.isNaN(pia.status)) {
+          pia.status = 0;
+        }
+        pia.created_at = new Date(data.pia.created_at);
+        if (data.pia.updated_at) {
+          pia.updated_at = new Date(data.pia.updated_at);
+        }
+      }
+
+      this.create(pia).then((piaId: number) => {
+        pia.id = piaId;
+
+        this.importAnswers(data.answers, piaId);
+        this.importMeasures(data, piaId, is_duplicate);
+        if (!is_duplicate) {
+          this.importComments(data.comments, piaId);
+        }
+
+        // this.pias.push(pia);
+        this.calculPiaProgress(pia);
+      });
+    } else {
       this.dialogService.confirmThis({
         text: 'modals.import_wrong_pia_file.content',
         type: 'yes',
@@ -492,71 +571,6 @@ export class PiaService extends ApplicationDb  {
         });
       return;
     }
-    const pia = new Pia();
-    pia.name = '(' + prefix + ') ' + data.pia.name;
-    pia.category = data.pia.category;
-    pia.author_name = data.pia.author_name;
-    pia.evaluator_name = data.pia.evaluator_name;
-    pia.validator_name = data.pia.validator_name;
-    pia.dpo_status = data.pia.dpo_status;
-    pia.dpo_opinion = data.pia.dpo_opinion;
-    pia.concerned_people_opinion = data.pia.concerned_people_opinion;
-    pia.concerned_people_status = data.pia.concerned_people_status;
-    pia.concerned_people_searched_opinion = data.pia.concerned_people_searched_opinion;
-    pia.concerned_people_searched_content = data.pia.concerned_people_searched_content;
-    pia.rejected_reason = data.pia.rejected_reason;
-    pia.applied_adjustements = data.pia.applied_adjustements;
-    pia.created_at = data.pia.created_at;
-    pia.dpos_names = data.pia.dpos_names;
-    pia.people_names = data.pia.people_names;
-    /* Structure import if there is a specific one associated to this PIA */
-    if (data.pia.structure_id) {
-      pia.structure_id = data.pia.structure_id;
-      pia.structure_data = data.pia.structure_data;
-      pia.structure_name = data.pia.structure_name;
-      pia.structure_sector_name = data.pia.structure_sector_name;
-    }
-
-    /* Set this PIA as the example PIA if needed, else default value affected on creation */
-    if (is_example) {
-      pia.is_example = 1;
-    }
-
-    if (is_duplicate) {
-      pia.status = 0;
-      pia.created_at = new Date();
-      pia.updated_at = new Date();
-      pia.dpos_names = null;
-      pia.dpo_status = null;
-      pia.dpo_opinion = null;
-      pia.concerned_people_searched_opinion = null;
-      pia.concerned_people_searched_content = null;
-      pia.people_names = null;
-      pia.concerned_people_status = null;
-      pia.concerned_people_opinion = null;
-    } else {
-      pia.status = parseInt(data.pia.status, 10);
-      if (Number.isNaN(pia.status)) {
-        pia.status = 0;
-      }
-      pia.created_at = new Date(data.pia.created_at);
-      if (data.pia.updated_at) {
-        pia.updated_at = new Date(data.pia.updated_at);
-      }
-    }
-
-    this.create(pia).then((piaId: number) => {
-      pia.id = piaId;
-
-      this.importAnswers(data.answers, piaId);
-      this.importMeasures(data, piaId, is_duplicate);
-      if (!is_duplicate) {
-        this.importComments(data.comments, piaId);
-      }
-
-      // this.pias.push(pia);
-      this.calculPiaProgress(pia);
-    });
   }
 
   async replacePiaByExport(piaExport, resetOption, updateOption, dateExport): Promise<void> {

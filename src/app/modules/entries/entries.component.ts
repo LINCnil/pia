@@ -141,7 +141,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
       switch (this.type_entries) {
         case 'pia':
-          this.piaService.findAll().then((entries: Array<Pia>) => {
+          this.piaService.getAllActives().then((entries: Array<Pia>) => {
             this.entries = entries;
             this.entries.forEach(entrie => this.piaService.calculPiaProgress(entrie));
             this.startIntroJs('pia');
