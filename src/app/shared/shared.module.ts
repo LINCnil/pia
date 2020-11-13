@@ -53,7 +53,6 @@ import { PiaTranslateLoader } from '../pia-translate-loader';
 import { SafeHtmlPipe, Nl2brPipe, FormatTheDate, FilterForUser } from '../tools';
 import { IntrojsService } from '../services/introjs.service';
 import { LanguagesService } from '../services/languages.service';
-import { TranslateService } from '@ngx-translate/core';
 import { KnowledgesService } from '../services/knowledges.service';
 import { KnowledgeBaseService } from '../services/knowledge-base.service';
 import { GlobalEvaluationService } from '../services/global-evaluation.service';

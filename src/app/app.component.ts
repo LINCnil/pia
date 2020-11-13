@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Renderer2 } from '@angular/core';
-import { Component } from '@angular/core';
+import { Renderer2, Component } from '@angular/core';
 import { AppDataService } from './services/app-data.service';
 import { KnowledgeBaseService } from './services/knowledge-base.service';
 import { LanguagesService } from './services/languages.service';

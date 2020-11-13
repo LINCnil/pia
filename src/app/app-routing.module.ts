@@ -28,7 +28,7 @@ const routes: Routes = [
     StructureRoutingModule,
     PiaRoutingModule,
     SettingsRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
   ],
   exports: [RouterModule]
 })

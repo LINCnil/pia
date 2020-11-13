@@ -1,6 +1,4 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
-import { utf8Encode } from '@angular/compiler/src/util';
-
 
 import { AppDataService } from 'src/app/services/app-data.service';
 
@@ -650,7 +648,7 @@ export class PiaService extends ApplicationDb  {
   async export(id: number) {
     return new Promise(async (resolve, reject) => {
       this.exportData(id).then(data => {
-        const finalData = utf8Encode(JSON.stringify(data));
+        const finalData = JSON.stringify(data);
         resolve(finalData);
       });
     });
