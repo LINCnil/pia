@@ -155,7 +155,7 @@
                 class="btn"
                 (click)="open()"
                 type="button"
-                title="{{ (type_entries === 'pia') ? 'homepage.cards.placeholder_new_pia' : 'homepage.cards.new_structure' | translate }}">
+                [attr.title]="'homepage.cards.placeholder_new_' + type_entries | translate">
                 <span class="pia-icons" [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'pia-icon-pia-plus-red' : 'pia-icon-pia-plus'"></span>
               </button>
             </div>
@@ -171,7 +171,7 @@
               <i class="fa fa-upload" aria-hidden="true"></i>
               <button class="btn"
                 (click)="import()" type="button"
-                title="{{ (type_entries === 'pia') ? 'homepage.cards.placeholder_import_pia' : 'homepage.cards.import_structure' | translate }}">
+                [attr.title]="'homepage.cards.placeholder_import_' + type_entries | translate">
                 <span class="pia-icons" [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'pia-icon-pia-plus-red' : 'pia-icon-pia-plus'"></span>
               </button>
             </div>
@@ -180,7 +180,7 @@
         <div class="pia-cardsBlock pia-editBlock back">
           <div class="pia-cardsBlock-item pia-editBlock-item">
             <button class="btn" (click)="reverse()" type="button"
-              title="{{ 'homepage.cards.title_close_creation' | translate }}">
+            [attr.title]="'homepage.cards.title_close_creation' | translate">
               <span class="pia-icons pia-icon-close"></span>
             </button>
 
