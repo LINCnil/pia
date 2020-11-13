@@ -3,6 +3,7 @@ import { Attachment } from 'src/app/models/attachment.model';
 import { ArchiveService } from 'src/app/services/archive.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
+import { PiaService } from 'src/app/services/pia.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -16,6 +17,7 @@ export class ArchiveLineComponent implements OnInit {
   attachments: any;
 
   constructor(
+    public piaService: PiaService,
     public languagesService: LanguagesService,
     public archiveService: ArchiveService,
     private dialogService: DialogService

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Renderer2, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppDataService } from './services/app-data.service';
 import { KnowledgeBaseService } from './services/knowledge-base.service';
 import { LanguagesService } from './services/languages.service';
@@ -10,8 +10,7 @@ import { LanguagesService } from './services/languages.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private renderer: Renderer2,
-              private http: HttpClient,
+  constructor(private http: HttpClient,
               private knowledgeBaseService: KnowledgeBaseService,
               private languagesService: LanguagesService,
               public appDataService: AppDataService) {
@@ -29,5 +28,6 @@ export class AppComponent {
     // Languages initialization
     this.languagesService.initLanguages();
     this.languagesService.getOrSetCurrentLanguage();
+
   }
 }

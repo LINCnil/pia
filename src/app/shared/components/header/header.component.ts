@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
   isKnowledgeHeader: boolean;
   isStructureHeader: boolean;
   isArchiveHeader: boolean;
-  private renderer: Renderer2;
 
   constructor(
     public router: Router,
@@ -41,17 +40,6 @@ export class HeaderComponent implements OnInit {
     this.appVersion = environment.version;
 
     this.pia_is_example = false;
-
-    // Load pia
-    // this._piaService.getPIA().then(() => {
-    //   if (this._piaService.pia.is_example === 1) {
-    //     this.pia_example = this._piaService.pia;
-    //     this.pia_is_example = true;
-    //   } else {
-    //     console.log('debug');
-    //     this.loadPiaExample();
-    //   }
-    // });
 
     if (this.router.url.indexOf('/structures/') > -1) {
       this.isStructureHeader = true;
