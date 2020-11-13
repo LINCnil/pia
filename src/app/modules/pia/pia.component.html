@@ -1,16 +1,10 @@
 <section class="container pia-mainContainerBlock" *ngIf="pia">
     <div class="row">
-        <div *ngIf="pia.is_example === 1"
-          class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
-          <strong>{{ 'header.help.title' | translate }} >
-            {{ 'header.help.pia_example_link' | translate }}
-          </strong>
+        <div *ngIf="pia.is_example === 1" class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+          <strong>{{ 'header.help.title' | translate }} > {{ 'header.help.pia_example_link' | translate }}</strong>
         </div>
-        <div *ngIf="pia.is_example === 0"
-          class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
-          <a [routerLink]="['/entries']">{{ 'header.homepage_link' | translate }} >
-            {{ 'header.current_pias' | translate }}
-          </a>
+        <div *ngIf="pia.is_example === 0" class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+          <a [routerLink]="['/entries']">{{ 'header.homepage_link' | translate }} > {{ 'header.current_pias' | translate }}</a>
           <strong> > {{ pia.name }}</strong>
         </div>
         <!-- Left sidebar (sections) -->

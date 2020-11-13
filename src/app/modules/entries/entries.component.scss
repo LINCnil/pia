@@ -349,9 +349,6 @@
     }
   }
 }
-.pia-cardsBlock-item-form input{
-  padding-bottom: 0;
-}
 .app-list-item {
   display: table-row;
   &:nth-child(even) {
@@ -368,42 +365,6 @@
   display: flex;
   margin: auto;
 }
-.pia-structure-wrapper {
-  position: relative;
-  &:hover {
-    &:after {
-      content: '';
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 5px 5px 0 5px;
-      border-color: $pia-green transparent transparent transparent;
-    }
-  }
-}
-#structure {
-  font-size: 1.4rem;
-  color: #686868;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  height: 22px;
-  outline: none;
-  &::-ms-expand {
-    display: none;
-  }
-  background: none;
-  border: none;
-  &:hover {
-    outline: 1px dotted $pia-green;
-  }
-}
-
 
 /* UPDATE */
 .pia-mainContainerBlock {
@@ -418,6 +379,13 @@
     }
     .pia-filtersBlock-switch {
       border: 1px solid $pia-red !important;
+      &:hover {
+        background: $pia-red;
+        i,
+        div {
+          color: #fff;
+        }
+      }
     }
 
     .pia-searchInput {

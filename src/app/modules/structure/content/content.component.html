@@ -18,13 +18,11 @@
       <span class="pia-icons pia-icon-add"></span>
       {{ 'measures.add' | translate }}
     </button>
-
-    <app-measures  [structure]="structure"  *ngFor="let measure of item.answers; let i = index" [id]="i" [measure]="measure" [section]="section" [item]="item"></app-measures>
-
+    <app-measures [structure]="structure"  *ngFor="let measure of item.answers; let i = index" [id]="i" [measure]="measure" [section]="section" [item]="item"></app-measures>
   </ng-container>
   <ng-template #appQuestions>
     <div *ngFor="let question of questions">
-      <app-questions  [structure]="structure"  [question]="question" [section]="section" [item]="item"></app-questions>
+      <app-questions [structure]="structure"  [question]="question" [section]="section" [item]="item"></app-questions>
     </div>
   </ng-template>
 

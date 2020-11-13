@@ -4,26 +4,17 @@
   'pia-mainContainerBlock-knowledges' :  appDataService.entrieMode === 'knowledgeBase'
   }">
   <div class="row">
-    <div class="pia-breadcrumb">
-      <strong>{{ 'header.homepage_link' | translate }} >
-        <ng-container *ngIf="type_entries === 'pia'">
-          {{ 'header.current_pias' | translate }}
-        </ng-container>
-        <ng-container *ngIf="type_entries === 'structure'">
-          {{ 'header.structures' | translate }}
-        </ng-container>
-        <ng-container *ngIf="type_entries === 'archive'">
-          {{ 'header.archives' | translate }}
-        </ng-container>
-        <ng-container *ngIf="type_entries === 'knowledgeBase'">
-          {{ 'header.knowledge_base_link' | translate }}
-        </ng-container>
-      </strong>
-    </div>
-
     <div class="small-12 medium-12 columns">
+      <div class="pia-breadcrumb">
+        <strong>
+          <ng-container *ngIf="type_entries === 'pia' || type_entries === 'archive'">{{ 'header.homepage_link' | translate }} > </ng-container>
+          <ng-container *ngIf="type_entries === 'pia'">{{ 'header.current_pias' | translate }}</ng-container>
+          <ng-container *ngIf="type_entries === 'structure'">{{ 'header.structures' | translate }}</ng-container>
+          <ng-container *ngIf="type_entries === 'archive'">{{ 'header.archives' | translate }}</ng-container>
+          <ng-container *ngIf="type_entries === 'knowledgeBase'">{{ 'header.knowledge_base_link' | translate }}</ng-container>
+        </strong>
+      </div>
       <div class="pia-filtersBlock">
-
         <div class="pia-filtersBlock-left">
           <button class="pia-filtersBlock-switch btn" type="button" *ngIf="viewStyle.view === 'list'" (click)="viewOnCard()">
             <i class="fa fa-list" aria-hidden="true"></i>
@@ -35,32 +26,19 @@
           </button>
           <ng-container  *ngIf="type_entries === 'pia' || type_entries === 'structure' || type_entries === 'knowledgeBase'">
             <div *ngIf="viewStyle.view === 'list'" class="pia-filtersBlock-buttons">
-              <button type="button" class="btn"
-                [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'btn-red' : 'btn-green'"
+              <button type="button" class="btn" [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'btn-red' : 'btn-green'"
                 (click)="showModal = true"><i class="fa fa-folder-open" aria-hidden="true"></i>
-                <ng-container *ngIf="type_entries === 'pia'">
-                  {{ 'homepage.cards.new_pia' | translate }}
-                </ng-container>
-                <ng-container *ngIf="type_entries === 'structure'">
-                  {{ 'homepage.cards.new_structure' | translate }}
-                </ng-container>
-                <ng-container *ngIf="type_entries === 'knowledgeBase'">
-                  {{ 'homepage.cards.knowledges.new' | translate }}
-                </ng-container>
+                <ng-container *ngIf="type_entries === 'pia'">{{ 'homepage.cards.new_pia' | translate }}</ng-container>
+                <ng-container *ngIf="type_entries === 'structure'">{{ 'homepage.cards.new_structure' | translate }}</ng-container>
+                <ng-container *ngIf="type_entries === 'knowledgeBase'">{{ 'homepage.cards.knowledges.new' | translate }}</ng-container>
               </button>
               <button type="button" class="btn"
                 [ngClass]="(appDataService.entrieMode === 'knowledgeBase') ? 'btn-red' : 'btn-green'"
                 (click)="import()">
                 <i class="fa fa-upload" aria-hidden="true"></i>
-                <ng-container *ngIf="type_entries === 'pia'">
-                  {{ 'homepage.cards.import_pia' | translate }}
-                </ng-container>
-                <ng-container *ngIf="type_entries === 'structure'">
-                  {{ 'homepage.cards.import_structure' | translate }}
-                </ng-container>
-                <ng-container *ngIf="type_entries === 'knowledgeBase'">
-                  {{ 'homepage.cards.knowledges.import' | translate }}
-                </ng-container>
+                <ng-container *ngIf="type_entries === 'pia'">{{ 'homepage.cards.import_pia' | translate }}</ng-container>
+                <ng-container *ngIf="type_entries === 'structure'">{{ 'homepage.cards.import_structure' | translate }}</ng-container>
+                <ng-container *ngIf="type_entries === 'knowledgeBase'">{{ 'homepage.cards.knowledges.import' | translate }}</ng-container>
               </button>
             </div>
             <div class="pia-filtersBlock-hint"
@@ -167,17 +145,9 @@
         <div class="pia-newBlock-item front" id="pia-new-card">
           <div class="pia-newBlock-item-new">
             <div class="pia-newBlock-item-new-title">
-
-              <ng-container *ngIf="type_entries === 'pia'">
-                {{ 'homepage.cards.new_pia' | translate }}
-              </ng-container>
-              <ng-container *ngIf="type_entries === 'structure'">
-                {{ 'homepage.cards.new_structure' | translate }}
-              </ng-container>
-              <ng-container *ngIf="type_entries === 'knowledgeBase'">
-                {{ 'homepage.cards.knowledges.new' | translate }}
-              </ng-container>
-
+              <ng-container *ngIf="type_entries === 'pia'">{{ 'homepage.cards.new_pia' | translate }}</ng-container>
+              <ng-container *ngIf="type_entries === 'structure'">{{ 'homepage.cards.new_structure' | translate }}</ng-container>
+              <ng-container *ngIf="type_entries === 'knowledgeBase'">{{ 'homepage.cards.knowledges.new' | translate }}</ng-container>
             </div>
             <div class="pia-newBlock-item-new-btn">
               <i class="fa fa-folder-open" aria-hidden="true"></i>
@@ -193,16 +163,9 @@
           <span>{{ 'homepage.cards.or' | translate }}</span>
           <div class="pia-newBlock-item-import">
             <div class="pia-newBlock-item-import-title">
-
-              <ng-container *ngIf="type_entries === 'pia'">
-                {{ 'homepage.cards.import_pia' | translate }}
-              </ng-container>
-              <ng-container *ngIf="type_entries === 'structure'">
-                {{ 'homepage.cards.import_structure' | translate }}
-              </ng-container>
-              <ng-container *ngIf="type_entries === 'knowledgeBase'">
-                {{ 'homepage.cards.knowledges.import' | translate }}
-              </ng-container>
+              <ng-container *ngIf="type_entries === 'pia'">{{ 'homepage.cards.import_pia' | translate }}</ng-container>
+              <ng-container *ngIf="type_entries === 'structure'">{{ 'homepage.cards.import_structure' | translate }}</ng-container>
+              <ng-container *ngIf="type_entries === 'knowledgeBase'">{{ 'homepage.cards.knowledges.import' | translate }}</ng-container>
             </div>
             <div class="pia-newBlock-item-import-btn">
               <i class="fa fa-upload" aria-hidden="true"></i>
