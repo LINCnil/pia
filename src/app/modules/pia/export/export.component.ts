@@ -53,7 +53,6 @@ export class ExportComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataNav = this.appDataService.dataNav;
-    this.piaService.calculPiaProgress(this.pia);
 
     // prepare for export
     this.prepareCsv();

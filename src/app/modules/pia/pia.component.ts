@@ -72,6 +72,7 @@ export class PiaComponent implements OnInit {
         // INIT PIA
 
         this.pia = pia;
+        this.piaService.calculPiaProgress(this.pia);
 
         if (!sectionId || !itemId) {
           this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);

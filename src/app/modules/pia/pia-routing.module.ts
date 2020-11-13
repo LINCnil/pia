@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ExampleComponent } from './example/example.component';
 import { PiaComponent } from './pia.component';
-import { PreviewComponent } from './preview/preview.component';
 
 
 

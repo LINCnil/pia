@@ -18,6 +18,7 @@ export class ExampleComponent implements OnInit {
     .then((pia: Pia) => {
       // INIT PIA
       this.pia = pia;
+      this.piaService.calculPiaProgress(this.pia);
     });
   }
 

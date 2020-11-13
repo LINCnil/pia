@@ -530,7 +530,7 @@
             [title]="false"
             [currentVersion]="pia.updated_at">
         </app-revisions>
-        <app-export *ngIf="pia" ></app-export>
+        <app-export [pia]="pia"></app-export>
       </div>
     </aside>
   </div>
