@@ -7,7 +7,7 @@ import { StructureService } from 'src/app/services/structure.service';
 @Component({
   selector: 'app-new-pia',
   templateUrl: './new-pia.component.html',
-  styleUrls: ['./new-pia.component.scss']
+  styleUrls: ['../form.component.scss']
 })
 export class NewPiaComponent implements OnInit {
   @Output() submited: EventEmitter<any> = new EventEmitter<any>();

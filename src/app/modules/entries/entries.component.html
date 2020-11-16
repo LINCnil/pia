@@ -333,7 +333,7 @@
 </div>
 
 <!-- <app-modals (continueEvent)="refreshContent()"></app-modals> -->
-<app-modal *ngIf="showModal" specialClass="card" (clickOnClose)="showModal = false">
+<app-modal *ngIf="showModal" [specialClass]="'card ' + ((type_entries === 'knowledgeBase') ? 'card-knowledge' : '')" (clickOnClose)="showModal = false">
   <ng-container [ngSwitch]="type_entries">
     <ng-container *ngSwitchCase="'pia'">
       <app-new-pia

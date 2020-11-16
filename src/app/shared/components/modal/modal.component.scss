@@ -43,6 +43,7 @@
       left: 50%;
       background-color: #fff;
     }
+
     &-content {
       margin-left: -220px;
       width: 440px;
@@ -66,7 +67,6 @@
       }
     }
 
-
     &.card {
       .pia-modalBlock-close {
         top: 6px;
@@ -79,10 +79,11 @@
         padding: 10px;
         border: solid 1px $pia-green;
       }
+      &-knowledge {
+        .pia-modalBlock-content{
+          border: solid 1px $pia-red !important;
+        }
+      }
     }
-
-
-
   }
 }
-

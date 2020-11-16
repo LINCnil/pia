@@ -1,4 +1,5 @@
-<form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="knowledgeBaseForm">
+<form class="pia-cardsBlock-item-form" id="modal-new-knowledgeBase"
+  (ngSubmit)="onSubmit()" [formGroup]="knowledgeBaseForm">
   <div>
     <label for="name">{{ 'homepage.cards.knowledges.placeholder_name' | translate }}</label>
     <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.knowledges.placeholder_name' | translate }}" id="name" required>
