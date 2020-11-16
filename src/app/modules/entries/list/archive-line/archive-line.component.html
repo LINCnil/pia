@@ -1,6 +1,6 @@
 <td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">
-    <a routerLink="/preview/{{archivedPia.id}}" class="btn pia-tooltip">
+    <a [routerLink]="['/preview', archivedPia.id]" class="btn pia-tooltip">
       <i class="fa fa-eye" aria-hidden="true"></i>
       <span title="{{ 'homepage.lists.item.tools.consult' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.consult' | translate }}</span>
     </a>
