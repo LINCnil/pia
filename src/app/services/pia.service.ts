@@ -513,7 +513,9 @@ export class PiaService extends ApplicationDb  {
           text: 'modals.import_wrong_pia_file.content',
           type: 'yes',
           yes: 'modals.close',
-          no: ''},
+          no: '',
+          icon: 'pia-icons pia-icon-sad'
+        },
           () => {
             return;
           },

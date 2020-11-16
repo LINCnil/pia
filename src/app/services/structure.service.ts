@@ -233,7 +233,9 @@ export class StructureService extends ApplicationDb {
           text: 'modals.import_wrong_structure_file.content',
           type: 'yes',
           yes: 'modals.close',
-          no: ''},
+          no: '',
+          icon: 'pia-icons pia-icon-sad'
+        },
           () => {
             return;
           },

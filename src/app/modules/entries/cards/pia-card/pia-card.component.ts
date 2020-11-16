@@ -242,7 +242,8 @@ export class PiaCardComponent implements OnInit {
       text: 'modals.archive_pia.content',
       type: 'confirm',
       yes: 'modals.archive_pia.archive',
-      no: 'modals.cancel'},
+      no: 'modals.cancel'
+    },
       () => {
         this.piaService.archive(id)
           .then(() => {
