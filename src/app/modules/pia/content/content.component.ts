@@ -80,7 +80,8 @@ export class ContentComponent implements OnInit {
           text: 'modals.completed_edition.content',
           type: 'yes',
           yes: 'modals.continue',
-          no: ''
+          no: '',
+          icon: 'fa fa-cog icon-gray'
         },
         () => {
           return;
@@ -94,7 +95,8 @@ export class ContentComponent implements OnInit {
           text: 'modals.ask_for_evaluation.content',
           type: 'yes',
           yes: 'modals.continue',
-          no: ''
+          no: '',
+          icon: 'fa fa-pencil-square-o icon-green'
         },
         () => {
           return;
@@ -123,7 +125,8 @@ export class ContentComponent implements OnInit {
           text: 'modals.completed_evaluation.content',
           type: 'yes',
           yes: 'modals.continue',
-          no: ''
+          no: '',
+          icon: 'fa fa-check icon-gray'
         },
         () => {
           return;
@@ -136,7 +139,8 @@ export class ContentComponent implements OnInit {
           text: 'modals.validate_evaluation_to_correct.content',
           type: 'yes',
           yes: 'modals.continue',
-          no: ''
+          no: '',
+          icon: 'fa fa-pencil-square-o icon-gray'
         },
         () => {
           return;
@@ -149,7 +153,8 @@ export class ContentComponent implements OnInit {
           text: 'modals.validate_evaluation.content',
           type: 'yes',
           yes: 'modals.continue',
-          no: ''
+          no: '',
+          icon: 'fa fa-cog icon-green'
         },
         () => {
           return;
@@ -182,7 +187,8 @@ export class ContentComponent implements OnInit {
       text: 'modals.back_to_edition.content',
       type: 'yes',
       yes: 'modals.continue',
-      no: ''
+      no: '',
+      icon: 'fa fa-pencil-square-o icon-gray'
     },
     () => {
       return;
@@ -201,7 +207,8 @@ export class ContentComponent implements OnInit {
       text: 'modals.back_to_evaluation.content',
       type: 'yes',
       yes: 'modals.continue',
-      no: ''
+      no: '',
+      icon: 'fa fa-cog icon-gray'
     },
     () => {
       return;

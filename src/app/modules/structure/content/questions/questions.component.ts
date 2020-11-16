@@ -67,7 +67,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       text: 'modals.remove_question.content',
       type: 'confirm',
       yes: 'modals.remove_question.remove',
-      no: 'modals.remove_question.keep'},
+      no: 'modals.remove_question.keep',
+      icon: 'pia-icons pia-icon-sad'
+    },
       () => {
         this.answerStructureService.removeQuestion(
           this.structure,

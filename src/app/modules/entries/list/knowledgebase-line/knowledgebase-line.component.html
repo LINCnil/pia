@@ -2,12 +2,12 @@
 <td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">
 
-    <a routerLink="/base/{{base.id}}" class="btn pia-tooltip" *ngIf="!base.is_example;else elseblock">
+    <a [routerLink]="['/base', base.id]" class="btn pia-tooltip" *ngIf="!base.is_example;else elseblock">
       <i class="fa fa-pencil" aria-hidden="true"></i>
       <span title="{{ 'homepage.lists.item.tools.edit' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.edit' | translate }}</span>
     </a>
     <ng-template #elseblock>
-      <a routerLink="/base/{{base.id}}" class="btn pia-tooltip">
+      <a [routerLink]="['/base', base.id]" class="btn pia-tooltip">
         <i class="fa fa-eye" aria-hidden="true"></i>
         <span title="{{ 'homepage.cards.item.consult_pia' | translate }}" class="pia-tooltip-text">{{ 'homepage.lists.item.tools.consult' | translate }}</span>
       </a>

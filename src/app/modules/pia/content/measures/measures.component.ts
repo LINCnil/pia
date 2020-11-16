@@ -237,7 +237,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           text: 'modals.not_enough_measures_to_remove.content',
           type: 'yes',
           yes: 'modals.close',
-          no: ''
+          no: '',
+          icon: 'pia-icons pia-icon-sorry'
         },
         () => {
           return false;
@@ -252,7 +253,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           text: 'modals.remove_measure.content',
           type: 'confirm',
           yes: 'modals.remove_measure.remove',
-          no: 'modals.remove_measure.keep'},
+          no: 'modals.remove_measure.keep',
+          icon: 'pia-icons pia-icon-sad'
+        },
           () => {
             this.measuresService.removeMeasure(measureId);
           },

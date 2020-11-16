@@ -122,7 +122,8 @@ export class CommentsComponent implements OnInit {
             text: 'modals.same_comment.content',
             type: 'yes',
             yes: 'modals.close',
-            no: ''
+            no: '',
+            icon: 'pia-icons pia-icon-sorry'
           },
           () => {
             return false;

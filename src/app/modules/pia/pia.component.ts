@@ -205,7 +205,8 @@ export class PiaComponent implements OnInit {
               text: 'modals.declare_measures.content',
               type: 'yes',
               yes: 'modals.declare_measures.declare',
-              no: ''
+              no: '',
+              icon: 'fa fa-arrow-left icon-blue'
             },
             () => {
               const gotoSectionItem = this.paginationService.getNextSectionItem(3, 1);
@@ -227,7 +228,8 @@ export class PiaComponent implements OnInit {
             text: 'modals.action_plan_no_evaluation.content',
             type: 'yes',
             yes: 'modals.action_plan_no_evaluation.review_section',
-            no: ''
+            no: '',
+            icon: 'fa fa-cog icon-blue'
           },
           () => {
             const gotoSectionItem = this.paginationService.getNextSectionItem(4, 5);
@@ -248,7 +250,8 @@ export class PiaComponent implements OnInit {
             text: 'modals.dpo_missing_evaluations.content',
             type: 'yes',
             yes: 'modals.action_plan_no_evaluation.review_section',
-            no: ''
+            no: '',
+            icon: 'fa fa-cog icon-blue'
           },
           () => {
             const gotoSectionItem = this.paginationService.getNextSectionItem(4, 7);

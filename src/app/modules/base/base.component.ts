@@ -206,7 +206,9 @@ export class BaseComponent implements OnInit {
       text: 'modals.knowledge.content',
       type: 'confirm',
       yes: 'modals.knowledge.remove',
-      no: 'modals.cancel'},
+      no: 'modals.cancel',
+      icon: 'pia-icons pia-icon-sad'
+    },
       () => {
         this.knowledgesService.delete(id)
           .then(() => {

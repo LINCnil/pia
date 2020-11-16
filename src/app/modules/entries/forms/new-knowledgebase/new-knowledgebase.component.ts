@@ -1,14 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
-import { KnowledgesService } from 'src/app/services/knowledges.service';
 
 @Component({
   selector: 'app-new-knowledgebase',
   templateUrl: './new-knowledgebase.component.html',
-  styleUrls: ['./new-knowledgebase.component.scss']
+  styleUrls: ['../form.component.scss']
 })
 export class NewKnowledgebaseComponent implements OnInit {
   @Output() submited = new EventEmitter();

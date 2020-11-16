@@ -34,7 +34,8 @@ export class UrlComponent implements OnInit {
           text: 'modals.update_server_url_ok.content',
           type: 'yes',
           yes: 'modals.back_to_home',
-          no: ''
+          no: '',
+          icon: 'pia-icons pia-icon-happy'
         },
         () => {
           this.router.navigate(['/entries']);
@@ -55,7 +56,8 @@ export class UrlComponent implements OnInit {
               text: 'modals.update_server_url_ok.content',
               type: 'yes',
               yes: 'modals.back_to_home',
-              no: ''
+              no: '',
+              icon: 'pia-icons pia-icon-happy'
             },
             () => {
               this.router.navigate(['/entries']);
@@ -68,7 +70,8 @@ export class UrlComponent implements OnInit {
               text: 'modals.update_server_url_nok.content',
               type: 'yes',
               yes: 'modals.close',
-              no: ''
+              no: '',
+              icon: 'pia-icons pia-icon-sad'
             },
             () => {
               return;
@@ -83,7 +86,8 @@ export class UrlComponent implements OnInit {
             text: 'modals.update_server_url_nok.content',
             type: 'yes',
             yes: 'modals.close',
-            no: ''
+            no: '',
+            icon: 'pia-icons pia-icon-sad'
           },
           () => {
             return;

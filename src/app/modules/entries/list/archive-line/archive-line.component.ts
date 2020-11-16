@@ -69,7 +69,9 @@ export class ArchiveLineComponent implements OnInit {
       text: 'modals.remove_pia.content',
       type: 'confirm',
       yes: 'modals.remove_pia.remove',
-      no: 'modals.cancel'},
+      no: 'modals.cancel',
+      icon: 'pia-icons pia-icon-sad'
+    },
       () => {
         this.archiveService.remove(id)
           .then(() => {

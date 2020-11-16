@@ -70,6 +70,7 @@ export class RefusePIAComponent implements OnInit {
         type: 'confirm',
         yes: 'modals.archive',
         no: 'modals.cancel',
+        icon: 'fa fa-times icon-red',
         data: {
           additional_text: 'modals.abandon_pia.additional_text'
         }
@@ -95,7 +96,8 @@ export class RefusePIAComponent implements OnInit {
               text: 'modals.refuse_pia.content',
               type: 'yes',
               yes: 'modals.close',
-              no: ''
+              no: '',
+              icon: 'fa fa-cog icon-red'
             },
             () => {
               this.piaService.resetDpoPage(this.pia.id)

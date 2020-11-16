@@ -1,8 +1,4 @@
 @import '~src/assets/stylesheets/variables';
-
-.pia-cardsBlock-item-form input{
-  padding-bottom: 0;
-}
 .pia-structure-wrapper {
   position: relative;
   &:hover {
@@ -38,3 +34,31 @@
     outline: 1px dotted $pia-green;
   }
 }
+
+.pia-cardsBlock-item-form {
+  text-align: left;
+}
+.pia-cardsBlock-item-status {
+  display: flex;
+  justify-content: space-between;
+  &-infos {
+    width: auto;
+  }
+}
+
+
+#modal-new-knowledgeBase {
+  input {
+    &:focus,
+    &:hover,
+    &:active {
+      outline: 1px dotted $pia-red !important;
+    }
+  }
+  .pia-modalBlock-content,
+  .pia-cardsBlock-item-btn {
+    border-color: $pia-red !important;
+  }
+}
+
+

@@ -167,7 +167,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       text: 'modals.remove_measure.content',
       type: 'confirm',
       yes: 'modals.remove_measure.remove',
-      no: 'modals.remove_measure.keep'},
+      no: 'modals.remove_measure.keep',
+      icon: 'pia-icons pia-icon-sad'
+    },
       () => {
         this.answerStructureService.removeMeasure(
           this.structure,

@@ -94,7 +94,9 @@ export class KnowledgebaseCardComponent implements OnInit {
       text: 'modals.knowledges.content',
       type: 'confirm',
       yes: 'modals.knowledges.remove',
-      no: 'modals.cancel'},
+      no: 'modals.cancel',
+      icon: 'pia-icons pia-icon-sad'
+    },
       () => {
         this.knowledgeBaseService.delete(id)
           .then(() => {
