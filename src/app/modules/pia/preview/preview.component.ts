@@ -51,7 +51,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
 
     // Load PIA's revisions
     const revision = new Revision();
-    revision.findAllByPia(this.pia.id).then(resp => {
+    this.revisionService.findAllByPia(this.pia.id).then(resp => {
       this.revisions = resp;
     });
 
