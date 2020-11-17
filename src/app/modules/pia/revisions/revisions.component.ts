@@ -119,7 +119,6 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     this.revisionService.export(this.pia.id).then(exportResult => {
       this.revisionService.add(exportResult, this.pia.id)
         .then((resp: Revision) => {
-          console.log(resp)
           // Make this new revision the current version
           this.revisionService.loadRevision(resp.id);
           this.revisions.push(resp);

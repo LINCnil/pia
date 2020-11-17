@@ -171,9 +171,11 @@ export class PiaComponent implements OnInit {
       return section.id === sectionId;
     })[0];
 
-    this.item = this.section.items.filter(item => {
-      return item.id === itemId;
-    })[0];
+    if (this.section) {
+      this.item = this.section.items.filter(item => {
+        return item.id === itemId;
+      })[0];
+    }
 
     this.globalEvaluationService.section = this.section;
     this.globalEvaluationService.item = this.item;
