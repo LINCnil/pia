@@ -336,17 +336,17 @@
   <ng-container [ngSwitch]="type_entries">
     <ng-container *ngSwitchCase="'pia'">
       <app-new-pia
-        (submited)="onFormSubmited($event); showModal = false;">
+        (submited)="onFormSubmited($event, 'pia'); showModal = false;">
       </app-new-pia>
     </ng-container>
     <ng-container *ngSwitchCase="'structure'">
       <app-new-structure
-        (submited)="onFormSubmited($event); showModal = false;">
+        (submited)="onFormSubmited($event, 'structure'); showModal = false;">
       </app-new-structure>
     </ng-container>
     <ng-container *ngSwitchCase="'knowledgeBase'">
       <app-new-knowledgebase
-        (submited)="onFormSubmited($event); showModal = false;">
+        (submited)="onFormSubmited($event, 'knowledgeBase'); showModal = false;">
       </app-new-knowledgebase>
     </ng-container>
     <ng-container *ngSwitchDefault>
