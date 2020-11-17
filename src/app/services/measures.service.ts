@@ -19,8 +19,7 @@ export class MeasureService {
 
   /**
    * List the measures.
-   * @param {number} pia_id - The Pia id.
-   * @returns {Promise}
+   * @param pia_id - The Pia id.
    */
   async listMeasures(pia_id: number): Promise<void>{
     this.pia_id = pia_id;
@@ -62,9 +61,9 @@ export class MeasureService {
 
   /**
    * Adds a new measure to the PIA (used in "RISKS" section, "Mesures existantes ou prévus" subsection).
-   * @param {*} pia - Any Pia.
-   * @param {string} [measureTitle] - The title of the measure to be added (used in some cases).
-   * @param {string} [measurePlaceholder] - The placeholder of the measure.
+   * @param pia - Any Pia.
+   * @param [measureTitle] - The title of the measure to be added (used in some cases).
+   * @param [measurePlaceholder] - The placeholder of the measure.
    */
   addNewMeasure(pia: any, measureTitle?: string, measurePlaceholder?: string): void {
     const newMeasureRecord = new Measure();

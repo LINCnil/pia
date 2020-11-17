@@ -256,9 +256,9 @@ export class PiaService extends ApplicationDb  {
   /**
    * Erase all contents on the DPD page.
    * @private
-   * @param {*} piaService - The PIA Service.
+   * @param piaId - The PIA id.
    */
-  public resetDpoPage(piaId: number) {
+  public resetDpoPage(piaId: number): Promise<any> {
     return new Promise((resolve, reject) => {
       this.find(piaId).then((pia: Pia) => {
         pia.dpos_names = null;
@@ -280,7 +280,7 @@ export class PiaService extends ApplicationDb  {
   /**
    * Create a new PIA
    */
-  async saveNewPia(piaForm: any) {
+  async saveNewPia(piaForm: any): Promise<any>  {
     return new Promise((resolve, reject) => {
       const pia = new Pia();
       pia.name = piaForm.value.name;
@@ -309,7 +309,7 @@ export class PiaService extends ApplicationDb  {
     });
   }
 
-  removeEmptyElements(structure_data) {
+  removeEmptyElements(structure_data): any {
     structure_data.sections.forEach(section => {
       if (section.items) {
         section.items.forEach(item => {
@@ -337,7 +337,7 @@ export class PiaService extends ApplicationDb  {
     return structure_data;
   }
 
-  async structureCreateMeasures(pia: Pia, id: any) {
+  async structureCreateMeasures(pia: Pia, id: any): Promise<any> {
     return new Promise((resolve, reject) => {
       // Record the structures Measures
       const structures_measures = pia.structure_data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers;
@@ -363,7 +363,7 @@ export class PiaService extends ApplicationDb  {
     });
   }
 
-  async structureCreateAnswers(pia: Pia, id: any) {
+  async structureCreateAnswers(pia: Pia, id: any): Promise<any> {
     // Record the structures Answers
     return new Promise((resolve, reject) => {
       const questions = [];
@@ -700,31 +700,14 @@ export class PiaService extends ApplicationDb  {
       const reader = new FileReader();
       reader.readAsText(file);
       reader.onload = (event: any) => {
-
-          const jsonFile = JSON.parse(event.target.result);
-          this.importData(jsonFile, 'IMPORT', false)
-            .then(() => {
-              resolve(true);
-            })
-            .catch((err) => {
-              reject(err);
-            });
-
-
-
-          // this.dialogService.confirmThis({
-          //   text: 'modals.general_error.content',
-          //   type: 'yes',
-          //   yes: 'modals.close',
-          //   no: ''},
-          //   () => {
-          //     return;
-          //   },
-          //   () => {
-          //     return;
-          //   });
-
-
+        const jsonFile = JSON.parse(event.target.result);
+        this.importData(jsonFile, 'IMPORT', false)
+          .then(() => {
+            resolve(true);
+          })
+          .catch((err) => {
+            reject(err);
+          });
       };
     });
   }
@@ -793,7 +776,7 @@ export class PiaService extends ApplicationDb  {
    * @param isDuplicate - To know if it's a duplication action
    * @param resetStatus - To know if we need to reset the status
    */
-  private async importMeasures(data: any, piaId: number, isDuplicate: boolean, resetStatus?: boolean) {
+  private async importMeasures(data: any, piaId: number, isDuplicate: boolean, resetStatus?: boolean): Promise<any> {
     if (data.measures.length > 0) {
       let count = 0;
       const oldIdToNewId = [];
@@ -902,7 +885,7 @@ export class PiaService extends ApplicationDb  {
    * @param comments - The list of comments
    * @param piaId - The PIA id
    */
-  private async importComments(comments: any, piaId: number) {
+  private async importComments(comments: any, piaId: number): Promise<any> {
     comments.forEach(comment => {
       const commentModel = new Comment();
       commentModel.pia_id = piaId;
@@ -921,7 +904,7 @@ export class PiaService extends ApplicationDb  {
    * Get the status of the PIA.
    * @returns {string} - Locale for translation.
    */
-  getStatusName(status) {
+  getStatusName(status): string {
     if (status >= 0) {
       return `pia.statuses.${status}`;
     }
@@ -932,7 +915,7 @@ export class PiaService extends ApplicationDb  {
    * @param {boolean} status - The people search status.
    * @returns {string} - Locale for translation.
    */
-  getPeopleSearchStatus(status: boolean) {
+  getPeopleSearchStatus(status: boolean): string {
     if (status === true) {
       return 'summary.people_search_status_ok';
     } else {
