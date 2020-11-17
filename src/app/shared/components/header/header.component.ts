@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
   public increaseContrast: string;
   appVersion: string;
   pia_is_example: boolean;
-  pia_example: Pia;
   isKnowledgeHeader: boolean;
   isStructureHeader: boolean;
   isArchiveHeader: boolean;
@@ -76,14 +75,5 @@ export class HeaderComponent implements OnInit {
   changeContrast(event: any): void {
     localStorage.setItem('increaseContrast', event.target.checked);
     this.appDataService.contrastMode = event.target.checked;
-  }
-
-  // TODO: move in .html only
-  goToExample(): void {
-    if (this.pia_example) {
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['entry', this.pia_example.id, 'section', 1, 'item', 1]);
-      });
-    }
   }
 }

@@ -64,8 +64,8 @@
                   <span class="pia-icons pia-icon-scroll" aria-hidden="true"></span>
                 </a>
                 <ul>
-                  <li *ngIf="languagesService.selectedLanguage === 'fr' && pia_example">
-                    <a href="javascript:;" (click)="goToExample()">
+                  <li *ngIf="languagesService.selectedLanguage === 'fr'">
+                    <a [routerLink]="['pia', 1, 'section', 1, 'item', 1]">
                       {{ 'header.help.pia_example_link' | translate }}
                     </a>
                   </li>
