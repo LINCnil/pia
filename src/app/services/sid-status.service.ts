@@ -3,7 +3,6 @@ import { Subject } from 'rxjs/Subject';
 
 import { GlobalEvaluationService } from './global-evaluation.service';
 import { IntrojsService } from '../services/introjs.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class SidStatusService {
@@ -21,7 +20,6 @@ export class SidStatusService {
   constructor(
     private introjsService: IntrojsService,
     private globalEvaluationService: GlobalEvaluationService,
-    private route: ActivatedRoute
   ) {
     this.specialIcon = {
       '3.5': 'fa-line-chart',
