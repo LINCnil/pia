@@ -212,9 +212,8 @@ export class PiaComponent implements OnInit {
               icon: 'fa fa-arrow-left icon-blue'
             },
             () => {
-              const gotoSectionItem = this.paginationService.getNextSectionItem(3, 1);
               this.router.navigate(
-                ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
+                ['/pia', this.pia.id, 'section', 3, 'item', 1]
               );
             },
             () => {

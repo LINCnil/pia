@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<app-modal *ngIf="showRemoveAttachmentForm">
+<app-modal *ngIf="showRemoveAttachmentForm" (clickOnClose)="showRemoveAttachmentForm = false">
   <p [innerHTML]="'modals.remove_attachment.content' | translate"></p>
     <form [formGroup]="removeAttachmentForm" class="pia-remove-attachment-comment">
       <label for="pia-remove-attachment-comment">{{ 'modals.remove_attachment.comment' | translate }}</label>
