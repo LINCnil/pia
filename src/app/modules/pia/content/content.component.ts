@@ -111,7 +111,7 @@ export class ContentComponent implements OnInit {
   /**
    * Allow an user to validate evaluation for a section.
    */
-  validateEvaluation() {
+  validateEvaluation(): void {
     this.globalEvaluationService.validateAllEvaluation().then((toFix: boolean) => {
       this.goToNextSectionItem(5, 7);
       let isPiaFullyEvaluated = true;

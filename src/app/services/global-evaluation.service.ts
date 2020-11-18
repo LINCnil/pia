@@ -21,10 +21,10 @@ export class GlobalEvaluationService {
   private questionsOrMeasures: Array<any>;
   private answersOrMeasures: Array<Answer|Measure>;
   private evaluations: Array<Evaluation>;
-
   public behaviorSubject = new BehaviorSubject<object>({});
+  private answerService = new AnswerService();
 
-  constructor(private answerService: AnswerService) {
+  constructor() {
 
   }
 

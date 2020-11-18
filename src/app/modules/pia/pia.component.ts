@@ -201,6 +201,7 @@ export class PiaComponent implements OnInit {
             }
           });
         }
+
         if (displayModal) {
           this.dialogService.confirmThis(
             {

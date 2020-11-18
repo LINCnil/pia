@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +16,6 @@ import { SettingsModule } from './modules/settings/settings.module';
   ],
   imports: [
     SharedModule,
-    BrowserModule,
     HomeModule,
     EntriesModule,
     BaseModule,
