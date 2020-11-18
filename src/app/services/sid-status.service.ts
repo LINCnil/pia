@@ -4,7 +4,6 @@ import { Subject } from 'rxjs/Subject';
 import { GlobalEvaluationService } from './global-evaluation.service';
 import { IntrojsService } from '../services/introjs.service';
 import { ActivatedRoute } from '@angular/router';
-import { AnswerService } from './answer.service';
 
 @Injectable()
 export class SidStatusService {
@@ -67,7 +66,7 @@ export class SidStatusService {
   setSidStatus(pia: any, section: any, item: any): void {
     const referenceTo = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
-    const globalEvaluationService = new GlobalEvaluationService(new AnswerService());
+    const globalEvaluationService = new GlobalEvaluationService();
     globalEvaluationService.pia = pia;
     globalEvaluationService.section = section;
     globalEvaluationService.item = item;
