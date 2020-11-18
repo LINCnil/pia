@@ -126,7 +126,7 @@ export class SidStatusService {
    * @param section - The section.
    * @param item - The item.
    */
-  removeSidStatus(section: any, item: any) {
+  removeSidStatus(section: any, item: any): void {
     const sid = section.id + '.' + item.id;
     if (!this.noIconFor.includes(sid)) {
       this.itemStatus[sid] = 0;

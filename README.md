@@ -1,8 +1,19 @@
 # Pia
 
-Angular version 10
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
+
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1100.1
+@angular-devkit/build-angular   0.1100.1
+@angular-devkit/core            11.0.1
+@angular-devkit/schematics      11.0.1
+@angular/cli                    11.0.1
+@schematics/angular             11.0.1
+@schematics/update              0.1100.1
+rxjs                            6.6.3
+typescript                      4.0.5
 
 ## Development server
 

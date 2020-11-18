@@ -394,7 +394,6 @@ export class GlobalEvaluationService {
    * The evaluation isn't started?
    * @private
    * @param {Evaluation} evaluation - An Evaluation.
-   * @returns {boolean}
    */
   private evaluationNotStarted(evaluation: Evaluation): boolean {
     if (evaluation.status === 0) {
@@ -407,7 +406,6 @@ export class GlobalEvaluationService {
    * Is the measure valid?
    * @private
    * @param {Measure} measure - A Measure.
-   * @returns {boolean}
    */
   private measureIsValid(measure: Measure): boolean {
     if (measure.content && measure.content.length > 0 ||
@@ -421,7 +419,6 @@ export class GlobalEvaluationService {
    * Is the answer valid?
    * @private
    * @param {Answer} answer - An Answer.
-   * @returns {boolean}
    */
   private answerIsValid(answer: Answer): boolean {
     let valid = false;
