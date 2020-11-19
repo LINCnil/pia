@@ -217,4 +217,11 @@ export class ContentComponent implements OnInit {
       return;
     });
   }
+
+  onAddNewMeasure(): void {
+    this.measureService.addNewMeasure(this.pia)
+      .then(() => {
+        this.globalEvaluationService.validate();
+      })
+  }
 }

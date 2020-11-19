@@ -57,7 +57,7 @@
   </div>
 
   <ng-container *ngIf="item.is_measure; else appQuestions">
-    <button (click)="measureService.addNewMeasure(pia)"
+    <button (click)="onAddNewMeasure()"
             class="btn btn-white btn-addMeasure" type="button"
             *ngIf="globalEvaluationService.answerEditionEnabled">
       <span class="pia-icons pia-icon-add"></span>

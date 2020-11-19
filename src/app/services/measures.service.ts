@@ -3,7 +3,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { ApplicationDb } from '../application.db';
 import { Measure } from '../models/measure.model';
-import { GlobalEvaluationService } from './global-evaluation.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
 
 
@@ -14,9 +13,8 @@ export class MeasureService extends ApplicationDb {
   measureToAdd: any;
   pia_id: number;
 
-  constructor(private translateService: TranslateService,
-              private knowledgeBaseService: KnowledgeBaseService,
-              private globalEvaluationService: GlobalEvaluationService) {
+  constructor(private translateService?: TranslateService,
+              private knowledgeBaseService?: KnowledgeBaseService) {
                 super(201707071818, 'measure');
               }
 
@@ -183,24 +181,27 @@ export class MeasureService extends ApplicationDb {
    * @param [measureTitle] - The title of the measure to be added (used in some cases).
    * @param [measurePlaceholder] - The placeholder of the measure.
    */
-  addNewMeasure(pia: any, measureTitle?: string, measurePlaceholder?: string): void {
-    const newMeasureRecord = new Measure();
-    newMeasureRecord.pia_id = pia.id;
-    newMeasureRecord.title = '';
-    if (measureTitle) {
-      this.translateService.get(measureTitle).subscribe(val => this.measureToAdd = val);
-      newMeasureRecord.title = this.measureToAdd;
-    }
-    newMeasureRecord.content = '';
-    if (measurePlaceholder) {
-      newMeasureRecord.placeholder = measurePlaceholder;
-    } else {
-      newMeasureRecord.placeholder = 'measures.default_placeholder';
-    }
-    this.create(newMeasureRecord).then((entry: number) => {
-      this.globalEvaluationService.validate();
-      newMeasureRecord.id = entry;
-      this.measures.unshift(newMeasureRecord);
+  addNewMeasure(pia: any, measureTitle?: string, measurePlaceholder?: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const newMeasureRecord = new Measure();
+      newMeasureRecord.pia_id = pia.id;
+      newMeasureRecord.title = '';
+      if (measureTitle) {
+        this.translateService.get(measureTitle).subscribe(val => this.measureToAdd = val);
+        newMeasureRecord.title = this.measureToAdd;
+      }
+      newMeasureRecord.content = '';
+      if (measurePlaceholder) {
+        newMeasureRecord.placeholder = measurePlaceholder;
+      } else {
+        newMeasureRecord.placeholder = 'measures.default_placeholder';
+      }
+      this.create(newMeasureRecord).then((entry: number) => {
+        newMeasureRecord.id = entry;
+        this.measures.unshift(newMeasureRecord);
+        resolve(entry);
+      });
     });
+
   }
 }

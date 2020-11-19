@@ -3,6 +3,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { GlobalEvaluationService } from './global-evaluation.service';
 import { IntrojsService } from '../services/introjs.service';
+import { MeasureService } from './measures.service';
 
 @Injectable()
 export class SidStatusService {

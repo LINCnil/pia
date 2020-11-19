@@ -85,7 +85,7 @@ export class CommentsService extends ApplicationDb {
     });
   }
 
-  async findAllByReference(piaId, referenceTo) {
+  async findAllByReference(piaId, referenceTo): Promise<any> {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {

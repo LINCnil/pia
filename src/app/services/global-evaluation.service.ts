@@ -25,7 +25,7 @@ export class GlobalEvaluationService {
   public behaviorSubject = new BehaviorSubject<object>({});
   private answerService = new AnswerService();
 
-  constructor(private measureService?: MeasureService) {
+  constructor() {
 
   }
 
@@ -481,7 +481,7 @@ export class GlobalEvaluationService {
     this.answersOrMeasures = [];
     return new Promise((resolve, reject) => {
       if (this.item.is_measure) {
-        this.measureService.findAllByPia(this.pia.id).then((measures: any[]) => {
+        new MeasureService().findAllByPia(this.pia.id).then((measures: any[]) => {
           if (measures && measures.length > 0) {
             this.questionsOrMeasures = measures;
             measures.forEach(measure => {
@@ -536,7 +536,7 @@ export class GlobalEvaluationService {
       } else if (this.item.is_measure) {
         const measureModel = new Measure();
         measureModel.pia_id = this.pia.id;
-        this.measureService.findAllByPia(this.pia.id).then((measures: any) => {
+        new MeasureService().findAllByPia(this.pia.id).then((measures: any) => {
           if (measures && measures.length > 0) {
             measures.forEach(measure => {
               const evaluationModel = new Evaluation();
