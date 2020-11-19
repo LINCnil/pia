@@ -6,4 +6,6 @@ export class Attachment {
   public pia_signed = 0;
   public comment: string;
   public pia_id: number;
+  public created_at: Date;
+  public updated_at: Date;
 }

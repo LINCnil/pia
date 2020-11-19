@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 import { DialogService } from './dialog.service';
 
 import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
+import { MeasureService } from './measures.service';
 
 function encode_utf8(s) {
   return unescape(encodeURIComponent(s));
@@ -33,7 +34,8 @@ export class PiaService extends ApplicationDb  {
     public sidStatusService: SidStatusService,
     private structureService: StructureService,
     private answerService: AnswerService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private measuresService: MeasureService
   ) {
     super(201910230914, 'pia');
     this.data = this.appDataService.dataNav;
@@ -51,7 +53,7 @@ export class PiaService extends ApplicationDb  {
    * Create a new PIA.
    * @returns {Promise} - Return new Promise
    */
-  async create(pia) {
+  async create(pia): Promise<number> {
     if (this.created_at === undefined) {
       this.created_at = new Date();
     }
@@ -349,7 +351,7 @@ export class PiaService extends ApplicationDb  {
             measure.pia_id = id;
             measure.title = structures_measures[m].title;
             measure.content = structures_measures[m].content;
-            measure.create().then(() => {
+            this.measuresService.create(measure).then(() => {
               i++;
               if (i === structures_measures.length) {
                 resolve();
@@ -479,7 +481,7 @@ export class PiaService extends ApplicationDb  {
         };
         this.answerService.findAllByPia(id).then(answers => {
           data['answers'] = answers;
-          measure.findAll().then(measures => {
+          this.measuresService.findAll().then(measures => {
             data['measures'] = measures;
             evaluation.findAll().then(evaluations => {
               data['evaluations'] = evaluations;
@@ -735,9 +737,9 @@ export class PiaService extends ApplicationDb  {
 
     const measure = new Measure();
     measure.pia_id = piaId;
-    await measure.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+    await this.measuresService.findAllByPia(piaId).then(async (response: Array<Comment>) => {
       for (const c of response) {
-        await measure.delete(c.id);
+        await this.measuresService.delete(c.id);
       }
     });
 
@@ -791,7 +793,7 @@ export class PiaService extends ApplicationDb  {
         if (measure.updated_at) {
           measureModel.updated_at = new Date(measure.updated_at);
         }
-        measureModel.create().then((id: number) => {
+        this.measuresService.create(measureModel).then((id: number) => {
           count++;
           oldIdToNewId[measure.id] = id;
           if (count === data.measures.length) {
@@ -826,7 +828,7 @@ export class PiaService extends ApplicationDb  {
     return new Promise((resolve, reject) => {
       this.find(pia.id).then((entry: any) => {
         entry = {
-          entry,
+          ...entry,
           ...pia
         };
         if (entry.is_archive === undefined || entry.is_archive === null) {

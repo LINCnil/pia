@@ -5,6 +5,7 @@ import { Evaluation } from '../models/evaluation.model';
 import { Measure } from '../models/measure.model';
 import { Pia } from '../models/pia.model';
 import { AnswerService } from './answer.service';
+import { MeasureService } from './measures.service';
 
 
 @Injectable()
@@ -24,7 +25,7 @@ export class GlobalEvaluationService {
   public behaviorSubject = new BehaviorSubject<object>({});
   private answerService = new AnswerService();
 
-  constructor() {
+  constructor(private measureService?: MeasureService) {
 
   }
 
@@ -480,9 +481,7 @@ export class GlobalEvaluationService {
     this.answersOrMeasures = [];
     return new Promise((resolve, reject) => {
       if (this.item.is_measure) {
-        const measureModel = new Measure();
-        measureModel.pia_id = this.pia.id;
-        measureModel.findAll().then((measures: any[]) => {
+        this.measureService.findAllByPia(this.pia.id).then((measures: any[]) => {
           if (measures && measures.length > 0) {
             this.questionsOrMeasures = measures;
             measures.forEach(measure => {
@@ -537,7 +536,7 @@ export class GlobalEvaluationService {
       } else if (this.item.is_measure) {
         const measureModel = new Measure();
         measureModel.pia_id = this.pia.id;
-        measureModel.findAll().then((measures: any) => {
+        this.measureService.findAllByPia(this.pia.id).then((measures: any) => {
           if (measures && measures.length > 0) {
             measures.forEach(measure => {
               const evaluationModel = new Evaluation();

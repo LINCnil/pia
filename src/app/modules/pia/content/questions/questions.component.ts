@@ -10,6 +10,7 @@ import { Measure } from 'src/app/models/measure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { Answer } from 'src/app/models/answer.model';
 import { AnswerService } from 'src/app/services/answer.service';
+import { MeasureService } from 'src/app/services/measures.service';
 
 @Component({
   selector: 'app-questions',
@@ -40,7 +41,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private knowledgeBaseService: KnowledgeBaseService,
               private ngZone: NgZone,
               public globalEvaluationService: GlobalEvaluationService,
-              private answerService: AnswerService) { }
+              private answerService: AnswerService,
+              private measureService: MeasureService) { }
 
   ngOnInit() {
     this.globalEvaluationService.answerEditionEnabled = true;
@@ -77,7 +79,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.measure.pia_id = this.pia.id;
 
     // Fill tags list for Measures
-    this.measure.findAll().then((entries: any[]) => {
+    this.measureService.findAllByPia(this.pia.id).then((entries: any[]) => {
       if (entries) {
         entries.forEach(entry => {
           if (entry.title) {
