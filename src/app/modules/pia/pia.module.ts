@@ -33,6 +33,7 @@ import { RefusePIAComponent } from './content/refuse-pia/refuse-pia.component';
 import { CommentsComponent } from './content/comments/comments.component';
 import { PiaValidateHistoryComponent } from './content/validate-pia/pia-validate-history/pia-validate-history.component';
 import { ExampleComponent } from './example/example.component';
+import { CommentItemComponent } from './content/comments/comment-item/comment-item.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ExampleComponent } from './example/example.component';
     DPOPeopleOpinionsComponent,
     RefusePIAComponent,
     CommentsComponent,
+    CommentItemComponent,
     PiaValidateHistoryComponent,
     ExampleComponent
   ],

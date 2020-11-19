@@ -17,6 +17,7 @@ import { DialogService } from './dialog.service';
 
 import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
 import { MeasureService } from './measures.service';
+import { CommentsService } from './comments.service';
 
 function encode_utf8(s) {
   return unescape(encodeURIComponent(s));
@@ -35,7 +36,8 @@ export class PiaService extends ApplicationDb  {
     private structureService: StructureService,
     private answerService: AnswerService,
     private dialogService: DialogService,
-    private measuresService: MeasureService
+    private measuresService: MeasureService,
+    private commentsService: CommentsService
   ) {
     super(201910230914, 'pia');
     this.data = this.appDataService.dataNav;
@@ -485,7 +487,7 @@ export class PiaService extends ApplicationDb  {
             data['measures'] = measures;
             evaluation.findAll().then(evaluations => {
               data['evaluations'] = evaluations;
-              comment.findAll().then(comments => {
+              this.commentsService.findAllByPia(id).then(comments => {
                 data['comments'] = comments;
                 // attachment.findAll().then((attachments) => {
                 // data['attachments'] = attachments;
@@ -729,9 +731,9 @@ export class PiaService extends ApplicationDb  {
 
     const comment = new Comment();
     comment.pia_id = piaId;
-    await comment.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+    await this.commentsService.findAllByPia(piaId).then(async (response: Array<Comment>) => {
       for (const c of response) {
-        await comment.delete(c.id);
+        await this.commentsService.delete(c.id);
       }
     });
 
@@ -757,7 +759,7 @@ export class PiaService extends ApplicationDb  {
    * @param answers - The list of answers
    * @param piaId - The PIA id
    */
-  private async importAnswers(answers: any, piaId: number) {
+  private async importAnswers(answers: any, piaId: number): Promise<void> {
     answers.forEach(answer => {
       const answerModel = new Answer();
       answerModel.pia_id = piaId;
@@ -898,7 +900,7 @@ export class PiaService extends ApplicationDb  {
       if (comment.updated_at) {
         commentModel.updated_at = new Date(comment.updated_at);
       }
-      commentModel.create();
+      this.commentsService.create(commentModel);
     });
   }
 
