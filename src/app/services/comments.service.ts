@@ -53,7 +53,7 @@ export class CommentsService extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl(),{
+        fetch(this.getServerUrl(), {
           mode: 'cors'
         }).then((response) => {
           return response.json();

@@ -127,7 +127,7 @@ export class RevisionService extends ApplicationDb {
   /**
    * Load a new revision
    */
-  async loadRevision(revisionId): Promise<void> {
+  async loadRevision(revisionId: number): Promise<void> {
     return new Promise(resolve => {
       this.find(revisionId).then((revision: Revision) => {
         const piaExport = JSON.parse(revision.export);
@@ -144,7 +144,7 @@ export class RevisionService extends ApplicationDb {
    * @param piaExport - The PIA exported
    * @param piaId - The PIA id
    */
-  async add(piaExport, piaId) {
+  async add(piaExport, piaId): Promise<any>  {
     return new Promise((resolve, reject) => {
       const revision = new Revision();
       revision.pia_id = piaId;
@@ -156,7 +156,7 @@ export class RevisionService extends ApplicationDb {
     });
   }
 
-  async export(id: number) {
+  async export(id: number): Promise<any> {
     return new Promise(async (resolve, reject) => {
       await this.piaService.calculPiaProgress;
       this.piaService.exportData(id).then(data => {
@@ -170,7 +170,7 @@ export class RevisionService extends ApplicationDb {
    * Get the status of the PIA.
    * @returns {string} - Locale for translation.
    */
-  getStatusName(status) {
+  getStatusName(status): string {
     if (status >= 0) {
       return `pia.statuses.${status}`;
     }
@@ -181,7 +181,7 @@ export class RevisionService extends ApplicationDb {
    * @param {*} value - The gauge value.
    * @returns {string} - Locale for translation.
    */
-  getGaugeName(value: any) {
+  getGaugeName(value: any): string {
     if (value) {
       return `summary.gauges.${value}`;
     }
