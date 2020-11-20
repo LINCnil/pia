@@ -24,7 +24,11 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              { "glob": "**/*", "input": "node_modules/ng2-pdfjs-viewer/pdfjs", "output": "/assets/pdfjs" },
+              {
+                "glob": "**/*",
+                "input": "node_modules/ng2-pdfjs-viewer/pdfjs",
+                "output": "/assets/pdfjs"
+              },
               "src/assets",
               "src/android-chrome-192x192.png",
               "src/android-chrome-256x256.png",
@@ -36,7 +40,8 @@
               "src/humans.txt",
               "src/manifest.json",
               "src/mstitle-150x150.png",
-              "src/safari-pinned-tab.svg"
+              "src/safari-pinned-tab.svg",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss",
@@ -71,14 +76,16 @@
                 {
                   "type": "initial",
                   "maximumWarning": "6mb",
-                  "maximumError": "10mb"
+                  "maximumError": "20mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "20kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
@@ -108,11 +115,10 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
@@ -124,9 +130,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -142,6 +146,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "pia-angular"
 }

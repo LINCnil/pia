@@ -1,13 +1,20 @@
 {
   "name": "pia-angular",
-  "version": "0.0.0",
+  "version": "3.0.0",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "cypress open --config watchForFileChanges=false",
+    "prod": "ng build --prod --build-optimizer",
+    "clean": "rimraf ./dist/",
+    "format:write": "prettier src/**/*.{ts,json,md,scss} --write",
+    "format:test": "prettier src/**/*.{ts,json,md,scss} --list-different",
+    "extract-i18n": "ngx-translate-extract --input src --output ./src/assets/i18n/ --clean --sort --format namespaced-json",
+    "compodoc": "compodoc -p src/tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +26,7 @@
     "@angular/platform-browser": "~11.0.0",
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
+    "@angular/service-worker": "~11.0.0",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@types/intro.js": "^2.4.6",
