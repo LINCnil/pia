@@ -440,7 +440,7 @@ export class EvaluationsComponent
       selector: '#' + elementId,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-      skin_url: 'assets/skins/lightgray',
+      skin: false,
       setup: editor => {
         if (field === 'actionPlanComment') {
           this.editor = editor;

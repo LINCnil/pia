@@ -378,7 +378,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       content_style: 'body {background-color:#eee!important;}' ,
       selector: '#' + this.elementId,
       toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-      skin_url: 'assets/skins/lightgray',
+      skin: false,
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {
