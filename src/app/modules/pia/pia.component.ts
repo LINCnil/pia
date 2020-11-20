@@ -171,9 +171,11 @@ export class PiaComponent implements OnInit {
       return section.id === sectionId;
     })[0];
 
-    this.item = this.section.items.filter(item => {
-      return item.id === itemId;
-    })[0];
+    if (this.section) {
+      this.item = this.section.items.filter(item => {
+        return item.id === itemId;
+      })[0];
+    }
 
     this.globalEvaluationService.section = this.section;
     this.globalEvaluationService.item = this.item;
@@ -199,6 +201,7 @@ export class PiaComponent implements OnInit {
             }
           });
         }
+
         if (displayModal) {
           this.dialogService.confirmThis(
             {
@@ -209,9 +212,8 @@ export class PiaComponent implements OnInit {
               icon: 'fa fa-arrow-left icon-blue'
             },
             () => {
-              const gotoSectionItem = this.paginationService.getNextSectionItem(3, 1);
               this.router.navigate(
-                ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
+                ['/pia', this.pia.id, 'section', 3, 'item', 1]
               );
             },
             () => {

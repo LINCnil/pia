@@ -4,7 +4,6 @@ import { Attachment } from '../models/attachment.model';
 
 @Injectable()
 export class AttachmentsService extends ApplicationDb {
-  // attachments: any[];
   signedAttachments: any[] = [];
   attachment_signed: any;
 
@@ -86,7 +85,7 @@ export class AttachmentsService extends ApplicationDb {
         evt.onerror = (event: any) => {
           console.error(event);
           reject(Error(event));
-        }
+        };
       }
     });
   }
@@ -130,6 +129,43 @@ export class AttachmentsService extends ApplicationDb {
         }
       });
     });
+  }
+
+  async findAll(): Promise<any> {
+    const items = [];
+    if (this.pia_id) {
+      await this.getObjectStore();
+      return new Promise((resolve, reject) => {
+        if (this.serverUrl) {
+          fetch(this.getServerUrl(),{
+            mode: 'cors'
+          }).then(function(response) {
+            return response.json();
+          }).then(function(result: any) {
+            resolve(result);
+          }).catch (function (error) {
+            console.error('Request failed', error);
+            reject();
+          });
+        } else {
+          const index1 = this.objectStore.index('index1');
+          const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          }
+          evt.onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          }
+        }
+      });
+    }
   }
 
   /**
@@ -206,8 +242,7 @@ export class AttachmentsService extends ApplicationDb {
    * @param {number} id - Id of the attachment.
    */
   downloadAttachment(id: number): void {
-    const attachment = new Attachment();
-    attachment.find(id).then((entry: any) => {
+    this.find(id).then((entry: any) => {
       fetch(entry.file, {
         mode: 'cors'
       })

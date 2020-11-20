@@ -15,11 +15,11 @@ export class AttachmentsComponent implements OnInit {
   attachments: Array<Attachment> = [];
   attachmentForm: FormGroup;
   dispplayAttachmentButton = false;
-  loading: boolean = false;
+  loading = false;
 
   constructor(public _attachmentsService: AttachmentsService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.attachmentForm = new FormGroup({
       attachment_file: new FormControl('', [])
     });
@@ -36,7 +36,7 @@ export class AttachmentsComponent implements OnInit {
   /**
    * Allows users to add attachments to a PIA.
    */
-  addAttachment() {
+  addAttachment(): void | boolean {
     if (this.pia.is_example === 1) {
       return false;
     } else {
@@ -45,7 +45,7 @@ export class AttachmentsComponent implements OnInit {
     }
   }
 
-  onDeleted($event) {
+  onDeleted($event): void {
     const index = this.attachments.findIndex(a => a.id === $event);
     if (index !== -1) {
       this.attachments.splice(index, 1);
@@ -54,9 +54,9 @@ export class AttachmentsComponent implements OnInit {
 
   /**
    * Allows users to upload an attachment for a specific PIA.
-   * @param {event} event - Any kind of event.
+   * @param event - Any kind of event.
    */
-  uploadAttachement(event: Event) {
+  uploadAttachement(event: Event): void {
     this.loading = true;
     this._attachmentsService
       .upload((<HTMLInputElement>event.target).files[0], this.pia.id)

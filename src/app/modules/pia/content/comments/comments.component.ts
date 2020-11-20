@@ -5,6 +5,7 @@ import { Comment } from '../../../../models/comment.model';
 
 import { LanguagesService } from 'src/app/services/languages.service';
 import { DialogService } from 'src/app/services/dialog.service';
+import { CommentsService } from 'src/app/services/comments.service';
 
 @Component({
   selector: 'app-comments',
@@ -26,11 +27,12 @@ export class CommentsComponent implements OnInit {
 
   constructor(
     private el: ElementRef,
-    public _languagesService: LanguagesService,
-    private dialogService: DialogService
+    public languagesService: LanguagesService,
+    private dialogService: DialogService,
+    private commentsService: CommentsService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (
       this.answer.updated_at &&
       this.answer.updated_at.toString() !== 'Invalid Date'
@@ -43,15 +45,8 @@ export class CommentsComponent implements OnInit {
       this.questionDate = this.answer.created_at;
     }
     this.comments = [];
-    const commentsModel = new Comment();
-    commentsModel.pia_id = this.pia.id;
-    if (this.measure) {
-      commentsModel.reference_to = this.measure.id;
-    } else {
-      commentsModel.reference_to = this.question.id;
-    }
 
-    commentsModel.findAllByReference().then(entries => {
+    this.commentsService.findAllByReference(this.pia.id, (this.measure) ? this.measure.id :  this.question.id).then(entries => {
       this.comments = entries;
       this.comments.reverse();
     });
@@ -64,7 +59,7 @@ export class CommentsComponent implements OnInit {
   /**
    * Shows or hide the block which allows users to create a new comment.
    */
-  toggleNewCommentBox() {
+  toggleNewCommentBox(): void {
     const newCommentBox = this.el.nativeElement.querySelector(
       '.pia-commentsBlock-new'
     );
@@ -92,7 +87,7 @@ export class CommentsComponent implements OnInit {
   /**
    * Display the comment field.
    */
-  newCommentOnChange(event) {
+  newCommentOnChange(event): void {
     // Checks if the comment value exists.
     if (event && event.length > 0) {
       this.newCommentDisplayer = true;
@@ -104,7 +99,7 @@ export class CommentsComponent implements OnInit {
   /**
    * Create a new comment.
    */
-  newCommentClickBtn() {
+  newCommentClickBtn(): void {
     // Checks if the comment value exists.
     if (
       this.commentsForm.value.description &&
@@ -145,7 +140,7 @@ export class CommentsComponent implements OnInit {
         } else {
           commentRecord.reference_to = this.question.id;
         }
-        commentRecord.create().then((id: number) => {
+        this.commentsService.create(commentRecord).then((id: number) => {
           commentRecord.id = id;
           this.comments.unshift(commentRecord);
           this.commentsForm.controls['description'].setValue('');
@@ -159,7 +154,7 @@ export class CommentsComponent implements OnInit {
   /**
    * Display comments list.
    */
-  displayCommentsList() {
+  displayCommentsList(): void {
     const commentsList = this.el.nativeElement.querySelector(
       '.pia-commentsBlock-list'
     );
@@ -173,9 +168,9 @@ export class CommentsComponent implements OnInit {
 
   /**
    * Returns a status about the comments number.
-   * @returns {Boolean} - True if there are comments, False otherwise.
+   * @returns - True if there are comments, False otherwise.
    */
-  getCommentsAccordeonStatus() {
+  getCommentsAccordeonStatus(): boolean {
     return this.comments.length > 0 ? true : false;
   }
 }

@@ -4,6 +4,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 // Locales
 import localeEN from '@angular/common/locales/en';
@@ -90,6 +92,7 @@ import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
     CommonModule,
     HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
@@ -104,6 +107,7 @@ import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
   ],
   exports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule,

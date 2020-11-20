@@ -9,6 +9,7 @@ import { StructureService } from 'src/app/services/structure.service';
 
 import * as FileSaver from 'file-saver';
 import { DialogService } from 'src/app/services/dialog.service';
+import { AttachmentsService } from 'src/app/services/attachments.service';
 declare const require: any;
 
 
@@ -41,7 +42,8 @@ export class PiaCardComponent implements OnInit {
     private translateService: TranslateService,
     public languagesService: LanguagesService,
     public structureService: StructureService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private attachmentsService: AttachmentsService
   ) {}
 
   ngOnInit(): void {
@@ -70,10 +72,8 @@ export class PiaCardComponent implements OnInit {
       })
     });
 
-    const attachmentModel = new Attachment();
     this.attachments = [];
-    attachmentModel.pia_id = this.pia.id;
-    attachmentModel.findAll().then((entries: any) => {
+    this.attachmentsService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(element => {
         if (element['file'] && element['file'].length) {
           this.attachments.push(element);

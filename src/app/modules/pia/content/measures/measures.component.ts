@@ -39,13 +39,14 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     private measuresService: MeasureService,
     private ngZone: NgZone) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.measureForm = new FormGroup({
       measureTitle: new FormControl(),
       measureContent: new FormControl()
     });
     this.measureModel.pia_id = this.pia.id;
-    this.measureModel.get(this.measure.id).then(() => {
+    this.measuresService.find(this.measure.id).then((entry: Measure) => {
+      this.measureModel = entry;
       this.knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
       if (this.measureModel) {
@@ -64,16 +65,16 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     tinymce.remove(this.editor);
   }
 
   /**
    * Enable auto resizing on measure title textarea.
-   * @param {*} event - Any Event.
-   * @param {HTMLElement} textarea - Any textarea.
+   * @param event - Any Event.
+   * @param textarea - Any textarea.
    */
-  autoTextareaResize(event: any, textarea?: HTMLElement) {
+  autoTextareaResize(event: any, textarea?: HTMLElement): void {
     if (event) {
       textarea = event.target;
     }
@@ -87,16 +88,16 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Change evaluation.
-   * @param {*} evaluation - Any Evaluation.
+   * @param evaluation - Any Evaluation.
    */
-  evaluationChange(evaluation: any) {
+  evaluationChange(evaluation: any): void {
     this.evaluation = evaluation;
   }
 
   /**
    * Enables edition for measure title.
    */
-  measureTitleFocusIn() {
+  measureTitleFocusIn(): void {
     if (this.globalEvaluationService.answerEditionEnabled) {
       this.editTitle = true;
       this.measureForm.controls['measureTitle'].enable();
@@ -111,9 +112,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Disables title field when losing focus from it.
    * Shows measure edit button.
    * Saves data from title field.
-   * @param {event} event - Any Event.
+   * @param event - Any Event.
    */
-  measureTitleFocusOut(event: Event) {
+  measureTitleFocusOut(event: Event): void {
     let userText = this.measureForm.controls['measureTitle'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -122,7 +123,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.pia_id = this.pia.id;
     const previousTitle = this.measureModel.title;
     this.measureModel.title = userText;
-    this.measureModel.update().then(() => {
+    this.measuresService.update(this.measureModel).then(() => {
       if (previousTitle !== this.measureModel.title) {
         this.knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
       }
@@ -131,7 +132,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       this.answerService.getByReferenceAndPia(this.pia.id, 324).then((answer: Answer) => {
         if (answer && answer.data && answer.data.list) {
           const index = answer.data.list.indexOf(previousTitle);
-          if (~index) {
+          if (index !== -1) {
             answer.data.list[index] = this.measureModel.title;
             this.answerService.update(answer);
           }
@@ -141,7 +142,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       this.answerService.getByReferenceAndPia(this.pia.id, 334).then((answer: Answer) => {
         if (answer && answer.data && answer.data.list) {
           const index = answer.data.list.indexOf(previousTitle);
-          if (~index) {
+          if (index !== -1) {
             answer.data.list[index] = this.measureModel.title;
             this.answerService.update(answer);
           }
@@ -149,9 +150,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       });
 
       this.answerService.getByReferenceAndPia(this.pia.id, 344).then((answer: Answer) => {
-        if (answer.data && answer.data.list) {
+        if (answer && answer.data && answer.data.list) {
           const index = answer.data.list.indexOf(previousTitle);
-          if (~index) {
+          if (index !== -1) {
             answer.data.list[index] = this.measureModel.title;
             this.answerService.update(answer);
           }
@@ -170,7 +171,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   /**
    * Loads WYSIWYG editor for measure answer.
    */
-  measureContentFocusIn() {
+  measureContentFocusIn(): void {
     if (this.globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
     }
@@ -181,7 +182,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Shows measure edit button.
    * Saves data from content field.
    */
-  measureContentFocusOut() {
+  measureContentFocusOut(): void {
     this.knowledgeBaseService.placeholder = null;
     this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
@@ -190,7 +191,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     }
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.content = userText;
-    this.measureModel.update().then(() => {
+    this.measuresService.update(this.measureModel).then(() => {
       this.ngZone.run(() => {
         this.globalEvaluationService.validate();
       });
@@ -199,9 +200,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Shows or hides a measure.
-   * @param {*} event - Any Event.
+   * @param event - Any Event.
    */
-  displayMeasure(event: any) {
+  displayMeasure(event: any): void {
     const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-measureBlock-displayer');
@@ -227,9 +228,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
   /**
    * Allows an user to remove a measure.
-   * @param {string} measureId - A measure id.
+   * @param measureId - A measure id.
    */
-  removeMeasure(measureId: string) {
+  removeMeasure(measureId: string): void {
     const measuresCount = document.querySelectorAll('.pia-measureBlock');
     if (measuresCount && measuresCount.length <= 1) {
       this.dialogService.confirmThis(
@@ -268,7 +269,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   /**
    * Loads wysiwyg editor.
    */
-  loadEditor() {
+  loadEditor(): void {
     this.knowledgeBaseService.placeholder = this.measure.placeholder;
     tinymce.init({
       branding: false,

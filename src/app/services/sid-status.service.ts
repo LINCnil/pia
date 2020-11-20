@@ -3,8 +3,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { GlobalEvaluationService } from './global-evaluation.service';
 import { IntrojsService } from '../services/introjs.service';
-import { ActivatedRoute } from '@angular/router';
-import { AnswerService } from './answer.service';
+import { MeasureService } from './measures.service';
 
 @Injectable()
 export class SidStatusService {
@@ -22,7 +21,6 @@ export class SidStatusService {
   constructor(
     private introjsService: IntrojsService,
     private globalEvaluationService: GlobalEvaluationService,
-    private route: ActivatedRoute
   ) {
     this.specialIcon = {
       '3.5': 'fa-line-chart',
@@ -67,7 +65,7 @@ export class SidStatusService {
   setSidStatus(pia: any, section: any, item: any): void {
     const referenceTo = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
-    const globalEvaluationService = new GlobalEvaluationService(new AnswerService());
+    const globalEvaluationService = new GlobalEvaluationService();
     globalEvaluationService.pia = pia;
     globalEvaluationService.section = section;
     globalEvaluationService.item = item;
@@ -127,7 +125,7 @@ export class SidStatusService {
    * @param section - The section.
    * @param item - The item.
    */
-  removeSidStatus(section: any, item: any) {
+  removeSidStatus(section: any, item: any): void {
     const sid = section.id + '.' + item.id;
     if (!this.noIconFor.includes(sid)) {
       this.itemStatus[sid] = 0;

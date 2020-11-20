@@ -29,30 +29,30 @@ export class AttachmentItemComponent implements OnInit {
                 });
               }
 
-  ngOnInit() { }
+  ngOnInit(): void { }
 
 
 
   /**
    * Deletes an attachment with a given id.
-   * @param {string} id - Unique id of the attachment to be deleted.
+   * @param id - Unique id of the attachment to be deleted.
    */
-  removeAttachment(id: number) {
+  removeAttachment(id: number): void {
     this.showRemoveAttachmentForm = true;
   }
 
   /**
    * Allows an user to download a specific attachment.
    */
-  downloadAttachment() {
+  downloadAttachment(): void {
     this.attachmentsService.downloadAttachment(this.attachment.id);
   }
 
   /**
    * Allows an user to view a specific attachment.
-   * @param {boolean} show - Hide or show the preview block
+   * @param show - Hide or show the preview block
    */
-  previewAttachment(show: boolean) {
+  previewAttachment(show: boolean): void {
     if (!this.isPreview) {
       const elPreview = this.el.nativeElement.querySelector('.pia-attachmentsBlock-item-preview');
       const embed = elPreview.querySelector('#iframe');
@@ -68,19 +68,19 @@ export class AttachmentItemComponent implements OnInit {
         // embed.classList.remove('hide');
           const data = this.attachment.file.split(';base64,')[1];
           // base64 string
-          var base64str = data;
+          const base64str = data;
 
           // decode base64 string, remove space for IE compatibility
-          var binary = atob(base64str.replace(/\s/g, ''));
-          var len = binary.length;
-          var buffer = new ArrayBuffer(len);
-          var view = new Uint8Array(buffer);
-          for (var i = 0; i < len; i++) {
+          const binary = atob(base64str.replace(/\s/g, ''));
+          const len = binary.length;
+          const buffer = new ArrayBuffer(len);
+          const view = new Uint8Array(buffer);
+          for (let i = 0; i < len; i++) {
               view[i] = binary.charCodeAt(i);
           }
 
 
-          let blob = new Blob([view], {type: 'application/pdf'})
+          const blob = new Blob([view], {type: 'application/pdf'})
           this.fileUrl = URL.createObjectURL(blob);
 
           elPreview.classList.remove('hide');
@@ -98,14 +98,14 @@ export class AttachmentItemComponent implements OnInit {
 
   /**
    * Checks if the add attachments button has to be shown, according to the PIA status.
-   * @return {boolean} - True if the PIA isn't validated (simple or signed validation), false otherwise.
+   * @return True if the PIA isn't validated (simple or signed validation), false otherwise.
    */
-  showAddAttachmentButton() {
+  showAddAttachmentButton(): boolean {
     return (this.pia.status !== 2 && this.pia.status !== 3);
   }
 
 
-  submitRemoveAttachment() {
+  submitRemoveAttachment(): void {
     this.attachmentsService
       .removeAttachment(this.attachment.id, this.removeAttachmentForm.controls['comment'].value)
         .then(() => {

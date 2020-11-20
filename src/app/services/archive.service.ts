@@ -13,26 +13,26 @@ export class ArchiveService {
 
   constructor(
     private piaService: PiaService,
-    public _appDataService: AppDataService,
-    public _sidStatusService: SidStatusService
+    public appDataService: AppDataService,
+    public sidStatusService: SidStatusService
   ) {
-    this.data = this._appDataService.dataNav;
+    this.data = this.appDataService.dataNav;
   }
 
-  async calculProgress() {
+  async calculProgress(): Promise<void> {
     this.archivedPias.forEach((archivedPia: Pia) => {
       this.calculPiaProgress(archivedPia);
     });
   }
 
-  async calculPiaProgress(pia) {
+  async calculPiaProgress(pia): Promise<void> {
     pia.progress = 0.0;
     if (pia.status > 0) {
       pia.progress += 4;
     }
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
-        this._sidStatusService.setSidStatus(pia, section, item);
+        this.sidStatusService.setSidStatus(pia, section, item);
       });
     });
   }

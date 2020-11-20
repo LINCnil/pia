@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Attachment } from 'src/app/models/attachment.model';
 import { ArchiveService } from 'src/app/services/archive.service';
+import { AttachmentsService } from 'src/app/services/attachments.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
@@ -21,13 +22,12 @@ export class ArchiveCardComponent implements OnInit {
     public archiveService: ArchiveService,
     private dialogService: DialogService,
     public piaService: PiaService,
+    private attachmentsService: AttachmentsService
   ) {}
 
   ngOnInit(): void {
-    const attachmentModel = new Attachment();
     this.attachments = [];
-    attachmentModel.pia_id = this.archivedPia.id;
-    attachmentModel.findAll().then((entries: any) => {
+    this.attachmentsService.findAllByPia(this.archivedPia.id).then((entries: any) => {
       entries.forEach(element => {
         if (element['file'] && element['file'].length) {
           this.attachments.push(element);

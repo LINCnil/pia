@@ -6,6 +6,7 @@ import { Evaluation } from '../models/evaluation.model';
 import { Measure } from '../models/measure.model';
 
 import { FormatTheDate } from '../tools';
+import { MeasureService } from './measures.service';
 
 @Injectable()
 export class ActionPlanService {
@@ -28,7 +29,8 @@ export class ActionPlanService {
   constructor(
     private translateService: TranslateService,
     private languagesService: LanguagesService,
-    private formatTheDate: FormatTheDate
+    private formatTheDate: FormatTheDate,
+    private measureService: MeasureService
   ) {}
 
   /**
@@ -101,9 +103,7 @@ export class ActionPlanService {
     });
 
     let title2 = true;
-    const measure = new Measure();
-    measure.pia_id = this.pia.id;
-    measure.findAll().then((entries: any) => {
+    this.measureService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(m => {
         const evaluation2 = new Evaluation();
         const referenceTo = '3.1.' + m.id;

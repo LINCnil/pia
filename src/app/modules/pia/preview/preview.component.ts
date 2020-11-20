@@ -11,6 +11,7 @@ import { Revision } from 'src/app/models/revision.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { Pia } from 'src/app/models/pia.model';
+import { MeasureService } from 'src/app/services/measures.service';
 
 @Component({
   selector: 'app-preview',
@@ -36,7 +37,8 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     private appDataService: AppDataService,
     public revisionService: RevisionService,
     public languagesService: LanguagesService,
-    private answerService: AnswerService
+    private answerService: AnswerService,
+    private measureService: MeasureService
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +53,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
 
     // Load PIA's revisions
     const revision = new Revision();
-    revision.findAllByPia(this.pia.id).then(resp => {
+    this.revisionService.findAllByPia(this.pia.id).then(resp => {
       this.revisions = resp;
     });
 
@@ -203,9 +205,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
         // Measure
         if (item.is_measure) {
           this.allData[section.id][item.id] = [];
-          const measuresModel = new Measure();
-          measuresModel.pia_id = this.pia.id;
-          const entries: any = await measuresModel.findAll();
+          const entries: any = await this.measureService.findAllByPia(this.pia.id);
           entries.forEach(async measure => {
             /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {

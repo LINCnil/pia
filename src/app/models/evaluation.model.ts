@@ -15,7 +15,7 @@ export class Evaluation extends ApplicationDb {
     super(201707071818, 'evaluation');
   }
 
-  async create() {
+  async create(): Promise<Evaluation> {
     const data = {
           status: this.status,
           pia_id: this.pia_id,
@@ -58,7 +58,7 @@ export class Evaluation extends ApplicationDb {
     });
   }
 
-  async update() {
+  async update(): Promise<any> {
     return new Promise((resolve, reject) => {
       this.find(this.id).then((entry: any) => {
         entry.status = this.status;

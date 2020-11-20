@@ -17,7 +17,7 @@ export class PaginationService {
    * @param {number} sectionId - The section id.
    * @param {number} itemId - The item id.
    */
-  setPagination(sectionId: number, itemId: number) {
+  setPagination(sectionId: number, itemId: number): void {
     this.previousLink = [];
     this.nextLink = [];
     this.hasPreviousLink = !(sectionId === 1 && itemId === 1) && !(sectionId === 4 && itemId === 4) && !(sectionId === 4 && itemId === 5);
@@ -64,7 +64,7 @@ export class PaginationService {
    * @param {number} status_start - From status.
    * @param {number} status_end - To status.
    */
-  getNextSectionItem(status_start: number, status_end: number) {
+  getNextSectionItem(status_start: number, status_end: number): Array<any>  {
     let goto_section = null;
     let goto_item = null;
 

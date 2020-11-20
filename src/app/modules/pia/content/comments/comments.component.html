@@ -2,7 +2,7 @@
     <div class="pia-commentsBlock-count">{{comments.length}} {{ 'comments.comments_count' | translate }}</div>
     <div class="pia-commentsBlock-infos">
         <time class="pia-commentsBlock-date">
-          <span *ngIf="questionDate && questionDate.toString() !== 'Invalid Date'">{{questionDate | date: "shortDate":"":_languagesService.selectedLanguage}}</span>
+          <span *ngIf="questionDate && questionDate.toString() !== 'Invalid Date'">{{questionDate | date: "shortDate":"":languagesService.selectedLanguage}}</span>
         </time>
         <div class="pia-commentsBlock-btn">
           <button class="btn" type="button" (click)="toggleNewCommentBox()"><i class="fa fa-comment-o" aria-hidden="true"></i> {{ 'comments.new_comment' | translate }}</button>

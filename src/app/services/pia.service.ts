@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 import { DialogService } from './dialog.service';
 
 import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
+import { MeasureService } from './measures.service';
+import { CommentsService } from './comments.service';
 
 function encode_utf8(s) {
   return unescape(encodeURIComponent(s));
@@ -33,7 +35,9 @@ export class PiaService extends ApplicationDb  {
     public sidStatusService: SidStatusService,
     private structureService: StructureService,
     private answerService: AnswerService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private measuresService: MeasureService,
+    private commentsService: CommentsService
   ) {
     super(201910230914, 'pia');
     this.data = this.appDataService.dataNav;
@@ -51,7 +55,7 @@ export class PiaService extends ApplicationDb  {
    * Create a new PIA.
    * @returns {Promise} - Return new Promise
    */
-  async create(pia) {
+  async create(pia): Promise<number> {
     if (this.created_at === undefined) {
       this.created_at = new Date();
     }
@@ -256,9 +260,9 @@ export class PiaService extends ApplicationDb  {
   /**
    * Erase all contents on the DPD page.
    * @private
-   * @param {*} piaService - The PIA Service.
+   * @param piaId - The PIA id.
    */
-  public resetDpoPage(piaId: number) {
+  public resetDpoPage(piaId: number): Promise<any> {
     return new Promise((resolve, reject) => {
       this.find(piaId).then((pia: Pia) => {
         pia.dpos_names = null;
@@ -280,7 +284,7 @@ export class PiaService extends ApplicationDb  {
   /**
    * Create a new PIA
    */
-  async saveNewPia(piaForm: any) {
+  async saveNewPia(piaForm: any): Promise<any>  {
     return new Promise((resolve, reject) => {
       const pia = new Pia();
       pia.name = piaForm.value.name;
@@ -309,7 +313,7 @@ export class PiaService extends ApplicationDb  {
     });
   }
 
-  removeEmptyElements(structure_data) {
+  removeEmptyElements(structure_data): any {
     structure_data.sections.forEach(section => {
       if (section.items) {
         section.items.forEach(item => {
@@ -337,7 +341,7 @@ export class PiaService extends ApplicationDb  {
     return structure_data;
   }
 
-  async structureCreateMeasures(pia: Pia, id: any) {
+  async structureCreateMeasures(pia: Pia, id: any): Promise<any> {
     return new Promise((resolve, reject) => {
       // Record the structures Measures
       const structures_measures = pia.structure_data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers;
@@ -349,7 +353,7 @@ export class PiaService extends ApplicationDb  {
             measure.pia_id = id;
             measure.title = structures_measures[m].title;
             measure.content = structures_measures[m].content;
-            measure.create().then(() => {
+            this.measuresService.create(measure).then(() => {
               i++;
               if (i === structures_measures.length) {
                 resolve();
@@ -363,7 +367,7 @@ export class PiaService extends ApplicationDb  {
     });
   }
 
-  async structureCreateAnswers(pia: Pia, id: any) {
+  async structureCreateAnswers(pia: Pia, id: any): Promise<any> {
     // Record the structures Answers
     return new Promise((resolve, reject) => {
       const questions = [];
@@ -479,11 +483,11 @@ export class PiaService extends ApplicationDb  {
         };
         this.answerService.findAllByPia(id).then(answers => {
           data['answers'] = answers;
-          measure.findAll().then(measures => {
+          this.measuresService.findAll().then(measures => {
             data['measures'] = measures;
             evaluation.findAll().then(evaluations => {
               data['evaluations'] = evaluations;
-              comment.findAll().then(comments => {
+              this.commentsService.findAllByPia(id).then(comments => {
                 data['comments'] = comments;
                 // attachment.findAll().then((attachments) => {
                 // data['attachments'] = attachments;
@@ -700,31 +704,14 @@ export class PiaService extends ApplicationDb  {
       const reader = new FileReader();
       reader.readAsText(file);
       reader.onload = (event: any) => {
-
-          const jsonFile = JSON.parse(event.target.result);
-          this.importData(jsonFile, 'IMPORT', false)
-            .then(() => {
-              resolve(true);
-            })
-            .catch((err) => {
-              reject(err);
-            });
-
-
-
-          // this.dialogService.confirmThis({
-          //   text: 'modals.general_error.content',
-          //   type: 'yes',
-          //   yes: 'modals.close',
-          //   no: ''},
-          //   () => {
-          //     return;
-          //   },
-          //   () => {
-          //     return;
-          //   });
-
-
+        const jsonFile = JSON.parse(event.target.result);
+        this.importData(jsonFile, 'IMPORT', false)
+          .then(() => {
+            resolve(true);
+          })
+          .catch((err) => {
+            reject(err);
+          });
       };
     });
   }
@@ -744,17 +731,17 @@ export class PiaService extends ApplicationDb  {
 
     const comment = new Comment();
     comment.pia_id = piaId;
-    await comment.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+    await this.commentsService.findAllByPia(piaId).then(async (response: Array<Comment>) => {
       for (const c of response) {
-        await comment.delete(c.id);
+        await this.commentsService.delete(c.id);
       }
     });
 
     const measure = new Measure();
     measure.pia_id = piaId;
-    await measure.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+    await this.measuresService.findAllByPia(piaId).then(async (response: Array<Comment>) => {
       for (const c of response) {
-        await measure.delete(c.id);
+        await this.measuresService.delete(c.id);
       }
     });
 
@@ -772,7 +759,7 @@ export class PiaService extends ApplicationDb  {
    * @param answers - The list of answers
    * @param piaId - The PIA id
    */
-  private async importAnswers(answers: any, piaId: number) {
+  private async importAnswers(answers: any, piaId: number): Promise<void> {
     answers.forEach(answer => {
       const answerModel = new Answer();
       answerModel.pia_id = piaId;
@@ -793,7 +780,7 @@ export class PiaService extends ApplicationDb  {
    * @param isDuplicate - To know if it's a duplication action
    * @param resetStatus - To know if we need to reset the status
    */
-  private async importMeasures(data: any, piaId: number, isDuplicate: boolean, resetStatus?: boolean) {
+  private async importMeasures(data: any, piaId: number, isDuplicate: boolean, resetStatus?: boolean): Promise<any> {
     if (data.measures.length > 0) {
       let count = 0;
       const oldIdToNewId = [];
@@ -808,7 +795,7 @@ export class PiaService extends ApplicationDb  {
         if (measure.updated_at) {
           measureModel.updated_at = new Date(measure.updated_at);
         }
-        measureModel.create().then((id: number) => {
+        this.measuresService.create(measureModel).then((id: number) => {
           count++;
           oldIdToNewId[measure.id] = id;
           if (count === data.measures.length) {
@@ -843,7 +830,7 @@ export class PiaService extends ApplicationDb  {
     return new Promise((resolve, reject) => {
       this.find(pia.id).then((entry: any) => {
         entry = {
-          entry,
+          ...entry,
           ...pia
         };
         if (entry.is_archive === undefined || entry.is_archive === null) {
@@ -902,7 +889,7 @@ export class PiaService extends ApplicationDb  {
    * @param comments - The list of comments
    * @param piaId - The PIA id
    */
-  private async importComments(comments: any, piaId: number) {
+  private async importComments(comments: any, piaId: number): Promise<any> {
     comments.forEach(comment => {
       const commentModel = new Comment();
       commentModel.pia_id = piaId;
@@ -913,7 +900,7 @@ export class PiaService extends ApplicationDb  {
       if (comment.updated_at) {
         commentModel.updated_at = new Date(comment.updated_at);
       }
-      commentModel.create();
+      this.commentsService.create(commentModel);
     });
   }
 
@@ -921,7 +908,7 @@ export class PiaService extends ApplicationDb  {
    * Get the status of the PIA.
    * @returns {string} - Locale for translation.
    */
-  getStatusName(status) {
+  getStatusName(status): string {
     if (status >= 0) {
       return `pia.statuses.${status}`;
     }
@@ -932,7 +919,7 @@ export class PiaService extends ApplicationDb  {
    * @param {boolean} status - The people search status.
    * @returns {string} - Locale for translation.
    */
-  getPeopleSearchStatus(status: boolean) {
+  getPeopleSearchStatus(status: boolean): string {
     if (status === true) {
       return 'summary.people_search_status_ok';
     } else {
