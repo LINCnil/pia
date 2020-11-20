@@ -62,7 +62,7 @@ export class EvaluationsComponent
     private aswerService: AnswerService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
     this.checkEvaluationValidation();
@@ -106,7 +106,7 @@ export class EvaluationsComponent
     );
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked(): void {
     // Evaluation comment textarea auto resize
     const evaluationCommentTextarea = document.querySelector(
       '.pia-evaluation-comment-' + this.evaluation.id
@@ -119,7 +119,7 @@ export class EvaluationsComponent
     }
   }
 
-  ngDoCheck() {
+  ngDoCheck(): void {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
     if (
@@ -131,7 +131,7 @@ export class EvaluationsComponent
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.riskSubscription.unsubscribe();
     this.placeholderSubscription.unsubscribe();
     tinymce.remove(this.editor);
@@ -142,7 +142,7 @@ export class EvaluationsComponent
    * Check the evaluation validation.
    * @private
    */
-  private checkEvaluationValidation() {
+  private checkEvaluationValidation(): void {
     if (this.item.evaluation_mode === 'question') {
       // Measure evaluation update
       if (this.item.is_measure) {
@@ -228,7 +228,7 @@ export class EvaluationsComponent
    * @param {*} event - Any Event.
    * @param {*} [textarea] - Any textarea element.
    */
-  autoTextareaResize(event: any, textarea?: any) {
+  autoTextareaResize(event: any, textarea?: any): void {
     if (event) {
       textarea = event.target;
     }
@@ -244,7 +244,7 @@ export class EvaluationsComponent
    * @param {Event} event - Any event.
    * @param {number} status - The status of the evaluation (to be fixed, improvable, acceptable).
    */
-  selectedButton(event, status: number) {
+  selectedButton(event, status: number): void {
     this.evaluation.global_status = 0;
     this.evaluation.status = status;
 
@@ -306,7 +306,7 @@ export class EvaluationsComponent
   /**
    * Loads editor (if not final validation) on action plan comment focus.
    */
-  actionPlanCommentFocusIn() {
+  actionPlanCommentFocusIn(): void {
     if (this.globalEvaluationService.evaluationEditionEnabled) {
       this.knowledgeBaseService.placeholder = this.translateService.instant(
         'evaluations.placeholder_improvable1'
@@ -318,7 +318,7 @@ export class EvaluationsComponent
   /**
    * Executes actions when losing focus from action plan comment.
    */
-  actionPlanCommentFocusOut() {
+  actionPlanCommentFocusOut(): void {
     this.knowledgeBaseService.placeholder = null;
     this.editor = null;
     let userText = this.evaluationForm.controls['actionPlanComment'].value;
@@ -337,7 +337,7 @@ export class EvaluationsComponent
   /**
    * Activates (or not) evaluation comment when focusing it.
    */
-  evaluationCommentFocusIn() {
+  evaluationCommentFocusIn(): void {
     if (this.globalEvaluationService.evaluationEditionEnabled) {
       this.knowledgeBaseService.placeholder = this.comment_placeholder;
       this.loadEditor('evaluationComment', true);
@@ -347,7 +347,7 @@ export class EvaluationsComponent
   /**
    * Executes actions when losing focus from evaluation comment.
    */
-  evaluationCommentFocusOut() {
+  evaluationCommentFocusOut(): void {
     this.knowledgeBaseService.placeholder = null;
     this.editorEvaluationComment = false;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
@@ -366,7 +366,7 @@ export class EvaluationsComponent
   /**
    * Enables 'x' gauge.
    */
-  enableGaugeX() {
+  enableGaugeX(): void {
     if (this.globalEvaluationService.evaluationEditionEnabled) {
       this.evaluationForm.controls['gaugeX'].enable();
     } else {
@@ -377,7 +377,7 @@ export class EvaluationsComponent
   /**
    * Enables 'y' gauge.
    */
-  enableGaugeY() {
+  enableGaugeY(): void {
     if (this.globalEvaluationService.evaluationEditionEnabled) {
       this.evaluationForm.controls['gaugeY'].enable();
     } else {
@@ -390,7 +390,7 @@ export class EvaluationsComponent
    * @param {*} event - Any Event.
    * @param {string} xOrY - The current coordinate being processed (x or y).
    */
-  checkGaugeChanges(event: any, xOrY: string) {
+  checkGaugeChanges(event: any, xOrY: string): void {
     const value: string = event.target.value;
     const bgElement = event.target.parentNode.querySelector(
       '.pia-gaugeBlock-background-' + xOrY
@@ -422,7 +422,7 @@ export class EvaluationsComponent
    * @param {any} field - Field to load the editor.
    * @param {boolean} [autofocus=false] - Boolean to autofocus or not.
    */
-  loadEditor(field, autofocus = false) {
+  loadEditor(field, autofocus = false): void {
     let elementId = this.actionPlanCommentElementId;
     if (field === 'evaluationComment') {
       elementId = this.evaluationCommentElementId;

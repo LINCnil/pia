@@ -44,7 +44,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               private answerService: AnswerService,
               private measureService: MeasureService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new FormGroup({
@@ -126,7 +126,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     tinymce.remove(this.editor);
   }
 
@@ -134,14 +134,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * On evaluation change.
    * @param {any} evaluation - Any Evaluation.
    */
-  evaluationChange(evaluation) {
+  evaluationChange(evaluation): void {
     this.evaluation = evaluation;
   }
 
   /**
    * Enable the gauge.
    */
-  enableGauge() {
+  enableGauge(): void {
     if (this.globalEvaluationService.answerEditionEnabled) {
       this.questionForm.controls['gauge'].enable();
     } else {
@@ -153,7 +153,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Check gauge change.
    * @param {*} event - Any Event.
    */
-  checkGaugeChanges(event: any) {
+  checkGaugeChanges(event: any): void {
     const value: string = event.target.value;
     const bgElement = event.target.parentNode.querySelector('.pia-gaugeBlock-background');
     bgElement.classList.remove('pia-gaugeBlock-background-1');
@@ -184,7 +184,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Loads WYSIWYG editor.
    */
-  questionContentFocusIn() {
+  questionContentFocusIn(): void {
     if (this.globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
     }
@@ -193,7 +193,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Disables question field + shows edit button + save data.
    */
-  questionContentFocusOut() {
+  questionContentFocusOut(): void {
     console.log(this.answer, this.pia, this.question.id)
     this.answer.pia_id = this.pia.id;
     this.answer.reference_to = this.question.id;
@@ -225,7 +225,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Adds the measure tag in the database.
    * @param {any} event - Any Event.
    */
-  onAdd(event) {
+  onAdd(event): void {
     if (event && event.value.length > 0) {
       let list = [];
       if (this.answer.id) {
@@ -242,7 +242,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Updates the last selected tag.
    * @param {any} event - Any Event.
    */
-  onSelected(event) {
+  onSelected(event): void {
     // When it returns an object (weird scenario)
     if (event.hasOwnProperty('value')) {
       this.lastSelectedTag = event.value;
@@ -255,7 +255,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Removes the measure tag from the database.
    * @param {any} event - Any Event.
    */
-  onRemove(event) {
+  onRemove(event): void {
     let list = [];
     if (this.answer.id) {
       list = this.answer.data.list;
@@ -277,7 +277,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * On tag edited.
    * @param {any} event - Any Event.
    */
-  onTagEdited(event) {
+  onTagEdited(event): void {
     let list = [];
     if (this.answer.id) {
       list = this.answer.data.list;
@@ -298,7 +298,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * On tag leave.
    * @param {any} event - Any Event.
    */
-  onBlur(event) {
+  onBlur(event): void {
     if (event && event.length > 0) {
       let list = [];
       if (this.answer.id) {
@@ -316,7 +316,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @private
    * @param {string[]} list - List of tags.
    */
-  private createOrUpdateList(list: string[]) {
+  private createOrUpdateList(list: string[]): void {
     if (this.answer.id) {
       this.answer.data = { text: this.answer.data.text, gauge: this.answer.data.gauge, list: list };
       this.answerService.update(this.answer).then(() => {
@@ -336,7 +336,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Shows or hides a question.
    * @param {*} event - Any Event.
    */
-  displayQuestion(event: any) {
+  displayQuestion(event: any): void {
     const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
     accordeon.classList.toggle('pia-icon-accordeon-down');
     const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
@@ -363,7 +363,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Loads wysiwyg editor.
    */
-  loadEditor() {
+  loadEditor(): void {
     this.knowledgeBaseService.placeholder = this.question.placeholder;
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
     tinymce.init({
