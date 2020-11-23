@@ -680,12 +680,14 @@ export class PiaService extends ApplicationDb {
         evaluationModel.pia_id = pia_id;
         evaluationModel.status = resetStatus ? 0 : evaluation.status;
         let reference_to = evaluation.reference_to;
+
         if (reference_to.startsWith('3.1') && oldIdToNewId) {
           const ref = reference_to.split('.');
           if (oldIdToNewId[ref[2]]) {
             reference_to = '3.1.' + oldIdToNewId[ref[2]];
           }
         }
+
         evaluationModel.reference_to = reference_to;
         evaluationModel.action_plan_comment = evaluation.action_plan_comment;
         evaluationModel.evaluation_comment = evaluation.evaluation_comment;

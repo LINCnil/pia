@@ -3,7 +3,6 @@ import { Subject } from 'rxjs/Subject';
 
 import { GlobalEvaluationService } from './global-evaluation.service';
 import { IntrojsService } from '../services/introjs.service';
-import { MeasureService } from './measures.service';
 
 @Injectable()
 export class SidStatusService {
@@ -20,7 +19,7 @@ export class SidStatusService {
 
   constructor(
     private introjsService: IntrojsService,
-    private globalEvaluationService: GlobalEvaluationService,
+    private globalEvaluationService: GlobalEvaluationService
   ) {
     this.specialIcon = {
       '3.5': 'fa-line-chart',
@@ -43,17 +42,18 @@ export class SidStatusService {
     this.enablePiaValidation = false;
     this.piaIsRefused = false;
     this.enableDpoValidation = false;
-    this.globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string; status: number }) => {
-      if (obj.reference_to && obj.status > 0) {
-        this.itemStatus[obj.reference_to] = obj.status;
-        this.verifEnableDpo();
-      }
+    this.globalEvaluationService.behaviorSubject.subscribe(
+      (obj: { reference_to: string; status: number }) => {
+        if (obj.reference_to && obj.status > 0) {
+          this.itemStatus[obj.reference_to] = obj.status;
+          this.verifEnableDpo();
+        }
 
-      if (localStorage.getItem('onboardingEntryConfirmed')) {
-        this.introjsService.start('evaluation');
+        if (localStorage.getItem('onboardingEntryConfirmed')) {
+          this.introjsService.start('evaluation');
+        }
       }
-
-    });
+    );
   }
 
   /**
@@ -69,16 +69,23 @@ export class SidStatusService {
     globalEvaluationService.pia = pia;
     globalEvaluationService.section = section;
     globalEvaluationService.item = item;
-    if (item.evaluation_mode === 'item' || item.evaluation_mode === 'question' || referenceTo === '4.3') {
-      globalEvaluationService.validate(false).then((obj: { reference_to: string; status: number }) => {
-        if (referenceTo === '4.3') {
-          this.enablePiaValidation = globalEvaluationService.enablePiaValidation;
-          this.piaIsRefused = globalEvaluationService.piaIsRefused;
-        }
-        this.itemStatus[obj.reference_to] = obj.status;
-        this.verifEnableDpo();
-        this.setPiaProgress(pia, referenceTo, obj.status);
-      });
+    if (
+      item.evaluation_mode === 'item' ||
+      item.evaluation_mode === 'question' ||
+      referenceTo === '4.3'
+    ) {
+      globalEvaluationService
+        .validate(false)
+        .then((obj: { reference_to: string; status: number }) => {
+          if (referenceTo === '4.3') {
+            this.enablePiaValidation =
+              globalEvaluationService.enablePiaValidation;
+            this.piaIsRefused = globalEvaluationService.piaIsRefused;
+          }
+          this.itemStatus[obj.reference_to] = obj.status;
+          this.verifEnableDpo();
+          this.setPiaProgress(pia, referenceTo, obj.status);
+        });
     }
   }
 
@@ -161,7 +168,11 @@ export class SidStatusService {
     this.enableDpoValidation = false;
     let count = 0;
     for (const el in this.itemStatus) {
-      if (this.itemStatus.hasOwnProperty(el) && this.itemStatus[el] >= 7 && el !== '4.3') {
+      if (
+        this.itemStatus.hasOwnProperty(el) &&
+        this.itemStatus[el] >= 7 &&
+        el !== '4.3'
+      ) {
         count++;
       }
     }
