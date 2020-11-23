@@ -9,11 +9,11 @@ import { BaseModule } from './modules/base/base.module';
 import { StructureModule } from './modules/structure/structure.module';
 import { PiaModule } from './modules/pia/pia.module';
 import { SettingsModule } from './modules/settings/settings.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     SharedModule,
     HomeModule,
@@ -23,8 +23,11 @@ import { SettingsModule } from './modules/settings/settings.module';
     PiaModule,
     SettingsModule,
     AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
