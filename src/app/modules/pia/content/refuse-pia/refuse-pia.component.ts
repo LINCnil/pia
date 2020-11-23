@@ -20,11 +20,13 @@ export class RefusePIAComponent implements OnInit {
   showResendValidationButton: boolean;
   modificationsMadeForm: FormGroup;
 
-  constructor(private router: Router,
-              private el: ElementRef,
-              private sidStatusService: SidStatusService,
-              public piaService: PiaService,
-              private dialogService: DialogService) { }
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private sidStatusService: SidStatusService,
+    public piaService: PiaService,
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit() {
     this.rejectionReasonForm = new FormGroup({
@@ -35,14 +37,22 @@ export class RefusePIAComponent implements OnInit {
     });
 
     if (this.pia.rejected_reason && this.pia.rejected_reason.length > 0) {
-      this.rejectionReasonForm.controls['rejectionReason'].patchValue(this.pia.rejected_reason);
+      this.rejectionReasonForm.controls['rejectionReason'].patchValue(
+        this.pia.rejected_reason
+      );
       this.rejectionReasonForm.controls['rejectionReason'].disable();
       this.showRejectionReasonButtons = true;
     }
 
-    if (this.pia.applied_adjustements && this.pia.rejected_reason
-        && this.pia.applied_adjustements.length > 0 && this.pia.rejected_reason.length > 0) {
-      this.modificationsMadeForm.controls['modificationsMade'].patchValue(this.pia.applied_adjustements);
+    if (
+      this.pia.applied_adjustements &&
+      this.pia.rejected_reason &&
+      this.pia.applied_adjustements.length > 0 &&
+      this.pia.rejected_reason.length > 0
+    ) {
+      this.modificationsMadeForm.controls['modificationsMade'].patchValue(
+        this.pia.applied_adjustements
+      );
       this.modificationsMadeForm.controls['modificationsMade'].disable();
       if (this.pia.status === 1) {
         this.showResendValidationButton = true;
@@ -54,18 +64,20 @@ export class RefusePIAComponent implements OnInit {
     if (rejectionTextarea) {
       this.autoTextareaResize(null, rejectionTextarea);
     }
-    const modificationsTextarea = document.getElementById('pia-refuse-modifications');
+    const modificationsTextarea = document.getElementById(
+      'pia-refuse-modifications'
+    );
     if (modificationsTextarea) {
       this.autoTextareaResize(null, modificationsTextarea);
     }
-
   }
 
   /**
    * Display the modal to abandon the PIA.
    */
   abandon() {
-    this.dialogService.confirmThis({
+    this.dialogService.confirmThis(
+      {
         text: 'modals.abandon_pia.content',
         type: 'confirm',
         yes: 'modals.archive',
@@ -80,7 +92,8 @@ export class RefusePIAComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   /**
@@ -100,11 +113,19 @@ export class RefusePIAComponent implements OnInit {
               icon: 'fa fa-cog icon-red'
             },
             () => {
-              this.piaService.resetDpoPage(this.pia.id)
+              this.piaService
+                .resetDpoPage(this.pia.id)
                 .then(() => {
-                  this.router.navigate(['entry', this.pia.id, 'section', 1, 'item', 1]);
+                  this.router.navigate([
+                    'entry',
+                    this.pia.id,
+                    'section',
+                    1,
+                    'item',
+                    1
+                  ]);
                 })
-                .catch((err) => {
+                .catch(err => {
                   console.log(err);
                 });
             },
@@ -164,8 +185,11 @@ export class RefusePIAComponent implements OnInit {
    * Executes functionnalities when losing focus from modifications made field.
    */
   modificationsMadeFocusOut(): void {
-    let userText = this.modificationsMadeForm.controls['modificationsMade'].value;
-    const resendButton = this.el.nativeElement.querySelector('.pia-entryContentBlock-footer > button');
+    let userText = this.modificationsMadeForm.controls['modificationsMade']
+      .value;
+    const resendButton = this.el.nativeElement.querySelector(
+      '.pia-entryContentBlock-footer > button'
+    );
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
@@ -188,7 +212,7 @@ export class RefusePIAComponent implements OnInit {
   }
 
   /**
-   * Enable auto resizing on tetarea
+   * Enable auto resizing on textarea
    * @param {*} event - Any Event.
    * @param {HTMLElement} textarea - Texarea element.
    */
@@ -199,7 +223,8 @@ export class RefusePIAComponent implements OnInit {
     if (textarea.clientHeight < textarea.scrollHeight) {
       textarea.style.height = textarea.scrollHeight + 'px';
       if (textarea.clientHeight < textarea.scrollHeight) {
-        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+        textarea.style.height =
+          textarea.scrollHeight * 2 - textarea.clientHeight + 'px';
       }
     }
   }

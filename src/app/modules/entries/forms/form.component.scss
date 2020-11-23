@@ -1,9 +1,9 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 .pia-structure-wrapper {
   position: relative;
   &:hover {
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 8px;
       right: 8px;
@@ -46,19 +46,16 @@
   }
 }
 
-
 #modal-new-knowledgeBase {
   input {
     &:focus,
     &:hover,
     &:active {
-      outline: 1px dotted $pia-red !important;
+      outline: 1px dotted $pia-red;
     }
   }
   .pia-modalBlock-content,
   .pia-cardsBlock-item-btn {
-    border-color: $pia-red !important;
+    border-color: $pia-red;
   }
 }
-
-

@@ -418,7 +418,7 @@ main.pia-contrast {
     &-list {
       li {
         &::before {
-          content: '';
+          content: "";
           border-top: solid 1px $pia-gray-dark !important;
           color: $pia-gray-dark !important;
         }
@@ -682,7 +682,7 @@ main.pia-contrast {
       color: $pia-red-dark !important;
     }
   }
-  #modal-list-new-knowledgebase {
+  .card-knowledge {
     input {
       &:focus,
       &:hover,
@@ -1018,7 +1018,7 @@ main.pia-contrast {
   }
 
   /* Knowledge base homepage */
-  .pia-knowledgeBaseHomepageBlock {
+  .pia-mainContainerBlock-knowledges {
     .pia-newBlock {
       &-item {
         color: $pia-red-dark;
@@ -1027,6 +1027,18 @@ main.pia-contrast {
         }
         > span {
           color: $pia-red-dark !important;
+        }
+        &-new {
+          &-title,
+          &-btn {
+            color: $pia-red-dark !important;
+          }
+        }
+        &-import {
+          &-title,
+          &-btn {
+            color: $pia-red-dark !important;
+          }
         }
       }
     }
@@ -1153,7 +1165,7 @@ main.pia-contrast {
     }
     &-form {
       border-color: $pia-red-dark !important;
-      input[type='text'],
+      input[type="text"],
       select,
       textarea {
         &::placeholder {

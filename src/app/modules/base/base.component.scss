@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 .pia-knowledges_base {
   &-form,
   &-displayData {
@@ -16,7 +16,7 @@
       padding-bottom: 5px;
       border-bottom: 1px solid $pia-red;
     }
-    input[type='text'],
+    input[type="text"],
     select,
     textarea {
       padding-bottom: 6px;
@@ -37,7 +37,7 @@
       &:disabled {
         outline: none;
       }
-      &[name='name'] {
+      &[name="name"] {
         font-size: 1.6rem;
       }
     }
@@ -49,7 +49,7 @@
       position: relative;
       &:hover {
         &:after {
-          content: '';
+          content: "";
           position: absolute;
           top: 8px;
           right: 8px;
@@ -74,7 +74,7 @@
       resize: none;
     }
     &-checkboxes {
-      input[type='checkbox'] {
+      input[type="checkbox"] {
         margin-right: 5px;
         vertical-align: -2px;
         width: 14px;
@@ -231,7 +231,7 @@
       width: 200px;
     }
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       left: -16px;
       width: 16px;
@@ -257,7 +257,7 @@
     padding-right: 0;
   }
   &-item {
-    background: url('~src/assets/images/pia-bg.png') repeat center center;
+    background: url("~src/assets/images/pia-bg.png") repeat center center;
     padding: 70px 40px;
     font-size: 1.9rem;
     color: $pia-red;
@@ -523,16 +523,6 @@
         font-size: 1.5rem;
       }
     }
-  }
-}
-
-// Edit PIA
-.pia-editBlock {
-  border-color: $pia-red;
-  button {
-    display: block;
-    margin-right: 0;
-    margin-left: auto;
   }
 }
 
