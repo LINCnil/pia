@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 
 // New PIA
 .pia-newBlock {
@@ -13,22 +13,26 @@
     color: $pia-green;
     height: 440px;
     width: 276px;
-    &-new, &-import {
+    &-new,
+    &-import {
       &-title {
         padding-bottom: 10px;
       }
       &-btn {
         padding-left: 18px;
-        .fa-folder-open, .fa-upload {
-            font-size: 7rem;
-            margin-right: 30px;
+        .fa-folder-open,
+        .fa-upload {
+          font-size: 7rem;
+          margin-right: 30px;
         }
         .fa-upload {
-            margin-right: 40px;
+          margin-right: 40px;
         }
-        .fa-folder-open, .fa-upload, button {
-            display: inline-block;
-            vertical-align: top;
+        .fa-folder-open,
+        .fa-upload,
+        button {
+          display: inline-block;
+          vertical-align: top;
         }
       }
     }
@@ -45,7 +49,7 @@
     width: 300px;
     height: 200px;
     border-radius: 10px;
-    box-shadow: 0px 0px 18px 2px rgba(212,212,212,1);
+    box-shadow: 0px 0px 18px 2px rgba(212, 212, 212, 1);
     top: 110px;
     right: -323px;
     .pia-icon-small-arrow {
@@ -110,16 +114,17 @@
       border: 1px solid $pia-green;
       border-radius: 20px;
       color: $pia-green;
-      font-size: 1.30rem;
+      font-size: 1.3rem;
       transition: all ease 0.5s;
-      outline-style:none;
-      box-shadow:none;
+      outline-style: none;
+      box-shadow: none;
       position: relative;
       padding-left: 30px;
       &::placeholder {
         color: $pia-green;
       }
-      &:focus, &.typed {
+      &:focus,
+      &.typed {
         width: 350px;
         border: 0px;
         border: 1px solid $pia-green;
@@ -134,7 +139,8 @@
   &-filtersBlock {
     position: relative;
     margin: 8px 0 40px 0;
-    &-left, &-right {
+    &-left,
+    &-right {
       width: 50%;
       display: inline-block;
       vertical-align: middle;
@@ -142,7 +148,8 @@
     &-right {
       text-align: right;
     }
-    &-switch, &-filters {
+    &-switch,
+    &-filters {
       display: inline-block;
       vertical-align: middle;
     }
@@ -165,7 +172,8 @@
         margin-left: 4px;
         margin-top: -2px;
       }
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background: $pia-green;
         border-color: $pia-green;
         color: #fff;
@@ -215,7 +223,10 @@
             text-decoration: none;
             color: #000;
           }
-          &:focus, &:hover, &:active, .active {
+          &:focus,
+          &:hover,
+          &:active,
+          .active {
             background-color: $pia-blue;
             a {
               color: #ffffff !important;
@@ -237,7 +248,9 @@
         .pia-icon-scroll-green {
           margin-left: 35px;
         }
-        &:focus, &:hover, &:active {
+        &:focus,
+        &:hover,
+        &:active {
           + .pia-filtersBlock-filters-list {
             display: block;
           }
@@ -258,14 +271,15 @@
     }
     &-hint {
       position: relative;
-      display:inline-block;
+      display: inline-block;
       vertical-align: middle;
       background-color: #fff;
       border-radius: 10px;
       padding: 3px 24px 5px 26px;
       margin-left: 10px;
       div {
-        span, p {
+        span,
+        p {
           display: inline-block;
           vertical-align: middle;
         }
@@ -297,7 +311,6 @@
   }
 }
 
-
 // Edit PIA
 .pia-editBlock {
   border-color: $pia-green;
@@ -320,13 +333,13 @@
   transition: transform 1s;
 }
 #cardsSwitch .back {
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
 }
 #cardsSwitch.flipped .back {
-  transform: rotateY( 0deg );
+  transform: rotateY(0deg);
 }
 #cardsSwitch.flipped .front {
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
 }
 
 // List PIA
@@ -370,11 +383,19 @@
 .pia-mainContainerBlock {
   // default
 
-
   // modes
   &-knowledges {
-    .pia-newBlock-item-new-btn, .pia-newBlock-item-new-title,
-    .pia-newBlock-item-import-btn, .pia-newBlock-item-import-title, .pia-icon-pia-plus, .pia-filtersBlock-switch {
+    // Edit PIA
+    .pia-editBlock {
+      border-color: $pia-red;
+    }
+
+    .pia-newBlock-item-new-btn,
+    .pia-newBlock-item-new-title,
+    .pia-newBlock-item-import-btn,
+    .pia-newBlock-item-import-title,
+    .pia-icon-pia-plus,
+    .pia-filtersBlock-switch {
       color: $pia-red !important;
     }
     .pia-filtersBlock-switch {
@@ -389,13 +410,14 @@
     }
 
     .pia-searchInput {
-      input.btn.btn-search  {
+      input.btn.btn-search {
         border: 1px solid $pia-red;
         color: $pia-red;
         &::placeholder {
           color: $pia-red;
         }
-        &:focus, &.typed {
+        &:focus,
+        &.typed {
           border: 1px solid $pia-red;
           color: $pia-red;
         }
@@ -406,7 +428,7 @@
     }
 
     .pia-filtersBlock-filters {
-      .pia-filtersBlock-filters-btn{
+      .pia-filtersBlock-filters-btn {
         border: 1px solid $pia-red;
         color: $pia-red;
         .pia-icon-scroll-red {
@@ -414,14 +436,19 @@
         }
       }
       .pia-filtersBlock-filters-list {
-        border: 2px solid #FD4664;
-        li:focus, li:hover, li:active, li .active {
-          background-color: #FD4664;
+        border: 2px solid #fd4664;
+        li:focus,
+        li:hover,
+        li:active,
+        li .active {
+          background-color: #fd4664;
         }
       }
-      &:focus, &:hover, &:active {
+      &:focus,
+      &:hover,
+      &:active {
         .pia-filtersBlock-filters-btn {
-          background-color: #FD4664;
+          background-color: #fd4664;
           color: white;
         }
         + .pia-filtersBlock-filters-list {
