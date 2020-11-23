@@ -48,10 +48,6 @@ export class SidStatusService {
           this.itemStatus[obj.reference_to] = obj.status;
           this.verifEnableDpo();
         }
-
-        if (localStorage.getItem('onboardingEntryConfirmed')) {
-          this.introjsService.start('evaluation');
-        }
       }
     );
   }
