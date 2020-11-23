@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 .pia {
   &-modalBlock {
     opacity: 0;
@@ -85,8 +85,8 @@
         border: solid 1px $pia-green;
       }
       &-knowledge {
-        .pia-modalBlock-content{
-          border: solid 1px $pia-red !important;
+        .pia-modalBlock-content {
+          border: solid 1px $pia-red;
         }
       }
     }

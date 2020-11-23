@@ -396,10 +396,10 @@
     .pia-newBlock-item-import-title,
     .pia-icon-pia-plus,
     .pia-filtersBlock-switch {
-      color: $pia-red !important;
+      color: $pia-red;
     }
     .pia-filtersBlock-switch {
-      border: 1px solid $pia-red !important;
+      border: 1px solid $pia-red;
       &:hover {
         background: $pia-red;
         i,
