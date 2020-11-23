@@ -16,6 +16,17 @@
     "extract-i18n": "ngx-translate-extract --input src --output ./src/assets/i18n/ --clean --sort --format namespaced-json",
     "compodoc": "compodoc -p src/tsconfig.app.json"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.0",
@@ -70,6 +81,8 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4"
   }
 }
