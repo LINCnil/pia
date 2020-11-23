@@ -26,7 +26,10 @@
         {{ dataSection.title | translate }}
         <hr />
       </div>
-      <ul class="pia-sectionBlock-list" *ngIf="pia && section && item">
+      <ul
+        class="pia-sectionBlock-list"
+        *ngIf="pia && section && item && sidStatusService.itemStatus"
+      >
         <ng-container *ngFor="let dataItem of dataSection?.items">
           <li *ngIf="!dataItem.hide">
             <a
