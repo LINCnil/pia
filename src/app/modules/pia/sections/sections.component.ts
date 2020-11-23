@@ -1,18 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import 'rxjs/add/operator/map';
 
-
 import { SidStatusService } from 'src/app/services/sid-status.service';
-import { PiaService } from 'src/app/services/pia.service';
-import { IntrojsService } from 'src/app/services/introjs.service';
 import { Pia } from 'src/app/models/pia.model';
-
-
 
 @Component({
   selector: 'app-sections',
   templateUrl: './sections.component.html',
-  styleUrls: ['./sections.component.scss']
+  styleUrls: ['./sections.component.scss'],
+  providers: [SidStatusService]
 })
 export class SectionsComponent implements OnInit {
   @Input() pia: Pia = null;
@@ -31,9 +27,7 @@ export class SectionsComponent implements OnInit {
   };
   @Input() data: { sections: any };
 
-  constructor(
-    public sidStatusService: SidStatusService
-  ) {}
+  constructor(public sidStatusService: SidStatusService) {}
 
   async ngOnInit(): Promise<void> {
     this.data.sections.forEach((section: any) => {

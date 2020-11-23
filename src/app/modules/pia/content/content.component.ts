@@ -20,6 +20,7 @@ export class ContentComponent implements OnInit {
   @Input() section: any;
   @Input() item: any;
   @Input() questions: any;
+  @Input() measures: any;
   @Input() data: any;
 
   userAnswersForImpacts = [];
@@ -256,7 +257,8 @@ export class ContentComponent implements OnInit {
   }
 
   onAddNewMeasure(): void {
-    this.measureService.addNewMeasure(this.pia).then(() => {
+    this.measureService.addNewMeasure(this.pia).then(measure => {
+      this.measures.unshift(measure);
       this.globalEvaluationService.validate();
     });
   }

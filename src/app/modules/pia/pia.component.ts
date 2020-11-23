@@ -34,6 +34,8 @@ export class PiaComponent implements OnInit {
   questions: any;
   measureToRemoveFromTags: string;
   subscription: Subscription;
+  measures: any;
+
   public sideView = 'knowledge';
   public revisions = null;
   public revisionOverlay = false;
@@ -67,7 +69,8 @@ export class PiaComponent implements OnInit {
     const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     const itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
-    this.piaService.find(parseInt(this.route.snapshot.params.id))
+    this.piaService
+      .find(parseInt(this.route.snapshot.params.id))
       .then((pia: Pia) => {
         // INIT PIA
 
@@ -77,7 +80,6 @@ export class PiaComponent implements OnInit {
         if (!sectionId || !itemId) {
           this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);
         } else {
-
           if (this.pia.structure_data) {
             this.appDataService.dataNav = this.pia.structure_data;
           } else {
@@ -90,30 +92,36 @@ export class PiaComponent implements OnInit {
         this.globalEvaluationService.pia = this.pia;
 
         this.route.params.subscribe((params: Params) => {
-          this.getSectionAndItem(parseInt(params.section_id, 10), parseInt(params.item_id, 10));
+          this.getSectionAndItem(
+            parseInt(params.section_id, 10),
+            parseInt(params.item_id, 10)
+          );
           window.scroll(0, 0);
         });
 
         // Suscribe to measure service messages
-        this.subscription = this.measureService.behaviorSubject.subscribe(val => {
-          this.measureToRemoveFromTags = val;
-        });
+        this.subscription = this.measureService.behaviorSubject.subscribe(
+          val => {
+            this.measureToRemoveFromTags = val;
+          }
+        );
 
         // Start onboarding
         if (!localStorage.getItem('onboardingEntryConfirmed')) {
           console.log('ENTRY INTROJS');
           this.introjsService.start('entry');
         }
-
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err);
       });
-
   }
 
   ngDoCheck(): void {
-    if (this.measureToRemoveFromTags && this.measureToRemoveFromTags.length > 0) {
+    if (
+      this.measureToRemoveFromTags &&
+      this.measureToRemoveFromTags.length > 0
+    ) {
       const measureName = this.measureToRemoveFromTags;
       this.measureToRemoveFromTags = null;
 
@@ -124,7 +132,10 @@ export class PiaComponent implements OnInit {
           if (item.questions) {
             itemsQuestions.push(
               item.questions.filter(question => {
-                return question.answer_type === 'list' && question.is_measure === true;
+                return (
+                  question.answer_type === 'list' &&
+                  question.is_measure === true
+                );
               })
             );
           }
@@ -132,15 +143,23 @@ export class PiaComponent implements OnInit {
       });
 
       // Keep only questions with measures lists
-      const listQuestions = itemsQuestions.filter(v => Object.keys(v).length !== 0);
+      const listQuestions = itemsQuestions.filter(
+        v => Object.keys(v).length !== 0
+      );
 
       // For each of these questions, get their respective answer
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
           // const answer = new Answer();
-          this.answerService.getByReferenceAndPia(parseInt(this.route.snapshot.params.id), q.id)
+          this.answerService
+            .getByReferenceAndPia(parseInt(this.route.snapshot.params.id), q.id)
             .then((answer: Answer) => {
-              if (answer && answer.data && answer.data.list.length > 0 && answer.data.list.includes(measureName)) {
+              if (
+                answer &&
+                answer.data &&
+                answer.data.list.length > 0 &&
+                answer.data.list.includes(measureName)
+              ) {
                 const index = answer.data.list.indexOf(measureName);
                 answer.data.list.splice(index, 1);
                 this.answerService.update(answer);
@@ -190,12 +209,16 @@ export class PiaComponent implements OnInit {
 
     this.globalEvaluationService.validate();
 
-    this.measureService.listMeasures(this.pia.id).then(() => {
+    this.measureService.findAllByPia(this.pia.id).then(measures => {
+      this.measures = measures;
       /* Modal for risks if no measures yet */
       let displayModal = true;
-      if (this.section.id === 3 && (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)) {
-        if (this.measureService.measures.length > 0) {
-          this.measureService.measures.forEach(element => {
+      if (
+        this.section.id === 3 &&
+        (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)
+      ) {
+        if (measures.length > 0) {
+          measures.forEach(element => {
             if (element.title && element.title.length > 0) {
               displayModal = false;
             }
@@ -212,9 +235,14 @@ export class PiaComponent implements OnInit {
               icon: 'fa fa-arrow-left icon-blue'
             },
             () => {
-              this.router.navigate(
-                ['/pia', this.pia.id, 'section', 3, 'item', 1]
-              );
+              this.router.navigate([
+                '/pia',
+                this.pia.id,
+                'section',
+                3,
+                'item',
+                1
+              ]);
             },
             () => {
               return false;
@@ -224,7 +252,11 @@ export class PiaComponent implements OnInit {
       }
 
       /* Modal for action plan if no evaluations yet */
-      if (this.section.id === 4 && this.item.id === 2 && !this.sidStatusService.verifEnableActionPlan()) {
+      if (
+        this.section.id === 4 &&
+        this.item.id === 2 &&
+        !this.sidStatusService.verifEnableActionPlan()
+      ) {
         this.dialogService.confirmThis(
           {
             text: 'modals.action_plan_no_evaluation.content',
@@ -234,10 +266,18 @@ export class PiaComponent implements OnInit {
             icon: 'fa fa-cog icon-blue'
           },
           () => {
-            const gotoSectionItem = this.paginationService.getNextSectionItem(4, 5);
-            this.router.navigate(
-              ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
+            const gotoSectionItem = this.paginationService.getNextSectionItem(
+              4,
+              5
             );
+            this.router.navigate([
+              '/pia',
+              this.pia.id,
+              'section',
+              gotoSectionItem[0],
+              'item',
+              gotoSectionItem[1]
+            ]);
           },
           () => {
             return false;
@@ -246,7 +286,11 @@ export class PiaComponent implements OnInit {
       }
 
       /* Modal for dpo page if all evaluations are not done yet */
-      if (this.section.id === 4 && this.item.id === 3 && !this.sidStatusService.enableDpoValidation) {
+      if (
+        this.section.id === 4 &&
+        this.item.id === 3 &&
+        !this.sidStatusService.enableDpoValidation
+      ) {
         this.dialogService.confirmThis(
           {
             text: 'modals.dpo_missing_evaluations.content',
@@ -256,16 +300,23 @@ export class PiaComponent implements OnInit {
             icon: 'fa fa-cog icon-blue'
           },
           () => {
-            const gotoSectionItem = this.paginationService.getNextSectionItem(4, 7);
-            this.router.navigate(
-              ['/pia', this.pia.id, 'section', gotoSectionItem[0], 'item', gotoSectionItem[1]]
+            const gotoSectionItem = this.paginationService.getNextSectionItem(
+              4,
+              7
             );
+            this.router.navigate([
+              '/pia',
+              this.pia.id,
+              'section',
+              gotoSectionItem[0],
+              'item',
+              gotoSectionItem[1]
+            ]);
           },
           () => {
             return false;
           }
         );
-
       }
     });
 
@@ -274,8 +325,12 @@ export class PiaComponent implements OnInit {
     this.actionPlanService.listActionPlan();
 
     // Update on knowledge base (scroll / content / search field)
-    const knowledgeBaseScroll = document.querySelector('.pia-knowledgeBaseBlock-list');
-    const knowledgeBaseContent = document.querySelector('.pia-knowledgeBaseBlock-searchForm input') as HTMLInputElement;
+    const knowledgeBaseScroll = document.querySelector(
+      '.pia-knowledgeBaseBlock-list'
+    );
+    const knowledgeBaseContent = document.querySelector(
+      '.pia-knowledgeBaseBlock-searchForm input'
+    ) as HTMLInputElement;
     if (knowledgeBaseContent) {
       knowledgeBaseScroll.scrollTop = 0;
       knowledgeBaseContent.value = '';

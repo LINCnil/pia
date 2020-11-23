@@ -5,41 +5,43 @@ import { ApplicationDb } from '../application.db';
 import { Measure } from '../models/measure.model';
 import { KnowledgeBaseService } from './knowledge-base.service';
 
-
 @Injectable()
 export class MeasureService extends ApplicationDb {
   public behaviorSubject = new BehaviorSubject<string>(null);
-  measures: any[];
   measureToAdd: any;
   pia_id: number;
 
-  constructor(private translateService?: TranslateService,
-              private knowledgeBaseService?: KnowledgeBaseService) {
-                super(201707071818, 'measure');
-              }
-
+  constructor(
+    private translateService?: TranslateService,
+    private knowledgeBaseService?: KnowledgeBaseService
+  ) {
+    super(201707071818, 'measure');
+  }
 
   async create(measure: Measure): Promise<any> {
-    console.log('create', measure)
+    console.log('create', measure);
     this.created_at = new Date();
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
         const formData = new FormData();
-        for(let d in measure) {
+        for (let d in measure) {
           formData.append('measure[' + d + ']', measure[d]);
         }
         fetch(this.getServerUrl(), {
           method: 'POST',
           body: formData,
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result.id);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result.id);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(measure);
@@ -48,7 +50,7 @@ export class MeasureService extends ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            console.log('fin', event.target.result)
+            console.log('fin', event.target.result);
             resolve(event.target.result);
           };
         });
@@ -68,28 +70,31 @@ export class MeasureService extends ApplicationDb {
         console.log('update 2', measure);
         if (this.serverUrl) {
           const formData = new FormData();
-          for(let d in entry) {
+          for (let d in entry) {
             formData.append('measure[' + d + ']', entry[d]);
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
             method: 'PATCH',
             body: formData,
             mode: 'cors'
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            resolve();
-          }).catch((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve();
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
             evt.onerror = (event: any) => {
               console.error(event);
               reject(Error(event));
-            }
+            };
             evt.onsuccess = (event: any) => {
               resolve();
             };
@@ -103,16 +108,19 @@ export class MeasureService extends ApplicationDb {
     const items = [];
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
-        fetch(this.getServerUrl(),{
+        fetch(this.getServerUrl(), {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
@@ -139,13 +147,16 @@ export class MeasureService extends ApplicationDb {
    * List the measures.
    * @param pia_id - The Pia id.
    */
-  async listMeasures(pia_id: number): Promise<void>{
+  async listMeasures(pia_id: number): Promise<any> {
     this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
-      this.findAllByPia(this.pia_id).then((entries: any[]) => {
-        this.measures = entries;
-        resolve();
-      });
+      this.findAllByPia(this.pia_id)
+        .then((entries: any[]) => {
+          resolve(entries);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     });
   }
 
@@ -158,21 +169,19 @@ export class MeasureService extends ApplicationDb {
 
     this.find(measure_id).then((entry: Measure) => {
       this.behaviorSubject.next(entry.title);
-      this.knowledgeBaseService.toHide = this.knowledgeBaseService.toHide.filter(item => item !== entry.title);
+      this.knowledgeBaseService.toHide = this.knowledgeBaseService.toHide.filter(
+        item => item !== entry.title
+      );
     });
 
     /* Removing from DB */
     this.delete(measure_id);
 
     /* Removing the measure from the view */
-    const measureToRemove = document.querySelector('.pia-measureBlock[data-id="' + measure_id + '"]');
+    const measureToRemove = document.querySelector(
+      '.pia-measureBlock[data-id="' + measure_id + '"]'
+    );
     measureToRemove.remove();
-
-    // Deletes from the array.
-    const index = this.measures.findIndex(m => m.id === measure_id);
-    if (index !== -1) {
-      this.measures.splice(index, 1);
-    }
   }
 
   /**
@@ -181,13 +190,19 @@ export class MeasureService extends ApplicationDb {
    * @param [measureTitle] - The title of the measure to be added (used in some cases).
    * @param [measurePlaceholder] - The placeholder of the measure.
    */
-  addNewMeasure(pia: any, measureTitle?: string, measurePlaceholder?: string): Promise<any> {
+  addNewMeasure(
+    pia: any,
+    measureTitle?: string,
+    measurePlaceholder?: string
+  ): Promise<any> {
     return new Promise((resolve, reject) => {
       const newMeasureRecord = new Measure();
       newMeasureRecord.pia_id = pia.id;
       newMeasureRecord.title = '';
       if (measureTitle) {
-        this.translateService.get(measureTitle).subscribe(val => this.measureToAdd = val);
+        this.translateService
+          .get(measureTitle)
+          .subscribe(val => (this.measureToAdd = val));
         newMeasureRecord.title = this.measureToAdd;
       }
       newMeasureRecord.content = '';
@@ -198,10 +213,8 @@ export class MeasureService extends ApplicationDb {
       }
       this.create(newMeasureRecord).then((entry: number) => {
         newMeasureRecord.id = entry;
-        this.measures.unshift(newMeasureRecord);
-        resolve(entry);
+        resolve(newMeasureRecord);
       });
     });
-
   }
 }
