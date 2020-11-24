@@ -6,21 +6,19 @@ import { ApplicationDb } from '../application.db';
 
 @Injectable()
 export class KnowledgesService extends ApplicationDb {
-
-  constructor(
-    private translateService: TranslateService) {
-      super(201911191636, 'knowledge');
-    }
+  constructor(private translateService: TranslateService) {
+    super(201911191636, 'knowledge');
+  }
 
   public getEntries(baseId): Promise<any> {
     return new Promise((resolve, reject) => {
-        this.findAllByBaseId(baseId)
-          .then(response => {
-            resolve(response);
-          })
-          .catch(err => {
-            reject(err);
-          });
+      this.findAllByBaseId(baseId)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 
@@ -103,29 +101,28 @@ export class KnowledgesService extends ApplicationDb {
 
   async duplicate(baseId: number, id: number): Promise<Knowledge> {
     return new Promise((resolve, reject) => {
-      this.find(id)
-        .then((entry: Knowledge) => {
-          const temp = new Knowledge();
-          temp.slug = entry.slug;
-          temp.filters = entry.filters;
-          temp.category = entry.category;
-          temp.placeholder = entry.placeholder;
-          temp.name = entry.name;
-          temp.description = entry.description;
-          temp.items = entry.items;
-          temp.created_at = new Date(entry.created_at);
-          temp.updated_at = new Date(entry.updated_at);
-          this.create(baseId, temp)
-            .then((result: Knowledge) => {
-              resolve(result);
-            })
-            .catch(err => {
-              console.error(err);
-            });
-        });
+      this.find(id).then((entry: Knowledge) => {
+        const temp = new Knowledge();
+        temp.slug = entry.slug;
+        temp.filters = entry.filters;
+        temp.category = entry.category;
+        temp.placeholder = entry.placeholder;
+        temp.name = entry.name;
+        temp.description = entry.description;
+        temp.items = entry.items;
+        temp.created_at = entry.created_at;
+        temp.updated_at = entry.updated_at;
+        this.create(baseId, temp)
+          .then((result: Knowledge) => {
+            resolve(result);
+          })
+          .catch(err => {
+            reject(err);
+            console.error(err);
+          });
+      });
     });
   }
-
 
   /**
    * List all Knowledge by base id
@@ -149,24 +146,23 @@ export class KnowledgesService extends ApplicationDb {
             reject();
           });
       } else {
-        this.getObjectStore()
-          .then((obj: any) => {
-            const index1 = obj.index('index1');
-            const evt = index1.openCursor(IDBKeyRange.only(baseId));
-            evt.onerror = (event: any) => {
-              console.error(event);
-              reject(Error(event));
-            };
-            evt.onsuccess = (event: any) => {
-              const cursor = event.target.result;
-              if (cursor) {
-                items.push(cursor.value);
-                cursor.continue();
-              } else {
-                resolve(items);
-              }
-            };
-          });
+        this.getObjectStore().then((obj: any) => {
+          const index1 = obj.index('index1');
+          const evt = index1.openCursor(IDBKeyRange.only(baseId));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              items.push(cursor.value);
+              cursor.continue();
+            } else {
+              resolve(items);
+            }
+          };
+        });
       }
     });
   }

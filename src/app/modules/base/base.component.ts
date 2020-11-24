@@ -10,7 +10,6 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 
-
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 
 function slugify(text): string {
@@ -64,13 +63,16 @@ export class BaseComponent implements OnInit {
     this.base = new KnowledgeBase();
     const sectionId = parseInt(this.route.snapshot.params.id, 10);
     if (sectionId) {
-      this.knowledgeBaseService.get(sectionId)
+      this.knowledgeBaseService
+        .get(sectionId)
         .then((base: KnowledgeBase) => {
           this.base = base;
           // GET Knowledges entries from selected base
-          this.knowledgesService.getEntries(this.base.id).then((result: Knowledge[]) => {
-            this.knowledges = result;
-          });
+          this.knowledgesService
+            .getEntries(this.base.id)
+            .then((result: Knowledge[]) => {
+              this.knowledges = result;
+            });
         })
         .catch(() => {});
 
@@ -95,7 +97,12 @@ export class BaseComponent implements OnInit {
       }
       this.data = this.appDataService.dataNav;
     } else {
-      this.base = new KnowledgeBase(0, this.translateService.instant('knowledge_base.default_knowledge_base'), 'CNIL', 'CNIL');
+      this.base = new KnowledgeBase(
+        0,
+        this.translateService.instant('knowledge_base.default_knowledge_base'),
+        'CNIL',
+        'CNIL'
+      );
       this.base.is_example = true;
       this.knowledges = piakb;
 
@@ -110,9 +117,12 @@ export class BaseComponent implements OnInit {
 
   checkLockedChoice(): boolean {
     if (
-      this.entryForm.value.category === 'knowledge_base.category.organizational_measure' ||
-      this.entryForm.value.category === 'knowledge_base.category.measure_on_data' ||
-      this.entryForm.value.category === 'knowledge_base.category.general_measure'
+      this.entryForm.value.category ===
+        'knowledge_base.category.organizational_measure' ||
+      this.entryForm.value.category ===
+        'knowledge_base.category.measure_on_data' ||
+      this.entryForm.value.category ===
+        'knowledge_base.category.general_measure'
     ) {
       this.lockedChoice = true;
       this.itemsSelected = ['31'];
@@ -129,12 +139,17 @@ export class BaseComponent implements OnInit {
 
   checkFilters(): string {
     if (
-      this.entryForm.value.category === 'knowledge_base.category.organizational_measure' ||
-      this.entryForm.value.category === 'knowledge_base.category.measure_on_data' ||
-      this.entryForm.value.category === 'knowledge_base.category.general_measure' ||
+      this.entryForm.value.category ===
+        'knowledge_base.category.organizational_measure' ||
+      this.entryForm.value.category ===
+        'knowledge_base.category.measure_on_data' ||
+      this.entryForm.value.category ===
+        'knowledge_base.category.general_measure' ||
       this.entryForm.value.category === 'knowledge_base.category.definition'
     ) {
-      return this.filtersCategoriesCorrespondance[this.entryForm.value.category];
+      return this.filtersCategoriesCorrespondance[
+        this.entryForm.value.category
+      ];
     } else {
       return '';
     }
@@ -154,7 +169,8 @@ export class BaseComponent implements OnInit {
 
     entry.filters = this.checkFilters();
 
-    this.knowledgesService.create(this.base.id, entry)
+    this.knowledgesService
+      .create(this.base.id, entry)
       .then((result: Knowledge) => {
         this.knowledges.push(result);
         this.entryForm.reset();
@@ -171,7 +187,8 @@ export class BaseComponent implements OnInit {
     if (id) {
       this.selectedKnowledgeId = id;
       const tempk = new Knowledge();
-      this.knowledgesService.find(id)
+      this.knowledgesService
+        .find(id)
         .then((result: Knowledge) => {
           this.entryForm.controls['name'].setValue(result.name);
           this.entryForm.controls['category'].setValue(result.category);
@@ -192,8 +209,10 @@ export class BaseComponent implements OnInit {
   }
 
   duplicate(id): void {
-    this.knowledgesService.duplicate(this.base.id, id)
+    this.knowledgesService
+      .duplicate(this.base.id, id)
       .then((entry: Knowledge) => {
+        console.log(entry);
         this.knowledges.push(entry);
       })
       .catch(err => {
@@ -202,15 +221,17 @@ export class BaseComponent implements OnInit {
   }
 
   delete(id): void {
-    this.dialogService.confirmThis({
-      text: 'modals.knowledge.content',
-      type: 'confirm',
-      yes: 'modals.knowledge.remove',
-      no: 'modals.cancel',
-      icon: 'pia-icons pia-icon-sad'
-    },
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.knowledge.content',
+        type: 'confirm',
+        yes: 'modals.knowledge.remove',
+        no: 'modals.cancel',
+        icon: 'pia-icons pia-icon-sad'
+      },
       () => {
-        this.knowledgesService.delete(id)
+        this.knowledgesService
+          .delete(id)
           .then(() => {
             const index = this.knowledges.findIndex(e => e.id === id);
             if (index !== -1) {
@@ -223,7 +244,8 @@ export class BaseComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   /**
@@ -231,7 +253,8 @@ export class BaseComponent implements OnInit {
    */
   focusOut(): void {
     if (this.selectedKnowledgeId) {
-      this.knowledgesService.find(this.selectedKnowledgeId)
+      this.knowledgesService
+        .find(this.selectedKnowledgeId)
         .then((entry: Knowledge) => {
           entry.name = this.entryForm.value.name;
           entry.description = this.entryForm.value.description;
@@ -240,7 +263,8 @@ export class BaseComponent implements OnInit {
           entry.items = this.itemsSelected;
           entry.filters = this.checkFilters();
           // Update object
-          this.knowledgesService.update(entry)
+          this.knowledgesService
+            .update(entry)
             .then(() => {
               // Update list
               const index = this.knowledges.findIndex(e => e.id === entry.id);
@@ -299,7 +323,9 @@ export class BaseComponent implements OnInit {
    */
   globalCheckingAllElementInDataSection(e): void {
     const checkboxStatus = e.target.checked;
-    const checkboxesTitle = e.target.parentNode.parentNode.querySelectorAll('.pia-knowledges_base-form-checkboxes-title');
+    const checkboxesTitle = e.target.parentNode.parentNode.querySelectorAll(
+      '.pia-knowledges_base-form-checkboxes-title'
+    );
     if (checkboxesTitle) {
       checkboxesTitle.forEach(el => {
         const checkboxElement = el.querySelector('[type="checkbox"]');
@@ -340,7 +366,9 @@ export class BaseComponent implements OnInit {
         allChecked = false;
       }
     });
-    const checkboxAllSections = document.getElementById('select_all_sections') as HTMLInputElement;
+    const checkboxAllSections = document.getElementById(
+      'select_all_sections'
+    ) as HTMLInputElement;
     checkboxAllSections.checked = allChecked;
   }
 
