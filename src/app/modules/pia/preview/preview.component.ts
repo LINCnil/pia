@@ -1,4 +1,12 @@
-import { Component, ElementRef, OnInit, AfterViewChecked, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  AfterViewChecked,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -12,11 +20,12 @@ import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { Pia } from 'src/app/models/pia.model';
 import { MeasureService } from 'src/app/services/measures.service';
+import { EvaluationService } from 'src/app/services/evaluation.service';
 
 @Component({
   selector: 'app-preview',
   templateUrl: './preview.component.html',
-  styleUrls: ['./preview.component.scss'],
+  styleUrls: ['./preview.component.scss']
 })
 export class PreviewComponent implements OnInit, AfterViewChecked {
   public activeElement: string;
@@ -38,7 +47,8 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     public revisionService: RevisionService,
     public languagesService: LanguagesService,
     private answerService: AnswerService,
-    private measureService: MeasureService
+    private measureService: MeasureService,
+    private evaluationService: EvaluationService
   ) {}
 
   ngOnInit(): void {
@@ -65,10 +75,15 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked(): void {
     // scroll spy
-    const sections = document.querySelectorAll('.pia-fullPreviewBlock-headline-title h2') as NodeListOf<HTMLElement>;
-    const menus = document.querySelectorAll('.pia-sectionBlock-body li a') as NodeListOf<HTMLElement>;
+    const sections = document.querySelectorAll(
+      '.pia-fullPreviewBlock-headline-title h2'
+    ) as NodeListOf<HTMLElement>;
+    const menus = document.querySelectorAll(
+      '.pia-sectionBlock-body li a'
+    ) as NodeListOf<HTMLElement>;
     window.onscroll = () => {
-      const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollPosition =
+        document.documentElement.scrollTop || document.body.scrollTop;
       sections.forEach(s => {
         if (s.offsetTop < scrollPosition + 100) {
           menus.forEach(l => {
@@ -123,7 +138,9 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     if (this.pia.dpo_status && this.pia.dpo_status > 0) {
       el.data.push({
         title: 'summary.dpo_status',
-        content: this.piaService.getOpinionsStatus(this.pia.dpo_status.toString())
+        content: this.piaService.getOpinionsStatus(
+          this.pia.dpo_status.toString()
+        )
       });
     }
     if (this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
@@ -137,7 +154,9 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     if (this.pia.concerned_people_searched_opinion === true) {
       el.data.push({
         title: 'summary.concerned_people_searched_opinion',
-        content: this.piaService.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+        content: this.piaService.getPeopleSearchStatus(
+          this.pia.concerned_people_searched_opinion
+        )
       });
       if (this.pia.people_names && this.pia.people_names.length > 0) {
         el.data.push({
@@ -148,10 +167,15 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
       if (this.pia.concerned_people_status >= 0) {
         el.data.push({
           title: 'summary.concerned_people_status',
-          content: this.piaService.getOpinionsStatus(this.pia.concerned_people_status.toString())
+          content: this.piaService.getOpinionsStatus(
+            this.pia.concerned_people_status.toString()
+          )
         });
       }
-      if (this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
+      if (
+        this.pia.concerned_people_opinion &&
+        this.pia.concerned_people_opinion.length > 0
+      ) {
         el.data.push({
           title: 'summary.concerned_people_opinion',
           content: this.pia.concerned_people_opinion
@@ -163,9 +187,14 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     if (this.pia.concerned_people_searched_opinion === false) {
       el.data.push({
         title: 'summary.concerned_people_searched_opinion',
-        content: this.piaService.getPeopleSearchStatus(this.pia.concerned_people_searched_opinion)
+        content: this.piaService.getPeopleSearchStatus(
+          this.pia.concerned_people_searched_opinion
+        )
       });
-      if (this.pia.concerned_people_searched_content && this.pia.concerned_people_searched_content.length > 0) {
+      if (
+        this.pia.concerned_people_searched_content &&
+        this.pia.concerned_people_searched_content.length > 0
+      ) {
         el.data.push({
           title: 'summary.concerned_people_unsearched_opinion_comment',
           content: this.pia.concerned_people_searched_content
@@ -173,7 +202,10 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
       }
     }
 
-    if (this.pia.applied_adjustements && this.pia.applied_adjustements.length > 0) {
+    if (
+      this.pia.applied_adjustements &&
+      this.pia.applied_adjustements.length > 0
+    ) {
       el.data.push({
         title: 'summary.modification_made',
         content: this.pia.applied_adjustements
@@ -205,13 +237,19 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
         // Measure
         if (item.is_measure) {
           this.allData[section.id][item.id] = [];
-          const entries: any = await this.measureService.findAllByPia(this.pia.id);
+          const entries: any = await this.measureService.findAllByPia(
+            this.pia.id
+          );
           entries.forEach(async measure => {
             /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
               let evaluation = null;
               if (item.evaluation_mode === 'question') {
-                evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
+                evaluation = await this.getEvaluation(
+                  section.id,
+                  item.id,
+                  ref + '.' + measure.id
+                );
               }
               this.allData[section.id][item.id].push({
                 title: measure.title,
@@ -224,13 +262,18 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
           // Question
           item.questions.forEach(async question => {
             this.allData[section.id][item.id][question.id] = {};
-            this.answerService.getByReferenceAndPia(this.pia.id, question.id)
+            this.answerService
+              .getByReferenceAndPia(this.pia.id, question.id)
               .then((answer: Answer) => {
                 /* An answer exists */
                 if (answer && answer.data) {
                   const content = [];
                   if (answer.data.gauge && answer.data.gauge > 0) {
-                    content.push(this.translateService.instant(this.piaService.getGaugeName(answer.data.gauge)));
+                    content.push(
+                      this.translateService.instant(
+                        this.piaService.getGaugeName(answer.data.gauge)
+                      )
+                    );
                   }
                   if (answer.data.text && answer.data.text.length > 0) {
                     content.push(answer.data.text);
@@ -240,11 +283,19 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
                   }
                   if (content.length > 0) {
                     if (item.evaluation_mode === 'question') {
-                      this.getEvaluation(section.id, item.id, ref + '.' + question.id).then(evaluation => {
-                        this.allData[section.id][item.id][question.id].evaluation = evaluation;
+                      this.getEvaluation(
+                        section.id,
+                        item.id,
+                        ref + '.' + question.id
+                      ).then(evaluation => {
+                        this.allData[section.id][item.id][
+                          question.id
+                        ].evaluation = evaluation;
                       });
                     }
-                    this.allData[section.id][item.id][question.id].content = content.join(', ');
+                    this.allData[section.id][item.id][
+                      question.id
+                    ].content = content.join(', ');
                   }
                 }
               });
@@ -266,26 +317,37 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
    * @param {string} ref - The reference.
    * @returns {Promise}
    */
-  private async getEvaluation(section_id: string, item_id: string, ref: string): Promise<void> {
+  private async getEvaluation(
+    section_id: string,
+    item_id: string,
+    ref: string
+  ): Promise<void> {
     return new Promise(async (resolve, reject) => {
       let evaluation = null;
-      const evaluationModel = new Evaluation();
-      const exist = await evaluationModel.getByReference(this.pia.id, ref);
-      if (exist) {
-        evaluation = {
-          title: evaluationModel.getStatusName(),
-          action_plan_comment: evaluationModel.action_plan_comment,
-          evaluation_comment: evaluationModel.evaluation_comment,
-          gauges: {
-            riskName: {
-              value: this.translateService.instant('sections.' + section_id + '.items.' + item_id + '.title')
-            },
-            seriousness: evaluationModel.gauges ? evaluationModel.gauges.x : null,
-            likelihood: evaluationModel.gauges ? evaluationModel.gauges.y : null
+      this.evaluationService
+        .getByReference(this.pia.id, ref)
+        .then((exist: Evaluation) => {
+          if (exist) {
+            evaluation = {
+              title: this.evaluationService.getStatusName(exist.status),
+              action_plan_comment: exist.action_plan_comment,
+              evaluation_comment: exist.evaluation_comment,
+              gauges: {
+                riskName: {
+                  value: this.translateService.instant(
+                    'sections.' + section_id + '.items.' + item_id + '.title'
+                  )
+                },
+                seriousness: exist.gauges ? exist.gauges.x : null,
+                likelihood: exist.gauges ? exist.gauges.y : null
+              }
+            };
           }
-        };
-      }
-      resolve(evaluation);
+          resolve(evaluation);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     });
   }
 }

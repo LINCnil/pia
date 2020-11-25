@@ -18,6 +18,7 @@ import { DialogService } from './dialog.service';
 import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
 import { MeasureService } from './measures.service';
 import { CommentsService } from './comments.service';
+import { EvaluationService } from './evaluation.service';
 
 function encode_utf8(s) {
   return unescape(encodeURIComponent(s));
@@ -37,7 +38,8 @@ export class PiaService extends ApplicationDb {
     private answerService: AnswerService,
     private dialogService: DialogService,
     private measuresService: MeasureService,
-    private commentsService: CommentsService
+    private commentsService: CommentsService,
+    private evaluationService: EvaluationService
   ) {
     super(201910230914, 'pia');
     this.data = this.appDataService.dataNav;
@@ -422,26 +424,28 @@ export class PiaService extends ApplicationDb {
   async cancelAllValidatedEvaluation(pia: Pia): Promise<void> {
     return new Promise((resolve, reject) => {
       let count = 0;
-      let evaluation = new Evaluation();
-      evaluation.pia_id = pia.id;
-      evaluation.findAll().then((entries: any) => {
-        if (entries && entries.length > 0) {
-          entries.forEach(element => {
-            evaluation = new Evaluation();
-            evaluation.get(element.id).then((entry: any) => {
-              entry.global_status = 0;
-              entry.update().then(() => {
-                count++;
-                if (count === entries.length) {
-                  resolve();
-                }
+      this.evaluationService
+        .findAllByPia(pia.id)
+        .then((entries: any) => {
+          if (entries && entries.length > 0) {
+            entries.forEach(element => {
+              this.evaluationService.find(element.id).then((entry: any) => {
+                entry.global_status = 0;
+                entry.update().then(() => {
+                  count++;
+                  if (count === entries.length) {
+                    resolve();
+                  }
+                });
               });
             });
-          });
-        } else {
-          resolve();
-        }
-      });
+          } else {
+            resolve();
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     });
   }
 
@@ -472,15 +476,6 @@ export class PiaService extends ApplicationDb {
    */
   exportData(id: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      const measure = new Measure();
-      measure.pia_id = id;
-      const evaluation = new Evaluation();
-      evaluation.pia_id = id;
-      const comment = new Comment();
-      comment.pia_id = id;
-      // const attachment = new Attachment();
-      // attachment.pia_id = id;
-
       this.find(id).then((pia: PiaService) => {
         // SET progress attribute
         this.calculPiaProgress(pia);
@@ -495,7 +490,7 @@ export class PiaService extends ApplicationDb {
           data['answers'] = answers;
           this.measuresService.findAllByPia(id).then(measures => {
             data['measures'] = measures;
-            evaluation.findAll().then(evaluations => {
+            this.evaluationService.findAllByPia(id).then(evaluations => {
               data['evaluations'] = evaluations;
               this.commentsService.findAllByPia(id).then(comments => {
                 data['comments'] = comments;
@@ -708,7 +703,7 @@ export class PiaService extends ApplicationDb {
         if (evaluation.updated_at) {
           evaluationModel.updated_at = new Date(evaluation.updated_at);
         }
-        await evaluationModel.create().then(() => {
+        this.evaluationService.create(evaluationModel).then(() => {
           console.log('finish create evaluation');
         });
       }
@@ -784,13 +779,11 @@ export class PiaService extends ApplicationDb {
         }
       });
 
-    const evaluation = new Evaluation();
-    evaluation.pia_id = piaId;
-    await evaluation
+    await this.evaluationService
       .findAllByPia(piaId)
       .then(async (response: Array<Comment>) => {
         for (const c of response) {
-          await evaluation.delete(c.id);
+          await this.evaluationService.delete(c.id);
         }
       });
   }

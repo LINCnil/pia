@@ -35,14 +35,10 @@ import { PiaValidateHistoryComponent } from './content/validate-pia/pia-validate
 import { ExampleComponent } from './example/example.component';
 import { CommentItemComponent } from './content/comments/comment-item/comment-item.component';
 import { CommentsService } from 'src/app/services/comments.service';
-
+import { EvaluationService } from 'src/app/services/evaluation.service';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    CommonModule,
-    PiaRoutingModule,
-  ],
+  imports: [SharedModule, CommonModule, PiaRoutingModule],
   declarations: [
     PiaComponent,
     RevisionsComponent,
@@ -80,7 +76,7 @@ import { CommentsService } from 'src/app/services/comments.service';
     OverviewRisksComponent,
     RisksCartographyComponent,
     ActionPlanComponent,
-    ActionPlanImplementationComponent,
+    ActionPlanImplementationComponent
   ],
   providers: [
     PiaService,
@@ -91,7 +87,8 @@ import { CommentsService } from 'src/app/services/comments.service';
     ActionPlanService,
     AttachmentsService,
     RevisionService,
-    CommentsService
+    CommentsService,
+    EvaluationService
   ]
 })
-export class PiaModule { }
+export class PiaModule {}

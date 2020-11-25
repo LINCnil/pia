@@ -23,8 +23,7 @@ import { StructureLineComponent } from './list/structure-line/structure-line.com
 import { PiaHeadingComponent } from './list/heading/pia-heading/pia-heading.component';
 import { StructureHeadingComponent } from './list/heading/structure-heading/structure-heading.component';
 import { KnowledgebaseHeadingComponent } from './list/heading/knowledgebase-heading/knowledgebase-heading.component';
-
-
+import { EvaluationService } from 'src/app/services/evaluation.service';
 
 @NgModule({
   declarations: [
@@ -44,17 +43,15 @@ import { KnowledgebaseHeadingComponent } from './list/heading/knowledgebase-head
     StructureHeadingComponent,
     KnowledgebaseHeadingComponent
   ],
-  imports: [
-    SharedModule,
-    CommonModule,
-    EntriesRoutingModule
-  ],
+  imports: [SharedModule, CommonModule, EntriesRoutingModule],
   providers: [
     PiaService,
     ArchiveService,
     StructureService,
     AnswerStructureService,
     MeasureService,
-    AttachmentsService ]
+    AttachmentsService,
+    EvaluationService
+  ]
 })
-export class EntriesModule { }
+export class EntriesModule {}
