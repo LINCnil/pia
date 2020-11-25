@@ -129,7 +129,7 @@ export class PiaComponent implements OnInit {
 
       // Update tags when removing measures from 3.1
       const itemsQuestions = [];
-      this.pia.data.sections.forEach(section => {
+      this.appDataService.dataNav.sections.forEach(section => {
         section.items.forEach(item => {
           if (item.questions) {
             itemsQuestions.push(
@@ -152,7 +152,6 @@ export class PiaComponent implements OnInit {
       // For each of these questions, get their respective answer
       listQuestions.forEach(questionsSet => {
         questionsSet.forEach(q => {
-          // const answer = new Answer();
           this.answerService
             .getByReferenceAndPia(parseInt(this.route.snapshot.params.id), q.id)
             .then((answer: Answer) => {
