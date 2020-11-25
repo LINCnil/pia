@@ -190,7 +190,7 @@
         >
           <a
             *ngIf="pia.progress >= 96; else editBlock"
-            routerLink="/entry/{{ pia.id }}/section/1/item/1"
+            [routerLink]="['/pia', pia.id, 'section', 1, 'item', 1]"
             title="{{ 'homepage.cards.item.edit_pia' | translate }}"
             class="btn btn-green"
             >{{ "homepage.cards.item.validate_pia" | translate }}
