@@ -251,7 +251,18 @@ export class RevisionPreviewComponent implements OnInit {
         this.revisionService
           .loadRevision(this.revision.id)
           .then((piaExport: any) => {
-            this.router.navigate(['pia', piaExport.pia.id]);
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([
+                  'pia',
+                  piaExport.pia.id,
+                  'section',
+                  1,
+                  'item',
+                  1
+                ]);
+              });
           });
       },
       () => {

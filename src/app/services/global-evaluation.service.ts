@@ -302,7 +302,7 @@ export class GlobalEvaluationService {
    */
   private async createOrUpdateEvaluation(
     new_reference_to?: string
-  ): Promise<void> {
+  ): Promise<any> {
     return new Promise((resolve, reject) => {
       const reference_to = new_reference_to
         ? new_reference_to
@@ -312,18 +312,19 @@ export class GlobalEvaluationService {
         .getByReference(this.pia.id, reference_to)
         .then((evaluation: Evaluation) => {
           if (!evaluation) {
-            evaluation.pia_id = this.pia.id;
-            evaluation.reference_to = reference_to;
-            this.evaluationService.create(evaluation).then(() => {
-              resolve();
+            const newEvaluation = new Evaluation();
+            newEvaluation.pia_id = this.pia.id;
+            newEvaluation.reference_to = reference_to;
+            this.evaluationService.create(newEvaluation).then(entry => {
+              resolve(entry);
             });
           } else if (evaluation.status === 1) {
             evaluation.global_status = 0;
             this.evaluationService.update(evaluation).then(() => {
-              resolve();
+              resolve(evaluation);
             });
           } else {
-            resolve();
+            resolve(evaluation);
           }
         });
     });
