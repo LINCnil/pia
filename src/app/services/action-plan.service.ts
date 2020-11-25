@@ -6,6 +6,7 @@ import { Evaluation } from '../models/evaluation.model';
 import { Measure } from '../models/measure.model';
 
 import { FormatTheDate } from '../tools';
+import { EvaluationService } from './evaluation.service';
 import { MeasureService } from './measures.service';
 
 @Injectable()
@@ -30,7 +31,8 @@ export class ActionPlanService {
     private translateService: TranslateService,
     private languagesService: LanguagesService,
     private formatTheDate: FormatTheDate,
-    private measureService: MeasureService
+    private measureService: MeasureService,
+    private evaluationService: EvaluationService
   ) {}
 
   /**
@@ -52,199 +54,283 @@ export class ActionPlanService {
     let title1 = true;
     section[0].items.forEach(item => {
       item.questions.forEach(q => {
-        const evaluation = new Evaluation();
+        // const evaluation = new Evaluation();
         const referenceTo = '2.' + item.id + '.' + q.id;
-        evaluation.getByReference(this.pia.id, referenceTo).then(() => {
-          if (evaluation.status > 0) {
-            if (evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
-              this.principlesActionPlanReady = true;
+        this.evaluationService
+          .getByReference(this.pia.id, referenceTo)
+          .then(evaluation => {
+            if (evaluation && evaluation.status > 0) {
+              if (
+                evaluation.action_plan_comment &&
+                evaluation.action_plan_comment.length > 0
+              ) {
+                this.principlesActionPlanReady = true;
+              }
+
+              // item
+              let temp = {
+                status: evaluation.status,
+                short_title: q.short_title,
+                action_plan_comment: evaluation.action_plan_comment,
+                evaluation_comment: evaluation.evaluation_comment,
+                evaluation
+              };
+
+              if (
+                this.results.findIndex(
+                  e =>
+                    e.status === temp.status &&
+                    e.short_title === temp.short_title
+                ) === -1
+              ) {
+                // check if not exist
+                this.results.push(temp);
+              }
+
+              if (title1) {
+                title1 = false;
+                this.csvRows.push({
+                  title: this.translateService.instant('action_plan.principles')
+                });
+              }
+
+              this.csvRows.push({
+                blank: ' ',
+                short_title: q.short_title
+                  ? this.translateService.instant(q.short_title)
+                  : '',
+                action_plan_comment: this.filterText(
+                  evaluation.action_plan_comment
+                ),
+                evaluation_comment: this.filterText(
+                  evaluation.evaluation_comment
+                ),
+                evaluation_date: this.filterText(
+                  this.formatTheDate
+                    .transform(
+                      evaluation.estimated_implementation_date,
+                      this.languagesService.selectedLanguage
+                    )
+                    .toString()
+                ),
+                evaluation_charge: this.filterText(evaluation.person_in_charge)
+              });
+            } else {
+              this.results.push({
+                status: null,
+                short_title: q.short_title,
+                action_plan_comment: null,
+                evaluation_comment: null,
+                evaluation: null
+              });
             }
-
-            // item
-            let temp = {
-              status: evaluation.status,
-              short_title: q.short_title,
-              action_plan_comment: evaluation.action_plan_comment,
-              evaluation_comment: evaluation.evaluation_comment,
-              evaluation
-            };
-
-            if (this.results.findIndex(e => e.status === temp.status && e.short_title === temp.short_title) === -1) {
-              // check if not exist
-              this.results.push(temp);
-            }
-
-            if (title1) {
-              title1 = false;
-              this.csvRows.push({ title: this.translateService.instant('action_plan.principles') });
-            }
-
-            this.csvRows.push({
-              blank: ' ',
-              short_title: q.short_title ? this.translateService.instant(q.short_title) : '',
-              action_plan_comment: this.filterText(evaluation.action_plan_comment),
-              evaluation_comment: this.filterText(evaluation.evaluation_comment),
-              evaluation_date: this.filterText(
-                this.formatTheDate.transform(evaluation.estimated_implementation_date, this.languagesService.selectedLanguage).toString()
-              ),
-              evaluation_charge: this.filterText(evaluation.person_in_charge)
-            });
-          } else {
-            this.results.push({
-              status: null,
-              short_title: q.short_title,
-              action_plan_comment: null,
-              evaluation_comment: null,
-              evaluation: null
-            });
-          }
-        });
+          });
       });
     });
 
     let title2 = true;
     this.measureService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(m => {
-        const evaluation2 = new Evaluation();
+        // const evaluation2 = new Evaluation();
         const referenceTo = '3.1.' + m.id;
         this.measures[referenceTo] = null;
-        evaluation2.getByReference(this.pia.id, referenceTo).then(() => {
-          if (evaluation2.status > 0) {
-            if (evaluation2.action_plan_comment && evaluation2.action_plan_comment.length > 0) {
-              this.measuresActionPlanReady = true;
+        this.evaluationService
+          .getByReference(this.pia.id, referenceTo)
+          .then(evaluation => {
+            if (evaluation && evaluation.status > 0) {
+              if (
+                evaluation.action_plan_comment &&
+                evaluation.action_plan_comment.length > 0
+              ) {
+                this.measuresActionPlanReady = true;
+              }
+              this.measures.push({
+                name: m.title,
+                short_title: m.title,
+                status: evaluation.status,
+                action_plan_comment: evaluation.action_plan_comment,
+                evaluation_comment: evaluation.evaluation_comment,
+                evaluation
+              });
+              if (title2) {
+                title2 = false;
+                this.csvRows.push({
+                  title: this.translateService.instant('action_plan.measures')
+                });
+              }
+              this.csvRows.push({
+                blank: ' ',
+                short_title: m.title
+                  ? this.translateService.instant(m.title)
+                  : '',
+                action_plan_comment: this.filterText(
+                  evaluation.action_plan_comment
+                ),
+                evaluation_comment: this.filterText(
+                  evaluation.evaluation_comment
+                ),
+                evaluation_date: this.filterText(
+                  this.formatTheDate
+                    .transform(
+                      evaluation.estimated_implementation_date,
+                      this.languagesService.selectedLanguage
+                    )
+                    .toString()
+                ),
+                evaluation_charge: this.filterText(evaluation.person_in_charge)
+              });
+            } else {
+              this.measures.push({
+                name: m.title,
+                short_title: null,
+                status: null,
+                action_plan_comment: null,
+                evaluation_comment: null,
+                evaluation: null
+              });
             }
-            this.measures.push({
-              name: m.title,
-              short_title: m.title,
-              status: evaluation2.status,
-              action_plan_comment: evaluation2.action_plan_comment,
-              evaluation_comment: evaluation2.evaluation_comment,
-              evaluation: evaluation2
-            });
-            if (title2) {
-              title2 = false;
-              this.csvRows.push({ title: this.translateService.instant('action_plan.measures') });
-            }
-            this.csvRows.push({
-              blank: ' ',
-              short_title: m.title ? this.translateService.instant(m.title) : '',
-              action_plan_comment: this.filterText(evaluation2.action_plan_comment),
-              evaluation_comment: this.filterText(evaluation2.evaluation_comment),
-              evaluation_date: this.filterText(
-                this.formatTheDate.transform(evaluation2.estimated_implementation_date, this.languagesService.selectedLanguage).toString()
-              ),
-              evaluation_charge: this.filterText(evaluation2.person_in_charge)
-            });
-          } else {
-            this.measures.push({
-              name: m.title,
-              short_title: null,
-              status: null,
-              action_plan_comment: null,
-              evaluation_comment: null,
-              evaluation: null
-            });
-          }
-        });
+          });
       });
     });
 
     let title3 = true;
     let shortTitle = '';
-    const evaluation3 = new Evaluation();
-    evaluation3.getByReference(this.pia.id, '3.2').then(() => {
-      if (evaluation3.status > 0) {
-        if (evaluation3.action_plan_comment && evaluation3.action_plan_comment.length > 0) {
-          this.risksActionPlan32Ready = true;
+    // const evaluation3 = new Evaluation();
+    this.evaluationService
+      .getByReference(this.pia.id, '3.2')
+      .then(evaluation => {
+        if (evaluation && evaluation.status > 0) {
+          if (
+            evaluation.action_plan_comment &&
+            evaluation.action_plan_comment.length > 0
+          ) {
+            this.risksActionPlan32Ready = true;
+          }
+          shortTitle = this.translateService.instant('action_plan.risk1');
+          this.risks['3.2'] = {
+            status: evaluation.status,
+            short_title: shortTitle,
+            action_plan_comment: evaluation.action_plan_comment,
+            evaluation_comment: evaluation.evaluation_comment,
+            evaluation
+          };
+          if (title3) {
+            title3 = false;
+            this.csvRows.push({
+              title: this.translateService.instant('action_plan.risk1')
+            });
+          }
+          this.csvRows.push({
+            blank: ' ',
+            short_title: shortTitle,
+            action_plan_comment: this.filterText(
+              evaluation.action_plan_comment
+            ),
+            evaluation_comment: this.filterText(evaluation.evaluation_comment),
+            evaluation_date: this.filterText(
+              this.formatTheDate
+                .transform(
+                  evaluation.estimated_implementation_date,
+                  this.languagesService.selectedLanguage
+                )
+                .toString()
+            ),
+            evaluation_charge: this.filterText(evaluation.person_in_charge)
+          });
         }
-        shortTitle = this.translateService.instant('action_plan.risk1');
-        this.risks['3.2'] = {
-          status: evaluation3.status,
-          short_title: shortTitle,
-          action_plan_comment: evaluation3.action_plan_comment,
-          evaluation_comment: evaluation3.evaluation_comment,
-          evaluation: evaluation3
-        };
-        if (title3) {
-          title3 = false;
-          this.csvRows.push({ title: this.translateService.instant('action_plan.risk1') });
-        }
-        this.csvRows.push({
-          blank: ' ',
-          short_title: shortTitle,
-          action_plan_comment: this.filterText(evaluation3.action_plan_comment),
-          evaluation_comment: this.filterText(evaluation3.evaluation_comment),
-          evaluation_date: this.filterText(
-            this.formatTheDate.transform(evaluation3.estimated_implementation_date, this.languagesService.selectedLanguage).toString()
-          ),
-          evaluation_charge: this.filterText(evaluation3.person_in_charge)
-        });
-      }
-    });
+      });
 
     let title4 = true;
-    const evaluation4 = new Evaluation();
-    evaluation4.getByReference(this.pia.id, '3.3').then(() => {
-      if (evaluation4.status > 0) {
-        if (evaluation4.action_plan_comment && evaluation4.action_plan_comment.length > 0) {
-          this.risksActionPlan33Ready = true;
+    // const evaluation4 = new Evaluation();
+    this.evaluationService
+      .getByReference(this.pia.id, '3.3')
+      .then(evaluation => {
+        if (evaluation && evaluation.status > 0) {
+          if (
+            evaluation.action_plan_comment &&
+            evaluation.action_plan_comment.length > 0
+          ) {
+            this.risksActionPlan33Ready = true;
+          }
+          shortTitle = this.translateService.instant('action_plan.risk2');
+          this.risks['3.3'] = {
+            status: evaluation.status,
+            short_title: shortTitle,
+            action_plan_comment: evaluation.action_plan_comment,
+            evaluation_comment: evaluation.evaluation_comment,
+            evaluation
+          };
+          if (title4) {
+            title4 = false;
+            this.csvRows.push({
+              title: this.translateService.instant('action_plan.risk2')
+            });
+          }
+          this.csvRows.push({
+            blank: ' ',
+            short_title: shortTitle,
+            action_plan_comment: this.filterText(
+              evaluation.action_plan_comment
+            ),
+            evaluation_comment: this.filterText(evaluation.evaluation_comment),
+            evaluation_date: this.filterText(
+              this.formatTheDate
+                .transform(
+                  evaluation.estimated_implementation_date,
+                  this.languagesService.selectedLanguage
+                )
+                .toString()
+            ),
+            evaluation_charge: this.filterText(evaluation.person_in_charge)
+          });
         }
-        shortTitle = this.translateService.instant('action_plan.risk2');
-        this.risks['3.3'] = {
-          status: evaluation4.status,
-          short_title: shortTitle,
-          action_plan_comment: evaluation4.action_plan_comment,
-          evaluation_comment: evaluation4.evaluation_comment,
-          evaluation: evaluation4
-        };
-        if (title4) {
-          title4 = false;
-          this.csvRows.push({ title: this.translateService.instant('action_plan.risk2') });
-        }
-        this.csvRows.push({
-          blank: ' ',
-          short_title: shortTitle,
-          action_plan_comment: this.filterText(evaluation4.action_plan_comment),
-          evaluation_comment: this.filterText(evaluation4.evaluation_comment),
-          evaluation_date: this.filterText(
-            this.formatTheDate.transform(evaluation4.estimated_implementation_date, this.languagesService.selectedLanguage).toString()
-          ),
-          evaluation_charge: this.filterText(evaluation4.person_in_charge)
-        });
-      }
-    });
+      });
 
     let title5 = true;
-    const evaluation5 = new Evaluation();
-    evaluation5.getByReference(this.pia.id, '3.4').then(() => {
-      if (evaluation5.status > 0) {
-        if (evaluation5.action_plan_comment && evaluation5.action_plan_comment.length > 0) {
-          this.risksActionPlan34Ready = true;
+    // const evaluation5 = new Evaluation();
+    this.evaluationService
+      .getByReference(this.pia.id, '3.4')
+      .then(evaluation => {
+        if (evaluation && evaluation.status > 0) {
+          if (
+            evaluation.action_plan_comment &&
+            evaluation.action_plan_comment.length > 0
+          ) {
+            this.risksActionPlan34Ready = true;
+          }
+          shortTitle = this.translateService.instant('action_plan.risk3');
+          this.risks['3.4'] = {
+            status: evaluation.status,
+            short_title: shortTitle,
+            action_plan_comment: evaluation.action_plan_comment,
+            evaluation_comment: evaluation.evaluation_comment,
+            evaluation
+          };
+          if (title5) {
+            title5 = false;
+            this.csvRows.push({
+              title: this.translateService.instant('action_plan.risk3')
+            });
+          }
+          this.csvRows.push({
+            blank: ' ',
+            short_title: shortTitle,
+            action_plan_comment: this.filterText(
+              evaluation.action_plan_comment
+            ),
+            evaluation_comment: this.filterText(evaluation.evaluation_comment),
+            evaluation_date: this.filterText(
+              this.formatTheDate
+                .transform(
+                  evaluation.estimated_implementation_date,
+                  this.languagesService.selectedLanguage
+                )
+                .toString()
+            ),
+            evaluation_charge: this.filterText(evaluation.person_in_charge)
+          });
         }
-        shortTitle = this.translateService.instant('action_plan.risk3');
-        this.risks['3.4'] = {
-          status: evaluation5.status,
-          short_title: shortTitle,
-          action_plan_comment: evaluation5.action_plan_comment,
-          evaluation_comment: evaluation5.evaluation_comment,
-          evaluation: evaluation5
-        };
-        if (title5) {
-          title5 = false;
-          this.csvRows.push({ title: this.translateService.instant('action_plan.risk3') });
-        }
-        this.csvRows.push({
-          blank: ' ',
-          short_title: shortTitle,
-          action_plan_comment: this.filterText(evaluation5.action_plan_comment),
-          evaluation_comment: this.filterText(evaluation5.evaluation_comment),
-          evaluation_date: this.filterText(
-            this.formatTheDate.transform(evaluation5.estimated_implementation_date, this.languagesService.selectedLanguage).toString()
-          ),
-          evaluation_charge: this.filterText(evaluation5.person_in_charge)
-        });
-      }
-    });
+      });
   }
 
   /**

@@ -6,9 +6,4 @@ export class Structure {
   public is_example = false;
   public created_at: Date;
   public updated_at: Date;
-
-  constructor() {
-
-  }
-
 }

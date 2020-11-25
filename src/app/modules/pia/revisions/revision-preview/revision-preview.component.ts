@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  SimpleChanges,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -11,6 +18,7 @@ import { Revision } from 'src/app/models/revision.model';
 import { PiaService } from 'src/app/services/pia.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { Router } from '@angular/router';
+import { EvaluationService } from 'src/app/services/evaluation.service';
 
 function slugify(text) {
   return text
@@ -27,7 +35,13 @@ function slugify(text) {
   selector: 'app-revision-preview',
   templateUrl: './revision-preview.component.html',
   styleUrls: ['./revision-preview.component.scss'],
-  providers: [AppDataService, SidStatusService, RevisionService, TranslateService, DatePipe]
+  providers: [
+    AppDataService,
+    SidStatusService,
+    RevisionService,
+    TranslateService,
+    DatePipe
+  ]
 })
 export class RevisionPreviewComponent implements OnInit {
   @Input() revision: Revision;
@@ -46,13 +60,11 @@ export class RevisionPreviewComponent implements OnInit {
     public piaService: PiaService,
     private datePipe: DatePipe,
     private router: Router,
-    private dialogService: DialogService
-  ) {
-
-  }
+    private dialogService: DialogService,
+    private evaluationService: EvaluationService
+  ) {}
 
   ngOnInit(): void {
-
     this.export = JSON.parse(this.revision.export);
 
     if (this.export.pia.structure_data) {
@@ -63,7 +75,6 @@ export class RevisionPreviewComponent implements OnInit {
 
     this.data = this.appDataService.dataNav;
     this.getJsonInfo();
-
   }
 
   private async getJsonInfo(): Promise<any> {
@@ -84,7 +95,11 @@ export class RevisionPreviewComponent implements OnInit {
             if (measure.title !== undefined && measure.content !== undefined) {
               let evaluation = null;
               if (item.evaluation_mode === 'question') {
-                evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + measure.id);
+                evaluation = await this.getEvaluation(
+                  section.id,
+                  item.id,
+                  ref + '.' + measure.id
+                );
               }
               this.allData[section.id][item.id].push({
                 title: measure.title,
@@ -100,15 +115,23 @@ export class RevisionPreviewComponent implements OnInit {
 
             // Find answer
             const answerModel = new Answer();
-            const answer = this.export.answers.find(a => a.reference_to === question.id);
+            const answer = this.export.answers.find(
+              a => a.reference_to === question.id
+            );
             if (answer) {
-              answerModel.data = this.export.answers.find(a => a.reference_to === question.id).data;
+              answerModel.data = this.export.answers.find(
+                a => a.reference_to === question.id
+              ).data;
 
               /* An answer exists */
               if (answerModel.data) {
                 const content = [];
                 if (answerModel.data.gauge && answerModel.data.gauge > 0) {
-                  content.push(this.translateService.instant(this.export.pia.getGaugeName(answerModel.data.gauge)));
+                  content.push(
+                    this.translateService.instant(
+                      this.export.pia.getGaugeName(answerModel.data.gauge)
+                    )
+                  );
                 }
                 if (answerModel.data.text && answerModel.data.text.length > 0) {
                   content.push(answerModel.data.text);
@@ -118,10 +141,18 @@ export class RevisionPreviewComponent implements OnInit {
                 }
                 if (content.length > 0) {
                   if (item.evaluation_mode === 'question') {
-                    const evaluation = await this.getEvaluation(section.id, item.id, ref + '.' + question.id);
-                    this.allData[section.id][item.id][question.id].evaluation = evaluation;
+                    const evaluation = await this.getEvaluation(
+                      section.id,
+                      item.id,
+                      ref + '.' + question.id
+                    );
+                    this.allData[section.id][item.id][
+                      question.id
+                    ].evaluation = evaluation;
                   }
-                  this.allData[section.id][item.id][question.id].content = content.join(', ');
+                  this.allData[section.id][item.id][
+                    question.id
+                  ].content = content.join(', ');
                 }
               }
             }
@@ -135,7 +166,11 @@ export class RevisionPreviewComponent implements OnInit {
     });
   }
 
-  private async getEvaluation(section_id: string, item_id: string, ref: string): Promise<any> {
+  private async getEvaluation(
+    section_id: string,
+    item_id: string,
+    ref: string
+  ): Promise<any> {
     return new Promise(async (resolve, reject) => {
       let evaluation = null;
       const evaluationModel = new Evaluation();
@@ -150,19 +185,25 @@ export class RevisionPreviewComponent implements OnInit {
         evaluationModel.evaluation_comment = exist.evaluation_comment;
         evaluationModel.evaluation_date = exist.evaluation_date;
         evaluationModel.gauges = exist.gauges;
-        evaluationModel.estimated_implementation_date = new Date(exist.estimated_implementation_date);
+        evaluationModel.estimated_implementation_date = new Date(
+          exist.estimated_implementation_date
+        );
         evaluationModel.person_in_charge = exist.person_in_charge;
         evaluationModel.global_status = exist.global_status;
 
         evaluation = {
-          title: evaluationModel.getStatusName(),
+          title: this.evaluationService.getStatusName(evaluationModel.status),
           action_plan_comment: evaluationModel.action_plan_comment,
           evaluation_comment: evaluationModel.evaluation_comment,
           gauges: {
             riskName: {
-              value: this.translateService.instant('sections.' + section_id + '.items.' + item_id + '.title')
+              value: this.translateService.instant(
+                'sections.' + section_id + '.items.' + item_id + '.title'
+              )
             },
-            seriousness: evaluationModel.gauges ? evaluationModel.gauges.x : null,
+            seriousness: evaluationModel.gauges
+              ? evaluationModel.gauges.x
+              : null,
             likelihood: evaluationModel.gauges ? evaluationModel.gauges.y : null
           }
         };
@@ -172,14 +213,23 @@ export class RevisionPreviewComponent implements OnInit {
   }
 
   public exportJson(): void {
-    const revisionDate = this.datePipe.transform(localStorage.getItem('currentRevisionDate'), '-yyyy-MM-dd-HH-mm');
+    const revisionDate = this.datePipe.transform(
+      localStorage.getItem('currentRevisionDate'),
+      '-yyyy-MM-dd-HH-mm'
+    );
     const fileTitle = 'pia-' + slugify(this.export.pia.name) + revisionDate;
     let downloadLink = document.createElement('a');
     document.body.appendChild(downloadLink);
     if (navigator.msSaveOrOpenBlob) {
-      window.navigator.msSaveBlob('data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.revision)), fileTitle + '.json');
+      window.navigator.msSaveBlob(
+        'data:text/json;charset=utf-8,' +
+          encodeURIComponent(JSON.stringify(this.revision)),
+        fileTitle + '.json'
+      );
     } else {
-      downloadLink.href = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.revision));
+      downloadLink.href =
+        'data:text/json;charset=utf-8,' +
+        encodeURIComponent(JSON.stringify(this.revision));
       downloadLink.download = fileTitle + '.json';
       downloadLink.click();
     }
@@ -187,24 +237,38 @@ export class RevisionPreviewComponent implements OnInit {
   }
 
   public restoreRevision(): void {
-    this.dialogService.confirmThis({
-      text: 'modals.recover_version.message',
-      type: 'confirm',
-      yes: 'modals.recover_version.continue',
-      no: 'modals.cancel',
-      data: {
-        date: new Date(this.revision.created_at)
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.recover_version.message',
+        type: 'confirm',
+        yes: 'modals.recover_version.continue',
+        no: 'modals.cancel',
+        data: {
+          date: new Date(this.revision.created_at)
+        }
       },
-    },
-    () => {
-      this.revisionService.loadRevision(this.revision.id)
-        .then((piaExport: any) => {
-          this.router.navigate(['pia', piaExport.pia.id]);
-        });
-    },
-    () => {
-      return false;
-    });
+      () => {
+        this.revisionService
+          .loadRevision(this.revision.id)
+          .then((piaExport: any) => {
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([
+                  'pia',
+                  piaExport.pia.id,
+                  'section',
+                  1,
+                  'item',
+                  1
+                ]);
+              });
+          });
+      },
+      () => {
+        return false;
+      }
+    );
   }
 
   public print(): void {

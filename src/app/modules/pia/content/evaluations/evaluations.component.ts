@@ -13,7 +13,6 @@ import {
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
@@ -23,6 +22,7 @@ import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { AnswerService } from 'src/app/services/answer.service';
+import { EvaluationService } from 'src/app/services/evaluation.service';
 
 @Component({
   selector: 'app-evaluations',
@@ -59,7 +59,8 @@ export class EvaluationsComponent
     private knowledgeBaseService: KnowledgeBaseService,
     private translateService: TranslateService,
     public languagesService: LanguagesService,
-    private aswerService: AnswerService
+    private aswerService: AnswerService,
+    private evaluationService: EvaluationService
   ) {}
 
   ngOnInit(): void {
@@ -107,14 +108,16 @@ export class EvaluationsComponent
   }
 
   ngAfterViewChecked(): void {
-    // Evaluation comment textarea auto resize
-    const evaluationCommentTextarea = document.querySelector(
-      '.pia-evaluation-comment-' + this.evaluation.id
-    );
-    if (!this.hasResizedContent && evaluationCommentTextarea) {
-      this.hasResizedContent = true;
-      if (evaluationCommentTextarea) {
-        this.autoTextareaResize(null, evaluationCommentTextarea);
+    if (this.evaluation) {
+      // Evaluation comment textarea auto resize
+      const evaluationCommentTextarea = document.querySelector(
+        '.pia-evaluation-comment-' + this.evaluation.id
+      );
+      if (!this.hasResizedContent && evaluationCommentTextarea) {
+        this.hasResizedContent = true;
+        if (evaluationCommentTextarea) {
+          this.autoTextareaResize(null, evaluationCommentTextarea);
+        }
       }
     }
   }
@@ -164,61 +167,67 @@ export class EvaluationsComponent
       gaugeY: new FormControl()
     });
 
-    this.evaluation = new Evaluation();
-    this.evaluation.getByReference(this.pia.id, this.reference_to).then(() => {
-      // Translation for comment's placeholder
-      if (this.evaluation.status) {
-        if (this.evaluation.status === 1) {
-          this.comment_placeholder = this.translateService.instant(
-            'evaluations.placeholder_to_correct'
+    this.evaluationService
+      .getByReference(this.pia.id, this.reference_to)
+      .then(evaluation => {
+        if (evaluation) {
+          this.evaluation = evaluation;
+          // Translation for comment's placeholder
+          if (this.evaluation.status) {
+            if (this.evaluation.status === 1) {
+              this.comment_placeholder = this.translateService.instant(
+                'evaluations.placeholder_to_correct'
+              );
+            } else if (this.evaluation.status === 3) {
+              this.comment_placeholder = this.translateService.instant(
+                'evaluations.placeholder_acceptable'
+              );
+            } else {
+              this.comment_placeholder = this.translateService.instant(
+                'evaluations.placeholder_improvable2'
+              );
+            }
+          }
+
+          this.evaluationEvent.emit(this.evaluation);
+
+          if (!this.evaluation.gauges) {
+            this.evaluation.gauges = { x: 0, y: 0 };
+          }
+
+          this.evaluationForm.controls['actionPlanComment'].patchValue(
+            this.evaluation.action_plan_comment
           );
-        } else if (this.evaluation.status === 3) {
-          this.comment_placeholder = this.translateService.instant(
-            'evaluations.placeholder_acceptable'
+          this.evaluationForm.controls['evaluationComment'].patchValue(
+            this.evaluation.evaluation_comment
           );
-        } else {
-          this.comment_placeholder = this.translateService.instant(
-            'evaluations.placeholder_improvable2'
-          );
+          if (this.evaluation.gauges) {
+            this.evaluationForm.controls['gaugeX'].patchValue(
+              this.evaluation.gauges['x']
+            );
+            this.evaluationForm.controls['gaugeY'].patchValue(
+              this.evaluation.gauges['y']
+            );
+          } else {
+            this.evaluationForm.controls['gaugeX'].patchValue(0);
+            this.evaluationForm.controls['gaugeY'].patchValue(0);
+          }
         }
-      }
-
-      this.evaluationEvent.emit(this.evaluation);
-
-      if (!this.evaluation.gauges) {
-        this.evaluation.gauges = { x: 0, y: 0 };
-      }
-
-      this.evaluationForm.controls['actionPlanComment'].patchValue(
-        this.evaluation.action_plan_comment
-      );
-      this.evaluationForm.controls['evaluationComment'].patchValue(
-        this.evaluation.evaluation_comment
-      );
-      if (this.evaluation.gauges) {
-        this.evaluationForm.controls['gaugeX'].patchValue(
-          this.evaluation.gauges['x']
-        );
-        this.evaluationForm.controls['gaugeY'].patchValue(
-          this.evaluation.gauges['y']
-        );
-      } else {
-        this.evaluationForm.controls['gaugeX'].patchValue(0);
-        this.evaluationForm.controls['gaugeY'].patchValue(0);
-      }
-    });
+      });
 
     if (this.item.questions) {
       const questions: any[] = this.item.questions.filter(question => {
         return question.answer_type === 'gauge';
       });
       questions.forEach(question => {
-        this.aswerService.getByReferenceAndPia(this.pia.id, question.id).then((answer: Answer) => {
-          if (answer && answer.data) {
-            this.previousGauges[question.cartography.split('_')[1]] =
-            answer.data.gauge;
-          }
-        });
+        this.aswerService
+          .getByReferenceAndPia(this.pia.id, question.id)
+          .then((answer: Answer) => {
+            if (answer && answer.data) {
+              this.previousGauges[question.cartography.split('_')[1]] =
+                answer.data.gauge;
+            }
+          });
       });
     }
   }
@@ -290,7 +299,7 @@ export class EvaluationsComponent
       );
     }
 
-    this.evaluation.update().then(() => {
+    this.evaluationService.update(this.evaluation).then(() => {
       // Pass the evaluation to the parent component
       this.evaluationEvent.emit(this.evaluation);
       this.globalEvaluationService.validate();
@@ -326,7 +335,7 @@ export class EvaluationsComponent
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.action_plan_comment = userText;
-    this.evaluation.update().then(() => {
+    this.evaluationService.update(this.evaluation).then(() => {
       this.ngZone.run(() => {
         this.globalEvaluationService.validate();
         // this.globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
@@ -355,7 +364,7 @@ export class EvaluationsComponent
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.evaluation_comment = userText;
-    this.evaluation.update().then(() => {
+    this.evaluationService.update(this.evaluation).then(() => {
       this.ngZone.run(() => {
         this.globalEvaluationService.validate();
         // this.globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
@@ -411,7 +420,7 @@ export class EvaluationsComponent
     if (gaugeValueY >= 0) {
       this.evaluation.gauges['y'] = gaugeValueY;
     }
-    this.evaluation.update().then(() => {
+    this.evaluationService.update(this.evaluation).then(() => {
       this.globalEvaluationService.validate();
       // this.globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });

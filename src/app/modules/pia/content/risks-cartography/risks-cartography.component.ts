@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
@@ -10,6 +9,7 @@ import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
 import { AnswerService } from 'src/app/services/answer.service';
 import { Pia } from 'src/app/models/pia.model';
+import { EvaluationService } from 'src/app/services/evaluation.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -32,7 +32,8 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     private translateService: TranslateService,
     public piaService: PiaService,
     public languagesService: LanguagesService,
-    private answerService: AnswerService
+    private answerService: AnswerService,
+    private evaluationService: EvaluationService
   ) {}
 
   async ngOnInit() {
@@ -122,36 +123,37 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
           }
         }
       });
-      const evaluation = new Evaluation();
-      evaluation.getByReference(this.pia.id, '3.2').then(() => {
-        if (evaluation.gauges) {
-          this.dataJSON['risk-access']['evaluator']['y'] =
-            positions['y'][evaluation.gauges['x']];
-          this.dataJSON['risk-access']['evaluator']['x'] =
-            positions['x'][evaluation.gauges['y']];
-        }
-        const evaluation2 = new Evaluation();
-        evaluation2.getByReference(this.pia.id, '3.3').then(() => {
-          if (evaluation2.gauges) {
-            this.dataJSON['risk-change']['evaluator']['y'] =
-              positions['y'][evaluation2.gauges['x']];
-            this.dataJSON['risk-change']['evaluator']['x'] =
-              positions['x'][evaluation2.gauges['y']];
+      this.evaluationService
+        .getByReference(this.pia.id, '3.2')
+        .then(evaluation => {
+          if (evaluation.gauges) {
+            this.dataJSON['risk-access']['evaluator']['y'] =
+              positions['y'][evaluation.gauges['x']];
+            this.dataJSON['risk-access']['evaluator']['x'] =
+              positions['x'][evaluation.gauges['y']];
           }
-          const evaluation3 = new Evaluation();
-          evaluation3
-            .getByReference(this.pia.id, '3.4')
-            .then(() => {
-              if (evaluation3.gauges) {
-                this.dataJSON['risk-disappearance']['evaluator']['y'] =
-                  positions['y'][evaluation3.gauges['x']];
-                this.dataJSON['risk-disappearance']['evaluator']['x'] =
-                  positions['x'][evaluation3.gauges['y']];
+          this.evaluationService
+            .getByReference(this.pia.id, '3.3')
+            .then(evaluation2 => {
+              if (evaluation2.gauges) {
+                this.dataJSON['risk-change']['evaluator']['y'] =
+                  positions['y'][evaluation2.gauges['x']];
+                this.dataJSON['risk-change']['evaluator']['x'] =
+                  positions['x'][evaluation2.gauges['y']];
               }
-              this.loadCartography();
+              this.evaluationService
+                .getByReference(this.pia.id, '3.4')
+                .then(evaluation3 => {
+                  if (evaluation3.gauges) {
+                    this.dataJSON['risk-disappearance']['evaluator']['y'] =
+                      positions['y'][evaluation3.gauges['x']];
+                    this.dataJSON['risk-disappearance']['evaluator']['x'] =
+                      positions['x'][evaluation3.gauges['y']];
+                  }
+                  this.loadCartography();
+                });
             });
         });
-      });
     });
   }
 
