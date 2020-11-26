@@ -108,14 +108,15 @@
   .revision-preview-modal {
     margin: auto;
     position: static;
-    background-color: white !important;
+    background-color: blue !important;
+    z-index: 999999999;
     .pia-modalBlock-content {
       width: 100%;
       background-color: white !important;
-
       top: 0%;
       left: 0px;
       margin: auto;
+      z-index: 999999999;
     }
   }
 }
