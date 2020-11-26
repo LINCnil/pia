@@ -139,6 +139,13 @@ export class EntriesComponent implements OnInit, OnDestroy {
         case 'pia':
           this.piaService.getAllActives().then((entries: Array<Pia>) => {
             this.entries = entries;
+
+            // Remove example from list
+            const index = this.entries.findIndex(p => p.is_example);
+            if (index !== -1) {
+              this.entries.splice(index, 1);
+            }
+
             this.entries.forEach(entrie =>
               this.piaService.calculPiaProgress(entrie)
             );
