@@ -1,4 +1,11 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -18,7 +25,7 @@ import { StructureService } from 'src/app/services/structure.service';
   styleUrls: ['./knowledge-base.component.scss']
 })
 export class KnowledgeBaseComponent implements OnInit {
- searchForm: FormGroup;
+  searchForm: FormGroup;
   noTitle = false;
   @Input() item: any;
   @Input() structure: Structure;
@@ -41,12 +48,15 @@ export class KnowledgeBaseComponent implements OnInit {
       q: new FormControl()
     });
 
-    window.onscroll = (ev) => {
+    window.onscroll = ev => {
       if (window.innerWidth > 640) {
         const el: any = document.querySelector('.pia-knowledgeBaseBlock');
         const el2 = document.querySelector('.pia-knowledgeBaseBlock-list');
         if (el && el2) {
-          el2.setAttribute('style', 'height:' + (window.innerHeight - 350) + 'px');
+          el2.setAttribute(
+            'style',
+            'height:' + (window.innerHeight - 350) + 'px'
+          );
           if (window.scrollY >= 100) {
             el.setAttribute('style', 'width:283px;');
             el.classList.add('pia-knowledgeBaseBlock-scroll');
@@ -58,17 +68,52 @@ export class KnowledgeBaseComponent implements OnInit {
       }
     };
 
-    // LOAD CUSTOM KNOWLEDGE BASE
-    this.knowledgeBaseService
-      .getAll()
-      .then((result: any) => {
-        this.customKnowledgeBases = result;
-        if (localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase')) {
-          this.selectedKnowledBase = localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase');
-          this.switch(localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase'));
-        }
-      })
-      .catch(() => {});
+    this.loadKnowledgesBase().then(() => {
+      if (
+        localStorage.getItem(
+          'pia_' + this.route.snapshot.params.id + '_knowledgebase'
+        )
+      ) {
+        this.selectedKnowledBase = localStorage.getItem(
+          'pia_' + this.route.snapshot.params.id + '_knowledgebase'
+        );
+        this.switch(
+          localStorage.getItem(
+            'pia_' + this.route.snapshot.params.id + '_knowledgebase'
+          )
+        );
+      }
+    });
+
+    this.translateService.onLangChange.subscribe(() => {
+      this.loadKnowledgesBase().then(() => {
+        this.switch(
+          localStorage.getItem(
+            'pia_' + this.route.snapshot.params.id + '_knowledgebase'
+          )
+        );
+        this.selectedKnowledBase = localStorage.getItem(
+          'pia_' + this.route.snapshot.params.id + '_knowledgebase'
+        );
+        console.log(this.selectedKnowledBase);
+      });
+    });
+  }
+
+  loadKnowledgesBase(): Promise<any> {
+    this.customKnowledgeBases = [];
+    return new Promise((resolve, reject) => {
+      // LOAD CUSTOM KNOWLEDGE BASE
+      this.knowledgeBaseService
+        .getAll()
+        .then((result: any) => {
+          this.customKnowledgeBases = result;
+          resolve();
+        })
+        .catch(() => {
+          reject();
+        });
+    });
   }
 
   /**
@@ -77,7 +122,9 @@ export class KnowledgeBaseComponent implements OnInit {
   onSubmit() {
     this.knowledgeBaseService.translateService = this.translateService;
     this.knowledgeBaseService.q = this.searchForm.value.q;
-    const filterBlock = this.el.nativeElement.querySelector('.pia-knowledgeBaseBlock-filters');
+    const filterBlock = this.el.nativeElement.querySelector(
+      '.pia-knowledgeBaseBlock-filters'
+    );
     if (filterBlock) {
       filterBlock.querySelector('button').click();
     }
@@ -90,7 +137,11 @@ export class KnowledgeBaseComponent implements OnInit {
    */
   addNewMeasure(event) {
     if (this.pia) {
-      this.measureService.addNewMeasure(this.pia, event.name, event.placeholder);
+      this.measureService.addNewMeasure(
+        this.pia,
+        event.name,
+        event.placeholder
+      );
     } else if (this.structure) {
       this.structureService.find(this.structure.id).then(() => {
         const title = this.translateService.instant(event.name);
@@ -115,7 +166,10 @@ export class KnowledgeBaseComponent implements OnInit {
       .then(() => {
         this.knowledgeBaseService.loadByItem(this.item);
         // SET LOCALSTORAGE
-        localStorage.setItem('pia_' + this.route.snapshot.params.id + '_knowledgebase', selectedKnowledBase);
+        localStorage.setItem(
+          'pia_' + this.route.snapshot.params.id + '_knowledgebase',
+          selectedKnowledBase
+        );
       })
       .catch(err => {
         console.log(err);
