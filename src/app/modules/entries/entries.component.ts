@@ -10,6 +10,7 @@ import { StructureService } from 'src/app/services/structure.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-entries',
@@ -39,7 +40,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
     private knowledgeBaseService: KnowledgeBaseService,
     public piaService: PiaService,
     private introJsService: IntrojsService,
-    public appDataService: AppDataService
+    public appDataService: AppDataService,
+    public dialogService: DialogService
   ) {
     // get entries type (pia or archive)
     switch (this.router.url) {
@@ -252,7 +254,21 @@ export class EntriesComponent implements OnInit, OnDestroy {
             this.refreshContent();
           })
           .catch(err => {
-            console.log(err);
+            this.dialogService.confirmThis(
+              {
+                text: 'modals.import_wrong_pia_file.content',
+                type: 'yes',
+                yes: 'modals.close',
+                no: '',
+                icon: 'pia-icons pia-icon-sad'
+              },
+              () => {
+                return;
+              },
+              () => {
+                return;
+              }
+            );
           });
       }
       if (this.type_entries === 'structure') {

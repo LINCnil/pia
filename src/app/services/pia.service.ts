@@ -521,24 +521,6 @@ export class PiaService extends ApplicationDb {
   ): Promise<any> {
     return new Promise((resolve, reject) => {
       if (!data.pia) {
-        this.dialogService.confirmThis(
-          {
-            text: 'modals.import_wrong_pia_file.content',
-            type: 'yes',
-            yes: 'modals.close',
-            no: '',
-            icon: 'pia-icons pia-icon-sad',
-            data: {
-              btn_yes: 'btn-red'
-            }
-          },
-          () => {
-            return;
-          },
-          () => {
-            return;
-          }
-        );
         reject(new Error('wrong pia file'));
         return;
       }
@@ -735,14 +717,18 @@ export class PiaService extends ApplicationDb {
       const reader = new FileReader();
       reader.readAsText(file);
       reader.onload = (event: any) => {
-        const jsonFile = JSON.parse(event.target.result);
-        this.importData(jsonFile, 'IMPORT', false)
-          .then(() => {
-            resolve(true);
-          })
-          .catch(err => {
-            reject(err);
-          });
+        try {
+          const jsonFile = JSON.parse(event.target.result);
+          this.importData(jsonFile, 'IMPORT', false)
+            .then(() => {
+              resolve(true);
+            })
+            .catch(err => {
+              reject(err);
+            });
+        } catch {
+          reject(false);
+        }
       };
     });
   }
