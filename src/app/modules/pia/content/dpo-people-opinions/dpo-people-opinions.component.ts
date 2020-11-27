@@ -22,12 +22,11 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   @ViewChild('PeopleNames', { static: false }) private elementRef2: ElementRef;
 
   constructor(
-    private el: ElementRef,
     public _sidStatusService: SidStatusService,
     public _piaService: PiaService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.DPOForm = new FormGroup({
       DPOStatus: new FormControl(),
       DPOOpinion: new FormControl(),
@@ -43,37 +42,23 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       peopleNames: new FormControl()
     });
 
-    if (
-      this.pia.dpos_names &&
-      this.pia.dpos_names.length > 0
-    ) {
-      this.DPOForm.controls['DPONames'].patchValue(
-        this.pia.dpos_names
-      );
+    if (this.pia.dpos_names && this.pia.dpos_names.length > 0) {
+      this.DPOForm.controls['DPONames'].patchValue(this.pia.dpos_names);
       this.DPOForm.controls['DPONames'].disable();
     } else {
       this.DPOForm.controls['DPOStatus'].disable();
       this.DPOForm.controls['DPOOpinion'].disable();
     }
     if (this.pia.dpo_status !== undefined) {
-      this.DPOForm.controls['DPOStatus'].patchValue(
-        this.pia.dpo_status
-      );
+      this.DPOForm.controls['DPOStatus'].patchValue(this.pia.dpo_status);
     }
-    if (
-      this.pia.dpo_opinion &&
-      this.pia.dpo_opinion.length > 0
-    ) {
-      this.DPOForm.controls['DPOOpinion'].patchValue(
-        this.pia.dpo_opinion
-      );
+    if (this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
+      this.DPOForm.controls['DPOOpinion'].patchValue(this.pia.dpo_opinion);
       this.DPOForm.controls['DPOOpinion'].disable();
     }
 
     // Concerned people opinion searched or unsearched
-    if (
-      this.pia.concerned_people_searched_opinion !== undefined
-    ) {
+    if (this.pia.concerned_people_searched_opinion !== undefined) {
       this.searchedOpinionsForm.controls['searchStatus'].patchValue(
         this.pia.concerned_people_searched_opinion
       );
@@ -98,13 +83,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
 
     // Concerned people searched fields
-    if (
-      this.pia.people_names &&
-      this.pia.people_names.length > 0
-    ) {
-      this.peopleForm.controls['peopleNames'].patchValue(
-        this.pia.people_names
-      );
+    if (this.pia.people_names && this.pia.people_names.length > 0) {
+      this.peopleForm.controls['peopleNames'].patchValue(this.pia.people_names);
       this.peopleForm.controls['peopleNames'].disable();
     } else {
       this.peopleForm.controls['peopleStatus'].disable();
@@ -144,11 +124,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   /**
    * Focuses dpo name.
    */
-  dpoNameFocusIn() {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1
-    ) {
+  dpoNameFocusIn(): any {
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
       return false;
     } else {
       this.DPOForm.controls['DPONames'].enable();
@@ -159,7 +136,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   /**
    * Disables DPO fields (status + opinion) and saves data.
    */
-  dpoNameFocusOut() {
+  dpoNameFocusOut(): void {
     if (this.DPOForm.value.DPONames && this.DPOForm.value.DPONames.length > 0) {
       this.pia.dpos_names = this.DPOForm.value.DPONames;
       this.DPOForm.enable();
@@ -172,11 +149,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.DPOForm.controls['DPOOpinion'].patchValue(null);
     }
     this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(
-        this.pia,
-        { id: 4 },
-        { id: 3 }
-      );
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
       if (
         this.DPOForm.value.DPONames &&
         this.DPOForm.value.DPONames.length > 0
@@ -189,11 +162,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   /**
    * Enables dpo status radio buttons.
    */
-  enableDpoStatusRadioButtons() {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1
-    ) {
+  enableDpoStatusRadioButtons(): any {
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
       return false;
     } else {
       this.DPOForm.controls['DPOStatus'].enable();
@@ -203,28 +173,18 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   /**
    * Updates dpo status.
    */
-  dpoStatusFocusOut() {
-    this.pia.dpo_status = parseInt(
-      this.DPOForm.value.DPOStatus,
-      10
-    );
+  dpoStatusFocusOut(): void {
+    this.pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
     this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(
-        this.pia,
-        { id: 4 },
-        { id: 3 }
-      );
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
     });
   }
 
   /**
    * Focuses dpo opinion.
    */
-  dpoOpinionFocusIn() {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1
-    ) {
+  dpoOpinionFocusIn(): any {
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
       return false;
     } else {
       this.DPOForm.controls['DPOOpinion'].enable();
@@ -235,18 +195,14 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   /**
    * Updates dpo opinion.
    */
-  dpoOpinionFocusOut() {
+  dpoOpinionFocusOut(): void {
     let userText = this.DPOForm.controls['DPOOpinion'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.dpo_opinion = userText;
     this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(
-        this.pia,
-        { id: 4 },
-        { id: 3 }
-      );
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.DPOForm.controls['DPOOpinion'].disable();
       }
@@ -256,11 +212,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   /**
    * Enables concerned people searched or unsearched radio buttons.
    */
-  enableConcernedPeopleSearchedOpinionRadioButtons() {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1
-    ) {
+  enableConcernedPeopleSearchedOpinionRadioButtons(): any {
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
       return false;
     } else {
       this.searchedOpinionsForm.controls['searchStatus'].enable();
@@ -271,22 +224,18 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Updates concerned people searched or unsearched opinion.
    */
   searchedOpinionsFocusOut() {
-    if (this.searchedOpinionsForm.value.searchStatus) {
-      if (this.searchedOpinionsForm.value.searchStatus === 'true') {
+    if (this.searchedOpinionsForm.value.searchStatus !== null) {
+      if (this.searchedOpinionsForm.value.searchStatus) {
         this.pia.concerned_people_searched_opinion = true;
         this.displayPeopleOpinions = true;
         this.displayPeopleSearchContent = false;
-      } else if (this.searchedOpinionsForm.value.searchStatus === 'false') {
+      } else {
         this.pia.concerned_people_searched_opinion = false;
         this.displayPeopleOpinions = false;
         this.displayPeopleSearchContent = true;
       }
       this._piaService.update(this.pia).then(() => {
-        this._sidStatusService.setSidStatus(
-          this.pia,
-          { id: 4 },
-          { id: 3 }
-        );
+        this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
       });
     }
   }
@@ -295,10 +244,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses concerned people search content.
    */
   peopleSearchContentFocusIn() {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1
-    ) {
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
       return false;
     } else {
       this.searchedOpinionsForm.controls['searchContent'].enable();
@@ -316,11 +262,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this.pia.concerned_people_searched_content = userText;
     this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(
-        this.pia,
-        { id: 4 },
-        { id: 3 }
-      );
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.searchedOpinionsForm.controls['searchContent'].disable();
       }
@@ -331,10 +273,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses concerned people name.
    */
   concernedPeopleNameFocusIn() {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1
-    ) {
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
       return false;
     } else {
       this.peopleForm.controls['peopleNames'].enable();
@@ -361,11 +300,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.controls['peopleStatus'].patchValue(null);
     }
     this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(
-        this.pia,
-        { id: 4 },
-        { id: 3 }
-      );
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
       if (
         this.peopleForm.value.peopleNames &&
         this.peopleForm.value.peopleNames.length > 0
@@ -379,10 +314,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Enables concerned people status radio buttons.
    */
   enableConcernedPeopleStatusRadioButtons() {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1
-    ) {
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
       return false;
     } else {
       this.peopleForm.controls['peopleStatus'].enable();
@@ -402,11 +334,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         10
       );
       this._piaService.update(this.pia).then(() => {
-        this._sidStatusService.setSidStatus(
-          this.pia,
-          { id: 4 },
-          { id: 3 }
-        );
+        this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
       });
     }
   }
@@ -415,10 +343,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses concerned people opinion field.
    */
   concernedPeopleOpinionFocusIn() {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1
-    ) {
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
       return false;
     } else {
       this.peopleForm.controls['peopleOpinion'].enable();
@@ -436,11 +361,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this.pia.concerned_people_opinion = userText;
     this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(
-        this.pia,
-        { id: 4 },
-        { id: 3 }
-      );
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
       if (userText && userText.length > 0) {
         this.peopleForm.controls['peopleOpinion'].disable();
       }
