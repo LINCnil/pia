@@ -1,6 +1,14 @@
-import { Component, Input, ElementRef, OnInit, OnDestroy, NgZone } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  OnInit,
+  OnDestroy,
+  NgZone,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { Answer } from 'src/app/models/answer.model';
@@ -17,11 +25,11 @@ import { MeasureService } from 'src/app/services/measures.service';
   styleUrls: ['./measures.component.scss']
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
-
   @Input() measure: Measure;
   @Input() item: any;
   @Input() section: any;
   @Input() pia: any;
+  @Output() deleted = new EventEmitter();
   editor: any;
   elementId: string;
   evaluation: Evaluation = new Evaluation();
@@ -37,7 +45,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     private knowledgeBaseService: KnowledgeBaseService,
     private answerService: AnswerService,
     private measuresService: MeasureService,
-    private ngZone: NgZone) { }
+    private ngZone: NgZone
+  ) {}
 
   ngOnInit(): void {
     this.measureForm = new FormGroup({
@@ -50,15 +59,21 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       this.knowledgeBaseService.toHide.push(this.measure.title);
       this.elementId = 'pia-measure-content-' + this.measure.id;
       if (this.measureModel) {
-        this.measureForm.controls['measureTitle'].patchValue(this.measureModel.title);
-        this.measureForm.controls['measureContent'].patchValue(this.measureModel.content);
+        this.measureForm.controls['measureTitle'].patchValue(
+          this.measureModel.title
+        );
+        this.measureForm.controls['measureContent'].patchValue(
+          this.measureModel.content
+        );
         if (this.measureModel.title) {
           this.measureForm.controls['measureTitle'].disable();
           this.editTitle = false;
         }
       }
 
-      const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
+      const measureTitleTextarea = document.getElementById(
+        'pia-measure-title-' + this.measure.id
+      );
       if (measureTitleTextarea) {
         this.autoTextareaResize(null, measureTitleTextarea);
       }
@@ -81,7 +96,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (textarea.clientHeight < textarea.scrollHeight) {
       textarea.style.height = textarea.scrollHeight + 'px';
       if (textarea.clientHeight < textarea.scrollHeight) {
-        textarea.style.height = (textarea.scrollHeight * 2 - textarea.clientHeight) + 'px';
+        textarea.style.height =
+          textarea.scrollHeight * 2 - textarea.clientHeight + 'px';
       }
     }
   }
@@ -101,7 +117,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (this.globalEvaluationService.answerEditionEnabled) {
       this.editTitle = true;
       this.measureForm.controls['measureTitle'].enable();
-      const measureTitleTextarea = document.getElementById('pia-measure-title-' + this.measure.id);
+      const measureTitleTextarea = document.getElementById(
+        'pia-measure-title-' + this.measure.id
+      );
       setTimeout(() => {
         measureTitleTextarea.focus();
       }, 200);
@@ -125,47 +143,58 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.title = userText;
     this.measuresService.update(this.measureModel).then(() => {
       if (previousTitle !== this.measureModel.title) {
-        this.knowledgeBaseService.removeItemIfPresent(this.measureModel.title, previousTitle);
+        this.knowledgeBaseService.removeItemIfPresent(
+          this.measureModel.title,
+          previousTitle
+        );
       }
 
       // Update tags
-      this.answerService.getByReferenceAndPia(this.pia.id, 324).then((answer: Answer) => {
-        if (answer && answer.data && answer.data.list) {
-          const index = answer.data.list.indexOf(previousTitle);
-          if (index !== -1) {
-            answer.data.list[index] = this.measureModel.title;
-            this.answerService.update(answer);
+      this.answerService
+        .getByReferenceAndPia(this.pia.id, 324)
+        .then((answer: Answer) => {
+          if (answer && answer.data && answer.data.list) {
+            const index = answer.data.list.indexOf(previousTitle);
+            if (index !== -1) {
+              answer.data.list[index] = this.measureModel.title;
+              this.answerService.update(answer);
+            }
           }
-        }
-      });
+        });
 
-      this.answerService.getByReferenceAndPia(this.pia.id, 334).then((answer: Answer) => {
-        if (answer && answer.data && answer.data.list) {
-          const index = answer.data.list.indexOf(previousTitle);
-          if (index !== -1) {
-            answer.data.list[index] = this.measureModel.title;
-            this.answerService.update(answer);
+      this.answerService
+        .getByReferenceAndPia(this.pia.id, 334)
+        .then((answer: Answer) => {
+          if (answer && answer.data && answer.data.list) {
+            const index = answer.data.list.indexOf(previousTitle);
+            if (index !== -1) {
+              answer.data.list[index] = this.measureModel.title;
+              this.answerService.update(answer);
+            }
           }
-        }
-      });
+        });
 
-      this.answerService.getByReferenceAndPia(this.pia.id, 344).then((answer: Answer) => {
-        if (answer && answer.data && answer.data.list) {
-          const index = answer.data.list.indexOf(previousTitle);
-          if (index !== -1) {
-            answer.data.list[index] = this.measureModel.title;
-            this.answerService.update(answer);
+      this.answerService
+        .getByReferenceAndPia(this.pia.id, 344)
+        .then((answer: Answer) => {
+          if (answer && answer.data && answer.data.list) {
+            const index = answer.data.list.indexOf(previousTitle);
+            if (index !== -1) {
+              answer.data.list[index] = this.measureModel.title;
+              this.answerService.update(answer);
+            }
           }
-        }
-      });
+        });
 
-      if (this.measureForm.value.measureTitle && this.measureForm.value.measureTitle.length > 0) {
+      if (
+        this.measureForm.value.measureTitle &&
+        this.measureForm.value.measureTitle.length > 0
+      ) {
         this.measureForm.controls['measureTitle'].disable();
       }
 
       this.globalEvaluationService.validate();
     });
-
   }
 
   /**
@@ -203,14 +232,22 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @param event - Any Event.
    */
   displayMeasure(event: any): void {
-    const accordeon = this.el.nativeElement.querySelector('.pia-measureBlock-title button');
+    const accordeon = this.el.nativeElement.querySelector(
+      '.pia-measureBlock-title button'
+    );
     accordeon.classList.toggle('pia-icon-accordeon-down');
-    const displayer = this.el.nativeElement.querySelector('.pia-measureBlock-displayer');
+    const displayer = this.el.nativeElement.querySelector(
+      '.pia-measureBlock-displayer'
+    );
     displayer.classList.toggle('close');
 
     // Display comments/evaluations for measures
-    const commentsDisplayer = document.querySelector('.pia-commentsBlock-measure-' + this.measure.id);
-    const evaluationDisplayer = document.querySelector('.pia-evaluationBlock-measure-' + this.measure.id);
+    const commentsDisplayer = document.querySelector(
+      '.pia-commentsBlock-measure-' + this.measure.id
+    );
+    const evaluationDisplayer = document.querySelector(
+      '.pia-evaluationBlock-measure-' + this.measure.id
+    );
     if (event.target.getAttribute('data-status') === 'hide') {
       event.target.removeAttribute('data-status');
       commentsDisplayer.classList.remove('hide');
@@ -257,12 +294,15 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           no: 'modals.remove_measure.keep',
           icon: 'pia-icons pia-icon-sad'
         },
-          () => {
-            this.measuresService.removeMeasure(measureId);
-          },
-          () => {
-            return;
+        () => {
+          this.measuresService.removeMeasure(measureId).then(() => {
+            this.deleted.emit(measureId);
           });
+        },
+        () => {
+          return;
+        }
+      );
     }
   }
 
@@ -276,22 +316,25 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : false,
+      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}' ,
+      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
-      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      toolbar:
+        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin: false,
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {
-          this.measureForm.controls['measureContent'].patchValue(editor.getContent());
+          this.measureForm.controls['measureContent'].patchValue(
+            editor.getContent()
+          );
           this.measureContentFocusOut();
           tinymce.remove(this.editor);
         });
-      },
+      }
     });
   }
 }

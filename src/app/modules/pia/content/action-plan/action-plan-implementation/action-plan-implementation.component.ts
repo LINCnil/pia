@@ -28,7 +28,7 @@ export class ActionPlanImplementationComponent implements OnInit {
     private evaluationService: EvaluationService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.actionPlanForm = new FormGroup({
       estimatedEvaluationDate: new FormControl(),
       personInCharge: new FormControl()

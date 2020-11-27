@@ -6,7 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { LanguagesService } from 'src/app/services/languages.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
-import { Pia } from 'src/app/models/pia.model';
 import { AppDataService } from 'src/app/services/app-data.service';
 
 @Component({
@@ -27,13 +26,20 @@ export class HeaderComponent implements OnInit {
     private introjsService: IntrojsService,
     public translateService: TranslateService,
     public languagesService: LanguagesService,
-    public appDataService: AppDataService) { }
+    public appDataService: AppDataService
+  ) {}
 
   ngOnInit(): void {
-    const displayMessage = document.querySelector('.pia-closeFullScreenModeAlertBlock');
-    window.screenTop === 0 && window.screenY === 0 ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
+    const displayMessage = document.querySelector(
+      '.pia-closeFullScreenModeAlertBlock'
+    );
+    window.screenTop === 0 && window.screenY === 0
+      ? displayMessage.classList.remove('hide')
+      : displayMessage.classList.add('hide');
     window.onresize = () => {
-      window.screenTop === 0 && window.screenY === 0 ? displayMessage.classList.remove('hide') : displayMessage.classList.add('hide');
+      window.screenTop === 0 && window.screenY === 0
+        ? displayMessage.classList.remove('hide')
+        : displayMessage.classList.add('hide');
     };
 
     this.appVersion = environment.version;
@@ -50,7 +56,6 @@ export class HeaderComponent implements OnInit {
       this.isKnowledgeHeader = true;
     }
   }
-
 
   /**
    * Restart the onboarding module for the current user

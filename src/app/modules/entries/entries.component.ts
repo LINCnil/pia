@@ -11,7 +11,6 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 
-
 @Component({
   selector: 'app-entries',
   templateUrl: './entries.component.html',
@@ -22,7 +21,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
   importForm: FormGroup;
   sortOrder: string;
   sortValue: string;
-  viewStyle: { view: string } = { view: 'card'};
+  viewStyle: { view: string } = { view: 'card' };
   view: 'card';
   paramsSubscribe: Subscription;
   searchText: string;
@@ -40,31 +39,30 @@ export class EntriesComponent implements OnInit, OnDestroy {
     private knowledgeBaseService: KnowledgeBaseService,
     public piaService: PiaService,
     private introJsService: IntrojsService,
-    public appDataService: AppDataService) {
-
-      // get entries type (pia or archive)
-      switch (this.router.url) {
-        case '/entries/archive':
-          this.type_entries = 'archive';
-          break;
-        case '/entries/structure':
-          this.type_entries = 'structure';
-          break;
-        case '/entries/knowledgebase':
-          this.type_entries = 'knowledgeBase';
-          break;
-        case '/entries':
-          this.type_entries = 'pia';
-          break;
-        default:
-          break;
-      }
-
-      this.appDataService.entrieMode = this.type_entries;
+    public appDataService: AppDataService
+  ) {
+    // get entries type (pia or archive)
+    switch (this.router.url) {
+      case '/entries/archive':
+        this.type_entries = 'archive';
+        break;
+      case '/entries/structure':
+        this.type_entries = 'structure';
+        break;
+      case '/entries/knowledgebase':
+        this.type_entries = 'knowledgeBase';
+        break;
+      case '/entries':
+        this.type_entries = 'pia';
+        break;
+      default:
+        break;
     }
 
-  ngOnInit(): void {
+    this.appDataService.entrieMode = this.type_entries;
+  }
 
+  ngOnInit(): void {
     // PREPARE ORDER
     this.sortOrder = localStorage.getItem('sortOrder');
     this.sortValue = localStorage.getItem('sortValue');
@@ -131,44 +129,51 @@ export class EntriesComponent implements OnInit, OnDestroy {
     this.refreshContent();
   }
 
-
   /**
    * Refresh the list.
    */
   async refreshContent(): Promise<void> {
     const pia = new Pia();
     setTimeout(async () => {
-
       switch (this.type_entries) {
         case 'pia':
           this.piaService.getAllActives().then((entries: Array<Pia>) => {
             this.entries = entries;
-            this.entries.forEach(entrie => this.piaService.calculPiaProgress(entrie));
+
+            // Remove example from list
+            const index = this.entries.findIndex(p => p.is_example);
+            if (index !== -1) {
+              this.entries.splice(index, 1);
+            }
+
+            this.entries.forEach(entrie =>
+              this.piaService.calculPiaProgress(entrie)
+            );
             this.startIntroJs('pia');
           });
           break;
         case 'archive':
           this.piaService.findAllArchives().then((entries: Array<Pia>) => {
             this.entries = entries;
-            this.entries.forEach(entrie => this.archiveService.calculPiaProgress(entrie));
+            this.entries.forEach(entrie =>
+              this.archiveService.calculPiaProgress(entrie)
+            );
           });
           break;
         case 'structure':
           let data;
-          this.structureService.getAll()
-            .then((response) => {
-              data = response;
-              this.structureService
-                .loadExample()
-                .then((structureExample: Structure) => {
-                  data.push(structureExample);
-                });
-              this.entries = data;
-            });
+          this.structureService.getAll().then(response => {
+            data = response;
+            this.structureService
+              .loadExample()
+              .then((structureExample: Structure) => {
+                data.push(structureExample);
+              });
+            this.entries = data;
+          });
           break;
         case 'knowledgeBase':
-          this.knowledgeBaseService.getAll()
-          .then((result: any) => {
+          this.knowledgeBaseService.getAll().then((result: any) => {
             this.entries = result;
           });
           break;
@@ -179,10 +184,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
       this.sortOrder = localStorage.getItem('sortOrder');
       this.sortValue = localStorage.getItem('sortValue');
       this.sort();
-
     }, 200);
   }
-
 
   updateEntrie(entrie): void {
     if (this.entries.includes(entrie)) {
@@ -243,29 +246,32 @@ export class EntriesComponent implements OnInit, OnDestroy {
   import(event?: any): void {
     if (event) {
       if (this.type_entries === 'pia') {
-        this.piaService.import(event.target.files[0])
-        .then(() => {
-          this.refreshContent();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      }
-      if (this.type_entries === 'structure') {
-        this.structureService.importStructure(event.target.files[0])
+        this.piaService
+          .import(event.target.files[0])
           .then(() => {
             this.refreshContent();
           })
-          .catch((err) => {
+          .catch(err => {
+            console.log(err);
+          });
+      }
+      if (this.type_entries === 'structure') {
+        this.structureService
+          .importStructure(event.target.files[0])
+          .then(() => {
+            this.refreshContent();
+          })
+          .catch(err => {
             console.log(err);
           });
       }
       if (this.type_entries === 'knowledgeBase') {
-        this.knowledgeBaseService.import(event.target.files[0])
+        this.knowledgeBaseService
+          .import(event.target.files[0])
           .then(() => {
             this.refreshContent();
           })
-          .catch((err) => {
+          .catch(err => {
             console.log(err);
           });
       }
@@ -310,7 +316,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
   startIntroJs(type): void {
     switch (type) {
       case 'pia':
-        const validated = this.entries.filter((e: Pia) => e.status === 2 || e.status === 3);
+        const validated = this.entries.filter(
+          (e: Pia) => (e.status === 2 || e.status === 3) && !e.is_example
+        );
         if (validated.length > 0) {
           // Validated introjs
           if (!localStorage.getItem('onboardingValidatedConfirmed')) {

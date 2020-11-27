@@ -262,4 +262,11 @@ export class ContentComponent implements OnInit {
       this.globalEvaluationService.validate();
     });
   }
+
+  onDeletedMeasure(id): void {
+    const index = this.measures.findIndex(m => m.id === id);
+    if (index !== -1) {
+      this.measures.splice(index, 1);
+    }
+  }
 }

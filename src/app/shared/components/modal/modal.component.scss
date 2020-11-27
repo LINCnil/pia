@@ -96,5 +96,27 @@
 .revision-preview-modal {
   .pia-modalBlock-content {
     width: auto;
+    top: 13%;
+    margin-left: -285px;
+    text-align: initial;
+    font-style: normal !important;
+    font-size: inherit !important;
+  }
+}
+
+@media print {
+  .revision-preview-modal {
+    margin: auto;
+    position: static;
+    background-color: blue !important;
+    z-index: 999999999;
+    .pia-modalBlock-content {
+      width: 100%;
+      background-color: white !important;
+      top: 0%;
+      left: 0px;
+      margin: auto;
+      z-index: 999999999;
+    }
   }
 }

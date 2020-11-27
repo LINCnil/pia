@@ -60,14 +60,12 @@ export class MeasureService extends ApplicationDb {
 
   async update(measure: Measure): Promise<any> {
     return new Promise((resolve, reject) => {
-      console.log('update', measure);
       this.find(measure.id).then((entry: any) => {
         entry = {
           ...entry,
           ...measure
         };
         entry.updated_at = new Date();
-        console.log('update 2', measure);
         if (this.serverUrl) {
           const formData = new FormData();
           for (let d in entry) {
@@ -163,25 +161,20 @@ export class MeasureService extends ApplicationDb {
   /**
    * Allows an user to remove a measure ("RISKS" section).
    */
-  removeMeasure(measure_id): void {
-    const measure = new Measure();
-    measure.pia_id = this.pia_id;
+  removeMeasure(measure_id): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.find(measure_id).then((entry: Measure) => {
+        this.behaviorSubject.next(entry.title);
+        this.knowledgeBaseService.toHide = this.knowledgeBaseService.toHide.filter(
+          item => item !== entry.title
+        );
+      });
 
-    this.find(measure_id).then((entry: Measure) => {
-      this.behaviorSubject.next(entry.title);
-      this.knowledgeBaseService.toHide = this.knowledgeBaseService.toHide.filter(
-        item => item !== entry.title
-      );
+      /* Removing from DB */
+      this.delete(measure_id).then(() => {
+        resolve();
+      });
     });
-
-    /* Removing from DB */
-    this.delete(measure_id);
-
-    /* Removing the measure from the view */
-    const measureToRemove = document.querySelector(
-      '.pia-measureBlock[data-id="' + measure_id + '"]'
-    );
-    measureToRemove.remove();
   }
 
   /**

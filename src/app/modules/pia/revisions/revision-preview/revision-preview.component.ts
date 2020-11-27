@@ -214,7 +214,7 @@ export class RevisionPreviewComponent implements OnInit {
 
   public exportJson(): void {
     const revisionDate = this.datePipe.transform(
-      localStorage.getItem('currentRevisionDate'),
+      this.revision.created_at,
       '-yyyy-MM-dd-HH-mm'
     );
     const fileTitle = 'pia-' + slugify(this.export.pia.name) + revisionDate;

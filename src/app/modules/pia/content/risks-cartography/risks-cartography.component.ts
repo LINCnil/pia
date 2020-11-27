@@ -126,7 +126,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       this.evaluationService
         .getByReference(this.pia.id, '3.2')
         .then(evaluation => {
-          if (evaluation.gauges) {
+          if (evaluation && evaluation.gauges) {
             this.dataJSON['risk-access']['evaluator']['y'] =
               positions['y'][evaluation.gauges['x']];
             this.dataJSON['risk-access']['evaluator']['x'] =
@@ -135,7 +135,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
           this.evaluationService
             .getByReference(this.pia.id, '3.3')
             .then(evaluation2 => {
-              if (evaluation2.gauges) {
+              if (evaluation2 && evaluation2.gauges) {
                 this.dataJSON['risk-change']['evaluator']['y'] =
                   positions['y'][evaluation2.gauges['x']];
                 this.dataJSON['risk-change']['evaluator']['x'] =
@@ -144,7 +144,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
               this.evaluationService
                 .getByReference(this.pia.id, '3.4')
                 .then(evaluation3 => {
-                  if (evaluation3.gauges) {
+                  if (evaluation3 && evaluation3.gauges) {
                     this.dataJSON['risk-disappearance']['evaluator']['y'] =
                       positions['y'][evaluation3.gauges['x']];
                     this.dataJSON['risk-disappearance']['evaluator']['x'] =
