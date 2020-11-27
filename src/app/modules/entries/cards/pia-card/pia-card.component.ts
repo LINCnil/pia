@@ -1,4 +1,12 @@
-import { EventEmitter, Input, Output, ViewChild, ElementRef, Component, OnInit } from '@angular/core';
+import {
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+  ElementRef,
+  Component,
+  OnInit
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Attachment } from 'src/app/models/attachment.model';
@@ -11,7 +19,6 @@ import * as FileSaver from 'file-saver';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
 declare const require: any;
-
 
 @Component({
   selector: 'app-pia-card',
@@ -47,7 +54,6 @@ export class PiaCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     // GET STRUCTURE LIST
     // const structure = new Structure();
     // this.structureService.getAll().then((data: any) => {
@@ -111,9 +117,7 @@ export class PiaCardComponent implements OnInit {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
         const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
-        const folderName = this.translateService.instant(
-          'summary.attachments'
-        );
+        const folderName = this.translateService.instant('summary.attachments');
         zip.file(folderName + '/' + attachment.name, byteCharacters1, {
           binary: true
         });
@@ -238,14 +242,20 @@ export class PiaCardComponent implements OnInit {
    * @param id - The PIA id
    */
   archivePia(id: number): void {
-    this.dialogService.confirmThis({
-      text: 'modals.archive_pia.content',
-      type: 'confirm',
-      yes: 'modals.archive_pia.archive',
-      no: 'modals.cancel'
-    },
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.archive_pia.content',
+        type: 'confirm',
+        yes: 'modals.archive_pia.archive',
+        no: 'modals.cancel',
+        data: {
+          btn_no: 'btn-blue',
+          btn_yes: 'btn-blue'
+        }
+      },
       () => {
-        this.piaService.archive(id)
+        this.piaService
+          .archive(id)
           .then(() => {
             this.archived.emit();
           })
@@ -255,7 +265,8 @@ export class PiaCardComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   /**

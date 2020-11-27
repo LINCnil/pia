@@ -71,9 +71,7 @@ export class PiaLineComponent implements OnInit {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
         const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
-        const folderName = this.translateService.instant(
-          'summary.attachments'
-        );
+        const folderName = this.translateService.instant('summary.attachments');
         zip.file(folderName + '/' + attachment.name, byteCharacters1, {
           binary: true
         });
@@ -99,13 +97,20 @@ export class PiaLineComponent implements OnInit {
    * @param id - The PIA id
    */
   archivePia(id: number): void {
-    this.dialogService.confirmThis({
-      text: 'modals.archive_pia.content',
-      type: 'confirm',
-      yes: 'modals.archive_pia.archive',
-      no: 'modals.cancel'},
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.archive_pia.content',
+        type: 'confirm',
+        yes: 'modals.archive_pia.archive',
+        no: 'modals.cancel',
+        data: {
+          btn_no: 'btn-blue',
+          btn_yes: 'btn-blue'
+        }
+      },
       () => {
-        this.piaService.archive(id)
+        this.piaService
+          .archive(id)
           .then(() => {
             this.archived.emit();
           })
@@ -115,7 +120,8 @@ export class PiaLineComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   /**

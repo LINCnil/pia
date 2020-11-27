@@ -1,4 +1,12 @@
-import { Component, Input, ElementRef, OnInit, Renderer2, OnDestroy, NgZone } from '@angular/core';
+import {
+  Component,
+  Input,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  OnDestroy,
+  NgZone
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -15,9 +23,8 @@ import { AnswerStructureService } from 'src/app/services/answer-structure.servic
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.scss'],
+  styleUrls: ['./questions.component.scss']
 })
-
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
   @Input() structure: Structure;
@@ -30,14 +37,16 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   editor: any;
   editTitle = true;
 
-  constructor(private el: ElementRef,
-              private knowledgeBaseService: KnowledgeBaseService,
-              private ngZone: NgZone,
-              public globalEvaluationService: GlobalEvaluationService,
-              private sidStatusService: SidStatusService,
-              private structureService: StructureService,
-              private answerStructureService: AnswerStructureService,
-              private dialogService: DialogService) { }
+  constructor(
+    private el: ElementRef,
+    private knowledgeBaseService: KnowledgeBaseService,
+    private ngZone: NgZone,
+    public globalEvaluationService: GlobalEvaluationService,
+    private sidStatusService: SidStatusService,
+    private structureService: StructureService,
+    private answerStructureService: AnswerStructureService,
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.globalEvaluationService.answerEditionEnabled = true;
@@ -49,7 +58,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
-    if (this.question.title && !this.question.title.startsWith('section') && this.question.title.length > 0) {
+    if (
+      this.question.title &&
+      !this.question.title.startsWith('section') &&
+      this.question.title.length > 0
+    ) {
       this.questionForm.controls['title'].patchValue(this.question.title);
       this.questionForm.controls['title'].disable();
       this.editTitle = false;
@@ -63,13 +76,17 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   removeQuestion(): void {
-    this.dialogService.confirmThis({
-      text: 'modals.remove_question.content',
-      type: 'confirm',
-      yes: 'modals.remove_question.remove',
-      no: 'modals.remove_question.keep',
-      icon: 'pia-icons pia-icon-sad'
-    },
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.remove_question.content',
+        type: 'confirm',
+        yes: 'modals.remove_question.remove',
+        no: 'modals.remove_question.keep',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_yes: 'btn-red'
+        }
+      },
       () => {
         this.answerStructureService.removeQuestion(
           this.structure,
@@ -80,7 +97,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   /**
@@ -92,7 +110,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     }
     this.editTitle = true;
     this.questionForm.controls['title'].enable();
-    const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
+    const questionTitleTextarea = document.getElementById(
+      'pia-questionBlock-title-' + this.question.id
+    );
     setTimeout(() => {
       questionTitleTextarea.focus();
     }, 200);
@@ -113,10 +133,18 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
     if (userText && userText.length >= 1) {
       this.question.title = userText;
-      this.structureService.updateJson(this.section, this.item, this.question, this.structure);
+      this.structureService.updateJson(
+        this.section,
+        this.item,
+        this.question,
+        this.structure
+      );
     }
 
-    if (this.questionForm.value.title && this.questionForm.value.title.length > 0) {
+    if (
+      this.questionForm.value.title &&
+      this.questionForm.value.title.length > 0
+    ) {
       this.questionForm.controls['title'].disable();
     }
   }
@@ -128,11 +156,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (this.structure.is_example) {
       return;
     }
-    const questionTitleTextarea = document.getElementById('pia-questionBlock-title-' + this.question.id);
+    const questionTitleTextarea = document.getElementById(
+      'pia-questionBlock-title-' + this.question.id
+    );
     const questionTitle = this.questionForm.controls['title'].value;
     if (questionTitleTextarea && !questionTitle) {
-        questionTitleTextarea.classList.add('pia-required');
-        questionTitleTextarea.focus();
+      questionTitleTextarea.classList.add('pia-required');
+      questionTitleTextarea.focus();
     } else if (this.globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
     }
@@ -149,7 +179,12 @@ export class QuestionsComponent implements OnInit, OnDestroy {
 
     this.ngZone.run(() => {
       this.question.answer = userText;
-      this.structureService.updateJson(this.section, this.item, this.question, this.structure);
+      this.structureService.updateJson(
+        this.section,
+        this.item,
+        this.question,
+        this.structure
+      );
       this.sidStatusService.setStructureStatus(this.section, this.item);
     });
   }
@@ -161,7 +196,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   displayQuestion(event: any): void {
     const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
     accordeon.classList.toggle('pia-icon-accordeon-down');
-    const displayer = this.el.nativeElement.querySelector('.pia-questionBlock-displayer');
+    const displayer = this.el.nativeElement.querySelector(
+      '.pia-questionBlock-displayer'
+    );
     displayer.classList.toggle('close');
   }
 
@@ -176,14 +213,15 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block : false,
+      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
       skin: false,
-      content_style: 'body {background-color:#eee!important;}' ,
+      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
-      toolbar: 'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      toolbar:
+        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {
@@ -191,7 +229,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           this.questionContentFocusOut();
           this.closeEditor();
         });
-      },
+      }
     });
   }
 

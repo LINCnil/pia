@@ -34,11 +34,12 @@ export class StructureLineComponent implements OnInit {
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
     this.structure[attribute] = text;
-    this.structureService.update(this.structure)
+    this.structureService
+      .update(this.structure)
       .then((result: Structure) => {
         this.changed.emit(result);
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err);
       });
   }
@@ -48,13 +49,20 @@ export class StructureLineComponent implements OnInit {
    * @param id - The Structure id.
    */
   remove(id: number): void {
-    this.dialogService.confirmThis({
-      text: 'modals.remove_structure.content',
-      type: 'confirm',
-      yes: 'modals.remove_structure.remove',
-      no: 'modals.cancel'},
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.remove_structure.content',
+        type: 'confirm',
+        yes: 'modals.remove_structure.remove',
+        no: 'modals.cancel',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_yes: 'btn-red'
+        }
+      },
       () => {
-        this.structureService.remove(id)
+        this.structureService
+          .remove(id)
           .then(() => {
             this.piaService.getAllWithStructure(id).then((items: any) => {
               items.forEach(item => {
@@ -70,7 +78,8 @@ export class StructureLineComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   /**

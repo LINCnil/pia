@@ -1,12 +1,27 @@
 <div class="pia-modalBlock open" *ngIf="message">
   <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">
-    <button *ngIf="message.type === 'confirm'" tabindex="3" type="button" class="pia-modalBlock-close btn"
+    <button
+      *ngIf="message.type === 'confirm'"
+      tabindex="3"
+      type="button"
+      class="pia-modalBlock-close btn"
       (click)="message.noFn()"
-      title="{{ 'modals.close' | translate }}">
+      title="{{ 'modals.close' | translate }}"
+    >
       <span class="pia-icons pia-icon-close-big"></span>
     </button>
     <ng-container *ngIf="message.data && message.data.date; else templateElse">
-      <p [innerHTML]="message.text | translate: {date: message.data.date | date: 'short':'':languagesService.selectedLanguage }"></p>
+      <p
+        [innerHTML]="
+          message.text
+            | translate
+              : {
+                  date:
+                    message.data.date
+                    | date: 'short':'':languagesService.selectedLanguage
+                }
+        "
+      ></p>
     </ng-container>
     <ng-template #templateElse>
       <p [innerHTML]="message.text | translate"></p>
@@ -15,14 +30,35 @@
       <i [ngClass]="message.icon" aria-hidden="true"></i>
     </p>
     <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="2" style="margin-right: 30px;" class="btn btn-red" (click)="message.noFn()" type="button" *ngIf="message.type === 'confirm'">
-        {{ message.no | translate}}
-      </button>
-      <button tabindex="1" class="btn btn-green get-focus" type="button" (click)="message.yesFn()">
-        {{ message.yes | translate}}
-      </button>
+      <button
+        tabindex="2"
+        style="margin-right: 30px;"
+        class="btn"
+        [ngClass]="
+          message.data && message.data.btn_no ? message.data.btn_no : 'btn-red'
+        "
+        (click)="message.noFn()"
+        type="button"
+        *ngIf="message.type === 'confirm'"
+        [innerHtml]="message.no | translate"
+      ></button>
+      <button
+        tabindex="1"
+        class="btn"
+        [ngClass]="
+          message.data && message.data.btn_yes
+            ? message.data.btn_yes
+            : 'btn-green'
+        "
+        type="button"
+        (click)="message.yesFn()"
+        [innerHtml]="message.yes | translate"
+      ></button>
     </div>
-    <div *ngIf="message.data && message.data.additional_text"
-      class="abandonText" [innerHTML]=" message.data.additional_text | translate"></div>
+    <div
+      *ngIf="message.data && message.data.additional_text"
+      class="abandonText"
+      [innerHTML]="message.data.additional_text | translate"
+    ></div>
   </div>
 </div>

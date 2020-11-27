@@ -527,7 +527,10 @@ export class PiaService extends ApplicationDb {
             type: 'yes',
             yes: 'modals.close',
             no: '',
-            icon: 'pia-icons pia-icon-sad'
+            icon: 'pia-icons pia-icon-sad',
+            data: {
+              btn_yes: 'btn-red'
+            }
           },
           () => {
             return;

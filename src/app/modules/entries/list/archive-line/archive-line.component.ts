@@ -29,13 +29,15 @@ export class ArchiveLineComponent implements OnInit {
     const attachmentModel = new Attachment();
     this.attachments = [];
     attachmentModel.pia_id = this.archivedPia.id;
-    this.attachmentsService.findAllByPia(this.archivedPia.id).then((entries: any) => {
-      entries.forEach(element => {
-        if (element['file'] && element['file'].length) {
-          this.attachments.push(element);
-        }
+    this.attachmentsService
+      .findAllByPia(this.archivedPia.id)
+      .then((entries: any) => {
+        entries.forEach(element => {
+          if (element['file'] && element['file'].length) {
+            this.attachments.push(element);
+          }
+        });
       });
-    });
   }
 
   /**
@@ -43,13 +45,20 @@ export class ArchiveLineComponent implements OnInit {
    * @param id - The archived PIA id.
    */
   unarchive(id: string): void {
-    this.dialogService.confirmThis({
-      text: 'modals.unarchive_pia.content',
-      type: 'confirm',
-      yes: 'modals.unarchive_pia.unarchive',
-      no: 'modals.cancel'},
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.unarchive_pia.content',
+        type: 'confirm',
+        yes: 'modals.unarchive_pia.unarchive',
+        no: 'modals.cancel',
+        data: {
+          btn_no: 'btn-blue',
+          btn_yes: 'btn-blue'
+        }
+      },
       () => {
-        this.archiveService.unarchive(id)
+        this.archiveService
+          .unarchive(id)
           .then(() => {
             this.deleted.emit();
           })
@@ -59,7 +68,8 @@ export class ArchiveLineComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   /**
@@ -67,15 +77,20 @@ export class ArchiveLineComponent implements OnInit {
    * @param id - The archived PIA id.
    */
   remove(id: string): void {
-    this.dialogService.confirmThis({
-      text: 'modals.remove_pia.content',
-      type: 'confirm',
-      yes: 'modals.remove_pia.remove',
-      no: 'modals.cancel',
-      icon: 'pia-icons pia-icon-sad'
-    },
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.remove_pia.content',
+        type: 'confirm',
+        yes: 'modals.remove_pia.remove',
+        no: 'modals.cancel',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_yes: 'btn-red'
+        }
+      },
       () => {
-        this.archiveService.remove(id)
+        this.archiveService
+          .remove(id)
           .then(() => {
             this.deleted.emit();
           })
@@ -85,6 +100,7 @@ export class ArchiveLineComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 }

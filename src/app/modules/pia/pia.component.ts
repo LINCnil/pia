@@ -264,7 +264,10 @@ export class PiaComponent implements OnInit {
             type: 'yes',
             yes: 'modals.action_plan_no_evaluation.review_section',
             no: '',
-            icon: 'fa fa-cog icon-blue'
+            icon: 'fa fa-cog icon-blue',
+            data: {
+              btn_yes: 'btn-blue'
+            }
           },
           () => {
             const gotoSectionItem = this.paginationService.getNextSectionItem(
@@ -298,7 +301,10 @@ export class PiaComponent implements OnInit {
             type: 'yes',
             yes: 'modals.action_plan_no_evaluation.review_section',
             no: '',
-            icon: 'fa fa-cog icon-blue'
+            icon: 'fa fa-cog icon-blue',
+            data: {
+              btn_yes: 'btn-blue'
+            }
           },
           () => {
             const gotoSectionItem = this.paginationService.getNextSectionItem(

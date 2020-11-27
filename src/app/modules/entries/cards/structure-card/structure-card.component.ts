@@ -1,4 +1,10 @@
-import { ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Structure } from 'src/app/models/structure.model';
@@ -30,7 +36,7 @@ export class StructureCardComponent implements OnInit {
     public structureService: StructureService,
     public languagesService: LanguagesService,
     private dialogService: DialogService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.structureForm = new FormGroup({
@@ -93,13 +99,14 @@ export class StructureCardComponent implements OnInit {
     }
     if (userText !== '') {
       this.structure.sector_name = this.structureForm.value.sector_name;
-      this.structureService.update(this.structure)
-      .then(() => {
-        this.changed.emit(this.structure);
-      })
-      .catch(err => {
-        console.error(err);
-      });
+      this.structureService
+        .update(this.structure)
+        .then(() => {
+          this.changed.emit(this.structure);
+        })
+        .catch(err => {
+          console.error(err);
+        });
     }
   }
 
@@ -108,13 +115,20 @@ export class StructureCardComponent implements OnInit {
    * @param id - The Structure id.
    */
   remove(id: number): void {
-    this.dialogService.confirmThis({
-      text: 'modals.remove_structure.content',
-      type: 'confirm',
-      yes: 'modals.remove_structure.remove',
-      no: 'modals.cancel'},
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.remove_structure.content',
+        type: 'confirm',
+        yes: 'modals.remove_structure.remove',
+        no: 'modals.cancel',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_yes: 'btn-red'
+        }
+      },
       () => {
-        this.structureService.remove(id)
+        this.structureService
+          .remove(id)
           .then(() => {
             this.piaService.getAllWithStructure(id).then((items: any) => {
               items.forEach(item => {
@@ -130,7 +144,8 @@ export class StructureCardComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   /**
@@ -152,5 +167,4 @@ export class StructureCardComponent implements OnInit {
         this.duplicated.emit(structure);
       });
   }
-
 }

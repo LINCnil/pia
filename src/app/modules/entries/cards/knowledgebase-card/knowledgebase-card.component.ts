@@ -22,18 +22,30 @@ export class KnowledgebaseCardComponent implements OnInit {
   @Output() duplicated = new EventEmitter<Structure>();
   @Output() deleted = new EventEmitter<any>();
 
-
   constructor(
     private knowledgesService: KnowledgesService,
     private knowledgeBaseService: KnowledgeBaseService,
-    private dialogService: DialogService) {}
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.knowledgeBaseForm = new FormGroup({
-      id: new FormControl({ value: this.base.id, disabled: this.base.is_example }, null),
-      name: new FormControl({ value: this.base.name, disabled: this.base.is_example }, null),
-      author: new FormControl({ value: this.base.author, disabled: this.base.is_example }, null),
-      contributors: new FormControl({ value: this.base.contributors, disabled: this.base.is_example }, null)
+      id: new FormControl(
+        { value: this.base.id, disabled: this.base.is_example },
+        null
+      ),
+      name: new FormControl(
+        { value: this.base.name, disabled: this.base.is_example },
+        null
+      ),
+      author: new FormControl(
+        { value: this.base.author, disabled: this.base.is_example },
+        null
+      ),
+      contributors: new FormControl(
+        { value: this.base.contributors, disabled: this.base.is_example },
+        null
+      )
     });
 
     if (!this.base.is_example) {
@@ -79,26 +91,30 @@ export class KnowledgebaseCardComponent implements OnInit {
       this.base.name = this.knowledgeBaseForm.value.name;
       this.base.author = this.knowledgeBaseForm.value.author;
       this.base.contributors = this.knowledgeBaseForm.value.contributors;
-      this.knowledgeBaseService.update(this.base)
-        .then((result) => {
+      this.knowledgeBaseService
+        .update(this.base)
+        .then(result => {
           // this.structEvent.emit(this.structure);
         })
-        .catch((err) => {
-
-        });
+        .catch(err => {});
     }
   }
 
   remove(id): void {
-    this.dialogService.confirmThis({
-      text: 'modals.knowledges.content',
-      type: 'confirm',
-      yes: 'modals.knowledges.remove',
-      no: 'modals.cancel',
-      icon: 'pia-icons pia-icon-sad'
-    },
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.knowledges.content',
+        type: 'confirm',
+        yes: 'modals.knowledges.remove',
+        no: 'modals.cancel',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_yes: 'btn-red'
+        }
+      },
       () => {
-        this.knowledgeBaseService.delete(id)
+        this.knowledgeBaseService
+          .delete(id)
           .then(() => {
             this.deleted.emit();
           })
@@ -108,7 +124,8 @@ export class KnowledgebaseCardComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   export(id): void {

@@ -227,7 +227,10 @@ export class BaseComponent implements OnInit {
         type: 'confirm',
         yes: 'modals.knowledge.remove',
         no: 'modals.cancel',
-        icon: 'pia-icons pia-icon-sad'
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_yes: 'btn-red'
+        }
       },
       () => {
         this.knowledgesService

@@ -44,23 +44,31 @@ export class KnowledgebaseLineComponent implements OnInit {
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
     this.base[attribute] = text;
-    this.knowledgeBaseService.update(this.base)
+    this.knowledgeBaseService
+      .update(this.base)
       .then(() => {
         this.changed.emit(this.base);
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err);
       });
   }
 
   remove(id): void {
-    this.dialogService.confirmThis({
-      text: 'modals.knowledges.content',
-      type: 'confirm',
-      yes: 'modals.knowledges.remove',
-      no: 'modals.cancel'},
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.knowledges.content',
+        type: 'confirm',
+        yes: 'modals.knowledges.remove',
+        no: 'modals.cancel',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_yes: 'btn-red'
+        }
+      },
       () => {
-        this.knowledgeBaseService.delete(id)
+        this.knowledgeBaseService
+          .delete(id)
           .then(() => {
             this.deleted.emit();
           })
@@ -70,7 +78,8 @@ export class KnowledgebaseLineComponent implements OnInit {
       },
       () => {
         return;
-      });
+      }
+    );
   }
 
   export(id): void {

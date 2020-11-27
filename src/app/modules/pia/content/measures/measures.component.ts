@@ -276,7 +276,10 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           type: 'yes',
           yes: 'modals.close',
           no: '',
-          icon: 'pia-icons pia-icon-sorry'
+          icon: 'pia-icons pia-icon-sorry',
+          data: {
+            btn_yes: 'btn-blue'
+          }
         },
         () => {
           return false;
@@ -292,7 +295,10 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           type: 'confirm',
           yes: 'modals.remove_measure.remove',
           no: 'modals.remove_measure.keep',
-          icon: 'pia-icons pia-icon-sad'
+          icon: 'pia-icons pia-icon-sad',
+          data: {
+            btn_yes: 'btn-red'
+          }
         },
         () => {
           this.measuresService.removeMeasure(measureId).then(() => {

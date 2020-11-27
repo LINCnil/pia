@@ -46,10 +46,15 @@ export class CommentsComponent implements OnInit {
     }
     this.comments = [];
 
-    this.commentsService.findAllByReference(this.pia.id, (this.measure) ? this.measure.id :  this.question.id).then(entries => {
-      this.comments = entries;
-      this.comments.reverse();
-    });
+    this.commentsService
+      .findAllByReference(
+        this.pia.id,
+        this.measure ? this.measure.id : this.question.id
+      )
+      .then(entries => {
+        this.comments = entries;
+        this.comments.reverse();
+      });
 
     this.commentsForm = new FormGroup({
       description: new FormControl()
@@ -118,7 +123,10 @@ export class CommentsComponent implements OnInit {
             type: 'yes',
             yes: 'modals.close',
             no: '',
-            icon: 'pia-icons pia-icon-sorry'
+            icon: 'pia-icons pia-icon-sorry',
+            data: {
+              btn_yes: 'btn-blue'
+            }
           },
           () => {
             return false;

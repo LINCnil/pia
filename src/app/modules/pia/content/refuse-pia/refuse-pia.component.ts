@@ -84,7 +84,8 @@ export class RefusePIAComponent implements OnInit {
         no: 'modals.cancel',
         icon: 'fa fa-times icon-red',
         data: {
-          additional_text: 'modals.abandon_pia.additional_text'
+          additional_text: 'modals.abandon_pia.additional_text',
+          btn_yes: 'btn-red'
         }
       },
       () => {
@@ -110,7 +111,10 @@ export class RefusePIAComponent implements OnInit {
               type: 'yes',
               yes: 'modals.close',
               no: '',
-              icon: 'fa fa-cog icon-red'
+              icon: 'fa fa-cog icon-red',
+              data: {
+                btn_yes: 'btn-red'
+              }
             },
             () => {
               this.piaService

@@ -8,17 +8,14 @@ import { Structure } from '../models/structure.model';
 import { ApplicationDb } from '../application.db';
 import { DialogService } from './dialog.service';
 
-
 @Injectable()
 export class StructureService extends ApplicationDb {
-
   constructor(
     private dialogService: DialogService,
-    private languagesService: LanguagesService) {
-                super(201808011000, 'structure');
-
+    private languagesService: LanguagesService
+  ) {
+    super(201808011000, 'structure');
   }
-
 
   /**
    * Find all entries without conditions.
@@ -47,12 +44,18 @@ export class StructureService extends ApplicationDb {
 
   async loadExample(): Promise<any> {
     return new Promise((resolve, reject) => {
-      const exampleStructLanguage = this.languagesService.selectedLanguage === 'fr' ? structureExampleFr : structureExampleEn;
+      const exampleStructLanguage =
+        this.languagesService.selectedLanguage === 'fr'
+          ? structureExampleFr
+          : structureExampleEn;
       const structureExample = new Structure();
       structureExample.id = 0;
       structureExample.name = exampleStructLanguage.structure.name;
-      structureExample.sector_name = exampleStructLanguage.structure.sector_name;
-      structureExample.created_at = new Date(exampleStructLanguage.structure.created_at);
+      structureExample.sector_name =
+        exampleStructLanguage.structure.sector_name;
+      structureExample.created_at = new Date(
+        exampleStructLanguage.structure.created_at
+      );
       structureExample.data = exampleStructLanguage.structure.data;
       structureExample.is_example = true;
       resolve(structureExample);
@@ -92,21 +95,24 @@ export class StructureService extends ApplicationDb {
           method: 'POST',
           body: formData,
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result.id);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result.id);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
@@ -144,14 +150,17 @@ export class StructureService extends ApplicationDb {
             method: 'PATCH',
             body: formData,
             mode: 'cors'
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            resolve(result);
-          }).catch ((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve(result);
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
@@ -168,19 +177,34 @@ export class StructureService extends ApplicationDb {
     });
   }
 
-  updateJson(section: any, item: any, question: any, structure: Structure): void {
-    structure.data.sections.filter(
-      s => s.id === section.id)[0].items.filter(
-        i => i.id === item.id)[0].questions.filter(q => q.id === question.id)[0].title = question.title;
-    structure.data.sections.filter(
-      s => s.id === section.id)[0].items.filter(
-        i => i.id === item.id)[0].questions.filter(q => q.id === question.id)[0].answer = question.answer;
+  updateJson(
+    section: any,
+    item: any,
+    question: any,
+    structure: Structure
+  ): void {
+    structure.data.sections
+      .filter(s => s.id === section.id)[0]
+      .items.filter(i => i.id === item.id)[0]
+      .questions.filter(q => q.id === question.id)[0].title = question.title;
+    structure.data.sections
+      .filter(s => s.id === section.id)[0]
+      .items.filter(i => i.id === item.id)[0]
+      .questions.filter(q => q.id === question.id)[0].answer = question.answer;
     this.update(structure);
   }
 
-  updateMeasureJson(section: any, item: any, measure: any, id: number, structure: Structure): void {
-      structure.data.sections.filter(s => s.id === section.id)[0].items.filter(i => i.id === item.id)[0].answers[id] = measure;
-      this.update(structure);
+  updateMeasureJson(
+    section: any,
+    item: any,
+    measure: any,
+    id: number,
+    structure: Structure
+  ): void {
+    structure.data.sections
+      .filter(s => s.id === section.id)[0]
+      .items.filter(i => i.id === item.id)[0].answers[id] = measure;
+    this.update(structure);
   }
 
   /**
@@ -189,8 +213,8 @@ export class StructureService extends ApplicationDb {
    */
   async duplicateStructure(id: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.exportStructureData(id).then((data) => {
-        this.importStructureData(data, 'COPY', true).then((structure) => {
+      this.exportStructureData(id).then(data => {
+        this.importStructureData(data, 'COPY', true).then(structure => {
           resolve(structure);
         });
       });
@@ -206,14 +230,17 @@ export class StructureService extends ApplicationDb {
     return new Promise((resolve, reject) => {
       const structure = new Structure();
       if (id > 0) {
-        this.find(id).then((result) => {
+        this.find(id).then(result => {
           const data = {
             structure: result
           };
           resolve(data);
         });
       } else {
-        const exampleStructLanguage = this.languagesService.selectedLanguage === 'fr' ? structureExampleFr : structureExampleEn;
+        const exampleStructLanguage =
+          this.languagesService.selectedLanguage === 'fr'
+            ? structureExampleFr
+            : structureExampleEn;
         resolve(exampleStructLanguage);
       }
     });
@@ -227,21 +254,25 @@ export class StructureService extends ApplicationDb {
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
-
-      if (!('structure' in data) || !('dbVersion' in data.structure)) {
-        this.dialogService.confirmThis({
-          text: 'modals.import_wrong_structure_file.content',
-          type: 'yes',
-          yes: 'modals.close',
-          no: '',
-          icon: 'pia-icons pia-icon-sad'
-        },
+      if (!('structure' in data) || !('dbVersion' in data.structure)) {
+        this.dialogService.confirmThis(
+          {
+            text: 'modals.import_wrong_structure_file.content',
+            type: 'yes',
+            yes: 'modals.close',
+            no: '',
+            icon: 'pia-icons pia-icon-sad',
+            data: {
+              btn_yes: 'btn-red'
+            }
+          },
           () => {
             return;
           },
           () => {
             return;
-          });
+          }
+        );
         return;
       }
 
@@ -261,7 +292,7 @@ export class StructureService extends ApplicationDb {
       }
 
       this.create(structure).then((result: Structure) => {
-        console.log("finish", result);
+        console.log('finish', result);
         resolve(result);
       });
     });
@@ -273,9 +304,11 @@ export class StructureService extends ApplicationDb {
    */
   exportStructure(id: number) {
     const date = new Date().getTime();
-    this.exportStructureData(id).then((data) => {
+    this.exportStructureData(id).then(data => {
       const a = document.getElementById('pia-exportBlock');
-      const url = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+      const url =
+        'data:text/json;charset=utf-8,' +
+        encodeURIComponent(JSON.stringify(data));
       a.setAttribute('href', url);
       a.setAttribute('download', date + '_export_structure_' + id + '.json');
       const event = new MouseEvent('click', {
@@ -299,7 +332,7 @@ export class StructureService extends ApplicationDb {
           .then((structure: Structure) => {
             resolve(structure);
           })
-          .catch((err) => {
+          .catch(err => {
             console.error(err);
           });
       };
@@ -311,7 +344,7 @@ export class StructureService extends ApplicationDb {
     return new Promise((resolve, reject) => {
       // Removes from DB.
       this.delete(id)
-        .then( () => {
+        .then(() => {
           // this.piaService.getAllWithStructure(id).then((items: any) => {
           //   items.forEach(item => {
           //     item.structure_id = null;

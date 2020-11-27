@@ -30,6 +30,7 @@
       }
     }
     &-buttons-choice {
+      margin-top: 2rem;
       button {
         vertical-align: top;
       }
@@ -63,6 +64,9 @@
         }
         .red {
           color: $pia-red;
+        }
+        .pia-icons {
+          margin: 2rem 0;
         }
       }
     }
@@ -119,4 +123,17 @@
       z-index: 999999999;
     }
   }
+}
+
+.icon-green {
+  color: $pia-green;
+}
+.icon-gray {
+  color: $pia-gray;
+}
+.icon-red {
+  color: $pia-red;
+}
+.icon-blue {
+  color: $pia-blue;
 }
