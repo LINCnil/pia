@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import * as html2canvas from 'html2canvas';
 import { svgAsPngUri } from 'save-svg-as-png';
@@ -66,7 +60,7 @@ export class ExportComponent implements OnInit {
   }
 
   /****************************** DOWNLOAD FILES ************************************/
-  onSelectDownload(type: string, isChecked: boolean): void  {
+  onSelectDownload(type: string, isChecked: boolean): void {
     if (isChecked) {
       this.exportSelected.push(type);
     } else {
@@ -75,44 +69,42 @@ export class ExportComponent implements OnInit {
     }
   }
 
-  async launchDownload(): Promise<void>  {
+  async launchDownload(): Promise<void> {
     if (this.editMode) {
       this.downloading.emit(true);
       setTimeout(async () => {
-        this.onDownload()
-          .then(() => {
-            this.downloading.emit(false);
-          });
+        this.onDownload().then(() => {
+          this.downloading.emit(false);
+        });
       }, 5000);
     } else {
       this.onDownload();
     }
   }
 
-  async onDownload(): Promise<void>  {
+  async onDownload(): Promise<void> {
     return new Promise((resolve, reject) => {
       if (this.exportSelected) {
         if (this.exportSelected.length > 1) {
           // download by selection
-          this.generateExportsZip('pia-full-content', this.exportSelected)
-            .then(() => {
+          this.generateExportsZip('pia-full-content', this.exportSelected).then(
+            () => {
               resolve();
-            });
+            }
+          );
         } else {
           // download only one element
           const fileTitle = 'pia-' + slugify(this.pia.name);
           switch (this.exportSelected[0]) {
             case 'doc': // Only doc
-              this.generateDocx('pia-full-content')
-                .then(() => {
-                  resolve();
-                });
+              this.generateDocx('pia-full-content').then(() => {
+                resolve();
+              });
               break;
             case 'images': // Only images
-              this.downloadAllGraphsAsImages()
-                .then(() => {
-                  resolve();
-                });
+              this.downloadAllGraphsAsImages().then(() => {
+                resolve();
+              });
               break;
             case 'json': // Only json
               this.piaService.export(this.pia.id).then((json: any) => {
@@ -125,7 +117,7 @@ export class ExportComponent implements OnInit {
                   downloadLink.download = fileTitle + '.json';
                   downloadLink.click();
                 }
-                resolve()
+                resolve();
               });
               break;
             case 'csv': // Only csv
@@ -165,7 +157,7 @@ export class ExportComponent implements OnInit {
    * @param element block in the HTML view used to generate the docx in the zip
    * @param exports files to exports array ['doc', 'images', 'csv', 'json']
    */
-  async generateExportsZip(element, exports: Array<string>): Promise<void>   {
+  async generateExportsZip(element, exports: Array<string>): Promise<void> {
     // await setTimeout(async () => {
     const zipName = 'pia-' + slugify(this.pia.name) + '.zip';
     const JSZip = require('jszip');
@@ -254,9 +246,7 @@ export class ExportComponent implements OnInit {
       headers: [
         `"${this.translateService.instant('summary.csv_section')}"`,
         `"${this.translateService.instant('summary.csv_title_object')}"`,
-        `"${this.translateService.instant(
-          'summary.csv_action_plan_comment'
-        )}"`,
+        `"${this.translateService.instant('summary.csv_action_plan_comment')}"`,
         `"${this.translateService.instant('summary.csv_evaluation_comment')}"`,
         `"${this.translateService.instant('summary.csv_implement_date')}"`,
         `"${this.translateService.instant('summary.csv_people_in_charge')}"`
@@ -410,11 +400,14 @@ export class ExportComponent implements OnInit {
    */
   async addAttachmentsToZip(zip): Promise<void> {
     return new Promise(async (resolve, reject) => {
-      this.attachmentsService.findAllByPia(this.pia.id)
+      this.attachmentsService
+        .findAllByPia(this.pia.id)
         .then((attachments: Array<any>) => {
           attachments.forEach(attachment => {
             if (attachment.file && attachment.file.length > 0) {
-              const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
+              const byteCharacters1 = atob(
+                (attachment.file as any).split(',')[1]
+              );
               const folderName = this.translateService.instant(
                 'summary.attachments'
               );
@@ -422,8 +415,8 @@ export class ExportComponent implements OnInit {
                 binary: true
               });
             }
+          });
         });
-      });
       resolve(zip);
     });
   }
@@ -479,8 +472,9 @@ export class ExportComponent implements OnInit {
   async getActionPlanOverviewImg(): Promise<void> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
-        console.log(actionPlanOverviewImg)
+        const actionPlanOverviewImg = document.querySelector(
+          '#actionPlanOverviewImg'
+        );
         if (actionPlanOverviewImg) {
           html2canvas(actionPlanOverviewImg, { scale: 1.4 }).then(canvas => {
             if (canvas) {

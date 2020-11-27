@@ -212,7 +212,6 @@ export class BaseComponent implements OnInit {
     this.knowledgesService
       .duplicate(this.base.id, id)
       .then((entry: Knowledge) => {
-        console.log(entry);
         this.knowledges.push(entry);
       })
       .catch(err => {

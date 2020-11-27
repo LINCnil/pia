@@ -121,7 +121,7 @@ export class RefusePIAComponent implements OnInit {
                 .resetDpoPage(this.pia.id)
                 .then(() => {
                   this.router.navigate([
-                    'entry',
+                    'pia',
                     this.pia.id,
                     'section',
                     1,

@@ -2,11 +2,14 @@
   class="small-12 medium-6 columns pia-fullPreviewBlock-content"
   *ngIf="revision"
 >
-  <div class="container pia-fullPreviewContainerBlock pia-mainContainerBlock">
+  <div
+    id="printRevision"
+    class="container pia-fullPreviewContainerBlock pia-mainContainerBlock"
+  >
     <div class="pia-fullPreviewBlock-data">
       <div class="pia-fullPreviewBlock-actions hide-for-print">
         <div>
-          <button type="button" (click)="print()">
+          <button type="button" (click)="printRevision('printRevision')">
             <i aria-hidden="true" class="fa fa-print"></i>
             <div>{{ "summary.actions.print" | translate }}</div>
           </button>

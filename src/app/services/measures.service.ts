@@ -19,7 +19,6 @@ export class MeasureService extends ApplicationDb {
   }
 
   async create(measure: Measure): Promise<any> {
-    console.log('create', measure);
     this.created_at = new Date();
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
@@ -50,7 +49,6 @@ export class MeasureService extends ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            console.log('fin', event.target.result);
             resolve(event.target.result);
           };
         });
