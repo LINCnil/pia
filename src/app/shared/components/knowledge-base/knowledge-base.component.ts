@@ -87,15 +87,21 @@ export class KnowledgeBaseComponent implements OnInit {
 
     this.translateService.onLangChange.subscribe(() => {
       this.loadKnowledgesBase().then(() => {
-        this.switch(
+        if (
           localStorage.getItem(
             'pia_' + this.route.snapshot.params.id + '_knowledgebase'
           )
-        );
-        this.selectedKnowledBase = localStorage.getItem(
-          'pia_' + this.route.snapshot.params.id + '_knowledgebase'
-        );
-        console.log(this.selectedKnowledBase);
+        ) {
+          this.switch(
+            localStorage.getItem(
+              'pia_' + this.route.snapshot.params.id + '_knowledgebase'
+            )
+          );
+          this.selectedKnowledBase = localStorage.getItem(
+            'pia_' + this.route.snapshot.params.id + '_knowledgebase'
+          );
+          console.log(this.selectedKnowledBase);
+        }
       });
     });
   }
