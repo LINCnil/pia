@@ -61,10 +61,10 @@ export class EvaluationsComponent
     private evaluationService: EvaluationService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
-    this.checkEvaluationValidation();
+    await this.checkEvaluationValidation();
 
     this.riskName = {
       value: this.translateService.instant(
@@ -143,7 +143,7 @@ export class EvaluationsComponent
    * Check the evaluation validation.
    * @private
    */
-  private checkEvaluationValidation(): void {
+  private async checkEvaluationValidation(): Promise<any> {
     if (this.item.evaluation_mode === 'question') {
       // Measure evaluation update
       if (this.item.is_measure) {
