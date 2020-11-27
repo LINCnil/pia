@@ -1,7 +1,6 @@
 import { Component, OnInit, NgZone, Input } from '@angular/core';
 import * as d3 from 'd3';
 
-import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Answer } from 'src/app/models/answer.model';
@@ -9,6 +8,7 @@ import { AnswerService } from 'src/app/services/answer.service';
 import { Pia } from 'src/app/models/pia.model';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: `.app-overview-risks`,
   templateUrl: './overview-risks.component.html',
   styleUrls: ['./overview-risks.component.scss']
@@ -80,15 +80,17 @@ export class OverviewRisksComponent implements OnInit {
                   tags[l].push(reference_to.toString().substring(0, 2));
                 }
               }
-              this.data.push({
-                id: dt.id,
-                name: dt.name,
-                tags
-              });
             });
         }
-        resolve();
+        this.data.push({
+          id: dt.id,
+          name: dt.name,
+          tags
+        });
       }
+
+      console.log(this.data);
+      resolve();
     });
   }
 

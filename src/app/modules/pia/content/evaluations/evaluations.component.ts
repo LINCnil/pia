@@ -15,8 +15,6 @@ import { Subscription } from 'rxjs';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
-import { SidStatusService } from 'src/app/services/sid-status.service';
-import { PiaService } from 'src/app/services/pia.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
@@ -63,10 +61,10 @@ export class EvaluationsComponent
     private evaluationService: EvaluationService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
-    this.checkEvaluationValidation();
+    await this.checkEvaluationValidation();
 
     this.riskName = {
       value: this.translateService.instant(
@@ -88,7 +86,7 @@ export class EvaluationsComponent
     // Updating translations when changing language (comments' placeholders)
     this.placeholderSubscription = this.translateService.onLangChange.subscribe(
       (event: LangChangeEvent) => {
-        if (this.evaluation.status) {
+        if (this.evaluation && this.evaluation.status) {
           if (this.evaluation.status === 1) {
             this.comment_placeholder = this.translateService.instant(
               'evaluations.placeholder_to_correct'
@@ -145,7 +143,7 @@ export class EvaluationsComponent
    * Check the evaluation validation.
    * @private
    */
-  private checkEvaluationValidation(): void {
+  private async checkEvaluationValidation(): Promise<any> {
     if (this.item.evaluation_mode === 'question') {
       // Measure evaluation update
       if (this.item.is_measure) {

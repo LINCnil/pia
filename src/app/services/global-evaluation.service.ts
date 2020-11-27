@@ -696,7 +696,7 @@ export class GlobalEvaluationService {
         .getByReference(this.pia.id, reference_to)
         .then((evaluation: any) => {
           if (evaluation !== false) {
-            evaluation.delete(evaluation.id).then(() => {
+            this.evaluationService.delete(evaluation.id).then(() => {
               resolve();
             });
           } else {

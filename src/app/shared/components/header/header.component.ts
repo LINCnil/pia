@@ -81,4 +81,10 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem('increaseContrast', event.target.checked);
     this.appDataService.contrastMode = event.target.checked;
   }
+
+  goToExample() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['pia', 1, 'section', 1, 'item', 1]);
+    });
+  }
 }

@@ -135,7 +135,7 @@
                 </a>
                 <ul>
                   <li *ngIf="languagesService.selectedLanguage === 'fr'">
-                    <a [routerLink]="['preview', 1, 'section', 1, 'item', 1]">
+                    <a (click)="goToExample()">
                       {{ "header.help.pia_example_link" | translate }}
                     </a>
                   </li>
