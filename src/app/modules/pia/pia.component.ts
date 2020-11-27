@@ -108,7 +108,6 @@ export class PiaComponent implements OnInit {
 
         // Start onboarding
         if (!localStorage.getItem('onboardingEntryConfirmed')) {
-          console.log('ENTRY INTROJS');
           this.introjsService.start('entry');
         } else if (localStorage.getItem('onboardingEntryConfirmed')) {
           this.introjsService.start('evaluation');

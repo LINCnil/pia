@@ -100,7 +100,6 @@ export class OverviewRisksComponent implements OnInit {
    */
   private async initSvg() {
     const dataNav = this.appDataService.dataNav;
-    console.log(dataNav);
     this.svg = d3.select('svg');
     this.svg.attr('viewBox', '0 0 590 800');
     let y = 20;

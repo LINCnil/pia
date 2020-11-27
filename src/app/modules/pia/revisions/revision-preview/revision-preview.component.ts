@@ -271,7 +271,18 @@ export class RevisionPreviewComponent implements OnInit {
     );
   }
 
-  public print(): void {
-    window.print();
+  public printRevision(elementId): void {
+    const printElement = document.getElementById(elementId);
+    const printWindow = window.open('', 'PRINT');
+    printWindow.document.write(document.documentElement.innerHTML);
+    setTimeout(() => {
+      // Needed for large documents
+      printWindow.document.body.style.margin = '0 0';
+      printWindow.document.body.innerHTML = printElement.innerHTML;
+      printWindow.document.close(); // necessary for IE >= 10
+      printWindow.focus(); // necessary for IE >= 10*/
+      printWindow.print();
+      printWindow.close();
+    }, 1000);
   }
 }
