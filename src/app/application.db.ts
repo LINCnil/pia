@@ -76,7 +76,9 @@ export class ApplicationDb {
             } else if (this.tableName === 'revision') {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
             } else if (this.tableName === 'knowledge') {
-              objectStore.createIndex('index1', 'knowledgeBase_id', { unique: false });
+              objectStore.createIndex('index1', 'knowledgeBase_id', {
+                unique: false
+              });
             }
           }
           if (event.oldVersion !== this.dbVersion) {
@@ -131,7 +133,9 @@ export class ApplicationDb {
       alert('A new version of this page is ready. Please reload!');
     };
     return new Promise((resolve, reject) => {
-      this.objectStore = db.transaction(this.tableName, 'readwrite').objectStore(this.tableName);
+      this.objectStore = db
+        .transaction(this.tableName, 'readwrite')
+        .objectStore(this.tableName);
       if (this.objectStore) {
         resolve(this.objectStore);
       } else {
@@ -264,7 +268,7 @@ export class ApplicationDb {
    * @public
    * @returns {string} - An URL.
    */
-  public getServerUrl() {
+  public getServerUrl(): string {
     let prefix = '/pias';
     let id = this.pia_id;
     if (this.tableName === 'structure') {
@@ -273,8 +277,10 @@ export class ApplicationDb {
     }
 
     if (this.tableName !== 'pia' && this.tableName !== 'structure') {
+      // others
       return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's';
     } else {
+      // pias et structures api
       return this.serverUrl + prefix;
     }
   }

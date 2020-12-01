@@ -1,5 +1,19 @@
-import { Component, ViewChild, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  Component,
+  ViewChild,
+  OnInit,
+  Input,
+  ElementRef,
+  Output,
+  EventEmitter
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
+import { Attachment } from 'src/app/models/attachment.model';
 
 import { AttachmentsService } from 'src/app/services/attachments.service';
 
@@ -12,7 +26,7 @@ export class AttachmentItemComponent implements OnInit {
   @ViewChild('pdfViewerAutoLoad', { static: false }) pdfViewerAutoLoad;
 
   @Input() isPreview: boolean;
-  @Input() attachment: any;
+  @Input() attachment: Attachment;
   @Input() pia: any;
   @Output() deleted = new EventEmitter();
   fileUrl: any = null;
@@ -20,18 +34,17 @@ export class AttachmentItemComponent implements OnInit {
   showRemoveAttachmentForm = false;
   removeAttachmentForm: FormGroup;
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private attachmentsService: AttachmentsService,
+    private el: ElementRef
+  ) {
+    this.removeAttachmentForm = this.formBuilder.group({
+      comment: ['', [Validators.required, Validators.minLength(3)]]
+    });
+  }
 
-  constructor(private formBuilder: FormBuilder,
-              private attachmentsService: AttachmentsService,
-              private el: ElementRef) {
-                this.removeAttachmentForm = this.formBuilder.group({
-                  comment: ['', [Validators.required, Validators.minLength(3)]]
-                });
-              }
-
-  ngOnInit(): void { }
-
-
+  ngOnInit(): void {}
 
   /**
    * Deletes an attachment with a given id.
@@ -54,7 +67,9 @@ export class AttachmentItemComponent implements OnInit {
    */
   previewAttachment(show: boolean): void {
     if (!this.isPreview) {
-      const elPreview = this.el.nativeElement.querySelector('.pia-attachmentsBlock-item-preview');
+      const elPreview = this.el.nativeElement.querySelector(
+        '.pia-attachmentsBlock-item-preview'
+      );
       const embed = elPreview.querySelector('#iframe');
       const img = elPreview.querySelector('img');
 
@@ -64,8 +79,8 @@ export class AttachmentItemComponent implements OnInit {
 
       if (show) {
         if (this.attachment.mime_type.endsWith('pdf')) {
-        // embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
-        // embed.classList.remove('hide');
+          // embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
+          // embed.classList.remove('hide');
           const data = this.attachment.file.split(';base64,')[1];
           // base64 string
           const base64str = data;
@@ -76,16 +91,15 @@ export class AttachmentItemComponent implements OnInit {
           const buffer = new ArrayBuffer(len);
           const view = new Uint8Array(buffer);
           for (let i = 0; i < len; i++) {
-              view[i] = binary.charCodeAt(i);
+            view[i] = binary.charCodeAt(i);
           }
 
-
-          const blob = new Blob([view], {type: 'application/pdf'})
+          const blob = new Blob([view], { type: 'application/pdf' });
           this.fileUrl = URL.createObjectURL(blob);
 
           elPreview.classList.remove('hide');
           // this.downloadAttachment();
-        } else if(this.attachment.mime_type.startsWith('image')) {
+        } else if (this.attachment.mime_type.startsWith('image')) {
           img.setAttribute('src', this.attachment.file);
           img.classList.remove('hide');
           elPreview.classList.remove('hide');
@@ -101,17 +115,21 @@ export class AttachmentItemComponent implements OnInit {
    * @return True if the PIA isn't validated (simple or signed validation), false otherwise.
    */
   showAddAttachmentButton(): boolean {
-    return (this.pia.status !== 2 && this.pia.status !== 3);
+    return this.pia.status !== 2 && this.pia.status !== 3;
   }
-
 
   submitRemoveAttachment(): void {
     this.attachmentsService
-      .removeAttachment(this.attachment.id, this.removeAttachmentForm.controls['comment'].value)
-        .then(() => {
-          this.deleted.emit(this.attachment.id);
-          this.showRemoveAttachmentForm = false;
-        });
+      .removeAttachment(
+        this.attachment.id,
+        this.removeAttachmentForm.value.comment
+      )
+      .then(() => {
+        this.deleted.emit(this.attachment.id);
+        this.showRemoveAttachmentForm = false;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
-
 }

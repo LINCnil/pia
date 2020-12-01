@@ -20,23 +20,26 @@ export class AttachmentsService extends ApplicationDb {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
-          fetch(this.getServerUrl(),{
+          fetch(this.getServerUrl(), {
             mode: 'cors'
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            resolve(result);
-          }).catch ((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve(result);
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           const index1 = this.objectStore.index('index1');
           const evt = index1.openCursor(IDBKeyRange.only(pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -45,7 +48,7 @@ export class AttachmentsService extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         }
       });
     }
@@ -69,14 +72,17 @@ export class AttachmentsService extends ApplicationDb {
           method: 'POST',
           body: formData,
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         const evt = this.objectStore.add(data);
         evt.onsuccess = (event: any) => {
@@ -107,23 +113,26 @@ export class AttachmentsService extends ApplicationDb {
             method: 'PATCH',
             body: formData,
             mode: 'cors'
-          }).then((response) => {
-            return response.json();
-          }).then((result: any) => {
-            resolve();
-          }).catch ((error) => {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve(result);
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject(error);
+            });
         } else {
           this.getObjectStore().then(() => {
             const evt = this.objectStore.put(entry);
             evt.onerror = (event: any) => {
               console.error(event);
               reject(Error(event));
-            }
-            evt.onsuccess = () => {
-              resolve();
+            };
+            evt.onsuccess = (event: any) => {
+              resolve(event.target.result);
             };
           });
         }
@@ -137,23 +146,26 @@ export class AttachmentsService extends ApplicationDb {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
         if (this.serverUrl) {
-          fetch(this.getServerUrl(),{
+          fetch(this.getServerUrl(), {
             mode: 'cors'
-          }).then(function(response) {
-            return response.json();
-          }).then(function(result: any) {
-            resolve(result);
-          }).catch (function (error) {
-            console.error('Request failed', error);
-            reject();
-          });
+          })
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(result: any) {
+              resolve(result);
+            })
+            .catch(function(error) {
+              console.error('Request failed', error);
+              reject();
+            });
         } else {
           const index1 = this.objectStore.index('index1');
           const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -162,7 +174,7 @@ export class AttachmentsService extends ApplicationDb {
             } else {
               resolve(items);
             }
-          }
+          };
         }
       });
     }
@@ -171,7 +183,7 @@ export class AttachmentsService extends ApplicationDb {
   /**
    * Update all signed attachement.
    */
-  async updateSignedAttachmentsList(piaId): Promise<void>  {
+  async updateSignedAttachmentsList(piaId): Promise<void> {
     return new Promise((resolve, reject) => {
       this.signedAttachments = [];
       this.findAllByPia(piaId).then((data: any[]) => {
@@ -184,7 +196,11 @@ export class AttachmentsService extends ApplicationDb {
         // If we have some signed attachments :
         if (this.signedAttachments && this.signedAttachments.length > 0) {
           this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
-          if (this.signedAttachments[0] && this.signedAttachments[0].file && this.signedAttachments[0].file.length > 0) {
+          if (
+            this.signedAttachments[0] &&
+            this.signedAttachments[0].file &&
+            this.signedAttachments[0].file.length > 0
+          ) {
             // Store the latest signed attachment only if file isn't empty
             this.attachment_signed = this.signedAttachments[0];
             // Remove it from the signed attachments array so that we get the oldest
@@ -200,7 +216,7 @@ export class AttachmentsService extends ApplicationDb {
    * Upload a new attachment.
    * @param {*} attachment_file - The attachment file.
    */
-  upload(attachment_file: any, piaId, piaSigned = 0): Promise<Attachment>  {
+  upload(attachment_file: any, piaId, piaSigned = 0): Promise<Attachment> {
     return new Promise((resolve, reject) => {
       const file = new Blob([attachment_file]);
       const reader = new FileReader();
@@ -223,11 +239,11 @@ export class AttachmentsService extends ApplicationDb {
         attachment.pia_signed = piaSigned;
         attachment.comment = '';
         this.create(attachment)
-          .then((res: Attachment) => {
+          .then((res: any) => {
             // To refresh signed attachments on validation page
             this.updateSignedAttachmentsList(piaId).then(() => {
               // ---
-              resolve(attachment);
+              resolve({ ...attachment, id: res });
             });
           })
           .catch(() => {
@@ -261,7 +277,7 @@ export class AttachmentsService extends ApplicationDb {
 
   /**
    * Allows an user to remove a PIA.
-   * @param {string} comment - Comment to justify deletion.
+   * @param comment - Comment to justify deletion.
    */
   removeAttachment(attachmentId: number, comment: string): Promise<void> {
     return new Promise((resolve, reject) => {
@@ -269,7 +285,10 @@ export class AttachmentsService extends ApplicationDb {
         // Remove from DB by erasing only the "file" field
         this.remove(comment, attachmentId)
           .then(() => {
-            if (this.attachment_signed && this.attachment_signed.id === attachmentId) {
+            if (
+              this.attachment_signed &&
+              this.attachment_signed.id === attachmentId
+            ) {
               this.attachment_signed.comment = comment;
               this.attachment_signed.file = null;
               this.signedAttachments.unshift(this.attachment_signed);
@@ -280,8 +299,9 @@ export class AttachmentsService extends ApplicationDb {
           .catch(err => {
             reject(err);
           });
+      } else {
+        reject();
       }
     });
-
   }
 }

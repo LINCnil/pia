@@ -23,14 +23,16 @@ export class AttachmentsComponent implements OnInit {
     this.attachmentForm = new FormGroup({
       attachment_file: new FormControl('', [])
     });
-    this._attachmentsService.findAllByPia(this.pia.id)
-      .then(((attachments: Array<Attachment>) => {
+    this._attachmentsService
+      .findAllByPia(this.pia.id)
+      .then((attachments: Array<Attachment>) => {
         this.attachments = attachments;
-      }))
-      .catch((err) => {
+      })
+      .catch(err => {
         console.log(err);
       });
-    this.dispplayAttachmentButton = this.pia.status !== 2 && this.pia.status !== 3;
+    this.dispplayAttachmentButton =
+      this.pia.status !== 2 && this.pia.status !== 3;
   }
 
   /**
@@ -40,7 +42,9 @@ export class AttachmentsComponent implements OnInit {
     if (this.pia.is_example === 1) {
       return false;
     } else {
-      const attachment = <HTMLInputElement>document.querySelector('[formcontrolname="attachment_file"]');
+      const attachment = <HTMLInputElement>(
+        document.querySelector('[formcontrolname="attachment_file"]')
+      );
       attachment.click();
     }
   }
@@ -62,14 +66,7 @@ export class AttachmentsComponent implements OnInit {
       .upload((<HTMLInputElement>event.target).files[0], this.pia.id)
       .then((attachment: Attachment) => {
         this.attachments.unshift(attachment);
-        // if (attachment.pia_signed === 1) {
-        //   // Add the last previous signed attachment in the signed attachments array
-        //   this._attachmentsService.signedAttachments.unshift(this._attachmentsService.attachment_signed);
-        //   // Allocate the new one
-        //   this._attachmentsService.attachment_signed = attachment;
-        // }
         this.loading = false;
-
       })
       .catch(() => {
         this.loading = true;

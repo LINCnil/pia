@@ -36,7 +36,6 @@ export class PiaService extends ApplicationDb {
     public sidStatusService: SidStatusService,
     private structureService: StructureService,
     private answerService: AnswerService,
-    private dialogService: DialogService,
     private measuresService: MeasureService,
     private commentsService: CommentsService,
     private evaluationService: EvaluationService
