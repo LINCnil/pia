@@ -36,7 +36,7 @@ export class ActionPlanService {
   /**
    * Get action plan.
    */
-  listActionPlan() {
+  async listActionPlan() {
     this.csvRows = [];
     this.results = [];
     this.measures = [];
@@ -50,11 +50,11 @@ export class ActionPlanService {
     });
 
     let title1 = true;
-    section[0].items.forEach(item => {
-      item.questions.forEach(q => {
+    for (const item of section[0].items) {
+      for (const q of item.questions) {
         // const evaluation = new Evaluation();
         const referenceTo = '2.' + item.id + '.' + q.id;
-        this.evaluationService
+        await this.evaluationService
           .getByReference(this.pia.id, referenceTo)
           .then(evaluation => {
             if (evaluation && evaluation.status > 0) {
@@ -66,7 +66,7 @@ export class ActionPlanService {
               }
 
               // item
-              let temp = {
+              const temp = {
                 status: evaluation.status,
                 short_title: q.short_title,
                 action_plan_comment: evaluation.action_plan_comment,
@@ -114,20 +114,26 @@ export class ActionPlanService {
                 evaluation_charge: this.filterText(evaluation.person_in_charge)
               });
             } else {
-              this.results.push({
-                status: null,
-                short_title: q.short_title,
-                action_plan_comment: null,
-                evaluation_comment: null,
-                evaluation: null
-              });
+              if (
+                this.results.findIndex(e => e.short_title === q.short_title) ===
+                -1
+              ) {
+                // check if not exist
+                this.results.push({
+                  status: null,
+                  short_title: q.short_title,
+                  action_plan_comment: null,
+                  evaluation_comment: null,
+                  evaluation: null
+                });
+              }
             }
           });
-      });
-    });
+      }
+    }
 
     let title2 = true;
-    this.measureService.findAllByPia(this.pia.id).then((entries: any) => {
+    await this.measureService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(m => {
         // const evaluation2 = new Evaluation();
         const referenceTo = '3.1.' + m.id;
@@ -194,7 +200,7 @@ export class ActionPlanService {
     let title3 = true;
     let shortTitle = '';
     // const evaluation3 = new Evaluation();
-    this.evaluationService
+    await this.evaluationService
       .getByReference(this.pia.id, '3.2')
       .then(evaluation => {
         if (evaluation && evaluation.status > 0) {
@@ -240,7 +246,7 @@ export class ActionPlanService {
 
     let title4 = true;
     // const evaluation4 = new Evaluation();
-    this.evaluationService
+    await this.evaluationService
       .getByReference(this.pia.id, '3.3')
       .then(evaluation => {
         if (evaluation && evaluation.status > 0) {
@@ -286,7 +292,7 @@ export class ActionPlanService {
 
     let title5 = true;
     // const evaluation5 = new Evaluation();
-    this.evaluationService
+    await this.evaluationService
       .getByReference(this.pia.id, '3.4')
       .then(evaluation => {
         if (evaluation && evaluation.status > 0) {

@@ -1,22 +1,22 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 
-
 @Component({
   selector: 'app-action-plan',
   templateUrl: './action-plan.component.html',
   styleUrls: ['./action-plan.component.scss']
 })
 export class ActionPlanComponent implements OnInit {
-
   @Input() pia: any;
   @Input() data: any;
 
-  constructor(public actionPlanService: ActionPlanService) { }
+  constructor(public actionPlanService: ActionPlanService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.actionPlanService.pia = this.pia;
     this.actionPlanService.data = this.data;
-    this.actionPlanService.listActionPlan();
+    await this.actionPlanService.listActionPlan().then(() => {
+      console.log(this.actionPlanService.results.length);
+    });
   }
 }
