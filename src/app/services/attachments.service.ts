@@ -214,7 +214,7 @@ export class AttachmentsService extends ApplicationDb {
 
   /**
    * Upload a new attachment.
-   * @param {*} attachment_file - The attachment file.
+   * @param attachment_file - The attachment file.
    */
   upload(attachment_file: any, piaId, piaSigned = 0): Promise<Attachment> {
     return new Promise((resolve, reject) => {

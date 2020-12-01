@@ -27,6 +27,7 @@ export class ArchiveCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.attachments = [];
+    this.attachmentsService.pia_id = this.archivedPia.id;
     this.attachmentsService
       .findAllByPia(this.archivedPia.id)
       .then((entries: any) => {

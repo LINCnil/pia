@@ -1,3 +1,5 @@
+import { NavigationEnd } from '@angular/router';
+
 export class ApplicationDb {
   protected serverUrl: string;
   public pia_id: number;
@@ -16,6 +18,19 @@ export class ApplicationDb {
       this.serverUrl = localStorage.getItem('server_url');
     } else {
       this.serverUrl = null;
+    }
+
+    if (window.location.hash && window.location.hash.split('/')[2]) {
+      switch (window.location.hash.split('/')[1]) {
+        case 'pia':
+          this.pia_id = parseInt(window.location.hash.split('/')[2], 10);
+          break;
+        case 'structures':
+          this.structure_id = parseInt(window.location.hash.split('/')[2], 10);
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -126,7 +141,8 @@ export class ApplicationDb {
    * Get the database object.
    * @returns {Promise}
    */
-  async getObjectStore() {
+  async getObjectStore(): Promise<any> {
+    console.log(this.tableName, this.getServerUrl());
     const db: any = await this.initDb();
     db.onversionchange = () => {
       db.close();
@@ -276,12 +292,35 @@ export class ApplicationDb {
       id = this.structure_id;
     }
 
-    if (this.tableName !== 'pia' && this.tableName !== 'structure') {
-      // others
+    if (
+      this.tableName !== 'pia' &&
+      this.tableName !== 'structure' &&
+      this.tableName !== 'knowledgeBase'
+    ) {
       return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's';
     } else {
-      // pias et structures api
       return this.serverUrl + prefix;
+    }
+  }
+
+  public prepareServerUrl(router): void {
+    if (router) {
+      router.events.subscribe(evt => {
+        if (evt instanceof NavigationEnd) {
+          if (evt.url && evt.url.split('/')[2]) {
+            switch (evt.url.split('/')[1]) {
+              case 'pia':
+                this.pia_id = parseInt(evt.url.split('/')[2], 10);
+                break;
+              case 'structures':
+                this.structure_id = parseInt(evt.url.split('/')[2], 10);
+                break;
+              default:
+                break;
+            }
+          }
+        }
+      });
     }
   }
 }

@@ -7,6 +7,7 @@ import { Knowledge } from '../models/knowledge.model';
 import { ApplicationDb } from '../application.db';
 import { KnowledgeBase } from '../models/knowledgeBase.model';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class KnowledgeBaseService extends ApplicationDb {
@@ -21,10 +22,12 @@ export class KnowledgeBaseService extends ApplicationDb {
   toHide = [];
 
   constructor(
+    private router: Router,
     public translateService: TranslateService,
     private knowledgesService: KnowledgesService
   ) {
     super(201911191636, 'knowledgeBase');
+    super.prepareServerUrl(this.router);
   }
 
   public getAll(): Promise<any> {

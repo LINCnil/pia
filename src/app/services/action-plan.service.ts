@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { Evaluation } from '../models/evaluation.model';
-import { Measure } from '../models/measure.model';
 
 import { FormatTheDate } from '../tools';
 import { EvaluationService } from './evaluation.service';

@@ -148,9 +148,10 @@ export class EntriesComponent implements OnInit, OnDestroy {
               this.entries.splice(index, 1);
             }
 
-            this.entries.forEach(entrie =>
-              this.piaService.calculPiaProgress(entrie)
-            );
+            this.entries.forEach(entrie => {
+              this.piaService.pia_id = entrie.id;
+              this.piaService.calculPiaProgress(entrie);
+            });
             this.startIntroJs('pia');
           });
           break;

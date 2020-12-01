@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApplicationDb } from '../application.db';
 import { Answer } from '../models/answer.model';
 
 @Injectable()
 export class AnswerService extends ApplicationDb {
-
-  constructor() {
+  constructor(private router: Router) {
     super(201707071818, 'answer');
+    super.prepareServerUrl(this.router);
   }
 
   // TODO: Move Methods from model here
@@ -77,7 +78,7 @@ export class AnswerService extends ApplicationDb {
               console.error(event);
               reject(Error(event));
             };
-            evt.onsuccess = (result) => {
+            evt.onsuccess = result => {
               resolve(result);
             };
           });
@@ -86,7 +87,7 @@ export class AnswerService extends ApplicationDb {
     });
   }
 
-  private setFormData(data): FormData{
+  private setFormData(data): FormData {
     const formData = new FormData();
     for (const d in data) {
       if (data.hasOwnProperty(d)) {
@@ -97,7 +98,10 @@ export class AnswerService extends ApplicationDb {
                 for (const d3 in data[d][d2]) {
                   if (data[d].hasOwnProperty(d2)) {
                     if (data[d][d2][d3]) {
-                      formData.append('answer[' + d + '][' + d2 + '][]', data[d][d2][d3]);
+                      formData.append(
+                        'answer[' + d + '][' + d2 + '][]',
+                        data[d][d2][d3]
+                      );
                     }
                   }
                 }

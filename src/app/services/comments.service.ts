@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApplicationDb } from '../application.db';
 import { Comment } from '../models/comment.model';
 
 @Injectable()
 export class CommentsService extends ApplicationDb {
-
-  constructor() {
+  constructor(private router: Router) {
     super(201709122303, 'comment');
+    super.prepareServerUrl(this.router);
   }
 
   async create(comment: Comment): Promise<any> {
@@ -26,21 +27,24 @@ export class CommentsService extends ApplicationDb {
           method: 'POST',
           body: formData,
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result.id);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result.id);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(data);
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             resolve(event.target.result);
           };
@@ -55,14 +59,17 @@ export class CommentsService extends ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch ((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index2');
@@ -70,7 +77,7 @@ export class CommentsService extends ApplicationDb {
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
-          }
+          };
           evt.onsuccess = (event: any) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -91,14 +98,17 @@ export class CommentsService extends ApplicationDb {
       if (this.serverUrl) {
         fetch(this.getServerUrl() + '?reference_to=' + referenceTo, {
           mode: 'cors'
-        }).then((response) => {
-          return response.json();
-        }).then((result: any) => {
-          resolve(result);
-        }).catch((error) => {
-          console.error('Request failed', error);
-          reject();
-        });
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const index1 = this.objectStore.index('index1');
@@ -143,5 +153,4 @@ export class CommentsService extends ApplicationDb {
       });
     });
   }
-
 }

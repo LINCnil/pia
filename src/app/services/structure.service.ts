@@ -7,14 +7,17 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { Structure } from '../models/structure.model';
 import { ApplicationDb } from '../application.db';
 import { DialogService } from './dialog.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class StructureService extends ApplicationDb {
   constructor(
+    private router: Router,
     private dialogService: DialogService,
     private languagesService: LanguagesService
   ) {
     super(201808011000, 'structure');
+    super.prepareServerUrl(this.router);
   }
 
   /**
