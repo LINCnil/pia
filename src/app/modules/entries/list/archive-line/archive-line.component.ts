@@ -26,9 +26,8 @@ export class ArchiveLineComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const attachmentModel = new Attachment();
     this.attachments = [];
-    attachmentModel.pia_id = this.archivedPia.id;
+    this.attachmentsService.pia_id = this.archivedPia.id;
     this.attachmentsService
       .findAllByPia(this.archivedPia.id)
       .then((entries: any) => {

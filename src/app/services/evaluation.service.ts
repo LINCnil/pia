@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApplicationDb } from '../application.db';
 import { Evaluation } from '../models/evaluation.model';
 
 @Injectable()
 export class EvaluationService extends ApplicationDb {
-  constructor() {
+  constructor(private router?: Router) {
     super(201707071818, 'evaluation');
+    super.prepareServerUrl(this.router);
   }
 
   async create(evaluation: Evaluation): Promise<Evaluation> {

@@ -33,6 +33,7 @@ export class PiaLineComponent implements OnInit {
 
   ngOnInit(): void {
     this.attachments = [];
+    this.attachmentsService.pia_id = this.pia.id;
     this.attachmentsService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(element => {
         if (element['file'] && element['file'].length) {

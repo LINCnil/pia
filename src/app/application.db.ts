@@ -1,3 +1,5 @@
+import { NavigationEnd } from '@angular/router';
+
 export class ApplicationDb {
   protected serverUrl: string;
   public pia_id: number;
@@ -16,6 +18,19 @@ export class ApplicationDb {
       this.serverUrl = localStorage.getItem('server_url');
     } else {
       this.serverUrl = null;
+    }
+
+    if (window.location.hash && window.location.hash.split('/')[2]) {
+      switch (window.location.hash.split('/')[1]) {
+        case 'pia':
+          this.pia_id = parseInt(window.location.hash.split('/')[2], 10);
+          break;
+        case 'structures':
+          this.structure_id = parseInt(window.location.hash.split('/')[2], 10);
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -76,7 +91,9 @@ export class ApplicationDb {
             } else if (this.tableName === 'revision') {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
             } else if (this.tableName === 'knowledge') {
-              objectStore.createIndex('index1', 'knowledgeBase_id', { unique: false });
+              objectStore.createIndex('index1', 'knowledgeBase_id', {
+                unique: false
+              });
             }
           }
           if (event.oldVersion !== this.dbVersion) {
@@ -124,14 +141,17 @@ export class ApplicationDb {
    * Get the database object.
    * @returns {Promise}
    */
-  async getObjectStore() {
+  async getObjectStore(): Promise<any> {
+    console.log(this.tableName, this.getServerUrl());
     const db: any = await this.initDb();
     db.onversionchange = () => {
       db.close();
       alert('A new version of this page is ready. Please reload!');
     };
     return new Promise((resolve, reject) => {
-      this.objectStore = db.transaction(this.tableName, 'readwrite').objectStore(this.tableName);
+      this.objectStore = db
+        .transaction(this.tableName, 'readwrite')
+        .objectStore(this.tableName);
       if (this.objectStore) {
         resolve(this.objectStore);
       } else {
@@ -264,7 +284,7 @@ export class ApplicationDb {
    * @public
    * @returns {string} - An URL.
    */
-  public getServerUrl() {
+  public getServerUrl(): string {
     let prefix = '/pias';
     let id = this.pia_id;
     if (this.tableName === 'structure') {
@@ -272,10 +292,35 @@ export class ApplicationDb {
       id = this.structure_id;
     }
 
-    if (this.tableName !== 'pia' && this.tableName !== 'structure') {
+    if (
+      this.tableName !== 'pia' &&
+      this.tableName !== 'structure' &&
+      this.tableName !== 'knowledgeBase'
+    ) {
       return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's';
     } else {
       return this.serverUrl + prefix;
+    }
+  }
+
+  public prepareServerUrl(router): void {
+    if (router) {
+      router.events.subscribe(evt => {
+        if (evt instanceof NavigationEnd) {
+          if (evt.url && evt.url.split('/')[2]) {
+            switch (evt.url.split('/')[1]) {
+              case 'pia':
+                this.pia_id = parseInt(evt.url.split('/')[2], 10);
+                break;
+              case 'structures':
+                this.structure_id = parseInt(evt.url.split('/')[2], 10);
+                break;
+              default:
+                break;
+            }
+          }
+        }
+      });
     }
   }
 }

@@ -1,6 +1,6 @@
 export class Attachment {
   public id: number;
-  public file: string | ArrayBuffer;
+  public file: string | ArrayBuffer | any;
   public name: string;
   public mime_type: string;
   public pia_signed = 0;

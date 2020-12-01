@@ -11,6 +11,7 @@ export class RevisionService extends ApplicationDb {
 
   constructor(public piaService: PiaService, private router: Router) {
     super(201911191636, 'revision');
+    super.prepareServerUrl(this.router);
   }
 
   /**
@@ -117,7 +118,7 @@ export class RevisionService extends ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            resolve({...data, id: event.target.result});
+            resolve({ ...data, id: event.target.result });
           };
         });
       }
@@ -131,10 +132,11 @@ export class RevisionService extends ApplicationDb {
     return new Promise(resolve => {
       this.find(revisionId).then((revision: Revision) => {
         const piaExport = JSON.parse(revision.export);
-        this.piaService.replacePiaByExport(piaExport, true, true, revision.created_at)
-        .then((pia) => {
-          resolve(piaExport);
-        });
+        this.piaService
+          .replacePiaByExport(piaExport, true, true, revision.created_at)
+          .then(pia => {
+            resolve(piaExport);
+          });
       });
     });
   }
@@ -144,15 +146,16 @@ export class RevisionService extends ApplicationDb {
    * @param piaExport - The PIA exported
    * @param piaId - The PIA id
    */
-  async add(piaExport, piaId): Promise<any>  {
+  async add(piaExport, piaId): Promise<any> {
     return new Promise((resolve, reject) => {
       const revision = new Revision();
       revision.pia_id = piaId;
       revision.export = piaExport;
-      this.create(revision).then((response: any) => {
-        resolve(response);
-      })
-      .catch(err => reject(err));
+      this.create(revision)
+        .then((response: any) => {
+          resolve(response);
+        })
+        .catch(err => reject(err));
     });
   }
 

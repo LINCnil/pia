@@ -54,12 +54,6 @@ export class PiaCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // GET STRUCTURE LIST
-    // const structure = new Structure();
-    // this.structureService.getAll().then((data: any) => {
-    //   this.structureService.structures = data;
-    // });
-
     this.piaForm = new FormGroup({
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: false }),
@@ -79,6 +73,8 @@ export class PiaCardComponent implements OnInit {
     });
 
     this.attachments = [];
+
+    this.attachmentsService.pia_id = this.pia.id;
     this.attachmentsService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(element => {
         if (element['file'] && element['file'].length) {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Answer } from '../models/answer.model';
 import { Evaluation } from '../models/evaluation.model';
@@ -10,6 +11,7 @@ import { MeasureService } from './measures.service';
 
 @Injectable()
 export class GlobalEvaluationService {
+  private router: Router;
   public pia: Pia;
   public section: any;
   public item: any;
@@ -23,10 +25,15 @@ export class GlobalEvaluationService {
   private answersOrMeasures: Array<Answer | Measure>;
   private evaluations: Array<Evaluation>;
   public behaviorSubject = new BehaviorSubject<object>({});
-  private answerService = new AnswerService();
-  private evaluationService = new EvaluationService();
+  private answerService;
+  private evaluationService;
+  private measureService;
 
-  constructor() {}
+  constructor() {
+    this.answerService = new AnswerService(this.router);
+    this.evaluationService = new EvaluationService(this.router);
+    this.measureService = new MeasureService(this.router);
+  }
 
   /**
    * Verifications for answers and evaluations.
@@ -99,6 +106,7 @@ export class GlobalEvaluationService {
    */
   async validateAllEvaluation(): Promise<any> {
     return new Promise((resolve, reject) => {
+      this.evaluationService.pia_id = this.pia.id;
       if (this.item.evaluation_mode === 'item') {
         // const evaluation = new Evaluation();
         this.evaluationService
@@ -180,6 +188,7 @@ export class GlobalEvaluationService {
    * Cancel validation and return in evaluation mode.
    */
   cancelValidation(): void {
+    this.evaluationService.pia_id = this.pia.id;
     if (this.item.evaluation_mode === 'item') {
       // const evaluation = new Evaluation();
       this.evaluationService
@@ -304,6 +313,7 @@ export class GlobalEvaluationService {
     new_reference_to?: string
   ): Promise<any> {
     return new Promise((resolve, reject) => {
+      this.evaluationService.pia_id = this.pia.id;
       const reference_to = new_reference_to
         ? new_reference_to
         : this.reference_to;
@@ -557,11 +567,13 @@ export class GlobalEvaluationService {
    * @returns {Promise}
    */
   private async answersVerification(): Promise<any> {
-    let count = 0;
-    this.answersOrMeasures = [];
     return new Promise((resolve, reject) => {
+      let count = 0;
+      this.answersOrMeasures = [];
+      this.answerService.pia_id = this.pia.id;
+      this.measureService.pia_id = this.pia.id;
       if (this.item.is_measure) {
-        new MeasureService()
+        this.measureService
           .findAllByPia(this.pia.id)
           .then((measures: any[]) => {
             if (measures && measures.length > 0) {
@@ -616,9 +628,11 @@ export class GlobalEvaluationService {
    * @returns {Promise}
    */
   private async evaluationsVerification(): Promise<any> {
-    let count = 0;
-    this.evaluations = [];
     return new Promise((resolve, reject) => {
+      let count = 0;
+      this.evaluations = [];
+      this.evaluationService.pia_id = this.pia.id;
+      this.measureService.pia_id = this.pia.id;
       if (this.item.evaluation_mode === 'item') {
         // const evaluationModel = new Evaluation();
         this.evaluationService
@@ -628,9 +642,7 @@ export class GlobalEvaluationService {
             resolve();
           });
       } else if (this.item.is_measure) {
-        const measureModel = new Measure();
-        measureModel.pia_id = this.pia.id;
-        new MeasureService().findAllByPia(this.pia.id).then((measures: any) => {
+        this.measureService.findAllByPia(this.pia.id).then((measures: any) => {
           if (measures && measures.length > 0) {
             measures.forEach(measure => {
               // const evaluationModel = new Evaluation();
@@ -692,6 +704,7 @@ export class GlobalEvaluationService {
   private async deleteEvaluationInDb(reference_to: string): Promise<void> {
     // const evaluation = new Evaluation();
     return new Promise((resolve, reject) => {
+      this.evaluationService.pia_id = this.pia.id;
       this.evaluationService
         .getByReference(this.pia.id, reference_to)
         .then((evaluation: any) => {

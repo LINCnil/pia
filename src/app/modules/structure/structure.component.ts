@@ -49,15 +49,16 @@ export class StructureComponent implements OnInit {
     const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     const itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
-    if (parseInt(this.route.snapshot.params.structure_id)) {
-      await this.structureService.find(parseInt(this.route.snapshot.params.structure_id))
-      .then((structure: Structure) => {
-        this.initStructure(structure);
-        this.getSectionAndItem(sectionId, itemId);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    if (parseInt(this.route.snapshot.params.id)) {
+      await this.structureService
+        .find(parseInt(this.route.snapshot.params.id))
+        .then((structure: Structure) => {
+          this.initStructure(structure);
+          this.getSectionAndItem(sectionId, itemId);
+        })
+        .catch(err => {
+          console.error(err);
+        });
     } else {
       this.structureService.loadExample().then((structure: Structure) => {
         this.initStructure(structure);
@@ -88,7 +89,10 @@ export class StructureComponent implements OnInit {
 
     // On params changing
     this.route.params.subscribe((params: Params) => {
-      this.getSectionAndItem(parseInt(params.section_id, 10), parseInt(params.item_id, 10));
+      this.getSectionAndItem(
+        parseInt(params.section_id, 10),
+        parseInt(params.item_id, 10)
+      );
       window.scroll(0, 0);
     });
   }

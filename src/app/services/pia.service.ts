@@ -36,12 +36,12 @@ export class PiaService extends ApplicationDb {
     public sidStatusService: SidStatusService,
     private structureService: StructureService,
     private answerService: AnswerService,
-    private dialogService: DialogService,
     private measuresService: MeasureService,
     private commentsService: CommentsService,
     private evaluationService: EvaluationService
   ) {
     super(201910230914, 'pia');
+    super.prepareServerUrl(this.router);
     this.data = this.appDataService.dataNav;
 
     // there isn't pia ? load it

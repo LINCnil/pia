@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { ApplicationDb } from '../application.db';
@@ -12,10 +13,12 @@ export class MeasureService extends ApplicationDb {
   pia_id: number;
 
   constructor(
+    private router: Router,
     private translateService?: TranslateService,
     private knowledgeBaseService?: KnowledgeBaseService
   ) {
     super(201707071818, 'measure');
+    super.prepareServerUrl(this.router);
   }
 
   async create(measure: Measure): Promise<any> {
@@ -144,7 +147,7 @@ export class MeasureService extends ApplicationDb {
    * @param pia_id - The Pia id.
    */
   async listMeasures(pia_id: number): Promise<any> {
-    this.pia_id = pia_id;
+    // this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       this.findAllByPia(this.pia_id)
         .then((entries: any[]) => {
