@@ -238,22 +238,23 @@ export class ContentComponent implements OnInit {
    * Allow an user to cancel the validation.
    */
   cancelValidateEvaluation(): void {
-    this.globalEvaluationService.cancelValidation();
-    this.dialogService.confirmThis(
-      {
-        text: 'modals.back_to_evaluation.content',
-        type: 'yes',
-        yes: 'modals.continue',
-        no: '',
-        icon: 'fa fa-cog icon-gray'
-      },
-      () => {
-        return;
-      },
-      () => {
-        return;
-      }
-    );
+    this.globalEvaluationService.cancelValidation(this.pia.id).then(() => {
+      this.dialogService.confirmThis(
+        {
+          text: 'modals.back_to_evaluation.content',
+          type: 'yes',
+          yes: 'modals.continue',
+          no: '',
+          icon: 'fa fa-cog icon-gray'
+        },
+        () => {
+          return;
+        },
+        () => {
+          return;
+        }
+      );
+    });
   }
 
   onAddNewMeasure(): void {
