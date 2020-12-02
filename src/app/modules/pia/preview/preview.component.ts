@@ -237,6 +237,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
         // Measure
         if (item.is_measure) {
           this.allData[section.id][item.id] = [];
+          this.measureService.pia_id = this.pia.id;
           const entries: any = await this.measureService.findAllByPia(
             this.pia.id
           );

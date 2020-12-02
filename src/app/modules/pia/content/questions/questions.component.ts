@@ -97,6 +97,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.measure.pia_id = this.pia.id;
 
     // Fill tags list for Measures
+    this.measureService.pia_id = this.pia.id;
     this.measureService.findAllByPia(this.pia.id).then((entries: any[]) => {
       if (entries) {
         entries.forEach(entry => {

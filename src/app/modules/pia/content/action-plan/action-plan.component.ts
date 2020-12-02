@@ -15,8 +15,6 @@ export class ActionPlanComponent implements OnInit {
   async ngOnInit() {
     this.actionPlanService.pia = this.pia;
     this.actionPlanService.data = this.data;
-    await this.actionPlanService.listActionPlan().then(() => {
-      console.log(this.actionPlanService.results.length);
-    });
+    await this.actionPlanService.listActionPlan().then(() => {});
   }
 }

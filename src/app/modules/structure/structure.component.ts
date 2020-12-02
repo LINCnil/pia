@@ -35,8 +35,6 @@ export class StructureComponent implements OnInit {
     public structureService: StructureService,
     private route: ActivatedRoute,
     private sidStatusService: SidStatusService,
-    private knowledgeBaseService: KnowledgeBaseService,
-    private answerStructureService: AnswerStructureService,
     private actionPlanService: ActionPlanService,
     private globalEvaluationService: GlobalEvaluationService,
     private measureService: MeasureService,
@@ -127,19 +125,5 @@ export class StructureComponent implements OnInit {
 
     this.measureService.listMeasures(this.structure.id);
     this.actionPlanService.data = this.data;
-
-    // Update on knowledge base (scroll / content / search field)
-    // const knowledgeBaseScroll = document.querySelector(
-    //   '.pia-knowledgeBaseBlock-list'
-    // );
-    // const knowledgeBaseContent = document.querySelector(
-    //   '.pia-knowledgeBaseBlock-searchForm input'
-    // ) as HTMLInputElement;
-    // knowledgeBaseScroll.scrollTop = 0;
-    // knowledgeBaseContent.value = '';
-
-    // this.knowledgeBaseService.q = null;
-    // this.knowledgeBaseService.loadByItem(this.item);
-    // this.knowledgeBaseService.placeholder = null;
   }
 }

@@ -362,6 +362,8 @@ export class EvaluationsComponent
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.evaluation_comment = userText;
+
+    this.evaluation.global_status = 0;
     this.evaluationService.update(this.evaluation).then(() => {
       this.ngZone.run(() => {
         this.globalEvaluationService.validate();

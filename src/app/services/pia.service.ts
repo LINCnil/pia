@@ -463,9 +463,17 @@ export class PiaService extends ApplicationDb {
    * Allow an user to duplicate a PIA.
    * @param id - The PIA id.
    */
-  duplicate(id: number): void {
-    this.exportData(id).then(data => {
-      this.importData(data, 'COPY', true);
+  duplicate(id: number): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.exportData(id).then(data => {
+        this.importData(data, 'COPY', true)
+          .then(() => {
+            resolve();
+          })
+          .then(err => {
+            reject(err);
+          });
+      });
     });
   }
 

@@ -187,38 +187,41 @@ export class GlobalEvaluationService {
   /**
    * Cancel validation and return in evaluation mode.
    */
-  cancelValidation(): void {
-    this.evaluationService.pia_id = this.pia.id;
-    if (this.item.evaluation_mode === 'item') {
-      // const evaluation = new Evaluation();
-      this.evaluationService
-        .getByReference(this.pia.id, this.reference_to)
-        .then((evaluation: Evaluation) => {
-          evaluation.global_status = 1;
-          this.evaluationService.update(evaluation).then(() => {
-            this.validate();
-          });
-        });
-    } else if (this.answersOrMeasures.length > 0) {
-      let count = 0;
-      this.answersOrMeasures.forEach(answerOrMeasure => {
+  cancelValidation(piaId): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.evaluationService.pia_id = piaId;
+      if (this.item.evaluation_mode === 'item') {
         // const evaluation = new Evaluation();
         this.evaluationService
-          .getByReference(
-            this.pia.id,
-            this.getAnswerReferenceTo(answerOrMeasure)
-          )
+          .getByReference(this.pia.id, this.reference_to)
           .then((evaluation: Evaluation) => {
             evaluation.global_status = 1;
             this.evaluationService.update(evaluation).then(() => {
-              count++;
-              if (count === this.answersOrMeasures.length) {
-                this.validate();
-              }
+              this.validate();
+              resolve(evaluation);
             });
           });
-      });
-    }
+      } else if (this.answersOrMeasures.length > 0) {
+        let count = 0;
+        for (const answerOrMeasure of this.answersOrMeasures) {
+          this.evaluationService
+            .getByReference(
+              this.pia.id,
+              this.getAnswerReferenceTo(answerOrMeasure)
+            )
+            .then((evaluation: Evaluation) => {
+              evaluation.global_status = 1;
+              this.evaluationService.update(evaluation).then(() => {
+                count++;
+                if (count === this.answersOrMeasures.length) {
+                  this.validate();
+                }
+              });
+            });
+        }
+        resolve();
+      }
+    });
   }
 
   /**
