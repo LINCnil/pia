@@ -1,5 +1,10 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 
 import { PiaService } from 'src/app/services/pia.service';
 import { LanguagesService } from 'src/app/services/languages.service';
@@ -88,17 +93,20 @@ export class ValidatePIAComponent implements OnInit {
     this.removeAttachmentId = id;
     this.attachmentsService
       .removeAttachment(id, this.removeAttachmentForm.controls['comment'].value)
-        .then(() => {
-          this.removeAttachmentId = null;
-        });
+      .then(() => {
+        this.removeAttachmentId = null;
+      });
   }
 
   submitRemoveAttachment() {
     this.attachmentsService
-      .removeAttachment(this.removeAttachmentId, this.removeAttachmentForm.controls['comment'].value)
-        .then(() => {
-          this.removeAttachmentId = null;
-        });
+      .removeAttachment(
+        this.removeAttachmentId,
+        this.removeAttachmentForm.controls['comment'].value
+      )
+      .then(() => {
+        this.removeAttachmentId = null;
+      });
   }
 
   /**
@@ -106,10 +114,7 @@ export class ValidatePIAComponent implements OnInit {
    * @param {any} event - Any Event.
    */
   lockStatus(event: any) {
-    if (
-      this.pia.status > 1 ||
-      this.pia.is_example === 1
-    ) {
+    if (this.pia.status > 1 || this.pia.is_example === 1) {
       return false;
     } else {
       const clickedRadioButton =
@@ -125,19 +130,21 @@ export class ValidatePIAComponent implements OnInit {
   simplePIAValidation() {
     this.pia.status = 2;
     this.piaService.update(this.pia).then(() => {
-      this.dialogService.confirmThis({
-        text: 'modals.signed_pia_validation.content',
-        type: 'yes',
-        yes: 'modals.signed_pia_validation.download_pia',
-        no: '',
-        icon: 'fa fa-check icon-green'
-      },
-      () => {
-        this.router.navigate(['/preview', this.pia.id]);
-      },
-      () => {
-        return;
-      });
+      this.dialogService.confirmThis(
+        {
+          text: 'modals.simple_pia_validation.content',
+          type: 'yes',
+          yes: 'modals.back_to_home',
+          no: '',
+          icon: 'fa fa-check icon-green'
+        },
+        () => {
+          this.router.navigate(['/preview', this.pia.id]);
+        },
+        () => {
+          return;
+        }
+      );
     });
   }
 
@@ -147,19 +154,21 @@ export class ValidatePIAComponent implements OnInit {
   signedPIAValidation() {
     this.pia.status = 3;
     this.piaService.update(this.pia).then(() => {
-      this.dialogService.confirmThis({
-        text: 'modals.signed_pia_validation.content',
-        type: 'yes',
-        yes: 'modals.signed_pia_validation.download_pia',
-        no: '',
-        icon: 'fa fa-check icon-green'
-      },
-      () => {
-        this.router.navigate(['/preview', this.pia.id]);
-      },
-      () => {
-        return;
-      });
+      this.dialogService.confirmThis(
+        {
+          text: 'modals.signed_pia_validation.content',
+          type: 'yes',
+          yes: 'modals.signed_pia_validation.download_pia',
+          no: '',
+          icon: 'fa fa-check icon-green'
+        },
+        () => {
+          this.router.navigate(['/preview', this.pia.id]);
+        },
+        () => {
+          return;
+        }
+      );
     });
   }
 
@@ -177,7 +186,7 @@ export class ValidatePIAComponent implements OnInit {
     );
     const signValidationBtn = document.getElementById('pia-sign-validation');
 
-    [].forEach.call(radioButtons, (currentRadioBtn) => {
+    [].forEach.call(radioButtons, currentRadioBtn => {
       if (!currentRadioBtn.checked) {
         allBtnChecked = false;
       }
