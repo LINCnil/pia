@@ -878,13 +878,13 @@ export class PiaService extends ApplicationDb {
           ...entry,
           ...pia
         };
+        entry.structure_id = pia.structure_id ? pia.structure_id : '';
         if (entry.is_archive === undefined || entry.is_archive === null) {
           entry.is_archive = 0;
         } else {
           entry.is_archive = pia.is_archive;
         }
         entry.updated_at = date ? date : new Date();
-
         if (this.serverUrl) {
           const formData = new FormData();
           for (const d in entry) {
