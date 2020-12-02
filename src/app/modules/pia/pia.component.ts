@@ -346,4 +346,8 @@ export class PiaComponent implements OnInit {
     this.knowledgeBaseService.loadByItem(this.item);
     this.knowledgeBaseService.placeholder = null;
   }
+
+  newMeasureAdded($event): void {
+    this.measures.push($event);
+  }
 }
