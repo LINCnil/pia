@@ -134,10 +134,8 @@ export class ActionPlanService {
 
     let title2 = true;
     await this.measureService.findAllByPia(this.pia.id).then((entries: any) => {
-      entries.forEach(m => {
-        // const evaluation2 = new Evaluation();
+      for (const m of entries) {
         const referenceTo = '3.1.' + m.id;
-        this.measures[referenceTo] = null;
         this.evaluationService
           .getByReference(this.pia.id, referenceTo)
           .then(evaluation => {
@@ -148,20 +146,24 @@ export class ActionPlanService {
               ) {
                 this.measuresActionPlanReady = true;
               }
-              this.measures.push({
-                name: m.title,
-                short_title: m.title,
-                status: evaluation.status,
-                action_plan_comment: evaluation.action_plan_comment,
-                evaluation_comment: evaluation.evaluation_comment,
-                evaluation
-              });
+              if (this.measures.findIndex(e => e.name === m.title) === -1) {
+                this.measures.push({
+                  name: m.title,
+                  short_title: m.title,
+                  status: evaluation.status,
+                  action_plan_comment: evaluation.action_plan_comment,
+                  evaluation_comment: evaluation.evaluation_comment,
+                  evaluation
+                });
+              }
+
               if (title2) {
                 title2 = false;
                 this.csvRows.push({
                   title: this.translateService.instant('action_plan.measures')
                 });
               }
+
               this.csvRows.push({
                 blank: ' ',
                 short_title: m.title
@@ -184,17 +186,19 @@ export class ActionPlanService {
                 evaluation_charge: this.filterText(evaluation.person_in_charge)
               });
             } else {
-              this.measures.push({
-                name: m.title,
-                short_title: null,
-                status: null,
-                action_plan_comment: null,
-                evaluation_comment: null,
-                evaluation: null
-              });
+              if (this.measures.findIndex(e => e.name === m.title) === -1) {
+                this.measures.push({
+                  name: m.title,
+                  short_title: null,
+                  status: null,
+                  action_plan_comment: null,
+                  evaluation_comment: null,
+                  evaluation: null
+                });
+              }
             }
           });
-      });
+      }
     });
 
     let title3 = true;
