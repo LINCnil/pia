@@ -580,19 +580,23 @@ export class PiaService extends ApplicationDb {
         }
       }
 
-      this.create(pia).then((piaId: number) => {
-        pia.id = piaId;
+      this.create(pia)
+        .then((piaId: number) => {
+          pia.id = piaId;
 
-        this.importAnswers(data.answers, piaId);
-        this.importMeasures(data, piaId, is_duplicate);
-        if (!is_duplicate) {
-          this.importComments(data.comments, piaId);
-        }
+          this.importAnswers(data.answers, piaId);
+          this.importMeasures(data, piaId, is_duplicate);
+          if (!is_duplicate) {
+            this.importComments(data.comments, piaId);
+          }
 
-        // this.pias.push(pia);
-        this.calculPiaProgress(pia);
-        resolve(pia);
-      });
+          // this.pias.push(pia);
+          this.calculPiaProgress(pia);
+          resolve(pia);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 
