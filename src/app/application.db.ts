@@ -142,6 +142,7 @@ export class ApplicationDb {
    * @returns {Promise}
    */
   async getObjectStore(): Promise<any> {
+    console.log(this.getServerUrl());
     const db: any = await this.initDb();
     db.onversionchange = () => {
       db.close();
@@ -286,15 +287,25 @@ export class ApplicationDb {
   public getServerUrl(): string {
     let prefix = '/pias';
     let id = this.pia_id;
+
     if (this.tableName === 'structure') {
       prefix = '/structures';
       id = this.structure_id;
     }
 
+    if (this.tableName === 'knowledgeBase') {
+      prefix = '/knowledge-bases';
+    }
+
+    if (this.tableName === 'knowledge') {
+      prefix = '/knowledges';
+    }
+
     if (
       this.tableName !== 'pia' &&
       this.tableName !== 'structure' &&
-      this.tableName !== 'knowledgeBase'
+      this.tableName !== 'knowledgeBase' &&
+      this.tableName !== 'knowledge'
     ) {
       return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's';
     } else {
