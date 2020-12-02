@@ -35,14 +35,14 @@ export class PiaCardComponent implements OnInit {
   piaForm: FormGroup;
   attachments: any;
 
-  @ViewChild('piaName', { static: true }) private piaName: ElementRef;
-  @ViewChild('piaCategory', { static: true }) private piaCategory: ElementRef;
-  @ViewChild('piaAuthorName', { static: true })
-  private piaAuthorName: ElementRef;
-  @ViewChild('piaEvaluatorName', { static: true })
-  private piaEvaluatorName: ElementRef;
-  @ViewChild('piaValidatorName', { static: true })
-  private piaValidatorName: ElementRef;
+  @ViewChild('piaName') piaName: ElementRef;
+  @ViewChild('piaCategory') piaCategory: ElementRef;
+  @ViewChild('piaAuthorName')
+  piaAuthorName: ElementRef;
+  @ViewChild('piaEvaluatorName')
+  piaEvaluatorName: ElementRef;
+  @ViewChild('piaValidatorName')
+  piaValidatorName: ElementRef;
 
   constructor(
     public piaService: PiaService,
