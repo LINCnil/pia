@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 export class StructureService extends ApplicationDb {
   constructor(
     private router: Router,
-    private dialogService: DialogService,
     private languagesService: LanguagesService
   ) {
     super(201808011000, 'structure');
@@ -257,7 +256,7 @@ export class StructureService extends ApplicationDb {
    */
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
-      if (!('structure' in data) || !('dbVersion' in data.structure)) {
+      if (!data.structure) {
         reject(new Error('wrong pia file'));
         return;
       }
@@ -339,12 +338,6 @@ export class StructureService extends ApplicationDb {
       // Removes from DB.
       this.delete(id)
         .then(() => {
-          // this.piaService.getAllWithStructure(id).then((items: any) => {
-          //   items.forEach(item => {
-          //     item.structure_id = null;
-          //     this.piaService.update(item);
-          //   });
-          // });
           localStorage.removeItem('structure-id');
           resolve();
         })

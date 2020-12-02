@@ -149,7 +149,7 @@ export class MeasureService extends ApplicationDb {
   async listMeasures(pia_id: number): Promise<any> {
     // this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
-      this.findAllByPia(this.pia_id)
+      this.findAllByPia(pia_id)
         .then((entries: any[]) => {
           resolve(entries);
         })
