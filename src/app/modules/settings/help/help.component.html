@@ -1,21 +1,36 @@
 <section class="container pia-helpBlock pia-mainContainerBlock">
   <div class="row">
-    <div class="pia-breadcrumb small-12 medium-12 columns"><strong>{{ 'header.help.title' | translate }} > {{ 'header.help.manual' | translate }}</strong></div>
+    <div class="pia-breadcrumb small-12 medium-12 columns">
+      <strong
+        >{{ "header.help.title" | translate }} >
+        {{ "header.help.manual" | translate }}</strong
+      >
+    </div>
 
     <div class="small-12 medium-3 columns">
       <aside class="pia-leftSidebarBlock pia-help-section">
         <div class="pia-sectionBlock-header">
-          <h1>{{ 'help.title' | translate }}</h1>
-          <a class="pia-icons pia-icon-close-big" routerlink="/home" title="{{ 'pia.sections.homepage_link' | translate }}" href="#/home"></a>
+          <h1>{{ "help.title" | translate }}</h1>
+          <a
+            class="pia-icons pia-icon-close-big"
+            routerlink="/entries"
+            title="{{ 'pia.sections.homepage_link' | translate }}"
+            href="#/entries"
+          ></a>
         </div>
         <div *ngFor="let data of tableOfTitles">
           <div class="pia-sectionBlock-title">
-            {{data[0]}}
-            <hr>
+            {{ data[0] }}
+            <hr />
           </div>
           <ul class="pia-sectionBlock-list">
-            <li *ngFor="let subTitle of data[1];" [ngClass]="{ 'active': subTitle === activeElement }">
-              <a href="javascript:;" (click)="getAnchor($event, subTitle);">{{ subTitle }}</a>
+            <li
+              *ngFor="let subTitle of data[1]"
+              [ngClass]="{ active: subTitle === activeElement }"
+            >
+              <a href="javascript:;" (click)="getAnchor($event, subTitle)">{{
+                subTitle
+              }}</a>
             </li>
           </ul>
         </div>

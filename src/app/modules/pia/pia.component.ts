@@ -232,7 +232,10 @@ export class PiaComponent implements OnInit {
               type: 'yes',
               yes: 'modals.declare_measures.declare',
               no: '',
-              icon: 'fa fa-arrow-left icon-blue'
+              icon: 'fa fa-arrow-left icon-blue',
+              data: {
+                no_cross_button: true
+              }
             },
             () => {
               this.router.navigate([
@@ -265,7 +268,8 @@ export class PiaComponent implements OnInit {
             no: '',
             icon: 'fa fa-cog icon-blue',
             data: {
-              btn_yes: 'btn-blue'
+              btn_yes: 'btn-blue',
+              no_cross_button: true
             }
           },
           () => {
@@ -302,7 +306,8 @@ export class PiaComponent implements OnInit {
             no: '',
             icon: 'fa fa-cog icon-blue',
             data: {
-              btn_yes: 'btn-blue'
+              btn_yes: 'btn-blue',
+              no_cross_button: true
             }
           },
           () => {

@@ -1,7 +1,7 @@
 <div class="pia-modalBlock open" *ngIf="message">
-  <div class="pia-modalBlock-content pia-modalBlock-removeMeasure bounceIn">
+  <div class="pia-modalBlock-content bounceIn">
     <button
-      *ngIf="message.type === 'confirm'"
+      *ngIf="!message.data || (message.data && !message.data.no_cross_button)"
       tabindex="3"
       type="button"
       class="pia-modalBlock-close btn"
