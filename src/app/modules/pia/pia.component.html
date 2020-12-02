@@ -90,6 +90,7 @@
         >
         </app-export>
         <app-knowledge-base
+          (newMeasureEvent)="newMeasureAdded($event)"
           answerService
           [pia]="pia"
           *ngIf="sideView === 'knowledge'"

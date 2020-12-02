@@ -279,7 +279,21 @@ export class EntriesComponent implements OnInit, OnDestroy {
             this.refreshContent();
           })
           .catch(err => {
-            console.log(err);
+            this.dialogService.confirmThis(
+              {
+                text: 'modals.import_wrong_structure_file.content',
+                type: 'yes',
+                yes: 'modals.close',
+                no: '',
+                icon: 'pia-icons pia-icon-sad'
+              },
+              () => {
+                return;
+              },
+              () => {
+                return;
+              }
+            );
           });
       }
       if (this.type_entries === 'knowledgeBase') {

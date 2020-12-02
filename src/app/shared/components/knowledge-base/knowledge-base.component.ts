@@ -87,20 +87,22 @@ export class KnowledgeBaseComponent implements OnInit {
 
     this.translateService.onLangChange.subscribe(() => {
       this.loadKnowledgesBase().then(() => {
-        if (localStorage.getItem('pia_' + this.route.snapshot.params.id + '_knowledgebase')) {
-          
+        if (
+          localStorage.getItem(
+            'pia_' + this.route.snapshot.params.id + '_knowledgebase'
+          )
+        ) {
           this.switch(
             localStorage.getItem(
               'pia_' + this.route.snapshot.params.id + '_knowledgebase'
             )
           );
-          
+
           this.selectedKnowledBase = localStorage.getItem(
             'pia_' + this.route.snapshot.params.id + '_knowledgebase'
           );
-         
+
           console.log(this.selectedKnowledBase);
-          
         }
       });
     });
@@ -143,11 +145,14 @@ export class KnowledgeBaseComponent implements OnInit {
    */
   addNewMeasure(event) {
     if (this.pia) {
-      this.measureService.addNewMeasure(
-        this.pia,
-        event.name,
-        event.placeholder
-      );
+      this.measureService
+        .addNewMeasure(this.pia, event.name, event.placeholder)
+        .then(res => {
+          this.newMeasureEvent.emit(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     } else if (this.structure) {
       this.structureService.find(this.structure.id).then(() => {
         const title = this.translateService.instant(event.name);

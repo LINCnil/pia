@@ -258,24 +258,7 @@ export class StructureService extends ApplicationDb {
   async importStructureData(data: any, prefix: string, is_duplicate: boolean) {
     return new Promise((resolve, reject) => {
       if (!('structure' in data) || !('dbVersion' in data.structure)) {
-        this.dialogService.confirmThis(
-          {
-            text: 'modals.import_wrong_structure_file.content',
-            type: 'yes',
-            yes: 'modals.close',
-            no: '',
-            icon: 'pia-icons pia-icon-sad',
-            data: {
-              btn_yes: 'btn-red'
-            }
-          },
-          () => {
-            return;
-          },
-          () => {
-            return;
-          }
-        );
+        reject(new Error('wrong pia file'));
         return;
       }
 
@@ -294,10 +277,14 @@ export class StructureService extends ApplicationDb {
         }
       }
 
-      this.create(structure).then((result: Structure) => {
-        console.log('finish', result);
-        resolve(result);
-      });
+      this.create(structure)
+        .then((result: Structure) => {
+          console.log('finish', result);
+          resolve(result);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 
@@ -330,14 +317,18 @@ export class StructureService extends ApplicationDb {
       const reader = new FileReader();
       reader.readAsText(file, 'UTF-8');
       reader.onload = (event: any) => {
-        const jsonFile = JSON.parse(event.target.result);
-        this.importStructureData(jsonFile, 'IMPORT', false)
-          .then((structure: Structure) => {
-            resolve(structure);
-          })
-          .catch(err => {
-            console.error(err);
-          });
+        try {
+          const jsonFile = JSON.parse(event.target.result);
+          this.importStructureData(jsonFile, 'IMPORT', false)
+            .then((structure: Structure) => {
+              resolve(structure);
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        } catch {
+          reject(false);
+        }
       };
     });
   }

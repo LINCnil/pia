@@ -26,9 +26,9 @@ export class StructureCardComponent implements OnInit {
   @Output() deleted = new EventEmitter<Structure>();
   structureForm: FormGroup;
 
-  @ViewChild('structureName', { static: true })
-  private structureName: ElementRef;
-  @ViewChild('structureSectorName', { static: true })
+  @ViewChild('structureName')
+  structureName: ElementRef;
+  @ViewChild('structureSectorName')
   private structureSectorName: ElementRef;
 
   constructor(

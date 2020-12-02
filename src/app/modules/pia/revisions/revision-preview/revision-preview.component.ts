@@ -129,7 +129,7 @@ export class RevisionPreviewComponent implements OnInit {
                 if (answerModel.data.gauge && answerModel.data.gauge > 0) {
                   content.push(
                     this.translateService.instant(
-                      this.export.pia.getGaugeName(answerModel.data.gauge)
+                      this.piaService.getGaugeName(answerModel.data.gauge)
                     )
                   );
                 }
