@@ -269,7 +269,8 @@ export class PiaCardComponent implements OnInit {
    * Click on duplicate, clone the pia
    */
   onDuplicate(id): void {
-    this.piaService.duplicate(id);
-    this.duplicated.emit(id);
+    this.piaService.duplicate(id).then(() => {
+      this.duplicated.emit(id);
+    });
   }
 }

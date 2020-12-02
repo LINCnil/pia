@@ -135,11 +135,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
    * Refresh the list.
    */
   async refreshContent(): Promise<void> {
-    const pia = new Pia();
+    this.entries = [];
     setTimeout(async () => {
       switch (this.type_entries) {
         case 'pia':
-          this.piaService.getAllActives().then((entries: Array<Pia>) => {
+          await this.piaService.getAllActives().then((entries: Array<Pia>) => {
             this.entries = entries;
 
             // Remove example from list
@@ -156,16 +156,18 @@ export class EntriesComponent implements OnInit, OnDestroy {
           });
           break;
         case 'archive':
-          this.piaService.findAllArchives().then((entries: Array<Pia>) => {
-            this.entries = entries;
-            this.entries.forEach(entrie =>
-              this.archiveService.calculPiaProgress(entrie)
-            );
-          });
+          await this.piaService
+            .findAllArchives()
+            .then((entries: Array<Pia>) => {
+              this.entries = entries;
+              this.entries.forEach(entrie =>
+                this.archiveService.calculPiaProgress(entrie)
+              );
+            });
           break;
         case 'structure':
           let data;
-          this.structureService.getAll().then(response => {
+          await this.structureService.getAll().then(response => {
             data = response;
             this.structureService
               .loadExample()
@@ -176,7 +178,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
           });
           break;
         case 'knowledgeBase':
-          this.knowledgeBaseService.getAll().then((result: any) => {
+          await this.knowledgeBaseService.getAll().then((result: any) => {
             this.entries = result;
           });
           break;
