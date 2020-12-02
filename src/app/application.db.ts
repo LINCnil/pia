@@ -142,7 +142,6 @@ export class ApplicationDb {
    * @returns {Promise}
    */
   async getObjectStore(): Promise<any> {
-    console.log(this.getServerUrl());
     const db: any = await this.initDb();
     db.onversionchange = () => {
       db.close();
