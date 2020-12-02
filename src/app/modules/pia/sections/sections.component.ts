@@ -7,8 +7,7 @@ import { Pia } from 'src/app/models/pia.model';
 @Component({
   selector: 'app-sections',
   templateUrl: './sections.component.html',
-  styleUrls: ['./sections.component.scss'],
-  providers: [SidStatusService]
+  styleUrls: ['./sections.component.scss']
 })
 export class SectionsComponent implements OnInit {
   @Input() pia: Pia = null;
