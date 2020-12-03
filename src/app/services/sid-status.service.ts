@@ -17,10 +17,7 @@ export class SidStatusService {
   enableDpoValidation: boolean;
   public subject = new Subject();
 
-  constructor(
-    private introjsService: IntrojsService,
-    private globalEvaluationService: GlobalEvaluationService
-  ) {
+  constructor(private globalEvaluationService: GlobalEvaluationService) {
     this.specialIcon = {
       '3.5': 'fa-line-chart',
       '4.1': 'fa-line-chart',
@@ -70,7 +67,7 @@ export class SidStatusService {
       item.evaluation_mode === 'question' ||
       referenceTo === '4.3'
     ) {
-      globalEvaluationService
+      await globalEvaluationService
         .validate(false)
         .then((obj: { reference_to: string; status: number }) => {
           if (referenceTo === '4.3') {

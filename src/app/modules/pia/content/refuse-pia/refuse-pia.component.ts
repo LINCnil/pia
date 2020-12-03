@@ -13,7 +13,7 @@ import { DialogService } from 'src/app/services/dialog.service';
   styleUrls: ['./refuse-pia.component.scss']
 })
 export class RefusePIAComponent implements OnInit {
-  @Input() pia: Pia = null;
+  @Input() pia: Pia;
   rejectionReasonForm: FormGroup;
   rejectionState: boolean;
   showRejectionReasonButtons: boolean;
@@ -121,7 +121,7 @@ export class RefusePIAComponent implements OnInit {
                 .resetDpoPage(this.pia.id)
                 .then(() => {
                   this.router.navigate([
-                    'pia',
+                    '/pia',
                     this.pia.id,
                     'section',
                     1,

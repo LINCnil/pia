@@ -25,14 +25,17 @@ export class SectionsComponent implements OnInit {
     questions: any;
   };
   @Input() data: { sections: any };
+  loading = false;
 
   constructor(public sidStatusService: SidStatusService) {}
 
   async ngOnInit(): Promise<void> {
+    this.loading = true;
     for (const section of this.data.sections) {
       for (const item of section.items) {
         await this.sidStatusService.setSidStatus(this.pia, section, item);
       }
     }
+    this.loading = false;
   }
 }
