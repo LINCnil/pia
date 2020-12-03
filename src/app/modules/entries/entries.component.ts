@@ -31,8 +31,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
   public type_entries: string; // pia / archive / knowledgeBase / structure
   public entries: Array<any> = [];
-
   public showModal = false;
+
+  public loading = false;
 
   constructor(
     private router: Router,
@@ -138,6 +139,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
    * Refresh the list.
    */
   async refreshContent(): Promise<void> {
+    this.loading = true;
     this.entries = [];
     setTimeout(async () => {
       switch (this.type_entries) {
@@ -155,6 +157,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
               this.piaService.pia_id = entrie.id;
               this.piaService.calculPiaProgress(entrie);
             });
+            this.loading = false;
             this.startIntroJs('pia');
           });
           break;
@@ -166,6 +169,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
               this.entries.forEach(entrie =>
                 this.archiveService.calculPiaProgress(entrie)
               );
+              this.loading = false;
             });
           break;
         case 'structure':
@@ -178,6 +182,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
                 data.push(structureExample);
               });
             this.entries = data;
+            this.loading = false;
           });
           break;
         case 'knowledgeBase':
@@ -194,6 +199,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
             defaultKnowledgeBase.is_example = true;
             result.push(defaultKnowledgeBase);
             this.entries = result;
+            this.loading = false;
           });
           break;
         default:
