@@ -158,12 +158,12 @@ export class ValidatePIAComponent implements OnInit {
         {
           text: 'modals.signed_pia_validation.content',
           type: 'yes',
-          yes: 'modals.signed_pia_validation.download_pia',
+          yes: '',
           no: '',
           icon: 'fa fa-check icon-green'
         },
         () => {
-          this.router.navigate(['/preview', this.pia.id]);
+          return;
         },
         () => {
           return;
