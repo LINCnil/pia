@@ -35,30 +35,33 @@ export class KnowledgeBaseService extends ApplicationDb {
       this.findAll()
         .then((response: any) => {
           const result: KnowledgeBase[] = [];
-          response.forEach(e => {
-            result.push(
-              new KnowledgeBase(
-                e.id,
-                e.name,
-                e.author,
-                e.contributors,
-                e.created_at
-              )
-            );
-          });
 
-          // Parse default Knowledge base json
-          const cnilKnowledgeBase = new KnowledgeBase(
-            0,
-            this.translateService.instant(
-              'knowledge_base.default_knowledge_base'
-            ),
-            'CNIL',
-            'CNIL'
-          );
-          cnilKnowledgeBase.is_example = true;
+          if (response && response.length > 0) {
+            response.forEach(e => {
+              result.push(
+                new KnowledgeBase(
+                  e.id,
+                  e.name,
+                  e.author,
+                  e.contributors,
+                  e.created_at
+                )
+              );
+            });
+          }
 
-          result.push(cnilKnowledgeBase);
+          // // Parse default Knowledge base json
+          // const cnilKnowledgeBase = new KnowledgeBase(
+          //   0,
+          //   this.translateService.instant(
+          //     'knowledge_base.default_knowledge_base'
+          //   ),
+          //   'CNIL',
+          //   'CNIL'
+          // );
+          // cnilKnowledgeBase.is_example = true;
+
+          // result.push(cnilKnowledgeBase);
           resolve(result);
         })
         .catch(error => {

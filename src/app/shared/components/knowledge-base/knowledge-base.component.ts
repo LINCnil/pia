@@ -12,11 +12,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { Pia } from 'src/app/models/pia.model';
 import { Structure } from 'src/app/models/structure.model';
-import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
-import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { MeasureService } from 'src/app/services/measures.service';
-import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
 
 @Component({
@@ -33,6 +30,7 @@ export class KnowledgeBaseComponent implements OnInit {
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
   customKnowledgeBases: KnowledgeBase[] = [];
   selectedKnowledBase: any = 0;
+  defaultKnowledgeBase;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,7 +39,17 @@ export class KnowledgeBaseComponent implements OnInit {
     private el: ElementRef,
     private translateService: TranslateService,
     private structureService: StructureService
-  ) {}
+  ) {
+    // Parse default Knowledge base json
+    this.defaultKnowledgeBase = new KnowledgeBase(
+      0,
+      this.translateService.instant('knowledge_base.default_knowledge_base'),
+      'CNIL',
+      'CNIL'
+    );
+    this.defaultKnowledgeBase.is_example = true;
+    this.customKnowledgeBases.push(this.defaultKnowledgeBase);
+  }
 
   ngOnInit() {
     this.searchForm = new FormGroup({
@@ -107,13 +115,17 @@ export class KnowledgeBaseComponent implements OnInit {
   }
 
   loadKnowledgesBase(): Promise<any> {
-    this.customKnowledgeBases = [];
     return new Promise((resolve, reject) => {
       // LOAD CUSTOM KNOWLEDGE BASE
       this.knowledgeBaseService
         .getAll()
         .then((result: any) => {
-          this.customKnowledgeBases = result;
+          if (result) {
+            this.customKnowledgeBases = [
+              ...this.customKnowledgeBases,
+              ...result
+            ];
+          }
           resolve();
         })
         .catch(() => {

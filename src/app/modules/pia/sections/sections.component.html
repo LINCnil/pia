@@ -17,7 +17,7 @@
     {{ "homepage.cards.category" | translate }} "{{ pia.category }}"
   </div>
 
-  <div class="pia-sectionBlock-body">
+  <div class="pia-sectionBlock-body" *ngIf="!loading; else statusSettingElse">
     <div
       *ngFor="let dataSection of data?.sections"
       [ngClass]="dataSection.title.split('.').join('-')"
@@ -55,7 +55,8 @@
                   sidStatusService.itemStatus[
                     dataSection.id + '.' + dataItem.id
                   ]
-                ]
+                ];
+                else defaultIcon
               "
               [ngClass]="
                 sidStatusService.sidStatusIcon[
@@ -66,11 +67,17 @@
               "
               aria-hidden="true"
             ></i>
+            <ng-template #defaultIcon> </ng-template>
           </li>
         </ng-container>
       </ul>
     </div>
   </div>
+  <ng-template #statusSettingElse>
+    <div class="pia-sectionBlock-body">
+      <p>Chargement des sections...</p>
+    </div>
+  </ng-template>
 </div>
 
 <div class="pia-validatePIABlock">

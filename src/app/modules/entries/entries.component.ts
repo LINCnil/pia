@@ -11,6 +11,8 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { DialogService } from 'src/app/services/dialog.service';
+import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-entries',
@@ -41,6 +43,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
     public piaService: PiaService,
     private introJsService: IntrojsService,
     public appDataService: AppDataService,
+    private translateService: TranslateService,
     public dialogService: DialogService
   ) {
     // get entries type (pia or archive)
@@ -179,6 +182,17 @@ export class EntriesComponent implements OnInit, OnDestroy {
           break;
         case 'knowledgeBase':
           await this.knowledgeBaseService.getAll().then((result: any) => {
+            // Parse default Knowledge base json
+            let defaultKnowledgeBase = new KnowledgeBase(
+              0,
+              this.translateService.instant(
+                'knowledge_base.default_knowledge_base'
+              ),
+              'CNIL',
+              'CNIL'
+            );
+            defaultKnowledgeBase.is_example = true;
+            result.push(defaultKnowledgeBase);
             this.entries = result;
           });
           break;

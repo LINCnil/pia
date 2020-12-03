@@ -45,6 +45,7 @@
       <button
         tabindex="1"
         class="btn"
+        *ngIf="message.yes"
         [ngClass]="
           message.data && message.data.btn_yes
             ? message.data.btn_yes

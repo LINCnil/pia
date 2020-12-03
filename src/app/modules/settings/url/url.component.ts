@@ -10,27 +10,34 @@ import { DialogService } from 'src/app/services/dialog.service';
 })
 export class UrlComponent implements OnInit {
   settingsForm: FormGroup;
-  constructor(private fb: FormBuilder,
-              private router: Router,
-              private dialogService: DialogService) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit() {
     this.settingsForm = this.fb.group({
       id: 1,
-      server_url: ['', Validators.required ]
+      server_url: ['', Validators.required]
     });
-    this.settingsForm.patchValue({ server_url: localStorage.getItem('server_url') });
+    this.settingsForm.patchValue({
+      server_url: localStorage.getItem('server_url')
+    });
   }
 
   /**
    * Record the URL of the server.
    */
   onSubmit() {
-      /* Set it back to empty if server mode is disabled */
-      if (this.settingsForm.controls['server_url'].value === null || this.settingsForm.controls['server_url'].value.length <= 0) {
-        localStorage.removeItem('server_url');
-        this.dialogService.confirmThis({
+    /* Set it back to empty if server mode is disabled */
+    if (
+      this.settingsForm.controls['server_url'].value === null ||
+      this.settingsForm.controls['server_url'].value.length <= 0
+    ) {
+      localStorage.removeItem('server_url');
+      this.dialogService.confirmThis(
+        {
           text: 'modals.update_server_url_ok.content',
           type: 'yes',
           yes: 'modals.back_to_home',
@@ -38,35 +45,60 @@ export class UrlComponent implements OnInit {
           icon: 'pia-icons pia-icon-happy'
         },
         () => {
-          this.router.navigate(['/entries']);
+          window.location.href = './';
         },
         () => {
           return;
-        });
-      } else {
-        const serverUrl = this.settingsForm.value.server_url.trim();
-        fetch(serverUrl + '/pias', {
-          mode: 'cors'
-        }).then((response) => {
+        }
+      );
+    } else {
+      const serverUrl = this.settingsForm.value.server_url.trim();
+      fetch(serverUrl + '/pias', {
+        mode: 'cors'
+      })
+        .then(response => {
           return response.ok;
-        }).then((ok: boolean) => {
+        })
+        .then((ok: boolean) => {
           if (ok) {
             localStorage.setItem('server_url', serverUrl);
-            this.dialogService.confirmThis({
-              text: 'modals.update_server_url_ok.content',
-              type: 'yes',
-              yes: 'modals.back_to_home',
-              no: '',
-              icon: 'pia-icons pia-icon-happy'
-            },
-            () => {
-              this.router.navigate(['/entries']);
-            },
-            () => {
-              return;
-            });
+            this.dialogService.confirmThis(
+              {
+                text: 'modals.update_server_url_ok.content',
+                type: 'yes',
+                yes: 'modals.back_to_home',
+                no: '',
+                icon: 'pia-icons pia-icon-happy'
+              },
+              () => {
+                window.location.href = './';
+              },
+              () => {
+                return;
+              }
+            );
           } else {
-            this.dialogService.confirmThis({
+            this.dialogService.confirmThis(
+              {
+                text: 'modals.update_server_url_nok.content',
+                type: 'yes',
+                yes: 'modals.close',
+                no: '',
+                icon: 'pia-icons pia-icon-sad'
+              },
+              () => {
+                return;
+              },
+              () => {
+                return;
+              }
+            );
+          }
+        })
+        .catch(error => {
+          console.error('Request failed', error);
+          this.dialogService.confirmThis(
+            {
               text: 'modals.update_server_url_nok.content',
               type: 'yes',
               yes: 'modals.close',
@@ -78,24 +110,9 @@ export class UrlComponent implements OnInit {
             },
             () => {
               return;
-            });
-          }
-        }).catch((error) => {
-          console.error('Request failed', error);
-          this.dialogService.confirmThis({
-            text: 'modals.update_server_url_nok.content',
-            type: 'yes',
-            yes: 'modals.close',
-            no: '',
-            icon: 'pia-icons pia-icon-sad'
-          },
-          () => {
-            return;
-          },
-          () => {
-            return;
-          });
+            }
+          );
         });
-      }
+    }
   }
 }
