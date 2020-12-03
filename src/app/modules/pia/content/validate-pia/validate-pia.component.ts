@@ -139,7 +139,7 @@ export class ValidatePIAComponent implements OnInit {
           icon: 'fa fa-check icon-green'
         },
         () => {
-          this.router.navigate(['/preview', this.pia.id]);
+          this.router.navigate(['/entries']);
         },
         () => {
           return;
