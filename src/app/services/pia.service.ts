@@ -74,7 +74,7 @@ export class PiaService extends ApplicationDb {
             if (d === 'structure_data') {
               value = JSON.stringify(value);
             }
-            formData.append('pia[' + d + ']', value);
+            formData.append('pia[' + d + ']', value !== null ? value : '');
           }
         }
         fetch(this.getServerUrl(), {
@@ -893,7 +893,7 @@ export class PiaService extends ApplicationDb {
               if (d === 'structure_data') {
                 value = JSON.stringify(value);
               }
-              formData.append('pia[' + d + ']', value);
+              formData.append('pia[' + d + ']', value !== null ? value : '');
             }
           }
           fetch(this.getServerUrl() + '/' + entry.id, {

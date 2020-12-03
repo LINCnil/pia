@@ -55,7 +55,8 @@
                   sidStatusService.itemStatus[
                     dataSection.id + '.' + dataItem.id
                   ]
-                ]
+                ];
+                else defaultIcon
               "
               [ngClass]="
                 sidStatusService.sidStatusIcon[
@@ -66,6 +67,7 @@
               "
               aria-hidden="true"
             ></i>
+            <ng-template #defaultIcon> </ng-template>
           </li>
         </ng-container>
       </ul>

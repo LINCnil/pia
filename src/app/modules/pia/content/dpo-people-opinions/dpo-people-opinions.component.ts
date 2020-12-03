@@ -8,8 +8,7 @@ import { Pia } from 'src/app/models/pia.model';
 @Component({
   selector: 'app-dpo-people-opinions',
   templateUrl: './dpo-people-opinions.component.html',
-  styleUrls: ['./dpo-people-opinions.component.scss'],
-  providers: [PiaService]
+  styleUrls: ['./dpo-people-opinions.component.scss']
 })
 export class DPOPeopleOpinionsComponent implements OnInit {
   @Input() pia: Pia;
@@ -27,6 +26,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.pia);
     this.DPOForm = new FormGroup({
       DPOStatus: new FormControl(),
       DPOOpinion: new FormControl(),
@@ -49,7 +49,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.DPOForm.controls['DPOStatus'].disable();
       this.DPOForm.controls['DPOOpinion'].disable();
     }
-    if (this.pia.dpo_status !== undefined) {
+    if (this.pia.dpo_status !== undefined && this.pia.dpo_status) {
       this.DPOForm.controls['DPOStatus'].patchValue(this.pia.dpo_status);
     }
     if (this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
@@ -58,7 +58,10 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
 
     // Concerned people opinion searched or unsearched
-    if (this.pia.concerned_people_searched_opinion !== undefined) {
+    if (
+      this.pia.concerned_people_searched_opinion &&
+      this.pia.concerned_people_searched_opinion !== undefined
+    ) {
       this.searchedOpinionsForm.controls['searchStatus'].patchValue(
         this.pia.concerned_people_searched_opinion
       );
@@ -74,6 +77,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     // Concerned people unsearched field
     if (
       this.pia.concerned_people_searched_content &&
+      this.pia.concerned_people_searched_content !== '' &&
       this.pia.concerned_people_searched_content.length > 0
     ) {
       this.searchedOpinionsForm.controls['searchContent'].patchValue(
@@ -97,6 +101,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     if (
       this.pia.concerned_people_opinion &&
+      this.pia.concerned_people_opinion != null &&
       this.pia.concerned_people_opinion.length > 0
     ) {
       this.peopleForm.controls['peopleOpinion'].patchValue(
