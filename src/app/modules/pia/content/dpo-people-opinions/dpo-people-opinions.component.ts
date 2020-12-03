@@ -94,7 +94,10 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.controls['peopleStatus'].disable();
       this.peopleForm.controls['peopleOpinion'].disable();
     }
-    if (this.pia.concerned_people_status !== undefined) {
+    if (
+      this.pia.people_names &&
+      this.pia.concerned_people_status !== undefined
+    ) {
       this.peopleForm.controls['peopleStatus'].patchValue(
         this.pia.concerned_people_status
       );
