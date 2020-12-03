@@ -29,10 +29,10 @@ export class SectionsComponent implements OnInit {
   constructor(public sidStatusService: SidStatusService) {}
 
   async ngOnInit(): Promise<void> {
-    this.data.sections.forEach((section: any) => {
-      section.items.forEach((item: any) => {
-        this.sidStatusService.setSidStatus(this.pia, section, item);
-      });
-    });
+    for (const section of this.data.sections) {
+      for (const item of section.items) {
+        await this.sidStatusService.setSidStatus(this.pia, section, item);
+      }
+    }
   }
 }

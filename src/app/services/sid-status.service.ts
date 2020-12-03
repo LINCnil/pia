@@ -58,7 +58,7 @@ export class SidStatusService {
    * @param section - The section.
    * @param item - The item.
    */
-  setSidStatus(pia: any, section: any, item: any): void {
+  async setSidStatus(pia: any, section: any, item: any): Promise<any> {
     const referenceTo = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
     const globalEvaluationService = new GlobalEvaluationService();
