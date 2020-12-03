@@ -198,7 +198,7 @@
               <input
                 type="radio"
                 id="dpoAvis-1"
-                [checked]="pia.concerned_people_status == 1"
+                [checked]="pia.people_names && pia.concerned_people_status == 1"
                 (click)="enableConcernedPeopleStatusRadioButtons()"
                 (change)="concernedPeopleStatusFocusOut()"
                 formControlName="peopleStatus"
@@ -214,7 +214,7 @@
               <input
                 type="radio"
                 id="dpoAvis-2"
-                [checked]="pia.concerned_people_status == 0"
+                [checked]="pia.people_names && pia.concerned_people_status == 0"
                 (click)="enableConcernedPeopleStatusRadioButtons()"
                 (change)="concernedPeopleStatusFocusOut()"
                 formControlName="peopleStatus"
