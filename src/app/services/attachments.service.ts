@@ -6,6 +6,7 @@ import { Attachment } from '../models/attachment.model';
 export class AttachmentsService extends ApplicationDb {
   signedAttachments: any[] = [];
   attachment_signed: any;
+  pia_signed;
 
   constructor() {
     super(201708291502, 'attachment');
@@ -183,7 +184,7 @@ export class AttachmentsService extends ApplicationDb {
   /**
    * Update all signed attachement.
    */
-  async updateSignedAttachmentsList(piaId): Promise<void> {
+  async updateSignedAttachmentsList(piaId): Promise<any> {
     return new Promise((resolve, reject) => {
       this.signedAttachments = [];
       this.findAllByPia(piaId).then((data: any[]) => {
@@ -207,7 +208,7 @@ export class AttachmentsService extends ApplicationDb {
             this.signedAttachments.splice(0, 1);
           }
         }
-        resolve();
+        resolve(this.signedAttachments);
       });
     });
   }
@@ -216,7 +217,7 @@ export class AttachmentsService extends ApplicationDb {
    * Upload a new attachment.
    * @param attachment_file - The attachment file.
    */
-  upload(attachment_file: any, piaId, piaSigned = 0): Promise<Attachment> {
+  upload(attachment_file: any, piaId): Promise<Attachment> {
     return new Promise((resolve, reject) => {
       const file = new Blob([attachment_file]);
       const reader = new FileReader();
@@ -236,13 +237,14 @@ export class AttachmentsService extends ApplicationDb {
           .replace(/-+$/, '');
         attachment.mime_type = attachment_file.type;
         attachment.pia_id = piaId;
-        attachment.pia_signed = piaSigned;
+        attachment.pia_signed = this.pia_signed ? this.pia_signed : 0;
         attachment.comment = '';
         this.create(attachment)
           .then((res: any) => {
             // To refresh signed attachments on validation page
             this.updateSignedAttachmentsList(piaId).then(() => {
               // ---
+              this.signedAttachments.push({ ...attachment, id: res });
               resolve({ ...attachment, id: res });
             });
           })
