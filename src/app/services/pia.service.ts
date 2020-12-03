@@ -431,7 +431,7 @@ export class PiaService extends ApplicationDb {
             entries.forEach(element => {
               this.evaluationService.find(element.id).then((entry: any) => {
                 entry.global_status = 0;
-                entry.update().then(() => {
+                this.update(entry).then(() => {
                   count++;
                   if (count === entries.length) {
                     resolve();
