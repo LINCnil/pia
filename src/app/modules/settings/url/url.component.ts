@@ -42,7 +42,10 @@ export class UrlComponent implements OnInit {
           type: 'yes',
           yes: 'modals.back_to_home',
           no: '',
-          icon: 'pia-icons pia-icon-happy'
+          icon: 'pia-icons pia-icon-happy',
+          data: {
+            no_cross_button: true
+          }
         },
         () => {
           window.location.href = './';
