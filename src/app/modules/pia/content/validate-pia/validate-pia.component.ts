@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -17,8 +17,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-validate-pia',
   templateUrl: './validate-pia.component.html',
-  styleUrls: ['./validate-pia.component.scss'],
-  providers: [PiaService]
+  styleUrls: ['./validate-pia.component.scss']
 })
 export class ValidatePIAComponent implements OnInit {
   @Input() pia: Pia = null;
@@ -63,7 +62,11 @@ export class ValidatePIAComponent implements OnInit {
       this.pia.status > 1
     );
 
-    this.attachmentsService.updateSignedAttachmentsList(this.pia.id);
+    this.attachmentsService
+      .updateSignedAttachmentsList(this.pia.id)
+      .then(res => {
+        console.log(res);
+      });
     this.actionPlanService.listActionPlan();
   }
 
@@ -74,6 +77,7 @@ export class ValidatePIAComponent implements OnInit {
     const attachment: any = document.querySelector(
       '[formcontrolname="attachment_file"]'
     );
+    this.attachmentsService.pia_signed = 1;
     attachment.click();
   }
 
