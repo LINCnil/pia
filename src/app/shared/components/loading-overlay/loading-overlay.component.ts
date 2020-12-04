@@ -7,9 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LoadingOverlayComponent implements OnInit {
   @Input() visibility: boolean;
-  constructor() { }
+  @Input() childMode = false;
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
