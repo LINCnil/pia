@@ -137,3 +137,13 @@
 .icon-blue {
   color: $pia-blue;
 }
+
+#modal-refuse-pia {
+  p {
+    color: $pia-red;
+  }
+  .fa.fa-cog {
+    font-size: 9rem;
+    margin-top: 6px;
+  }
+}

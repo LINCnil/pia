@@ -436,9 +436,12 @@
         <!-- ENDING PIA, ARCHIVE Cards switch -->
       </ng-container>
       <ng-template #loadingEntries>
-        <p style="display:inline-block; vertical-align: top;">
-          chargement de vos données...
-        </p>
+        <div class="entries-loading entries-loading-card">
+          <app-loading-overlay
+            [visibility]="true"
+            [childMode]="true"
+          ></app-loading-overlay>
+        </div>
       </ng-template>
     </div>
 
@@ -459,8 +462,8 @@
               </ng-container>
             </ng-container>
           </thead>
-          <tbody>
-            <ng-container *ngIf="!loading; else loadingEntries">
+          <ng-container *ngIf="!loading; else loadingEntries">
+            <tbody>
               <ng-container [ngSwitch]="type_entries">
                 <ng-container *ngSwitchCase="'pia'">
                   <tr
@@ -518,15 +521,18 @@
                 </ng-container>
                 <ng-container *ngSwitchDefault> </ng-container>
               </ng-container>
-            </ng-container>
-            <ng-template #loadingEntries>
-              <tr>
-                <td>
-                  chargement de vos données...
-                </td>
-              </tr>
-            </ng-template>
-          </tbody>
+            </tbody>
+          </ng-container>
+          <ng-template #loadingEntries>
+            <tbody>
+              <div class="entries-loading entries-loading-line">
+                <app-loading-overlay
+                  [visibility]="true"
+                  [childMode]="true"
+                ></app-loading-overlay>
+              </div>
+            </tbody>
+          </ng-template>
         </table>
       </div>
     </ng-template>

@@ -344,6 +344,7 @@
 
 // List PIA
 .pia-list-table {
+  position: relative;
   border-collapse: collapse;
   width: 100%;
   max-width: 100%;
@@ -459,5 +460,20 @@
         }
       }
     }
+  }
+}
+
+.entries-loading {
+  display: inline-block;
+  vertical-align: top;
+  &.entries-loading-card {
+    position: relative;
+    height: 500px;
+    width: calc(100% - 290px);
+  }
+  &.entries-loading-line {
+    position: absolute;
+    width: 100%;
+    height: 150px;
   }
 }

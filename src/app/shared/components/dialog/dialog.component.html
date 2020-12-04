@@ -1,4 +1,8 @@
-<div class="pia-modalBlock open" *ngIf="message">
+<div
+  class="pia-modalBlock open"
+  [id]="message.data && message.data.modal_id ? message.data.modal_id : null"
+  *ngIf="message"
+>
   <div class="pia-modalBlock-content bounceIn">
     <button
       *ngIf="!message.data || (message.data && !message.data.no_cross_button)"
