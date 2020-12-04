@@ -109,10 +109,11 @@ export class RefusePIAComponent implements OnInit {
             {
               text: 'modals.refuse_pia.content',
               type: 'yes',
-              yes: 'modals.close',
+              yes: 'modals.continue',
               no: '',
-              icon: 'fa fa-cog icon-red',
+              icon: 'pia-icons fa fa-cog icon-red',
               data: {
+                modal_id: 'modal-refuse-pia',
                 btn_yes: 'btn-red'
               }
             },
