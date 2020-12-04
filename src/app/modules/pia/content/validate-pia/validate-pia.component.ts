@@ -65,7 +65,7 @@ export class ValidatePIAComponent implements OnInit {
     this.attachmentsService
       .updateSignedAttachmentsList(this.pia.id)
       .then(res => {
-        console.log(res);
+        // console.log(res);
       });
     this.actionPlanService.listActionPlan();
   }

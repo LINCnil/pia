@@ -278,7 +278,6 @@ export class StructureService extends ApplicationDb {
 
       this.create(structure)
         .then((result: Structure) => {
-          console.log('finish', result);
           resolve(result);
         })
         .catch(err => {

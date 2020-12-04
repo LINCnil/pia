@@ -701,7 +701,7 @@ export class PiaService extends ApplicationDb {
           evaluationModel.updated_at = new Date(evaluation.updated_at);
         }
         this.evaluationService.create(evaluationModel).then(() => {
-          console.log('finish create evaluation');
+          // console.log('finish create evaluation');
         });
       }
     }
