@@ -129,6 +129,7 @@ export class ContentComponent implements OnInit {
       .then((toFix: boolean) => {
         this.goToNextSectionItem(5, 7);
         let isPiaFullyEvaluated = true;
+
         for (const el in this.sidStatusService.itemStatus) {
           if (
             this.sidStatusService.itemStatus.hasOwnProperty(el) &&
@@ -138,6 +139,7 @@ export class ContentComponent implements OnInit {
             isPiaFullyEvaluated = false;
           }
         }
+
         if (isPiaFullyEvaluated) {
           this.dialogService.confirmThis(
             {
