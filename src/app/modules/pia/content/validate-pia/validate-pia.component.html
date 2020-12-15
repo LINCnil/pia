@@ -197,8 +197,9 @@
             (click)="
               downloadAttachment(attachmentsService.attachment_signed.id)
             "
-            >{{ attachmentsService.attachment_signed.name }}</a
           >
+            {{ attachmentsService.attachment_signed.name }}
+          </a>
           <button
             *ngIf="pia.status !== 4"
             type="button"
@@ -248,12 +249,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Links and tools block -->
-    <!-- <div class="pia-entryContentBlock-footer-validationTools">
-      <a routerLink="/home"><i class="fa fa-home" aria-hidden="true"></i><p>{{ 'validation_page.tools.dashboard' | translate }}</p></a>
-      <a routerLink="/preview/{{piaService.pia.id}}"><i class="fa fa-file-text-o" aria-hidden="true"></i><p>{{ 'validation_page.tools.display_pia' | translate }}</p></a>
-    </div> -->
   </div>
 </div>
 
@@ -267,12 +262,17 @@
       "modals.remove_attachment.comment" | translate
     }}</label>
     <br />
-    <textarea id="pia-remove-attachment-comment" formControlName="comment">
+    <textarea
+      id="pia-remove-attachment-comment"
+      formControlName="comment"
+      style="width:100%;height:100px;margin-bottom:22px;"
+    >
     </textarea>
   </form>
   <div class="pia-modalBlock-buttons-choice">
     <button
       tabindex="1"
+      style="margin-right: 30px;"
       class="btn btn-red"
       type="button"
       (click)="removeAttachmentId = null"

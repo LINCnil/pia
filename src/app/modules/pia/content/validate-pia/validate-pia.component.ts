@@ -162,7 +162,7 @@ export class ValidatePIAComponent implements OnInit {
         {
           text: 'modals.signed_pia_validation.content',
           type: 'yes',
-          yes: '',
+          yes: 'modals.close',
           no: '',
           icon: 'fa fa-check icon-green'
         },
