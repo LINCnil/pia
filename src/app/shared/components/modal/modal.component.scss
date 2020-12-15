@@ -98,6 +98,9 @@
 }
 
 .revision-preview-modal {
+  &.noBackground {
+    background-color: transparent;
+  }
   .pia-modalBlock-content {
     width: auto;
     top: 13%;
@@ -105,6 +108,7 @@
     text-align: initial;
     font-style: normal !important;
     font-size: inherit !important;
+    padding: 0 !important;
   }
 }
 

@@ -9,11 +9,17 @@ export class DialogService {
   confirmThis(message: Dialog, yesFn: () => void, noFn: () => void): any {
     const header = document.querySelector('.pia-headerBlock');
     const container = document.querySelector('.pia-mainContainerBlock');
+    const specialRevisionModal = document.querySelector(
+      '.revision-preview-modal'
+    );
     if (header) {
       header.classList.add('blur');
     }
     if (container) {
       container.classList.add('blur');
+    }
+    if (specialRevisionModal) {
+      specialRevisionModal.classList.toggle('noBackground');
     }
     this.setConfirmation(message, yesFn, noFn);
   }
@@ -22,6 +28,9 @@ export class DialogService {
     const that = this;
     const header = document.querySelector('.pia-headerBlock');
     const container = document.querySelector('.pia-mainContainerBlock');
+    const specialRevisionModal = document.querySelector(
+      '.revision-preview-modal'
+    );
     this.subject.next({
       type: 'confirm',
       ...message,
@@ -30,12 +39,18 @@ export class DialogService {
         yesFn();
         header.classList.remove('blur');
         container.classList.remove('blur');
+        if (specialRevisionModal) {
+          specialRevisionModal.classList.toggle('noBackground');
+        }
       },
       noFn(): any {
         that.subject.next();
         noFn();
         header.classList.remove('blur');
         container.classList.remove('blur');
+        if (specialRevisionModal) {
+          specialRevisionModal.classList.toggle('noBackground');
+        }
       }
     });
   }
