@@ -93,13 +93,23 @@ export class PaginationService {
   getNextSectionItem(status_start: number, status_end: number): Array<any> {
     let goto_section = null;
     let goto_item = null;
+    console.log(status_start, status_end);
 
     const itemStatus = Object.keys(this.sidStatusService.itemStatus)
       .sort()
       .reduce((r, k) => ((r[k] = this.sidStatusService.itemStatus[k]), r), {});
 
+    console.log('ehhhe', itemStatus);
+
     // check previous
     for (const el in itemStatus) {
+      console.log(
+        el,
+        this.sidStatusService.itemStatus[el],
+        status_start,
+        status_end
+      );
+
       if (
         this.sidStatusService.itemStatus[el] !== null &&
         this.sidStatusService.itemStatus[el] !== undefined &&
@@ -110,12 +120,14 @@ export class PaginationService {
         const reference_to = el.split('.');
         goto_section = reference_to[0];
         goto_item = reference_to[1];
+
         break;
       }
     }
 
+    console.log('next link', this.nextLink[0], this.nextLink[1]);
+
     if (!goto_section || !goto_item) {
-      // Use Nextlink
       if (
         this.nextLink[0] &&
         this.nextLink[1] &&
@@ -129,6 +141,7 @@ export class PaginationService {
       }
     }
 
+    console.log('final destination', goto_section, goto_item);
     return [goto_section, goto_item];
   }
 }
