@@ -312,7 +312,7 @@ export class PiaComponent implements OnInit {
           },
           () => {
             const gotoSectionItem = this.paginationService.getNextSectionItem(
-              4,
+              0,
               7
             );
             this.router.navigate([
