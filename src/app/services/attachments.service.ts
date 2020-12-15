@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { cpuUsage } from 'process';
 import { ApplicationDb } from '../application.db';
 import { Attachment } from '../models/attachment.model';
 
@@ -225,6 +226,11 @@ export class AttachmentsService extends ApplicationDb {
       reader.onloadend = () => {
         const attachment = new Attachment();
         attachment.file = reader.result;
+
+        const ext = attachment_file.name.split('.')[
+          attachment_file.name.split('.').length - 1
+        ];
+
         attachment.name = attachment_file.name
           .toString()
           .trim()
@@ -235,6 +241,9 @@ export class AttachmentsService extends ApplicationDb {
           .replace(/\-\-+/g, '-')
           .replace(/^-+/, '')
           .replace(/-+$/, '');
+
+        attachment.name += ext ? '.' + ext : '';
+
         attachment.mime_type = attachment_file.type;
         attachment.pia_id = piaId;
         attachment.pia_signed = this.pia_signed ? this.pia_signed : 0;
