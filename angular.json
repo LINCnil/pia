@@ -134,9 +134,8 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "ngx-cypress-builder:cypress",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "pia-angular:serve"
           },
           "configurations": {
