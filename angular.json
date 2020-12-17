@@ -147,5 +147,8 @@
       }
     }
   },
-  "defaultProject": "pia-angular"
+  "defaultProject": "pia-angular",
+  "cli": {
+    "analytics": false
+  }
 }
