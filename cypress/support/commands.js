@@ -26,17 +26,25 @@ import "cypress-localstorage-commands";
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add("disable_onboarding", () => {
-  cy.setLocalStorage("onboardingDashboardConfirmed", true);
-  cy.setLocalStorage("onboardingEntryConfirmed", true);
+  cy.setLocalStorage("onboardingDashboardConfirmed", "true");
+  cy.setLocalStorage("onboardingEntryConfirmed", "true");
+  cy.setLocalStorage("onboardingEvaluationConfirmed", "true");
+  cy.setLocalStorage("onboardingValidatedConfirmed", "true");
 });
 Cypress.Commands.add("skip_onboarding", () => {
   cy.get(".introjs-skipbutton").click();
 });
+Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
+  cy.visit(`http://localhost:4200/#/pia/${id}/section/${section}/item/${item}`);
+  cy.wait(1000);
+});
+
 Cypress.Commands.add("create_new_pia", () => {
   const endPoint = "http://localhost:4200";
   cy.visit(endPoint);
   cy.get(".btn-green").click();
   cy.get(".pia-newBlock-item-new-btn button").click();
+  cy.wait(500);
   cy.get("#name").type("PIA Title");
   cy.get("#author_name").type("Author name");
   cy.get("#evaluator_name").type("Evaluator name");
@@ -44,6 +52,14 @@ Cypress.Commands.add("create_new_pia", () => {
   cy.get("#pia-save-card-btn")
     .first()
     .click();
+  cy.wait(500);
+});
+
+Cypress.Commands.add("get_current_pia_id", callback => {
+  cy.hash().then(value => {
+    const id = value.split("/")[2];
+    callback(id);
+  });
 });
 
 Cypress.Commands.add("test_writing_on_textarea", () => {
@@ -59,8 +75,8 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
       cy.wait(500);
       cy.wrap($el)
         .closest(".pia-questionBlock")
-        .wait(500)
-        .click("left");
+        .wait(500);
+      cy.get("body").click();
     }
   });
 });
@@ -84,6 +100,7 @@ Cypress.Commands.add("test_add_measure", () => {
       .wait(500)
       .click();
     expect($el.find("textarea").val().length > 0).to.be.true;
+    cy.get("body").click();
   });
 });
 Cypress.Commands.add("test_add_measure_from_sidebar", () => {
@@ -159,8 +176,8 @@ Cypress.Commands.add("test_move_gauges", () => {
   });
 });
 Cypress.Commands.add("validateEval", () => {
-  cy.wait(500)
-    .get(".pia-entryContentBlock-footer")
+  cy.wait(1000);
+  cy.get(".pia-entryContentBlock-footer")
     .find(".btn-green")
     .should("have.class", "btn-active")
     .click();
