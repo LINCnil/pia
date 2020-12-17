@@ -1,6 +1,8 @@
 describe("Principes fondamentaux", () => {
   context("Proportionnalité et nécessité", () => {
     it("should complete textareas", () => {
+      cy.disable_onboarding();
+      cy.create_new_pia();
       cy.test_writing_on_textarea();
     });
     it("should valid evaluation", () => {
