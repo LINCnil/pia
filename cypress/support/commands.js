@@ -25,6 +25,20 @@ import "cypress-localstorage-commands";
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add("init", () => {
+  indexedDB.deleteDatabase("pia");
+  indexedDB.deleteDatabase("answer");
+  indexedDB.deleteDatabase("comment");
+  indexedDB.deleteDatabase("evaluation");
+  indexedDB.deleteDatabase("measure");
+  indexedDB.deleteDatabase("structure");
+  cy.clearLocalStorage();
+  cy.clearCookies();
+  cy.window().then(win => {
+    win.sessionStorage.clear();
+  });
+});
+
 Cypress.Commands.add("disable_onboarding", () => {
   cy.setLocalStorage("onboardingDashboardConfirmed", "true");
   cy.setLocalStorage("onboardingEntryConfirmed", "true");
@@ -63,22 +77,21 @@ Cypress.Commands.add("get_current_pia_id", callback => {
 });
 
 Cypress.Commands.add("test_writing_on_textarea", () => {
-  cy.get(".pia-questionBlock-content").each($el => {
-    const textarea = $el.find("textarea");
-    if (textarea.length > 0) {
-      textarea.val(
-        "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
-      );
-      cy.wrap($el)
-        .find("textarea")
-        .click();
-      cy.wait(500);
-      cy.wrap($el)
-        .closest(".pia-questionBlock")
-        .wait(500);
-      cy.get("body").click();
+  cy.get("textarea").then($el => {
+    for (const $textarea of $el) {
+      cy.wrap($textarea).then($textarea => {
+        if ($textarea.length > 0) {
+          $textarea.val(
+            "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
+          );
+          cy.wrap($textarea).click({ force: true });
+          cy.wait(1000);
+        }
+      });
     }
   });
+  cy.get(".pia-rightSidebarBlock-content").click();
+  cy.wait(5000);
 });
 Cypress.Commands.add("test_add_measure", () => {
   cy.get(".btn-white > .pia-icons").click();
@@ -117,6 +130,9 @@ Cypress.Commands.add("test_add_measure_from_sidebar", () => {
       .parent()
       .wait(500)
       .click();
+
+    expect($el.find("textarea").val().length > 0).to.be.true;
+    cy.get("body").click();
   });
 });
 Cypress.Commands.add("test_add_tags", () => {
@@ -303,9 +319,7 @@ Cypress.Commands.add("validatePia", () => {
 });
 Cypress.Commands.add("validateModalComplete", () => {
   cy.wait(500)
-    .get("#completed-edition")
-    .find("button")
-    .first()
+    .get(".btn.btn-green")
     .click()
     .wait(500);
 });

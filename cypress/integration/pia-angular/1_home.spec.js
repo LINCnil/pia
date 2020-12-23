@@ -1,18 +1,9 @@
-before("Purge Pia before run", () => {
-  indexedDB.deleteDatabase("pia");
-  indexedDB.deleteDatabase("evaluation");
-  indexedDB.deleteDatabase("structure");
-  indexedDB.deleteDatabase("comment");
-  indexedDB.deleteDatabase("measure");
-  indexedDB.deleteDatabase("answer");
-  cy.clearLocalStorage();
-  cy.clearCookies();
-  cy.window().then(win => {
-    win.sessionStorage.clear();
-  });
-});
 describe("Home", () => {
   const endPoint = "http://localhost:4200";
+  before(() => {
+    cy.init();
+    cy.disable_onboarding();
+  });
   context("landing", () => {
     it("should have class authenticationBlock-auth", () => {
       cy.visit(endPoint);

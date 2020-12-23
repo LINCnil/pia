@@ -1,4 +1,8 @@
 describe("Contexte", () => {
+  before(() => {
+    cy.clear_index_dbs();
+    cy.disable_onboarding();
+  });
   context("Vue d'ensemble", () => {
     it("should complete textareas", () => {
       cy.disable_onboarding();

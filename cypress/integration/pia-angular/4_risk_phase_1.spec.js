@@ -45,30 +45,42 @@ describe("Risques", () => {
     });
   });
 
-  // context("Modification non désirées de données", () => {
-  //   it("should add tags and move gauges", () => {
-  //     cy.test_add_tags_next();
-  //     cy.test_move_gauges();
-  //     cy.test_writing_on_textarea();
-  //   });
-  //   it("should valid evaluation", () => {
-  //     cy.validateEval();
-  //   });
-  //   it("should valid modal for evaluation", () => {
-  //     cy.validateModal();
-  //   });
-  // });
-  // context("Disparition de données", () => {
-  //   it("should complete to gether view", () => {
-  //     cy.test_add_tags_next();
-  //     cy.test_move_gauges();
-  //     cy.test_writing_on_textarea();
-  //   });
-  //   it("should valid evaluation", () => {
-  //     cy.validateEval();
-  //   });
-  //   it("should valid modal for evaluation", () => {
-  //     cy.validateModalComplete();
-  //   });
-  // });
+  context("Modification non désirées de données", () => {
+    it("should add tags and move gauges", () => {
+      cy.disable_onboarding();
+      cy.get_current_pia_id(id => {
+        // change section and item
+        cy.go_edited_pia(id, 3, 3);
+        cy.wait(500);
+        cy.test_add_tags_next();
+        cy.test_move_gauges();
+        cy.test_writing_on_textarea();
+      });
+    });
+    it("should valid evaluation", () => {
+      cy.validateEval();
+    });
+    it("should valid modal for evaluation", () => {
+      cy.validateModal();
+    });
+  });
+
+  context("Disparition de données", () => {
+    it("should complete to gether view", () => {
+      cy.disable_onboarding();
+      cy.get_current_pia_id(id => {
+        // change section and item
+        cy.go_edited_pia(id, 3, 4);
+        cy.test_add_tags_next();
+        cy.test_move_gauges();
+        cy.test_writing_on_textarea();
+      });
+    });
+    it("should valid evaluation", () => {
+      cy.validateEval();
+    });
+    it("should valid modal for evaluation", () => {
+      cy.validateModalComplete();
+    });
+  });
 });
