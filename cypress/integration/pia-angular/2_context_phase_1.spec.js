@@ -1,6 +1,6 @@
 describe("Contexte", () => {
   before(() => {
-    cy.clear_index_dbs();
+    cy.init();
     cy.disable_onboarding();
   });
   context("Vue d'ensemble", () => {

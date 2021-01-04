@@ -90,7 +90,7 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
       });
     }
   });
-  cy.get(".pia-rightSidebarBlock-content").click();
+  cy.get(".pia-knowledgeBaseBlock-searchForm form input").click();
   cy.wait(5000);
 });
 Cypress.Commands.add("test_add_measure", () => {

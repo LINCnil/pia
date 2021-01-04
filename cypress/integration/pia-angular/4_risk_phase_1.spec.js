@@ -31,6 +31,7 @@ describe("Risques", () => {
       cy.get_current_pia_id(id => {
         // change section and item
         cy.go_edited_pia(id, 3, 2);
+        cy.wait(1000);
         cy.test_add_tags();
         cy.test_move_gauges();
         cy.test_writing_on_textarea();
