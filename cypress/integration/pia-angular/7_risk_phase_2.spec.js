@@ -1,4 +1,8 @@
 describe("Risques", () => {
+  before(() => {
+    cy.init();
+    cy.disable_onboarding();
+  });
   context("Mesures existantes ou prévues", () => {
     it("should acept evaluation", () => {
       cy.acceptMultipleEval();

@@ -1,24 +1,43 @@
 describe("Risques", () => {
-  context("Mesures existantes ou prévues", () => {
-    it("should complete textareas", () => {
-      cy.disable_onboarding();
-      cy.create_new_pia();
-      cy.test_writing_on_textarea();
+  before(() => {
+    cy.init();
+    cy.disable_onboarding().then(() => {
+      cy.wait(200);
     });
+  });
+
+  context("Mesures existantes ou prévues", () => {
+    /**
+     * Prepare pia for test "Mesure existantes ou prévues"
+     */
+    it("prepare pia", () => {
+      // CREATE FOR TESTING
+      cy.disable_onboarding();
+      cy.create_new_pia().then(() => {
+        cy.wait(500);
+        // cy.test_writing_on_textarea();
+      });
+    });
+
     it("set Measures from sidebar", () => {
       cy.disable_onboarding();
       // change section and item
       cy.get_current_pia_id(id => {
-        cy.go_edited_pia(id, 3, 1);
         cy.disable_onboarding();
+        cy.go_edited_pia(id, 3, 1);
         cy.test_add_measure_from_sidebar(); // Set measure
-        cy.test_add_measure();
       });
     });
+
+    it("set Measures with + ", () => {
+      cy.test_add_measure();
+    });
+
     it("should valid evaluation", () => {
       cy.disable_onboarding();
       cy.validateEval();
     });
+
     it("should valid modal for evaluation", () => {
       cy.disable_onboarding();
       cy.validateModal();
@@ -41,6 +60,7 @@ describe("Risques", () => {
     it("should valid evaluation", () => {
       cy.validateEval();
     });
+
     it("should valid modal for evaluation", () => {
       cy.validateModal();
     });
@@ -67,7 +87,7 @@ describe("Risques", () => {
   });
 
   context("Disparition de données", () => {
-    it("should complete to gether view", () => {
+    it("should complete together view", () => {
       cy.disable_onboarding();
       cy.get_current_pia_id(id => {
         // change section and item

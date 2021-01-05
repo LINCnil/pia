@@ -1,4 +1,8 @@
 describe("Validation", () => {
+  before(() => {
+    cy.init();
+    cy.disable_onboarding();
+  });
   context("Avis du DPD et des personnes concernées", () => {
     it("should complete DPD", () => {
       cy.validateDPO();
