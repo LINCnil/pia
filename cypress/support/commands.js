@@ -51,6 +51,12 @@ Cypress.Commands.add("skip_onboarding", () => {
   cy.get(".introjs-skipbutton").click();
 });
 
+Cypress.Commands.add("focus_out", () => {
+  cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
+    force: true
+  });
+});
+
 Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
   cy.visit(`http://localhost:4200/#/pia/${id}/section/${section}/item/${item}`);
   cy.wait(1000);
@@ -100,29 +106,42 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
     }
   });
 });
+
 Cypress.Commands.add("test_add_measure", () => {
-  cy.get(".btn-white > .pia-icons").click();
-  cy.get(".pia-measureBlock-title").each(($el, $index, $list) => {
-    cy.wrap($el).click();
-    cy.wrap($el)
-      .find("textarea")
-      .type("Measure 1");
-  });
-  cy.get(".pia-measureBlock-content").each(($el, $index, $list) => {
-    cy.wrap($el).click();
-    $el
-      .find("textarea")
-      .val(
-        "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
-      );
-    cy.wrap($el)
-      .parent()
-      .wait(500)
-      .click();
-    expect($el.find("textarea").val().length > 0).to.be.true;
-    cy.get("body").click();
-  });
+  cy.get(".btn-white > .pia-icons")
+    .click()
+    .then(() => {
+      // Set title of measure
+      cy.get(".pia-measureBlock-title").each(($el, $index, $list) => {
+        cy.wrap($el).click();
+        cy.wrap($el)
+          .find("textarea")
+          .type("Measure 1");
+      });
+
+      // Set content of measure
+      cy.get(".pia-measureBlock-content").each(($el, $index, $list) => {
+        cy.wrap($el).click();
+        $el
+          .find("textarea")
+          .val(
+            "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
+          );
+        cy.wrap($el)
+          .parent()
+          .wait(500)
+          .click();
+
+        expect($el.find("textarea").val().length > 0).to.be.true;
+
+        cy.focus_out();
+        // cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
+        //   force: true
+        // });
+      });
+    });
 });
+
 Cypress.Commands.add("test_add_measure_from_sidebar", () => {
   cy.get(".pia-knowledgeBaseBlock-item-definition > .btn")
     .first()
@@ -139,9 +158,14 @@ Cypress.Commands.add("test_add_measure_from_sidebar", () => {
       .click();
 
     expect($el.find("textarea").val().length > 0).to.be.true;
-    cy.get("body").click();
+
+    cy.focus_out();
+    // cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
+    //   force: true
+    // });
   });
 });
+
 Cypress.Commands.add("test_add_tags", () => {
   cy.get("[aria-label='Enter the potential impacts']")
     .type("Tag 1")
@@ -202,15 +226,13 @@ Cypress.Commands.add("test_move_gauges", () => {
 });
 
 Cypress.Commands.add("validateEval", () => {
-  cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
-    force: true
+  cy.focus_out().then(() => {
+    cy.wait(1000);
+    cy.get(".pia-entryContentBlock-footer")
+      .find(".btn-green")
+      .should("have.class", "btn-active")
+      .click();
   });
-
-  cy.wait(1000);
-  cy.get(".pia-entryContentBlock-footer")
-    .find(".btn-green")
-    .should("have.class", "btn-active")
-    .click();
 });
 
 Cypress.Commands.add("acceptEval", () => {

@@ -15,33 +15,16 @@ describe("Home", () => {
    * Go to Entries page
    */
   context("landing", () => {
-    // it("should have class authenticationBlock-auth", () => {
-    //   cy.visit(endPoint);
-    //   cy.get(".pia-authenticationBlock-auth");
-    // });
-    // //Click on Start
-    // it("should redirect on card", () => {
-    //   cy.get(".btn-green").click();
-    // });
     it("should redirect on card", () => {
       cy.click_on_start();
     });
   });
-  context("home_card", () => {
-    // -> entries
 
+  context("home_card", () => {
     /**
      * Create new pia
      */
-    it("should add new pia without error", () => {
-      // cy.get(".pia-newBlock-item-new-btn button").click();
-      // cy.get("#name").type("PIA Title");
-      // cy.get("#author_name").type("Author name");
-      // cy.get("#evaluator_name").type("Evaluator name");
-      // cy.get("#validator_name").type("Validator name");
-      // cy.get("#pia-save-card-btn")
-      //   .first()
-      //   .click();
+    it("should add new pia", () => {
       cy.create_new_pia().then(() => {
         cy.wait(500);
       });
@@ -70,6 +53,7 @@ describe("Home", () => {
      * Duplicate pia
      */
     it("should duplicate pia", () => {
+      cy.disable_onboarding();
       cy.wait(500);
       // Redirect into entries
       cy.visit(`${endPoint}/#/entries`);
@@ -87,6 +71,7 @@ describe("Home", () => {
      * Export pia
      */
     it("should export pia", () => {
+      cy.disable_onboarding();
       cy.wait(500);
       // Redirect into entries
       cy.visit(`${endPoint}/#/entries`);
@@ -95,14 +80,4 @@ describe("Home", () => {
         .click();
     });
   });
-
-  // context('home_list', () => {
-  //   it('should change view card and list', () => {
-  //     cy.get('.pia-filtersBlock-switch').click();
-  //     cy.get('.pia-list-table');
-  //     cy.get('.pia-tooltip')
-  //       .first()
-  //       .click();
-  //   });
-  // });
 });

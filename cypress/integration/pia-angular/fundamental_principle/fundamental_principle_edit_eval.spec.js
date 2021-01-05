@@ -7,14 +7,22 @@ describe("Principes fondamentaux", () => {
     cy.disable_onboarding();
   });
 
+  context("prepare data", () => {
+    it("prepare pia for test", () => {
+      cy.create_new_pia().then(() => {
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 2, 1);
+        });
+      });
+    });
+  });
+
   context("Proportionnalité et nécessité", () => {
     /**
      * Complete textareas
      */
     it("create pia and should complete textareas", () => {
-      cy.create_new_pia().then(() => {
-        cy.test_writing_on_textarea();
-      });
+      cy.test_writing_on_textarea();
     });
 
     /**

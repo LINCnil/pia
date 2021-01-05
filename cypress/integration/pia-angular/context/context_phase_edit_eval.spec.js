@@ -12,7 +12,7 @@ describe("Contexte", () => {
      * Complete textareas
      */
     it("Create a new pia and should complete textareas", () => {
-      cy.disable_onboarding();
+      //cy.disable_onboarding();
       cy.create_new_pia().then(() => {
         cy.test_writing_on_textarea();
       });
