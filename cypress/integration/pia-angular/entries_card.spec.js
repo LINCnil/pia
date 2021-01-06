@@ -1,6 +1,4 @@
 describe("Home", () => {
-  const endPoint = "http://localhost:4200";
-
   /**
    * initialization
    */
@@ -39,7 +37,7 @@ describe("Home", () => {
     it("should edit pia", () => {
       //cy.wait(500);
       // Redirect into entries
-      cy.visit(`${endPoint}/#/entries`);
+      cy.visit(`/#/entries`);
       cy.get("#pia-edit-2-name").type("pia edited");
       cy.get("#pia-edit-2-author-name")
         .clear()
@@ -57,13 +55,13 @@ describe("Home", () => {
      */
     it("should duplicate pia", () => {
       // Redirect into entries
-      cy.visit(`${endPoint}/#/entries`);
+      cy.visit(`/#/entries`);
       cy.get(".pia-cardsBlock.pia").should("have.length", 1);
       cy.get(".pia-cardsBlock-toolbar-export a")
         .eq(1)
         .click();
       // Redirect into entries
-      cy.visit(`${endPoint}/#/entries`).then(() => {
+      cy.visit(`/#/entries`).then(() => {
         cy.get(".pia-cardsBlock.pia").should("have.length", 2);
       });
     });
@@ -73,7 +71,7 @@ describe("Home", () => {
      */
     it("should export pia", () => {
       // Redirect into entries
-      cy.visit(`${endPoint}/#/entries`);
+      cy.visit(`/#/entries`);
       cy.get(".pia-cardsBlock-toolbar-export a")
         .eq(1)
         .click();

@@ -1,6 +1,4 @@
 describe("Home", () => {
-  const endPoint = "http://localhost:4200";
-
   /**
    * initialization
    */
@@ -49,9 +47,8 @@ describe("Home", () => {
      */
     it("should edit pia", () => {
       // Redirect into entries
-      cy.visit(`${endPoint}/#/entries`);
+      cy.visit(`/#/entries`);
       cy.get(".pia-filtersBlock-switch").click();
-      cy.wait(3000);
 
       //Edit Title
       cy.get(".pia-list-table tbody tr td:eq(1) div")

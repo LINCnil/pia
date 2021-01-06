@@ -1,6 +1,4 @@
 describe("Home", () => {
-  const endPoint = "http://localhost:4200";
-
   /**
    * initialization
    */
@@ -16,7 +14,7 @@ describe("Home", () => {
 
   context("landing", () => {
     it("load page", () => {
-      cy.visit(endPoint);
+      cy.visit("/");
     });
 
     // ->

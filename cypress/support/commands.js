@@ -58,16 +58,15 @@ Cypress.Commands.add("focus_out", () => {
 });
 
 Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
-  cy.visit(`http://localhost:4200/#/pia/${id}/section/${section}/item/${item}`);
-  cy.wait(1000);
+  cy.visit(`/#/pia/${id}/section/${section}/item/${item}`);
+  cy.wait(3000);
 });
 
 /**
  * Redirect Home page into Entries
  */
 Cypress.Commands.add("click_on_start", () => {
-  const endPoint = "http://localhost:4200";
-  cy.visit(endPoint);
+  cy.visit("/");
   cy.get(".btn-green").click();
 });
 
@@ -174,6 +173,7 @@ Cypress.Commands.add("test_add_tags", () => {
   cy.get("[aria-label='Click here to select controls which address the risk.']")
     .type("Measure")
     .then(() => {
+      cy.wait(300);
       cy.get(".ng2-menu-item")
         .first()
         .click();
@@ -183,7 +183,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
   cy.get("[aria-label='Enter the potential impacts']")
     .type("Tag")
     .then(() => {
-      cy.wait(200);
+      cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
         .click();
@@ -191,6 +191,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
   cy.get("[aria-label='Enter the threats']")
     .type("Tag")
     .then(() => {
+      cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
         .click();
@@ -198,6 +199,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
   cy.get("[aria-label='Enter the risk sources']")
     .type("Tag")
     .then(() => {
+      cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
         .click();
@@ -205,6 +207,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
   cy.get("[aria-label='Click here to select controls which address the risk.']")
     .type("Measure")
     .then(() => {
+      cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
         .click();
@@ -245,7 +248,7 @@ Cypress.Commands.add("acceptMultipleEval", () => {
   cy.get(".pia-evaluationBlock")
     .find(".btn-green")
     .each(($el, $index, $list) => {
-      //cy.wait(500);
+      cy.wait(500);
       cy.wrap($el)
         .click()
         .wait(250);
@@ -281,8 +284,7 @@ Cypress.Commands.add("validateModal", () => {
     .wait(500);
 });
 Cypress.Commands.add("redirectMeasureOnAcceptation", () => {
-  const url = "http://localhost:4200/#/entry/2/section/3/item/3";
-  cy.visit(url);
+  cy.visit("/#/entry/2/section/3/item/3");
 });
 Cypress.Commands.add("validateDPO", () => {
   cy.get(".pia-entryContentBlock-content-DPO").each(($el, $index, $list) => {
