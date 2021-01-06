@@ -3,7 +3,12 @@ describe("Principes fondamentaux", () => {
    * initialization
    */
   before(() => {
+    // Clear datas
     cy.init();
+  });
+
+  beforeEach(() => {
+    // Skip tutorial
     cy.disable_onboarding();
   });
 

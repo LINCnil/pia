@@ -3,7 +3,12 @@ describe("Contexte", () => {
    * initialization
    */
   before(() => {
+    // Clear datas
     cy.init();
+  });
+
+  beforeEach(() => {
+    // Skip tutorial
     cy.disable_onboarding();
   });
 
@@ -12,7 +17,6 @@ describe("Contexte", () => {
      * Complete textareas
      */
     it("Create a new pia and should complete textareas", () => {
-      //cy.disable_onboarding();
       cy.create_new_pia().then(() => {
         cy.test_writing_on_textarea();
       });

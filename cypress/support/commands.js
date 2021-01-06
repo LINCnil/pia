@@ -95,13 +95,14 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
   cy.get("textarea").then($el => {
     for (const $textarea of $el) {
       cy.wrap($textarea).then($textarea => {
-        if ($textarea.length > 0) {
-          $textarea.val(
-            "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
-          );
-          cy.wrap($textarea).click({ force: true });
-          cy.wait(1000);
-        }
+        $textarea.val(
+          "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
+        );
+        cy.wrap($textarea)
+          .click({ force: true })
+          .then(() => {
+            cy.wait(1000);
+          });
       });
     }
   });
@@ -135,9 +136,6 @@ Cypress.Commands.add("test_add_measure", () => {
         expect($el.find("textarea").val().length > 0).to.be.true;
 
         cy.focus_out();
-        // cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
-        //   force: true
-        // });
       });
     });
 });
@@ -160,9 +158,6 @@ Cypress.Commands.add("test_add_measure_from_sidebar", () => {
     expect($el.find("textarea").val().length > 0).to.be.true;
 
     cy.focus_out();
-    // cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
-    //   force: true
-    // });
   });
 });
 
@@ -250,8 +245,8 @@ Cypress.Commands.add("acceptMultipleEval", () => {
   cy.get(".pia-evaluationBlock")
     .find(".btn-green")
     .each(($el, $index, $list) => {
-      cy.wait(500)
-        .wrap($el)
+      //cy.wait(500);
+      cy.wrap($el)
         .click()
         .wait(250);
     });
@@ -274,7 +269,7 @@ Cypress.Commands.add("closeValidationEvaluationModal", () => {
   cy.wait(500)
     .get("#validate-evaluation")
     .invoke("show")
-    .find("button")
+    .find(".btn-green")
     .first()
     .click()
     .wait(500);

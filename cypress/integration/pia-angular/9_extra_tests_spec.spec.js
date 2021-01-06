@@ -1,8 +1,17 @@
 describe("Test Search KnowledgeBase", () => {
+  /**
+   * initialization
+   */
   before(() => {
+    // Clear datas
     cy.init();
+  });
+
+  beforeEach(() => {
+    // Skip tutorial
     cy.disable_onboarding();
   });
+
   context("Search Form", () => {
     it("should search an element", () => {
       const url = "http://localhost:4200/#/entry/2/section/2/item/2";
@@ -15,6 +24,7 @@ describe("Test Search KnowledgeBase", () => {
         .click();
     });
   });
+
   context("Refuse or ask pia signature", () => {
     it("should refuse pia", () => {
       cy.refusePia();

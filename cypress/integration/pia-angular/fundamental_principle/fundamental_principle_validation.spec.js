@@ -1,17 +1,26 @@
 describe("Principes Fondamentaux", () => {
+  /**
+   * initialization
+   */
   before(() => {
+    // Clear datas
     cy.init();
+  });
 
+  beforeEach(() => {
+    // Skip tutorial
     cy.disable_onboarding();
   });
 
+  /**
+   * prepare data for test
+   */
   context("prepare data", () => {
     it("create pia", () => {
       cy.create_new_pia();
     });
 
-    it("set section 2 item 1", () => {
-      cy.disable_onboarding();
+    it("set 'Proportionnalité et nécessité'", () => {
       cy.get_current_pia_id(id => {
         cy.go_edited_pia(id, 2, 1).then(() => {
           cy.test_writing_on_textarea().then(() => {
@@ -23,8 +32,7 @@ describe("Principes Fondamentaux", () => {
       });
     });
 
-    it("set section 2 item 2", () => {
-      cy.disable_onboarding();
+    it("set 'Mesures protectrices des droits'", () => {
       cy.get_current_pia_id(id => {
         cy.go_edited_pia(id, 2, 2).then(() => {
           cy.test_writing_on_textarea().then(() => {
@@ -37,9 +45,12 @@ describe("Principes Fondamentaux", () => {
     });
   });
 
-  context("Proportionnalité et nécessité", () => {
+  /**
+   * Validation tests
+   */
+
+  context("Validation for 'Proportionnalité et nécessité'", () => {
     it("should acept evaluation", () => {
-      cy.disable_onboarding();
       cy.get_current_pia_id(id => {
         cy.go_edited_pia(id, 2, 1).then(() => {
           cy.acceptMultipleEval();
@@ -47,14 +58,38 @@ describe("Principes Fondamentaux", () => {
         });
       });
     });
+
+    // TODO: CHECK ACCEPTED BTN IS BLOCKED
+    it("check accepted btn is blocked", () => {
+      cy.get_current_pia_id(id => {
+        cy.go_edited_pia(id, 2, 1).then(() => {
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
+        });
+      });
+    });
   });
-  context("Mesures protectrices des droits", () => {
+
+  context("Validation for 'Mesures protectrices des droits'", () => {
     it("should acept evaluation", () => {
-      cy.disable_onboarding();
       cy.get_current_pia_id(id => {
         cy.go_edited_pia(id, 2, 2).then(() => {
           cy.acceptMultipleEval();
           cy.closeValidationEvaluationModal();
+        });
+      });
+    });
+
+    // TODO: CHECK ACCEPTED BTN IS BLOCKED
+    it("check accepted btn is blocked", () => {
+      cy.get_current_pia_id(id => {
+        cy.go_edited_pia(id, 2, 2).then(() => {
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
         });
       });
     });

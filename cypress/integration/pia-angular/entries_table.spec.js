@@ -7,6 +7,9 @@ describe("Home", () => {
   before(() => {
     // Clear datas
     cy.init();
+  });
+
+  beforeEach(() => {
     // Skip tutorial
     cy.disable_onboarding();
   });
@@ -16,40 +19,35 @@ describe("Home", () => {
    */
   context("home_board", () => {
     it("change display", () => {
-      cy.disable_onboarding();
       cy.click_on_start();
       cy.get(".pia-filtersBlock-switch").click();
     });
 
     it("verify if is there a table", () => {
-      cy.disable_onboarding();
       cy.get("table").should("exist");
     });
     /**
      * Create pia
      */
     it("should add new pia", () => {
-      cy.disable_onboarding();
-      //cy.click_on_start();
       cy.get(".pia-filtersBlock-buttons button")
         .first()
-        .click();
-      cy.wait(500);
-      cy.get("#name").type("PIA Title");
-      cy.get("#author_name").type("Author name");
-      cy.get("#evaluator_name").type("Evaluator name");
-      cy.get("#validator_name").type("Validator name");
-      cy.get("#pia-save-card-btn")
-        .first()
-        .click();
+        .click()
+        .then(() => {
+          cy.get("#name").type("PIA Title");
+          cy.get("#author_name").type("Author name");
+          cy.get("#evaluator_name").type("Evaluator name");
+          cy.get("#validator_name").type("Validator name");
+          cy.get("#pia-save-card-btn")
+            .first()
+            .click();
+        });
     });
 
     /**
      * Edit pia
      */
     it("should edit pia", () => {
-      cy.disable_onboarding();
-      cy.wait(500);
       // Redirect into entries
       cy.visit(`${endPoint}/#/entries`);
       cy.get(".pia-filtersBlock-switch").click();
@@ -84,12 +82,19 @@ describe("Home", () => {
      * Duplicate pia
      */
     it("should duplicate pia", () => {
-      cy.disable_onboarding();
-      cy.wait(500);
       cy.get(".pia-list-table tbody tr").should("have.length", 1);
-      cy.get(".pia-list-table tbody tr td:eq(0) .fa-files-o").click();
-      cy.wait(500);
-      cy.get(".pia-list-table tbody tr").should("have.length", 2);
+      cy.get(".pia-list-table tbody tr td:eq(0) .fa-files-o")
+        .click()
+        .then(() => {
+          cy.get(".pia-list-table tbody tr").should("have.length", 2);
+        });
+    });
+
+    /**
+     * Export pia
+     */
+    it("should export pia", () => {
+      cy.get(".pia-list-table tbody tr:eq(0) td:eq(0) .fa-download").click();
     });
   });
 });

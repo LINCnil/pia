@@ -1,8 +1,17 @@
 describe("Validation", () => {
+  /**
+   * initialization
+   */
   before(() => {
+    // Clear datas
     cy.init();
+  });
+
+  beforeEach(() => {
+    // Skip tutorial
     cy.disable_onboarding();
   });
+
   context("Avis du DPD et des personnes concernées", () => {
     it("should complete DPD", () => {
       cy.validateDPO();

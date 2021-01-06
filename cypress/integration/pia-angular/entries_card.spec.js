@@ -7,6 +7,9 @@ describe("Home", () => {
   before(() => {
     // Clear datas
     cy.init();
+  });
+
+  beforeEach(() => {
     // Skip tutorial
     cy.disable_onboarding();
   });
@@ -34,7 +37,7 @@ describe("Home", () => {
      * Edit pia
      */
     it("should edit pia", () => {
-      cy.wait(500);
+      //cy.wait(500);
       // Redirect into entries
       cy.visit(`${endPoint}/#/entries`);
       cy.get("#pia-edit-2-name").type("pia edited");
@@ -53,8 +56,6 @@ describe("Home", () => {
      * Duplicate pia
      */
     it("should duplicate pia", () => {
-      cy.disable_onboarding();
-      cy.wait(500);
       // Redirect into entries
       cy.visit(`${endPoint}/#/entries`);
       cy.get(".pia-cardsBlock.pia").should("have.length", 1);
@@ -62,17 +63,15 @@ describe("Home", () => {
         .eq(1)
         .click();
       // Redirect into entries
-      cy.visit(`${endPoint}/#/entries`);
-      cy.wait(500);
-      cy.get(".pia-cardsBlock.pia").should("have.length", 2);
+      cy.visit(`${endPoint}/#/entries`).then(() => {
+        cy.get(".pia-cardsBlock.pia").should("have.length", 2);
+      });
     });
 
     /**
      * Export pia
      */
     it("should export pia", () => {
-      cy.disable_onboarding();
-      cy.wait(500);
       // Redirect into entries
       cy.visit(`${endPoint}/#/entries`);
       cy.get(".pia-cardsBlock-toolbar-export a")
