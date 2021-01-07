@@ -18,3 +18,4 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           headless: true
+          wait-on: http://localhost:4200
