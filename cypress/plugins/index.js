@@ -28,10 +28,13 @@ module.exports = (on, config) => {
     // FIREFOX
     if (browser.family === "firefox") {
       launchOptions.preferences["browser.download.dir"] = downloadDirectory;
-      launchOptions.preferences["browser.download.folderList"] = 2;
+      launchOptions.preferences["browser.download.folderList"] = 0;
       launchOptions.preferences["browser.download.promptMaxAttempts"] = 0;
       launchOptions.preferences["browser.download.forbid_open_with"] = true;
       launchOptions.preferences["browser.download.manager.useWindow"] = false;
+      launchOptions.preferences[
+        "browser.download.manager.alertOnEXEOpen"
+      ] = false;
 
       // needed to prevent download prompt for text/csv files.
       launchOptions.preferences["browser.helperApps.neverAsk.saveToDisk"] =

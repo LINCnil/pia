@@ -90,8 +90,8 @@ describe("Entries_table", () => {
     /**
      * Export pia
      */
-    it("should export pia", () => {
-      cy.get(".pia-list-table tbody tr:eq(0) td:eq(0) .fa-download").click();
-    });
+    // it("should export pia", () => {
+    //   cy.get(".pia-list-table tbody tr:eq(0) td:eq(0) .fa-download").click();
+    // });
   });
 });

@@ -71,12 +71,12 @@ describe("Entries_card", () => {
     /**
      * Export pia
      */
-    it("should export pia", () => {
-      // Redirect into entries
-      cy.visit(`/#/entries`);
-      cy.get(".pia-cardsBlock-toolbar-export a")
-        .eq(1)
-        .click();
-    });
+    // it("should export pia", () => {
+    //   // Redirect into entries
+    //   cy.visit(`/#/entries`);
+    //   cy.get(".pia-cardsBlock-toolbar-export a")
+    //     .eq(1)
+    //     .click();
+    // });
   });
 });
