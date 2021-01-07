@@ -7,15 +7,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Run app
-        uses: cypress-io/github-action@v2
-        with:
-          start: npm run start
-          wait-on: http://localhost:4200
-
       - name: Cypress
         uses: cypress-io/github-action@v2
         with:
+          start: npm start
           browser: chrome
           headless: true
           wait-on: http://localhost:4200
