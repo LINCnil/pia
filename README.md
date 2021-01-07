@@ -1,6 +1,6 @@
 # Pia
 
-![CI](https://github.com/atnos/pia/workflows/integration-tests/badge.svg)
+![CI](https://github.com/atnos/pia/workflows/integration-tests/badge.svg?branch=master)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
