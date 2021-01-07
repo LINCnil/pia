@@ -17,4 +17,5 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
+          headless: true
           wait-on: http://localhost:4200

@@ -2,5 +2,6 @@
   "projectId": "w4expe",
   "viewportWidth": 1200,
   "viewportHeight": 660,
-  "baseUrl": "http://localhost:4200"
+  "baseUrl": "http://localhost:4200",
+  "experimentalSourceRewriting": false
 }

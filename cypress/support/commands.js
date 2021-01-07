@@ -386,6 +386,7 @@ Cypress.Commands.add("refusePia", () => {
       cy.get(".btn-red")
         .first()
         .click();
+      cy.wait(3000);
       cy.get(".pia-entryContentBlock-content-subject-textarea")
         .find("textarea")
         .type(
