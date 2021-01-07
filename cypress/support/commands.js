@@ -388,7 +388,7 @@ Cypress.Commands.add("refusePia", () => {
         .click();
       cy.wait(3000);
       cy.get(".pia-entryContentBlock-content-subject-textarea")
-        .find("textarea")
+        .find("textarea", { force: true })
         .type(
           "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
           { force: true }
