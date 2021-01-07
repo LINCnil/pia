@@ -15,20 +15,6 @@ export function fundamental_principle_edit_eval() {
 
     context("prepare data", () => {
       it("prepare pia for test", () => {
-        // cy.click_on_start();
-        // if (cy.get('.pia-cardsBlock').length > 1) {
-        //   cy.wait(3000)
-        //   cy.get_current_pia_id(id => {
-        //     cy.go_edited_pia(id, 2, 1);
-        //   });
-        // }
-        // else {
-        //   cy.create_new_pia().then(() => {
-        //     cy.get_current_pia_id(id => {
-        //       cy.go_edited_pia(id, 2, 1);
-        //     });
-        //   });
-        // }
         cy.create_new_pia().then(() => {
           cy.get_current_pia_id(id => {
             cy.go_edited_pia(id, 2, 1);

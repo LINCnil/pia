@@ -18,19 +18,8 @@ export function risk_edit_eval() {
      */
     context("prepare data", () => {
       it("prepare pia", () => {
-        // cy.click_on_start();
-        // if (cy.get('.pia-cardsBlock').length > 1) {
-        //   cy.wait(3000)
-        // }
-        // else {
-        //   cy.create_new_pia().then(() => {
-        //     cy.wait(500);
-        //     // cy.test_writing_on_textarea();
-        //   });
-        // }
         cy.create_new_pia().then(() => {
           cy.wait(500);
-          // cy.test_writing_on_textarea();
         });
       });
     });

@@ -1,4 +1,4 @@
-describe("Home", () => {
+describe("Entries_card", () => {
   /**
    * initialization
    */
@@ -21,7 +21,7 @@ describe("Home", () => {
     });
   });
 
-  context("home_card", () => {
+  context("entries_card", () => {
     /**
      * Create new pia
      */
@@ -38,6 +38,7 @@ describe("Home", () => {
       //cy.wait(500);
       // Redirect into entries
       cy.visit(`/#/entries`);
+      cy.wait(3000);
       cy.get("#pia-edit-2-name").type("pia edited");
       cy.get("#pia-edit-2-author-name")
         .clear()
@@ -56,6 +57,7 @@ describe("Home", () => {
     it("should duplicate pia", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
+      cy.wait(3000);
       cy.get(".pia-cardsBlock.pia").should("have.length", 1);
       cy.get(".pia-cardsBlock-toolbar-export a")
         .eq(1)

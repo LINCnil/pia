@@ -1,4 +1,4 @@
-describe("Home", () => {
+describe("Entries_table", () => {
   /**
    * initialization
    */
@@ -15,7 +15,7 @@ describe("Home", () => {
   /**
    * Table
    */
-  context("home_board", () => {
+  context("entries_table", () => {
     it("change display", () => {
       cy.click_on_start();
       cy.get(".pia-filtersBlock-switch").click();
@@ -49,7 +49,7 @@ describe("Home", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
       cy.get(".pia-filtersBlock-switch").click();
-
+      cy.wait(3000);
       //Edit Title
       cy.get(".pia-list-table tbody tr td:eq(1) div")
         .click()

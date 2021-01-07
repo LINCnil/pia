@@ -4,13 +4,7 @@ export function context_edit_eval() {
      * initialization
      */
     before(() => {
-      // Clear datas
-      cy.click_on_start();
-      if (cy.get(".pia-cardsBlock").length > 1) {
-        cy.wait(3000);
-      } else {
-        cy.init();
-      }
+      cy.init();
     });
 
     beforeEach(() => {
@@ -23,15 +17,6 @@ export function context_edit_eval() {
        * Complete textareas
        */
       it("Create a new pia and should complete textareas", () => {
-        // cy.click_on_start();
-        // if (cy.get('.pia-cardsBlock').length > 1) {
-        //   cy.wait(3000)
-        // }
-        // else {
-        //   cy.create_new_pia().then(() => {
-        //     cy.test_writing_on_textarea();
-        //   });
-        // }
         cy.create_new_pia().then(() => {
           cy.test_writing_on_textarea();
         });

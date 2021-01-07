@@ -1,4 +1,5 @@
 import "cypress-localstorage-commands";
+import "cypress-file-upload";
 
 // ***********************************************
 // This example commands.js shows you how to
@@ -26,6 +27,7 @@ import "cypress-localstorage-commands";
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add("init", () => {
+  // TODO: DO IT IF PIA.id 2 exist
   indexedDB.deleteDatabase("pia");
   indexedDB.deleteDatabase("answer");
   indexedDB.deleteDatabase("comment");
@@ -62,6 +64,17 @@ Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
   cy.wait(3000);
 });
 
+Cypress.Commands.add("import_pia", () => {
+  cy.click_on_start();
+  const filepath = "pia.json";
+
+  // Import
+  cy.get('input[type="file"]#import_file').attachFile(filepath);
+  cy.wait(5000);
+
+  // there is a new pia ?
+  cy.get(".pia-cardsBlock.pia").should("have.length", 1);
+});
 /**
  * Redirect Home page into Entries
  */
@@ -272,7 +285,7 @@ Cypress.Commands.add("closeValidationEvaluationModal", () => {
   cy.wait(500)
     .get("#validate-evaluation")
     .invoke("show")
-    .find(".btn-green")
+    .find(".pia-modalBlock-close")
     .first()
     .click()
     .wait(500);
@@ -386,8 +399,6 @@ Cypress.Commands.add("refusePia", () => {
         .find("button")
         .last()
         .click();
-      cy.get(
-        "#modal-refuse-pia > .pia-modalBlock-content > .pia-modalBlock-validate > .btn"
-      ).click();
+      cy.get("#modal-refuse-pia > .pia-modalBlock-content > .btn").click();
     });
 });
