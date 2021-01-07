@@ -17,7 +17,4 @@ jobs:
       - name: Cypress
         uses: cypress-io/github-action@v2
         with:
-          start: npm run e2e
-          config-file: cypress.json
-          working-directory: cypress
-          wait-on: http://localhost:4200
+          headless: true
