@@ -1,5 +1,5 @@
 name: integration-tests
-on: [push, pull_request]
+on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-18.04
