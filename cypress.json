@@ -3,5 +3,7 @@
   "viewportWidth": 1200,
   "viewportHeight": 660,
   "baseUrl": "http://localhost:4200",
-  "experimentalSourceRewriting": false
+  "experimentalSourceRewriting": false,
+  "download.default_directory": "./cypress/download",
+  "profile.default_content_settings.popups": 0
 }
