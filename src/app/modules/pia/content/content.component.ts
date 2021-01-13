@@ -147,6 +147,9 @@ export class ContentComponent implements OnInit {
               type: 'yes',
               yes: 'modals.continue',
               no: '',
+              data: {
+                modal_id: 'completed-evaluation'
+              },
               icon: 'fa fa-check icon-gray'
             },
             () => {
@@ -176,6 +179,9 @@ export class ContentComponent implements OnInit {
           this.dialogService.confirmThis(
             {
               text: 'modals.validate_evaluation.content',
+              data: {
+                modal_id: 'validate-evaluation'
+              },
               type: 'yes',
               yes: 'modals.continue',
               no: '',

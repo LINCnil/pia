@@ -136,7 +136,10 @@ export class ValidatePIAComponent implements OnInit {
           type: 'yes',
           yes: 'modals.back_to_home',
           no: '',
-          icon: 'fa fa-check icon-green'
+          icon: 'fa fa-check icon-green',
+          data: {
+            modal_id: 'validate-evaluation'
+          }
         },
         () => {
           this.router.navigate(['/entries']);
