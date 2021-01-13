@@ -339,9 +339,10 @@ Cypress.Commands.add("validateDPO", () => {
     cy.wrap($el)
       .find("form")
       .last()
-      .find("textarea", { force: true })
+      .find("textarea")
       .type(
-        "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
+        "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
+        { force: true }
       );
     cy.wrap($el)
       .find("form")
