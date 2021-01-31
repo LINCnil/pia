@@ -20,11 +20,11 @@ import sl from '../assets/i18n/sl.json';
 import sv from '../assets/i18n/sv.json';
 
 import { TranslateLoader } from '@ngx-translate/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 export class PiaTranslateLoader implements TranslateLoader {
   public getTranslation(lang: string): Observable<any> {
-    return Observable.create(observer => {
+    return new Observable(observer => {
       switch (lang) {
         case 'cz':
           observer.next(cz);
