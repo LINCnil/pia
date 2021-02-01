@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Answer } from '../models/answer.model';
 import { Evaluation } from '../models/evaluation.model';
 import { Measure } from '../models/measure.model';
@@ -8,6 +7,7 @@ import { Pia } from '../models/pia.model';
 import { AnswerService } from './answer.service';
 import { EvaluationService } from './evaluation.service';
 import { MeasureService } from './measures.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class GlobalEvaluationService {
