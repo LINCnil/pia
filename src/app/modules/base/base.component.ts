@@ -168,6 +168,8 @@ export class BaseComponent implements OnInit {
     entry.items = this.itemsSelected;
 
     entry.filters = this.checkFilters();
+    entry.created_at = new Date();
+    entry.updated_at = entry.created_at;
 
     this.knowledgesService
       .create(this.base.id, entry)
