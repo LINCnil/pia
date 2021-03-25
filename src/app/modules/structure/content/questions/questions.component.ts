@@ -3,9 +3,10 @@ import {
   Input,
   ElementRef,
   OnInit,
-  Renderer2,
   OnDestroy,
-  NgZone
+  NgZone,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
@@ -31,6 +32,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   @Input() question: any;
   @Input() item: any;
   @Input() section: any;
+  @Output() questionDeleted = new EventEmitter();
   questionForm: FormGroup;
   lastSelectedTag: string;
   elementId: string;
@@ -94,6 +96,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           this.item.id,
           this.question.id
         );
+        this.questionDeleted.emit(this.question.id);
       },
       () => {
         return;

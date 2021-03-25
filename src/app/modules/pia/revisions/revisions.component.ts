@@ -1,9 +1,17 @@
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+  OnChanges
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { RevisionService } from 'src/app/services/revision.service';
 import { Revision } from 'src/app/models/revision.model';
-import { Subject, iif } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
@@ -11,8 +19,10 @@ import { RelativeDate } from './RelativeDate.class';
 import { Pia } from 'src/app/models/pia.model';
 
 function slugify(data) {
-  const a = 'àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹńňñòóöôœøṕŕřßşśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;';
-  const b = 'aaaaaaaaacccddeeeeeeegghiiiiilmnnnnooooooprrsssssttuuuuuuuuuwxyyzzz------';
+  const a =
+    'àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹńňñòóöôœøṕŕřßşśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;';
+  const b =
+    'aaaaaaaaacccddeeeeeeegghiiiiilmnnnnooooooprrsssssttuuuuuuuuuwxyyzzz------';
   const p = new RegExp(a.split('').join('|'), 'g');
 
   return data
@@ -41,8 +51,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   revisions: Array<any>;
   subscription: Subscription;
   public opened = false;
-  subject = new Subject();
-  public revisionsGroupByMonth = {};
+  public revisionsGroupByMonth: any = {};
   public revisionsGroupByMonthInArray = [];
   public objectKeys = Object.entries;
   public activeRevision: any = null;
@@ -52,10 +61,10 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   constructor(
     private translateService: TranslateService,
     public languagesService: LanguagesService,
-    public revisionService: RevisionService,
-    ) {}
+    public revisionService: RevisionService
+  ) {}
 
-  ngOnInit(): void  {
+  ngOnInit(): void {
     // Load PIA's revisions
     this.revisionService.findAllByPia(this.pia.id).then((resp: any) => {
       this.revisions = resp;
@@ -66,12 +75,14 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     // Update RevisionGroupByMonth on this.revisions changements
     this.generateDates(changes);
-    this.subscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.generateDates(changes);
-    });
+    this.subscription = this.translateService.onLangChange.subscribe(
+      (event: LangChangeEvent) => {
+        this.generateDates(changes);
+      }
+    );
   }
 
-  generateDates(changes): void  {
+  generateDates(changes): void {
     if (changes.revisions && changes.revisions.currentValue) {
       this.parsingDate();
     }
@@ -90,7 +101,10 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
         temp = this.translateService.instant('date.' + temp[0]) + ' ' + temp[1];
       } else {
         if (temp === 'translate-month') {
-          temp = new DatePipe(this.translateService.currentLang).transform(obj.created_at, 'MMMM y');
+          temp = new DatePipe(this.translateService.currentLang).transform(
+            obj.created_at,
+            'MMMM y'
+          );
         } else {
           temp = this.translateService.instant('date.' + temp);
         }
@@ -117,31 +131,37 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   newRevision(): void {
     // emit revision query
     this.revisionService.export(this.pia.id).then(exportResult => {
-      this.revisionService.add(exportResult, this.pia.id)
+      this.revisionService
+        .add(exportResult, this.pia.id)
         .then((resp: Revision) => {
           // Make this new revision the current version
           this.revisionService.loadRevision(resp.id);
           this.revisions.push(resp);
           this.parsingDate();
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     });
   }
 
   previewRevision(revisionId: number, event: Event, revisionDate: any): void {
-
     // Change circle color
-    document.querySelectorAll('.pia-revisions-box-content-revision-item').forEach(revision => {
-      if (revision.classList.contains('revision-active')) {
-        revision.querySelector('.fa').classList.toggle('fa-circle-o');
-        revision.querySelector('.fa').classList.toggle('fa-circle');
-        revision.classList.remove('revision-active');
-      }
-    });
+    document
+      .querySelectorAll('.pia-revisions-box-content-revision-item')
+      .forEach(revision => {
+        if (revision.classList.contains('revision-active')) {
+          revision.querySelector('.fa').classList.toggle('fa-circle-o');
+          revision.querySelector('.fa').classList.toggle('fa-circle');
+          revision.classList.remove('revision-active');
+        }
+      });
 
-    const displayRevisionData = document.querySelector('.pia-revisions-box-content-revision-item[revision-id="' + revisionId + '"]');
+    const displayRevisionData = document.querySelector(
+      '.pia-revisions-box-content-revision-item[revision-id="' +
+        revisionId +
+        '"]'
+    );
     if (displayRevisionData) {
       /* Update circle design */
       const circle = displayRevisionData.querySelector('.fa');
@@ -154,15 +174,15 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     }
 
     // Emit event
-    this.revisionService.find(revisionId)
+    this.revisionService
+      .find(revisionId)
       .then((revision: any) => {
         this.preview = revision;
       })
       .catch(err => console.log(err));
   }
 
-
-  ngOnDestroy(): void  {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }

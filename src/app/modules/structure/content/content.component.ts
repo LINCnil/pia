@@ -21,16 +21,18 @@ export class ContentComponent implements OnInit {
   @Input() questions: any;
   @Input() data: any;
   // subscriptionMeasure: Subscription;
-  subscriptionQuestion: Subscription;
+  // subscriptionQuestion: Subscription;
 
-  constructor(private router: Router,
-              private activatedRoute: ActivatedRoute,
-              public measureService: MeasureService,
-              public structureService: StructureService,
-              public sidStatusService: SidStatusService,
-              public paginationService: PaginationService,
-              private answerStructureService: AnswerStructureService,
-              private knowledgeBaseService: KnowledgeBaseService) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    public measureService: MeasureService,
+    public structureService: StructureService,
+    public sidStatusService: SidStatusService,
+    public paginationService: PaginationService,
+    private answerStructureService: AnswerStructureService,
+    private knowledgeBaseService: KnowledgeBaseService
+  ) {}
 
   ngOnInit(): void {
     // Reset measures no longer addable from KB when switching Structure
@@ -45,16 +47,20 @@ export class ContentComponent implements OnInit {
       }
     );*/
 
-    this.subscriptionQuestion = this.answerStructureService.questionToRemove.subscribe((index) => {
-      this.questions.splice(index, 1);
-      }
-    );
+    // this.subscriptionQuestion = this.answerStructureService.questionToRemove.subscribe(
+    //   index => {
+    //     this.questions.splice(index, 1);
+    //   }
+    // );
   }
 
   ngOnChanges(): void {
     this.paginationService.dataNav = this.structure.data;
 
-    const sectionId = parseInt(this.activatedRoute.snapshot.params.section_id, 10);
+    const sectionId = parseInt(
+      this.activatedRoute.snapshot.params.section_id,
+      10
+    );
     const itemId = parseInt(this.activatedRoute.snapshot.params.item_id, 10);
 
     this.paginationService.setPagination(sectionId, itemId);
@@ -64,7 +70,9 @@ export class ContentComponent implements OnInit {
    * Add new question.
    */
   async addQuestion(): Promise<void> {
-      this.answerStructureService.addQuestion(this.structure, this.section, this.item).then((question: any) => {
+    this.answerStructureService
+      .addQuestion(this.structure, this.section, this.item)
+      .then((question: any) => {
         this.questions.push(question);
       });
   }
@@ -73,9 +81,9 @@ export class ContentComponent implements OnInit {
    * Add new measure.
    */
   async addMeasure(): Promise<void> {
-    this.answerStructureService.addMeasure(this.structure, this.section, this.item).then((measure: any) => {
-      // this.item.answers.push(measure);
-    });
+    this.answerStructureService
+      .addMeasure(this.structure, this.section, this.item)
+      .then(() => {});
   }
 
   /**
@@ -85,7 +93,10 @@ export class ContentComponent implements OnInit {
    * @param {number} status_end - To status.
    */
   private goToNextSectionItem(status_start: number, status_end: number) {
-    const goto_section_item = this.paginationService.getNextSectionItem(status_start, status_end);
+    const goto_section_item = this.paginationService.getNextSectionItem(
+      status_start,
+      status_end
+    );
 
     this.router.navigate([
       'structures',
@@ -97,9 +108,14 @@ export class ContentComponent implements OnInit {
     ]);
   }
 
-  ngOnDestroy(): void {
-    // this.subscriptionMeasure.unsubscribe();
-    this.subscriptionQuestion.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.subscriptionQuestion.unsubscribe();
+  // }
 
+  onQuestionDeleted($event) {
+    const index = this.questions.findIndex(q => q.id === $event);
+    if (index !== -1) {
+      this.questions.splice(index, 1);
+    }
+  }
 }

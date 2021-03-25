@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { GlobalEvaluationService } from './global-evaluation.service';
-import { IntrojsService } from '../services/introjs.service';
 
 @Injectable()
 export class SidStatusService {
