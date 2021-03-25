@@ -17,7 +17,6 @@ export class KnowledgeBaseService extends ApplicationDb {
   q: string;
   filter: string;
   linkKnowledgeBase: string[] = [];
-  hasKnowledgeBaseData = true;
   placeholder: string;
   toHide = [];
 
@@ -432,9 +431,5 @@ export class KnowledgeBaseService extends ApplicationDb {
           item2.description.match(re)
       );
     }
-    this.hasKnowledgeBaseData =
-      this.knowledgeBaseData && this.knowledgeBaseData.length > 0
-        ? true
-        : false;
   }
 }

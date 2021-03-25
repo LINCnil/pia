@@ -30,7 +30,8 @@ export class KnowledgeBaseComponent implements OnInit {
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
   customKnowledgeBases: KnowledgeBase[] = [];
   selectedKnowledBase: any = 0;
-  defaultKnowledgeBase;
+
+  public knowlegeBaseEntries = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -41,14 +42,14 @@ export class KnowledgeBaseComponent implements OnInit {
     private structureService: StructureService
   ) {
     // Parse default Knowledge base json
-    this.defaultKnowledgeBase = new KnowledgeBase(
+    const defaultKnowledgeBase = new KnowledgeBase(
       0,
       this.translateService.instant('knowledge_base.default_knowledge_base'),
       'CNIL',
       'CNIL'
     );
-    this.defaultKnowledgeBase.is_example = true;
-    this.customKnowledgeBases.push(this.defaultKnowledgeBase);
+    defaultKnowledgeBase.is_example = true;
+    this.customKnowledgeBases.push(defaultKnowledgeBase);
   }
 
   ngOnInit() {
@@ -114,6 +115,9 @@ export class KnowledgeBaseComponent implements OnInit {
     });
   }
 
+  /**
+   * Load the knowledges List
+   */
   loadKnowledgesBase(): Promise<any> {
     return new Promise((resolve, reject) => {
       // LOAD CUSTOM KNOWLEDGE BASE
@@ -185,6 +189,7 @@ export class KnowledgeBaseComponent implements OnInit {
     this.knowledgeBaseService
       .switch(selectedKnowledBase)
       .then(() => {
+        this.knowlegeBaseEntries = this.knowledgeBaseService.knowledgeBaseData;
         this.knowledgeBaseService.loadByItem(this.item);
         // SET LOCALSTORAGE
         localStorage.setItem(

@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import { Knowledge } from '../models/knowledge.model';
-import { TranslateService } from '@ngx-translate/core';
 import { ApplicationDb } from '../application.db';
 import { Router } from '@angular/router';
 
 @Injectable()
 export class KnowledgesService extends ApplicationDb {
-  constructor(
-    private router: Router,
-    private translateService: TranslateService
-  ) {
+  constructor(private router: Router) {
     super(201911191636, 'knowledge');
     super.prepareServerUrl(this.router);
   }

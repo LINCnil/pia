@@ -1,9 +1,4 @@
 <div class="pia-knowledgeBaseBlock">
-  <!-- <div class="pia-knowledgeBaseBlock-header">
-    <i class="fa fa-book" aria-hidden="true"></i>
-    <h1>{{ 'knowledge_base.title' | translate }}</h1>
-  </div> -->
-
   <h3 style="font-weight:400;">
     {{ "knowledge_base.choose_knowledge_base" | translate }}
   </h3>
@@ -82,11 +77,11 @@
   </div>
 
   <div
-    *ngIf="knowledgeBaseService.hasKnowledgeBaseData; else noKnowledgeBaseData"
+    *ngIf="knowlegeBaseEntries.length > 0; else noKnowledgeBaseData"
     class="pia-knowledgeBaseBlock-list"
   >
     <app-knowledge-base-item
-      *ngFor="let itemKb of knowledgeBaseService.knowledgeBaseData"
+      *ngFor="let itemKb of knowlegeBaseEntries"
       [item]="item"
       [itemKb]="itemKb"
       (newMeasureEvent)="addNewMeasure($event)"
