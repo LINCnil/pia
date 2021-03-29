@@ -3,8 +3,11 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  OnChanges,
+  OnDestroy,
   OnInit,
-  Output
+  Output,
+  SimpleChanges
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -21,7 +24,7 @@ import { StructureService } from 'src/app/services/structure.service';
   templateUrl: './knowledge-base.component.html',
   styleUrls: ['./knowledge-base.component.scss']
 })
-export class KnowledgeBaseComponent implements OnInit {
+export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
   searchForm: FormGroup;
   noTitle = false;
   @Input() item: any;
@@ -30,8 +33,6 @@ export class KnowledgeBaseComponent implements OnInit {
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
   customKnowledgeBases: KnowledgeBase[] = [];
   selectedKnowledBase: any = 0;
-
-  public knowlegeBaseEntries = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -52,7 +53,15 @@ export class KnowledgeBaseComponent implements OnInit {
     this.customKnowledgeBases.push(defaultKnowledgeBase);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    // INIT
+    const knowledgeIdentifier = this.pia
+      ? 'pia_' + this.route.snapshot.params.id + '_knowledgebase'
+      : null;
+    this.selectedKnowledBase = localStorage.getItem(knowledgeIdentifier)
+      ? localStorage.getItem(knowledgeIdentifier)
+      : 0;
+
     this.searchForm = new FormGroup({
       q: new FormControl()
     });
@@ -78,41 +87,30 @@ export class KnowledgeBaseComponent implements OnInit {
     };
 
     this.loadKnowledgesBase().then(() => {
-      if (
-        localStorage.getItem(
-          'pia_' + this.route.snapshot.params.id + '_knowledgebase'
-        )
-      ) {
-        this.selectedKnowledBase = localStorage.getItem(
-          'pia_' + this.route.snapshot.params.id + '_knowledgebase'
-        );
-        this.switch(
-          localStorage.getItem(
-            'pia_' + this.route.snapshot.params.id + '_knowledgebase'
-          )
-        );
+      if (this.selectedKnowledBase !== null) {
+        this.switch(this.selectedKnowledBase);
       }
     });
 
     this.translateService.onLangChange.subscribe(() => {
       this.loadKnowledgesBase().then(() => {
-        if (
-          localStorage.getItem(
-            'pia_' + this.route.snapshot.params.id + '_knowledgebase'
-          )
-        ) {
-          this.switch(
-            localStorage.getItem(
-              'pia_' + this.route.snapshot.params.id + '_knowledgebase'
-            )
-          );
-
-          this.selectedKnowledBase = localStorage.getItem(
-            'pia_' + this.route.snapshot.params.id + '_knowledgebase'
-          );
+        if (this.selectedKnowledBase !== null) {
+          this.switch(this.selectedKnowledBase);
         }
       });
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.item.currentValue) {
+      this.knowledgeBaseService.loadByItem(this.item);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.knowledgeBaseService.knowledgeBaseData = [];
+    this.knowledgeBaseService.allKnowledgeBaseData = [];
+    this.knowledgeBaseService.previousKnowledgeBaseData = [];
   }
 
   /**
@@ -155,7 +153,7 @@ export class KnowledgeBaseComponent implements OnInit {
 
   /**
    * Allows an user to add a new measure (with its title and its placeholder) through the knowledge base.
-   * @param {Event} event - Any kind of event.
+   * @param event - Any kind of event.
    */
   addNewMeasure(event) {
     if (this.pia) {
@@ -189,7 +187,6 @@ export class KnowledgeBaseComponent implements OnInit {
     this.knowledgeBaseService
       .switch(selectedKnowledBase)
       .then(() => {
-        this.knowlegeBaseEntries = this.knowledgeBaseService.knowledgeBaseData;
         this.knowledgeBaseService.loadByItem(this.item);
         // SET LOCALSTORAGE
         localStorage.setItem(

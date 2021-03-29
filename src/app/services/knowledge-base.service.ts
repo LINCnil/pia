@@ -271,7 +271,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * Replace current Knowledge base by CUSTOM ENTRIES
    * @param params Knowledge Base Id
    */
-  switch(params): Promise<boolean> {
+  switch(params): Promise<any> {
     return new Promise((resolve, reject) => {
       if (parseInt(params) !== 0) {
         this.knowledgesService
@@ -288,10 +288,7 @@ export class KnowledgeBaseService extends ApplicationDb {
                     category: e.category,
                     name: e.name,
                     description: e.description,
-                    filters:
-                      e.filters && e.filters !== '' && item === '31'
-                        ? e.filters
-                        : ''
+                    filters: e.filters && e.filters !== '' ? e.filters : ''
                   });
                 });
               }
@@ -299,7 +296,7 @@ export class KnowledgeBaseService extends ApplicationDb {
             this.knowledgeBaseData = newBase;
             this.allKnowledgeBaseData = newBase;
             this.previousKnowledgeBaseData = newBase;
-            resolve(true);
+            resolve(this.knowledgeBaseData);
           })
           .catch(err => {
             console.log(err);
@@ -310,7 +307,7 @@ export class KnowledgeBaseService extends ApplicationDb {
         this.knowledgeBaseData = piakb;
         this.allKnowledgeBaseData = piakb;
         this.previousKnowledgeBaseData = piakb;
-        resolve(true);
+        resolve(this.knowledgeBaseData);
       }
     });
   }
@@ -358,9 +355,11 @@ export class KnowledgeBaseService extends ApplicationDb {
       if (item.link_knowledge_base && item.link_knowledge_base.length > 0) {
         kbSlugs = item.link_knowledge_base;
       } else if (item.is_measure) {
+        console.log('hello');
         const kbSlugs2 = this.knowledgeBaseData.filter(kbItem => {
           return kbItem.filters.startsWith('measure.');
         });
+        console.log(kbSlugs2);
         kbSlugs2.forEach(element => {
           kbSlugs.push(element.slug);
         });

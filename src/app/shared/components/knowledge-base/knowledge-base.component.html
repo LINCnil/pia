@@ -77,11 +77,14 @@
   </div>
 
   <div
-    *ngIf="knowlegeBaseEntries.length > 0; else noKnowledgeBaseData"
+    *ngIf="
+      knowledgeBaseService.knowledgeBaseData.length > 0;
+      else noKnowledgeBaseData
+    "
     class="pia-knowledgeBaseBlock-list"
   >
     <app-knowledge-base-item
-      *ngFor="let itemKb of knowlegeBaseEntries"
+      *ngFor="let itemKb of knowledgeBaseService.knowledgeBaseData"
       [item]="item"
       [itemKb]="itemKb"
       (newMeasureEvent)="addNewMeasure($event)"
