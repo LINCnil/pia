@@ -355,7 +355,6 @@ export class KnowledgeBaseService extends ApplicationDb {
       if (item.link_knowledge_base && item.link_knowledge_base.length > 0) {
         kbSlugs = item.link_knowledge_base;
       } else if (item.is_measure) {
-        console.log('hello');
         const kbSlugs2 = this.knowledgeBaseData.filter(kbItem => {
           return kbItem.filters.startsWith('measure.');
         });
