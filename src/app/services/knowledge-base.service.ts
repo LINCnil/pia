@@ -314,9 +314,9 @@ export class KnowledgeBaseService extends ApplicationDb {
 
   /**
    * Global search method.
-   * @param {string} [filter] - Text to search.
-   * @param {*} [event] - Any Event.
-   * @param {*} [linkKnowledgeBase] - Link knowledge base.
+   * @param filter - Text to search.
+   * @param event - Any Event.
+   * @param linkKnowledgeBase - Link knowledge base.
    */
   search(filter?: string, event?: any, linkKnowledgeBase?: any): void {
     this.filter = filter && filter.length > 0 ? filter : '';
@@ -345,8 +345,8 @@ export class KnowledgeBaseService extends ApplicationDb {
 
   /**
    * Load knowledge base by item.
-   * @param {*} item - An item of a section.
-   * @param {*} [event] - List of Events.
+   * @param item - An item of a section.
+   * @param event - List of Events.
    */
   loadByItem(item: any, event?: any): void {
     if (this.allKnowledgeBaseData && item) {
@@ -358,7 +358,6 @@ export class KnowledgeBaseService extends ApplicationDb {
         const kbSlugs2 = this.knowledgeBaseData.filter(kbItem => {
           return kbItem.filters.startsWith('measure.');
         });
-        console.log(kbSlugs2);
         kbSlugs2.forEach(element => {
           kbSlugs.push(element.slug);
         });
@@ -388,7 +387,7 @@ export class KnowledgeBaseService extends ApplicationDb {
 
   /**
    * Switch between element.
-   * @param {*} event - Any Event.
+   * @param event - Any Event.
    */
   switchSelectedElement(event: any): void {
     if (event) {
@@ -401,8 +400,8 @@ export class KnowledgeBaseService extends ApplicationDb {
 
   /**
    * Remove an item if present.
-   * @param {string} newItemTitle - New title to compare.
-   * @param {string} previousItemTitle  - Previous title to compare.
+   * @param newItemTitle - New title to compare.
+   * @param previousItemTitle  - Previous title to compare.
    */
   removeItemIfPresent(newItemTitle: string, previousItemTitle: string): void {
     if (!this.toHide.includes(newItemTitle)) {

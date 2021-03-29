@@ -102,7 +102,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.item.currentValue) {
+    if (changes.item && changes.item.currentValue) {
       this.knowledgeBaseService.loadByItem(this.item);
     }
   }
