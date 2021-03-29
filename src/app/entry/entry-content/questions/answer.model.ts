@@ -1,8 +1,14 @@
 import { ApplicationDb } from '../../../application.db';
 
+export interface AnswerData {
+  text: string;
+  gauge: number;
+  list: string[];
+}
+
 export class Answer extends ApplicationDb {
   public id: number;
-  public data: { text: string; gauge: number; list: string[] };
+  private _data: AnswerData;
   public answer_type: string;
 
   constructor() {
@@ -86,6 +92,19 @@ export class Answer extends ApplicationDb {
         }
       });
     });
+  }
+
+  get data(): AnswerData {
+    return this._data;
+  }
+
+  set data(data: AnswerData) {
+    this._data = data;
+    // When sending a PATCH, JSON arrays are not sent.
+    // Because of this, the resulting data.list might be set to undefined.
+    if (data.list == null) {
+      this._data.list = [];
+    }
   }
 
   private setFormData(data) {
