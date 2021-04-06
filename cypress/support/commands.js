@@ -382,7 +382,7 @@ Cypress.Commands.add("refusePia", () => {
     .each(($el, $index, $list) => {
       cy.wrap($el)
         .find("label")
-        .click();
+        .click({ force: true });
     })
     .then(() => {
       cy.get(".btn-red")
@@ -402,7 +402,7 @@ Cypress.Commands.add("refusePia", () => {
         .get(".pia-entryContentBlock-footer")
         .find("button")
         .last()
-        .click();
+        .click({ force: true });
       cy.get("#modal-refuse-pia > .pia-modalBlock-content > .btn").click();
     });
 });
