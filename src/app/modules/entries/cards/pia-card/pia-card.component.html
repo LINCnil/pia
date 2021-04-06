@@ -1,6 +1,6 @@
 <div
   class="pia-cardsBlock pia"
-  *ngIf="!pia.is_example && pia.name !== ''"
+  *ngIf="!pia.is_example && pia.name"
   [ngClass]="{
     'pia-archiveBlock': pia.status > 1,
     'pia-doingBlock': pia.status < 2

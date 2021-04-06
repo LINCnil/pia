@@ -66,7 +66,7 @@ export class EvaluationService extends ApplicationDb {
               return response.json();
             })
             .then((result: any) => {
-              resolve();
+              resolve(result);
             })
             .catch(error => {
               console.error('Request failed', error);
