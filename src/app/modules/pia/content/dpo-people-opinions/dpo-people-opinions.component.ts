@@ -26,7 +26,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.pia);
     this.DPOForm = new FormGroup({
       DPOStatus: new FormControl(),
       DPOOpinion: new FormControl(),

@@ -89,7 +89,6 @@ export class OverviewRisksComponent implements OnInit {
         });
       }
 
-      console.log(this.data);
       resolve();
     });
   }
