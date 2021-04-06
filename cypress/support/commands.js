@@ -189,7 +189,7 @@ Cypress.Commands.add("test_add_tags", () => {
       cy.wait(300);
       cy.get(".ng2-menu-item")
         .first()
-        .click();
+        .click({ force: true });
     });
 });
 Cypress.Commands.add("test_add_tags_next", () => {
@@ -199,7 +199,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
       cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
-        .click();
+        .click({ force: true });
     });
   cy.get("[aria-label='Enter the threats']")
     .type("Tag")
@@ -207,7 +207,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
       cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
-        .click();
+        .click({ force: true });
     });
   cy.get("[aria-label='Enter the risk sources']")
     .type("Tag")
@@ -215,7 +215,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
       cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
-        .click();
+        .click({ force: true });
     });
   cy.get("[aria-label='Click here to select controls which address the risk.']")
     .type("Measure")
@@ -223,7 +223,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
       cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
-        .click();
+        .click({ force: true });
     });
 });
 
@@ -242,7 +242,7 @@ Cypress.Commands.add("validateEval", () => {
     cy.get(".pia-entryContentBlock-footer")
       .find(".btn-green")
       .should("have.class", "btn-active")
-      .click();
+      .click({ force: true });
   });
 });
 
