@@ -128,7 +128,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
               ...result
             ];
           }
-          resolve();
+          resolve(result);
         })
         .catch(() => {
           reject();
