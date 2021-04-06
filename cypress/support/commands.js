@@ -309,7 +309,7 @@ Cypress.Commands.add("validateDPO", () => {
       .find(".pia-entryContentBlock-content-DPO-treatment")
       .find("label")
       .first()
-      .click();
+      .click({ force: true });
     cy.wrap($el)
       .find("textarea")
       .type(
