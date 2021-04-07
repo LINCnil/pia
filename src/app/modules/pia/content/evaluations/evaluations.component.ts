@@ -355,7 +355,6 @@ export class EvaluationsComponent
    * Executes actions when losing focus from evaluation comment.
    */
   evaluationCommentFocusOut(): void {
-    console.log('évaluationf focus out');
     this.knowledgeBaseService.placeholder = null;
     this.editorEvaluationComment = false;
     let userText = this.evaluationForm.controls['evaluationComment'].value;

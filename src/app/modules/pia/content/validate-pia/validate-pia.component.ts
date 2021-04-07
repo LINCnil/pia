@@ -94,7 +94,6 @@ export class ValidatePIAComponent implements OnInit {
    * @param {number} id - Attachment id.
    */
   removeAttachment(id: number) {
-    console.log(id);
     this.removeAttachmentId = id;
   }
 
