@@ -1,7 +1,7 @@
 <section class="container pia-mainContainerBlock" *ngIf="pia && data">
   <div class="row">
     <div
-      *ngIf="pia.is_example === 1"
+      *ngIf="pia.is_example === 1; else elseBreadCrumb"
       class="pia-breadcrumb hide-for-print small-12 medium-12 columns"
     >
       <strong
@@ -9,16 +9,16 @@
         {{ "header.help.pia_example_link" | translate }}</strong
       >
     </div>
-    <div
-      *ngIf="pia.is_example === 0"
-      class="pia-breadcrumb hide-for-print small-12 medium-12 columns"
-    >
-      <a [routerLink]="['/entries']"
-        >{{ "header.homepage_link" | translate }} >
-        {{ "header.current_pias" | translate }}</a
-      >
-      <strong> > {{ pia.name }}</strong>
-    </div>
+    <ng-template #elseBreadCrumb>
+      <div class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+        <a [routerLink]="['/entries']"
+          >{{ "header.homepage_link" | translate }} >
+          {{ "header.current_pias" | translate }}</a
+        >
+        <strong> > {{ pia.name }}</strong>
+      </div>
+    </ng-template>
+
     <!-- Left sidebar (sections) -->
     <nav class="hide-for-print small-12 medium-3 columns">
       <aside class="pia-leftSidebarBlock">
@@ -31,7 +31,7 @@
         ></app-sections>
         <app-attachments [pia]="pia"></app-attachments>
         <app-revisions
-          *ngIf="pia.is_example == 0 && pia.is_archive == 0"
+          *ngIf="pia.is_example !== 1 && pia.is_archive !== 1"
           [pia]="pia"
           [title]="false"
           [currentVersion]="pia.updated_at"

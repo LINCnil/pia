@@ -257,7 +257,7 @@ export class ApplicationDb {
             return response;
           })
           .then(item => {
-            resolve();
+            resolve(item);
           })
           .catch(error => {
             console.error('Request failed', error);
@@ -271,7 +271,7 @@ export class ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            resolve();
+            resolve(event);
           };
         });
       }
