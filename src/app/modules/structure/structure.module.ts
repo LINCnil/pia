@@ -14,8 +14,7 @@ import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { ContentComponent } from './content/content.component';
 import { MeasuresComponent } from './content/measures/measures.component';
 import { QuestionsComponent } from './content/questions/questions.component';
-
-
+import { PiaI18nModule } from '@atnos/pia-i18n';
 @NgModule({
   declarations: [
     StructureComponent,
@@ -24,11 +23,7 @@ import { QuestionsComponent } from './content/questions/questions.component';
     MeasuresComponent,
     QuestionsComponent
   ],
-  imports: [
-    SharedModule,
-    CommonModule,
-    StructureRoutingModule
-  ],
+  imports: [SharedModule, PiaI18nModule, CommonModule, StructureRoutingModule],
   providers: [
     PiaService,
     ArchiveService,
@@ -39,4 +34,4 @@ import { QuestionsComponent } from './content/questions/questions.component';
     AttachmentsService
   ]
 })
-export class StructureModule { }
+export class StructureModule {}
