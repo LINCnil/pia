@@ -11,10 +11,10 @@
       margin-bottom: 14px;
       background-color: #fff;
       position: relative;
-      box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+      box-shadow: 1px 1px 15px 1px rgba(210, 210, 210, 1);
       > div:first-child {
         width: 74px;
-        background-color: $pia-green;
+        background-color: $mpc-purple;
         position: relative;
         i {
           display: block;
@@ -32,7 +32,10 @@
         width: 420px;
         padding-bottom: 10px;
       }
-      h1, h2, h3, h4 {
+      h1,
+      h2,
+      h3,
+      h4 {
         margin: 0;
         padding: 0;
         line-height: 1.2;
@@ -41,11 +44,11 @@
       h1 {
         font-size: 2.4rem;
         font-weight: 400;
-        color: $pia-green;
+        color: $mpc-purple;
         margin-top: 20px;
       }
       h2 {
-        color: $pia-green;
+        color: $mpc-purple;
         font-size: 1.35rem;
         text-transform: uppercase;
         font-weight: 500;
@@ -63,7 +66,8 @@
         color: $pia-gray-dark;
         margin-bottom: 10px;
       }
-      div, h1 {
+      div,
+      h1 {
         display: inline-block;
         vertical-align: top;
       }
@@ -82,21 +86,21 @@
         }
       }
       &-progress {
-          background-color: transparent;
+        background-color: transparent;
+        display: block;
+        top: 60%;
+        left: 0;
+        right: 0;
+        position: absolute;
+        font-size: 1rem;
+        color: #fff;
+        text-align: center;
+        min-height: auto !important;
+        div {
           display: block;
-          top: 60%;
-          left: 0;
-          right: 0;
-          position: absolute;
-          font-size: 1rem;
-          color: #fff;
-          text-align: center;
-          min-height: auto !important;
-          div {
-            display: block;
-            background-color: transparent;
-            min-height: inherit;
-          }
+          background-color: transparent;
+          min-height: inherit;
+        }
       }
     }
     &-section {
@@ -105,7 +109,8 @@
           > div:first-child {
             background-color: $pia-blue;
           }
-          h1, h2 {
+          h1,
+          h2 {
             color: $pia-blue;
           }
         }
@@ -115,7 +120,8 @@
           > div:first-child {
             background-color: $pia-red;
           }
-          h1, h2 {
+          h1,
+          h2 {
             color: $pia-red;
           }
         }
@@ -125,7 +131,8 @@
           > div:first-child {
             background-color: $pia-dark-black;
           }
-          h1, h2 {
+          h1,
+          h2 {
             color: $pia-dark-black;
           }
         }
@@ -157,11 +164,12 @@
       &-nav {
         position: relative;
         margin-top: 5px;
-        .pia-previousLink, .pia-nextLink {
+        .pia-previousLink,
+        .pia-nextLink {
           display: inline-block;
           vertical-align: middle;
           width: 50%;
-          color: $pia-green;
+          color: $mpc-purple;
           text-decoration: none;
           font-weight: 500;
           font-size: 1.3rem;
@@ -211,7 +219,7 @@
       font-size: 1.1rem;
       margin: 0 auto;
       text-align: center;
-      color: $pia-green;
+      color: $mpc-purple;
     }
   }
 
@@ -220,7 +228,7 @@
       text-transform: uppercase;
     }
     a {
-      color: #FD4664;
+      color: #fd4664;
     }
     p {
       margin-bottom: 0;

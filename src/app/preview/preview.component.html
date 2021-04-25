@@ -134,7 +134,7 @@
                             <div class="pia-actionPlanGraphBlock-item" *ngFor="let r of _actionPlanService.results">
                               <span class="pia-list">{{ r.short_title | translate }}</span>
                               <span class="pia-box" [ngClass]="{'pia-blue': r.status === 2, 'pia-red': r.status === 1}"></span>
-                              <span class="pia-box" [ngClass]="{'pia-green': r.status === 3, 'pia-red': r.status === 1}"></span>
+                              <span class="pia-box" [ngClass]="{'mpc-purple': r.status === 3, 'pia-red': r.status === 1}"></span>
                             </div>
                           </div>
                           <div class="medium-6 columns pia-actionPlanGraphBlock-right">
@@ -143,7 +143,7 @@
                               <div class="pia-actionPlanGraphBlock-right-measures-scroll summaryMode" *ngIf="_actionPlanService.measures">
                                 <div *ngFor="let measure of _actionPlanService.measures" class="pia-actionPlanGraphBlock-item">
                                   <span class="pia-box" [ngClass]="{'pia-blue': measure.status === 2, 'pia-red': measure.status === 1}"></span>
-                                  <span class="pia-box" [ngClass]="{'pia-green': measure.status === 3, 'pia-red': measure.status === 1}"></span>
+                                  <span class="pia-box" [ngClass]="{'mpc-purple': measure.status === 3, 'pia-red': measure.status === 1}"></span>
                                   <span class="pia-list">{{ measure.name }}</span>
                                 </div>
                               </div>
@@ -151,17 +151,17 @@
                             <h3>{{ 'action_plan.risks' | translate }}</h3>
                             <div class="pia-actionPlanGraphBlock-item">
                               <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 2, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
-                              <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 3, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
+                              <span class="pia-box" [ngClass]="{'mpc-purple': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 3, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
                               <span class="pia-list">{{ 'action_plan.risk1' | translate }}</span>
                             </div>
                             <div class="pia-actionPlanGraphBlock-item">
                               <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 2, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
-                              <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 3, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
+                              <span class="pia-box" [ngClass]="{'mpc-purple': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 3, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
                               <span class="pia-list">{{ 'action_plan.risk2' | translate }}</span>
                             </div>
                             <div class="pia-actionPlanGraphBlock-item">
                               <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 2, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
-                              <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 3, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
+                              <span class="pia-box" [ngClass]="{'mpc-purple': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 3, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
                               <span class="pia-list">{{ 'action_plan.risk3' | translate }}</span>
                             </div>
                           </div>

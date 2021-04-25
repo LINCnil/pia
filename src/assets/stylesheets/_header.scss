@@ -4,7 +4,7 @@
     background-color: $pia-blue;
     margin-top: 4px;
     &-structures {
-      background-color: $pia-green;
+      background-color: $mpc-purple;
     }
     .container {
       position: relative;
@@ -29,7 +29,7 @@
           &:focus,
           &:hover,
           &:active {
-            background-color: $pia-green;
+            background-color: $mpc-purple;
           }
         }
         a {
@@ -115,7 +115,7 @@
           &:hover,
           &:active {
             color: #fff !important;
-            background-color: $pia-green;
+            background-color: $mpc-purple;
             & + form {
               display: block;
             }
@@ -129,7 +129,7 @@
         &:active {
           > a {
             color: #fff !important;
-            background-color: $pia-green;
+            background-color: $mpc-purple;
             .pia-icon-scroll {
               background-position: -367px -39px;
             }

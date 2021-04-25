@@ -9,7 +9,8 @@
     border-radius: 20px;
     font-size: 1.35rem;
     color: white;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: white;
     }
     &:active {
@@ -20,13 +21,15 @@
     @extend .btn-default;
   }
 
-  &-inactive, &[disabled] {
+  &-inactive,
+  &[disabled] {
     @extend .btn-default;
     color: $pia-gray;
     border-color: $pia-gray;
     cursor: not-allowed;
     background-color: transparent;
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       color: $pia-gray;
       background-color: transparent;
     }
@@ -34,10 +37,12 @@
 
   &-white {
     @extend .btn-default;
-    color: $pia-green;
+    color: $mpc-purple;
     background-color: white;
-    &:focus, &:hover, &.btn-active {
-      color: $pia-green;
+    &:focus,
+    &:hover,
+    &.btn-active {
+      color: $mpc-purple;
     }
   }
 
@@ -57,10 +62,13 @@
 
   &-green {
     @extend .btn-default;
-    color: $pia-green;
-    border-color: $pia-green;
-    &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
-      background-color: $pia-green;
+    color: $mpc-purple;
+    border-color: $mpc-purple;
+    &:focus,
+    &:hover,
+    &.btn-active,
+    &.btn-active[disabled] {
+      background-color: $mpc-purple;
       color: white;
     }
   }
@@ -69,7 +77,10 @@
     @extend .btn-default;
     color: $pia-blue;
     border-color: $pia-blue;
-    &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+    &:focus,
+    &:hover,
+    &.btn-active,
+    &.btn-active[disabled] {
       background-color: $pia-blue;
       color: white;
     }
@@ -79,13 +90,17 @@
     @extend .btn-default;
     color: $pia-red;
     border-color: $pia-red;
-    &:focus, &:hover, &.btn-active, &.btn-active[disabled] {
+    &:focus,
+    &:hover,
+    &.btn-active,
+    &.btn-active[disabled] {
       background-color: $pia-red;
       color: white;
     }
   }
 
-  &-pending-validation, &-pending-validation[disabled] {
+  &-pending-validation,
+  &-pending-validation[disabled] {
     font-size: 1.3rem;
     cursor: not-allowed;
     border: 1px solid $pia-blue;
@@ -96,7 +111,9 @@
       margin-right: 8px;
       vertical-align: -3px;
     }
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       color: $pia-blue;
     }
   }

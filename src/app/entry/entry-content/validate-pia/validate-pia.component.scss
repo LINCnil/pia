@@ -3,9 +3,9 @@
   .pia-entryContentBlock {
     &-content {
       background-color: #fefefe;
-      box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+      box-shadow: 2px 1px 18px 1px rgba(194, 194, 194, 1);
       &-list {
-        padding:  10px 60px 20px  60px;
+        padding: 10px 60px 20px 60px;
         font-size: 1.4rem;
         .blue {
           color: $pia-blue;
@@ -39,7 +39,7 @@
               align-self: center;
             }
           }
-          i{
+          i {
             margin: auto;
             width: 20px;
             height: 20px;
@@ -55,14 +55,14 @@
             border: solid 1px $pia-gray;
           }
           .fa-check {
-            display:none;
+            display: none;
           }
           input:checked + label {
-            border: solid $pia-green 1px;
+            border: solid $mpc-purple 1px;
             background-color: #fff;
             .fa-check {
               display: block;
-              color: $pia-green;
+              color: $mpc-purple;
             }
             .fa-circle {
               display: none;
@@ -71,8 +71,8 @@
           /* Special class added to checked radio buttons */
           &.validate {
             input:checked + label {
-              border: solid $pia-green 1px;
-              background-color: $pia-green;
+              border: solid $mpc-purple 1px;
+              background-color: $mpc-purple;
               color: #fff;
               font-weight: bold;
               .fa-circle {
@@ -105,7 +105,8 @@
         margin-top: 10px;
         display: flex;
         justify-content: space-between;
-        button, a {
+        button,
+        a {
           padding: 9px 10px;
           display: block;
           width: 140px;
@@ -138,7 +139,8 @@
         > div {
           font-weight: 500;
           color: $pia-blue;
-          span, a {
+          span,
+          a {
             display: inline-block;
             vertical-align: middle;
           }
@@ -146,9 +148,9 @@
             float: right;
           }
           i {
-          align-self: center;
-          color: $pia-gray;
-          font-size: 16px;
+            align-self: center;
+            color: $pia-gray;
+            font-size: 16px;
           }
           a {
             text-decoration: none;
@@ -181,19 +183,20 @@
         background-color: #fff;
         display: flex;
         justify-content: center;
-        color: $pia-green;
-        a, button {
+        color: $mpc-purple;
+        a,
+        button {
           display: block;
           align-self: center !important;
           padding: 4px;
           margin-right: 10px;
-          color: $pia-green;
+          color: $mpc-purple;
           text-decoration: none;
           width: initial;
           cursor: pointer;
         }
         i {
-          color: $pia-green;
+          color: $mpc-purple;
           display: block;
           margin-top: 2px;
           text-align: center;
@@ -205,7 +208,7 @@
           font-size: 1rem;
           margin-bottom: 0;
           font-style: normal;
-          color: $pia-green;
+          color: $mpc-purple;
         }
       }
     }

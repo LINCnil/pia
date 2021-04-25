@@ -125,8 +125,8 @@
               &:first-child {
                 order: 2;
                 .pia-sectionBlock-title {
-                  color: $pia-green;
-                  border-color: $pia-green;
+                  color: $mpc-purple;
+                  border-color: $mpc-purple;
                 }
                 hr {
                   max-width: 164px;
@@ -134,7 +134,7 @@
                 a {
                   &:hover,
                   &.active {
-                    background-color: $pia-green;
+                    background-color: $mpc-purple;
                   }
                 }
               }
@@ -359,7 +359,7 @@
         text-align: right;
         position: relative;
         div {
-          color: $pia-green;
+          color: $mpc-purple;
           font-style: italic;
           text-align: right;
           font-size: 1rem;
@@ -380,7 +380,7 @@
             height: 12px;
             width: 1px;
             margin-top: -6px;
-            background-color: $pia-green;
+            background-color: $mpc-purple;
           }
           &:before {
             position: absolute;
@@ -389,7 +389,7 @@
             right: 0;
             top: 50%;
             height: 1px;
-            background-color: $pia-green;
+            background-color: $mpc-purple;
           }
         }
         progress[value] {
@@ -402,11 +402,11 @@
             background-color: transparent;
           }
           &::-webkit-progress-value {
-            background-color: $pia-green;
+            background-color: $mpc-purple;
           }
         }
         progress[value]::-moz-progress-bar {
-          background-color: $pia-green;
+          background-color: $mpc-purple;
         }
       }
       .pia-previewBlock {
@@ -422,11 +422,11 @@
           height: 35px;
           width: 35px;
           padding-top: 5px;
-          border: 1px solid $pia-green;
+          border: 1px solid $mpc-purple;
         }
         i,
         div {
-          color: $pia-green;
+          color: $mpc-purple;
         }
         div {
           text-transform: lowercase;
@@ -470,7 +470,7 @@
       }
       &.headline1 {
         .pia-fullPreviewBlock-headline-title {
-          border-left-color: $pia-green;
+          border-left-color: $mpc-purple;
         }
       }
       &.headline2 {

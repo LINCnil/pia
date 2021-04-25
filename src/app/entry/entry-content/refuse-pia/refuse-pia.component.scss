@@ -8,7 +8,8 @@
           padding: 0 10px;
           display: flex;
           justify-content: space-between;
-          h1, i {
+          h1,
+          i {
             align-self: center;
           }
           i {
@@ -33,7 +34,7 @@
             justify-content: center;
             margin: 5px auto auto auto;
             width: 100%;
-            border-bottom: solid $pia-green 1px;
+            border-bottom: solid $mpc-purple 1px;
             border-top: 0;
             border-right: 0;
             font-size: 1.35rem;
@@ -46,7 +47,7 @@
               font-size: 1.4rem;
               font-style: italic;
               background-color: $pia-white;
-              color: #A7A7A7;
+              color: #a7a7a7;
             }
             &:disabled {
               background-color: #fff;

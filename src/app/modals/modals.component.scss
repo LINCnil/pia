@@ -136,7 +136,7 @@
       width: 274px;
       margin-left: -137px;
       padding: 10px;
-      border: solid 1px $pia-green;
+      border: solid 1px $mpc-purple;
     }
   }
   .pia-cardsBlock-item {
@@ -231,7 +231,7 @@
   margin-top: 6px;
 }
 .icon-green {
-  color: $pia-green;
+  color: $mpc-purple;
 }
 .icon-gray {
   color: $pia-gray;
@@ -256,7 +256,7 @@
       height: 0;
       border-style: solid;
       border-width: 5px 5px 0 5px;
-      border-color: $pia-green transparent transparent transparent;
+      border-color: $mpc-purple transparent transparent transparent;
     }
   }
 }
@@ -276,7 +276,7 @@
   background: none;
   border: none;
   &:hover {
-    outline: 1px dotted $pia-green;
+    outline: 1px dotted $mpc-purple;
   }
 }
 .pia-cardsBlock-item-btn {

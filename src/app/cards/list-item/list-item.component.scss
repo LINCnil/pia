@@ -23,10 +23,13 @@
     cursor: text;
     white-space: nowrap;
     overflow: hidden;
-    &:focus, &:hover, &:active {
-      outline: 1px dotted $pia-green;
+    &:focus,
+    &:hover,
+    &:active {
+      outline: 1px dotted $mpc-purple;
     }
-    &:focus, &:active {
+    &:focus,
+    &:active {
       background-color: #fff;
     }
   }
@@ -37,7 +40,7 @@
     display: flex;
     justify-content: space-around;
     a {
-      color: $pia-green;
+      color: $mpc-purple;
       font-size: 1.8rem;
       margin: 0 4px;
       width: 18px;
@@ -73,7 +76,9 @@
         }
       }
     }
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       ul {
         display: block;
       }

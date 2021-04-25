@@ -7,28 +7,32 @@
     padding-right: 0;
   }
   &-item {
-    background: url("../../assets/images/pia-bg.png") repeat center center;
+    background: url('../../assets/images/pia-bg.png') repeat center center;
     padding: 70px 40px;
     font-size: 1.9rem;
-    color: $pia-green;
+    color: $mpc-purple;
     height: 440px;
     width: 276px;
-    &-new, &-import {
+    &-new,
+    &-import {
       &-title {
         padding-bottom: 10px;
       }
       &-btn {
         padding-left: 18px;
-        .fa-folder-open, .fa-upload {
-            font-size: 7rem;
-            margin-right: 30px;
+        .fa-folder-open,
+        .fa-upload {
+          font-size: 7rem;
+          margin-right: 30px;
         }
         .fa-upload {
-            margin-right: 40px;
+          margin-right: 40px;
         }
-        .fa-folder-open, .fa-upload, button {
-            display: inline-block;
-            vertical-align: top;
+        .fa-folder-open,
+        .fa-upload,
+        button {
+          display: inline-block;
+          vertical-align: top;
         }
       }
     }
@@ -45,7 +49,7 @@
     width: 300px;
     height: 200px;
     border-radius: 10px;
-    box-shadow: 0px 0px 18px 2px rgba(212,212,212,1);
+    box-shadow: 0px 0px 18px 2px rgba(212, 212, 212, 1);
     top: 110px;
     right: -323px;
     .pia-icon-small-arrow {
@@ -86,7 +90,7 @@
       left: 10px;
       top: 1px;
       font-size: 2.35rem;
-      color: $pia-green;
+      color: $mpc-purple;
       -webkit-transform: rotate(-45deg);
       -moz-transform: rotate(-45deg);
       -o-transform: rotate(-45deg);
@@ -101,30 +105,31 @@
       line-height: 3rem;
       font-style: normal;
       font-weight: lighter;
-      color: $pia-green;
+      color: $mpc-purple;
       cursor: pointer;
     }
     input.btn.btn-search {
       float: right;
       background: none;
-      border: 1px solid $pia-green;
+      border: 1px solid $mpc-purple;
       border-radius: 20px;
-      color: $pia-green;
-      font-size: 1.30rem;
+      color: $mpc-purple;
+      font-size: 1.3rem;
       transition: all ease 0.5s;
-      outline-style:none;
-      box-shadow:none;
+      outline-style: none;
+      box-shadow: none;
       position: relative;
       padding-left: 30px;
       &::placeholder {
-        color: $pia-green;
+        color: $mpc-purple;
       }
-      &:focus, &.typed {
+      &:focus,
+      &.typed {
         width: 350px;
         border: 0px;
-        border: 1px solid $pia-green;
+        border: 1px solid $mpc-purple;
         border-radius: 20px;
-        color: $pia-green;
+        color: $mpc-purple;
         + .search-icon {
           left: -190px;
         }
@@ -134,7 +139,8 @@
   &-filtersBlock {
     position: relative;
     margin: 8px 0 40px 0;
-    &-left, &-right {
+    &-left,
+    &-right {
       width: 50%;
       display: inline-block;
       vertical-align: middle;
@@ -142,7 +148,8 @@
     &-right {
       text-align: right;
     }
-    &-switch, &-filters {
+    &-switch,
+    &-filters {
       display: inline-block;
       vertical-align: middle;
     }
@@ -151,9 +158,9 @@
       vertical-align: middle;
       min-width: 140px;
       height: 34px;
-      border: 1px solid $pia-green;
+      border: 1px solid $mpc-purple;
       border-radius: 20px;
-      color: $pia-green;
+      color: $mpc-purple;
       padding: 0 10px;
       .fa-list {
         font-size: 1.5rem;
@@ -165,15 +172,16 @@
         margin-left: 4px;
         margin-top: -2px;
       }
-      &:hover, &:focus {
-        background: $pia-green;
-        border-color: $pia-green;
+      &:hover,
+      &:focus {
+        background: $mpc-purple;
+        border-color: $mpc-purple;
         color: #fff;
       }
       &:active {
-        color: $pia-green;
+        color: $mpc-purple;
         background-color: #fff;
-        border-color: $pia-green;
+        border-color: $mpc-purple;
       }
     }
     &-filters {
@@ -192,7 +200,7 @@
         top: 15px;
         left: 0;
         right: 0;
-        border: 2px solid $pia-green;
+        border: 2px solid $mpc-purple;
         border-top: none;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
@@ -215,7 +223,10 @@
             text-decoration: none;
             color: #000;
           }
-          &:focus, &:hover, &:active, .active {
+          &:focus,
+          &:hover,
+          &:active,
+          .active {
             background-color: $pia-blue;
             a {
               color: #ffffff !important;
@@ -227,9 +238,9 @@
       }
       &-btn {
         height: 34px;
-        border: 1px solid $pia-green;
+        border: 1px solid $mpc-purple;
         border-radius: 20px;
-        color: $pia-green;
+        color: $mpc-purple;
         padding: 9px 12px 9px 16px;
         font-size: 1.3rem;
         position: relative;
@@ -237,7 +248,9 @@
         .pia-icon-scroll-green {
           margin-left: 35px;
         }
-        &:focus, &:hover, &:active {
+        &:focus,
+        &:hover,
+        &:active {
           + .pia-filtersBlock-filters-list {
             display: block;
           }
@@ -246,7 +259,7 @@
       &:hover {
         .pia-filtersBlock-filters-btn {
           color: #fff;
-          background-color: $pia-green;
+          background-color: $mpc-purple;
           .pia-icon-scroll-green {
             background-position: -367px -39px;
           }
@@ -258,14 +271,15 @@
     }
     &-hint {
       position: relative;
-      display:inline-block;
+      display: inline-block;
       vertical-align: middle;
       background-color: #fff;
       border-radius: 10px;
       padding: 3px 24px 5px 26px;
       margin-left: 10px;
       div {
-        span, p {
+        span,
+        p {
           display: inline-block;
           vertical-align: middle;
         }
@@ -297,10 +311,9 @@
   }
 }
 
-
 // Edit PIA
 .pia-editBlock {
-  border-color: $pia-green;
+  border-color: $mpc-purple;
   button {
     display: block;
     margin-right: 0;
@@ -320,13 +333,13 @@
   transition: transform 1s;
 }
 #cardsSwitch .back {
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
 }
 #cardsSwitch.flipped .back {
-  transform: rotateY( 0deg );
+  transform: rotateY(0deg);
 }
 #cardsSwitch.flipped .front {
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
 }
 
 // List PIA
@@ -377,7 +390,7 @@
       span {
         border-left: solid 1px $pia-white;
         &:last-child {
-            padding-left: 13px;
+          padding-left: 13px;
         }
       }
       &:first-child span:first-of-type {
@@ -386,7 +399,7 @@
     }
   }
 }
-.pia-cardsBlock-item-form input{
+.pia-cardsBlock-item-form input {
   padding-bottom: 0;
 }
 .app-list-item {
@@ -417,7 +430,7 @@
       height: 0;
       border-style: solid;
       border-width: 5px 5px 0 5px;
-      border-color: $pia-green transparent transparent transparent;
+      border-color: $mpc-purple transparent transparent transparent;
     }
   }
 }
@@ -437,6 +450,6 @@
   background: none;
   border: none;
   &:hover {
-    outline: 1px dotted $pia-green;
+    outline: 1px dotted $mpc-purple;
   }
 }

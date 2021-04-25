@@ -3,9 +3,10 @@
   &-knowledgeBaseBlock {
     &-item {
       padding-bottom: 18px;
-      border-top: solid 1px $pia-green;
+      border-top: solid 1px $mpc-purple;
       position: relative;
-      &-accordion, &-definition {
+      &-accordion,
+      &-definition {
         display: inline-block;
         vertical-align: middle;
       }
@@ -16,7 +17,8 @@
       &-definition {
         position: relative;
         width: 90%;
-        button, p {
+        button,
+        p {
           display: inline-block;
           vertical-align: top;
         }
@@ -39,7 +41,7 @@
             margin: auto;
             &:last-child {
               margin: 0;
-              color: $pia-green;
+              color: $mpc-purple;
               text-align: center;
               font-size: 0.9rem;
             }
@@ -81,7 +83,7 @@
           color: $pia-light-black;
           line-height: 1.7rem;
           a {
-            color: $pia-green;
+            color: $mpc-purple;
           }
         }
       }

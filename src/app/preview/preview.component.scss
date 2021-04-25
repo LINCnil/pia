@@ -65,7 +65,7 @@
                 padding-left: 5px;
               }
               &::before {
-                content: "";
+                content: '';
                 border-top: solid 1px $pia-gray;
                 width: 8.5px;
                 margin-right: 7px;
@@ -83,7 +83,8 @@
             a {
               width: 81%;
               border-radius: 4px;
-              &:hover, &.active {
+              &:hover,
+              &.active {
                 color: #fff !important;
               }
             }
@@ -92,15 +93,17 @@
               &:first-child {
                 order: 2;
                 .pia-sectionBlock-title {
-                  color: $pia-green;
-                  border-color: $pia-green;
+                  color: $mpc-purple;
+                  border-color: $mpc-purple;
                 }
                 hr {
                   max-width: 164px;
                 }
                 a {
-                  &:hover,, &.active {
-                    background-color: $pia-green;
+                  &:hover,
+                  ,
+                  &.active {
+                    background-color: $mpc-purple;
                   }
                 }
               }
@@ -114,7 +117,8 @@
                   max-width: 62px;
                 }
                 a {
-                  &:hover, &.active {
+                  &:hover,
+                  &.active {
                     background-color: $pia-blue;
                   }
                 }
@@ -129,7 +133,8 @@
                   max-width: 182px;
                 }
                 a {
-                  &:hover, &.active {
+                  &:hover,
+                  &.active {
                     background-color: $pia-red;
                   }
                 }
@@ -145,7 +150,8 @@
                   display: none;
                 }
                 a {
-                  &:hover, &.active {
+                  &:hover,
+                  &.active {
                     background-color: $pia-dark-black;
                   }
                 }
@@ -172,7 +178,7 @@
     margin-bottom: 80px;
     h1 {
       color: $pia-blue;
-      border-bottom: 4px solid #091C6B;
+      border-bottom: 4px solid #091c6b;
     }
     h2 {
       color: #393939;
@@ -183,7 +189,7 @@
       font-size: 1.6rem;
     }
     h3 {
-      color: #091C6B;
+      color: #091c6b;
       margin: 2px 0;
       font-weight: 500;
     }
@@ -267,7 +273,8 @@
       &-title {
         padding-bottom: 16px;
         width: 87%;
-        h1, h2 {
+        h1,
+        h2 {
           margin: 0;
           padding: 0;
           line-height: 1.2;
@@ -321,7 +328,7 @@
         text-align: right;
         position: relative;
         div {
-          color: $pia-green;
+          color: $mpc-purple;
           font-style: italic;
           text-align: right;
           font-size: 1rem;
@@ -342,7 +349,7 @@
             height: 12px;
             width: 1px;
             margin-top: -6px;
-            background-color: $pia-green;
+            background-color: $mpc-purple;
           }
           &:before {
             position: absolute;
@@ -351,7 +358,7 @@
             right: 0;
             top: 50%;
             height: 1px;
-            background-color: $pia-green;
+            background-color: $mpc-purple;
           }
         }
         progress[value] {
@@ -364,11 +371,11 @@
             background-color: transparent;
           }
           &::-webkit-progress-value {
-            background-color: $pia-green;
+            background-color: $mpc-purple;
           }
         }
         progress[value]::-moz-progress-bar {
-          background-color: $pia-green;
+          background-color: $mpc-purple;
         }
       }
       .pia-previewBlock {
@@ -384,10 +391,11 @@
           height: 35px;
           width: 35px;
           padding-top: 5px;
-          border: 1px solid $pia-green;
+          border: 1px solid $mpc-purple;
         }
-        i, div {
-          color: $pia-green;
+        i,
+        div {
+          color: $mpc-purple;
         }
         div {
           text-transform: lowercase;
@@ -431,7 +439,7 @@
       }
       &.headline1 {
         .pia-fullPreviewBlock-headline-title {
-          border-left-color: $pia-green;
+          border-left-color: $mpc-purple;
         }
       }
       &.headline2 {
@@ -464,10 +472,8 @@
       }
     }
   }
-
 }
 
 .pagebreak {
   page-break-before: always;
 }
-
