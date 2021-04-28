@@ -1,0 +1,276 @@
+@import './assets/stylesheets/variables';
+
+@import '~normalize.css/normalize.css';
+
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome.scss';
+
+// Foundation styles
+@import '~foundation-sites/scss/foundation.scss';
+@include foundation-global-styles;
+@include foundation-flex-grid;
+@include foundation-flex-classes;
+
+// Common styles
+@import './assets/stylesheets/fonts';
+@import './assets/stylesheets/sprites';
+@import './assets/stylesheets/btn';
+@import './assets/stylesheets/tooltip';
+@import './assets/stylesheets/card';
+@import './assets/stylesheets/animations';
+@import './assets/stylesheets/tags';
+@import './assets/stylesheets/gauges';
+@import './assets/stylesheets/action-plan';
+@import './assets/stylesheets/breadcrumb';
+@import './assets/stylesheets/editor';
+@import './assets/stylesheets/print';
+@import './assets/stylesheets/header';
+@import './assets/stylesheets/onboarding';
+@import './assets/stylesheets/contrast';
+
+@-moz-document url-prefix() {
+  .pia-gaugeBlock-user-choice {
+    z-index: -1 !important;
+  }
+}
+
+// Default styles
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
+  background-color: $pia-white;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  &.pia-authentication {
+    background: url('./assets/images/authentication-bg.png') no-repeat center center transparent;
+    background-size: cover;
+  }
+}
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+/* Inactive inputs styles */
+input {
+  &:disabled {
+    background-color: #fff !important;
+  }
+}
+
+angular2csv {
+  button {
+    cursor: pointer !important;
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Active navigation button styles
+.active {
+  background-color: #fff;
+  a {
+    color: $pia-blue !important;
+  }
+}
+.hide {
+  visibility: hidden;
+}
+.mask {
+  visibility: hidden;
+}
+.pia-rightSidebarBlock {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
+.red-highlight {
+  color: $pia-red;
+}
+
+.green-highlight {
+  color: $pia-green;
+}
+
+// Mostly used for displayers
+.close,
+.hide {
+  display: none !important;
+}
+.open {
+  display: block !important;
+}
+
+// Main blur (used on modals)
+.blur {
+  filter: blur(3px);
+}
+
+// Special blur (used for special modals (risks/action plan/dpo)
+.blur-content {
+  &:after {
+    cursor: not-allowed;
+    z-index: 1000;
+    content: '';
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.approved {
+  border: 1px solid $pia-gray;
+  box-shadow: none;
+}
+
+tag-input-form {
+  width: 100% !important;
+  input {
+    width: 100% !important;
+  }
+}
+
+/*
+.ng2-tag-input--focused {
+  background-color: rgba(0,0,0,0.1) !important;
+}
+
+.ng2-tag-input--focused tag-input-form form .ng2-tag-input__text-input {
+  margin-top: 2px;
+  background-color: rgba(0,0,0,0.05) !important;
+} */
+
+.ng2-tag-input.foundation-theme tag.tag--editing {
+  color: $pia-blue !important;
+}
+
+.tag--editing {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* http://cssload.net Generator */
+.cssload-container {
+  width: 100%;
+  height: 44px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+}
+
+.cssload-speeding-wheel {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: cssload-spin 800ms infinite linear;
+  -o-animation: cssload-spin 800ms infinite linear;
+  -ms-animation: cssload-spin 800ms infinite linear;
+  -webkit-animation: cssload-spin 800ms infinite linear;
+  -moz-animation: cssload-spin 800ms infinite linear;
+}
+
+@keyframes cssload-spin {
+  100% {
+    transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes cssload-spin {
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes cssload-spin {
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes cssload-spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes cssload-spin {
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.pia-helpBlock-content {
+  line-height: 1.7rem;
+  td {
+    font-weight: 400;
+    text-align: left;
+    &:last-of-type {
+      padding: 15px;
+      vertical-align: top;
+    }
+  }
+  h2 {
+    background-color: $pia-blue;
+    font-size: 2.4rem !important;
+    line-height: 2.4rem;
+    padding: 8px 20px;
+    margin: 0;
+    max-width: 610px;
+    color: #fff;
+    display: block;
+    font-weight: 400;
+  }
+  table + h2 {
+    margin-top: 50px;
+  }
+  h3 {
+    padding: 17px 12px 5px 12px;
+    font-size: 1.7rem;
+    line-height: 1.7rem;
+    font-weight: 600;
+    color: $pia-gray-dark;
+    margin: 0 12px;
+  }
+  p {
+    max-width: 610px;
+  }
+  tr td {
+    padding: 15px;
+    border: none !important;
+    &:first-child {
+      box-shadow: 1px 1px 15px 1px #d2d2d2;
+    }
+  }
+  img {
+    max-width: 650px !important;
+  }
+}

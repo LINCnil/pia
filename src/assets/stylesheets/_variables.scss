@@ -1,0 +1,37 @@
+// General colors
+$pia-green: #3EE095;
+$pia-red: #FD4664;
+$pia-blue: #091C6B;
+$pia-white: #F5F5F5;
+$pia-gray: #A7A7A7;
+$pia-light-black: #393939;
+$pia-dark-black: #121921;
+
+$pia-green-dark: #127137;
+$pia-red-dark: #C40288;
+$pia-gray-dark: #686868;
+
+// Settings Foundation
+$global-flexbox: true;
+$global-font-size: 100%;
+$global-width: 1180px;
+$global-lineheight: 1.5;
+
+$breakpoints: (
+    small: 0,
+    medium: 640px,
+    large: 1024px,
+    xlarge: 1200px,
+    xxlarge: 1440px,
+);
+$print-breakpoint: large;
+$breakpoint-classes: (small medium large);
+
+$grid-row-width: $global-width;
+$grid-column-count: 12;
+$grid-column-gutter: (
+    small: 50px,
+    medium: 20px,
+);
+$grid-column-align-edge: true;
+$block-grid-max: 8;

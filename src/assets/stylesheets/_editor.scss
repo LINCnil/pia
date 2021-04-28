@@ -1,0 +1,50 @@
+.mce-tinymce.mce-container.mce-panel {
+  border: none;
+  margin-bottom: 30px;
+  > div {
+    border-bottom: 2px solid #3ee095;
+  }
+}
+
+.mce-top-part.mce-container.mce-stack-layout-item.mce-first {
+  position: absolute;
+  height: 100%;
+  .mce-container.mce-flow-layout-item.mce-first.mce-last.mce-btn-group {
+    position: absolute;
+    bottom: 0;
+    left: 66px;
+    background-color: #3ee095;
+    .mce-widget,
+    .mce-btn {
+      background-color: #3ee095;
+    }
+  }
+  .mce-flow-layout {
+    background-color: #3ee095 !important;
+    position: absolute;
+    bottom: -32px;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 32px;
+      left: 242px;
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-bottom: 16px solid #3ee095;
+      margin-left: -16px;
+    }
+    i {
+      color: $white;
+    }
+  }
+}
+
+.mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last {
+  border: none !important;
+}
+
+app-editor {
+  width: 90%;
+  border-bottom: #3ee095 solid 0.3rem;
+  margin: auto;
+}

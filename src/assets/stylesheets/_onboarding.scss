@@ -1,0 +1,240 @@
+.pia-onboarding {
+  // GENERAL STYLES FOR TOOLTIPS
+  &-title {
+    font-weight: 600;
+    font-size: 15.5px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  &-description {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.1;
+    padding: 0 10px;
+  }
+  &-steps {
+    position: absolute;
+    bottom: 13px;
+    left: 14px;
+  }
+
+  // DASHBOARD
+  &-dashboard {
+    &-1 {
+      left: 254px !important;
+      top: 110px !important;
+    }
+    &-2,
+    &-3,
+    &-4,
+    &-5 {
+      left: 186px !important;
+    }
+    &-2 {
+      top: 58px !important;
+    }
+    &-3 {
+      top: 96px !important;
+    }
+    &-4 {
+      top: 135px !important;
+    }
+    &-5 {
+      top: 210px !important;
+    }
+  }
+
+  // EDITION
+  &-entry {
+    &-1,
+    &-2,
+    &-3,
+    &-4,
+    &-5 {
+      left: 315px !important;
+    }
+    &-1 {
+      top: calc(50% - 53px) !important;
+    }
+    &-2 {
+      top: 90px !important;
+    }
+    &-3 {
+      top: 198px !important;
+    }
+    &-4 {
+      top: 306px !important;
+    }
+    &-5 {
+      top: 490px !important;
+    }
+    &-6 {
+      right: 326px !important;
+      top: 234px !important;
+    }
+    &-7 {
+      right: 326px !important;
+      top: 204px !important;
+    }
+  }
+
+  // EVALUATION
+  &-evaluation {
+    &-step {
+      &-evaluationBlock,
+      &-refuseButton-doubleButtons,
+      &-refuseButton-tripleButtons,
+      &-actionPlanButton,
+      &-acceptableButton {
+        margin-bottom: 12px;
+        &.introjs-tooltip {
+          max-width: 350px !important;
+        }
+      }
+      &-cancelEvaluationBlock {
+        margin-top: 12px;
+        &.introjs-tooltip {
+          max-width: 350px !important;
+        }
+      }
+      &-acceptableButton {
+        &-doubleButtons {
+          bottom: 72px !important;
+        }
+        &-tripleButtons {
+          bottom: 72px !important;
+        }
+      }
+    }
+  }
+
+  // VALIDATED PIAs
+  &-validated {
+    &-1 {
+      margin-bottom: 30px;
+      .introjs-arrow.bottom {
+        left: 28px !important;
+      }
+    }
+    &-2 {
+      /* top: -9px !important; */
+      left: 65px !important;
+      margin-bottom: -6px;
+      .introjs-arrow.bottom {
+        left: 50% !important;
+        margin-left: -12px !important;
+      }
+    }
+  }
+}
+
+// GLOBAL STYLES FOR ONBOARDING PLUGIN
+.introjs-overlay {
+  /* background-color: transparent !important; */
+}
+.introjs-helperLayer {
+  /* background-color: transparent !important;
+  border: 0px !important;
+  box-shadow: none !important; */
+  box-sizing: border-box !important;
+  /* margin-left: 8px; */
+}
+.introjs-helperLayer,
+.introjs-tooltipReferenceLayer,
+.introjs-tooltip {
+  transition: none !important;
+}
+.introjs-helperNumberLayer {
+  display: none !important;
+}
+// TOOLTIPS
+.introjs-tooltip {
+  min-width: 230px !important;
+  max-width: inherit !important;
+  padding: 12px 14px 13px 12px !important;
+  background-color: $pia-green !important;
+  border-radius: 10px !important;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4) !important;
+  // SMALL ARROWS
+  .introjs-arrow {
+    border: 12px solid transparent;
+  }
+  .introjs-arrow.top {
+    border-bottom-color: $pia-green !important;
+    left: 45px;
+    top: -24px;
+  }
+  .introjs-arrow.bottom {
+    border-top-color: $pia-green !important;
+    left: 45px;
+    bottom: -24px;
+  }
+  .introjs-arrow.left {
+    border-right-color: $pia-green !important;
+  }
+  .introjs-arrow.right {
+    border-left-color: $pia-green !important;
+  }
+  .introjs-arrow.left,
+  .introjs-arrow.right,
+  .introjs-arrow.left-bottom {
+    left: -24px !important;
+    top: 41px !important;
+    margin-top: -18px !important;
+    bottom: auto !important;
+  }
+  .introjs-arrow.right {
+    left: inherit !important;
+    right: -24px;
+    border-right-color: transparent !important;
+  }
+  .introjs-tooltiptext {
+    color: white;
+    text-align: center;
+    b {
+      text-transform: uppercase;
+    }
+  }
+
+  // BUTTONS
+  .introjs-button,
+  .introjs-nextbutton,
+  .introjs-skipbutton {
+    background: none !important;
+    border: 0px !important;
+    color: white !important;
+    text-transform: uppercase !important;
+    text-shadow: none !important;
+    &:hover {
+      border-color: none !important;
+      box-shadow: none !important;
+      text-decoration: underline;
+    }
+  }
+  .introjs-tooltipbuttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 14px;
+    .introjs-button {
+      margin: 0;
+      padding: 0;
+    }
+    .introjs-button.introjs-skipbutton {
+      font-size: 13.5px;
+      margin-right: 14px;
+    }
+    .introjs-button.introjs-nextbutton {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .introjs-button.introjs-donebutton {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+  }
+  .introjs-prevbutton,
+  .introjs-disabled {
+    display: none;
+  }
+}

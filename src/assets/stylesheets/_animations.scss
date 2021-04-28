@@ -1,0 +1,56 @@
+// Default animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-duration: 0.75s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+}
+
+.bounceIn {
+  animation-fill-mode: both;
+  animation-duration: 0.75s;
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.1, 0.4, 0.25, 0.6);
+  }
+  0% {
+    opacity: 0;
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+  20% {
+    transform: scale3d(1, 1, 1);
+  }
+  40% {
+    transform: scale3d(0.94, 0.94, 0.94);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  80% {
+    transform: scale3d(0.96, 0.96, 0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-name: bounceIn;
+}
