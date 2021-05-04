@@ -336,7 +336,7 @@ export class PiaService {
    * @param [is_example] - Is the PIA example?
    */
   async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
-    if (!('pia' in data) || !('dbVersion' in data.pia)) {
+    if (!('pia' in data)) {
       this._modalsService.openModal('import-wrong-pia-file');
       return;
     }
