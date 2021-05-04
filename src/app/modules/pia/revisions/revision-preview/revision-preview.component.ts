@@ -218,18 +218,17 @@ export class RevisionPreviewComponent implements OnInit {
       '-yyyy-MM-dd-HH-mm'
     );
     const fileTitle = 'pia-' + slugify(this.export.pia.name) + revisionDate;
-    let downloadLink = document.createElement('a');
+    const downloadLink = document.createElement('a');
     document.body.appendChild(downloadLink);
+    const pia_exported = this.revision.export;
     if (navigator.msSaveOrOpenBlob) {
       window.navigator.msSaveBlob(
-        'data:text/json;charset=utf-8,' +
-          encodeURIComponent(JSON.stringify(this.revision)),
+        'data:text/json;charset=utf-8,' + encodeURIComponent(pia_exported),
         fileTitle + '.json'
       );
     } else {
       downloadLink.href =
-        'data:text/json;charset=utf-8,' +
-        encodeURIComponent(JSON.stringify(this.revision));
+        'data:text/json;charset=utf-8,' + encodeURIComponent(pia_exported);
       downloadLink.download = fileTitle + '.json';
       downloadLink.click();
     }
