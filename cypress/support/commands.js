@@ -282,13 +282,13 @@ Cypress.Commands.add("closeCompletedValidationEvaluationModal", () => {
     .wait(500);
 });
 Cypress.Commands.add("closeValidationEvaluationModal", () => {
-  cy.wait(500)
+  cy.wait(2000)
     .get("#validate-evaluation")
     .invoke("show")
     .find(".pia-modalBlock-close")
     .first()
     .click()
-    .wait(500);
+    .wait(2000);
 });
 Cypress.Commands.add("validateModal", () => {
   cy.wait(500)
@@ -302,7 +302,7 @@ Cypress.Commands.add("redirectMeasureOnAcceptation", () => {
 Cypress.Commands.add("validateDPO", () => {
   cy.get(".pia-entryContentBlock-content-DPO").each(($el, $index, $list) => {
     cy.wrap($el)
-      .find("input")
+      .find('input[type="text"]')
       .first()
       .type("DPO Pia", { force: true });
     cy.wrap($el)
