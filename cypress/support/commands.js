@@ -358,8 +358,8 @@ Cypress.Commands.add("validatePia", () => {
     .find(".btn-green")
     .should("have.class", "btn-active")
     .click();
-  cy.wait(2000)
-    .get(".pia-entryContentBlock-content-list-confirm")
+  cy.wait(2000);
+  cy.get(".pia-entryContentBlock-content-list-confirm")
     .each(($el, $index, $list) => {
       cy.wrap($el)
         .find("label")
