@@ -301,13 +301,13 @@ Cypress.Commands.add("redirectMeasureOnAcceptation", () => {
 });
 Cypress.Commands.add("validateDPO", () => {
   cy.get(".pia-entryContentBlock-content-DPO").each(($el, $index, $list) => {
-    if (cy.wrap($el).find('input[type="text"]')) {
+    if (cy.wrap($el).find('input[type="text"]').length > 0) {
       cy.wrap($el)
         .find('input[type="text"]')
         .first()
         .type("DPO Pia", { force: true });
     }
-    if (cy.wrap($el).find('input[type="radio"]')) {
+    if (cy.wrap($el).find('input[type="radio"]').length > 0) {
       cy.wrap($el)
         .find('input[type="radio"]')
         .first()
