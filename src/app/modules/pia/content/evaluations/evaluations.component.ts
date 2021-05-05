@@ -49,6 +49,7 @@ export class EvaluationsComponent
   evaluationCommentElementId: string;
   editor: any;
   editorEvaluationComment: any;
+  loading: boolean = false;
 
   constructor(
     private el: ElementRef,
@@ -297,17 +298,19 @@ export class EvaluationsComponent
       );
     }
 
+    this.loading = true;
     this.evaluationService.update(this.evaluation).then(() => {
       // Pass the evaluation to the parent component
-      this.evaluationEvent.emit(this.evaluation);
-      this.globalEvaluationService.validate();
+      this.globalEvaluationService.validate().then(() => {
+        this.loading = false;
+        this.evaluationEvent.emit(this.evaluation);
+        // Displays content (action plan & comment fields).
+        const content = this.el.nativeElement.querySelector(
+          '.pia-evaluationBlock-content'
+        );
+        content.classList.remove('hide');
+      });
     });
-
-    // Displays content (action plan & comment fields).
-    const content = this.el.nativeElement.querySelector(
-      '.pia-evaluationBlock-content'
-    );
-    content.classList.remove('hide');
   }
 
   /**
