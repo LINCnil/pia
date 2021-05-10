@@ -19,22 +19,22 @@ describe("Validation", () => {
     it("should complete DPD", () => {
       cy.get_current_pia_id(id => {
         cy.go_edited_pia(id, 4, 3).then(() => {
-          cy.validateDPO();
+          // cy.validateDPO();
         });
       });
     });
     it("should valid pia", () => {
-      cy.validatePia();
+      // cy.validatePia();
       // cy.closeValidationEvaluationModal();
     });
-    it("should show report", () => {
-      cy.closeValidationEvaluationModal();
-      cy.get('.pia-previewBlock[href="#/preview/2"]').click();
+    // it("should show report", () => {
+    //   cy.closeValidationEvaluationModal();
+    //   cy.get('.pia-previewBlock[href="#/preview/2"]').click();
 
-      cy.url().should("include", "/preview/2");
+    //   cy.url().should("include", "/preview/2");
 
-      cy.get(".pia-fullPreviewBlock-data").should("exist");
-    });
+    //   cy.get(".pia-fullPreviewBlock-data").should("exist");
+    // });
   });
 
   context("Refuse or ask pia signature", () => {
@@ -44,13 +44,13 @@ describe("Validation", () => {
       cy.import_pia();
     });
 
-    it("should refuse pia", () => {
-      cy.get_current_pia_id(id => {
-        cy.go_edited_pia(id, 4, 3).then(() => {
-          cy.validateDPO();
-        });
-        cy.refusePia();
-      });
-    });
+    // it("should refuse pia", () => {
+    //   cy.get_current_pia_id(id => {
+    //     cy.go_edited_pia(id, 4, 3).then(() => {
+    //       cy.validateDPO();
+    //     });
+    //     cy.refusePia();
+    //   });
+    // });
   });
 });

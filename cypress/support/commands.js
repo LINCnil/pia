@@ -261,19 +261,19 @@ Cypress.Commands.add("acceptMultipleEval", () => {
   cy.get(".pia-evaluationBlock")
     .find(".btn-green")
     .each(($el, $index, $list) => {
-      cy.wait(500);
+      cy.wait(2000);
       cy.wrap($el)
         .click()
         .wait(250);
     });
-  cy.wait(500)
+  cy.wait(2000)
     .get(".pia-entryContentBlock-footer")
     .find(".btn-green")
     .should("have.class", "btn-active")
     .click();
 });
 Cypress.Commands.add("closeCompletedValidationEvaluationModal", () => {
-  cy.wait(500)
+  cy.wait(2000)
     .get("#completed-evaluation")
     .invoke("show")
     .find("button")
@@ -282,16 +282,16 @@ Cypress.Commands.add("closeCompletedValidationEvaluationModal", () => {
     .wait(500);
 });
 Cypress.Commands.add("closeValidationEvaluationModal", () => {
-  cy.wait(500)
+  cy.wait(2000)
     .get("#validate-evaluation")
     .invoke("show")
     .find(".pia-modalBlock-close")
     .first()
     .click()
-    .wait(500);
+    .wait(2000);
 });
 Cypress.Commands.add("validateModal", () => {
-  cy.wait(500)
+  cy.wait(2000)
     .get(".pia-modalBlock-content .btn.btn-green")
     .click()
     .wait(500);
@@ -301,15 +301,18 @@ Cypress.Commands.add("redirectMeasureOnAcceptation", () => {
 });
 Cypress.Commands.add("validateDPO", () => {
   cy.get(".pia-entryContentBlock-content-DPO").each(($el, $index, $list) => {
-    cy.wrap($el)
-      .find("input")
-      .first()
-      .type("DPO Pia", { force: true });
-    cy.wrap($el)
-      .find(".pia-entryContentBlock-content-DPO-treatment")
-      .find("label")
-      .first()
-      .click({ force: true });
+    if (cy.wrap($el).find('input[type="text"]').length > 0) {
+      cy.wrap($el)
+        .find('input[type="text"]')
+        .first()
+        .type("DPO Pia", { force: true });
+    }
+    if (cy.wrap($el).find('input[type="radio"]').length > 0) {
+      cy.wrap($el)
+        .find('input[type="radio"]')
+        .first()
+        .check({ force: true });
+    }
     cy.wrap($el)
       .find("textarea")
       .type(
@@ -355,8 +358,8 @@ Cypress.Commands.add("validatePia", () => {
     .find(".btn-green")
     .should("have.class", "btn-active")
     .click();
-  cy.wait(500)
-    .get(".pia-entryContentBlock-content-list-confirm")
+  cy.wait(2000);
+  cy.get(".pia-entryContentBlock-content-list-confirm")
     .each(($el, $index, $list) => {
       cy.wrap($el)
         .find("label")
