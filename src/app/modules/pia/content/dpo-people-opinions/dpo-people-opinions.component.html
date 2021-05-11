@@ -19,6 +19,11 @@
                     (focusout)="dpoNameFocusOut()"
                     #DpoNames
                     type="text"
+                    [attr.disabled]="
+                      !editMode.includes('evaluation') && editMode !== 'local'
+                        ? 'true'
+                        : null
+                    "
                     class="DPOName"
                     formControlName="DPONames"
                     placeholder="{{
@@ -37,6 +42,11 @@
               <input
                 type="radio"
                 id="treatment-1"
+                [attr.disabled]="
+                  !editMode.includes('evaluation') && editMode !== 'local'
+                    ? 'true'
+                    : null
+                "
                 [attr.dirty]="pia.dpo_status === 1"
                 [checked]="pia.dpo_status === 1"
                 (click)="enableDpoStatusRadioButtons()"
@@ -54,6 +64,11 @@
               <input
                 type="radio"
                 id="treatment-2"
+                [attr.disabled]="
+                  !editMode.includes('evaluation') && editMode !== 'local'
+                    ? 'true'
+                    : null
+                "
                 [attr.dirty]="pia.dpo_status === 0"
                 [checked]="pia.dpo_status === 0"
                 (click)="enableDpoStatusRadioButtons()"
@@ -75,6 +90,11 @@
             <textarea
               (focusout)="dpoOpinionFocusOut()"
               (keyup)="autoTextareaResize($event)"
+              [attr.disabled]="
+                !editMode.includes('evaluator') && editMode !== 'local'
+                  ? 'true'
+                  : null
+              "
               id="pia-opinions-dpo"
               formControlName="DPOOpinion"
               rows="8"
@@ -108,6 +128,11 @@
               <input
                 type="radio"
                 id="concerned-people-choice-searched"
+                [attr.disabled]="
+                  !editMode.includes('evaluator') && editMode !== 'local'
+                    ? 'true'
+                    : null
+                "
                 [attr.dirty]="pia.concerned_people_searched_opinion === true"
                 [checked]="pia.concerned_people_searched_opinion === true"
                 (click)="enableConcernedPeopleSearchedOpinionRadioButtons()"
@@ -125,6 +150,11 @@
               <input
                 type="radio"
                 id="concerned-people-choice-unsearched"
+                [attr.disabled]="
+                  !editMode.includes('evaluator') && editMode !== 'local'
+                    ? 'true'
+                    : null
+                "
                 [attr.dirty]="pia.concerned_people_searched_opinion === false"
                 [checked]="pia.concerned_people_searched_opinion === false"
                 (click)="enableConcernedPeopleSearchedOpinionRadioButtons()"
@@ -149,6 +179,11 @@
             <textarea
               (focusout)="peopleSearchContentFocusOut()"
               (keyup)="autoTextareaResize($event)"
+              [attr.disabled]="
+                !editMode.includes('evaluator') && editMode !== 'local'
+                  ? 'true'
+                  : null
+              "
               id="pia-people-search-content"
               rows="8"
               formControlName="searchContent"

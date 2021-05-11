@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  SimpleChanges,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -218,17 +211,18 @@ export class RevisionPreviewComponent implements OnInit {
       '-yyyy-MM-dd-HH-mm'
     );
     const fileTitle = 'pia-' + slugify(this.export.pia.name) + revisionDate;
-    const downloadLink = document.createElement('a');
+    let downloadLink = document.createElement('a');
     document.body.appendChild(downloadLink);
-    const pia_exported = this.revision.export;
     if (navigator.msSaveOrOpenBlob) {
       window.navigator.msSaveBlob(
-        'data:text/json;charset=utf-8,' + encodeURIComponent(pia_exported),
+        'data:text/json;charset=utf-8,' +
+          encodeURIComponent(JSON.stringify(this.revision)),
         fileTitle + '.json'
       );
     } else {
       downloadLink.href =
-        'data:text/json;charset=utf-8,' + encodeURIComponent(pia_exported);
+        'data:text/json;charset=utf-8,' +
+        encodeURIComponent(JSON.stringify(this.revision));
       downloadLink.download = fileTitle + '.json';
       downloadLink.click();
     }

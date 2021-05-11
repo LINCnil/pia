@@ -69,7 +69,7 @@ export class AttachmentsComponent implements OnInit {
         this.loading = false;
       })
       .catch(() => {
-        this.loading = true;
+        this.loading = false;
       });
   }
 }

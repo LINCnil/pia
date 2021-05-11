@@ -45,7 +45,6 @@ export class ActionPlanImplementationComponent implements OnInit {
           finalDate
         );
         // TODO Unable to FocusIn with Firefox
-        // this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
       }
       if (
         this.evaluation.person_in_charge &&
@@ -55,7 +54,6 @@ export class ActionPlanImplementationComponent implements OnInit {
           this.evaluation.person_in_charge
         );
         // TODO Unable to FocusIn with Firefox
-        // this.actionPlanForm.controls['personInCharge'].disable();
       }
 
       if (this.pia.status >= 2 || this.pia.is_example === 1) {
@@ -68,7 +66,7 @@ export class ActionPlanImplementationComponent implements OnInit {
   /**
    * Focuses estimated evaluation date field.
    */
-  estimatedEvaluationDateFocusIn() {
+  estimatedEvaluationDateFocusIn(): void {
     if (this.globalEvaluationService.evaluationEditionEnabled) {
       this.actionPlanForm.controls['estimatedEvaluationDate'].enable();
       this.estimatedEvaluationDate.nativeElement.focus();
@@ -78,14 +76,13 @@ export class ActionPlanImplementationComponent implements OnInit {
   /**
    * Updates estimated evaluation date field.
    */
-  estimatedEvaluationDateFocusOut() {
+  estimatedEvaluationDateFocusOut(): void {
     const userText = this.actionPlanForm.controls['estimatedEvaluationDate']
       .value;
     this.evaluation.estimated_implementation_date = new Date(userText);
     this.evaluationService.update(this.evaluation).then(() => {
       if (userText && userText.length > 0) {
         // TODO Unable to FocusIn with Firefox
-        // this.actionPlanForm.controls['estimatedEvaluationDate'].disable();
       }
     });
   }
@@ -93,7 +90,7 @@ export class ActionPlanImplementationComponent implements OnInit {
   /**
    * Focuses estimated evaluation date field.
    */
-  personInChargeFocusIn() {
+  personInChargeFocusIn(): void {
     if (this.globalEvaluationService.evaluationEditionEnabled) {
       this.actionPlanForm.controls['personInCharge'].enable();
       this.personInCharge.nativeElement.focus();
@@ -103,7 +100,7 @@ export class ActionPlanImplementationComponent implements OnInit {
   /**
    * Disables action plan fields and saves data.
    */
-  personInChargeFocusOut() {
+  personInChargeFocusOut(): void {
     let userText = this.actionPlanForm.controls['personInCharge'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -113,7 +110,6 @@ export class ActionPlanImplementationComponent implements OnInit {
       this.actionPlanForm.controls['personInCharge'].disable();
       if (userText && userText.length > 0) {
         // TODO Unable to FocusIn with Firefox
-        // this.actionPlanForm.controls['personInCharge'].disable();
       }
     });
   }

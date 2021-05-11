@@ -1,12 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  AfterViewChecked,
-  Input,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, AfterViewChecked, Input } from '@angular/core';
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';

@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { ApplicationDb } from '../application.db';
 import { Measure } from '../models/measure.model';
+import { ApiService } from './api.service';
 import { KnowledgeBaseService } from './knowledge-base.service';
 
 @Injectable()
@@ -14,91 +15,45 @@ export class MeasureService extends ApplicationDb {
 
   constructor(
     private router: Router,
+    protected apiService: ApiService,
     private translateService?: TranslateService,
     private knowledgeBaseService?: KnowledgeBaseService
   ) {
     super(201707071818, 'measure');
+    super.prepareApi(this.apiService);
     super.prepareServerUrl(this.router);
   }
 
   async create(measure: Measure): Promise<any> {
-    this.created_at = new Date();
+    measure.created_at = new Date();
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        const formData = new FormData();
-        for (let d in measure) {
-          formData.append('measure[' + d + ']', measure[d]);
-        }
-        fetch(this.getServerUrl(), {
-          method: 'POST',
-          body: formData,
-          mode: 'cors'
+      super
+        .create(measure, 'measure')
+        .then((result: any) => {
+          resolve(result.id);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result.id);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const evt = this.objectStore.add(measure);
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            resolve(event.target.result);
-          };
+        .catch(err => {
+          reject(err);
         });
-      }
     });
   }
 
   async update(measure: Measure): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.find(measure.id).then((entry: any) => {
+      super.find(measure.id).then((entry: any) => {
         entry = {
           ...entry,
           ...measure
         };
         entry.updated_at = new Date();
-        if (this.serverUrl) {
-          const formData = new FormData();
-          for (let d in entry) {
-            formData.append('measure[' + d + ']', entry[d]);
-          }
-          fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
-            body: formData,
-            mode: 'cors'
+        super
+          .update(entry.id, entry, 'measure')
+          .then((result: any) => {
+            resolve(result);
           })
-            .then(response => {
-              return response.json();
-            })
-            .then((result: any) => {
-              resolve();
-            })
-            .catch(error => {
-              console.error('Request failed', error);
-              reject();
-            });
-        } else {
-          this.getObjectStore().then(() => {
-            const evt = this.objectStore.put(entry);
-            evt.onerror = (event: any) => {
-              console.error(event);
-              reject(Error(event));
-            };
-            evt.onsuccess = (event: any) => {
-              resolve();
-            };
+          .catch(error => {
+            reject();
           });
-        }
       });
     });
   }
@@ -106,39 +61,14 @@ export class MeasureService extends ApplicationDb {
   async findAllByPia(pia_id: number): Promise<any> {
     const items = [];
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl(), {
-          mode: 'cors'
+      super
+        .findAll(null, { index: 'index1', value: pia_id })
+        .then((result: any) => {
+          resolve(result);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index('index1');
-          const evt = index1.openCursor(IDBKeyRange.only(pia_id));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
+        .catch(error => {
+          reject(error);
         });
-      }
     });
   }
 
@@ -147,7 +77,6 @@ export class MeasureService extends ApplicationDb {
    * @param pia_id - The Pia id.
    */
   async listMeasures(pia_id: number): Promise<any> {
-    // this.pia_id = pia_id;
     return new Promise((resolve, reject) => {
       this.findAllByPia(pia_id)
         .then((entries: any[]) => {
@@ -164,7 +93,7 @@ export class MeasureService extends ApplicationDb {
    */
   removeMeasure(measure_id): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.find(measure_id).then((entry: Measure) => {
+      super.find(measure_id).then((entry: Measure) => {
         this.behaviorSubject.next(entry.title);
         this.knowledgeBaseService.toHide = this.knowledgeBaseService.toHide.filter(
           item => item !== entry.title
@@ -205,10 +134,17 @@ export class MeasureService extends ApplicationDb {
       } else {
         newMeasureRecord.placeholder = 'measures.default_placeholder';
       }
-      this.create(newMeasureRecord).then((entry: number) => {
-        newMeasureRecord.id = entry;
-        resolve(newMeasureRecord);
-      });
+
+      super
+        .create(newMeasureRecord, 'measure')
+        .then((entry: any) => {
+          // TODO: entry must be the Measure created
+          newMeasureRecord.id = entry.id ? entry.id : entry;
+          resolve(newMeasureRecord);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 }

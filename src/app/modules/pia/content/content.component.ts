@@ -23,6 +23,9 @@ export class ContentComponent implements OnInit {
   @Input() measures: any;
   @Input() data: any;
 
+  @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
+    'local';
+
   userAnswersForImpacts = [];
   userAnswersForThreats = [];
   userAnswersForSources = [];

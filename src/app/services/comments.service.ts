@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApplicationDb } from '../application.db';
 import { Comment } from '../models/comment.model';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class CommentsService extends ApplicationDb {
-  constructor(private router: Router) {
+  constructor(private router: Router, protected apiService: ApiService) {
     super(201709122303, 'comment');
+    super.prepareApi(this.apiService);
     super.prepareServerUrl(this.router);
   }
 
@@ -16,118 +18,45 @@ export class CommentsService extends ApplicationDb {
       ...comment
     };
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        const formData = new FormData();
-        for (const d in data) {
-          if (data.hasOwnProperty(d) && data[d]) {
-            formData.append('comment[' + d + ']', data[d]);
-          }
-        }
-        fetch(this.getServerUrl(), {
-          method: 'POST',
-          body: formData,
-          mode: 'cors'
+      super
+        .create(data, 'comment')
+        .then((result: any) => {
+          resolve(result.id);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result.id);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const evt = this.objectStore.add(data);
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            resolve(event.target.result);
-          };
+        .catch(err => {
+          reject(err);
         });
-      }
     });
   }
 
   async findAllByPia(pia_id: number): Promise<Array<Comment>> {
     const items = [];
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl(), {
-          mode: 'cors'
+      super
+        .findAll(null, { index: 'index2', value: pia_id })
+        .then((result: any) => {
+          resolve(result);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index('index2');
-          const evt = index1.openCursor(IDBKeyRange.only(pia_id));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
+        .catch(error => {
+          reject(error);
         });
-      }
     });
   }
 
   async findAllByReference(piaId, referenceTo): Promise<any> {
     const items = [];
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl() + '?reference_to=' + referenceTo, {
-          mode: 'cors'
+      this.findAll('?reference_to=' + referenceTo, {
+        index: 'index1',
+        value: [piaId, referenceTo]
+      })
+        .then((result: any) => {
+          resolve(result);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index('index1');
-          const evt = index1.openCursor(IDBKeyRange.only([piaId, referenceTo]));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
+        .catch(error => {
+          console.error('Request failed', error);
+          reject();
         });
-      }
     });
   }
 
@@ -147,7 +76,7 @@ export class CommentsService extends ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = () => {
-            resolve();
+            resolve(true);
           };
         });
       });

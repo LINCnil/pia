@@ -3,7 +3,6 @@ import {
   Input,
   ElementRef,
   OnInit,
-  Renderer2,
   OnDestroy,
   NgZone
 } from '@angular/core';
@@ -32,6 +31,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   allUserAnswersForSources = [];
   allUserAnswersToDisplay = [];
   userAnswersToDisplay = [];
+  @Input() editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
   @Input() question: any;
   @Input() item: any;
   @Input() section: any;
@@ -67,11 +69,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       .then((answer: Answer) => {
         if (answer) {
           this.answer = answer;
-          // let evaluationRefTo: string = this.answer.id.toString();
-          // if (this.item.evaluation_mode === 'item') {
-          //   evaluationRefTo = this.section.id + '.' + this.item.id;
-          //   await this.evaluation.getByReference(this.pia.id, evaluationRefTo);
-          // }
           this.questionForm.controls['gauge'].patchValue(
             this.answer.data.gauge
           );

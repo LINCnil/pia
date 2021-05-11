@@ -10,6 +10,9 @@ import { Pia } from 'src/app/models/pia.model';
   styleUrls: ['./sections.component.scss']
 })
 export class SectionsComponent implements OnInit {
+  @Input() editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
   @Input() pia: Pia = null;
   @Input() section: {
     id: number;

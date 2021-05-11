@@ -83,7 +83,8 @@
 <div class="pia-validatePIABlock">
   <ng-container
     *ngIf="
-      (sidStatusService.enablePiaValidation &&
+      ((editMode.includes('validator') || editMode === 'local') &&
+        sidStatusService.enablePiaValidation &&
         sidStatusService.enableDpoValidation) ||
         (sidStatusService.piaIsRefused && sidStatusService.enableDpoValidation);
       else defaultButton

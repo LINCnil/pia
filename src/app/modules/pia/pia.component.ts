@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Answer } from 'src/app/models/answer.model';
@@ -6,6 +6,7 @@ import { Pia } from 'src/app/models/pia.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
@@ -21,7 +22,7 @@ import { SidStatusService } from 'src/app/services/sid-status.service';
   templateUrl: './pia.component.html',
   styleUrls: ['./pia.component.scss']
 })
-export class PiaComponent implements OnInit {
+export class PiaComponent implements OnInit, DoCheck {
   section: { id: number; title: string; short_help: string; items: any };
   item: {
     id: number;
@@ -43,6 +44,10 @@ export class PiaComponent implements OnInit {
   public download = false;
   public preview;
 
+  public editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
+
   constructor(
     private route: ActivatedRoute,
     private appDataService: AppDataService,
@@ -57,14 +62,15 @@ export class PiaComponent implements OnInit {
     private answerService: AnswerService,
     private introjsService: IntrojsService,
     private paginationService: PaginationService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    public authService: AuthService
   ) {
     this.introjsService.entrySideViewChange.subscribe(value => {
       this.sideView = value;
     });
   }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.appDataService.entrieMode = 'pia';
     const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     const itemId = parseInt(this.route.snapshot.params.item_id, 10);
@@ -112,6 +118,31 @@ export class PiaComponent implements OnInit {
         } else if (localStorage.getItem('onboardingEntryConfirmed')) {
           this.introjsService.start('evaluation');
         }
+
+        // Subscribe to Auth type for enable / disable rigths on fields
+        this.authService.currentUser.subscribe({
+          complete: () => {
+            if (this.authService.state) {
+              // TODO: UPDATE editMode var with current user
+              this.editMode = [];
+              switch (this.authService.currentUserValue.id) {
+                case this.pia.author_name:
+                  this.editMode.push('author');
+                case this.pia.evaluator_name:
+                  this.editMode.push('evaluator');
+                case this.pia.validator_name:
+                  this.editMode.push('validator');
+                default:
+                  this.editMode.push('guest');
+              }
+
+              // TODO: Remove it after test
+              this.editMode.push('validator');
+            } else {
+              this.editMode = 'local';
+            }
+          }
+        });
       })
       .catch(err => {
         console.error(err);
@@ -168,10 +199,6 @@ export class PiaComponent implements OnInit {
         });
       });
     }
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   /**
