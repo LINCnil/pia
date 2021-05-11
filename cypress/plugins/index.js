@@ -10,8 +10,11 @@
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
+require("dotenv").config();
 
 module.exports = (on, config) => {
+  // config = dotenvPlugin(config);
+
   on("before:browser:launch", (browser, launchOptions) => {
     const downloadDirectory = "../download";
     // CHROME
@@ -41,6 +44,14 @@ module.exports = (on, config) => {
         "text/csv";
 
       return launchOptions;
+    }
+  });
+
+  return Object.assign({}, config, {
+    env: {
+      URL: process.env.CYPRESS_URL,
+      ID: process.env.CYPRESS_ID,
+      SECRET: process.env.CYPRESS_SECRET
     }
   });
 };

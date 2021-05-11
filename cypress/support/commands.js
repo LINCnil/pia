@@ -54,9 +54,8 @@ Cypress.Commands.add("skip_onboarding", () => {
 });
 
 Cypress.Commands.add("focus_out", () => {
-  cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
-    force: true
-  });
+  cy.wait(1000);
+  cy.get(".pia-knowledgeBaseBlock-searchForm form input").type("aaa");
 });
 
 Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
@@ -199,7 +198,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
       cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
-        .click({ force: true });
+        .click();
     });
   cy.get("[aria-label='Enter the threats']")
     .type("Tag")
@@ -207,7 +206,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
       cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
-        .click({ force: true });
+        .click();
     });
   cy.get("[aria-label='Enter the risk sources']")
     .type("Tag")
@@ -215,7 +214,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
       cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
-        .click({ force: true });
+        .click();
     });
   cy.get("[aria-label='Click here to select controls which address the risk.']")
     .type("Measure")
@@ -223,7 +222,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
       cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
-        .click({ force: true });
+        .click();
     });
 });
 
@@ -242,7 +241,7 @@ Cypress.Commands.add("validateEval", () => {
     cy.get(".pia-entryContentBlock-footer")
       .find(".btn-green")
       .should("have.class", "btn-active")
-      .click({ force: true });
+      .click();
   });
 });
 
@@ -261,19 +260,19 @@ Cypress.Commands.add("acceptMultipleEval", () => {
   cy.get(".pia-evaluationBlock")
     .find(".btn-green")
     .each(($el, $index, $list) => {
-      cy.wait(2000);
+      cy.wait(500);
       cy.wrap($el)
         .click()
         .wait(250);
     });
-  cy.wait(2000)
+  cy.wait(500)
     .get(".pia-entryContentBlock-footer")
     .find(".btn-green")
     .should("have.class", "btn-active")
     .click();
 });
 Cypress.Commands.add("closeCompletedValidationEvaluationModal", () => {
-  cy.wait(2000)
+  cy.wait(500)
     .get("#completed-evaluation")
     .invoke("show")
     .find("button")
@@ -282,16 +281,16 @@ Cypress.Commands.add("closeCompletedValidationEvaluationModal", () => {
     .wait(500);
 });
 Cypress.Commands.add("closeValidationEvaluationModal", () => {
-  cy.wait(2000)
+  cy.wait(500)
     .get("#validate-evaluation")
     .invoke("show")
     .find(".pia-modalBlock-close")
     .first()
     .click()
-    .wait(2000);
+    .wait(500);
 });
 Cypress.Commands.add("validateModal", () => {
-  cy.wait(2000)
+  cy.wait(500)
     .get(".pia-modalBlock-content .btn.btn-green")
     .click()
     .wait(500);
@@ -301,18 +300,15 @@ Cypress.Commands.add("redirectMeasureOnAcceptation", () => {
 });
 Cypress.Commands.add("validateDPO", () => {
   cy.get(".pia-entryContentBlock-content-DPO").each(($el, $index, $list) => {
-    if (cy.wrap($el).find('input[type="text"]').length > 0) {
-      cy.wrap($el)
-        .find('input[type="text"]')
-        .first()
-        .type("DPO Pia", { force: true });
-    }
-    if (cy.wrap($el).find('input[type="radio"]').length > 0) {
-      cy.wrap($el)
-        .find('input[type="radio"]')
-        .first()
-        .check({ force: true });
-    }
+    cy.wrap($el)
+      .find("input")
+      .first()
+      .type("DPO Pia");
+    cy.wrap($el)
+      .find(".pia-entryContentBlock-content-DPO-treatment")
+      .find("label")
+      .first()
+      .click();
     cy.wrap($el)
       .find("textarea")
       .type(
@@ -326,19 +322,19 @@ Cypress.Commands.add("validateDPO", () => {
       .first()
       .find("label")
       .first()
-      .click({ force: true });
+      .click();
     cy.wrap($el)
       .find("form")
       .last()
       .find("input")
       .first()
-      .type("DPO Pia", { force: true });
+      .type("DPO Pia");
     cy.wrap($el)
       .find("form")
       .last()
       .find("label")
       .first()
-      .click({ force: true });
+      .click();
     cy.wrap($el)
       .find("form")
       .last()
@@ -350,7 +346,7 @@ Cypress.Commands.add("validateDPO", () => {
     cy.wrap($el)
       .find("form")
       .parent()
-      .click({ force: true });
+      .click();
   });
 });
 Cypress.Commands.add("validatePia", () => {
@@ -358,12 +354,12 @@ Cypress.Commands.add("validatePia", () => {
     .find(".btn-green")
     .should("have.class", "btn-active")
     .click();
-  cy.wait(2000);
-  cy.get(".pia-entryContentBlock-content-list-confirm")
+  cy.wait(500)
+    .get(".pia-entryContentBlock-content-list-confirm")
     .each(($el, $index, $list) => {
       cy.wrap($el)
         .find("label")
-        .click({ force: true });
+        .click();
     })
     .then(() => {
       cy.get("#pia-simple-validation").click();
@@ -372,20 +368,20 @@ Cypress.Commands.add("validatePia", () => {
 Cypress.Commands.add("validateModalComplete", () => {
   cy.wait(500)
     .get(".btn.btn-green")
-    .click({ force: true })
+    .click()
     .wait(500);
 });
 Cypress.Commands.add("refusePia", () => {
   cy.get(".pia-validatePIABlock")
     .find(".btn-green")
     .should("have.class", "btn-active")
-    .click({ force: true });
+    .click();
   cy.wait(500)
     .get(".pia-entryContentBlock-content-list-confirm")
     .each(($el, $index, $list) => {
       cy.wrap($el)
         .find("label")
-        .click({ force: true });
+        .click();
     })
     .then(() => {
       cy.get(".btn-red")
@@ -405,7 +401,7 @@ Cypress.Commands.add("refusePia", () => {
         .get(".pia-entryContentBlock-footer")
         .find("button")
         .last()
-        .click({ force: true });
+        .click();
       cy.get("#modal-refuse-pia > .pia-modalBlock-content > .btn").click();
     });
 });
