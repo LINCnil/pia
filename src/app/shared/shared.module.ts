@@ -32,6 +32,8 @@ import { KnowledgeBaseItemComponent } from './components/knowledge-base/knowledg
 import { KnowledgeBaseComponent } from './components/knowledge-base/knowledge-base.component';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
+import { AuthService } from '../services/auth.service';
+import { ApiService } from '../services/api.service';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,9 @@ import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
     FormatTheDate,
     IntrojsService,
     DialogService,
-    PdfJsViewerModule
+    PdfJsViewerModule,
+    AuthService,
+    ApiService
   ]
 })
 export class SharedModule {
