@@ -37,6 +37,7 @@
 
 .pia-cardsBlock-item-form {
   text-align: left;
+  position: relative;
 }
 .pia-cardsBlock-item-status {
   display: flex;
@@ -58,4 +59,8 @@
   .pia-cardsBlock-item-btn {
     border-color: $pia-red;
   }
+}
+.guest {
+  max-height: 60px;
+  overflow: auto;
 }
