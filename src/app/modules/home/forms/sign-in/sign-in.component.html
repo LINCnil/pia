@@ -1,0 +1,61 @@
+<form
+  class="pia-authenticationBlock-login"
+  (submit)="ngOnSubmit()"
+  [formGroup]="logIn"
+>
+  <fieldset>
+    <div>
+      <legend>{{ "authentication.sign_in" | translate }}</legend>
+      <p class="msg is-valid" *ngIf="fromSignUp">
+        {{ "authentication.saved_password" | translate }}
+      </p>
+      <p class="msg" *ngIf="msgFromBack">
+        {{ msgFromBack }}
+      </p>
+      <div [class.is-not-empty]="f.login.value.length > 0">
+        <input
+          type="text"
+          placeholder="{{ 'authentication.login' | translate }}"
+          id="pia-account-login"
+          formControlName="login"
+        />
+        <label for="pia-account-login">
+          {{ "authentication.login" | translate }}
+        </label>
+      </div>
+
+      <div [class.is-not-empty]="f.password.value.length > 0">
+        <input
+          type="password"
+          placeholder="{{ 'authentication.password' | translate }}"
+          id="pia-account-password"
+          formControlName="password"
+        />
+        <label for="pia-account-password">
+          {{ "authentication.password" | translate }}
+        </label>
+      </div>
+
+      <a href="#" (click)="onForget()">{{
+        "authentication.forgotten_password" | translate
+      }}</a>
+    </div>
+    <div class="validForm">
+      <button (click)="onCanceled()" type="button">
+        {{ "authentication.create_account" | translate }}
+      </button>
+      <button
+        [disabled]="logIn.invalid || loading"
+        type="submit"
+        class="btn btn-green"
+      >
+        <ng-container *ngIf="loading; else loadingElse">
+          ...
+        </ng-container>
+        <ng-template #loadingElse>
+          {{ "authentication.sign_in_button" | translate }}
+        </ng-template>
+      </button>
+    </div>
+  </fieldset>
+</form>

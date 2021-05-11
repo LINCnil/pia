@@ -1,0 +1,190 @@
+@import "~src/assets/stylesheets/variables";
+
+.pia-authenticationBlock {
+  padding-top: 110px;
+  &-login {
+    background-color: $pia-blue;
+    padding-bottom: 10px;
+    fieldset {
+      border: none;
+      margin: 0;
+      padding: 10px;
+    }
+    legend {
+      margin: 0;
+      font-size: 3rem;
+      color: #fff;
+      padding-top: 12px;
+      font-weight: 400;
+      line-height: 1em;
+    }
+    input {
+      &::placeholder {
+        color: white;
+      }
+      &[type="checkbox"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        background: none !important;
+        height: 15px;
+        width: 15px;
+        border: 1px solid #fff;
+        &:checked {
+          position: relative;
+          &:before {
+            content: "✔";
+            display: block;
+            color: white;
+            font-size: 13px;
+            position: relative;
+            padding-left: 1px;
+          }
+        }
+      }
+      &[type="text"],
+      &[type="password"] {
+        width: 100%;
+        padding: 5px 0;
+        font-size: 1.4rem;
+        margin: 15px auto 0px auto;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid white;
+        color: white;
+        outline: none;
+        & + label {
+          display: none;
+        }
+        &:focus {
+          border-bottom: 1px solid $pia-green;
+          & + label {
+            color: $pia-green;
+            display: block;
+          }
+          &::placeholder {
+            color: transparent !important;
+          }
+        }
+        &:disabled {
+          background-color: transparent !important;
+          cursor: not-allowed;
+          border-bottom: 1px solid $pia-gray;
+          &::placeholder {
+            color: gray;
+          }
+        }
+      }
+    }
+    div {
+      margin: auto 10px;
+    }
+    label {
+      color: white;
+      display: block;
+      margin-top: 4px;
+    }
+    // TODO: Green only for success validation (.is-valid) and Red only for (.is-invalid)
+    .msg {
+      margin: 0;
+      color: $pia-green;
+    }
+    .is {
+      &-invalid {
+        color: $pia-red;
+        label {
+          color: $pia-red;
+        }
+        p {
+          color: $pia-red;
+        }
+        input {
+          &[type="text"],
+          &[type="password"] {
+            border-bottom: 1px solid $pia-red;
+
+            &:focus {
+              border-bottom: 1px solid $pia-red;
+              & + label {
+                color: $pia-red;
+              }
+            }
+          }
+          &[type="checkbox"] {
+            border: 1px solid $pia-red;
+            color: $pia-red;
+          }
+        }
+      }
+      &-valid {
+        color: $pia-green;
+        label {
+          color: $pia-green;
+        }
+        input {
+          &[type="text"],
+          &[type="password"] {
+            border-bottom: 1px solid $pia-green;
+            &:focus {
+              border-bottom: 1px solid $pia-green;
+              & + label {
+                color: $pia-green;
+              }
+            }
+          }
+          &[type="checkbox"] {
+            border: 1px solid $pia-green;
+            color: $pia-green;
+          }
+        }
+      }
+      &-not-empty {
+        input {
+          &[type="text"],
+          &[type="password"] {
+            & + label {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    .validForm {
+      margin-top: 18px;
+      display: flex;
+      button {
+        color: $pia-green;
+        cursor: pointer;
+        font-weight: bold;
+        &[type="submit"] {
+          display: block;
+          margin-left: auto;
+          width: 120px;
+          text-align: center;
+          border-radius: 15px;
+          text-decoration: none;
+          font-size: 1.3rem;
+          background-color: $pia-green;
+          color: #fff;
+          font-weight: normal;
+          padding: 10px 8px;
+        }
+        &:disabled {
+          cursor: not-allowed;
+          background-color: inherit;
+        }
+      }
+    }
+    a {
+      display: block;
+      text-align: right;
+      margin-top: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      color: $pia-green;
+      cursor: pointer;
+      font-weight: 700;
+    }
+  }
+}

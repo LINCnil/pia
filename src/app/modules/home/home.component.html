@@ -1,47 +1,78 @@
 <section class="container pia-authenticationBlock">
-    <div class="row">
-        <div class="small-12 medium-8 columns pia-authenticationBlock-logo">
-            <div>
-              <img src="assets/images/pia-auth-logo.png" alt="Logo PIA">
-              <div>
-                <h1 [innerHTML]="'authentication.title' | translate"></h1>
-                <div>{{ 'header.logo_subtitle' | translate }}</div>
-              </div>
-            </div>
-            <div>
-                <h2 [innerHTML]="'authentication.subtitle1' | translate"></h2>
-                <p>{{ 'authentication.subtitle2' | translate }}</p>
-            </div>
+  <div class="row">
+    <div class="small-12 medium-8 columns pia-authenticationBlock-logo">
+      <div>
+        <img src="assets/images/pia-auth-logo.png" alt="Logo PIA" />
+        <div>
+          <h1 [innerHTML]="'authentication.title' | translate"></h1>
+          <div>{{ "header.logo_subtitle" | translate }}</div>
         </div>
-        <div class="small-12 medium-4 columns">
-            <div class="pia-authenticationBlock-auth">
-                <!--
-                <div class="pia-authenticationBlock-register">
-                    <div>Créer un compte</div>
-                    <a href="#" class="btn btn-green">Créer</a>
-                </div>
-                <form class="pia-authenticationBlock-login">
-                    <fieldset>
-                        <legend>S'identifier</legend>
-                        <div>
-                            <label for="pia-account-login">Login</label>
-                            <input type="text" value="anonymous" id="pia-account-login">
-                        </div>
-                        <div>
-                            <label for="pia-account-password">Mot de passe</label>
-                            <input type="password" value="anonymous" id="pia-account-password">
-                        </div>
-                        <button type="submit" class="btn btn-green">Connecter</button>
-                        <a href="#">Mot de passe oublié ?</a>
-                    </fieldset>
-                </form>
-                -->
-                <div class="pia-authenticationBlock-enter">
-                    <div>{{ 'authentication.start_app' | translate }}</div>
-                    <p class="pia-authenticationBlock-warning" [innerHTML]="'authentication.description' | translate"></p>
-                    <a routerLink="/entries" class="btn btn-green">{{ 'authentication.start' | translate }}</a>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div>
+        <h2 [innerHTML]="'authentication.subtitle1' | translate"></h2>
+        <p>{{ "authentication.subtitle2" | translate }}</p>
+      </div>
     </div>
+    <div class="small-12 medium-4 columns">
+      <div class="pia-authenticationBlock-auth">
+        <div *ngIf="authService.state; else elseBlock">
+          <div [ngSwitch]="stepForm">
+            <ng-container *ngSwitchCase="'checkUuid'">
+              <app-uuid
+                (canceled)="changeDisplay('logIn')"
+                (validated)="changeDisplay('signUp')"
+              ></app-uuid>
+            </ng-container>
+            <ng-container *ngSwitchCase="'signUp'">
+              <app-password
+                (validated)="changeDisplay('logIn'); fromValidation = true"
+                (canceled)="changeDisplay('checkUuid')"
+                (validated)="changeDisplay('logIn')"
+              ></app-password>
+            </ng-container>
+            <ng-container *ngSwitchCase="'logIn'">
+              <app-sign-in
+                [fromSignUp]="fromValidation"
+                (validated)="onSubmited()"
+                (canceled)="changeDisplay('checkUuid')"
+                (forget)="changeDisplay('forgetPassword')"
+              ></app-sign-in>
+            </ng-container>
+            <ng-container *ngSwitchCase="'resetPassword'">
+              <app-reset-password
+                (canceled)="changeDisplay('logIn')"
+                (validated)="changeDisplay('newPassword')"
+              ></app-reset-password>
+            </ng-container>
+            <ng-container *ngSwitchCase="'newPassword'">
+              <app-password
+                [reset]="true"
+                (validated)="changeDisplay('logIn'); fromValidation = true"
+                (canceled)="changeDisplay('checkUuid')"
+                (validated)="changeDisplay('logIn')"
+              ></app-password>
+            </ng-container>
+            <ng-container *ngSwitchCase="'forgetPassword'">
+              <app-forget-password
+                (canceled)="changeDisplay('logIn')"
+                (validated)="changeDisplay('resetPassword')"
+              ></app-forget-password>
+            </ng-container>
+          </div>
+        </div>
+        <ng-template #elseBlock>
+          <div class="pia-authenticationBlock-enter">
+            <div>{{ "authentication.start_app" | translate }}</div>
+            <p
+              class="pia-authenticationBlock-warning"
+              [innerHTML]="'authentication.description' | translate"
+            ></p>
+            <a routerLink="/entries" class="btn btn-green">{{
+              "authentication.start" | translate
+            }}</a>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
 </section>

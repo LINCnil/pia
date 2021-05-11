@@ -8,6 +8,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { PiaRoutingModule } from './modules/pia/pia-routing.module';
 import { SettingsRoutingModule } from './modules/settings/settings-routing.module';
 import { StructureRoutingModule } from './modules/structure/structure-routing.module';
+import { UsersRoutingModule } from './modules/users/users-routing.module';
 
 const routes: Routes = [
   {
@@ -28,8 +29,12 @@ const routes: Routes = [
     StructureRoutingModule,
     PiaRoutingModule,
     SettingsRoutingModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy',  useHash: true  })
+    UsersRoutingModule,
+    RouterModule.forRoot(routes, {
+      relativeLinkResolution: 'legacy',
+      useHash: true
+    })
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

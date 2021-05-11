@@ -1,0 +1,51 @@
+<!-- END UUID CHECKING -->
+<form
+  class="pia-authenticationBlock-login"
+  [formGroup]="uuidActivation"
+  (ngSubmit)="ngOnSubmit()"
+>
+  <fieldset>
+    <div
+      class="form-group"
+      [class.is-not-empty]="f.uuid.value.length > 0"
+      [class.is-invalid]="f.uuid.value.length > 0 && f.uuid.errors"
+    >
+      <legend>{{ "authentication.create_account" | translate }}</legend>
+
+      <p class="msg" *ngIf="msgFromBack">
+        {{ msgFromBack }}
+      </p>
+
+      <input
+        type="text"
+        placeholder="{{ 'authentication.activation_code' | translate }}"
+        id="pia-account-activate-code"
+        formControlName="uuid"
+      />
+      <label
+        >{{ "authentication.activation_code" | translate }}
+        <span *ngIf="f.uuid.hasError('pattern')">{{
+          "authentication.wrong_activation_code" | translate
+        }}</span></label
+      >
+    </div>
+    <div class="validForm">
+      <button (click)="onCanceled()">
+        {{ "authentication.cancel" | translate }}
+      </button>
+      <button
+        [disabled]="uuidActivation.invalid || loading"
+        type="submit"
+        class="btn btn-green"
+      >
+        <ng-container *ngIf="loading; else loadingElse">
+          ...
+        </ng-container>
+        <ng-template #loadingElse>
+          {{ "authentication.continue" | translate }}
+        </ng-template>
+      </button>
+    </div>
+  </fieldset>
+</form>
+<!-- END UUID CHECKING -->
