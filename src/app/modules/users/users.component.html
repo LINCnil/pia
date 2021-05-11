@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="small-12 medium-12 columns">
+    <div class="pia-breadcrumb">
+      {{ "header.tools.settings" | translate }} >
+      {{ "header.tools.users" | translate }}
+    </div>
+
+    <div class="pia-search-createUser">
+      <div class="pia-search">
+        <button class="btn btn-green" type="button" (click)="modal = true">
+          <i class="fa fa-folder-open"></i>
+          {{ "users.new_user_button" | translate }}
+        </button>
+      </div>
+
+      <div class="pia-searchInput">
+        <input
+          type="text"
+          class="btn btn-search"
+          placeholder="{{ 'homepage.search_filter' | translate }}"
+          name="search"
+          autocomplete="off"
+        />
+        <i class="search-icon">⚲</i>
+        <i class="search-close">×</i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 medium-12 columns">
+    <table class="pia-list-table">
+      <thead>
+        <tr class="row">
+          <th style="width: 15px;"></th>
+          <th>
+            <a
+              ><span>{{ "users.last_name" | translate }}</span></a
+            >
+          </th>
+          <th>
+            <a
+              ><span>{{ "users.first_name" | translate }}</span></a
+            >
+          </th>
+          <th>
+            <a
+              ><span>{{ "users.email" | translate }}</span></a
+            >
+          </th>
+          <th>
+            <a
+              ><span>{{ "users.profile" | translate }}</span></a
+            >
+          </th>
+        </tr>
+      </thead>
+      <ng-container *ngIf="!loading; else loadingUsers">
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td class="pia-listsBlock-item">
+              <div class="pia-listsBlock-item-actions">
+                <a (click)="onDelete(user.id)" class="btn pia-tooltip">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                  <span
+                    title="{{ 'users.remove' | translate }}"
+                    class="pia-tooltip-text"
+                    >{{ "users.remove" | translate }}</span
+                  >
+                </a>
+                <a (click)="onEdit(user.id)" class="btn pia-tooltip">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <span
+                    title="{{ 'users.update' | translate }}"
+                    class="pia-tooltip-text"
+                    >{{ "users.update" | translate }}</span
+                  >
+                </a>
+              </div>
+            </td>
+            <td class="pia-listsBlock-item-value">{{ user.lastname }}</td>
+            <td class="pia-listsBlock-item-value">{{ user.firstname }}</td>
+            <td class="pia-listsBlock-item-value">{{ user.email }}</td>
+            <td class="pia-listsBlock-item-value">
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                disabled
+                [checked]="user.access_type.includes('technical')"
+              />
+              <span>
+                {{ "users.technical_admin" | translate }}
+              </span>
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                disabled
+                [checked]="user.access_type.includes('functional')"
+              />
+              <span>
+                {{ "users.functional_admin" | translate }}
+              </span>
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                disabled
+                [checked]="user.access_type.includes('user')"
+              />
+              <span>
+                {{ "users.user" | translate }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </ng-container>
+      <ng-template #loadingUsers>
+        <tbody>
+          <div class="entries-loading entries-loading-line">
+            <app-loading-overlay
+              [visibility]="true"
+              [childMode]="true"
+            ></app-loading-overlay>
+          </div>
+        </tbody>
+      </ng-template>
+    </table>
+  </div>
+</div>
+
+<app-modal *ngIf="modal" (clickOnClose)="modal = false; userToEdit = null">
+  <app-new-user
+    [user]="userToEdit"
+    (userAdded)="onUserAdded($event)"
+    (canceled)="modal = false; userToEdit = null"
+  ></app-new-user>
+</app-modal>
+
+<app-dialog></app-dialog>

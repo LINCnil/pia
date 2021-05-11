@@ -11,7 +11,7 @@
             "header.logo_subtitle" | translate
           }}</span>
         </div>
-        <div class="hide-for-print pia-closeFullScreenModeAlertBlock hide">
+        <div class="hide-for-print pia-closeFullScreenModeAlertBlock">
           {{ "header.exit_full_screen_mode" | translate }}
         </div>
       </div>
@@ -76,13 +76,13 @@
             >
               <a
                 style="text-transform:uppercase;"
-                [routerLink]="['entries', 'knowledgebase']"
+                [routerLink]="['entries', 'knowledge_bases']"
                 >{{ "header.knowledge_base_link" | translate }}</a
               >
             </li>
           </ul>
           <ul class="pia-navigationBlock-list">
-            <ng-container *ngIf="router.url !== '/'">
+            <ng-container>
               <li
                 class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-company"
               >
@@ -100,6 +100,17 @@
                 </a>
                 <form>
                   <fieldset>
+                    <a
+                      routerLink="/users"
+                      *ngIf="
+                        authService.state &&
+                        authService.currentUserValue !== null &&
+                        authService.currentUserValue.access_type.includes(
+                          'technical'
+                        )
+                      "
+                      >{{ "header.tools.users" | translate }}</a
+                    >
                     <a routerLink="/url">{{
                       "header.tools.url_setting" | translate
                     }}</a>
@@ -125,6 +136,7 @@
               </li>
               <li
                 class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-help"
+                *ngIf="router.url !== '/'"
               >
                 <a href="javascript:;">
                   {{ "header.help.title" | translate }}
@@ -276,6 +288,18 @@
                     (click)="languagesService.updateCurrentLanguage('fi')"
                   >
                     {{ "header.languages.fi" | translate }}
+                  </a>
+                </li>
+                <li
+                  [ngClass]="{
+                    is_active: languagesService.selectedLanguage === 'lv'
+                  }"
+                >
+                  <a
+                    href="javascript:;"
+                    (click)="languagesService.updateCurrentLanguage('lv')"
+                  >
+                    {{ "header.languages.lv" | translate }}
                   </a>
                 </li>
                 <li class="communityTranslations">
