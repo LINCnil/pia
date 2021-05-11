@@ -11,7 +11,7 @@
     padding: 70px 40px;
     font-size: 1.9rem;
     color: $pia-green;
-    height: 440px;
+    height: 500px;
     width: 276px;
     &-new,
     &-import {
@@ -38,7 +38,7 @@
     }
     > span {
       display: block;
-      padding: 22px 0;
+      padding: 50px 0;
       color: $pia-gray;
       font-size: 2.1rem;
     }
@@ -476,4 +476,7 @@
     width: 100%;
     height: 150px;
   }
+}
+.pia-filtersBlock-filters {
+  z-index: -1;
 }

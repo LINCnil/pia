@@ -1,13 +1,26 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Attachment } from 'src/app/models/attachment.model';
 import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { FormGroup } from '@angular/forms';
 
 import * as FileSaver from 'file-saver';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
+
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user.model';
+import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
+import { BehaviorSubject } from 'rxjs';
 declare const require: any;
 
 @Component({
@@ -16,22 +29,48 @@ declare const require: any;
   templateUrl: './pia-line.component.html',
   styleUrls: ['./pia-line.component.scss']
 })
-export class PiaLineComponent implements OnInit {
+export class PiaLineComponent implements OnInit, OnChanges {
   @Input() pia: Pia;
   @Output() changed = new EventEmitter<Pia>();
   @Output() duplicated = new EventEmitter<Pia>();
   @Output() archived = new EventEmitter<Pia>();
+  @Output() newUserNeeded: EventEmitter<any> = new EventEmitter<any>();
+  @Input() users: Array<User>;
+
+  piaForm: FormGroup;
+  userList: Array<TagModel> = [];
   attachments: any;
+
+  authorField: Array<TagModelClass> = [];
+  validatorField: Array<TagModelClass> = [];
+  evaluatorField: Array<TagModelClass> = [];
 
   constructor(
     public piaService: PiaService,
     private translateService: TranslateService,
     public languagesService: LanguagesService,
     private dialogService: DialogService,
-    private attachmentsService: AttachmentsService
+    private attachmentsService: AttachmentsService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    if (this.authService.state) {
+      // Add tag to tag inputs
+      this.authorField.push({
+        display: this.pia.author_name,
+        id: this.pia.author_name
+      });
+      this.evaluatorField.push({
+        display: this.pia.evaluator_name,
+        id: this.pia.evaluator_name
+      });
+      this.validatorField.push({
+        display: this.pia.validator_name,
+        id: this.pia.validator_name
+      });
+    }
+
     this.attachments = [];
     this.attachmentsService.pia_id = this.pia.id;
     this.attachmentsService.findAllByPia(this.pia.id).then((entries: any) => {
@@ -41,6 +80,18 @@ export class PiaLineComponent implements OnInit {
         }
       });
     });
+  }
+
+  // TO CHANGE USERS INTO USER TAG LIST
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.users && changes.users.currentValue) {
+      this.userList = changes.users.currentValue.map(x => {
+        return {
+          display: x.firstname + ' ' + x.lastname,
+          id: x.id
+        };
+      });
+    }
   }
 
   /**
@@ -132,5 +183,79 @@ export class PiaLineComponent implements OnInit {
     this.piaService.duplicate(id).then(() => {
       this.duplicated.emit(id);
     });
+  }
+
+  /**
+   * Add user to new Pia Form
+   * Update user on author, evaluator and validator
+   */
+  onAddUser($event: TagModelClass, field: string): void {
+    // User selected exist ?
+    const index = this.users.findIndex(u => u.id === $event.id);
+    if (index === -1) {
+      // not exist ->
+      const userBehavior: BehaviorSubject<User> = new BehaviorSubject<User>({
+        lastname: $event.display.split(' ')[1],
+        firstname: $event.display.split(' ')[0],
+        access_type: ['user'],
+        email: ''
+      });
+      const observable = userBehavior.asObservable();
+
+      // open form in entries
+      this.newUserNeeded.emit(userBehavior);
+
+      // waiting for submited user form
+      observable.subscribe({
+        complete: () => {
+          if (userBehavior.value) {
+            // si notre nouvel utilisateur est bien saisi
+            switch (field) {
+              case 'author_name':
+                this.authorField = [
+                  {
+                    display:
+                      userBehavior.value.firstname +
+                      ' ' +
+                      userBehavior.value.lastname,
+                    id: userBehavior.value.id
+                  }
+                ];
+                break;
+              case 'evaluator_name':
+                this.evaluatorField = [
+                  {
+                    display:
+                      userBehavior.value.firstname +
+                      ' ' +
+                      userBehavior.value.lastname,
+                    id: userBehavior.value.id
+                  }
+                ];
+                break;
+              case 'validator_name':
+                this.authorField = [
+                  {
+                    display:
+                      userBehavior.value.firstname +
+                      ' ' +
+                      userBehavior.value.lastname,
+                    id: userBehavior.value.id
+                  }
+                ];
+                break;
+              default:
+                break;
+            }
+          }
+        }
+      });
+    }
+
+    // TODO: UPDATE WITH BACK END
+    // this.pia.author_name = this.authorField[0].id;
+    // this.pia.validator_name = this.validatorField[0].id;
+    // this.pia.evaluator_name = this.evaluatorField[0].id;
+    // this.piaService.update(this.pia);
   }
 }

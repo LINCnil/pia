@@ -55,7 +55,7 @@ export class KnowledgebaseCardComponent implements OnInit {
           this.nbEntries = result.length;
         })
         .catch(err => {
-          console.log('catch');
+          console.log(err);
         });
     } else {
       // exemple
@@ -68,15 +68,12 @@ export class KnowledgebaseCardComponent implements OnInit {
    */
   knowledgeBaseNameFocusIn(): void {
     this.knowledgeBaseForm.controls['name'].enable();
-    // this.knowledgeBaseForm.nativeElement.focus();
   }
   knowledgeBaseAuthorFocusIn(): void {
     this.knowledgeBaseForm.controls['author'].enable();
-    // this.knowledgeBaseForm.nativeElement.focus();
   }
   knowledgeBaseContributorsFocusIn(): void {
     this.knowledgeBaseForm.controls['contributors'].enable();
-    // this.knowledgeBaseForm.nativeElement.focus();
   }
 
   /**
@@ -91,12 +88,7 @@ export class KnowledgebaseCardComponent implements OnInit {
       this.base.name = this.knowledgeBaseForm.value.name;
       this.base.author = this.knowledgeBaseForm.value.author;
       this.base.contributors = this.knowledgeBaseForm.value.contributors;
-      this.knowledgeBaseService
-        .update(this.base)
-        .then(result => {
-          // this.structEvent.emit(this.structure);
-        })
-        .catch(err => {});
+      this.knowledgeBaseService.update(this.base);
     }
   }
 

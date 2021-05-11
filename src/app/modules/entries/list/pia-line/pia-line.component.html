@@ -1,4 +1,4 @@
-<ng-container *ngIf="!pia.is_example && pia.name">
+<ng-container *ngIf="!pia.is_example">
   <td class="pia-listsBlock-item">
     <div class="pia-listsBlock-item-actions">
       <a
@@ -85,19 +85,103 @@
     >
   </td>
   <td class="pia-listsBlock-item">
-    <div contenteditable (focusout)="onFocusOut('author_name', $event)">
-      {{ pia.author_name }}
+    <div *ngIf="authService.state; else author_name">
+      <tag-input
+        [disable]="
+          authService.currentUserValue &&
+          !authService.currentUserValue.access_type.includes('functional')
+        "
+        identifyBy="id"
+        [maxItems]="1"
+        (onAdd)="onAddUser($event, 'author_name')"
+        [ngModel]="authorField"
+        [theme]="'foundation-theme'"
+        [editable]="false"
+        [clearOnBlur]="true"
+        [placeholder]="'homepage.cards.placeholder_validation' | translate"
+        [secondaryPlaceholder]="
+          'homepage.cards.placeholder_validation' | translate
+        "
+      >
+        <tag-input-dropdown
+          [keepOpen]="false"
+          identifyBy="id"
+          [showDropdownIfEmpty]="true"
+          [autocompleteItems]="userList"
+        ></tag-input-dropdown>
+      </tag-input>
     </div>
+    <ng-template #author_name>
+      <div contenteditable (focusout)="onFocusOut('author_name', $event)">
+        {{ pia.author_name }}
+      </div>
+    </ng-template>
   </td>
   <td class="pia-listsBlock-item">
-    <div contenteditable (focusout)="onFocusOut('evaluator_name', $event)">
-      {{ pia.evaluator_name }}
+    <div *ngIf="authService.state; else evaluator_name">
+      <tag-input
+        [disable]="
+          authService.currentUserValue &&
+          !authService.currentUserValue.access_type.includes('functional')
+        "
+        identifyBy="id"
+        [maxItems]="1"
+        (onAdd)="onAddUser($event, 'evaluator_name')"
+        [ngModel]="evaluatorField"
+        [theme]="'foundation-theme'"
+        [editable]="false"
+        [clearOnBlur]="true"
+        [placeholder]="'homepage.cards.placeholder_validation' | translate"
+        [secondaryPlaceholder]="
+          'homepage.cards.placeholder_validation' | translate
+        "
+      >
+        <tag-input-dropdown
+          [keepOpen]="false"
+          identifyBy="id"
+          [showDropdownIfEmpty]="true"
+          [autocompleteItems]="userList"
+        ></tag-input-dropdown>
+      </tag-input>
     </div>
+    <ng-template #evaluator_name>
+      <div contenteditable (focusout)="onFocusOut('evaluator_name', $event)">
+        {{ pia.evaluator_name }}
+      </div>
+    </ng-template>
   </td>
   <td class="pia-listsBlock-item">
-    <div contenteditable (focusout)="onFocusOut('validator_name', $event)">
-      {{ pia.validator_name }}
+    <div *ngIf="authService.state; else validator_name">
+      <tag-input
+        [disable]="
+          authService.currentUserValue &&
+          !authService.currentUserValue.access_type.includes('functional')
+        "
+        identifyBy="id"
+        [maxItems]="1"
+        (onAdd)="onAddUser($event, 'validator_name')"
+        [ngModel]="validatorField"
+        [theme]="'foundation-theme'"
+        [editable]="false"
+        [clearOnBlur]="true"
+        [placeholder]="'homepage.cards.placeholder_validation' | translate"
+        [secondaryPlaceholder]="
+          'homepage.cards.placeholder_validation' | translate
+        "
+      >
+        <tag-input-dropdown
+          [keepOpen]="false"
+          identifyBy="id"
+          [showDropdownIfEmpty]="true"
+          [autocompleteItems]="userList"
+        ></tag-input-dropdown>
+      </tag-input>
     </div>
+    <ng-template #validator_name>
+      <div contenteditable (focusout)="onFocusOut('validator_name', $event)">
+        {{ pia.validator_name }}
+      </div>
+    </ng-template>
   </td>
   <td class="pia-listsBlock-item">
     <div *ngIf="pia.structure_id">{{ pia.structure_name }}</div>

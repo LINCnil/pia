@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { Pia } from 'src/app/models/pia.model';
 import { ArchiveService } from 'src/app/services/archive.service';
 import { PiaService } from 'src/app/services/pia.service';
@@ -13,6 +13,9 @@ import { IntrojsService } from 'src/app/services/introjs.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user.model';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-entries',
@@ -28,6 +31,12 @@ export class EntriesComponent implements OnInit, OnDestroy {
   view: 'card';
   paramsSubscribe: Subscription;
   searchText: string;
+
+  // FOR USER EDITION
+  showNewUserForm: boolean;
+  userBehavior: BehaviorSubject<User> = null;
+
+  public users: Array<User> = [];
 
   public type_entries: string; // pia / archive / knowledgeBase / structure
   public entries: Array<any> = [];
@@ -45,7 +54,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
     private introJsService: IntrojsService,
     public appDataService: AppDataService,
     private translateService: TranslateService,
-    public dialogService: DialogService
+    public dialogService: DialogService,
+    private userService: UsersService,
+    private authService: AuthService
   ) {
     // get entries type (pia or archive)
     switch (this.router.url) {
@@ -55,7 +66,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
       case '/entries/structure':
         this.type_entries = 'structure';
         break;
-      case '/entries/knowledgebase':
+      case '/entries/knowledge_bases':
         this.type_entries = 'knowledgeBase';
         break;
       case '/entries':
@@ -66,6 +77,22 @@ export class EntriesComponent implements OnInit, OnDestroy {
     }
 
     this.appDataService.entrieMode = this.type_entries;
+
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        if (this.authService.state) {
+          // GET USER LIST
+          this.userService
+            .getUsers()
+            .then((response: Array<User>) => {
+              this.users = response;
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        }
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -75,8 +102,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
     if (!this.sortOrder || !this.sortValue) {
       this.sortOrder = 'up';
       this.sortValue = 'updated_at';
-      localStorage.setItem('sortOrder', this.sortOrder);
-      localStorage.setItem('sortValue', this.sortValue);
+      this.setLocalStorageOrderValue();
     }
 
     // PREPARE VIEW MODE
@@ -94,7 +120,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     // TODO: Mode params
-    // this.paramsSubscribe.unsubscribe();
   }
 
   onCleanSearch(): void {
@@ -103,36 +128,32 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
   /**
    * Asort items created on PIA.
-   * @param fieldToSort - Field to sort.
    */
   sortBy(fieldToSort: string): void {
     this.sortValue = fieldToSort;
     this.sortOrder = this.sortOrder === 'down' ? 'up' : 'down';
     this.sort();
-    localStorage.setItem('sortValue', this.sortValue);
-    localStorage.setItem('sortOrder', this.sortOrder);
+    this.setLocalStorageOrderValue();
   }
 
   /**
    * Display elements in list view.
    */
-  viewOnList(): void {
+  async viewOnList(): Promise<void> {
     this.viewStyle.view = 'list';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
     // TODO: Mode params
-    // this.router.navigate(['entries', 'list']);
-    this.refreshContent();
+    await this.refreshContent();
   }
 
   /**
    * Display elements in card view.
    */
-  viewOnCard(): void {
+  async viewOnCard(): Promise<void> {
     this.viewStyle.view = 'card';
     localStorage.setItem('homepageDisplayMode', this.viewStyle.view);
     // TODO: Mode params
-    // this.router.navigate(['entries', 'card']);
-    this.refreshContent();
+    await this.refreshContent();
   }
 
   /**
@@ -159,6 +180,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
             });
             this.loading = false;
             this.startIntroJs('pia');
+            this.sortOrder = localStorage.getItem('piaOrder');
+            this.sortValue = localStorage.getItem('piaValue');
           });
           break;
         case 'archive':
@@ -170,6 +193,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
                 this.archiveService.calculPiaProgress(entrie)
               );
               this.loading = false;
+              this.sortOrder = localStorage.getItem('archiveOrder');
+              this.sortValue = localStorage.getItem('archiveValue');
             });
           break;
         case 'structure':
@@ -183,12 +208,14 @@ export class EntriesComponent implements OnInit, OnDestroy {
               });
             this.entries = data;
             this.loading = false;
+            this.sortOrder = localStorage.getItem('structureOrder');
+            this.sortValue = localStorage.getItem('structureValue');
           });
           break;
         case 'knowledgeBase':
           await this.knowledgeBaseService.getAll().then((result: any) => {
             // Parse default Knowledge base json
-            let defaultKnowledgeBase = new KnowledgeBase(
+            const defaultKnowledgeBase = new KnowledgeBase(
               0,
               this.translateService.instant(
                 'knowledge_base.default_knowledge_base'
@@ -200,14 +227,13 @@ export class EntriesComponent implements OnInit, OnDestroy {
             result.push(defaultKnowledgeBase);
             this.entries = result;
             this.loading = false;
+            this.sortOrder = localStorage.getItem('knowledgeBaseOrder');
+            this.sortValue = localStorage.getItem('knowledgeBaseValue');
           });
           break;
         default:
           break;
       }
-
-      this.sortOrder = localStorage.getItem('sortOrder');
-      this.sortValue = localStorage.getItem('sortValue');
       this.sort();
     }, 200);
   }
@@ -241,10 +267,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
   /**
    * Go to the new entry route
-   * @param id id
    */
   onFormSubmited(id, type: string = null): void {
-    this.refreshContent();
     this.showModal = false;
     // go to the edit page
     if (type) {
@@ -256,7 +280,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
           this.router.navigate(['structures', id, 'section', 1, 'item', 1]);
           break;
         case 'knowledgeBase':
-          this.router.navigate(['base', id]);
+          this.router.navigate(['knowledge_bases', id]);
           break;
         default:
           break;
@@ -266,7 +290,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
   /**
    * Import a new PIA.
-   * @param [event] - Any Event.
    */
   import(event?: any): void {
     if (event) {
@@ -345,7 +368,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
         secondValue = new Date(b[this.sortValue]);
       }
       if (
-        this.sortValue === 'name' ||
+        (firstValue !== undefined && this.sortValue === 'name') ||
         this.sortValue === 'author_name' ||
         this.sortValue === 'evaluator_name' ||
         this.sortValue === 'validator_name'
@@ -392,5 +415,66 @@ export class EntriesComponent implements OnInit, OnDestroy {
       default:
         break;
     }
+  }
+  setLocalStorageOrderValue(): void {
+    switch (this.type_entries) {
+      case 'pia':
+        localStorage.setItem('piaOrder', this.sortOrder);
+        localStorage.setItem('piaValue', this.sortValue);
+        break;
+      case 'archive':
+        this.loading = false;
+        localStorage.setItem('archiveOrder', this.sortOrder);
+        localStorage.setItem('archiveValue', this.sortValue);
+        break;
+      case 'structure':
+        localStorage.setItem('structureOrder', this.sortOrder);
+        localStorage.setItem('structureValue', this.sortValue);
+        break;
+      case 'knowledgeBase':
+        localStorage.setItem('knowledgeBaseOrder', this.sortOrder);
+        localStorage.setItem('knowledgeBaseValue', this.sortValue);
+        break;
+      default:
+        break;
+    }
+  }
+
+  /**
+   * Display pia create form ?
+   */
+  get showPiaForm(): boolean {
+    return (
+      (this.authService.state &&
+        this.authService.currentUserValue.access_type.includes('technical') &&
+        this.authService.currentUserValue.access_type.includes('functional')) ||
+      !this.authService.state
+    );
+  }
+
+  /**
+   * Open Modal For new User
+   */
+  onNewUserNeeded($event): void {
+    this.userBehavior = $event;
+    this.showNewUserForm = true;
+  }
+
+  onUserAdded($event: User): void {
+    this.userBehavior.next({ ...$event });
+    this.userBehavior.complete();
+    this.showNewUserForm = false;
+    this.userBehavior = null;
+
+    // update users
+    this.users.push($event);
+    this.users = this.users.slice();
+  }
+
+  onCancelUser(): void {
+    this.userBehavior.next(null);
+    this.userBehavior.complete();
+    this.userBehavior = null;
+    this.showNewUserForm = false;
   }
 }

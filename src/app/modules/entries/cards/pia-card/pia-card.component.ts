@@ -5,11 +5,11 @@ import {
   ViewChild,
   ElementRef,
   Component,
-  OnInit
+  OnInit,
+  OnChanges
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { Attachment } from 'src/app/models/attachment.model';
 import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
@@ -18,6 +18,11 @@ import { StructureService } from 'src/app/services/structure.service';
 import * as FileSaver from 'file-saver';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
+import { User } from 'src/app/models/user.model';
+import { SimpleChanges } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 declare const require: any;
 
 @Component({
@@ -25,15 +30,18 @@ declare const require: any;
   templateUrl: './pia-card.component.html',
   styleUrls: ['./pia-card.component.scss']
 })
-export class PiaCardComponent implements OnInit {
+export class PiaCardComponent implements OnInit, OnChanges {
+  @Input() users: Array<User>;
   @Input() pia: Pia;
   @Input() previousPia: any;
   @Output() changed = new EventEmitter<Pia>();
   @Output() duplicated = new EventEmitter<Pia>();
   @Output() archived = new EventEmitter<Pia>();
+  @Output() newUserNeeded: EventEmitter<any> = new EventEmitter<any>();
 
   piaForm: FormGroup;
   attachments: any;
+  userList: Array<TagModel> = [];
 
   @ViewChild('piaName') piaName: ElementRef;
   @ViewChild('piaCategory') piaCategory: ElementRef;
@@ -43,6 +51,8 @@ export class PiaCardComponent implements OnInit {
   piaEvaluatorName: ElementRef;
   @ViewChild('piaValidatorName')
   piaValidatorName: ElementRef;
+  @ViewChild('piaGuestName')
+  piaGuestName: ElementRef;
 
   constructor(
     public piaService: PiaService,
@@ -50,7 +60,8 @@ export class PiaCardComponent implements OnInit {
     public languagesService: LanguagesService,
     public structureService: StructureService,
     private dialogService: DialogService,
-    private attachmentsService: AttachmentsService
+    private attachmentsService: AttachmentsService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -58,22 +69,36 @@ export class PiaCardComponent implements OnInit {
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: false }),
       category: new FormControl({ value: this.pia.category, disabled: false }),
-      author_name: new FormControl({
-        value: this.pia.author_name,
-        disabled: false
-      }),
-      evaluator_name: new FormControl({
-        value: this.pia.evaluator_name,
-        disabled: false
-      }),
-      validator_name: new FormControl({
-        value: this.pia.validator_name,
-        disabled: false
-      })
+      author_name: new FormControl(),
+      evaluator_name: new FormControl(),
+      validator_name: new FormControl(),
+      guest_name: new FormControl()
     });
 
-    this.attachments = [];
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        if (this.authService.state) {
+          // TODO: CONVERT BACK author, evaluator, validator into tagModel
+          this.piaForm.controls.author_name.setValue([this.pia.author_name]);
+          this.piaForm.controls.evaluator_name.setValue([
+            this.pia.evaluator_name
+          ]);
+          this.piaForm.controls.guest_name.setValue([this.pia.validator_name]);
+          this.piaForm.controls.validator_name.setValue(this.pia.guest_name);
+        } else {
+          this.piaForm.controls.author_name.setValue(this.pia.author_name);
+          this.piaForm.controls.evaluator_name.setValue(
+            this.pia.evaluator_name
+          );
+          this.piaForm.controls.validator_name.setValue(
+            this.pia.validator_name
+          );
+        }
+      }
+    });
 
+    // GET ATTACHMENTS INFOS
+    this.attachments = [];
     this.attachmentsService.pia_id = this.pia.id;
     this.attachmentsService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(element => {
@@ -82,6 +107,17 @@ export class PiaCardComponent implements OnInit {
         }
       });
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.users && changes.users.currentValue) {
+      this.userList = changes.users.currentValue.map(x => {
+        return {
+          display: x.firstname + ' ' + x.lastname,
+          id: x.id
+        };
+      });
+    }
   }
 
   /**
@@ -133,6 +169,7 @@ export class PiaCardComponent implements OnInit {
   /**
    * Disabls PIA name field and saves data.
    */
+
   piaNameFocusOut(): void {
     let userText = this.piaForm.controls['name'].value;
     if (userText) {
@@ -211,6 +248,22 @@ export class PiaCardComponent implements OnInit {
     }
   }
 
+  piaGuestNameFocusIn(): void {
+    this.piaGuestName.nativeElement.focus();
+  }
+
+  piaGuestNameFocusOut(): void {
+    let userText = this.piaForm.value.guest_name;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    if (userText !== '') {
+      this.pia.guest_name = this.piaForm.value.guest_name;
+      this.piaService.update(this.pia);
+      this.changed.emit(this.pia);
+    }
+  }
+
   /**
    * Focus PIA category field.
    */
@@ -272,5 +325,54 @@ export class PiaCardComponent implements OnInit {
     this.piaService.duplicate(id).then(() => {
       this.duplicated.emit(id);
     });
+  }
+
+  /**
+   * Add user to new Pia Form
+   * Update user on author, evaluator and validator
+   */
+  onAddUser($event: TagModelClass, field: string): void {
+    // User selected exist ?
+    const index = this.users.findIndex(u => u.id === $event.id);
+
+    if (index === -1) {
+      // USER NOT EXIST:
+      // create a behavior for parent composant
+      // and observe changements
+      const userBehavior: BehaviorSubject<User> = new BehaviorSubject<User>({
+        lastname: $event.display.split(' ')[1],
+        firstname: $event.display.split(' ')[0],
+        access_type: ['user'],
+        email: ''
+      });
+      const observable = userBehavior.asObservable();
+
+      // open form in entries
+      this.newUserNeeded.emit(userBehavior);
+
+      // waiting for submited user form
+      observable.subscribe({
+        complete: () => {
+          // Get tag in form
+          const tagIndex = this.piaForm.controls[field].value.findIndex(
+            f => f.id === $event.display
+          );
+          if (userBehavior.value) {
+            // user is created
+            // Update tag id
+            let values = this.piaForm.controls[field].value;
+            values[tagIndex].id = userBehavior.value.id;
+          } else {
+            // Remove tag, because user form is canceled
+            this.piaForm.controls[field].value.splice(tagIndex, 1);
+          }
+        }
+      });
+    }
+    // TODO: UPDATE WITH BACK END
+    // this.pia.author_name = this.piaForm.controls.author_name[0].id;
+    // this.pia.validator_name = this.piaForm.controls.validator_name[0].id;
+    // this.pia.evaluator_name = this.piaForm.controls.evaluator_name[0].id;
+    // this.piaService.update(this.pia);
   }
 }

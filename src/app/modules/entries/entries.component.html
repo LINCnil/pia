@@ -58,7 +58,9 @@
             "
           >
             <div
-              *ngIf="viewStyle.view === 'list'"
+              *ngIf="
+                !authService.state || (showPiaForm && viewStyle.view === 'list')
+              "
               class="pia-filtersBlock-buttons"
             >
               <button
@@ -264,9 +266,11 @@
       <!-- New PIA -->
       <div
         *ngIf="
-          type_entries === 'pia' ||
-          type_entries === 'structure' ||
-          type_entries === 'knowledgeBase'
+          !authService.state ||
+          (showPiaForm &&
+            (type_entries === 'pia' ||
+              type_entries === 'structure' ||
+              type_entries === 'knowledgeBase'))
         "
         class="pia-cardsBlock pia-newBlock"
         id="cardsSwitch"
@@ -354,7 +358,11 @@
 
             <ng-container [ngSwitch]="type_entries">
               <ng-container *ngSwitchCase="'pia'">
-                <app-new-pia (submited)="onFormSubmited($event, 'pia')">
+                <app-new-pia
+                  [users]="users"
+                  (newUserNeeded)="onNewUserNeeded($event)"
+                  (submited)="onFormSubmited($event, 'pia')"
+                >
                 </app-new-pia>
               </ng-container>
               <ng-container *ngSwitchCase="'structure'">
@@ -384,6 +392,8 @@
                 let pia of entries | filterForUser: searchText;
                 let i = index
               "
+              [users]="users"
+              (newUserNeeded)="onNewUserNeeded($event)"
               (changed)="updateEntrie($event)"
               (duplicated)="refreshContent()"
               (archived)="refreshContent()"
@@ -477,6 +487,8 @@
                     (duplicated)="refreshContent()"
                     (archived)="refreshContent()"
                     [pia]="pia"
+                    [users]="users"
+                    (newUserNeeded)="onNewUserNeeded($event)"
                   ></tr>
                 </ng-container>
                 <ng-container *ngSwitchCase="'archive'">
@@ -549,6 +561,8 @@
   <ng-container [ngSwitch]="type_entries">
     <ng-container *ngSwitchCase="'pia'">
       <app-new-pia
+        [users]="users"
+        (newUserNeeded)="onNewUserNeeded($event)"
         (submited)="onFormSubmited($event, 'pia'); showModal = false"
       >
       </app-new-pia>
@@ -570,3 +584,16 @@
 </app-modal>
 
 <app-dialog></app-dialog>
+
+<app-modal
+  *ngIf="showNewUserForm"
+  specialClass="newUserForm"
+  (clickOnClose)="onCancelUser()"
+>
+  <app-new-user
+    [forceUserType]="true"
+    [user]="userBehavior.value ? userBehavior.value : null"
+    (userAdded)="onUserAdded($event)"
+    (canceled)="onCancelUser()"
+  ></app-new-user>
+</app-modal>
