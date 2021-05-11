@@ -3,11 +3,13 @@ import { Injectable } from '@angular/core';
 import { Knowledge } from '../models/knowledge.model';
 import { ApplicationDb } from '../application.db';
 import { Router } from '@angular/router';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class KnowledgesService extends ApplicationDb {
-  constructor(private router: Router) {
+  constructor(private router: Router, protected apiService: ApiService) {
     super(201911191636, 'knowledge');
+    super.prepareApi(this.apiService);
     super.prepareServerUrl(this.router);
   }
 
@@ -27,27 +29,23 @@ export class KnowledgesService extends ApplicationDb {
    * Create a new Knowledge ENTRY.
    * @returns - New Promise
    */
-  async create(baseId: number, knowledge: Knowledge): Promise<Knowledge> {
-    knowledge.knowledgeBase_id = baseId;
+  async add(baseId: number, knowledge: Knowledge): Promise<Knowledge> {
+    this.knowledge_base_id = baseId;
+    knowledge.knowledge_base_id = baseId;
 
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-      } else {
-        this.getObjectStore().then(() => {
-          const evt = this.objectStore.add(knowledge);
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            resolve({ ...knowledge, id: event.target.result });
-          };
+      super
+        .create(knowledge, 'knowledge')
+        .then((res: Knowledge) => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
         });
-      }
     });
   }
 
-  async update(knowledge: Knowledge): Promise<void> {
+  async update(knowledge: Knowledge): Promise<Knowledge> {
     return new Promise((resolve, reject) => {
       this.find(knowledge.id).then((entry: any) => {
         entry.slug = knowledge.slug;
@@ -56,46 +54,20 @@ export class KnowledgesService extends ApplicationDb {
         entry.placeholder = knowledge.placeholder;
         entry.name = knowledge.name;
         entry.description = knowledge.description;
-        entry.knowledgeBase_id = knowledge.knowledgeBase_id;
-        (entry.items = knowledge.items), (entry.created_at = entry.created_at);
+        entry.knowledge_base_id = knowledge.knowledge_base_id;
+        entry.items = knowledge.items;
+        entry.created_at = knowledge.created_at;
         entry.updated_at = new Date();
 
-        if (this.serverUrl) {
-          const formData = new FormData();
-          for (const d in entry) {
-            if (entry.hasOwnProperty(d)) {
-              let value = entry[d];
-              if (d === 'data') {
-                value = JSON.stringify(value);
-              }
-              formData.append('structure[' + d + ']', value);
-            }
-          }
-          fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
-            body: formData,
-            mode: 'cors'
+        super
+          .update(entry.id, entry, 'knowledge')
+          .then((result: Knowledge) => {
+            resolve(result);
           })
-            .then(response => {
-              resolve();
-              return response.json();
-            })
-            .catch(error => {
-              console.error('Request failed', error);
-              reject();
-            });
-        } else {
-          this.getObjectStore().then(() => {
-            const evt = this.objectStore.put(entry);
-            evt.onerror = (event: any) => {
-              console.error(event);
-              reject(Error(event));
-            };
-            evt.onsuccess = () => {
-              resolve();
-            };
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
           });
-        }
       });
     });
   }
@@ -113,7 +85,7 @@ export class KnowledgesService extends ApplicationDb {
         temp.items = entry.items;
         temp.created_at = entry.created_at;
         temp.updated_at = entry.updated_at;
-        this.create(baseId, temp)
+        this.add(baseId, temp)
           .then((result: Knowledge) => {
             resolve(result);
           })
@@ -130,41 +102,17 @@ export class KnowledgesService extends ApplicationDb {
    * @param baseId Id of base
    */
   private async findAllByBaseId(baseId: number): Promise<Array<Knowledge>> {
-    const items = [];
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl(), {
-          mode: 'cors'
+      this.knowledge_base_id = baseId;
+      super
+        .findAll(null, { index: 'index1', value: baseId })
+        .then((result: any) => {
+          resolve(result);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then((obj: any) => {
-          const index1 = obj.index('index1');
-          const evt = index1.openCursor(IDBKeyRange.only(baseId));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
+        .catch(error => {
+          console.error('Request failed', error);
+          reject();
         });
-      }
     });
   }
 }

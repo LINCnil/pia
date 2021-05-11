@@ -6,9 +6,8 @@ export class Knowledge {
   public placeholder: string;
   public name: string;
   public description: string;
-  public knowledgeBase_id: number;
+  public knowledge_base_id: number;
   public items: any[] = [];
   public updated_at: Date;
   public created_at: Date;
-
 }

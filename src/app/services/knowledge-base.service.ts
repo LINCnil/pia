@@ -8,6 +8,7 @@ import { ApplicationDb } from '../application.db';
 import { KnowledgeBase } from '../models/knowledgeBase.model';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class KnowledgeBaseService extends ApplicationDb {
@@ -23,9 +24,11 @@ export class KnowledgeBaseService extends ApplicationDb {
   constructor(
     private router: Router,
     public translateService: TranslateService,
-    private knowledgesService: KnowledgesService
+    private knowledgesService: KnowledgesService,
+    protected apiService: ApiService
   ) {
     super(201911191636, 'knowledgeBase');
+    super.prepareApi(this.apiService);
     super.prepareServerUrl(this.router);
   }
 
@@ -48,19 +51,6 @@ export class KnowledgeBaseService extends ApplicationDb {
               );
             });
           }
-
-          // // Parse default Knowledge base json
-          // const cnilKnowledgeBase = new KnowledgeBase(
-          //   0,
-          //   this.translateService.instant(
-          //     'knowledge_base.default_knowledge_base'
-          //   ),
-          //   'CNIL',
-          //   'CNIL'
-          // );
-          // cnilKnowledgeBase.is_example = true;
-
-          // result.push(cnilKnowledgeBase);
           resolve(result);
         })
         .catch(error => {
@@ -81,7 +71,6 @@ export class KnowledgeBaseService extends ApplicationDb {
           resolve(entry);
         })
         .catch(err => {
-          console.log(err);
           reject(err);
         });
     });
@@ -93,19 +82,14 @@ export class KnowledgeBaseService extends ApplicationDb {
    */
   async create(base: KnowledgeBase): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-      } else {
-        this.getObjectStore().then(() => {
-          const evt = this.objectStore.add(base);
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            resolve({ ...base, id: event.target.result });
-          };
+      super
+        .create(base, 'knowledge_base')
+        .then((res: KnowledgeBase) => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
         });
-      }
     });
   }
 
@@ -117,44 +101,14 @@ export class KnowledgeBaseService extends ApplicationDb {
         entry.contributors = base.contributors;
         entry.updated_at = new Date();
 
-        if (this.serverUrl) {
-          const formData = new FormData();
-          for (const d in entry) {
-            if (entry.hasOwnProperty(d)) {
-              let value = entry[d];
-              if (d === 'data') {
-                value = JSON.stringify(value);
-              }
-              formData.append('structure[' + d + ']', value);
-            }
-          }
-          fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
-            body: formData,
-            mode: 'cors'
+        super
+          .update(base.id, entry, 'knowledge_base')
+          .then((res: KnowledgeBase) => {
+            resolve(res);
           })
-            .then(response => {
-              return response.json();
-            })
-            .then((result: any) => {
-              resolve(result);
-            })
-            .catch(error => {
-              console.error('Request failed', error);
-              reject(error);
-            });
-        } else {
-          this.getObjectStore().then(() => {
-            const evt = this.objectStore.put(entry);
-            evt.onerror = (event: any) => {
-              console.error(event);
-              reject(Error(event));
-            };
-            evt.onsuccess = () => {
-              resolve(entry);
-            };
+          .catch(err => {
+            reject(err);
           });
-        }
       });
     });
   }
@@ -198,11 +152,9 @@ export class KnowledgeBaseService extends ApplicationDb {
         );
         this.create(newKnowledgeBase)
           .then((resp: KnowledgeBase) => {
-            newKnowledgeBase.id = resp.id;
             resolve(newKnowledgeBase);
           })
           .catch(error => {
-            console.log(error);
             reject(error);
           });
       };
@@ -242,16 +194,19 @@ export class KnowledgeBaseService extends ApplicationDb {
                   temp.created_at = new Date(entry.created_at);
                   temp.updated_at = new Date(entry.updated_at);
                   this.knowledgesService
-                    .create(newKnowledgeBase.id, temp)
+                    .add(newKnowledgeBase.id, temp)
                     .then(e => {
                       console.log(e);
+                      resolve();
+                    })
+                    .catch(err => {
+                      reject(err);
                     });
                 });
               });
-            resolve();
           })
           .catch(err => {
-            console.error(err);
+            reject(err);
           });
       });
     });
@@ -299,7 +254,6 @@ export class KnowledgeBaseService extends ApplicationDb {
             resolve(this.knowledgeBaseData);
           })
           .catch(err => {
-            console.log(err);
             reject(err);
           });
       } else {
