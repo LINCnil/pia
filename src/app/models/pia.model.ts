@@ -6,6 +6,7 @@ export class Pia {
   public author_name: string;
   public evaluator_name: string;
   public validator_name: string;
+  public guest_name: string;
   public dpo_status: number; // 0: NOK, 1: OK
   public dpo_opinion: string;
   public concerned_people_opinion: string;
@@ -29,5 +30,4 @@ export class Pia {
   constructor() {
     this.created_at = new Date();
   }
-
 }
