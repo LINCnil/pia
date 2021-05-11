@@ -11,19 +11,16 @@ export class PiaHeadingComponent implements OnInit {
   sortValue: string;
   @Output() sorting = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   /**
    * Click on sort by attribute
-   * @param fieldToSort
    */
   sortBy(fieldToSort: string): void {
     this.sortValue = fieldToSort;
     this.sortOrder = this.sortOrder === 'down' ? 'up' : 'down';
     this.sorting.emit(fieldToSort);
   }
-
 }
