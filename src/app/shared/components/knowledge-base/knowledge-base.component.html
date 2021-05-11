@@ -87,6 +87,7 @@
       *ngFor="let itemKb of knowledgeBaseService.knowledgeBaseData"
       [item]="item"
       [itemKb]="itemKb"
+      [editMode]="editMode"
       (newMeasureEvent)="addNewMeasure($event)"
     ></app-knowledge-base-item>
   </div>
