@@ -74,18 +74,13 @@ export class AttachmentItemComponent implements OnInit {
       const img = elPreview.querySelector('img');
 
       elPreview.classList.add('hide');
-      // embed.classList.add('hide');
       img.classList.add('hide');
 
       if (show) {
         if (this.attachment.mime_type.endsWith('pdf')) {
-          // embed.setAttribute('src', this.attachment.file.replace('octet-stream', 'pdf'));
-          // embed.classList.remove('hide');
           const data = this.attachment.file.split(';base64,')[1];
-          // base64 string
           const base64str = data;
 
-          // decode base64 string, remove space for IE compatibility
           const binary = atob(base64str.replace(/\s/g, ''));
           const len = binary.length;
           const buffer = new ArrayBuffer(len);
@@ -98,7 +93,6 @@ export class AttachmentItemComponent implements OnInit {
           this.fileUrl = URL.createObjectURL(blob);
 
           elPreview.classList.remove('hide');
-          // this.downloadAttachment();
         } else if (this.attachment.mime_type.startsWith('image')) {
           img.setAttribute('src', this.attachment.file);
           img.classList.remove('hide');

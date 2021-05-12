@@ -6,6 +6,7 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { Answer } from 'src/app/models/answer.model';
+import { Evaluation } from 'src/app/models/evaluation.model';
 import { AnswerService } from 'src/app/services/answer.service';
 import { Pia } from 'src/app/models/pia.model';
 import { EvaluationService } from 'src/app/services/evaluation.service';

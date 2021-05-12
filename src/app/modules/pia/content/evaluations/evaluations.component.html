@@ -25,8 +25,7 @@
           [ngClass]="{ 'btn-active': evaluation.status === 1 }"
           [disabled]="
             evaluation.status === 1 ||
-            !globalEvaluationService.evaluationEditionEnabled ||
-            loading
+            !globalEvaluationService.evaluationEditionEnabled
           "
           (click)="selectedButton($event, 1)"
           name="fix"
@@ -40,8 +39,7 @@
           [ngClass]="{ 'btn-active': evaluation.status === 2 }"
           [disabled]="
             evaluation.status === 2 ||
-            !globalEvaluationService.evaluationEditionEnabled ||
-            loading
+            !globalEvaluationService.evaluationEditionEnabled
           "
           *ngIf="section.id !== 1"
           (click)="selectedButton($event, 2)"
@@ -56,8 +54,7 @@
           [ngClass]="{ 'btn-active': evaluation.status === 3 }"
           [disabled]="
             evaluation.status === 3 ||
-            !globalEvaluationService.evaluationEditionEnabled ||
-            loading
+            !globalEvaluationService.evaluationEditionEnabled
           "
           (click)="selectedButton($event, 3)"
           name="acceptable"
