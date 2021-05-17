@@ -21,6 +21,10 @@
           type="range"
           (focus)="enableGauge()"
           (change)="checkGaugeChanges($event)"
+          [disable]="
+            !globalEvaluationService.answerEditionEnabled ||
+            (!editMode.includes('author') && editMode !== 'local')
+          "
           formControlName="gauge"
           min="0"
           max="4"

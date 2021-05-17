@@ -39,14 +39,14 @@ describe("Entries_card", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
       cy.wait(3000);
-      cy.get("#pia-edit-2-name").type("pia edited");
-      cy.get("#pia-edit-2-author-name")
+      cy.get("#pia-edit-1-name").type("pia edited");
+      cy.get("#pia-edit-1-author-name")
         .clear()
         .type("author edited");
-      cy.get("#pia-edit-2-evaluator-name")
+      cy.get("#pia-edit-1-evaluator-name")
         .clear()
         .type("evaluator edited");
-      cy.get("#pia-edit-2-validator-name")
+      cy.get("#pia-edit-1-validator-name")
         .clear()
         .type("validator edited");
     });
