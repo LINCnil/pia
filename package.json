@@ -1,7 +1,9 @@
 {
   "name": "pia",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "MIT",
+  "description": "Version Portable Outil PIA",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -14,7 +16,13 @@
     "format:write": "prettier src/**/*.{ts,json,md,scss} --write",
     "format:test": "prettier src/**/*.{ts,json,md,scss} --list-different",
     "extract-i18n": "ngx-translate-extract --input src --output ./src/assets/i18n/ --clean --sort --format namespaced-json",
-    "compodoc": "compodoc -p src/tsconfig.app.json"
+    "compodoc": "compodoc -p src/tsconfig.app.json",
+    "electron:start": "electron .",
+    "electron:mac": "electron-builder -m",
+    "electron:win": "electron-builder -w --x64 --ia32",
+    "electron:linux": "electron-builder -l",
+    "electron:win-cert": "electron-builder create-self-signed-cert -p atnos",
+    "electron:publish-to-github": "electron-builder -p onTagOrDraft"
   },
   "husky": {
     "hooks": {
@@ -61,7 +69,11 @@
     "rxjs-compat": "^6.5.5",
     "save-svg-as-png": "^1.4.17",
     "tinymce": "^4.9.10",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "electron-log": "^4.0.6",
+    "electron-notarize": "^0.2.1",
+    "electron-updater": "^4.2.0",
+    "electron-window-state": "^5.0.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1100.1",
@@ -89,6 +101,45 @@
     "sass": "^1.29.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "electron": "^8.0.0",
+    "electron-builder": "^22.3.2"
+  },
+  "build": {
+    "appId": "com.atnos.pia",
+    "afterSign": "notarize.js",
+    "directories": {
+      "buildResources": ".",
+      "output": "releases"
+    },
+    "mac": {
+      "publish": [
+        "github"
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist",
+      "category": "public.app.category.productivity"
+    },
+    "win": {
+      "target": "nsis",
+      "publish": [
+        "github"
+      ],
+      "verifyUpdateCodeSignature": false,
+      "publisherName": "ATNOS"
+    },
+    "linux": {
+      "publish": [
+        "github"
+      ],
+      "category": "Network"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
