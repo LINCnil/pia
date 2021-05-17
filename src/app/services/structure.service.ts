@@ -6,16 +6,18 @@ import structureExampleEn from 'src/assets/files/2018-11-21-structure-example-en
 import { LanguagesService } from 'src/app/services/languages.service';
 import { Structure } from '../models/structure.model';
 import { ApplicationDb } from '../application.db';
-import { DialogService } from './dialog.service';
 import { Router } from '@angular/router';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class StructureService extends ApplicationDb {
   constructor(
     private router: Router,
+    protected apiService: ApiService,
     private languagesService: LanguagesService
   ) {
     super(201808011000, 'structure');
+    super.prepareApi(this.apiService);
     super.prepareServerUrl(this.router);
   }
 
@@ -26,7 +28,7 @@ export class StructureService extends ApplicationDb {
   async getAll(): Promise<any> {
     const items = [];
     return new Promise((resolve, reject) => {
-      this.findAll().then((entries: any) => {
+      super.findAll().then((entries: any) => {
         if (entries && entries.length > 0) {
           entries.forEach(element => {
             const newStructure = new Structure();
@@ -82,44 +84,14 @@ export class StructureService extends ApplicationDb {
     };
 
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        const formData = new FormData();
-        for (const d in data) {
-          if (data.hasOwnProperty(d)) {
-            let value = data[d];
-            if (d === 'data') {
-              value = JSON.stringify(value);
-            }
-            formData.append('structure[' + d + ']', value);
-          }
-        }
-        fetch(this.getServerUrl(), {
-          method: 'POST',
-          body: formData,
-          mode: 'cors'
+      super
+        .create(data, 'structure')
+        .then((result: any) => {
+          resolve(result.id);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result.id);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const evt = this.objectStore.add(data);
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            resolve(event.target.result);
-          };
+        .catch(error => {
+          reject(error);
         });
-      }
     });
   }
 
@@ -132,49 +104,20 @@ export class StructureService extends ApplicationDb {
       return;
     }
     return new Promise((resolve, reject) => {
-      this.find(structure.id).then((entry: any) => {
+      super.find(structure.id).then((entry: any) => {
         entry.name = structure.name;
         entry.sector_name = structure.sector_name;
         entry.data = structure.data;
         entry.updated_at = new Date();
-        if (this.serverUrl) {
-          const formData = new FormData();
-          for (const d in entry) {
-            if (entry.hasOwnProperty(d)) {
-              let value = entry[d];
-              if (d === 'data') {
-                value = JSON.stringify(value);
-              }
-              formData.append('structure[' + d + ']', value);
-            }
-          }
-          fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
-            body: formData,
-            mode: 'cors'
+
+        super
+          .update(entry.id, entry, 'structure')
+          .then((result: any) => {
+            resolve(result);
           })
-            .then(response => {
-              return response.json();
-            })
-            .then((result: any) => {
-              resolve(result);
-            })
-            .catch(error => {
-              console.error('Request failed', error);
-              reject();
-            });
-        } else {
-          this.getObjectStore().then(() => {
-            const evt = this.objectStore.put(entry);
-            evt.onerror = (event: any) => {
-              console.error(event);
-              reject(Error(event));
-            };
-            evt.onsuccess = () => {
-              resolve(entry);
-            };
+          .catch(error => {
+            reject(error);
           });
-        }
       });
     });
   }
@@ -232,7 +175,7 @@ export class StructureService extends ApplicationDb {
     return new Promise((resolve, reject) => {
       const structure = new Structure();
       if (id > 0) {
-        this.find(id).then(result => {
+        super.find(id).then(result => {
           const data = {
             structure: result
           };
@@ -332,13 +275,14 @@ export class StructureService extends ApplicationDb {
   }
 
   // UPDATE
-  remove(id): Promise<void> {
+  remove(id): Promise<any> {
     return new Promise((resolve, reject) => {
       // Removes from DB.
-      this.delete(id)
-        .then(() => {
+      super
+        .delete(id)
+        .then(res => {
           localStorage.removeItem('structure-id');
-          resolve();
+          resolve(res);
         })
         .catch(err => {
           console.error(err);

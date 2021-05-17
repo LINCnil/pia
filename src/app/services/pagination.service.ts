@@ -100,13 +100,6 @@ export class PaginationService {
 
     // check previous
     for (const el in itemStatus) {
-      console.log(
-        el,
-        this.sidStatusService.itemStatus[el],
-        status_start,
-        status_end
-      );
-
       if (
         this.sidStatusService.itemStatus[el] !== null &&
         this.sidStatusService.itemStatus[el] !== undefined &&
