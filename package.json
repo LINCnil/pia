@@ -3,7 +3,7 @@
   "version": "3.0.1",
   "license": "MIT",
   "description": "Version Portable Outil PIA",
-  "main": "main.js",
+  "main": "electron/main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
