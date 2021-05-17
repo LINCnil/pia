@@ -52,7 +52,6 @@ src/environments/environment.prod.ts
 /documentation
 
 # electron
-
-releases/
-private/
+electron/releases/
+electron/private/
 *.log
