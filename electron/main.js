@@ -1,7 +1,7 @@
 const electron = require("electron");
 // Module to control application life.
 const { app, BrowserWindow } = electron;
-const updater = require("./electron/updater");
+// const updater = require('./updater.js')
 
 // Keep window state
 const windowStateKeeper = require("electron-window-state");
@@ -97,7 +97,7 @@ function createWindow() {
     alwaysOnTop: false,
     fullscreen: false,
     kiosk: false,
-    icon: `$(__dirname)/icons/64x64.png`,
+    icon: `${__dirname}/icons/64x64.png`,
     webPreferences: {
       nodeIntegration: false,
       plugins: true
@@ -109,7 +109,7 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadURL(
     url.format({
-      pathname: path.join(__dirname, "dist", "pia", "index.html"),
+      pathname: "../dist/pia/index.html",
       protocol: "file:",
       slashes: true
     })
@@ -131,7 +131,7 @@ function createWindow() {
     require("electron").shell.openExternal(url);
   });
 
-  setTimeout(updater.check, 2000);
+  // setTimeout(updater.check, 2000);
 }
 
 if (!gotTheLock) {
