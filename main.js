@@ -1,7 +1,7 @@
 const electron = require("electron");
 // Module to control application life.
 const { app, BrowserWindow } = electron;
-const updater = require("./updater");
+const updater = require("./electron/updater");
 
 // Keep window state
 const windowStateKeeper = require("electron-window-state");
@@ -116,7 +116,7 @@ function createWindow() {
   );
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function() {

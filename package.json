@@ -3,7 +3,7 @@
   "version": "3.0.1",
   "license": "MIT",
   "description": "Version Portable Outil PIA",
-  "main": "electron/main.js",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -107,10 +107,10 @@
   },
   "build": {
     "appId": "com.atnos.pia",
-    "afterSign": "notarize.js",
+    "afterSign": "electron/notarize.js",
     "directories": {
       "buildResources": ".",
-      "output": "releases"
+      "output": "electron/releases"
     },
     "mac": {
       "publish": [
