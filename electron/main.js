@@ -109,7 +109,7 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadURL(
     url.format({
-      pathname: "../dist/pia/index.html",
+      pathname: path.join(__dirname, "../dist", "pia", "index.html"),
       protocol: "file:",
       slashes: true
     })
