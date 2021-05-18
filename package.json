@@ -113,6 +113,7 @@
       "output": "electron/releases"
     },
     "mac": {
+      "icon": "electron/icons/256x256.png",
       "publish": [
         "github"
       ],
@@ -123,6 +124,7 @@
       "category": "public.app.category.productivity"
     },
     "win": {
+      "icon": "electron/icons/256x256.png",
       "target": "nsis",
       "publish": [
         "github"
@@ -131,6 +133,7 @@
       "publisherName": "ATNOS"
     },
     "linux": {
+      "icon": "electron/icons/256x256.png",
       "publish": [
         "github"
       ],
