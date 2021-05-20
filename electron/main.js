@@ -97,7 +97,7 @@ function createWindow() {
     alwaysOnTop: false,
     fullscreen: false,
     kiosk: false,
-    icon: path.join(__dirname, "icon.ico"),
+    icon: path.join(__dirname, "icons", "icon.ico"),
     webPreferences: {
       nodeIntegration: false,
       plugins: true

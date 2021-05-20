@@ -54,4 +54,5 @@ src/environments/environment.prod.ts
 # electron
 electron/releases/
 electron/private/
-*.log
+.idea
+.env

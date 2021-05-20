@@ -109,22 +109,18 @@
     "appId": "com.atnos.pia",
     "afterSign": "electron/notarize.js",
     "directories": {
-      "buildResources": ".",
+      "buildResources": "electron/icons",
       "output": "electron/releases"
     },
-    "files": [
-      "**/*",
-      "electron/icon.*"
-    ],
     "mac": {
-      "icon": "electron/icons/256x256.png",
       "publish": [
         "github"
       ],
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
-      "entitlements": "entitlements.mac.plist",
-      "entitlementsInherit": "entitlements.mac.plist",
+      "icon": "electron/icons/512x512.png",
+      "entitlements": "electron/entitlements.mac.plist",
+      "entitlementsInherit": "electron/entitlements.mac.plist",
       "category": "public.app.category.productivity"
     },
     "win": {
@@ -132,6 +128,7 @@
       "publish": [
         "github"
       ],
+      "icon": "electron/icons/512x512.png",
       "verifyUpdateCodeSignature": false,
       "publisherName": "ATNOS"
     },
@@ -139,6 +136,7 @@
       "publish": [
         "github"
       ],
+      "icon": "electron/icons/512x512.png",
       "category": "Network"
     },
     "nsis": {
