@@ -1,7 +1,8 @@
 const electron = require("electron");
 // Module to control application life.
-const { app, BrowserWindow } = electron;
-// const updater = require('./updater.js')
+const { app, BrowserWindow, globalShortcut } = electron;
+const updater = require("./updater.js");
+const isDev = require("electron-is-dev");
 
 // Keep window state
 const windowStateKeeper = require("electron-window-state");
@@ -86,6 +87,10 @@ function createWindow() {
 
   electron.Menu.setApplicationMenu(menu);
 
+  globalShortcut.register("CommandOrControl+R", () => {
+    // Do nothing
+  });
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: winState.width,
@@ -115,8 +120,10 @@ function createWindow() {
     })
   );
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if (isDev) {
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools();
+  }
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function() {
@@ -131,7 +138,7 @@ function createWindow() {
     require("electron").shell.openExternal(url);
   });
 
-  // setTimeout(updater.check, 2000);
+  setTimeout(updater.check, 2000);
 }
 
 if (!gotTheLock) {

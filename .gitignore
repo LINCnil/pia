@@ -56,3 +56,4 @@ electron/releases/
 electron/private/
 .idea
 .env
+dev-app-update.yml

@@ -39,3 +39,33 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Package the application for Mac, Windows or GNU/Linux
+
+### Mac:
+
+You must set the ENV variables `APPLEID` and `APPLEPIAPASSWORD` inside a `.env` file at the root of the project.
+
+```
+yarn electron:mac
+```
+
+### Windows:
+
+```
+CSC_LINK=../path_to_your/file.pfx CSC_KEY_PASSWORD="Your PFX file password" yarn electron:win
+```
+
+### GNU/Linux:
+
+```
+yarn electron:linux
+```
+
+## Publish the application to Github
+
+See: https://www.electron.build/configuration/publish
+
+```
+GH_TOKEN=YOUR_GITHUB_TOKEN yarn electron:publish-to-github
+```
