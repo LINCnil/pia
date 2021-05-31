@@ -1,0 +1,153 @@
+@import "~src/assets/stylesheets/variables";
+.pia {
+  &-modalBlock {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: 9999;
+    display: none;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    &.open {
+      opacity: 1;
+      display: block;
+    }
+    &-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 9999;
+    }
+    &-validate {
+      margin-top: 12px;
+      button {
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+    }
+    &-buttons-choice {
+      margin-top: 2rem;
+      button {
+        vertical-align: top;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+    > div {
+      position: absolute;
+      top: 32.5%;
+      left: 50%;
+      background-color: #fff;
+    }
+
+    &-content {
+      margin-left: -220px;
+      width: 440px;
+      box-shadow: 15px 15px 130px -35px black;
+      text-align: center;
+      color: $pia-blue;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.4rem;
+      padding: 34px 56px;
+      p {
+        font-weight: 400;
+        line-height: 1.3;
+        .strong {
+          font-size: 1.7rem;
+          vertical-align: -5px;
+        }
+        .red {
+          color: $pia-red;
+        }
+        /* .pia-icons {
+          margin: 2rem 0;
+        } */
+      }
+    }
+
+    .fa {
+      font-size: 4.5rem;
+      margin-bottom: 12px;
+    }
+
+    &.card {
+      .pia-modalBlock-close {
+        top: 6px;
+        right: 9px;
+      }
+      .pia-modalBlock-content {
+        width: 274px;
+        height: 386px;
+        margin-left: -137px;
+        padding: 10px;
+        border: solid 1px $pia-green;
+      }
+      &-knowledge {
+        .pia-modalBlock-content {
+          border: solid 1px $pia-red;
+        }
+      }
+    }
+  }
+}
+
+.revision-preview-modal {
+  &.noBackground {
+    background-color: transparent;
+  }
+  .pia-modalBlock-content {
+    width: auto;
+    top: 13%;
+    margin-left: -285px;
+    text-align: initial;
+    font-style: normal !important;
+    font-size: inherit !important;
+    padding: 0 !important;
+  }
+}
+
+@media print {
+  .revision-preview-modal {
+    margin: auto;
+    position: static;
+    background-color: blue !important;
+    z-index: 999999999;
+    .pia-modalBlock-content {
+      width: 100%;
+      background-color: white !important;
+      top: 0%;
+      left: 0px;
+      margin: auto;
+      z-index: 999999999;
+    }
+  }
+}
+
+.icon-green {
+  color: $pia-green;
+}
+.icon-gray {
+  color: $pia-gray;
+}
+.icon-red {
+  color: $pia-red;
+}
+.icon-blue {
+  color: $pia-blue;
+}
+
+#modal-refuse-pia {
+  p {
+    color: $pia-red;
+  }
+  .fa.fa-cog {
+    font-size: 9rem;
+    margin-top: 6px;
+  }
+}

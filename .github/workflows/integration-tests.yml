@@ -1,0 +1,16 @@
+name: integration-tests
+on: [push]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
+          browser: chrome
+          headless: true
+          wait-on: http://localhost:4200

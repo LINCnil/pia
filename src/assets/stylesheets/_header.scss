@@ -6,6 +6,9 @@
     &-structures {
       background-color: $pia-green;
     }
+    &-knowledges {
+      background-color: $pia-red;
+    }
     .container {
       position: relative;
     }
@@ -98,6 +101,10 @@
         }
       }
 
+      .pia-navigationBlock-noSub {
+        border-right: 1px solid #fff;
+      }
+
       .pia-navigationBlock-dropdown {
         position: relative;
         border-left: 1px solid #fff;
@@ -139,7 +146,7 @@
           }
         }
       }
-
+      .pia-navigationBlock-knowledges,
       .pia-navigationBlock-pias,
       .pia-navigationBlock-structures {
         & > a {
@@ -212,7 +219,6 @@
               padding: 0;
               margin-bottom: 0;
             }
-
             /* Custom checkboxes styles */
             input {
               position: absolute;
@@ -267,6 +273,15 @@
         border-right: 0 !important;
         > ul {
           min-width: 140px;
+        }
+        button {
+          padding: 10px 0 !important;
+          cursor: pointer;
+          color: $pia-light-black;
+          font-weight: 400 !important;
+          &:hover {
+            font-weight: 500 !important;
+          }
         }
       }
 

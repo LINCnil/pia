@@ -2,14 +2,14 @@
   .hide-for-print {
     display: none !important;
   }
-  .pia-actionPlanGraphBlock {
+  .pia-actionPlanGraphBlock,
+  .pia-mainContentForPrint,
+  .pia-entryContentBlock {
     width: 100% !important;
+    max-width: 100% !important;
+    flex: inherit !important;
   }
-  .pia-summaryRisksOverviewBlock {
-    > div {
-      width: 100% !important;
-    }
-  }
+  .pia-summaryRisksOverviewBlock,
   .pia-summaryRisksCartographyBlock {
     > div {
       width: 100% !important;

@@ -1,0 +1,53 @@
+<form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="piaForm">
+  <div>
+    <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
+    <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>
+  </div>
+  <div>
+    <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
+    <input
+      formControlName="author_name"
+      type="text"
+      placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
+      id="author_name"
+      required>
+  </div>
+  <div>
+    <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
+    <input
+      formControlName="evaluator_name"
+      type="text"
+      placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
+      id="evaluator_name"
+      required>
+  </div>
+  <div>
+    <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
+    <input
+      formControlName="validator_name"
+      type="text"
+      placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
+      id="validator_name"
+      required>
+  </div>
+  <div>
+    <label for="category">{{ 'homepage.cards.category' | translate }}</label>
+    <input
+      formControlName="category"
+      type="text"
+      placeholder="{{ 'homepage.cards.placeholder_category' | translate }}"
+      id="category">
+  </div>
+  <div>
+    <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>
+    <div  class="pia-structure-wrapper">
+      <select formControlName="structure" id="structure">
+        <option value="" selected>{{ 'homepage.cards.placeholder_structure' | translate }}</option>
+        <option *ngFor="let item of structureList" [ngValue]="item.id">{{item.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="pia-cardsBlock-item-btn" style="padding-top:26px;">
+    <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
+  </div>
+</form>

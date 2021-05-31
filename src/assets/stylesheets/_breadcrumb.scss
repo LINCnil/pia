@@ -3,5 +3,18 @@
     color: $pia-gray;
     font-size: 1.1rem;
     margin-bottom: 5px;
+    a {
+      color: $pia-gray;
+      text-decoration: none;
+      &:focus,
+      &:hover,
+      &:active {
+        color: #444;
+      }
+    }
+    strong {
+      font-weight: 500;
+      color: #666;
+    }
   }
 }
