@@ -40,6 +40,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+*.log
 
 # System Files
 .DS_Store
@@ -49,3 +50,10 @@ Thumbs.db
 src/environments/environment.prod.ts
 /cypress/videos/*
 /documentation
+
+# electron
+electron/releases/
+electron/private/
+.idea
+.env
+dev-app-update.yml
