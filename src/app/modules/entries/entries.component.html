@@ -1,0 +1,572 @@
+<div
+  class="container pia-mainContainerBlock"
+  [ngClass]="{
+    'pia-mainContainerBlock-structures':
+      appDataService.entrieMode === 'structure',
+    'pia-mainContainerBlock-archives': appDataService.entrieMode === 'archive',
+    'pia-mainContainerBlock-knowledges':
+      appDataService.entrieMode === 'knowledgeBase'
+  }"
+>
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <div class="pia-breadcrumb">
+        <strong>
+          <ng-container
+            *ngIf="type_entries === 'pia' || type_entries === 'archive'"
+            >{{ "header.homepage_link" | translate }} >
+          </ng-container>
+          <ng-container *ngIf="type_entries === 'pia'">{{
+            "header.current_pias" | translate
+          }}</ng-container>
+          <ng-container *ngIf="type_entries === 'structure'">{{
+            "header.structures" | translate
+          }}</ng-container>
+          <ng-container *ngIf="type_entries === 'archive'">{{
+            "header.archives" | translate
+          }}</ng-container>
+          <ng-container *ngIf="type_entries === 'knowledgeBase'">{{
+            "header.knowledge_base_link" | translate
+          }}</ng-container>
+        </strong>
+      </div>
+      <div class="pia-filtersBlock">
+        <div class="pia-filtersBlock-left">
+          <button
+            class="pia-filtersBlock-switch btn"
+            type="button"
+            *ngIf="viewStyle.view === 'list'"
+            (click)="viewOnCard()"
+          >
+            <i class="fa fa-list" aria-hidden="true"></i>
+            <div>{{ "homepage.filters.card" | translate }}</div>
+          </button>
+          <button
+            class="pia-filtersBlock-switch btn"
+            type="button"
+            *ngIf="viewStyle.view === 'card'"
+            (click)="viewOnList()"
+          >
+            <i class="fa fa-list" aria-hidden="true"></i>
+            <div>{{ "homepage.filters.list" | translate }}</div>
+          </button>
+          <ng-container
+            *ngIf="
+              type_entries === 'pia' ||
+              type_entries === 'structure' ||
+              type_entries === 'knowledgeBase'
+            "
+          >
+            <div
+              *ngIf="viewStyle.view === 'list'"
+              class="pia-filtersBlock-buttons"
+            >
+              <button
+                type="button"
+                class="btn"
+                [ngClass]="
+                  appDataService.entrieMode === 'knowledgeBase'
+                    ? 'btn-red'
+                    : 'btn-green'
+                "
+                (click)="showModal = true"
+              >
+                <i class="fa fa-folder-open" aria-hidden="true"></i>
+                <ng-container *ngIf="type_entries === 'pia'">{{
+                  "homepage.cards.new_pia" | translate
+                }}</ng-container>
+                <ng-container *ngIf="type_entries === 'structure'">{{
+                  "homepage.cards.new_structure" | translate
+                }}</ng-container>
+                <ng-container *ngIf="type_entries === 'knowledgeBase'">{{
+                  "homepage.cards.knowledges.new" | translate
+                }}</ng-container>
+              </button>
+              <button
+                type="button"
+                class="btn"
+                [ngClass]="
+                  appDataService.entrieMode === 'knowledgeBase'
+                    ? 'btn-red'
+                    : 'btn-green'
+                "
+                (click)="import()"
+              >
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                <ng-container *ngIf="type_entries === 'pia'">{{
+                  "homepage.cards.import_pia" | translate
+                }}</ng-container>
+                <ng-container *ngIf="type_entries === 'structure'">{{
+                  "homepage.cards.import_structure" | translate
+                }}</ng-container>
+                <ng-container *ngIf="type_entries === 'knowledgeBase'">{{
+                  "homepage.cards.knowledges.import" | translate
+                }}</ng-container>
+              </button>
+            </div>
+            <div
+              class="pia-filtersBlock-hint"
+              *ngIf="
+                viewStyle.view === 'list' && entries && entries.length === 0
+              "
+            >
+              <div>
+                <span class="pia-icons pia-icon-rocket-small"></span>
+                <p
+                  [innerHTML]="
+                    'homepage.filters.list_rocket_content' | translate
+                  "
+                ></p>
+              </div>
+            </div>
+            <div class="hide">
+              <form enctype="multipart/form-data" [formGroup]="importForm">
+                <input
+                  type="file"
+                  formControlName="import_file"
+                  id="import_file"
+                  (change)="import($event)"
+                  class="hide"
+                />
+              </form>
+              <a href="" id="pia-exportBlock"></a>
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="pia-filtersBlock-right">
+          <div
+            class="pia-filtersBlock-filters"
+            *ngIf="viewStyle.view === 'card'"
+          >
+            <button class="pia-filtersBlock-filters-btn btn" type="button">
+              <i class="fa fa-filter"></i>
+              {{ "homepage.filters.sort" | translate }}
+              <span
+                class="pia-icons"
+                [ngClass]="
+                  appDataService.entrieMode === 'knowledgeBase'
+                    ? 'pia-icon-scroll-red'
+                    : 'pia-icon-scroll-green'
+                "
+              ></span>
+            </button>
+            <div class="pia-filtersBlock-filters-list">
+              <span>{{ "homepage.filters.sort_by" | translate }}</span>
+              <ul>
+                <ng-container [ngSwitch]="type_entries">
+                  <ng-container *ngSwitchCase="'structure'">
+                    <li [ngClass]="{ active: sortValue === 'name' }">
+                      <a (click)="sortBy('name')">{{
+                        "homepage.filters.name" | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'sector_name' }">
+                      <a (click)="sortBy('sector_name')">{{
+                        "homepage.filters.sector_name" | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'created_at' }">
+                      <a (click)="sortBy('created_at')">{{
+                        "homepage.filters.date" | translate
+                      }}</a>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngSwitchCase="'knowledgeBase'">
+                    <li [ngClass]="{ active: sortValue === 'name' }">
+                      <a (click)="sortBy('name')">{{
+                        "homepage.filters.name" | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'author' }">
+                      <a (click)="sortBy('author')">{{
+                        "homepage.cards.knowledges.placeholder_author"
+                          | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'contributors' }">
+                      <a (click)="sortBy('contributors')">{{
+                        "homepage.cards.knowledges.placeholder_contributors"
+                          | translate
+                      }}</a>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngSwitchDefault>
+                    <li [ngClass]="{ active: sortValue === 'name' }">
+                      <a (click)="sortBy('name')">{{
+                        "homepage.filters.name" | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'category' }">
+                      <a (click)="sortBy('category')">{{
+                        "homepage.filters.category" | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'created_at' }">
+                      <a (click)="sortBy('created_at')">{{
+                        "homepage.filters.date" | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'status' }">
+                      <a (click)="sortBy('status')">{{
+                        "homepage.filters.status" | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'author_name' }">
+                      <a (click)="sortBy('author_name')">{{
+                        "homepage.filters.author" | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'evaluator_name' }">
+                      <a (click)="sortBy('evaluator_name')">{{
+                        "homepage.filters.assessor" | translate
+                      }}</a>
+                    </li>
+                    <li [ngClass]="{ active: sortValue === 'validator_name' }">
+                      <a (click)="sortBy('validator_name')">{{
+                        "homepage.filters.validator" | translate
+                      }}</a>
+                    </li>
+                  </ng-container>
+                </ng-container>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pia-searchInput">
+            <input
+              type="text"
+              class="btn btn-search"
+              [ngClass]="{ typed: searchText && searchText.length > 0 }"
+              [(ngModel)]="searchText"
+              placeholder="{{ 'homepage.search_filter' | translate }}"
+              name="search"
+              autocomplete="off"
+            />
+            <i class="search-icon">⚲</i>
+            <i
+              class="search-close"
+              (click)="onCleanSearch()"
+              *ngIf="searchText && searchText.length > 0"
+              >×</i
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- "Card" mode -->
+    <div
+      *ngIf="viewStyle.view === 'card'; else viewList"
+      class="small-12 medium-12 columns"
+    >
+      <!-- New PIA -->
+      <div
+        *ngIf="
+          type_entries === 'pia' ||
+          type_entries === 'structure' ||
+          type_entries === 'knowledgeBase'
+        "
+        class="pia-cardsBlock pia-newBlock"
+        id="cardsSwitch"
+      >
+        <div class="pia-newBlock-item front" id="pia-new-card">
+          <div class="pia-newBlock-item-new">
+            <div class="pia-newBlock-item-new-title">
+              <ng-container *ngIf="type_entries === 'pia'">{{
+                "homepage.cards.new_pia" | translate
+              }}</ng-container>
+              <ng-container *ngIf="type_entries === 'structure'">{{
+                "homepage.cards.new_structure" | translate
+              }}</ng-container>
+              <ng-container *ngIf="type_entries === 'knowledgeBase'">{{
+                "homepage.cards.knowledges.new" | translate
+              }}</ng-container>
+            </div>
+            <div class="pia-newBlock-item-new-btn">
+              <i class="fa fa-folder-open" aria-hidden="true"></i>
+              <button
+                class="btn"
+                (click)="open()"
+                type="button"
+                [attr.title]="
+                  'homepage.cards.placeholder_new_' + type_entries | translate
+                "
+              >
+                <span
+                  class="pia-icons"
+                  [ngClass]="
+                    appDataService.entrieMode === 'knowledgeBase'
+                      ? 'pia-icon-pia-plus-red'
+                      : 'pia-icon-pia-plus'
+                  "
+                ></span>
+              </button>
+            </div>
+          </div>
+          <span>{{ "homepage.cards.or" | translate }}</span>
+          <div class="pia-newBlock-item-import">
+            <div class="pia-newBlock-item-import-title">
+              <ng-container *ngIf="type_entries === 'pia'">{{
+                "homepage.cards.import_pia" | translate
+              }}</ng-container>
+              <ng-container *ngIf="type_entries === 'structure'">{{
+                "homepage.cards.import_structure" | translate
+              }}</ng-container>
+              <ng-container *ngIf="type_entries === 'knowledgeBase'">{{
+                "homepage.cards.knowledges.import" | translate
+              }}</ng-container>
+            </div>
+            <div class="pia-newBlock-item-import-btn">
+              <i class="fa fa-upload" aria-hidden="true"></i>
+              <button
+                class="btn"
+                (click)="import()"
+                type="button"
+                [attr.title]="
+                  'homepage.cards.placeholder_import_' + type_entries
+                    | translate
+                "
+              >
+                <span
+                  class="pia-icons"
+                  [ngClass]="
+                    appDataService.entrieMode === 'knowledgeBase'
+                      ? 'pia-icon-pia-plus-red'
+                      : 'pia-icon-pia-plus'
+                  "
+                ></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="pia-cardsBlock pia-editBlock back">
+          <div class="pia-cardsBlock-item pia-editBlock-item">
+            <button
+              class="btn"
+              (click)="reverse()"
+              type="button"
+              [attr.title]="'homepage.cards.title_close_creation' | translate"
+            >
+              <span class="pia-icons pia-icon-close"></span>
+            </button>
+
+            <ng-container [ngSwitch]="type_entries">
+              <ng-container *ngSwitchCase="'pia'">
+                <app-new-pia (submited)="onFormSubmited($event, 'pia')">
+                </app-new-pia>
+              </ng-container>
+              <ng-container *ngSwitchCase="'structure'">
+                <app-new-structure
+                  (submited)="onFormSubmited($event, 'structure')"
+                >
+                </app-new-structure>
+              </ng-container>
+              <ng-container *ngSwitchCase="'knowledgeBase'">
+                <app-new-knowledgebase
+                  (submited)="onFormSubmited($event, 'knowledgeBase')"
+                >
+                </app-new-knowledgebase>
+              </ng-container>
+              <ng-container *ngSwitchDefault> </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <!-- END New PIA -->
+      <ng-container *ngIf="!loading; else loadingEntries">
+        <!-- PIA, ARCHIVE Cards switch -->
+        <ng-container [ngSwitch]="type_entries">
+          <ng-container *ngSwitchCase="'pia'">
+            <app-pia-card
+              *ngFor="
+                let pia of entries | filterForUser: searchText;
+                let i = index
+              "
+              (changed)="updateEntrie($event)"
+              (duplicated)="refreshContent()"
+              (archived)="refreshContent()"
+              [pia]="pia"
+              [previousPia]="i > 0 ? entries[i - 1] : null"
+            >
+            </app-pia-card>
+          </ng-container>
+          <ng-container *ngSwitchCase="'archive'">
+            <app-archive-card
+              *ngFor="
+                let archivedPia of entries | filterForUser: searchText;
+                let i = index
+              "
+              [archivedPia]="archivedPia"
+              (deleted)="refreshContent()"
+              [previousArchivedPia]="i > 0 ? entries[i - 1] : null"
+            >
+            </app-archive-card>
+          </ng-container>
+          <ng-container *ngSwitchCase="'structure'">
+            <app-structure-card
+              *ngFor="
+                let structure of entries | filterForUser: searchText;
+                let i = index
+              "
+              (changed)="updateEntrie($event)"
+              (duplicated)="refreshContent()"
+              (deleted)="refreshContent()"
+              [structure]="structure"
+              [previousStructure]="i > 0 ? entries[i - 1] : null"
+            >
+            </app-structure-card>
+          </ng-container>
+          <ng-container *ngSwitchCase="'knowledgeBase'">
+            <app-knowledgebase-card
+              *ngFor="
+                let base of entries | filterForUser: searchText;
+                let i = index
+              "
+              (changed)="updateEntrie($event)"
+              (duplicated)="refreshContent()"
+              (deleted)="refreshContent()"
+              [base]="base"
+            >
+            </app-knowledgebase-card>
+          </ng-container>
+          <ng-container *ngSwitchDefault> </ng-container>
+        </ng-container>
+        <!-- ENDING PIA, ARCHIVE Cards switch -->
+      </ng-container>
+      <ng-template #loadingEntries>
+        <div class="entries-loading entries-loading-card">
+          <app-loading-overlay
+            [visibility]="true"
+            [childMode]="true"
+          ></app-loading-overlay>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- "List" mode -->
+    <ng-template #viewList>
+      <div class="small-12 medium-12 columns">
+        <table class="pia-list-table">
+          <thead>
+            <ng-container [ngSwitch]="type_entries">
+              <ng-container *ngSwitchCase="'structure'">
+                <tr app-structure-heading (sorting)="sortBy($event)"></tr>
+              </ng-container>
+              <ng-container *ngSwitchCase="'knowledgeBase'">
+                <tr app-knowledgebase-heading (sorting)="sortBy($event)"></tr>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                <tr app-pia-heading (sorting)="sortBy($event)"></tr>
+              </ng-container>
+            </ng-container>
+          </thead>
+          <ng-container *ngIf="!loading; else loadingEntries">
+            <tbody>
+              <ng-container [ngSwitch]="type_entries">
+                <ng-container *ngSwitchCase="'pia'">
+                  <tr
+                    app-pia-line
+                    class="app-list-item"
+                    *ngFor="
+                      let pia of entries | filterForUser: searchText;
+                      let i = index
+                    "
+                    (changed)="updateEntrie($event)"
+                    (duplicated)="refreshContent()"
+                    (archived)="refreshContent()"
+                    [pia]="pia"
+                  ></tr>
+                </ng-container>
+                <ng-container *ngSwitchCase="'archive'">
+                  <tr
+                    app-archive-line
+                    class="app-list-item"
+                    *ngFor="
+                      let archivedPia of entries | filterForUser: searchText;
+                      let i = index
+                    "
+                    [archivedPia]="archivedPia"
+                    (deleted)="refreshContent()"
+                  ></tr>
+                </ng-container>
+                <ng-container *ngSwitchCase="'structure'">
+                  <tr
+                    app-structure-line
+                    class="app-list-item"
+                    *ngFor="
+                      let structure of entries | filterForUser: searchText;
+                      let i = index
+                    "
+                    (changed)="updateEntrie($event)"
+                    (duplicated)="refreshContent()"
+                    (deleted)="refreshContent()"
+                    [structure]="structure"
+                  ></tr>
+                </ng-container>
+                <ng-container *ngSwitchCase="'knowledgeBase'">
+                  <tr
+                    app-knowledgebase-line
+                    class="app-list-item"
+                    *ngFor="
+                      let base of entries | filterForUser: searchText;
+                      let i = index
+                    "
+                    (changed)="updateEntrie($event)"
+                    (duplicated)="refreshContent()"
+                    (deleted)="refreshContent()"
+                    [base]="base"
+                  ></tr>
+                </ng-container>
+                <ng-container *ngSwitchDefault> </ng-container>
+              </ng-container>
+            </tbody>
+          </ng-container>
+          <ng-template #loadingEntries>
+            <tbody>
+              <div class="entries-loading entries-loading-line">
+                <app-loading-overlay
+                  [visibility]="true"
+                  [childMode]="true"
+                ></app-loading-overlay>
+              </div>
+            </tbody>
+          </ng-template>
+        </table>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<app-modal
+  *ngIf="showModal"
+  [specialClass]="
+    'card ' + (type_entries === 'knowledgeBase' ? 'card-knowledge' : '')
+  "
+  (clickOnClose)="showModal = false"
+>
+  <ng-container [ngSwitch]="type_entries">
+    <ng-container *ngSwitchCase="'pia'">
+      <app-new-pia
+        (submited)="onFormSubmited($event, 'pia'); showModal = false"
+      >
+      </app-new-pia>
+    </ng-container>
+    <ng-container *ngSwitchCase="'structure'">
+      <app-new-structure
+        (submited)="onFormSubmited($event, 'structure'); showModal = false"
+      >
+      </app-new-structure>
+    </ng-container>
+    <ng-container *ngSwitchCase="'knowledgeBase'">
+      <app-new-knowledgebase
+        (submited)="onFormSubmited($event, 'knowledgeBase'); showModal = false"
+      >
+      </app-new-knowledgebase>
+    </ng-container>
+    <ng-container *ngSwitchDefault> </ng-container>
+  </ng-container>
+</app-modal>
+
+<app-dialog></app-dialog>

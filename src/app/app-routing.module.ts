@@ -1,34 +1,34 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { AuthenticationComponent } from './authentication/authentication.component';
-import { PreviewComponent } from './preview/preview.component';
-import { SettingsComponent } from './settings/settings.component';
-import { HelpComponent } from './help/help.component';
-import { AboutComponent } from './about/about.component';
-import { ErrorsComponent } from './errors/errors.component';
-
-import { CardsRoutingModule } from './cards/cards-routing.module';
-import { EntryRoutingModule } from './entry/entry-routing.module';
-import { StructuresRoutingModule } from './structures/structures-routing.module';
-import { ArchivesRoutingModule } from './archives/archives-routing.module';
+import { BaseRoutingModule } from './modules/base/base-routing.module';
+import { EntriesRoutingModule } from './modules/entries/entries-routing.module';
+import { EntriesComponent } from './modules/entries/entries.component';
+import { HomeRoutingModule } from './modules/home/home-routing.module';
+import { HomeComponent } from './modules/home/home.component';
+import { PiaRoutingModule } from './modules/pia/pia-routing.module';
+import { SettingsRoutingModule } from './modules/settings/settings-routing.module';
+import { StructureRoutingModule } from './modules/structure/structure-routing.module';
 
 const routes: Routes = [
-  { path: '', component: AuthenticationComponent },
-  { path: 'preview/:id', component: PreviewComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'help', component: HelpComponent },
-  { path: 'about', component: AboutComponent },
-  { path: '**', component: ErrorsComponent }
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'entries',
+    component: EntriesComponent
+  }
 ];
 
 @NgModule({
   imports: [
-    CardsRoutingModule,
-    EntryRoutingModule,
-    StructuresRoutingModule,
-    ArchivesRoutingModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    HomeRoutingModule,
+    EntriesRoutingModule,
+    BaseRoutingModule,
+    StructureRoutingModule,
+    PiaRoutingModule,
+    SettingsRoutingModule,
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy',  useHash: true  })
   ],
   exports: [RouterModule]
 })
