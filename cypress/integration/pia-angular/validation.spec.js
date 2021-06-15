@@ -38,13 +38,10 @@ describe("Validation", () => {
   });
 
   context("Refuse or ask pia signature", () => {
-    it("Upload file", () => {
+    it("should refuse pia", () => {
       cy.init();
       cy.disable_onboarding();
       cy.import_pia();
-    });
-
-    it("should refuse pia", () => {
       cy.get_current_pia_id(id => {
         cy.go_edited_pia(id, 4, 3).then(() => {
           cy.validateDPO();
