@@ -5,6 +5,5 @@
   "baseUrl": "http://localhost:4200",
   "experimentalSourceRewriting": false,
   "download.default_directory": "./cypress/download",
-  "profile.default_content_settings.popups": 0,
-  "retries": 3
+  "profile.default_content_settings.popups": 0
 }
