@@ -391,10 +391,12 @@ Cypress.Commands.add("refusePia", () => {
       cy.wait(6000);
       cy.get(".pia-entryContentBlock-content-subject-textarea")
         .find("textarea", { force: true })
-        .type(
-          "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
-          { force: true }
-        );
+        .then(textarea => {
+          textarea.type(
+            "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
+            { force: true }
+          );
+        });
       cy.get(".pia-entryContentBlock-content-subject")
         .wait(1000)
         .click("bottom");

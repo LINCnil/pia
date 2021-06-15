@@ -37,29 +37,29 @@ describe("Validation", () => {
     });
   });
 
-  context(
-    "Refuse or ask pia signature",
-    {
-      retries: {
-        runMode: 2,
-        openMode: 2
-      }
-    },
-    () => {
-      it("Upload file", () => {
-        cy.init();
-        cy.disable_onboarding();
-        cy.import_pia();
-      });
+  context("Refuse or ask pia signature", () => {
+    it("Upload file", () => {
+      cy.init();
+      cy.disable_onboarding();
+      cy.import_pia();
+    });
 
-      it("should refuse pia", () => {
+    it(
+      "should refuse pia",
+      {
+        retries: {
+          runMode: 2,
+          openMode: 2
+        }
+      },
+      () => {
         cy.get_current_pia_id(id => {
           cy.go_edited_pia(id, 4, 3).then(() => {
             cy.validateDPO();
           });
           cy.refusePia();
         });
-      });
-    }
-  );
+      }
+    );
+  });
 });
