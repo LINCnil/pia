@@ -40,12 +40,18 @@ describe("Validation", () => {
   context("Refuse or ask pia signature", () => {
     it("should refuse pia", () => {
       cy.init();
+      cy.wait(3000);
       cy.disable_onboarding();
+      cy.wait(3000);
       cy.import_pia();
+      cy.wait(3000);
       cy.get_current_pia_id(id => {
+        cy.wait(3000);
         cy.go_edited_pia(id, 4, 3).then(() => {
+          cy.wait(3000);
           cy.validateDPO();
         });
+        cy.wait(3000);
         cy.refusePia();
       });
     });
