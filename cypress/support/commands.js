@@ -301,18 +301,15 @@ Cypress.Commands.add("redirectMeasureOnAcceptation", () => {
 });
 Cypress.Commands.add("validateDPO", () => {
   cy.get(".pia-entryContentBlock-content-DPO").each(($el, $index, $list) => {
-    if (cy.wrap($el).find('input[type="text"]').length > 0) {
-      cy.wrap($el)
-        .find('input[type="text"]')
-        .first()
-        .type("DPO Pia", { force: true });
-    }
-    if (cy.wrap($el).find('input[type="radio"]').length > 0) {
-      cy.wrap($el)
-        .find('input[type="radio"]')
-        .first()
-        .check({ force: true });
-    }
+    cy.wrap($el)
+      .find("input.DPOName")
+      .first()
+      .type("DPO Pia", { force: true });
+    cy.wrap($el)
+      .find(".pia-entryContentBlock-content-DPO-treatment")
+      .find("label")
+      .first()
+      .click({ force: true });
     cy.wrap($el)
       .find("textarea")
       .type(
@@ -330,7 +327,7 @@ Cypress.Commands.add("validateDPO", () => {
     cy.wrap($el)
       .find("form")
       .last()
-      .find("input")
+      .find("input.DPOName")
       .first()
       .type("DPO Pia", { force: true });
     cy.wrap($el)
@@ -347,8 +344,6 @@ Cypress.Commands.add("validateDPO", () => {
         "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
         { force: true }
       );
-
-      cy.focus_out();
     cy.wrap($el)
       .find("form")
       .parent()
