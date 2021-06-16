@@ -316,6 +316,7 @@ Cypress.Commands.add("validateDPO", () => {
         "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
         { force: true }
       );
+      cy.focus_out();
   });
   cy.get(".pia-entryContentBlock-content-people").each(($el, $index, $list) => {
     cy.wrap($el)
@@ -344,6 +345,8 @@ Cypress.Commands.add("validateDPO", () => {
         "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
         { force: true }
       );
+      
+      cy.focus_out();
     cy.wrap($el)
       .find("form")
       .parent()
