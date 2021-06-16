@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 .pia-ValidationRefuse {
   .pia-entryContentBlock {
     &-content {
@@ -8,7 +8,8 @@
           padding: 0 10px;
           display: flex;
           justify-content: space-between;
-          h1, i {
+          h1,
+          i {
             align-self: center;
           }
           i {
@@ -46,7 +47,7 @@
               font-size: 1.4rem;
               font-style: italic;
               background-color: $pia-white;
-              color: #A7A7A7;
+              color: $pia-gray;
             }
             &:disabled {
               background-color: #fff;
