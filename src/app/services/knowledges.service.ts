@@ -82,7 +82,7 @@ export class KnowledgesService extends ApplicationDb {
         entry.placeholder = knowledge.placeholder;
         entry.name = knowledge.name;
         entry.description = knowledge.description;
-        entry.knowledgeBase_id = knowledge.knowledgeBase_id;
+        entry.knowledge_base_id = knowledge.knowledge_base_id;
         (entry.items = knowledge.items), (entry.created_at = entry.created_at);
         entry.updated_at = new Date();
 
