@@ -4,6 +4,7 @@ export class ApplicationDb {
   protected serverUrl: string;
   public pia_id: number;
   public structure_id: number;
+  public knowledge_base_id: number;
   public reference_to: string;
   public created_at: Date;
   public updated_at: Date;
@@ -27,6 +28,12 @@ export class ApplicationDb {
           break;
         case 'structures':
           this.structure_id = parseInt(window.location.hash.split('/')[2], 10);
+          break;
+        case 'knowledge_bases':
+          this.knowledge_base_id = parseInt(
+            window.location.hash.split('/')[2],
+            10
+          );
           break;
         default:
           break;
@@ -91,7 +98,7 @@ export class ApplicationDb {
             } else if (this.tableName === 'revision') {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
             } else if (this.tableName === 'knowledge') {
-              objectStore.createIndex('index1', 'knowledgeBase_id', {
+              objectStore.createIndex('index1', 'knowledge_base_id', {
                 unique: false
               });
             }
@@ -293,18 +300,18 @@ export class ApplicationDb {
     }
 
     if (this.tableName === 'knowledgeBase') {
-      prefix = '/knowledge-bases';
+      prefix = '/knowledge_bases';
     }
 
     if (this.tableName === 'knowledge') {
-      prefix = '/knowledges';
+      prefix = '/knowledge_bases';
+      id = this.knowledge_base_id;
     }
 
     if (
       this.tableName !== 'pia' &&
       this.tableName !== 'structure' &&
-      this.tableName !== 'knowledgeBase' &&
-      this.tableName !== 'knowledge'
+      this.tableName !== 'knowledgeBase'
     ) {
       return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's';
     } else {
@@ -323,6 +330,9 @@ export class ApplicationDb {
                 break;
               case 'structures':
                 this.structure_id = parseInt(evt.url.split('/')[2], 10);
+                break;
+              case 'knowledge_bases':
+                this.knowledge_base_id = parseInt(evt.url.split('/')[2], 10);
                 break;
               default:
                 break;

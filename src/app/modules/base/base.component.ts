@@ -165,7 +165,7 @@ export class BaseComponent implements OnInit {
     entry.description = this.entryForm.value.description;
     entry.slug = slugify(entry.name);
     entry.category = this.entryForm.value.category;
-    entry.items = this.itemsSelected;
+    entry.items = this.itemsSelected.map(x => parseInt(x));
 
     entry.filters = this.checkFilters();
     entry.created_at = new Date();
@@ -188,7 +188,6 @@ export class BaseComponent implements OnInit {
   editEntry(id): void {
     if (id) {
       this.selectedKnowledgeId = id;
-      const tempk = new Knowledge();
       this.knowledgesService
         .find(id)
         .then((result: Knowledge) => {
@@ -197,7 +196,7 @@ export class BaseComponent implements OnInit {
           this.entryForm.controls['description'].setValue(result.description);
           this.itemsSelected = [];
           if (result.items) {
-            this.itemsSelected = result.items;
+            this.itemsSelected = result.items.map(x => x.toString());
           }
           this.checkLockedChoice();
 
@@ -264,8 +263,9 @@ export class BaseComponent implements OnInit {
           entry.description = this.entryForm.value.description;
           entry.slug = slugify(entry.name);
           entry.category = this.entryForm.value.category;
-          entry.items = this.itemsSelected;
+          entry.items = this.itemsSelected.map(x => parseInt(x));
           entry.filters = this.checkFilters();
+          entry.knowledge_base_id = this.base.id;
           // Update object
           this.knowledgesService
             .update(entry)
@@ -294,7 +294,9 @@ export class BaseComponent implements OnInit {
     if (e.target.checked) {
       ar.push(e.target.value);
     } else {
-      const index = ar.findIndex(item => item === e.target.value);
+      const index = ar.findIndex(
+        item => item.toString() == e.target.value.toString()
+      );
       if (index !== -1) {
         ar.splice(index, 1);
       }

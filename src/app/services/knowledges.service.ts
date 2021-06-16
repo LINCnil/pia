@@ -28,10 +28,36 @@ export class KnowledgesService extends ApplicationDb {
    * @returns - New Promise
    */
   async create(baseId: number, knowledge: Knowledge): Promise<Knowledge> {
-    knowledge.knowledgeBase_id = baseId;
+    this.knowledge_base_id = baseId;
+    knowledge.knowledge_base_id = baseId;
 
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
+        const formData = new FormData();
+        for (const d in knowledge) {
+          if (knowledge.hasOwnProperty(d)) {
+            let value = knowledge[d];
+            if (d === 'data' || d === 'items') {
+              value = JSON.stringify(value);
+            }
+            formData.append('knowledge[' + d + ']', value);
+          }
+        }
+        fetch(this.getServerUrl(), {
+          method: 'POST',
+          body: formData,
+          mode: 'cors'
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(knowledge);
@@ -56,7 +82,7 @@ export class KnowledgesService extends ApplicationDb {
         entry.placeholder = knowledge.placeholder;
         entry.name = knowledge.name;
         entry.description = knowledge.description;
-        entry.knowledgeBase_id = knowledge.knowledgeBase_id;
+        entry.knowledge_base_id = knowledge.knowledge_base_id;
         (entry.items = knowledge.items), (entry.created_at = entry.created_at);
         entry.updated_at = new Date();
 
@@ -65,10 +91,10 @@ export class KnowledgesService extends ApplicationDb {
           for (const d in entry) {
             if (entry.hasOwnProperty(d)) {
               let value = entry[d];
-              if (d === 'data') {
+              if (d === 'data' || d === 'items') {
                 value = JSON.stringify(value);
               }
-              formData.append('structure[' + d + ']', value);
+              formData.append('knowledge[' + d + ']', value);
             }
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
@@ -132,6 +158,7 @@ export class KnowledgesService extends ApplicationDb {
   private async findAllByBaseId(baseId: number): Promise<Array<Knowledge>> {
     const items = [];
     return new Promise((resolve, reject) => {
+      this.knowledge_base_id = baseId;
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           mode: 'cors'
