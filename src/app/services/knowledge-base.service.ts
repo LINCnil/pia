@@ -94,6 +94,31 @@ export class KnowledgeBaseService extends ApplicationDb {
   async create(base: KnowledgeBase): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
       if (this.serverUrl) {
+        const formData = new FormData();
+        for (const d in base) {
+          if (base.hasOwnProperty(d)) {
+            let value = base[d];
+            if (d === 'data') {
+              value = JSON.stringify(value);
+            }
+            formData.append('knowledge_base[' + d + ']', value);
+          }
+        }
+        fetch(this.getServerUrl(), {
+          method: 'POST',
+          body: formData,
+          mode: 'cors'
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            console.error('Request failed', error);
+            reject(error);
+          });
       } else {
         this.getObjectStore().then(() => {
           const evt = this.objectStore.add(base);
@@ -125,7 +150,7 @@ export class KnowledgeBaseService extends ApplicationDb {
               if (d === 'data') {
                 value = JSON.stringify(value);
               }
-              formData.append('structure[' + d + ']', value);
+              formData.append('knowledge_base[' + d + ']', value);
             }
           }
           fetch(this.getServerUrl() + '/' + entry.id, {
