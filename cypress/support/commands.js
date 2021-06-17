@@ -300,55 +300,38 @@ Cypress.Commands.add("redirectMeasureOnAcceptation", () => {
   cy.visit("/#/entry/2/section/3/item/3");
 });
 Cypress.Commands.add("validateDPO", () => {
-  cy.get(".pia-entryContentBlock-content-DPO").each(($el, $index, $list) => {
-    cy.wrap($el)
-      .find("input[type=text]")
-      .first()
-      .type("DPO Pia", { force: true });
-    cy.wrap($el)
-      .find(".pia-entryContentBlock-content-DPO-treatment")
-      .find("label")
-      .first()
-      .click({ force: true });
-    cy.wrap($el)
-      .find("textarea")
-      .type(
-        "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
-        { force: true }
-      );
-  });
-  cy.get(".pia-entryContentBlock-content-people").each(($el, $index, $list) => {
-    cy.wrap($el)
-      .find("form")
-      .first()
-      .find("label")
-      .first()
-      .click({ force: true });
-    cy.wrap($el)
-      .find("form")
-      .last()
-      .find("input[type=text]")
-      .first()
-      .type("DPO Pia", { force: true });
-    cy.wrap($el)
-      .find("form")
-      .last()
-      .find("label")
-      .first()
-      .click({ force: true });
-    cy.wrap($el)
-      .find("form")
-      .last()
-      .find("textarea")
-      .type(
-        "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
-        { force: true }
-      );
-    cy.wrap($el)
+
+  // 1 block
+  const baseContentDPO = ".pia-entryContentBlock-content-DPO "
+  const reactTime = 500
+  cy.get(baseContentDPO + "input.DPOName").first().type("DPO Pia", { force: true });
+  cy.get(baseContentDPO + ".pia-entryContentBlock-content-DPO-treatment label").first().click({ force: true });
+  cy.get(baseContentDPO).find("textarea").type(
+    "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
+    { force: true }
+  );
+  cy.wait(reactTime)
+  
+  // 2 block
+  const baseContentPeople = ".pia-entryContentBlock-content-people "
+  cy.get(baseContentPeople + "label[for=concerned-people-choice-searched]").first().click({ force: true });
+
+  cy.wait(reactTime)
+  cy.get(baseContentPeople + "input.DPOName").first().type("DPO Pia", { force: true });
+
+  cy.wait(reactTime)
+  cy.get(baseContentPeople + "label[for=dpoAvis-1]").first().click({ force: true });
+
+  cy.wait(reactTime)
+
+  cy.get(baseContentPeople + "textarea").type(
+    "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
+    { force: true }
+  );
+  cy.get(baseContentPeople)
       .find("form")
       .parent()
       .click({ force: true });
-  });
 });
 Cypress.Commands.add("validatePia", () => {
   cy.get(".pia-validatePIABlock")
