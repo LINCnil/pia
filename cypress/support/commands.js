@@ -302,7 +302,7 @@ Cypress.Commands.add("redirectMeasureOnAcceptation", () => {
 Cypress.Commands.add("validateDPO", () => {
   cy.get(".pia-entryContentBlock-content-DPO").each(($el, $index, $list) => {
     cy.wrap($el)
-      .find("input.DPOName")
+      .find("input[type=text]")
       .first()
       .type("DPO Pia", { force: true });
     cy.wrap($el)
@@ -327,7 +327,7 @@ Cypress.Commands.add("validateDPO", () => {
     cy.wrap($el)
       .find("form")
       .last()
-      .find("input.DPOName")
+      .find("input[type=text]")
       .first()
       .type("DPO Pia", { force: true });
     cy.wrap($el)
