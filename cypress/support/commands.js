@@ -318,7 +318,8 @@ Cypress.Commands.add("validateDPO", () => {
   cy.get(baseContentPeople + "label[for=concerned-people-choice-searched]").first().click({ force: true });
 
   cy.wait(reactTime)
-  cy.get(baseContentPeople + "input[type=text]").first().type("DPO Pia", { force: true });
+  cy.wait(reactTime)
+  cy.get(baseContentPeople + "input.DPOName").first().type("DPO Pia", { force: true });
 
   cy.wait(reactTime)
   cy.get(baseContentPeople + "label[for=dpoAvis-1]").first().click({ force: true });
