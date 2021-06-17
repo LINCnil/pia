@@ -303,7 +303,7 @@ Cypress.Commands.add("validateDPO", () => {
 
   // 1 block
   const baseContentDPO = ".pia-entryContentBlock-content-DPO "
-  const reactTime = 500
+  const reactTime = 1000
   cy.get(baseContentDPO + "input.DPOName").first().type("DPO Pia", { force: true });
   cy.get(baseContentDPO + ".pia-entryContentBlock-content-DPO-treatment label").first().click({ force: true });
   cy.get(baseContentDPO).find("textarea").type(
@@ -311,13 +311,13 @@ Cypress.Commands.add("validateDPO", () => {
     { force: true }
   );
   cy.wait(reactTime)
-  
+
   // 2 block
   const baseContentPeople = ".pia-entryContentBlock-content-people "
   cy.get(baseContentPeople + "label[for=concerned-people-choice-searched]").first().click({ force: true });
 
   cy.wait(reactTime)
-  cy.get(baseContentPeople + "input.DPOName").first().type("DPO Pia", { force: true });
+  cy.get(baseContentPeople + "input[type=text]").first().type("DPO Pia", { force: true });
 
   cy.wait(reactTime)
   cy.get(baseContentPeople + "label[for=dpoAvis-1]").first().click({ force: true });
