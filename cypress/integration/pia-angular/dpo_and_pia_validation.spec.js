@@ -29,7 +29,7 @@ describe("dpo and pia validation", () => {
     });
     it("should show report", () => {
       cy.closeValidationEvaluationModal();
-      cy.get('.pia-previewBlock[href="#/preview/1"]').click();
+      cy.get('.pia-previewBlock[href="#/preview/2"]').click();
 
       cy.url().should("include", "/preview/2");
 
