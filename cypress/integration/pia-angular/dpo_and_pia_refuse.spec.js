@@ -25,12 +25,12 @@ describe("dpo and pia refuse", () => {
         }
       },
       () => {
-        // cy.get_current_pia_id(id => {
-          cy.go_edited_pia(1, 4, 3).then(() => {
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 4, 3).then(() => {
             cy.validateDPO();
           });
           cy.refusePia();
-        // });
+        });
       }
     );
   });
