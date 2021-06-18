@@ -17,8 +17,10 @@ describe("Validation", () => {
 
   context("Avis du DPD et des personnes concernées", () => {
     it("should complete DPD", () => {
-      cy.go_edited_pia(1, 4, 3).then(() => {
-        cy.validateDPO();
+      cy.get_current_pia_id(id => {
+        cy.go_edited_pia(id, 4, 3).then(() => {
+          cy.validateDPO();
+        });
       });
     });
     it("should valid pia", () => {
@@ -27,26 +29,11 @@ describe("Validation", () => {
     });
     it("should show report", () => {
       cy.closeValidationEvaluationModal();
-      cy.get('.pia-previewBlock[href="#/preview/1"]').click();
+      cy.get('.pia-previewBlock[href="#/preview/2"]').click();
 
-      cy.url().should("include", "/preview/1");
+      cy.url().should("include", "/preview/2");
 
       cy.get(".pia-fullPreviewBlock-data").should("exist");
-    });
-  });
-
-  context("Refuse or ask pia signature", () => {
-    it("Upload file", () => {
-      cy.init();
-      cy.disable_onboarding();
-      cy.import_pia();
-    });
-
-    it("should refuse pia", () => {
-      cy.go_edited_pia(1, 4, 3).then(() => {
-        cy.validateDPO();
-      });
-      cy.refusePia();
     });
   });
 });
