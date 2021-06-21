@@ -38,6 +38,7 @@ Cypress.Commands.add("init", () => {
   cy.clearCookies();
   cy.window().then(win => {
     win.sessionStorage.clear();
+    cy.reload(true);
   });
   cy.wait(1000);
 });

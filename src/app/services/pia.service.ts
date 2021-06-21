@@ -48,7 +48,7 @@ export class PiaService extends ApplicationDb {
 
     this.data = this.appDataService.dataNav;
 
-    // there isn't pia ? load it
+    // there isn't pia ? load example
     this.find(1)
       .then((pia : Pia) => {
         if (!pia) {
@@ -73,6 +73,9 @@ export class PiaService extends ApplicationDb {
             element => element.is_example === 1 || element.is_archive !== 1
           )
         );
+      })
+      .catch(err => {
+        reject(err);
       });
     });
   }
@@ -91,8 +94,8 @@ export class PiaService extends ApplicationDb {
         .then((result: any) => {
           resolve(result);
         })
-        .catch(error => {
-          reject();
+        .catch(err => {
+          reject(err);
         });
     });
   }
