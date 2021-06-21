@@ -238,13 +238,13 @@ Cypress.Commands.add("test_move_gauges", () => {
 });
 
 Cypress.Commands.add("validateEval", () => {
-  cy.focus_out().then(() => {
+    cy.focus_out();
     cy.wait(1000);
     cy.get(".pia-entryContentBlock-footer")
       .find(".btn-green")
       .should("have.class", "btn-active")
       .click({ force: true });
-  });
+
 });
 
 Cypress.Commands.add("acceptEval", () => {
