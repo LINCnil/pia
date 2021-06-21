@@ -118,6 +118,7 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
           });
       });
     }
+    cy.focus_out();
   });
 });
 
@@ -143,13 +144,11 @@ Cypress.Commands.add("test_add_measure", () => {
           );
         cy.wrap($el)
           .parent()
-          .wait(500)
+          .wait(1000)
           .click();
-
         expect($el.find("textarea").val().length > 0).to.be.true;
-
-        cy.focus_out();
       });
+      cy.focus_out();
     });
 });
 
