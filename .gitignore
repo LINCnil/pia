@@ -49,3 +49,6 @@ Thumbs.db
 src/environments/environment.prod.ts
 /cypress/videos/*
 /documentation
+package-lock.json
+.tool-versions
+.env
