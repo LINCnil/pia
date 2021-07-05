@@ -140,7 +140,6 @@
       "publisherName": "ATNOS"
     },
     "linux": {
-      "icon": "electron/icons/512x512.png",
       "category": "Network"
     },
     "nsis": {
