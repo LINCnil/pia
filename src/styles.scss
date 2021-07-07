@@ -1,31 +1,32 @@
 @import './assets/stylesheets/variables';
 
-@import "~normalize.css/normalize.css";
+@import '~normalize.css/normalize.css';
 
-$fa-font-path: "~font-awesome/fonts";
-@import "~font-awesome/scss/font-awesome.scss";
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome.scss';
 
 // Foundation styles
-@import "~foundation-sites/scss/foundation.scss";
+@import '~foundation-sites/scss/foundation.scss';
 @include foundation-global-styles;
 @include foundation-flex-grid;
 @include foundation-flex-classes;
 
 // Common styles
-@import "./assets/stylesheets/fonts";
-@import "./assets/stylesheets/sprites";
-@import "./assets/stylesheets/btn";
-@import "./assets/stylesheets/tooltip";
-@import "./assets/stylesheets/card";
-@import "./assets/stylesheets/animations";
-@import "./assets/stylesheets/tags";
-@import "./assets/stylesheets/gauges";
-@import "./assets/stylesheets/action-plan";
-@import "./assets/stylesheets/contrast";
-@import "./assets/stylesheets/breadcrumb";
-@import "./assets/stylesheets/editor";
-@import "./assets/stylesheets/print";
-@import "./assets/stylesheets/header";
+@import './assets/stylesheets/fonts';
+@import './assets/stylesheets/sprites';
+@import './assets/stylesheets/btn';
+@import './assets/stylesheets/tooltip';
+@import './assets/stylesheets/card';
+@import './assets/stylesheets/animations';
+@import './assets/stylesheets/tags';
+@import './assets/stylesheets/gauges';
+@import './assets/stylesheets/action-plan';
+@import './assets/stylesheets/breadcrumb';
+@import './assets/stylesheets/editor';
+@import './assets/stylesheets/print';
+@import './assets/stylesheets/header';
+@import './assets/stylesheets/onboarding';
+@import './assets/stylesheets/contrast';
 
 @-moz-document url-prefix() {
   .pia-gaugeBlock-user-choice {
@@ -35,19 +36,20 @@ $fa-font-path: "~font-awesome/fonts";
 
 // Default styles
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 body {
-    font-size: 1.2rem;
-    font-family: 'Roboto', sans-serif;
-    background-color: $pia-white;
+  font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
+  background-color: $pia-white;
 }
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 body {
   &.pia-authentication {
-    background: url("./assets/images/authentication-bg.png") no-repeat center center transparent;
+    background: url('./assets/images/authentication-bg.png') no-repeat center center transparent;
     background-size: cover;
   }
 }
@@ -102,7 +104,8 @@ angular2csv {
 }
 
 // Mostly used for displayers
-.close, .hide {
+.close,
+.hide {
   display: none !important;
 }
 .open {
@@ -120,7 +123,7 @@ angular2csv {
     cursor: not-allowed;
     z-index: 1000;
     content: '';
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -156,7 +159,7 @@ tag-input-form {
 }
 
 .tag--editing {
-  background-color: rgba(0,0,0,0.1) !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 .truncate {
@@ -167,8 +170,8 @@ tag-input-form {
 
 /* http://cssload.net Generator */
 .cssload-container {
-	width: 100%;
-	height: 44px;
+  width: 100%;
+  height: 44px;
   text-align: center;
   position: absolute;
   top: 50%;
@@ -176,38 +179,53 @@ tag-input-form {
 }
 
 .cssload-speeding-wheel {
-	width: 44px;
-	height: 44px;
-	margin: 0 auto;
-	border: 3px solid rgb(0,0,0);
-	border-radius: 50%;
-	border-left-color: transparent;
-	border-right-color: transparent;
-	animation: cssload-spin 800ms infinite linear;
-		-o-animation: cssload-spin 800ms infinite linear;
-		-ms-animation: cssload-spin 800ms infinite linear;
-		-webkit-animation: cssload-spin 800ms infinite linear;
-		-moz-animation: cssload-spin 800ms infinite linear;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: cssload-spin 800ms infinite linear;
+  -o-animation: cssload-spin 800ms infinite linear;
+  -ms-animation: cssload-spin 800ms infinite linear;
+  -webkit-animation: cssload-spin 800ms infinite linear;
+  -moz-animation: cssload-spin 800ms infinite linear;
 }
 
 @keyframes cssload-spin {
-	100%{ transform: rotate(360deg); transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 @-o-keyframes cssload-spin {
-	100%{ -o-transform: rotate(360deg); transform: rotate(360deg); }
+  100% {
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 @-ms-keyframes cssload-spin {
-	100%{ -ms-transform: rotate(360deg); transform: rotate(360deg); }
+  100% {
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 @-webkit-keyframes cssload-spin {
-	100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 @-moz-keyframes cssload-spin {
-	100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 .pia-helpBlock-content {

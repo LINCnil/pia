@@ -1,0 +1,13 @@
+.pia-loading-overlay {
+  background: white;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3000000;
+
+  &.child-mode {
+    position: static;
+    background: transparent;
+  }
+}

@@ -1,0 +1,60 @@
+<form
+  class="pia-cardsBlock-item-form"
+  id="modal-new-knowledgeBase"
+  (ngSubmit)="onSubmit()"
+  [formGroup]="knowledgeBaseForm"
+>
+  <div>
+    <label for="name">{{
+      "homepage.cards.knowledges.placeholder_name" | translate
+    }}</label>
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="{{
+        'homepage.cards.knowledges.placeholder_name' | translate
+      }}"
+      id="name"
+      required
+    />
+  </div>
+  <div>
+    <label for="author">{{
+      "homepage.cards.knowledges.placeholder_author" | translate
+    }}</label>
+    <input
+      formControlName="author"
+      type="text"
+      placeholder="{{
+        'homepage.cards.knowledges.placeholder_author' | translate
+      }}"
+      id="author"
+      required
+    />
+  </div>
+  <div>
+    <label for="contributors">{{
+      "homepage.cards.knowledges.placeholder_contributors" | translate
+    }}</label>
+    <input
+      formControlName="contributors"
+      type="text"
+      placeholder="{{
+        'homepage.cards.knowledges.placeholder_contributors' | translate
+      }}"
+      id="contributors"
+      required
+    />
+  </div>
+  <div class="pia-cardsBlock-item-btn">
+    <button
+      type="submit"
+      [disabled]="knowledgeBaseForm.invalid"
+      class="btn btn-red"
+      id="structure-save-card-btn"
+      title="{{ 'homepage.cards.placeholder_start' | translate }}"
+    >
+      {{ "homepage.cards.start" | translate }}
+    </button>
+  </div>
+</form>

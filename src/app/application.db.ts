@@ -1,7 +1,10 @@
+import { NavigationEnd } from '@angular/router';
+
 export class ApplicationDb {
   protected serverUrl: string;
   public pia_id: number;
   public structure_id: number;
+  public knowledge_base_id: number;
   public reference_to: string;
   public created_at: Date;
   public updated_at: Date;
@@ -16,6 +19,25 @@ export class ApplicationDb {
       this.serverUrl = localStorage.getItem('server_url');
     } else {
       this.serverUrl = null;
+    }
+
+    if (window.location.hash && window.location.hash.split('/')[2]) {
+      switch (window.location.hash.split('/')[1]) {
+        case 'pia':
+          this.pia_id = parseInt(window.location.hash.split('/')[2], 10);
+          break;
+        case 'structures':
+          this.structure_id = parseInt(window.location.hash.split('/')[2], 10);
+          break;
+        case 'knowledge_bases':
+          this.knowledge_base_id = parseInt(
+            window.location.hash.split('/')[2],
+            10
+          );
+          break;
+        default:
+          break;
+      }
     }
   }
 
@@ -35,7 +57,7 @@ export class ApplicationDb {
         evt2.onerror = (event2: any) => {
           console.error(event2);
           reject(Error(event2));
-        }
+        };
       };
       evt.onsuccess = (event: any) => {
         resolve(event.target.result);
@@ -75,6 +97,10 @@ export class ApplicationDb {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
             } else if (this.tableName === 'revision') {
               objectStore.createIndex('index1', 'pia_id', { unique: false });
+            } else if (this.tableName === 'knowledge') {
+              objectStore.createIndex('index1', 'knowledge_base_id', {
+                unique: false
+              });
             }
           }
           if (event.oldVersion !== this.dbVersion) {
@@ -122,7 +148,7 @@ export class ApplicationDb {
    * Get the database object.
    * @returns {Promise}
    */
-  async getObjectStore() {
+  async getObjectStore(): Promise<any> {
     const db: any = await this.initDb();
     db.onversionchange = () => {
       db.close();
@@ -132,7 +158,11 @@ export class ApplicationDb {
       this.objectStore = db
         .transaction(this.tableName, 'readwrite')
         .objectStore(this.tableName);
-      resolve(this.objectStore);
+      if (this.objectStore) {
+        resolve(this.objectStore);
+      } else {
+        reject(false);
+      }
     });
   }
 
@@ -234,7 +264,7 @@ export class ApplicationDb {
             return response;
           })
           .then(item => {
-            resolve();
+            resolve(item);
           })
           .catch(error => {
             console.error('Request failed', error);
@@ -248,7 +278,7 @@ export class ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            resolve();
+            resolve(event);
           };
         });
       }
@@ -260,18 +290,56 @@ export class ApplicationDb {
    * @public
    * @returns {string} - An URL.
    */
-  public getServerUrl() {
+  public getServerUrl(): string {
     let prefix = '/pias';
     let id = this.pia_id;
+
     if (this.tableName === 'structure') {
       prefix = '/structures';
       id = this.structure_id;
     }
 
-    if (this.tableName !== 'pia' && this.tableName !== 'structure') {
+    if (this.tableName === 'knowledgeBase') {
+      prefix = '/knowledge_bases';
+    }
+
+    if (this.tableName === 'knowledge') {
+      prefix = '/knowledge_bases';
+      id = this.knowledge_base_id;
+    }
+
+    if (
+      this.tableName !== 'pia' &&
+      this.tableName !== 'structure' &&
+      this.tableName !== 'knowledgeBase'
+    ) {
       return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's';
     } else {
       return this.serverUrl + prefix;
+    }
+  }
+
+  public prepareServerUrl(router): void {
+    if (router) {
+      router.events.subscribe(evt => {
+        if (evt instanceof NavigationEnd) {
+          if (evt.url && evt.url.split('/')[2]) {
+            switch (evt.url.split('/')[1]) {
+              case 'pia':
+                this.pia_id = parseInt(evt.url.split('/')[2], 10);
+                break;
+              case 'structures':
+                this.structure_id = parseInt(evt.url.split('/')[2], 10);
+                break;
+              case 'knowledge_bases':
+                this.knowledge_base_id = parseInt(evt.url.split('/')[2], 10);
+                break;
+              default:
+                break;
+            }
+          }
+        }
+      });
     }
   }
 }

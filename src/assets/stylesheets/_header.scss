@@ -6,6 +6,9 @@
     &-structures {
       background-color: $pia-green;
     }
+    &-knowledges {
+      background-color: $pia-red;
+    }
     .container {
       position: relative;
     }
@@ -65,7 +68,7 @@
             }
             a {
               padding: 10px 0 !important;
-              color: #393939 !important;
+              color: $pia-light-black !important;
               font-weight: 400 !important;
               color: $pia-blue;
               padding: 0 8px;
@@ -96,6 +99,10 @@
             }
           }
         }
+      }
+
+      .pia-navigationBlock-noSub {
+        border-right: 1px solid #fff;
       }
 
       .pia-navigationBlock-dropdown {
@@ -139,7 +146,7 @@
           }
         }
       }
-
+      .pia-navigationBlock-knowledges,
       .pia-navigationBlock-pias,
       .pia-navigationBlock-structures {
         & > a {
@@ -212,7 +219,6 @@
               padding: 0;
               margin-bottom: 0;
             }
-
             /* Custom checkboxes styles */
             input {
               position: absolute;
@@ -231,7 +237,7 @@
               }
             }
             label::before {
-              content: '';
+              content: "";
               display: block;
               position: absolute;
               top: 3px;
@@ -267,6 +273,15 @@
         border-right: 0 !important;
         > ul {
           min-width: 140px;
+        }
+        button {
+          padding: 10px 0 !important;
+          cursor: pointer;
+          color: $pia-light-black;
+          font-weight: 400 !important;
+          &:hover {
+            font-weight: 500 !important;
+          }
         }
       }
 
@@ -306,7 +321,7 @@
           .dpaTranslations,
           .communityTranslations {
             font-weight: 600;
-            color: #393939;
+            color: $pia-light-black;
             list-style-type: none;
             padding: 5px 8px;
           }
