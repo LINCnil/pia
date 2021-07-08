@@ -165,7 +165,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
     setTimeout(async () => {
       switch (this.type_entries) {
         case 'pia':
-          await this.piaService.getAllActives().then((entries: Array<Pia>) => {
+          await this.piaService.getAllActives()
+          .then((entries: Array<Pia>) => {
             this.entries = entries;
 
             // Remove example from list
@@ -182,7 +183,10 @@ export class EntriesComponent implements OnInit, OnDestroy {
             this.startIntroJs('pia');
             this.sortOrder = localStorage.getItem('piaOrder');
             this.sortValue = localStorage.getItem('piaValue');
-          });
+          })
+          .catch(() => {
+            this.loading = false;
+          })
           break;
         case 'archive':
           await this.piaService
@@ -195,6 +199,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
               this.loading = false;
               this.sortOrder = localStorage.getItem('archiveOrder');
               this.sortValue = localStorage.getItem('archiveValue');
+            })
+            .catch(() => {
+              this.loading = false;
             });
           break;
         case 'structure':
@@ -210,6 +217,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
             this.loading = false;
             this.sortOrder = localStorage.getItem('structureOrder');
             this.sortValue = localStorage.getItem('structureValue');
+          })
+          .catch(() => {
+            this.loading = false;
           });
           break;
         case 'knowledgeBase':
@@ -229,6 +239,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
             this.loading = false;
             this.sortOrder = localStorage.getItem('knowledgeBaseOrder');
             this.sortValue = localStorage.getItem('knowledgeBaseValue');
+          })
+          .catch(() => {
+            this.loading = false;
           });
           break;
         default:

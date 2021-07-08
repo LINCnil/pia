@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 
 import { TranslateService } from '@ngx-translate/core';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service'
 
 @Component({
   selector: 'app-knowledge-base-item',
@@ -29,6 +30,7 @@ export class KnowledgeBaseItemComponent implements OnInit {
     private el: ElementRef,
     private router: Router,
     private _translateService: TranslateService,
+    public _knowledgeBaseService: KnowledgeBaseService,
     public _globalEvaluationService: GlobalEvaluationService
   ) {
     this.router = router;

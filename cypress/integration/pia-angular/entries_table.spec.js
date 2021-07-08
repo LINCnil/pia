@@ -17,7 +17,6 @@ describe("Entries_table", () => {
    */
   context("entries_table", () => {
     it("change display", () => {
-      cy.init();
       cy.click_on_start();
       cy.get(".pia-filtersBlock-switch").click();
     });

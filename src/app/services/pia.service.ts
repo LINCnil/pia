@@ -48,12 +48,16 @@ export class PiaService extends ApplicationDb {
 
     this.data = this.appDataService.dataNav;
 
-    // there isn't pia ? load it
-    this.getPiaExample().then(entry => {
-      if (!entry) {
-        this.importData(piaExample, 'EXAMPLE', false, true);
-      }
-    });
+    // there isn't pia ? load example
+    this.find(1)
+      .then((pia : Pia) => {
+        if (!pia) {
+          this.importData(piaExample, 'EXAMPLE', false, true);
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   /**
@@ -69,6 +73,9 @@ export class PiaService extends ApplicationDb {
             element => element.is_example === 1 || element.is_archive !== 1
           )
         );
+      })
+      .catch(err => {
+        reject(err);
       });
     });
   }
@@ -87,8 +94,8 @@ export class PiaService extends ApplicationDb {
         .then((result: any) => {
           resolve(result);
         })
-        .catch(error => {
-          reject();
+        .catch(err => {
+          reject(err);
         });
     });
   }
@@ -112,14 +119,6 @@ export class PiaService extends ApplicationDb {
           reject();
         });
     });
-  }
-
-  /**
-   * Get the PIA example.
-   * @returns {Promise}
-   */
-  async getPiaExample(): Promise<Pia> {
-    return new Promise((resolve, reject) => {});
   }
 
   calculPiaProgress(pia): void {
