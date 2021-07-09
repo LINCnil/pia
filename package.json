@@ -22,6 +22,7 @@
     "electron:start": "electron .",
     "electron:mac": "electron-builder -m",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "electron:win": "electron-builder -w",
     "electron:linux": "electron-builder -l",
     "electron:publish-to-github": "electron-builder -mwl -p onTagOrDraft"
@@ -30,6 +31,11 @@
     "electron:linux": "electron-builder -l",
     "electron:publish-to-github": "electron-builder -p onTagOrDraft"
 >>>>>>> 734a9b11 (Merge upstream (#2))
+=======
+    "electron:win": "electron-builder -w --x64 --ia32",
+    "electron:linux": "electron-builder -l",
+    "electron:publish-to-github": "electron-builder -p onTagOrDraft"
+>>>>>>> master
   },
   "husky": {
     "hooks": {
@@ -133,6 +139,7 @@
     },
     "win": {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "target": [
         {
           "target": "nsis",
@@ -145,15 +152,22 @@
 =======
       "target": "nsis",
 >>>>>>> 734a9b11 (Merge upstream (#2))
+=======
+      "target": "nsis",
+>>>>>>> master
       "icon": "electron/icons/512x512.png",
       "verifyUpdateCodeSignature": false,
       "publisherName": "ATNOS"
     },
     "linux": {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "icon": "electron/icons/512x512.png",
 >>>>>>> 734a9b11 (Merge upstream (#2))
+=======
+      "icon": "electron/icons/512x512.png",
+>>>>>>> master
       "category": "Network"
     },
     "nsis": {
