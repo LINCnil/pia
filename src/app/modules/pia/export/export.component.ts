@@ -8,6 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
 import { Pia } from 'src/app/models/pia.model';
+import 'svg2pdf.js';
+import { jsPDF } from 'jspdf';
 declare const require: any;
 
 function slugify(text) {
@@ -57,6 +59,57 @@ export class ExportComponent implements OnInit {
     if (this.pia.is_archive === 1) {
       this.fromArchives = true;
     }
+  }
+
+  public genererpdf() {
+    const div = document.getElementById('contentToConvert');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+
+    html2canvas(div, options).then(canvas => {
+      var img = canvas.toDataURL('image/PNG');
+      var doc = new jsPDF('p', 'mm'); // New Pdf
+
+      // Add image Canvas to PDF
+      const bufferX = 5;
+      const bufferY = 5;
+      const imgProps = (<any>doc).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(
+        img,
+        'PNG',
+        bufferX,
+        bufferY,
+        pdfWidth,
+        pdfHeight,
+        undefined,
+        'FAST'
+      );
+      let imgWidth = 210,
+        pageHeight = 295,
+        imgHeight = (canvas.height * imgWidth) / canvas.width,
+        heightLeft = imgHeight,
+        position = 0;
+      doc.addImage(img, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        doc.addPage();
+        doc.addImage(img, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      const element = document.getElementById('risksOverviewSvg');
+      doc.svg(element).then(() => {
+        // save the created pdf
+        doc.save('download.pdf');
+      });
+      return doc;
+    });
   }
 
   /****************************** DOWNLOAD FILES ************************************/
@@ -348,12 +401,12 @@ export class ExportComponent implements OnInit {
    * Prepare .doc file
    */
   async prepareDocFile(element): Promise<any> {
-    const risksCartography = document.querySelector('#risksCartographyImg');
+    const risksCartography = document.querySelector('#contentToConvert');
     const actionPlanOverview = document.querySelector('#actionPlanOverviewImg');
     const risksOverview = document.querySelector('#risksOverviewSvg');
 
     if (risksCartography && actionPlanOverview && risksOverview) {
-      document.querySelector('#risksCartographyImg').remove();
+      document.querySelector('#contentToConvert').remove();
       document.querySelector('#actionPlanOverviewImg').remove();
       document.querySelector('#risksOverviewSvg').remove();
     }
@@ -473,7 +526,7 @@ export class ExportComponent implements OnInit {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const actionPlanOverviewImg = document.querySelector(
-          '#actionPlanOverviewImg'
+          '#contentToConvert'
         );
         if (actionPlanOverviewImg) {
           html2canvas(actionPlanOverviewImg, { scale: 1.4 }).then(canvas => {
