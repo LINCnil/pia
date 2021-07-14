@@ -1,8 +1,11 @@
 import {
   Component,
+  ElementRef,
   OnInit,
   AfterViewChecked,
   Input,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
@@ -11,6 +14,7 @@ import { RevisionService } from 'src/app/services/revision.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
+import { Measure } from 'src/app/models/measure.model';
 import { Revision } from 'src/app/models/revision.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
