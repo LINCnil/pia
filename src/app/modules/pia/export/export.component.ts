@@ -46,21 +46,6 @@ export class ExportComponent implements OnInit {
     private appDataService: AppDataService,
     public attachmentsService: AttachmentsService
   ) {}
-
-  ngOnInit(): void {
-    this.dataNav = this.appDataService.dataNav;
-
-    // prepare for export
-    this.prepareCsv();
-    this.piaService.export(this.pia.id).then((json: any) => {
-      this.piaJson = json;
-    });
-
-    if (this.pia.is_archive === 1) {
-      this.fromArchives = true;
-    }
-  }
-
   public genererpdf() {
     const div = document.getElementById('contentToConvert');
     const options = {
@@ -110,6 +95,20 @@ export class ExportComponent implements OnInit {
       });
       return doc;
     });
+  }
+
+  ngOnInit(): void {
+    this.dataNav = this.appDataService.dataNav;
+
+    // prepare for export
+    this.prepareCsv();
+    this.piaService.export(this.pia.id).then((json: any) => {
+      this.piaJson = json;
+    });
+
+    if (this.pia.is_archive === 1) {
+      this.fromArchives = true;
+    }
   }
 
   /****************************** DOWNLOAD FILES ************************************/
@@ -526,7 +525,7 @@ export class ExportComponent implements OnInit {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const actionPlanOverviewImg = document.querySelector(
-          '#contentToConvert'
+          '#actionPlanOverviewImg'
         );
         if (actionPlanOverviewImg) {
           html2canvas(actionPlanOverviewImg, { scale: 1.4 }).then(canvas => {
