@@ -439,8 +439,8 @@
                           <div *ngIf="item.questions">
                             <div *ngFor="let question of item.questions">
                               <h3 [innerHTML]="question.title | translate"></h3>
-                              <div *ngIf="allData[section.id][item.id][question.id] && allData[section.id][item.id][question.id].content && allData[section.id][item.id][question.id].content.length > 0" [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
-                              <div class="evaluationbox" *ngIf="allData[section.id][item.id][question.id] && allData[section.id][item.id][question.id].evaluation">
+                              <div *ngIf="allData[section.id][item.id][question.id].content && allData[section.id][item.id][question.id].content.length > 0" [innerHTML]="allData[section.id][item.id][question.id].content | translate | safeHtml"></div>
+                              <div class="evaluationbox" *ngIf="allData[section.id][item.id][question.id].evaluation">
                                 <br>
                                 <p>
                                   <strong class="evaluationValue">{{ 'evaluations.title' | translate }} : {{ allData[section.id][item.id][question.id].evaluation.title | translate }}</strong>

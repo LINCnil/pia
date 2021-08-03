@@ -21,9 +21,9 @@
     "compodoc": "compodoc -p src/tsconfig.app.json",
     "electron:start": "electron .",
     "electron:mac": "electron-builder -m",
-    "electron:win": "electron-builder -w",
+    "electron:win": "electron-builder -w --x64 --ia32",
     "electron:linux": "electron-builder -l",
-    "electron:publish-to-github": "electron-builder -mwl -p onTagOrDraft"
+    "electron:publish-to-github": "electron-builder -p onTagOrDraft"
   },
   "husky": {
     "hooks": {
@@ -126,20 +126,13 @@
       "category": "public.app.category.productivity"
     },
     "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ],
+      "target": "nsis",
       "icon": "electron/icons/512x512.png",
       "verifyUpdateCodeSignature": false,
       "publisherName": "ATNOS"
     },
     "linux": {
+      "icon": "electron/icons/512x512.png",
       "category": "Network"
     },
     "nsis": {
