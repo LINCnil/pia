@@ -1,7 +1,7 @@
+import { Component, Renderer2 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { AppDataService } from './services/app-data.service';
-import { KnowledgeBaseService } from './services/knowledge-base.service';
+
+import { KnowledgeBaseService } from './entry/knowledge-base/knowledge-base.service';
 import { LanguagesService } from './services/languages.service';
 
 @Component({
@@ -10,24 +10,21 @@ import { LanguagesService } from './services/languages.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private http: HttpClient,
-              private knowledgeBaseService: KnowledgeBaseService,
-              private languagesService: LanguagesService,
-              public appDataService: AppDataService) {
-
-    this.knowledgeBaseService.loadData(this.http);
-
-    // const increaseContrast = this.appDataService.contrastMode;
-
-    // if (increaseContrast) {
-    //   this.renderer.addClass(document.body, 'pia-contrast');
-    // } else {
-    //   this.renderer.removeClass(document.body, 'pia-contrast');
-    // }
+  constructor(private _renderer: Renderer2,
+              private _http: HttpClient,
+              private _knowledgeBaseService: KnowledgeBaseService,
+              private _languagesService: LanguagesService) {
+    this._knowledgeBaseService.loadData(this._http);
+    const increaseContrast = localStorage.getItem('increaseContrast');
+    if (increaseContrast === 'true') {
+      this._renderer.addClass(document.body, 'pia-contrast');
+    } else {
+      this._renderer.removeClass(document.body, 'pia-contrast');
+    }
 
     // Languages initialization
-    this.languagesService.initLanguages();
-    this.languagesService.getOrSetCurrentLanguage();
+    this._languagesService.initLanguages();
+    this._languagesService.getOrSetCurrentLanguage();
 
   }
 }

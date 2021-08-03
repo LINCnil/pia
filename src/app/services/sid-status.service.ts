@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 
-import { GlobalEvaluationService } from './global-evaluation.service';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
+import { PiaService } from './pia.service';
 
 @Injectable()
 export class SidStatusService {
@@ -16,7 +17,7 @@ export class SidStatusService {
   enableDpoValidation: boolean;
   public subject = new Subject();
 
-  constructor(private globalEvaluationService: GlobalEvaluationService) {
+  constructor(private _globalEvaluationService: GlobalEvaluationService) {
     this.specialIcon = {
       '3.5': 'fa-line-chart',
       '4.1': 'fa-line-chart',
@@ -38,14 +39,12 @@ export class SidStatusService {
     this.enablePiaValidation = false;
     this.piaIsRefused = false;
     this.enableDpoValidation = false;
-    this.globalEvaluationService.behaviorSubject.subscribe(
-      (obj: { reference_to: string; status: number }) => {
-        if (obj.reference_to && obj.status > 0) {
-          this.itemStatus[obj.reference_to] = obj.status;
-          this.verifEnableDpo();
-        }
+    this._globalEvaluationService.behaviorSubject.subscribe((obj: { reference_to: string; status: number }) => {
+      if (obj.reference_to && obj.status > 0) {
+        this.itemStatus[obj.reference_to] = obj.status;
+        this.verifEnableDpo();
       }
-    );
+    });
   }
 
   /**
@@ -54,34 +53,27 @@ export class SidStatusService {
    * @param section - The section.
    * @param item - The item.
    */
-  async setSidStatus(pia: any, section: any, item: any): Promise<any> {
+  setSidStatus(pia: any, section: any, item: any) {
     const referenceTo = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
     const globalEvaluationService = new GlobalEvaluationService();
     globalEvaluationService.pia = pia;
     globalEvaluationService.section = section;
     globalEvaluationService.item = item;
-    if (
-      item.evaluation_mode === 'item' ||
-      item.evaluation_mode === 'question' ||
-      referenceTo === '4.3'
-    ) {
-      await globalEvaluationService
-        .validate(false)
-        .then((obj: { reference_to: string; status: number }) => {
-          if (referenceTo === '4.3') {
-            this.enablePiaValidation =
-              globalEvaluationService.enablePiaValidation;
-            this.piaIsRefused = globalEvaluationService.piaIsRefused;
-          }
-          this.itemStatus[obj.reference_to] = obj.status;
-          this.verifEnableDpo();
-          this.setPiaProgress(pia, referenceTo, obj.status);
-        });
+    if (item.evaluation_mode === 'item' || item.evaluation_mode === 'question' || referenceTo === '4.3') {
+      globalEvaluationService.validate(false).then((obj: { reference_to: string; status: number }) => {
+        if (referenceTo === '4.3') {
+          this.enablePiaValidation = globalEvaluationService.enablePiaValidation;
+          this.piaIsRefused = globalEvaluationService.piaIsRefused;
+        }
+        this.itemStatus[obj.reference_to] = obj.status;
+        this.verifEnableDpo();
+        this.setPiaProgress(pia, referenceTo, obj.status);
+      });
     }
   }
 
-  setPiaProgress(pia: any, referenceTo: string, status: number): void {
+  setPiaProgress(pia: any, referenceTo: string, status: number) {
     let percent = 0;
     let basePoint = 3.75;
 
@@ -100,10 +92,10 @@ export class SidStatusService {
 
   /**
    * Set status structure
-   * @param section - The section.
-   * @param item - The item.
+   * @param {*} section - The section.
+   * @param {*} item - The item.
    */
-  setStructureStatus(section: any, item: any): void {
+  setStructureStatus(section: any, item: any) {
     let contentExist = false;
     if (item.is_measure) {
       if (item.answers) {
@@ -121,26 +113,32 @@ export class SidStatusService {
 
   /**
    * Reset all statuses.
-   * @param section - The section.
-   * @param item - The item.
+   * @param {*} piaService - The PIA Service.
+   * @param {*} section - The section.
+   * @param {*} item - The item.
    */
-  removeSidStatus(section: any, item: any): void {
+  removeSidStatus(piaService: any, section: any, item: any) {
     const sid = section.id + '.' + item.id;
     if (!this.noIconFor.includes(sid)) {
       this.itemStatus[sid] = 0;
-      if (sid === '4.3') {
-        // Nothing to do
-      } else {
-        this.itemStatus[sid] = 0;
-      }
+      // TODO the code below isn't useful
+      piaService.getPIA().then(() => {
+        // Special behaviour for DPO page
+        if (sid === '4.3') {
+          // Nothing to do
+        } else {
+          this.itemStatus[sid] = 0;
+        }
+      });
     }
   }
 
   /**
    * Update PIA status to refused.
-   * @param piaId - The PIA Service.
+   * @param {*} piaService - The PIA Service.
+   * @returns {Promise}
    */
-  async refusePia(piaId: number): Promise<void> {
+  async refusePia(piaService: any) {
     this.enablePiaValidation = false;
     return new Promise((resolve, reject) => {
       for (const el in this.itemStatus) {
@@ -148,7 +146,7 @@ export class SidStatusService {
           this.itemStatus[el] = 6;
         }
       }
-      this.enableDpoValidation = false;
+      this.resetDpoPage(piaService);
       resolve();
     });
   }
@@ -156,15 +154,11 @@ export class SidStatusService {
   /**
    * Verification to enable the DPD page fields.
    */
-  verifEnableDpo(): void {
+  verifEnableDpo() {
     this.enableDpoValidation = false;
     let count = 0;
     for (const el in this.itemStatus) {
-      if (
-        this.itemStatus.hasOwnProperty(el) &&
-        this.itemStatus[el] >= 7 &&
-        el !== '4.3'
-      ) {
+      if (this.itemStatus.hasOwnProperty(el) && this.itemStatus[el] >= 7 && el !== '4.3') {
         count++;
       }
     }
@@ -176,7 +170,7 @@ export class SidStatusService {
   /**
    * Verification to enable Action Plan page.
    */
-  verifEnableActionPlan(): boolean {
+  verifEnableActionPlan() {
     let valid = false;
     for (const el in this.itemStatus) {
       if (this.itemStatus.hasOwnProperty(el) && this.itemStatus[el] >= 5) {
@@ -184,5 +178,23 @@ export class SidStatusService {
       }
     }
     return valid;
+  }
+
+  /**
+   * Erase all contents on the DPD page.
+   * @private
+   * @param {*} piaService - The PIA Service.
+   */
+  private resetDpoPage(piaService: any) {
+    piaService.pia.dpos_names = null;
+    piaService.pia.dpo_status = null;
+    piaService.pia.dpo_opinion = null;
+    piaService.pia.concerned_people_searched_opinion = null;
+    piaService.pia.concerned_people_searched_content = null;
+    piaService.pia.people_names = null;
+    piaService.pia.concerned_people_status = null;
+    piaService.pia.concerned_people_opinion = null;
+    piaService.pia.update();
+    this.enableDpoValidation = false;
   }
 }

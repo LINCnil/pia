@@ -1,0 +1,35 @@
+@import '../../../../../assets/stylesheets/variables';
+.pia {
+  &-commentsBlock {
+    &-content {
+      margin: 10px 0;
+      border: 1px solid $pia-gray;
+      padding: 12px 8px;
+      position: relative;
+      textarea {
+        display: block;
+        border: none;
+        width: 100%;
+        resize: none;
+        background-color: #fff;
+        color: $pia-blue;
+        font-size: 1.3rem;
+        line-height: 1.35;
+      }
+    }
+    &-date {
+      color: $pia-blue;
+      font-weight: 500;
+      time {
+        font-weight: initial;
+        color: $pia-gray;
+        font-size: 1rem;
+        &:before {
+          content: ' | ';
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+}
+

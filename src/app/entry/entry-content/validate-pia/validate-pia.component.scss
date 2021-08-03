@@ -1,0 +1,225 @@
+@import '../../../../assets/stylesheets/variables';
+.pia-validationBlock {
+  .pia-entryContentBlock {
+    &-content {
+      background-color: #fefefe;
+      box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+      &-list {
+        padding:  10px 60px 20px  60px;
+        font-size: 1.4rem;
+        .blue {
+          color: $pia-blue;
+          font-weight: bold;
+        }
+        form {
+          > p {
+            font-size: 0.95rem;
+            text-align: right;
+            font-style: italic;
+            margin: 0;
+            font-weight: 600;
+            color: $pia-gray;
+            margin-top: 3px;
+          }
+        }
+        &-confirm {
+          margin-top: 10px;
+          input {
+            display: none;
+          }
+          label {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 5px;
+            padding: 10px;
+            background-color: $pia-white;
+            border: solid 1px #eee;
+            cursor: pointer;
+            .pia-list-confirm-icon {
+              align-self: center;
+            }
+          }
+          i{
+            margin: auto;
+            width: 20px;
+            height: 20px;
+            font-size: 2rem;
+          }
+          .pia-list-confirm-desc {
+            margin-left: 15px;
+          }
+          .fa-circle {
+            display: block;
+            color: #fff;
+            border-radius: 50%;
+            border: solid 1px $pia-gray;
+          }
+          .fa-check {
+            display:none;
+          }
+          input:checked + label {
+            border: solid $pia-green 1px;
+            background-color: #fff;
+            .fa-check {
+              display: block;
+              color: $pia-green;
+            }
+            .fa-circle {
+              display: none;
+            }
+          }
+          /* Special class added to checked radio buttons */
+          &.validate {
+            input:checked + label {
+              border: solid $pia-green 1px;
+              background-color: $pia-green;
+              color: #fff;
+              font-weight: bold;
+              .fa-circle {
+                display: none;
+              }
+              .fa-check {
+                display: block;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+      &-status {
+        display: flex;
+        justify-content: flex-end;
+        p {
+          align-self: center;
+          font-size: 1.4rem;
+          font-style: normal;
+          padding-left: 10px;
+        }
+        i {
+          padding-left: 10px;
+          align-self: center;
+          font-size: 1.7rem;
+        }
+      }
+      &-btn-valid {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        button, a {
+          padding: 9px 10px;
+          display: block;
+          width: 140px;
+          height: 34px;
+          font-size: 1.3rem;
+          text-decoration: none;
+          align-self: center;
+          &:last-of-type {
+            padding-top: 4px;
+          }
+        }
+        a {
+          line-height: 12px;
+        }
+      }
+    }
+    &-footer {
+      &-validationAttachments {
+        margin: 10px 0;
+        box-shadow: 2px 1px 18px 1px #c2c2c2;
+        background-color: #fff;
+        padding: 10px 24px;
+        h2 {
+          color: $pia-dark-black;
+        }
+        button {
+          padding: 0;
+          width: auto;
+        }
+        > div {
+          font-weight: 500;
+          color: $pia-blue;
+          span, a {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          button {
+            float: right;
+          }
+          i {
+          align-self: center;
+          color: $pia-gray;
+          font-size: 16px;
+          }
+          a {
+            text-decoration: none;
+            align-self: center;
+            color: $pia-blue;
+          }
+          &:first-child {
+            > div {
+              border: 1px solid $pia-gray;
+              padding: 6px;
+            }
+          }
+        }
+        &-history {
+          > div {
+            margin: 12px 0;
+            border: 1px solid $pia-gray;
+            padding: 6px;
+            > div {
+              margin-top: 6px;
+              color: $pia-gray-dark;
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+      &-validationTools {
+        margin-top: 1rem;
+        box-shadow: 2px 1px 18px 1px #c2c2c2;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        color: $pia-green;
+        a, button {
+          display: block;
+          align-self: center !important;
+          padding: 4px;
+          margin-right: 10px;
+          color: $pia-green;
+          text-decoration: none;
+          width: initial;
+          cursor: pointer;
+        }
+        i {
+          color: $pia-green;
+          display: block;
+          margin-top: 2px;
+          text-align: center;
+          font-size: 2rem;
+          text-decoration: none;
+        }
+        p {
+          display: block;
+          font-size: 1rem;
+          margin-bottom: 0;
+          font-style: normal;
+          color: $pia-green;
+        }
+      }
+    }
+    &-submitAttachmentButton {
+      width: 100%;
+      border-radius: 0;
+      margin: 1rem 0;
+    }
+  }
+}
+
+.disabled-validation {
+  pointer-events: none;
+  &[disabled] {
+    pointer-events: none;
+  }
+}

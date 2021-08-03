@@ -2,7 +2,7 @@
   &-icons {
     display: inline-block;
     vertical-align: middle;
-    background: url('~src/assets/images/sprites.png') no-repeat center center transparent;
+    background: url('./assets/images/sprites.png') no-repeat center center transparent;
   }
   &-icon {
     &-accordeon-up {
@@ -49,11 +49,6 @@
       width: 17px;
       height: 9px;
       background-position: -367px -58px;
-    }
-    &-scroll-red {
-      width: 17px;
-      height: 9px;
-      background-position: -481px -58px;
     }
     &-add {
       width: 22px;
@@ -136,11 +131,6 @@
       width: 62px;
       height: 63px;
       background-position: -408px -74px;
-    }
-    &-pia-plus-red {
-      width: 62px;
-      height: 63px;
-      background-position: -544px -74px;
     }
     &-green-hint-arrow {
       width: 7px;

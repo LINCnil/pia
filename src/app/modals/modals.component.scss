@@ -1,0 +1,321 @@
+@import '../../assets/stylesheets/variables';
+.pia {
+  &-modalBlock {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: 9999;
+    display: none;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    &.open {
+      opacity: 1;
+      display: block;
+    }
+    &-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 9999;
+    }
+    &-validate {
+      margin-top: 12px;
+      button {
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+    }
+    &-buttons-choice {
+      button {
+        vertical-align: top;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+    > div {
+      position: absolute;
+      top: 32.5%;
+      left: 50%;
+      background-color: #fff;
+    }
+    &-content {
+      margin-left: -220px;
+      width: 440px;
+      box-shadow: 15px 15px 130px -35px black;
+      text-align: center;
+      color: $pia-blue;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.4rem;
+      padding: 34px 56px;
+      p {
+        font-weight: 400;
+        line-height: 1.3;
+        .strong {
+          font-size: 1.7rem;
+          vertical-align: -5px;
+        }
+        .red {
+          color: $pia-red;
+        }
+      }
+    }
+    &-removeQuestion,
+    &-removeMeasure,
+    &-archivePIA,
+    &-unarchivePIA,
+    &-removePIA,
+    &-removeStructure,
+    &-removeAttachment,
+    &-recoverVersion {
+      p {
+        margin-bottom: 30px;
+      }
+      .pia-modalBlock-buttons-choice {
+        margin-top: 22px;
+        button {
+          padding: 7px 15px;
+          &:first-child {
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+    &-declareMeasuresForRisks,
+    &-haveEvaluationsForActionPlan,
+    &-allEvaluationsForDpo {
+      .pia-modalBlock-validate {
+        button {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+    &-abandonPIA {
+      .pia-modalBlock-buttons-choice {
+        button {
+          padding: 2px 28px;
+          height: 32px;
+          &:first-child {
+            margin-right: 34px;
+          }
+        }
+      }
+    }
+    &-acceptedPIA {
+      .pia-modalBlock-buttons-choice {
+        margin-top: 22px;
+        button {
+          padding: 2px 28px;
+          height: 32px;
+          &:first-child {
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+// Create new pia from list
+#modal-list-new-pia,
+#modal-list-new-structure {
+  .pia-modalBlock {
+    &-close {
+      top: 6px;
+      right: 9px;
+    }
+    &-content {
+      width: 274px;
+      margin-left: -137px;
+      padding: 10px;
+      border: solid 1px $pia-green;
+    }
+  }
+  .pia-cardsBlock-item {
+    &-form {
+      text-align: left;
+    }
+    &-status {
+      display: flex;
+      justify-content: space-between;
+      &-infos {
+        width: auto;
+      }
+    }
+  }
+  .pia-modalBlock-content {
+    height: 386px;
+  }
+}
+.pia-remove-attachment-comment {
+  textarea {
+    width: 94%;
+    height: 100px;
+    border: 1px solid #a7a7a7;
+  }
+}
+
+#pia-action-plan-no-evaluation,
+#pia-dpo-missing-evaluations {
+  .pia-modalBlock-validate {
+    margin-top: 12px;
+  }
+  .icon-blue {
+    font-size: 9rem;
+  }
+}
+
+#ask-for-evaluation {
+  .icon-green {
+    margin-left: 14px;
+  }
+}
+#back-to-edition,
+#validate-evaluation-to-correct {
+  .icon-gray {
+    margin-left: 14px;
+  }
+}
+#modal-abandon-pia {
+  p {
+    color: $pia-red;
+  }
+  .icon-red {
+    font-size: 7rem;
+    margin-bottom: 14px;
+  }
+  .abandonText {
+    color: $pia-gray;
+    font-size: 1.1rem;
+    margin-top: 12px;
+    line-height: 12px;
+  }
+}
+#modal-refuse-pia {
+  p {
+    color: $pia-red;
+  }
+}
+#completed-evaluation,
+#modal-signed-pia-validation,
+#modal-abandon-pia {
+  p {
+    margin-bottom: 0;
+  }
+  .icon-gray,
+  .icon-green {
+    font-size: 6rem;
+  }
+}
+#pia-declare-measures {
+  p {
+    margin-bottom: 0;
+  }
+  .icon-blue {
+    font-size: 4.5rem;
+    margin-bottom: 12px;
+  }
+}
+.icon-green,
+.icon-gray,
+.icon-red {
+  font-size: 9rem;
+  margin-top: 6px;
+}
+.icon-green {
+  color: $pia-green;
+}
+.icon-gray {
+  color: $pia-gray;
+}
+.icon-red {
+  color: $pia-red;
+}
+.icon-blue {
+  color: $pia-blue;
+}
+
+/* Style for structure select tag in "modal-list-new-pia" */
+.pia-structure-wrapper {
+  position: relative;
+  &:hover {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: $pia-green transparent transparent transparent;
+    }
+  }
+}
+#structure {
+  font-size: 1.4rem;
+  color: #686868;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  height: 22px;
+  outline: none;
+  &::-ms-expand {
+    display: none;
+  }
+  background: none;
+  border: none;
+  &:hover {
+    outline: 1px dotted $pia-green;
+  }
+}
+.pia-cardsBlock-item-btn {
+  margin-bottom: 0;
+  margin-top: 0;
+  bottom: 11px;
+  padding-top: 12px;
+}
+
+.pia-modalBlock.fullsize {
+  padding: 0px;
+  .pia-modalBlock-content {
+    padding: 0px;
+    width: auto;
+  }
+}
+
+#revision-preview-selection {
+  .pia-modalBlock-content {
+    top: 13%;
+    margin-left: -285px;
+    text-align: initial;
+    font-style: normal !important;
+    font-size: inherit !important;
+  }
+}
+
+@media print {
+  #revision-preview-selection {
+    margin: auto;
+    position: static;
+    background-color: white !important;
+    .pia-modalBlock-content {
+      width: 100%;
+      background-color: white !important;
+
+      top: 0%;
+      left: 0px;
+      margin: auto;
+    }
+  }
+}

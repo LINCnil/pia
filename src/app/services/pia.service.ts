@@ -1,283 +1,73 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { utf8Encode } from '@angular/compiler/src/util';
+
+import { Pia } from 'src/app/entry/pia.model';
+import { Evaluation } from 'src/app/entry/entry-content/evaluations/evaluation.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
+import { Comment } from 'src/app/entry/entry-content/comments/comment.model';
+import { Structure } from 'src/app/structures/structure.model';
 
 import { AppDataService } from 'src/app/services/app-data.service';
-
+import { ModalsService } from 'src/app/modals/modals.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
-import { Answer } from '../models/answer.model';
-import { Evaluation } from '../models/evaluation.model';
-import { Measure } from '../models/measure.model';
-import { Pia } from '../models/pia.model';
-import { Comment } from '../models/comment.model';
-import { Structure } from '../models/structure.model';
-import { StructureService } from './structure.service';
-import { AnswerService } from './answer.service';
-import { ApplicationDb } from '../application.db';
-import { Router } from '@angular/router';
-import { DialogService } from './dialog.service';
-
-import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
-import { MeasureService } from './measures.service';
-import { CommentsService } from './comments.service';
-import { EvaluationService } from './evaluation.service';
-
-function encode_utf8(s) {
-  return unescape(encodeURIComponent(s));
-}
 
 @Injectable()
-export class PiaService extends ApplicationDb {
+export class PiaService {
+  pias = [];
+  pia: Pia = new Pia();
   answer: Answer = new Answer();
   data: { sections: any };
   @Output() piaEvent = new EventEmitter<Pia>();
 
   constructor(
-    private router: Router,
-    public appDataService: AppDataService,
-    public sidStatusService: SidStatusService,
-    private structureService: StructureService,
-    private answerService: AnswerService,
-    private measuresService: MeasureService,
-    private commentsService: CommentsService,
-    private evaluationService: EvaluationService
+    private _router: Router,
+    private route: ActivatedRoute,
+    public _appDataService: AppDataService,
+    private _modalsService: ModalsService,
+    public _sidStatusService: SidStatusService
   ) {
-    super(201910230914, 'pia');
-    super.prepareServerUrl(this.router);
-    this.data = this.appDataService.dataNav;
-
-    // there isn't pia ? load it
-    this.getPiaExample().then(entry => {
-      if (!entry) {
-        this.importData(piaExample, 'EXAMPLE', false, true);
-      }
-    });
-  }
-
-  /**
-   * Create a new PIA.
-   * @returns {Promise} - Return new Promise
-   */
-  async create(pia): Promise<number> {
-    if (this.created_at === undefined) {
-      this.created_at = new Date();
+    if (this.pia.structure_data) {
+      this._appDataService.dataNav = this.pia.structure_data;
+    } else {
+      this._appDataService.resetDataNav();
     }
-    const data = {
-      ...pia,
-      structure_id: pia.structure_id ? pia.structure_id : ''
-    };
 
+    this.data = this._appDataService.dataNav;
+  }
+
+  /**
+   * Get the PIA.
+   * @return - Return a new Promise
+   */
+  async getPIA() {
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        const formData = new FormData();
-        for (const d in data) {
-          if (data.hasOwnProperty(d)) {
-            let value = data[d];
-            if (d === 'structure_data') {
-              value = JSON.stringify(value);
-            }
-            formData.append('pia[' + d + ']', value !== null ? value : '');
-          }
-        }
-        fetch(this.getServerUrl(), {
-          method: 'POST',
-          body: formData,
-          mode: 'cors'
-        })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result.id);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const evt = this.objectStore.add(data);
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            resolve(event.target.result);
-          };
+      const piaId = parseInt(this.route.snapshot.params.id, 10);
+      if (piaId) {
+        this.pia.get(piaId).then(() => {
+          resolve();
         });
+      } else {
+        resolve();
       }
     });
   }
 
-  /**
-   * Find all entries without conditions.
-   * @returns {Promise} - Return new Promise
-   */
-  async getAllActives() {
-    const items = [];
-    return new Promise((resolve, reject) => {
-      this.findAll().then((entries: any) => {
-        resolve(
-          entries.filter(
-            element => element.is_example === 1 || element.is_archive !== 1
-          )
-        );
-      });
+  async calculProgress() {
+    this.pias.forEach((pia: Pia) => {
+      this.calculPiaProgress(pia);
     });
   }
 
-  /**
-   * Find all archived PIAs
-   * @param structure_id the structure id
-   */
-  async findAllArchives() {
-    const items = [];
-    return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(`${this.getServerUrl()}?is_archive=true`, {
-          mode: 'cors'
-        })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index5 = this.objectStore.index('index5');
-          const evt = index5.openCursor(IDBKeyRange.only(1));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
-        });
-      }
-    });
-  }
-
-  /**
-   * Get all PIA linked to a specific structure
-   * @param structure_id the structure id
-   */
-  async getAllWithStructure(structure_id: number) {
-    const items = [];
-    return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl(), {
-          mode: 'cors'
-        })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index4 = this.objectStore.index('index4');
-          const evt = index4.openCursor(IDBKeyRange.only(structure_id));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
-        });
-      }
-    });
-  }
-
-  /**
-   * Get the PIA example.
-   * @returns {Promise}
-   */
-  async getPiaExample(): Promise<Pia> {
-    return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl() + '/' + 'example', {
-          mode: 'cors'
-        })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index3 = this.objectStore.index('index3');
-          const evt = index3.get(IDBKeyRange.only(1));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const entry = event.target.result;
-            resolve(entry);
-          };
-        });
-      }
-    });
-  }
-
-  calculPiaProgress(pia): void {
+  async calculPiaProgress(pia) {
     pia.progress = 0.0;
     if (pia.status > 0) {
       pia.progress += 4;
     }
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
-        this.sidStatusService.setSidStatus(pia, section, item);
-      });
-    });
-  }
-
-  /**
-   * Erase all contents on the DPD page.
-   * @private
-   * @param piaId - The PIA id.
-   */
-  public resetDpoPage(piaId: number): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.find(piaId).then((pia: Pia) => {
-        pia.dpos_names = null;
-        pia.dpo_status = null;
-        pia.dpo_opinion = null;
-        pia.concerned_people_searched_opinion = null;
-        pia.concerned_people_searched_content = null;
-        pia.people_names = null;
-        pia.concerned_people_status = null;
-        pia.concerned_people_opinion = null;
-        this.update(pia).then(() => {
-          resolve();
-        });
+        this._sidStatusService.setSidStatus(pia, section, item);
       });
     });
   }
@@ -285,7 +75,7 @@ export class PiaService extends ApplicationDb {
   /**
    * Create a new PIA
    */
-  async saveNewPia(piaForm: any): Promise<any> {
+  async saveNewPia(piaForm: any) {
     return new Promise((resolve, reject) => {
       const pia = new Pia();
       pia.name = piaForm.value.name;
@@ -297,26 +87,25 @@ export class PiaService extends ApplicationDb {
       pia.updated_at = new Date();
       const structure_id = piaForm.value.structure;
       if (structure_id && structure_id > 0) {
-        this.structureService
-          .find(structure_id)
-          .then((structure: Structure) => {
-            pia.structure_id = structure.id;
-            pia.structure_name = structure.name;
-            pia.structure_sector_name = structure.sector_name;
-            pia.structure_data = this.removeEmptyElements(structure.data);
-            this.create(pia).then(id => {
-              this.structureCreateMeasures(pia, id).then(() => {
-                this.structureCreateAnswers(pia, id).then(() => resolve(id));
-              });
+        const structure = new Structure();
+        structure.get(structure_id).then(() => {
+          pia.structure_id = structure.id;
+          pia.structure_name = structure.name;
+          pia.structure_sector_name = structure.sector_name;
+          pia.structure_data = this.removeEmptyElements(structure.data);
+          pia.create().then(id => {
+            this.structureCreateMeasures(pia, id).then(() => {
+              this.structureCreateAnswers(pia, id).then(() => resolve(id));
             });
           });
+        });
       } else {
-        this.create(pia).then(id => resolve(id));
+        pia.create().then(id => resolve(id));
       }
     });
   }
 
-  removeEmptyElements(structure_data): any {
+  removeEmptyElements(structure_data) {
     structure_data.sections.forEach(section => {
       if (section.items) {
         section.items.forEach(item => {
@@ -332,15 +121,8 @@ export class PiaService extends ApplicationDb {
             }
           } else if (item.questions) {
             item.questions.forEach(question => {
-              if (
-                question.answer &&
-                question.answer.length > 0 &&
-                question.answer.title &&
-                question.answer.title.length <= 0
-              ) {
-                const index = item.questions.findIndex(
-                  q => q.id === question.id
-                );
+              if (question.answer && question.answer.length > 0 && question.answer.title && question.answer.title.length <= 0) {
+                const index = item.questions.findIndex(q => q.id === question.id);
                 item.questions.splice(index, 1);
               }
             });
@@ -351,12 +133,10 @@ export class PiaService extends ApplicationDb {
     return structure_data;
   }
 
-  async structureCreateMeasures(pia: Pia, id: any): Promise<any> {
+  async structureCreateMeasures(pia: Pia, id: any) {
     return new Promise((resolve, reject) => {
       // Record the structures Measures
-      const structures_measures = pia.structure_data.sections
-        .filter(s => s.id === 3)[0]
-        .items.filter(i => i.id === 1)[0].answers;
+      const structures_measures = pia.structure_data.sections.filter(s => s.id === 3)[0].items.filter(i => i.id === 1)[0].answers;
       let i = 0;
       if (structures_measures.length > 0) {
         for (const m in structures_measures) {
@@ -365,7 +145,7 @@ export class PiaService extends ApplicationDb {
             measure.pia_id = id;
             measure.title = structures_measures[m].title;
             measure.content = structures_measures[m].content;
-            this.measuresService.create(measure).then(() => {
+            measure.create().then(() => {
               i++;
               if (i === structures_measures.length) {
                 resolve();
@@ -379,7 +159,7 @@ export class PiaService extends ApplicationDb {
     });
   }
 
-  async structureCreateAnswers(pia: Pia, id: any): Promise<any> {
+  async structureCreateAnswers(pia: Pia, id: any) {
     // Record the structures Answers
     return new Promise((resolve, reject) => {
       const questions = [];
@@ -404,7 +184,7 @@ export class PiaService extends ApplicationDb {
           answer.pia_id = id;
           answer.reference_to = question.id;
           answer.data = { text: question.answer, gauge: null, list: null };
-          this.answerService.create(answer).then(() => {
+          answer.create().then(() => {
             i++;
             if (i === questions.length) {
               resolve();
@@ -418,44 +198,75 @@ export class PiaService extends ApplicationDb {
   }
 
   /**
+   * Allows an user to archive a PIA.
+   */
+  archivePia() {
+    const piaID = parseInt(localStorage.getItem('pia-to-archive-id'), 10);
+
+    // Update the PIA in DB.
+    const pia = new Pia();
+    pia.get(piaID).then(() => {
+      pia.is_archive = 1;
+      pia.update();
+
+      const index = this.pias.findIndex(item => item.id === piaID);
+      if (index !== -1) {
+        this.pias[index] = pia;
+
+        this.pias.splice(index, 1);
+      }
+    });
+
+    // Removes the PIA from the view.
+    if (localStorage.getItem('homepageDisplayMode') && localStorage.getItem('homepageDisplayMode') === 'list') {
+      document.querySelector('.app-list-item[data-id="' + piaID + '"]').remove();
+    } else {
+      document.querySelector('.pia-cardsBlock.pia[data-id="' + piaID + '"]').remove();
+    }
+
+    localStorage.removeItem('pia-to-archive-id');
+
+    this._modalsService.closeModal();
+  }
+
+  /**
    * Cancel all validated evaluations.
    * @returns - Return a new Promise
    */
-  async cancelAllValidatedEvaluation(pia: Pia): Promise<void> {
+  async cancelAllValidatedEvaluation() {
     return new Promise((resolve, reject) => {
       let count = 0;
-      this.evaluationService
-        .findAllByPia(pia.id)
-        .then((entries: any) => {
-          if (entries && entries.length > 0) {
-            entries.forEach(element => {
-              this.evaluationService.find(element.id).then((entry: any) => {
-                entry.global_status = 0;
-                this.update(entry).then(() => {
-                  count++;
-                  if (count === entries.length) {
-                    resolve();
-                  }
-                });
+      let evaluation = new Evaluation();
+      evaluation.pia_id = this.pia.id;
+      evaluation.findAll().then((entries: any) => {
+        if (entries && entries.length > 0) {
+          entries.forEach(element => {
+            evaluation = new Evaluation();
+            evaluation.get(element.id).then((entry: any) => {
+              entry.global_status = 0;
+              entry.update().then(() => {
+                count++;
+                if (count === entries.length) {
+                  resolve();
+                }
               });
             });
-          } else {
-            resolve();
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
+          });
+        } else {
+          resolve();
+        }
+      });
     });
   }
 
   /**
    * Allows an user to abandon a treatment (archive a PIA).
    */
-  abandonTreatment(pia: Pia): void {
-    pia.status = 4;
-    this.update(pia).then(() => {
-      this.router.navigate(['/entries']);
+  abandonTreatment() {
+    this.pia.status = 4;
+    this.pia.update().then(() => {
+      this._modalsService.closeModal();
+      this._router.navigate(['home']);
     });
   }
 
@@ -463,17 +274,9 @@ export class PiaService extends ApplicationDb {
    * Allow an user to duplicate a PIA.
    * @param id - The PIA id.
    */
-  duplicate(id: number): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.exportData(id).then(data => {
-        this.importData(data, 'COPY', true)
-          .then(() => {
-            resolve();
-          })
-          .then(err => {
-            reject(err);
-          });
-      });
+  duplicate(id: number) {
+    this.exportData(id).then(data => {
+      this.importData(data, 'COPY', true);
     });
   }
 
@@ -482,25 +285,36 @@ export class PiaService extends ApplicationDb {
    * @param id - The PIA id.
    * @returns - Return a new Promise
    */
-  exportData(id: number): Promise<any> {
+  exportData(id: number) {
     return new Promise((resolve, reject) => {
-      this.find(id).then((pia: PiaService) => {
+      const pia = new Pia();
+      const answer = new Answer();
+      const measure = new Measure();
+      measure.pia_id = id;
+      const evaluation = new Evaluation();
+      evaluation.pia_id = id;
+      const comment = new Comment();
+      comment.pia_id = id;
+      // const attachment = new Attachment();
+      // attachment.pia_id = id;
+
+      pia.get(id).then(() => {
         // SET progress attribute
         this.calculPiaProgress(pia);
         const data = {
-          pia,
+          pia: pia,
           answers: null,
           measures: null,
           evaluations: null,
           comments: null
         };
-        this.answerService.findAllByPia(id).then(answers => {
+        answer.findAllByPia(id).then(answers => {
           data['answers'] = answers;
-          this.measuresService.findAllByPia(id).then(measures => {
+          measure.findAll().then(measures => {
             data['measures'] = measures;
-            this.evaluationService.findAllByPia(id).then(evaluations => {
+            evaluation.findAll().then(evaluations => {
               data['evaluations'] = evaluations;
-              this.commentsService.findAllByPia(id).then(comments => {
+              comment.findAll().then(comments => {
                 data['comments'] = comments;
                 // attachment.findAll().then((attachments) => {
                 // data['attachments'] = attachments;
@@ -521,105 +335,98 @@ export class PiaService extends ApplicationDb {
    * @param is_duplicate - Is a duplicate PIA?
    * @param [is_example] - Is the PIA example?
    */
-  async importData(
-    data: any,
-    prefix: string,
-    is_duplicate: boolean,
-    is_example?: boolean
-  ): Promise<any> {
-    return new Promise((resolve, reject) => {
-      if (!data.pia) {
-        reject(new Error('wrong pia file'));
-        return;
-      }
-      
-      const pia = new Pia();
-      pia.name = '(' + prefix + ') ' + data.pia.name;
-      pia.category = data.pia.category;
-      pia.author_name = data.pia.author_name;
-      pia.evaluator_name = data.pia.evaluator_name;
-      pia.validator_name = data.pia.validator_name;
-      pia.dpo_status = data.pia.dpo_status;
-      pia.dpo_opinion = data.pia.dpo_opinion;
-      pia.concerned_people_opinion = data.pia.concerned_people_opinion;
-      pia.concerned_people_status = data.pia.concerned_people_status;
-      pia.concerned_people_searched_opinion =
-        data.pia.concerned_people_searched_opinion;
-      pia.concerned_people_searched_content =
-        data.pia.concerned_people_searched_content;
-      pia.rejected_reason = data.pia.rejected_reason;
-      pia.applied_adjustements = data.pia.applied_adjustements;
-      pia.created_at = data.pia.created_at;
-      pia.dpos_names = data.pia.dpos_names;
-      pia.people_names = data.pia.people_names;
-      /* Structure import if there is a specific one associated to this PIA */
-      if (data.pia.structure_id) {
-        pia.structure_id = data.pia.structure_id;
-        pia.structure_data = data.pia.structure_data;
-        pia.structure_name = data.pia.structure_name;
-        pia.structure_sector_name = data.pia.structure_sector_name;
-      }
+  async importData(data: any, prefix: string, is_duplicate: boolean, is_example?: boolean) {
+    if (!('pia' in data) || !('dbVersion' in data.pia)) {
+      this._modalsService.openModal('import-wrong-pia-file');
+      return;
+    }
+    const pia = new Pia();
+    pia.name = '(' + prefix + ') ' + data.pia.name;
+    pia.category = data.pia.category;
+    pia.author_name = data.pia.author_name;
+    pia.evaluator_name = data.pia.evaluator_name;
+    pia.validator_name = data.pia.validator_name;
+    pia.dpo_status = data.pia.dpo_status;
+    pia.dpo_opinion = data.pia.dpo_opinion;
+    pia.concerned_people_opinion = data.pia.concerned_people_opinion;
+    pia.concerned_people_status = data.pia.concerned_people_status;
+    pia.concerned_people_searched_opinion = data.pia.concerned_people_searched_opinion;
+    pia.concerned_people_searched_content = data.pia.concerned_people_searched_content;
+    pia.rejected_reason = data.pia.rejected_reason;
+    pia.applied_adjustements = data.pia.applied_adjustements;
+    pia.created_at = data.pia.created_at;
+    pia.dpos_names = data.pia.dpos_names;
+    pia.people_names = data.pia.people_names;
+    /* Structure import if there is a specific one associated to this PIA */
+    if (data.pia.structure_id) {
+      pia.structure_id = data.pia.structure_id;
+      pia.structure_data = data.pia.structure_data;
+      pia.structure_name = data.pia.structure_name;
+      pia.structure_sector_name = data.pia.structure_sector_name;
+    }
 
-      /* Set this PIA as the example PIA if needed, else default value affected on creation */
-      if (is_example) {
-        pia.is_example = 1;
-      }
+    /* Set this PIA as the example PIA if needed, else default value affected on creation */
+    if (is_example) {
+      pia.is_example = 1;
+    }
 
-      if (is_duplicate) {
+    if (is_duplicate) {
+      pia.status = 0;
+      pia.created_at = new Date();
+      pia.updated_at = new Date();
+      pia.dpos_names = null;
+      pia.dpo_status = null;
+      pia.dpo_opinion = null;
+      pia.concerned_people_searched_opinion = null;
+      pia.concerned_people_searched_content = null;
+      pia.people_names = null;
+      pia.concerned_people_status = null;
+      pia.concerned_people_opinion = null;
+    } else {
+      pia.status = parseInt(data.pia.status, 10);
+      if (Number.isNaN(pia.status)) {
         pia.status = 0;
-        pia.created_at = new Date();
-        pia.updated_at = new Date();
-        pia.dpos_names = null;
-        pia.dpo_status = null;
-        pia.dpo_opinion = null;
-        pia.concerned_people_searched_opinion = null;
-        pia.concerned_people_searched_content = null;
-        pia.people_names = null;
-        pia.concerned_people_status = null;
-        pia.concerned_people_opinion = null;
-      } else {
-        pia.status = parseInt(data.pia.status, 10);
-        if (Number.isNaN(pia.status)) {
-          pia.status = 0;
-        }
-        pia.created_at = new Date(data.pia.created_at);
-        if (data.pia.updated_at) {
-          pia.updated_at = new Date(data.pia.updated_at);
-        }
+      }
+      pia.created_at = new Date(data.pia.created_at);
+      if (data.pia.updated_at) {
+        pia.updated_at = new Date(data.pia.updated_at);
+      }
+    }
+
+    pia.create().then((piaId: number) => {
+      pia.id = piaId;
+
+      this.importAnswers(data.answers, piaId);
+      this.importMeasures(data, piaId, is_duplicate);
+      if (!is_duplicate) {
+        this.importComments(data.comments, piaId);
       }
 
-      this.create(pia)
-        .then((piaId: number) => {
-          pia.id = piaId;
-
-          this.importAnswers(data.answers, piaId);
-          this.importMeasures(data, piaId, is_duplicate);
-          if (!is_duplicate) {
-            this.importComments(data.comments, piaId);
-          }
-
-          // this.pias.push(pia);
-          this.calculPiaProgress(pia);
-          resolve(pia);
-        })
-        .catch(err => {
-          reject(err);
-        });
+      this.pias.push(pia);
+      this.calculPiaProgress(pia);
     });
   }
 
-  async replacePiaByExport(
-    piaExport,
-    resetOption,
-    updateOption,
-    dateExport
-  ): Promise<void> {
+  async replacePiaByExport(piaExport, resetOption, updateOption, dateExport) {
     return new Promise(async resolve => {
-      let pia = new Pia();
-      pia = {
-        pia,
-        ...piaExport.pia
-      };
+      const pia = new Pia();
+      pia.id = piaExport.pia.id;
+      pia.name = piaExport.pia.name;
+      pia.category = piaExport.pia.category;
+      pia.author_name = piaExport.pia.author_name;
+      pia.evaluator_name = piaExport.pia.evaluator_name;
+      pia.validator_name = piaExport.pia.validator_name;
+      pia.dpo_status = piaExport.pia.dpo_status;
+      pia.dpo_opinion = piaExport.pia.dpo_opinion;
+      pia.concerned_people_opinion = piaExport.pia.concerned_people_opinion;
+      pia.concerned_people_status = piaExport.pia.concerned_people_status;
+      pia.concerned_people_searched_opinion = piaExport.pia.concerned_people_searched_opinion;
+      pia.concerned_people_searched_content = piaExport.pia.concerned_people_searched_content;
+      pia.rejected_reason = piaExport.pia.rejected_reason;
+      pia.applied_adjustements = piaExport.pia.applied_adjustements;
+      pia.created_at = piaExport.pia.created_at;
+      pia.dpos_names = piaExport.pia.dpos_names;
+      pia.people_names = piaExport.pia.people_names;
       pia.updated_at = dateExport;
       pia.status = resetOption ? 0 : piaExport.status;
       /* Structure import if there is a specific one associated to this PIA */
@@ -631,18 +438,16 @@ export class PiaService extends ApplicationDb {
       }
 
       if (updateOption) {
-        this.update(pia, dateExport) // update pia storage
-          .then(async entry => {
+        pia
+          .update(dateExport) // update pia storage
+          .then(async () => {
             // DELETE EVERY ANSWERS, MEASURES AND COMMENT
             await this.destroyData(pia.id);
             // CREATE NEW ANSWERS, MEASURES AND COMMENT
             await this.importAnswers(piaExport.answers, pia.id);
             await this.importMeasures(piaExport, pia.id, false);
             await this.importComments(piaExport.comments, pia.id);
-            resolve(entry);
-          })
-          .catch(err => {
-            console.log(err);
+            resolve();
           });
       } else {
         resolve();
@@ -658,13 +463,7 @@ export class PiaService extends ApplicationDb {
    * @param [oldIdToNewId] - Array to generate new id for special item.
    * @param resetStatus - Used to erase the PIA status
    */
-  private async importEvaluations(
-    data: any,
-    pia_id: number,
-    is_duplicate: boolean,
-    oldIdToNewId?: Array<any>,
-    resetStatus?: boolean
-  ) {
+  private async importEvaluations(data: any, pia_id: number, is_duplicate: boolean, oldIdToNewId?: Array<any>, resetStatus?: boolean) {
     if (!is_duplicate) {
       // Create evaluations
       for (const evaluation of data.evaluations) {
@@ -672,27 +471,21 @@ export class PiaService extends ApplicationDb {
         evaluationModel.pia_id = pia_id;
         evaluationModel.status = resetStatus ? 0 : evaluation.status;
         let reference_to = evaluation.reference_to;
-
         if (reference_to.startsWith('3.1') && oldIdToNewId) {
           const ref = reference_to.split('.');
           if (oldIdToNewId[ref[2]]) {
             reference_to = '3.1.' + oldIdToNewId[ref[2]];
           }
         }
-
         evaluationModel.reference_to = reference_to;
         evaluationModel.action_plan_comment = evaluation.action_plan_comment;
         evaluationModel.evaluation_comment = evaluation.evaluation_comment;
         if (evaluation.evaluation_date) {
-          evaluationModel.evaluation_date = new Date(
-            evaluation.evaluation_date
-          );
+          evaluationModel.evaluation_date = new Date(evaluation.evaluation_date);
         }
         evaluationModel.gauges = evaluation.gauges;
         if (evaluation.estimated_implementation_date) {
-          evaluationModel.estimated_implementation_date = new Date(
-            evaluation.estimated_implementation_date
-          );
+          evaluationModel.estimated_implementation_date = new Date(evaluation.estimated_implementation_date);
         }
         evaluationModel.person_in_charge = evaluation.person_in_charge;
         evaluationModel.global_status = evaluation.global_status;
@@ -700,7 +493,9 @@ export class PiaService extends ApplicationDb {
         if (evaluation.updated_at) {
           evaluationModel.updated_at = new Date(evaluation.updated_at);
         }
-        await this.evaluationService.create(evaluationModel);
+        await evaluationModel.create().then(() => {
+          console.log('finish create evaluation');
+        });
       }
     }
   }
@@ -712,7 +507,7 @@ export class PiaService extends ApplicationDb {
   async export(id: number) {
     return new Promise(async (resolve, reject) => {
       this.exportData(id).then(data => {
-        const finalData = encode_utf8(JSON.stringify(data));
+        const finalData = utf8Encode(JSON.stringify(data));
         resolve(finalData);
       });
     });
@@ -723,24 +518,17 @@ export class PiaService extends ApplicationDb {
    * @param file - The exported PIA file.
    */
   async import(file: any) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsText(file);
-      reader.onload = (event: any) => {
-        try {
-          const jsonFile = JSON.parse(event.target.result);
-          this.importData(jsonFile, 'IMPORT', false)
-            .then(() => {
-              resolve(true);
-            })
-            .catch(err => {
-              reject(err);
-            });
-        } catch {
-          reject(false);
-        }
-      };
-    });
+    const reader = new FileReader();
+    reader.readAsText(file, 'UTF-8');
+    reader.onload = (event: any) => {
+      try {
+        const jsonFile = JSON.parse(event.target.result);
+        this.importData(jsonFile, 'IMPORT', false);
+      } catch (error) {
+        this._modalsService.openModal('modal-general-error');
+        console.error('Unable to parse JSON file.');
+      }
+    };
   }
 
   /**
@@ -750,41 +538,35 @@ export class PiaService extends ApplicationDb {
   private async destroyData(piaId: number) {
     const answer = new Answer();
     answer.pia_id = piaId;
-    await this.answerService
-      .findAllByPia(piaId)
-      .then(async (response: Array<Answer>) => {
-        for (const c of response) {
-          await this.answerService.delete(c.id);
-        }
-      });
+    await answer.findAllByPia(piaId).then(async (response: Array<Answer>) => {
+      for (const c of response) {
+        await answer.delete(c.id);
+      }
+    });
 
     const comment = new Comment();
     comment.pia_id = piaId;
-    await this.commentsService
-      .findAllByPia(piaId)
-      .then(async (response: Array<Comment>) => {
-        for (const c of response) {
-          await this.commentsService.delete(c.id);
-        }
-      });
+    await comment.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+      for (const c of response) {
+        await comment.delete(c.id);
+      }
+    });
 
     const measure = new Measure();
     measure.pia_id = piaId;
-    await this.measuresService
-      .findAllByPia(piaId)
-      .then(async (response: Array<Comment>) => {
-        for (const c of response) {
-          await this.measuresService.delete(c.id);
-        }
-      });
+    await measure.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+      for (const c of response) {
+        await measure.delete(c.id);
+      }
+    });
 
-    await this.evaluationService
-      .findAllByPia(piaId)
-      .then(async (response: Array<Comment>) => {
-        for (const c of response) {
-          await this.evaluationService.delete(c.id);
-        }
-      });
+    const evaluation = new Evaluation();
+    evaluation.pia_id = piaId;
+    await evaluation.findAllByPia(piaId).then(async (response: Array<Comment>) => {
+      for (const c of response) {
+        await evaluation.delete(c.id);
+      }
+    });
   }
 
   /**
@@ -792,7 +574,7 @@ export class PiaService extends ApplicationDb {
    * @param answers - The list of answers
    * @param piaId - The PIA id
    */
-  private async importAnswers(answers: any, piaId: number): Promise<void> {
+  private async importAnswers(answers: any, piaId: number) {
     answers.forEach(answer => {
       const answerModel = new Answer();
       answerModel.pia_id = piaId;
@@ -802,7 +584,7 @@ export class PiaService extends ApplicationDb {
       if (answer.updated_at) {
         answerModel.updated_at = new Date(answer.updated_at);
       }
-      this.answerService.create(answerModel);
+      answerModel.create();
     });
   }
 
@@ -813,12 +595,7 @@ export class PiaService extends ApplicationDb {
    * @param isDuplicate - To know if it's a duplication action
    * @param resetStatus - To know if we need to reset the status
    */
-  private async importMeasures(
-    data: any,
-    piaId: number,
-    isDuplicate: boolean,
-    resetStatus?: boolean
-  ): Promise<any> {
+  private async importMeasures(data: any, piaId: number, isDuplicate: boolean, resetStatus?: boolean) {
     if (data.measures.length > 0) {
       let count = 0;
       const oldIdToNewId = [];
@@ -833,17 +610,11 @@ export class PiaService extends ApplicationDb {
         if (measure.updated_at) {
           measureModel.updated_at = new Date(measure.updated_at);
         }
-        this.measuresService.create(measureModel).then((id: number) => {
+        measureModel.create().then((id: number) => {
           count++;
           oldIdToNewId[measure.id] = id;
           if (count === data.measures.length) {
-            this.importEvaluations(
-              data,
-              piaId,
-              isDuplicate,
-              oldIdToNewId,
-              resetStatus
-            );
+            this.importEvaluations(data, piaId, isDuplicate, oldIdToNewId, resetStatus);
           }
         });
       });
@@ -852,87 +623,12 @@ export class PiaService extends ApplicationDb {
     }
   }
 
-  // UPDATE
-  archive(id): Promise<void> {
-    return new Promise((resolve, reject) => {
-      // Update the PIA in DB.
-      const pia = new Pia();
-      this.find(id)
-        .then((entry: Pia) => {
-          entry.is_archive = 1;
-          this.update(entry);
-          resolve();
-        })
-        .catch(err => {
-          console.error(err);
-        });
-    });
-  }
-
-  update(pia: Pia, date = null): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.find(pia.id).then((entry: any) => {
-        entry = {
-          ...entry,
-          ...pia
-        };
-        entry.structure_id = pia.structure_id ? pia.structure_id : '';
-        if (entry.is_archive === undefined || entry.is_archive === null) {
-          entry.is_archive = 0;
-        } else {
-          entry.is_archive = pia.is_archive;
-        }
-        entry.updated_at = date ? date : new Date();
-        if (this.serverUrl) {
-          const formData = new FormData();
-          for (const d in entry) {
-            if (entry.hasOwnProperty(d)) {
-              let value = entry[d];
-              if (d === 'structure_data') {
-                value = JSON.stringify(value);
-              }
-              formData.append('pia[' + d + ']', value !== null ? value : '');
-            }
-          }
-          fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
-            body: formData,
-            mode: 'cors'
-          })
-            .then(response => {
-              return response.json();
-            })
-            .then((result: any) => {
-              resolve(result);
-            })
-            .catch(error => {
-              console.error('Request failed', error);
-              reject();
-            });
-        } else {
-          this.getObjectStore().then(() => {
-            const evt = this.objectStore.put(entry);
-            evt.onerror = (event: any) => {
-              console.error(event);
-              reject(Error(event));
-            };
-            evt.onsuccess = (event: any) => {
-              resolve(event.target.result);
-            };
-          });
-        }
-      });
-    });
-  }
-
-  // END UPDATE
-
   /**
    * Import all comments
    * @param comments - The list of comments
    * @param piaId - The PIA id
    */
-  private async importComments(comments: any, piaId: number): Promise<any> {
+  private async importComments(comments: any, piaId: number) {
     comments.forEach(comment => {
       const commentModel = new Comment();
       commentModel.pia_id = piaId;
@@ -943,52 +639,7 @@ export class PiaService extends ApplicationDb {
       if (comment.updated_at) {
         commentModel.updated_at = new Date(comment.updated_at);
       }
-      this.commentsService.create(commentModel);
+      commentModel.create();
     });
-  }
-
-  /**
-   * Get the status of the PIA.
-   * @returns {string} - Locale for translation.
-   */
-  getStatusName(status): string {
-    if (status >= 0) {
-      return `pia.statuses.${status}`;
-    }
-  }
-
-  /**
-   * Get people status.
-   * @param {boolean} status - The people search status.
-   * @returns {string} - Locale for translation.
-   */
-  getPeopleSearchStatus(status: boolean): string {
-    if (status === true) {
-      return 'summary.people_search_status_ok';
-    } else {
-      return 'summary.people_search_status_nok';
-    }
-  }
-
-  /**
-   * Get opinion status.
-   * @param {string} status - The opinion status.
-   * @returns {string} - Locale for translation.
-   */
-  getOpinionsStatus(status: string): string {
-    if (status) {
-      return `summary.content_choice.${status}`;
-    }
-  }
-
-  /**
-   * Get gauge name.
-   * @param {*} value - The gauge value.
-   * @returns {string} - Locale for translation.
-   */
-  getGaugeName(value: any): string {
-    if (value) {
-      return `summary.gauges.${value}`;
-    }
   }
 }

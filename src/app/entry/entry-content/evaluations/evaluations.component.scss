@@ -1,0 +1,101 @@
+@import '../../../../assets/stylesheets/variables';
+.pia {
+  &-evaluationBlock {
+    position: relative;
+    border-top: 5px solid $pia-red;
+    margin: 10px 0;
+    &-title {
+      color: $pia-red;
+      font-size: 1.75rem;
+      margin-top: 8px;
+    }
+    &-edit {
+      z-index: 999;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      button {
+        color: $pia-red;
+        font-size: 1.8rem;
+      }
+    }
+    &-buttons {
+      margin: 10px 0;
+      text-align: center;
+      button {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 8px;
+        &:before {
+          font-family: FontAwesome;
+          margin-right: 5px;
+          font-size: 1.85rem;
+          vertical-align: -2px;
+        }
+      }
+      .btn-red {
+        &:before {
+          content: '\f00d';
+        }
+      }
+      .btn-blue {
+        &:before {
+          content: '\f1ce';
+        }
+      }
+      .btn-green {
+        &:before {
+          content: '\f00c';
+        }
+      }
+    }
+    &-date {
+      font-size: 1rem;
+      color: $pia-gray;
+    }
+    &-contentText {
+      min-height: 120px;
+      cursor: pointer;
+    }
+    &-content {
+      background: rgba(62, 224, 149, 0.2);
+      padding: 14px 16px 14px 16px;
+      label {
+        font-weight: 500;
+        color: $pia-blue;
+      }
+      label, textarea {
+        display: block;
+      }
+      textarea {
+        width: 100%;
+        background-color: #fff;
+        border: none;
+        resize: none;
+        padding-top: 3px;
+        margin: 4px 0;
+        font-size: 1.35rem;
+        &::placeholder {
+          color: $pia-gray;
+          font-style: italic;
+        }
+        &:disabled {
+          background-color: transparent;
+          padding: 0;
+        }
+      }
+    }
+    &-gauge {
+      font-weight: 500;
+      color: $pia-blue;
+      margin-bottom: 2px;
+    }
+    &-shadowed {
+      background-color: white;
+      box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+    }
+    &-self-padding {
+      padding: 2px 30px 25px 30px;
+    }
+  }
+}

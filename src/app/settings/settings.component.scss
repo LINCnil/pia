@@ -1,0 +1,21 @@
+@import '../../assets/stylesheets/variables';
+.pia-settingsBlock {
+  &-server {
+    max-width: 600px;
+    margin: auto;
+    display: block;
+  }
+  form {
+    input {
+      display: block;
+      width: 100%;
+      margin: auto;
+      margin-top: 5px;
+      padding: 7px;
+    }
+    button {
+      display: block;
+      margin: 10px auto auto auto;
+    }
+  }
+}

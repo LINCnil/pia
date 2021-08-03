@@ -1,0 +1,47 @@
+<div class="pia-ValidationRefuse">
+    <div class="pia-entryContentBlock-content">
+        <form [formGroup]="rejectionReasonForm">
+            <div class="pia-entryContentBlock-content-subject">
+                <div class="pia-entryContentBlock-content-subject-title">
+                    <h3>{{ 'rejection_page.rejection_reason' | translate }}</h3>
+                </div>
+                <div (click)="rejectionReasonFocusIn()" class="pia-entryContentBlock-content-subject-textarea">
+                    <textarea (keyup)="autoTextareaResize($event)"
+                              id="pia-refuse-reason"
+                              rows="8"
+                              cols="50"
+                              formControlName="rejectionReason"
+                              (focusout)="rejectionReasonFocusOut()"
+                              [disabled]="_piaService.pia.status === 1"
+                              placeholder="{{ 'rejection_page.rejection_reason_placeholder' | translate }}"></textarea>
+                </div>
+            </div>
+        </form>
+        <form [formGroup]="modificationsMadeForm" *ngIf="_piaService.pia.status === 1">
+            <div class="pia-entryContentBlock-content-subject">
+                <div class="pia-entryContentBlock-content-subject-title">
+                    <h3>{{ 'rejection_page.applied_adjustments' | translate }}</h3>
+                </div>
+                <div (click)="modificationsMadeFocusIn()" class="pia-entryContentBlock-content-subject-textarea">
+                    <textarea (focusout)="modificationsMadeFocusOut()"
+                              (keyup)="autoTextareaResize($event)"
+                              id="pia-refuse-modifications"
+                              rows="8"
+                              cols="50"
+                              formControlName="modificationsMade"
+                              placeholder="{{ 'rejection_page.applied_adjustments_placeholder' | translate }}"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="pia-entryContentBlock-footer">
+        <div class="pia-entryContentBlock-content-cancelButtons" *ngIf="_piaService.pia.status !== 1">
+            <button type="button" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 4}" (click)="abandon()"
+                    [disabled]="!showRejectionReasonButtons">{{ 'rejection_page.button.abandon_treatment' | translate }}</button>
+            <button type="button" class="btn btn-red" [ngClass]="{'btn-active': _piaService.pia.status === 1}" (click)="refuse()"
+                    [disabled]="!showRejectionReasonButtons">{{ 'rejection_page.button.reject_pia' | translate }}</button>
+        </div>
+        <button style="display:block;border-radius:0;width:100%;" [disabled]="!showResendValidationButton" routerLink="/entry/{{_piaService.pia.id}}/section/4/item/4" *ngIf="_piaService.pia.status === 1" class="btn btn-green">{{ 'rejection_page.button.send_for_validation' | translate }}</button>
+    </div>
+</div>

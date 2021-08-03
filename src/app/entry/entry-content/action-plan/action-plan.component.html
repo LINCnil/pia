@@ -1,0 +1,101 @@
+<div class="pia-validation-PlanAction">
+  <div class="pia-entryContentBlock-content">
+    <!-- Action plan graph -->
+    <div class="pia-entryContentBlock-content pia-actionPlanGraphBlock">
+      <h2>{{ 'action_plan.title' | translate }}</h2>
+      <div class="row">
+        <div class="medium-6 columns pia-actionPlanGraphBlock-left">
+          <h3>{{ 'action_plan.principles' | translate }}</h3>
+          <div class="pia-actionPlanGraphBlock-item" *ngFor="let r of _actionPlanService.results">
+            <span class="pia-list">{{ r.short_title | translate }}</span>
+            <span class="pia-box" [ngClass]="{'pia-blue': r.status === 2, 'pia-red': r.status === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': r.status === 3, 'pia-red': r.status === 1}"></span>
+          </div>
+        </div>
+        <div class="medium-6 columns pia-actionPlanGraphBlock-right">
+          <h3>{{ 'action_plan.measures' | translate }}</h3>
+          <div class="pia-actionPlanGraphBlock-right-measures">
+            <div class="pia-actionPlanGraphBlock-right-measures-scroll" *ngIf="_actionPlanService.measures">
+              <div *ngFor="let measure of _actionPlanService.measures" class="pia-actionPlanGraphBlock-item">
+                <span class="pia-box" [ngClass]="{'pia-blue': measure.status === 2, 'pia-red': measure.status === 1}"></span>
+                <span class="pia-box" [ngClass]="{'pia-green': measure.status === 3, 'pia-red': measure.status === 1}"></span>
+                <span class="pia-list">{{ measure.name }}</span>
+              </div>
+            </div>
+          </div>
+          <h3>{{ 'action_plan.risks' | translate }}</h3>
+          <div class="pia-actionPlanGraphBlock-item">
+            <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 2, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 3, 'pia-red': _actionPlanService.risks['3.2'] && _actionPlanService.risks['3.2']['status'] === 1}"></span>
+            <span class="pia-list">{{ 'action_plan.risk1' | translate }}</span>
+          </div>
+          <div class="pia-actionPlanGraphBlock-item">
+            <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 2, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 3, 'pia-red': _actionPlanService.risks['3.3'] && _actionPlanService.risks['3.3']['status'] === 1}"></span>
+            <span class="pia-list">{{ 'action_plan.risk2' | translate }}</span>
+          </div>
+          <div class="pia-actionPlanGraphBlock-item">
+            <span class="pia-box" [ngClass]="{'pia-blue': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 2, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
+            <span class="pia-box" [ngClass]="{'pia-green': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 3, 'pia-red': _actionPlanService.risks['3.4'] && _actionPlanService.risks['3.4']['status'] === 1}"></span>
+            <span class="pia-list">{{ 'action_plan.risk3' | translate }}</span>
+          </div>
+        </div>
+        <div class="pia-legend">
+          <p>{{ 'action_plan.improvable_measures' | translate }}</p>
+          <p>{{ 'action_plan.acceptable_measures' | translate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Principles action plans -->
+    <div class="pia-entryContentBlock-content-fundamental">
+      <h2>{{ 'action_plan.principles' | translate }}</h2>
+      <div *ngIf="!_actionPlanService.principlesActionPlanReady; else listPrinciplesActionPlanComment">
+        <div class="pia-entryContentBlock-content-details-blocks">
+          <div class="pia-details-blocks-content">
+            <div>{{ 'action_plan.no_action_plan' | translate }}</div>
+          </div>
+        </div>
+      </div>
+      <ng-template #listPrinciplesActionPlanComment>
+        <app-action-plan-implementation *ngFor="let data of _actionPlanService.results" [data]="data"></app-action-plan-implementation>
+      </ng-template>
+    </div>
+    <!-- Measures action plans -->
+    <div class="pia-entryContentBlock-content-measures">
+      <h2>{{ 'action_plan.measures' | translate }}</h2>
+      <div *ngIf="!_actionPlanService.measuresActionPlanReady; else listMeasuresActionPlanComment">
+        <div class="pia-entryContentBlock-content-details-blocks">
+          <div class="pia-details-blocks-content">
+             <div>{{ 'action_plan.no_action_plan' | translate }}</div>
+          </div>
+        </div>
+      </div>
+      <ng-template #listMeasuresActionPlanComment>
+        <app-action-plan-implementation *ngFor="let data of _actionPlanService.measures" [data]="data"></app-action-plan-implementation>
+      </ng-template>
+    </div>
+    <!-- Risks action plans -->
+    <div class="pia-entryContentBlock-content-risks">
+      <h2>{{ 'action_plan.risks' | translate }}</h2>
+      <div *ngIf="!_actionPlanService.risksActionPlan32Ready && !_actionPlanService.risksActionPlan33Ready && !_actionPlanService.risksActionPlan34Ready; else listRisksActionPlanComment">
+        <div class="pia-entryContentBlock-content-details-blocks">
+          <div class="pia-details-blocks-content">
+             <div>{{ 'action_plan.no_action_plan' | translate }}</div>
+          </div>
+        </div>
+      </div>
+      <ng-template #listRisksActionPlanComment>
+        <div *ngIf="_actionPlanService.risks['3.2']">
+          <app-action-plan-implementation [data]="_actionPlanService.risks['3.2']"></app-action-plan-implementation>
+        </div>
+        <div *ngIf="_actionPlanService.risks['3.3']">
+          <app-action-plan-implementation [data]="_actionPlanService.risks['3.3']"></app-action-plan-implementation>
+        </div>
+        <div *ngIf="_actionPlanService.risks['3.4']">
+          <app-action-plan-implementation [data]="_actionPlanService.risks['3.4']"></app-action-plan-implementation>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

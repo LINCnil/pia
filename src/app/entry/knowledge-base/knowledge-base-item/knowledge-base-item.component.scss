@@ -1,0 +1,99 @@
+@import '../../../../assets/stylesheets/variables';
+.pia {
+  &-knowledgeBaseBlock {
+    &-item {
+      padding-bottom: 18px;
+      border-top: solid 1px $pia-green;
+      position: relative;
+      &-accordion, &-definition {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      &-accordion {
+        width: 8%;
+        margin-top: 9px;
+      }
+      &-definition {
+        position: relative;
+        width: 90%;
+        button, p {
+          display: inline-block;
+          vertical-align: top;
+        }
+        > p {
+          cursor: pointer;
+          margin-top: 13px;
+          margin-bottom: 0;
+          color: $pia-red;
+          width: 80%;
+        }
+        button {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          margin: 0;
+          align-self: center;
+          text-decoration: none;
+          span {
+            display: block;
+            margin: auto;
+            &:last-child {
+              margin: 0;
+              color: $pia-green;
+              text-align: center;
+              font-size: 0.9rem;
+            }
+          }
+        }
+        div {
+          z-index: 999;
+          box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+          position: absolute;
+          top: 90px;
+          right: -66px;
+          max-width: 146px;
+          max-height: 90px;
+          border-radius: 5px;
+          padding: 5px 10px;
+          background-color: #fff;
+          span {
+            position: absolute;
+            left: 30%;
+            top: -57%;
+          }
+          p {
+            margin: 0;
+            padding: 0 5px;
+            font-size: 1.3rem;
+            text-align: center;
+            color: $pia-blue;
+            font-style: italic;
+          }
+        }
+      }
+      &-title {
+        p {
+          cursor: pointer;
+          margin-top: -10px;
+          margin-right: 40px;
+          margin-bottom: 0;
+          font-size: 1.7rem;
+          color: $pia-light-black;
+          line-height: 1.7rem;
+          a {
+            color: $pia-green;
+          }
+        }
+      }
+      &-content {
+        padding-top: 10px;
+        padding-bottom: 15px;
+        color: $pia-dark-black;
+        font-size: 1.4rem;
+      }
+      > div:first-child {
+        margin-bottom: 14px;
+      }
+    }
+  }
+}

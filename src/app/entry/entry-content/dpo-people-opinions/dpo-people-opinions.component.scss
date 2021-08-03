@@ -1,0 +1,123 @@
+@import '../../../../assets/stylesheets/variables';
+
+// DPO and people opinions page
+.pia-ValidationDPO {
+  .pia-entryContentBlock {
+    &-content {
+      &-DPO, &-people {
+        > div {
+          display: flex;
+          justify-content: space-between;
+        }
+        .DPOName {
+          background-color: #F5F5F5;
+          border: none;
+          &:disabled {
+            cursor: pointer;
+          }
+        }
+        .pia-questionBlock-edit {
+          i {
+            font-size: 20px;
+            color: $pia-gray;
+          }
+          .show {
+            display: block;
+          }
+        }
+        box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+        padding: 15px 46px;
+        padding-bottom: 40px;
+        background-color: #fefefe;
+        margin: 10px 0;
+        h2 {
+          margin:0;
+          font-weight: normal;
+        }
+        p {
+          font-size: 1.4rem;
+          span {
+            color: $pia-blue;
+            text-transform: capitalize;
+            font-weight: 500;
+          }
+        }
+        &-treatment {
+          > div {
+            input[type="radio"] {
+              display: none;
+            }
+            input:checked + label {
+              background-color: $pia-green;
+              .fa-circle {
+                display: none;
+              }
+              .fa-check, .fa-close {
+                display: block;
+              }
+              span {
+                color: #fff;
+              }
+            }
+            .fa-circle {
+              font-size: 2rem;
+              width: 20px;
+              height: 20px;
+              border: solid $pia-gray 1px;
+              border-radius: 50%;
+              color: #fefefe;
+              align-self: center;
+            }
+            .fa-check, .fa-close {
+              display: none;
+              font-size: 2rem;
+              align-self: center;
+              color: white;
+            }
+            span {
+              padding-left: 20px;
+              font-size: 1.4rem;
+            }
+            label {
+              cursor: pointer;
+              margin-top: 5px;
+              display: flex;
+              justify-content: flex-start;
+              background-color: $pia-white;
+              padding: 14px 18px;
+            }
+            &:last-child {
+              input:checked + label {
+                background-color: $pia-red;
+              }
+            }
+          }
+        }
+        &-reasons {
+          margin-top: 5px;
+          border-bottom: 1px solid $pia-green;
+          textarea {
+            resize: none;
+            display: block;
+            width: 100%;
+            background-color: $pia-white;
+            border: 0;
+            padding: 5px 12px;
+            font-size: 1.35rem;
+            &::placeholder {
+              font-style: italic;
+            }
+            &:disabled {
+              background-color: transparent;
+              color: $pia-dark-black;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      &-people {
+        margin-top: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import '../../assets/stylesheets/variables';
+
+.pia-aboutBlock {
+  h1 {
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  &-piaLogo {
+    padding-left: 260px;
+    background: url('../../assets/images/pia-auth-logo.png') no-repeat center left transparent;
+    height: 123px;
+    margin-bottom: 40px;
+    &-text {
+      text-align: left;
+      display: inline-block;
+      vertical-align: middle;
+      font-weight: bold;
+      color: $pia-blue;
+      padding-top: 2px;
+      line-height: 1.25;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      span {
+        font-weight: normal;
+      }
+    }
+    &-version {
+      color: #000;
+    }
+  }
+  &-cnilLogo {
+    padding-left: 180px;
+    background: url('../../assets/images/cnil-logo.png') no-repeat center left transparent;
+    background-size: 160px;
+    text-align: justify;
+  }
+}

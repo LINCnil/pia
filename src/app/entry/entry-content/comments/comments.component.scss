@@ -1,0 +1,76 @@
+@import '../../../../assets/stylesheets/variables';
+.pia {
+  &-commentsBlock {
+    &-count {
+      text-align: right;
+      color: $pia-blue;
+      font-weight: 500;
+      font-size: 1.4rem;
+      padding: 5px 0;
+    }
+    &-btn {
+      display: block;
+      button {
+        align-self: center;
+        color: $pia-green;
+        font-size: 1.3rem;
+        i {
+          align-self: center;
+          font-size: 1.75rem;
+          margin-right: 4px;
+        }
+        &:first-child {
+          padding: 2px 5px;
+        }
+      }
+    }
+    &-infos {
+      border-top: 1px solid #3EE095;
+      padding-top: 10px;
+      padding-bottom: 7px;
+      display: flex;
+      justify-content: space-between;
+    }
+    &-content {
+      border: 1px solid $pia-gray;
+      padding: 12px 8px;
+      position: relative;
+      textarea {
+        display: block;
+        border: none;
+        width: 100%;
+        resize: none;
+        background-color: #fff;
+        color: $pia-blue;
+        font-size: 1.3rem;
+        line-height: 1.35;
+      }
+    }
+    &-date {
+      font-weight: initial;
+      color: $pia-gray;
+      font-size: 1rem;
+      &:before {
+        margin: 0 5px;
+      }
+    }
+    &-new {
+      display: none;
+      textarea {
+        margin: 10px auto;
+        resize: none;
+        display: block;
+        width: 100%;
+        background-color: $pia-white;
+        border: 0;
+        padding: 5px 12px;
+        font-size: 1.35rem;
+        font-style: italic;
+      }
+    }
+    .pia-commentBtnSubmit {
+      margin: 10px  0 5px auto;
+      display: flex;
+    }
+  }
+}

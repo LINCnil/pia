@@ -1,0 +1,17 @@
+<div class="pia-entryContentBlock-content-details-blocks" *ngIf="data.evaluation && data.evaluation.action_plan_comment">
+  <div class="pia-details-blocks-content">
+    <div class="pia-details-blocks-content-title">
+      <h3>{{ data.short_title | translate }}</h3>
+    </div>
+    <div class="pia-details-blocks-content-comment" [innerHTML]="data.evaluation.action_plan_comment | safeHtml">
+    </div>
+    <form *ngIf="_piaService.pia.is_example !== 1" [formGroup]="actionPlanForm">
+      <div (click)="estimatedEvaluationDateFocusIn()">
+        <input type="date" #estimatedEvaluationDate (focusout)="estimatedEvaluationDateFocusOut()" formControlName="estimatedEvaluationDate">
+      </div>
+      <div (click)="personInChargeFocusIn()">
+        <input type="text" #personInCharge (focusout)="personInChargeFocusOut()" formControlName="personInCharge" placeholder="{{ 'action_plan.placeholder_person_in_charge' | translate }}">
+      </div>
+    </form>
+  </div>
+</div>

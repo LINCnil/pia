@@ -1,0 +1,106 @@
+@import '../../assets/stylesheets/variables';
+.pia-helpBlock {
+  li.active > a {
+    background-color: $pia-blue;
+    width: 100%;
+    border-radius: 3px;
+    color: #fff !important;
+  }
+  h2 {
+    border-bottom: 1px solid $pia-gray;
+  }
+  ol {
+    li {
+      margin-bottom: 10px;
+      strong {
+        font-size: larger;
+      }
+    }
+  }
+}
+.pia {
+  &-sectionBlock {
+    &-header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0;
+      border-bottom: solid 2px $pia-gray;
+      h1 {
+        font-size: 3rem;
+        font-weight: 400;
+        margin: 10px;
+        margin-left: 0;
+        width: 100%;
+        line-height: 30px;
+        padding-bottom: 2px;
+      }
+      a {
+        width: 35px;
+        align-self: center;
+      }
+    }
+    &-title {
+      margin-top: 18px;
+      margin-left: 10px;
+      text-transform: uppercase;
+      border-left: solid 10px;
+      padding: 3px 0 2px 10px;
+      align-self: center;
+      display: flex;
+      font-weight: 600;
+      justify-content: flex-end;
+      font-size: 1.3rem;
+      border-color: $pia-blue;
+      color: $pia-blue;
+      hr {
+        margin: auto 10px auto auto;
+        background-color: $pia-gray;
+        border: 0;
+        height: 1px;
+        width: 44%;
+      }
+    }
+    &-list {
+      padding: 0;
+      margin-bottom: 22px;
+      margin-left: 10px;
+      li {
+        padding: 2px 0;
+        font-size: 1.4rem;
+        list-style-type: none;
+        display: flex;
+        align-self: center;
+        justify-content: flex-start;
+        a {
+          color: $pia-dark-black;
+          text-decoration: none;
+          padding-left: 5px;
+        }
+        &::before {
+          content: "";
+          border-top: solid 1px $pia-gray;
+          width: 8.5px;
+          margin-right: 7px;
+          margin-top: 9px;
+          color: $pia-gray;
+        }
+        i {
+          font-size: 1.8rem;
+          margin-top: 2px;
+          margin-left: auto;
+          margin-right: 10px;
+          color: $pia-gray;
+        }
+        .fa-check-square-o {
+          color: $pia-blue;
+        }
+      }
+    }
+  }
+  &-help-section-scroll {
+    position: fixed;
+    top: 0;
+    overflow: auto;
+    bottom: 0;
+  }
+}

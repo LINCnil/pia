@@ -1,0 +1,50 @@
+@import '../../../../../assets/stylesheets/variables';
+.pia {
+  &-validationHistoryBlock {
+    background-color: #fff;
+    box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+    padding: 10px 40px 10px 40px;
+    margin: 10px 0;
+    &-title, &-refuse-title {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      p{
+        margin: 0 0 5px 0;
+        align-self: center;
+      }
+      div {
+        align-self: center;
+      }
+      button {
+        padding: 5px;
+        span {
+          margin: 0;
+          display: block;
+        }
+      }
+    }
+    &-refuse-title {
+      color: $pia-red;
+    }
+    &-content, &-refuse-content {
+      padding: 15px;
+      margin-bottom: 40px;
+      background-color: rgba(62,224,149,0.15);
+      text-align: justify;
+      h5 {
+        margin:0;
+        color: $pia-gray,
+      }
+      h4 {
+        color: $pia-blue;
+      }
+    }
+    &-refuse {
+      border-top: solid $pia-red 5px;
+      background-color: #fff;
+      padding: 10px 40px 40px 40px;
+      box-shadow: 2px 1px 18px 1px #c2c2c2;
+    }
+  }
+}

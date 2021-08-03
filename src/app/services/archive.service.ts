@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 
+import { Pia } from 'src/app/entry/pia.model';
+import { Answer } from 'src/app/entry/entry-content/questions/answer.model';
+import { Measure } from 'src/app/entry/entry-content/measures/measure.model';
 
+import { ModalsService } from 'src/app/modals/modals.service';
 import { AppDataService } from 'src/app/services/app-data.service';
-import { Pia } from '../models/pia.model';
-import { PiaService } from './pia.service';
 import { SidStatusService } from './sid-status.service';
 
 @Injectable()
@@ -12,57 +14,83 @@ export class ArchiveService {
   data: { sections: any };
 
   constructor(
-    private piaService: PiaService,
-    public appDataService: AppDataService,
-    public sidStatusService: SidStatusService
+    private _modalsService: ModalsService,
+    public _appDataService: AppDataService,
+    public _sidStatusService: SidStatusService
   ) {
-    this.data = this.appDataService.dataNav;
+    this.data = this._appDataService.dataNav;
   }
 
-  async calculProgress(): Promise<void> {
+  /**
+   * Sends back an archived PIA to an active PIA
+   */
+  unarchivePia() {
+    const id = parseInt(localStorage.getItem('pia-to-unarchive-id'), 10);
+
+    // Update the PIA in DB.
+    const pia = new Pia();
+    pia.get(id).then(() => {
+      pia.is_archive = 0;
+      pia.update();
+    });
+
+    // Deletes the PIA from the view
+    if (
+      localStorage.getItem('homepageDisplayMode') &&
+      localStorage.getItem('homepageDisplayMode') === 'list'
+    ) {
+      document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
+    } else {
+      document
+        .querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]')
+        .remove();
+    }
+
+    localStorage.removeItem('pia-to-unarchive-id');
+    this._modalsService.closeModal();
+  }
+
+  /**
+   * Allows an user to definitely remove an archived PIA
+   */
+  removeArchivedPia() {
+    const id = parseInt(localStorage.getItem('pia-to-remove-id'), 10);
+
+    // Removes from DB
+    const archivedPia = new Pia();
+    archivedPia.delete(id);
+
+    // Deletes the PIA from the view
+    if (
+      localStorage.getItem('homepageDisplayMode') &&
+      localStorage.getItem('homepageDisplayMode') === 'list'
+    ) {
+      document.querySelector('.app-list-item[data-id="' + id + '"]').remove();
+    } else {
+      document
+        .querySelector('.pia-cardsBlock.pia[data-id="' + id + '"]')
+        .remove();
+    }
+
+    localStorage.removeItem('pia-to-remove-id');
+    this._modalsService.closeModal();
+  }
+
+  async calculProgress() {
     this.archivedPias.forEach((archivedPia: Pia) => {
       this.calculPiaProgress(archivedPia);
     });
   }
 
-  async calculPiaProgress(pia): Promise<void> {
+  async calculPiaProgress(pia) {
     pia.progress = 0.0;
     if (pia.status > 0) {
       pia.progress += 4;
     }
     this.data.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
-        this.sidStatusService.setSidStatus(pia, section, item);
+        this._sidStatusService.setSidStatus(pia, section, item);
       });
-    });
-  }
-
-  // UPDATE
-  remove(id): Promise<void> {
-    return new Promise((resolve, reject) => {
-      // Removes from DB
-      this.piaService.delete(id)
-        .then(() => {
-          localStorage.removeItem('pia-to-remove-id');
-          resolve();
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    });
-  }
-
-  unarchive(id): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.piaService.find(id)
-        .then((entry: Pia) => {
-          entry.is_archive = 0;
-          this.piaService.update(entry);
-          resolve();
-        })
-        .catch((err) => {
-          reject(err);
-        });
     });
   }
 }

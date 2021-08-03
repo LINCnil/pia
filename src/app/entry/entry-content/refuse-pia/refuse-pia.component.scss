@@ -1,0 +1,89 @@
+@import '../../../../assets/stylesheets/variables';
+.pia-ValidationRefuse {
+  .pia-entryContentBlock {
+    &-content {
+      &-subject {
+        margin: 10px 0;
+        &-title {
+          padding: 0 10px;
+          display: flex;
+          justify-content: space-between;
+          h1, i {
+            align-self: center;
+          }
+          i {
+            font-size: 20px;
+            color: $pia-gray;
+          }
+        }
+        background-color: #fefefe;
+        padding: 15px 10px 40px 10px;
+        box-shadow: 2px 1px 18px 1px rgba(194, 194, 194, 1);
+        h3 {
+          font-size: 1.8rem;
+          font-weight: normal;
+          padding-left: 10px;
+          margin: 0;
+        }
+        div:last-child {
+          padding: 0 38px;
+          textarea {
+            resize: none;
+            display: flex;
+            justify-content: center;
+            margin: 5px auto auto auto;
+            width: 100%;
+            border-bottom: solid $pia-green 1px;
+            border-top: 0;
+            border-right: 0;
+            font-size: 1.35rem;
+            border-left: 0;
+            padding-bottom: 15px;
+            color: $pia-dark-black !important;
+            &[placeholder] {
+              padding-left: 10px;
+              padding-top: 10px;
+              font-size: 1.4rem;
+              font-style: italic;
+              background-color: $pia-white;
+              color: #A7A7A7;
+            }
+            &:disabled {
+              background-color: #fff;
+              color: $pia-dark-black;
+            }
+          }
+        }
+      }
+      &-cancelButtons {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        button {
+          width: 49%;
+          border-radius: 0;
+        }
+      }
+    }
+    &-footer {
+      margin-top: 10px;
+      button {
+        padding: 12px 15px !important;
+      }
+      > a {
+        display: block;
+        width: 100%;
+        border-radius: 0;
+        text-decoration: none;
+      }
+      p {
+        font-size: 0.95rem;
+        text-align: right;
+        font-style: italic;
+        margin: 0;
+        font-weight: 600;
+        color: $pia-gray;
+      }
+    }
+  }
+}

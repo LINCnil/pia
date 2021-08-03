@@ -1,0 +1,37 @@
+<section class="pia-entryContentBlock pia-entryContentBlock-section{{section.id}}" *ngIf="section && item">
+  <header autoscroll="true" class="pia-entryContentBlock-header">
+    <div>
+      <i class="fa fa-sitemap" aria-hidden="true"></i>
+    </div>
+    <div class="pia-entryContentBlock-header-title">
+      <h1 *ngIf="section.title">{{ section.title | translate }}</h1>
+      <h3 *ngIf="section.short_help">{{ section.short_help | translate }}</h3>
+      <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
+      <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4>
+    </div>
+  </header>
+
+  <ng-container *ngIf="item.is_measure; else appQuestions">
+    <button (click)="addMeasure()"
+            *ngIf="!_structureService.structure.is_example"
+            class="btn btn-white btn-addMeasure" type="button">
+      <span class="pia-icons pia-icon-add"></span>
+      {{ 'measures.add' | translate }}
+    </button>
+    <app-measures *ngFor="let measure of item.answers; let i = index" [id]="i" [measure]="measure" [section]="section" [item]="item"></app-measures>
+  </ng-container>
+  <ng-template #appQuestions>
+    <div *ngFor="let question of questions">
+      <app-questions [question]="question" [section]="section" [item]="item"></app-questions>
+    </div>
+  </ng-template>
+
+  <footer class="pia-entryContentBlock-footer" *ngIf="!item.is_measure && !_structureService.structure.is_example">
+    <div>
+      <button class="btn btn-green btn-active" (click)="addQuestion()">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        {{ 'pia.footer.structure_add_question' | translate }}
+      </button>
+    </div>
+  </footer>
+</section>
