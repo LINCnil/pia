@@ -1,314 +1,321 @@
 .pia-cardsBlock {
-    width: 276px;
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    margin-right: 12px;
-    margin-bottom: 40px;
-    height: 440px;
-    border: 1px solid #ddd;
+  width: 276px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin-right: 12px;
+  margin-bottom: 40px;
+  height: 540px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  &-title {
+    height: 23px;
+  }
+  &-header-title {
+    border-bottom: 1px solid $pia-green;
+    color: $pia-green;
+    height: 20px;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  &-item {
+    padding: 9px;
     background-color: #fff;
-    &-title {
-      height: 23px;
-    }
-    &-header-title {
-      border-bottom: 1px solid $pia-green;
-      color: $pia-green;
-      height: 20px;
-      margin-top: -30px;
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-    &-item {
-      padding: 9px;
-      background-color: #fff;
-      padding-top: 6px;
-      height: 368px;
-      &-attachment {
-        display: inline-block;
+    padding-top: 6px;
+    height: 368px;
+    &-attachment {
+      display: inline-block;
+      position: absolute;
+      vertical-align: middle;
+      left: 6px;
+      cursor: pointer;
+      ul {
+        display: none;
         position: absolute;
-        vertical-align: middle;
-        left: 6px;
-        cursor: pointer;
-        ul {
-          display: none;
-          position: absolute;
-          z-index: 999;
-          top: 18px;
-          left: 2px;
-          font-size: 1rem;
-          color: $pia-gray-dark;
-          background-color: #fff;
-          text-align: center;
-          min-width: 100px;
-          margin: 10px 0;
-          padding: 2px 4px;
-          box-shadow: 1px 1px 2px 1px rgba(214, 212, 214, 1);
-          li {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            border-bottom: 1px dotted $pia-gray-dark;
-            padding: 2px 0;
-            &:last-child {
-              border-bottom: none;
-            }
-          }
-        }
-        &:focus, &:hover, &:active {
-          ul {
-            display: block;
+        z-index: 999;
+        top: 18px;
+        left: 2px;
+        font-size: 1rem;
+        color: $pia-gray-dark;
+        background-color: #fff;
+        text-align: center;
+        min-width: 100px;
+        margin: 10px 0;
+        padding: 2px 4px;
+        box-shadow: 1px 1px 2px 1px rgba(214, 212, 214, 1);
+        li {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          border-bottom: 1px dotted $pia-gray-dark;
+          padding: 2px 0;
+          &:last-child {
+            border-bottom: none;
           }
         }
       }
-      &-status {
-        margin-top: 5px;
-        &-infos {
-          width: 150px;
-          div {
-            color: $pia-gray;
-            font-size: 1rem;
-            margin-bottom: -1px;
-            font-style: italic;
-            &:last-child {
-              font-size: 1.45rem;
-              color: $pia-dark-black;
-            }
-          }
-          .pendingValidation {
-            margin-bottom: -20px;
-            padding-right: 12px;
+      &:focus,
+      &:hover,
+      &:active {
+        ul {
+          display: block;
+        }
+      }
+    }
+    &-status {
+      margin-top: 5px;
+      &-infos {
+        width: 150px;
+        div {
+          color: $pia-gray;
+          font-size: 1rem;
+          margin-bottom: -1px;
+          font-style: italic;
+          &:last-child {
+            font-size: 1.45rem;
+            color: $pia-dark-black;
           }
         }
-        &-infos, &-progressBar {
-          display: inline-block;
-          vertical-align: top;
+        .pendingValidation {
+          margin-bottom: -20px;
+          padding-right: 12px;
         }
-        &-progressBar {
-          width: 100px;
+      }
+      &-infos,
+      &-progressBar {
+        display: inline-block;
+        vertical-align: top;
+      }
+      &-progressBar {
+        width: 100px;
+        text-align: right;
+        position: relative;
+        span {
+          font-size: 0.9em;
+          z-index: 5;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          text-align: left;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+        }
+        div {
+          color: $pia-green;
+          font-style: italic;
           text-align: right;
+          font-size: 1rem;
+        }
+        progress {
+          z-index: 0;
+          width: 100%;
           position: relative;
-          span {
-            font-size: 0.9em;
-            z-index: 5;
+          margin-top: 5px;
+          border: 1px solid #6666;
+          &:after {
             position: absolute;
+            left: 0;
             top: 50%;
+            content: '';
+            height: 20px;
+            width: 1px;
+            margin-top: -6px;
+            // background-color: $pia-green;
+          }
+          &:before {
+            position: absolute;
+            content: '';
             left: 0;
             right: 0;
-            text-align: left;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+            top: 50%;
+            height: 1px;
+            // background-color: $pia-green;
           }
-          div {
-            color: $pia-green;
-            font-style: italic;
-            text-align: right;
-            font-size: 1rem;
+        }
+        progress[value] {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-color: white;
+          height: 20px;
+          &::-webkit-progress-bar {
+            background-color: transparent;
           }
-          progress {
-            z-index: 0;
-            width: 100%;
-            position: relative;
-            margin-top: 5px;
-            border: 1px solid #6666;
-            &:after {
-              position: absolute;
-              left: 0;
-              top: 50%;
-              content: '';
-              height: 20px;
-              width: 1px;
-              margin-top: -6px;
-              // background-color: $pia-green;
-            }
-            &:before {
-              position: absolute;
-              content: '';
-              left: 0;
-              right: 0;
-              top: 50%;
-              height: 1px;
-              // background-color: $pia-green;
-            }
-          }
-          progress[value] {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-color: white;
-            height: 20px;
-            &::-webkit-progress-bar {
-              background-color: transparent;
-            }
-            &::-webkit-progress-value {
-              background-color: $pia-green;
-            }
-          }
-          progress[value]::-moz-progress-bar {
+          &::-webkit-progress-value {
             background-color: $pia-green;
           }
         }
-        &-refused {
-          color: $pia-red !important;
+        progress[value]::-moz-progress-bar {
+          background-color: $pia-green;
         }
       }
-      &-form {
-          div {
-              label {
-                  color: $pia-gray;
-                  font-size: 0.95rem;
-                  font-style: italic;
-              }
-              .archive,
-              input {
-                padding-bottom: 6px;
-                display: block;
-                border: 0;
-                font-size: 1.4rem;
-                color: $pia-dark-black;
-                width: 100%;
-                margin-top: -2px;
-                height: 22px;
-              }
-              input {
-                &::placeholder {
-                  color: $pia-gray;
-                }
-                &:hover {
-                  outline: 1px dotted #3EE095;
-                  cursor: text;
-                }
-                &:disabled {
-                  outline: none;
-                }
-              }
-              &:first-child {
-                  input {
-                      margin-top: 0;
-                      font-size: 2.1rem;
-                      padding-bottom: 23px;
-                      height: auto;
-                  }
-              }
-          }
-          &-attachment {
-              position: relative;
-              display: inline-block;
-              button {
-                  font-size: 1rem;
-                  color: $pia-gray;
-                  background-color: #fff;
-                  display: none;
-                  position: absolute;
-                  bottom: -14px;
-                  left: -50%;
-                  text-align: center;
-                  width: 78px;
-                  padding: 2px 4px;
-                  -webkit-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
-                  -moz-box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
-                  box-shadow: 1px 1px 2px 1px rgba(204,202,204,1);
-              }
-              &:focus, &:hover, &:active {
-                  button {
-                      display: block;
-                  }
-              }
-          }
+      &-refused {
+        color: $pia-red !important;
       }
-      &-date {
-          div {
-              color: $pia-gray;
-              font-size: 1rem;
-              margin-bottom: -1px;
-              &:first-child {
-                  font-style: italic;
-              }
+    }
+    &-form {
+      div {
+        label {
+          color: $pia-gray;
+          font-size: 0.95rem;
+          font-style: italic;
+        }
+        .archive,
+        input {
+          padding-bottom: 6px;
+          display: block;
+          border: 0;
+          font-size: 1.4rem;
+          color: $pia-dark-black;
+          width: 100%;
+          margin-top: -2px;
+          height: 22px;
+        }
+        input {
+          &::placeholder {
+            color: $pia-gray;
           }
-          time {
-              font-size: 1.45rem;
-              color: $pia-dark-black;
+          &:hover {
+            outline: 1px dotted #3ee095;
+            cursor: text;
           }
+          &:disabled {
+            outline: none;
+          }
+        }
+        &:first-child {
+          input {
+            margin-top: 0;
+            font-size: 2.1rem;
+            padding-bottom: 23px;
+            height: auto;
+          }
+        }
       }
-      &-structure {
-          div {
-              color: $pia-gray;
-              font-size: 1rem;
-              margin-bottom: -1px;
-              &:first-child {
-                  font-style: italic;
-              }
-          }
-          span {
-            display: block;
-              font-size: 1.45rem;
-              color: $pia-dark-black;
-          }
-      }
-      &-btn {
+      &-attachment {
+        position: relative;
+        display: inline-block;
+        button {
+          font-size: 1rem;
+          color: $pia-gray;
+          background-color: #fff;
+          display: none;
           position: absolute;
-          bottom: 12px;
-          left: 9px;
-          right: 9px;
-          border-top: 1px solid $pia-green;
-          padding-top: 21px;
-          margin-top: 21px;
+          bottom: -14px;
+          left: -50%;
           text-align: center;
-          margin-bottom: 15px;
-          a, button {
-              border-radius: 20px;
-              border: 1px solid;
-              padding: 9px 20px;
-              display: inline-block;
+          width: 78px;
+          padding: 2px 4px;
+          -webkit-box-shadow: 1px 1px 2px 1px rgba(204, 202, 204, 1);
+          -moz-box-shadow: 1px 1px 2px 1px rgba(204, 202, 204, 1);
+          box-shadow: 1px 1px 2px 1px rgba(204, 202, 204, 1);
+        }
+        &:focus,
+        &:hover,
+        &:active {
+          button {
+            display: block;
           }
-          a {
-            text-decoration: none;
-            padding: 5.5px 21px;
-          }
-          &-single,
-          &-dual {
-            a {
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-            }
-          }
-          &-single {
-            width: 50%;
-            margin: 0 auto;
-            a {
-              width: 100%;
-            }
-          }
-          &-dual {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            a {
-              width: 48%;
-            }
-          }
+        }
       }
     }
-    &-toolbar {
-        font-size: 1.8rem;
-        float: right;
-        a, button {
-          color: $pia-green;
-          .fa {
-            margin: 0 3px;
-          }
+    &-date {
+      div {
+        color: $pia-gray;
+        font-size: 1rem;
+        margin-bottom: -1px;
+        &:first-child {
+          font-style: italic;
         }
-        > div {
-          display: inline-block;
-          vertical-align: top;
-          position: relative;
-        }
+      }
+      time {
+        font-size: 1.45rem;
+        color: $pia-dark-black;
+      }
     }
+    &-structure {
+      div {
+        color: $pia-gray;
+        font-size: 1rem;
+        margin-bottom: -1px;
+        &:first-child {
+          font-style: italic;
+        }
+      }
+      span {
+        display: block;
+        font-size: 1.45rem;
+        color: $pia-dark-black;
+      }
+    }
+    &-btn {
+      position: absolute;
+      bottom: 12px;
+      left: 9px;
+      right: 9px;
+      border-top: 1px solid $pia-green;
+      padding-top: 21px;
+      margin-top: 21px;
+      text-align: center;
+      margin-bottom: 15px;
+      a,
+      button {
+        border-radius: 20px;
+        border: 1px solid;
+        padding: 9px 20px;
+        display: inline-block;
+      }
+      a {
+        text-decoration: none;
+        padding: 5.5px 21px;
+      }
+      &-single,
+      &-dual {
+        a {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+      &-single {
+        width: 50%;
+        margin: 0 auto;
+        a {
+          width: 100%;
+        }
+      }
+      &-dual {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        a {
+          width: 48%;
+        }
+      }
+    }
+  }
+  &-toolbar {
+    font-size: 1.8rem;
+    float: right;
+    a,
+    button {
+      color: $pia-green;
+      .fa {
+        margin: 0 3px;
+      }
+    }
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+    }
+  }
 }
 
 .pia-exampleBlock {

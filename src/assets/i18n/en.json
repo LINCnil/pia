@@ -195,10 +195,12 @@
 	"homepage": {
 		"cards": {
 			"author": "Editing",
+			"author_email": "Author Email",
 			"category": "Category",
 			"creation_status": "Creation",
 			"date": "Date",
 			"evaluation": "Review",
+			"evaluator_email": "Evaluator Email",
 			"import_pia": "Import PIA",
 			"import_structure": "Import template",
 			"item": {
@@ -223,8 +225,10 @@
 			"or": "or",
 			"pia_name": "PIA",
 			"placeholder_author": "Firstname, lastname",
+			"placeholder_author_email": "example@email.com",
 			"placeholder_category": "Category",
 			"placeholder_evaluation": "Firstname, lastname",
+			"placeholder_evaluator_email": "example@email.com",
 			"placeholder_import_pia": "Import PIA",
 			"placeholder_import_structure": "Import template",
 			"placeholder_new_pia": "New PIA",
@@ -235,13 +239,15 @@
 			"placeholder_structure": "Default template",
 			"placeholder_structure_name": "Template's title",
 			"placeholder_validation": "Firstname, lastname",
+			"placeholder_validator_email": "example@email.com",
 			"sector_name": "Sector",
 			"start": "Start",
 			"status": "Status",
 			"structure": "Template",
 			"structure_name": "Template's name",
 			"title_close_creation": "Close",
-			"validation": "Validation"
+			"validation": "Validation",
+			"validator_email": "Validator Email"
 		},
 		"filters": {
 			"assessor": "Reviewer",

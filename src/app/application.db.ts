@@ -35,7 +35,7 @@ export class ApplicationDb {
         evt2.onerror = (event2: any) => {
           console.error(event2);
           reject(Error(event2));
-        }
+        };
       };
       evt.onsuccess = (event: any) => {
         resolve(event.target.result);
@@ -129,9 +129,7 @@ export class ApplicationDb {
       alert('A new version of this page is ready. Please reload!');
     };
     return new Promise((resolve, reject) => {
-      this.objectStore = db
-        .transaction(this.tableName, 'readwrite')
-        .objectStore(this.tableName);
+      this.objectStore = db.transaction(this.tableName, 'readwrite').objectStore(this.tableName);
       resolve(this.objectStore);
     });
   }
@@ -188,6 +186,81 @@ export class ApplicationDb {
       if (id) {
         if (this.serverUrl) {
           fetch(this.getServerUrl() + '/' + id, {
+            mode: 'cors'
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve(result);
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
+        } else {
+          this.getObjectStore().then(() => {
+            const evt = this.objectStore.get(id);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            };
+            evt.onsuccess = (event: any) => {
+              resolve(event.target.result);
+            };
+          });
+        }
+      } else {
+        reject();
+      }
+    });
+  }
+  /**
+   * Default find evaluator_email for an entry in the database.
+   * @param {any} id - The record id.
+   * @returns {Promise}
+   */
+  async findEmailevaluator(id) {
+    return new Promise((resolve, reject) => {
+      this.tableName = 'pia';
+      if (id) {
+        if (this.serverUrl) {
+          fetch(this.getServerUrl() + '/' + id + '/' + 'evaluator_email', {
+            mode: 'cors'
+          })
+            .then(response => {
+              return response.json();
+            })
+            .then((result: any) => {
+              resolve(result);
+            })
+            .catch(error => {
+              console.error('Request failed', error);
+              reject();
+            });
+        } else {
+          this.getObjectStore().then(() => {
+            const evt = this.objectStore.get(id);
+            evt.onerror = (event: any) => {
+              console.error(event);
+              reject(Error(event));
+            };
+            evt.onsuccess = (event: any) => {
+              resolve(event.target.result);
+            };
+          });
+        }
+      } else {
+        reject();
+      }
+    });
+  }
+  async findEmailauthor(id) {
+    return new Promise((resolve, reject) => {
+      this.tableName = 'pia';
+      if (id) {
+        if (this.serverUrl) {
+          fetch(this.getServerUrl() + '/' + id + '/' + 'author_email', {
             mode: 'cors'
           })
             .then(response => {

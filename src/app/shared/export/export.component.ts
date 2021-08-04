@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import * as html2canvas from 'html2canvas';
 import { saveSvgAsPng, svgAsPngUri } from 'save-svg-as-png';
@@ -14,6 +7,8 @@ import { AttachmentsService } from 'src/app/entry/attachments/attachments.servic
 import { AppDataService } from 'src/app/services/app-data.service';
 import { ActionPlanService } from 'src/app/entry/entry-content/action-plan/action-plan.service';
 import { TranslateService } from '@ngx-translate/core';
+import 'svg2pdf.js';
+import { jsPDF } from 'jspdf';
 declare const require: any;
 
 function slugify(text) {
@@ -72,6 +67,49 @@ export class ExportComponent implements OnInit {
       }
     });
   }
+  public genererpdf() {
+    const div = document.getElementById('contentToConvert'); // récuperer le contenu de la section
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+
+    html2canvas(div, options).then(canvas => {
+      var img = canvas.toDataURL('image/PNG');
+      var doc = new jsPDF('p', 'mm'); // Nouveau Pdf
+
+      // Ajouter une image Canvas au PDF avec plusieurs spécifications
+      const bufferX = 5;
+      const bufferY = 5;
+      const imgProps = (<any>doc).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      let imgWidth = 210,
+        pageHeight = 295,
+        imgHeight = (canvas.height * imgWidth) / canvas.width,
+        heightLeft = imgHeight,
+        position = 0;
+      doc.addImage(img, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      // Ajouter des pages pour contenir toute l'analyse
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        doc.addPage();
+        doc.addImage(img, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      const element = document.getElementById('risksOverviewSvg'); // récuperer le contenu de la section Vue d'ensemble des risques
+      doc.svg(element).then(() => {
+        // enregistrer le pdf créé
+        doc.save('download.pdf');
+      });
+      return doc;
+    });
+  }
 
   /****************************** DOWNLOAD FILES ************************************/
   onSelectDownload(type: string, isChecked: boolean) {
@@ -125,13 +163,7 @@ export class ExportComponent implements OnInit {
             });
             break;
           case 'csv': // Only csv
-            const csvName =
-              fileTitle +
-              '-' +
-              slugify(
-                this._translateService.instant('summary.action_plan.title')
-              ) +
-              '.csv';
+            const csvName = fileTitle + '-' + slugify(this._translateService.instant('summary.action_plan.title')) + '.csv';
             const blob = this.csvToBlob(csvName);
             let downloadLink = document.createElement('a');
             document.body.appendChild(downloadLink);
@@ -182,9 +214,7 @@ export class ExportComponent implements OnInit {
 
       if (exports.includes('csv')) {
         // Csv
-        const fileTitle = this._translateService.instant(
-          'summary.action_plan.title'
-        );
+        const fileTitle = this._translateService.instant('summary.action_plan.title');
         const blob = this.csvToBlob(fileTitle);
         zip2.file('CSV/' + slugify(fileTitle) + '.csv', blob, { binary: true });
       }
@@ -250,9 +280,7 @@ export class ExportComponent implements OnInit {
       headers: [
         `"${this._translateService.instant('summary.csv_section')}"`,
         `"${this._translateService.instant('summary.csv_title_object')}"`,
-        `"${this._translateService.instant(
-          'summary.csv_action_plan_comment'
-        )}"`,
+        `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
         `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
         `"${this._translateService.instant('summary.csv_implement_date')}"`,
         `"${this._translateService.instant('summary.csv_people_in_charge')}"`
@@ -265,18 +293,10 @@ export class ExportComponent implements OnInit {
     const headers = {
       section: `"${this._translateService.instant('summary.csv_section')}"`,
       title: `"${this._translateService.instant('summary.csv_title_object')}"`,
-      action_plan_comment: `"${this._translateService.instant(
-        'summary.csv_action_plan_comment'
-      )}"`,
-      evaluation_comment: `"${this._translateService.instant(
-        'summary.csv_evaluation_comment'
-      )}"`,
-      csv_implement_date: `"${this._translateService.instant(
-        'summary.csv_implement_date'
-      )}"`,
-      csv_people_in_charge: `"${this._translateService.instant(
-        'summary.csv_people_in_charge'
-      )}"`
+      action_plan_comment: `"${this._translateService.instant('summary.csv_action_plan_comment')}"`,
+      evaluation_comment: `"${this._translateService.instant('summary.csv_evaluation_comment')}"`,
+      csv_implement_date: `"${this._translateService.instant('summary.csv_implement_date')}"`,
+      csv_people_in_charge: `"${this._translateService.instant('summary.csv_people_in_charge')}"`
     };
 
     const csvContentFormatted = [];
@@ -292,16 +312,10 @@ export class ExportComponent implements OnInit {
         itemData['short_title'] = `"${item.short_title}"`;
       }
       if (item.action_plan_comment) {
-        itemData[
-          'action_plan_comment'
-        ] = `"${item.action_plan_comment}"`
-          .replace(/,/g, '')
-          .replace(/\n/g, ' ');
+        itemData['action_plan_comment'] = `"${item.action_plan_comment}"`.replace(/,/g, '').replace(/\n/g, ' ');
       }
       if (item.evaluation_comment) {
-        itemData['evaluation_comment'] = `"${item.evaluation_comment}"`
-          .replace(/,/g, '')
-          .replace(/\n/g, ' ');
+        itemData['evaluation_comment'] = `"${item.evaluation_comment}"`.replace(/,/g, '').replace(/\n/g, ' ');
       }
       if (item.evaluation_date) {
         itemData['evaluation_date'] = `"${item.evaluation_date}"`;
@@ -367,20 +381,13 @@ export class ExportComponent implements OnInit {
     const preHtml =
       "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
     const postHtml = '</body></html>';
-    const html =
-      preHtml + document.getElementById(element).innerHTML + postHtml;
+    const html = preHtml + document.getElementById(element).innerHTML + postHtml;
     const blob = new Blob(['\ufeff', html], {
       type: 'application/msword'
     });
-    const risksCartographyContainer = document.querySelector(
-      '.pia-risksCartographyContainer'
-    );
-    const actionPlanOverviewContainer = document.querySelector(
-      '.pia-actionPlanGraphBlockContainer'
-    );
-    const risksOverviewContainer = document.querySelector(
-      '.pia-risksOverviewBlock'
-    );
+    const risksCartographyContainer = document.querySelector('.pia-risksCartographyContainer');
+    const actionPlanOverviewContainer = document.querySelector('.pia-actionPlanGraphBlockContainer');
+    const risksOverviewContainer = document.querySelector('.pia-risksOverviewBlock');
     if (risksCartographyContainer) {
       risksCartographyContainer.appendChild(risksCartography);
     }
@@ -391,9 +398,7 @@ export class ExportComponent implements OnInit {
       risksOverviewContainer.appendChild(risksOverview);
     }
     return {
-      url:
-        'data:application/vnd.ms-word;charset=utf-8,' +
-        encodeURIComponent(html),
+      url: 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html),
       blob,
       filename: 'pia.doc'
     };
@@ -409,9 +414,7 @@ export class ExportComponent implements OnInit {
       this._attachmentsService.attachments.forEach(attachment => {
         if (attachment.file && attachment.file.length > 0) {
           const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
-          const folderName = this._translateService.instant(
-            'summary.attachments'
-          );
+          const folderName = this._translateService.instant('summary.attachments');
           zip.file(folderName + '/' + attachment.name, byteCharacters1, {
             binary: true
           });
@@ -445,9 +448,7 @@ export class ExportComponent implements OnInit {
       const risksCartographyImg = await this.getRisksCartographyImg();
       const risksOverviewImg = await this.getRisksOverviewImgForZip();
 
-      const byteCharacters1 = atob(
-        (actionPlanOverviewImg as any).split(',')[1]
-      );
+      const byteCharacters1 = atob((actionPlanOverviewImg as any).split(',')[1]);
       const byteCharacters2 = atob((risksCartographyImg as any).split(',')[1]);
       const byteCharacters3 = atob((risksOverviewImg as any).split(',')[1]);
 
@@ -470,9 +471,7 @@ export class ExportComponent implements OnInit {
   async getActionPlanOverviewImg() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const actionPlanOverviewImg = document.querySelector(
-          '#actionPlanOverviewImg'
-        );
+        const actionPlanOverviewImg = document.querySelector('#actionPlanOverviewImg');
         if (actionPlanOverviewImg) {
           html2canvas(actionPlanOverviewImg, { scale: 1.4 }).then(canvas => {
             if (canvas) {
@@ -492,9 +491,7 @@ export class ExportComponent implements OnInit {
   async getRisksCartographyImg() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const risksCartographyImg = document.querySelector(
-          '#risksCartographyImg'
-        );
+        const risksCartographyImg = document.querySelector('#risksCartographyImg');
         if (risksCartographyImg) {
           html2canvas(risksCartographyImg, { scale: 1.4 }).then(canvas => {
             if (canvas) {

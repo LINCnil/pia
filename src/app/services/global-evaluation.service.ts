@@ -18,7 +18,7 @@ export class GlobalEvaluationService {
   public enablePiaValidation: boolean;
   public piaIsRefused: boolean;
   private questionsOrMeasures: Array<any>;
-  private answersOrMeasures: Array<Answer|Measure>;
+  private answersOrMeasures: Array<Answer | Measure>;
   private evaluations: Array<Evaluation>;
 
   public behaviorSubject = new BehaviorSubject<object>({});
@@ -69,7 +69,7 @@ export class GlobalEvaluationService {
       } else {
         await this.answersVerification();
         let count = 0;
-        this.answersOrMeasures.forEach(async (answerOrMeasure: Answer|Measure) => {
+        this.answersOrMeasures.forEach(async (answerOrMeasure: Answer | Measure) => {
           count++;
           this.createOrUpdateEvaluation(this.getAnswerReferenceTo(answerOrMeasure));
           if (count === this.answersOrMeasures.length) {
@@ -89,27 +89,32 @@ export class GlobalEvaluationService {
     return new Promise((resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
         const evaluation = new Evaluation();
-        evaluation.getByReference(this.pia.id, this.reference_to).then(async () => {
-          if (evaluation.status === 0) {
-            await this.validate();
-            resolve(false);
-          }
-          if (evaluation.status === 1) {
-            evaluation.global_status = 1;
-          } else {
-            evaluation.global_status = 2;
-          }
-          evaluation.update().then(async() => {
-            await this.validate();
-            resolve(evaluation.status === 1);
+        evaluation
+          .getByReference(this.pia.id, this.reference_to)
+          .then(async () => {
+            if (evaluation.status === 0) {
+              await this.validate();
+              resolve(false);
+            }
+            if (evaluation.status === 1) {
+              evaluation.global_status = 1;
+            } else {
+              evaluation.global_status = 2;
+            }
+            evaluation.update().then(async () => {
+              await this.validate();
+              resolve(evaluation.status === 1);
+            });
+          })
+          .then(() => {
+            this.pia.findEmailauthor(evaluation.pia_id);
           });
-        });
       } else if (this.answersOrMeasures.length > 0) {
         let count = 0;
         let toFix = false;
-        this.answersOrMeasures.forEach((answerOrMeasure) => {
+        this.answersOrMeasures.forEach(answerOrMeasure => {
           const evaluation = new Evaluation();
-          evaluation.getByReference(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure)).then(async() => {
+          evaluation.getByReference(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure)).then(async () => {
             if (evaluation.status > 0) {
               if (evaluation.status === 1) {
                 evaluation.global_status = 1;
@@ -117,13 +122,18 @@ export class GlobalEvaluationService {
               } else {
                 evaluation.global_status = 2;
               }
-              evaluation.update().then(async () => {
-                count++;
-                if (count === this.answersOrMeasures.length) {
-                  await this.validate();
-                  resolve(toFix);
-                }
-              });
+              evaluation
+                .update()
+                .then(async () => {
+                  count++;
+                  if (count === this.answersOrMeasures.length) {
+                    await this.validate();
+                    resolve(toFix);
+                  }
+                })
+                .then(() => {
+                  this.pia.findEmailauthor(evaluation.pia_id);
+                });
             } else {
               await this.validate();
               resolve(false);
@@ -144,7 +154,7 @@ export class GlobalEvaluationService {
       });
     } else if (this.answersOrMeasures.length > 0) {
       let count = 0;
-      this.answersOrMeasures.forEach((answerOrMeasure) => {
+      this.answersOrMeasures.forEach(answerOrMeasure => {
         this.deleteEvaluationInDb(this.getAnswerReferenceTo(answerOrMeasure)).then(() => {
           count++;
           if (count === this.answersOrMeasures.length) {
@@ -169,7 +179,7 @@ export class GlobalEvaluationService {
       });
     } else if (this.answersOrMeasures.length > 0) {
       let count = 0;
-      this.answersOrMeasures.forEach((answerOrMeasure) => {
+      this.answersOrMeasures.forEach(answerOrMeasure => {
         const evaluation = new Evaluation();
         evaluation.getByReference(this.pia.id, this.getAnswerReferenceTo(answerOrMeasure)).then(() => {
           evaluation.global_status = 1;
@@ -193,9 +203,14 @@ export class GlobalEvaluationService {
     let concernedPeopleOpinionSearchedFieldsFilled = false;
     let concernedPeopleOpinionUnsearchedFieldsFilled = false;
     // All DPO fields filled = OK
-    if (this.pia.dpos_names && this.pia.dpos_names.length > 0 && (this.pia.dpo_status === 0 || this.pia.dpo_status === 1)
-        && this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
-        dpoFilled = true;
+    if (
+      this.pia.dpos_names &&
+      this.pia.dpos_names.length > 0 &&
+      (this.pia.dpo_status === 0 || this.pia.dpo_status === 1) &&
+      this.pia.dpo_opinion &&
+      this.pia.dpo_opinion.length > 0
+    ) {
+      dpoFilled = true;
     }
 
     // Concerned people opinion unsearched + no search reason field filled = OK
@@ -207,17 +222,23 @@ export class GlobalEvaluationService {
 
     // Concerned people opinion searched + name(s) + status + opinions = OK :
     if (this.pia.concerned_people_searched_opinion === true) {
-      if (this.pia.people_names && this.pia.people_names.length > 0
-          && (this.pia.concerned_people_status === 0 || this.pia.concerned_people_status === 1)
-          && this.pia.concerned_people_opinion && this.pia.concerned_people_opinion.length > 0) {
-            concernedPeopleOpinionSearchedFieldsFilled = true;
+      if (
+        this.pia.people_names &&
+        this.pia.people_names.length > 0 &&
+        (this.pia.concerned_people_status === 0 || this.pia.concerned_people_status === 1) &&
+        this.pia.concerned_people_opinion &&
+        this.pia.concerned_people_opinion.length > 0
+      ) {
+        concernedPeopleOpinionSearchedFieldsFilled = true;
       }
     }
 
     // Treatment which validates the subsection if everything is OK
     // DPO filled + unsearched opinion scenario filled OR DPO filled + searched opinion scenario filled
-    if ((dpoFilled === true && concernedPeopleOpinionUnsearchedFieldsFilled === true)
-        || (dpoFilled === true && concernedPeopleOpinionSearchedFieldsFilled === true)) {
+    if (
+      (dpoFilled === true && concernedPeopleOpinionUnsearchedFieldsFilled === true) ||
+      (dpoFilled === true && concernedPeopleOpinionSearchedFieldsFilled === true)
+    ) {
       this.status = 7;
       this.enablePiaValidation = [0, 2, 3].includes(this.pia.status);
       this.piaIsRefused = [1, 4].includes(this.pia.status);
@@ -263,14 +284,24 @@ export class GlobalEvaluationService {
         if (!result) {
           evaluation.pia_id = this.pia.id;
           evaluation.reference_to = reference_to;
-          evaluation.create().then(() => {
-            resolve();
-          });
+          evaluation
+            .create()
+            .then(() => {
+              resolve();
+            })
+            .then(() => {
+              this.pia.findEmailevaluator(evaluation.pia_id);
+            });
         } else if (evaluation.status === 1) {
           evaluation.global_status = 0;
-          evaluation.update().then(() => {
-            resolve();
-          });
+          evaluation
+            .update()
+            .then(() => {
+              resolve();
+            })
+            .then(() => {
+              this.pia.findEmailevaluator(evaluation.pia_id);
+            });
         } else {
           resolve();
         }
@@ -286,7 +317,7 @@ export class GlobalEvaluationService {
     if (!this.answersOrMeasures) {
       return;
     }
-    const answersOrMeasuresValid: Array<Answer|Measure> = this.answersOrMeasures.filter((answerOrMeasure: any) => {
+    const answersOrMeasuresValid: Array<Answer | Measure> = this.answersOrMeasures.filter((answerOrMeasure: any) => {
       if (answerOrMeasure.data !== undefined) {
         return this.answerIsValid(answerOrMeasure);
       } else {
@@ -405,8 +436,7 @@ export class GlobalEvaluationService {
    * @returns {boolean}
    */
   private measureIsValid(measure: Measure) {
-    if (measure.content && measure.content.length > 0 ||
-        measure.title && measure.title.length > 0) {
+    if ((measure.content && measure.content.length > 0) || (measure.title && measure.title.length > 0)) {
       return true;
     }
     return false;
@@ -425,7 +455,7 @@ export class GlobalEvaluationService {
     const list = answer.data.list;
 
     // First we need to find the answer_type
-    const question = this.item.questions.filter((q) => {
+    const question = this.item.questions.filter(q => {
       return parseInt(q.id, 10) === parseInt(answer.reference_to, 10);
     });
 
@@ -457,8 +487,13 @@ export class GlobalEvaluationService {
         return evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0;
       }
       if (this.item.evaluation_mode === 'item' && this.item.evaluation_with_gauge === true) {
-        if (evaluation.gauges && evaluation.gauges['x'] > 0 && evaluation.gauges['y'] > 0
-            && evaluation.action_plan_comment && evaluation.action_plan_comment.length > 0) {
+        if (
+          evaluation.gauges &&
+          evaluation.gauges['x'] > 0 &&
+          evaluation.gauges['y'] > 0 &&
+          evaluation.action_plan_comment &&
+          evaluation.action_plan_comment.length > 0
+        ) {
           return true;
         }
       }

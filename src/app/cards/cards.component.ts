@@ -16,7 +16,6 @@ import { StructureService } from 'src/app/services/structure.service';
   styleUrls: ['./cards.component.scss'],
   providers: [PiaService, StructureService]
 })
-
 export class CardsComponent implements OnInit, OnDestroy {
   @Input() pia: any;
   newPia: Pia;
@@ -29,12 +28,14 @@ export class CardsComponent implements OnInit, OnDestroy {
   paramsSubscribe: Subscription;
   searchText: string;
 
-  constructor(private router: Router,
-              private el: ElementRef,
-              private route: ActivatedRoute,
-              public _modalsService: ModalsService,
-              public _piaService: PiaService,
-              public _structureService: StructureService) { }
+  constructor(
+    private router: Router,
+    private el: ElementRef,
+    private route: ActivatedRoute,
+    public _modalsService: ModalsService,
+    public _piaService: PiaService,
+    public _structureService: StructureService
+  ) {}
 
   ngOnInit() {
     const structure = new Structure();
@@ -54,19 +55,20 @@ export class CardsComponent implements OnInit, OnDestroy {
     this.piaForm = new FormGroup({
       name: new FormControl(),
       author_name: new FormControl(),
+      author_email: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl(),
+      evaluator_email: new FormControl(),
+      validator_email: new FormControl(),
       category: new FormControl(),
       structure: new FormControl([])
     });
     this.viewStyle = {
       view: this.route.snapshot.params.view
     };
-    this.paramsSubscribe = this.route.params.subscribe(
-      (params: Params) => {
-        this.viewStyle.view = params.view;
-      }
-    );
+    this.paramsSubscribe = this.route.params.subscribe((params: Params) => {
+      this.viewStyle.view = params.view;
+    });
     if (localStorage.getItem('homepageDisplayMode') === 'list') {
       this.viewOnList();
     } else {
@@ -78,7 +80,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   }
 
   onCleanSearch() {
-    this.searchText = "";
+    this.searchText = '';
   }
 
   ngOnDestroy() {
@@ -92,8 +94,7 @@ export class CardsComponent implements OnInit, OnDestroy {
   piaChange(pia) {
     if (this._piaService.pias.includes(pia)) {
       this._piaService.pias.forEach(item => {
-        if (item.id === pia.id)
-        item = pia;
+        if (item.id === pia.id) item = pia;
       });
     } else {
       this._piaService.pias.push(pia);
@@ -202,8 +203,12 @@ export class CardsComponent implements OnInit, OnDestroy {
         firstValue = new Date(a[this.sortValue]);
         secondValue = new Date(b[this.sortValue]);
       }
-      if (this.sortValue === 'name' || this.sortValue === 'author_name' ||
-          this.sortValue === 'evaluator_name' || this.sortValue === 'validator_name') {
+      if (
+        this.sortValue === 'name' ||
+        this.sortValue === 'author_name' ||
+        this.sortValue === 'evaluator_name' ||
+        this.sortValue === 'validator_name'
+      ) {
         return firstValue.localeCompare(secondValue);
       } else {
         if (firstValue < secondValue) {

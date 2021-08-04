@@ -195,10 +195,12 @@
 	"homepage": {
 		"cards": {
 			"author": "Saisie",
+			"author_email": "Adresse courriel de rédacteur",
 			"category": "Catégorie",
 			"creation_status": "Création",
 			"date": "Date",
 			"evaluation": "Évaluation",
+			"evaluator_email": "Adresse courriel de l'évaluateur",
 			"import_pia": "Importer PIA",
 			"import_structure": "Importer modèle",
 			"item": {
@@ -223,8 +225,10 @@
 			"or": "ou",
 			"pia_name": "PIA",
 			"placeholder_author": "Prénom, nom",
+			"placeholder_author_email": "example@email.com",
 			"placeholder_category": "Catégorie",
 			"placeholder_evaluation": "Prénom, nom",
+			"placeholder_evaluator_email": "example@email.com",
 			"placeholder_import_pia": "Importer PIA",
 			"placeholder_import_structure": "Importer modèle",
 			"placeholder_new_pia": "Nouveau PIA",
@@ -235,13 +239,15 @@
 			"placeholder_structure": "Modèle par défaut",
 			"placeholder_structure_name": "Intitulé du modèle",
 			"placeholder_validation": "Prénom, nom",
+			"placeholder_validator_email": "example@email.com",
 			"sector_name": "Secteur associé",
 			"start": "Commencer",
 			"status": "Statut",
 			"structure": "Modèle",
 			"structure_name": "Nom du modèle",
 			"title_close_creation": "Fermer",
-			"validation": "Validation"
+			"validation": "Validation",
+			"validator_email": "Adresse courriel du validateur"
 		},
 		"filters": {
 			"assessor": "Évaluateur",

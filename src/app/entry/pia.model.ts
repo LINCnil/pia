@@ -6,8 +6,11 @@ export class Pia extends ApplicationDb {
   public name: string;
   public category: string;
   public author_name: string;
+  public author_email: string;
   public evaluator_name: string;
+  public evaluator_email: string;
   public validator_name: string;
+  public validator_email: string;
   public dpo_status: number; // 0: NOK, 1: OK
   public dpo_opinion: string;
   public concerned_people_opinion: string;
@@ -49,8 +52,11 @@ export class Pia extends ApplicationDb {
             newPia.name = element.name;
             newPia.category = element.category;
             newPia.author_name = element.author_name;
+            newPia.author_email = element.author_email;
             newPia.evaluator_name = element.evaluator_name;
+            newPia.evaluator_email = element.evaluator_email;
             newPia.validator_name = element.validator_name;
+            newPia.validator_email = element.validator_email;
             newPia.dpo_status = element.dpo_status;
             newPia.dpo_opinion = element.dpo_opinion;
             newPia.concerned_people_opinion = element.concerned_people_opinion;
@@ -135,8 +141,11 @@ export class Pia extends ApplicationDb {
             newPia.name = element.name;
             newPia.category = element.category;
             newPia.author_name = element.author_name;
+            newPia.author_email = element.author_email;
             newPia.evaluator_name = element.evaluator_name;
+            newPia.evaluator_email = element.evaluator_email;
             newPia.validator_name = element.validator_name;
+            newPia.validator_email = element.validator_email;
             newPia.dpo_status = element.dpo_status;
             newPia.dpo_opinion = element.dpo_opinion;
             newPia.concerned_people_opinion = element.concerned_people_opinion;
@@ -220,8 +229,11 @@ export class Pia extends ApplicationDb {
       name: this.name,
       category: this.category,
       author_name: this.author_name,
+      author_email: this.author_email,
       evaluator_name: this.evaluator_name,
+      evaluator_email: this.evaluator_email,
       validator_name: this.validator_name,
+      validator_email: this.validator_email,
       dpo_status: this.dpo_status,
       dpo_opinion: this.dpo_opinion,
       concerned_people_opinion: this.concerned_people_opinion,
@@ -295,8 +307,11 @@ export class Pia extends ApplicationDb {
         entry.name = this.name;
         entry.category = this.category;
         entry.author_name = this.author_name;
+        entry.author_email = this.author_email;
         entry.evaluator_name = this.evaluator_name;
+        entry.evaluator_email = this.evaluator_email;
         entry.validator_name = this.validator_name;
+        entry.validator_email = this.validator_email;
         entry.dpo_status = this.dpo_status;
         entry.dpo_opinion = this.dpo_opinion;
         entry.concerned_people_opinion = this.concerned_people_opinion;
@@ -425,8 +440,11 @@ export class Pia extends ApplicationDb {
           this.name = entry.name;
           this.category = entry.category;
           this.author_name = entry.author_name;
+          this.author_email = entry.author_email;
           this.evaluator_name = entry.evaluator_name;
+          this.evaluator_email = entry.evaluator_email;
           this.validator_name = entry.validator_name;
+          this.validator_email = entry.validator_email;
           this.dpo_status = entry.dpo_status;
           this.dpo_opinion = entry.dpo_opinion;
           this.concerned_people_opinion = entry.concerned_people_opinion;
@@ -487,8 +505,11 @@ export class Pia extends ApplicationDb {
               this.name = entry.name;
               this.category = entry.category;
               this.author_name = entry.author_name;
+              this.author_email = entry.author_email;
               this.evaluator_name = entry.evaluator_name;
+              this.evaluator_email = entry.evaluator_email;
               this.validator_name = entry.validator_name;
+              this.validator_email = entry.validator_email;
               this.dpo_status = entry.dpo_status;
               this.dpo_opinion = entry.dpo_opinion;
               this.concerned_people_opinion = entry.concerned_people_opinion;

@@ -1,12 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  Input,
-  EventEmitter,
-  Output
-} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as FileSaver from 'file-saver';
@@ -24,11 +16,7 @@ declare const require: any;
 @Component({
   selector: 'app-card-item',
   templateUrl: './card-item.component.html',
-  styleUrls: [
-    './card-item.component.scss',
-    './card-item_edit.component.scss',
-    './card-item_doing.component.scss'
-  ]
+  styleUrls: ['./card-item.component.scss', './card-item_edit.component.scss', './card-item_doing.component.scss']
 })
 export class CardItemComponent implements OnInit {
   @Input() pia: any;
@@ -41,10 +29,16 @@ export class CardItemComponent implements OnInit {
   @ViewChild('piaCategory', { static: true }) private piaCategory: ElementRef;
   @ViewChild('piaAuthorName', { static: true })
   private piaAuthorName: ElementRef;
+  @ViewChild('piaAuthorEmail', { static: true })
+  private piaAuthorEmail: ElementRef;
   @ViewChild('piaEvaluatorName', { static: true })
   private piaEvaluatorName: ElementRef;
+  @ViewChild('piaEvaluatorEmail', { static: true })
+  private piaEvaluatorEmail: ElementRef;
   @ViewChild('piaValidatorName', { static: true })
   private piaValidatorName: ElementRef;
+  @ViewChild('piaValidatorEmail', { static: true })
+  private piaValidatorEmail: ElementRef;
 
   constructor(
     private router: Router,
@@ -63,12 +57,24 @@ export class CardItemComponent implements OnInit {
         value: this.pia.author_name,
         disabled: false
       }),
+      author_email: new FormControl({
+        value: this.pia.author_email,
+        disabled: false
+      }),
       evaluator_name: new FormControl({
         value: this.pia.evaluator_name,
         disabled: false
       }),
+      evaluator_email: new FormControl({
+        value: this.pia.evaluator_email,
+        disabled: false
+      }),
       validator_name: new FormControl({
         value: this.pia.validator_name,
+        disabled: false
+      }),
+      validator_email: new FormControl({
+        value: this.pia.validator_email,
         disabled: false
       })
     });
@@ -114,9 +120,7 @@ export class CardItemComponent implements OnInit {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
         const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
-        const folderName = this._translateService.instant(
-          'summary.attachments'
-        );
+        const folderName = this._translateService.instant('summary.attachments');
         zip.file(folderName + '/' + attachment.name, byteCharacters1, {
           binary: true
         });
@@ -171,6 +175,30 @@ export class CardItemComponent implements OnInit {
   }
 
   /**
+   * Focuse PIA author email field.
+   */
+
+  piaAuthorEmailFocusIn() {
+    this.piaAuthorEmail.nativeElement.focus();
+  }
+
+  /**
+   * Disable PIA author email field and saves data.
+   */
+
+  piaAuthorEmailFocusOut() {
+    let userText = this.piaForm.controls['author_email'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    if (userText !== '') {
+      this.pia.author_email = this.piaForm.value.author_email;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
+    }
+  }
+
+  /**
    * Focus PIA evaluator name field.
    */
   piaEvaluatorNameFocusIn() {
@@ -187,6 +215,27 @@ export class CardItemComponent implements OnInit {
     }
     if (userText !== '') {
       this.pia.evaluator_name = this.piaForm.value.evaluator_name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
+    }
+  }
+  /**
+   * Focus PIA evaluator email field.
+   */
+  piaEvaluatorEmailFocusIn() {
+    this.piaEvaluatorEmail.nativeElement.focus();
+  }
+
+  /**
+   * Disable PIA evaluator email field and saves data.
+   */
+  piaEvaluatorEmailFocusOut() {
+    let userText = this.piaForm.controls['evaluator_email'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    if (userText !== '') {
+      this.pia.evaluator_email = this.piaForm.value.evaluator_email;
       this.pia.update();
       this.piaEvent.emit(this.pia);
     }
@@ -209,6 +258,27 @@ export class CardItemComponent implements OnInit {
     }
     if (userText !== '') {
       this.pia.validator_name = this.piaForm.value.validator_name;
+      this.pia.update();
+      this.piaEvent.emit(this.pia);
+    }
+  }
+  /**
+   * Focus PIA validator email field.
+   */
+  piaValidatorEmailFocusIn() {
+    this.piaValidatorEmail.nativeElement.focus();
+  }
+
+  /**
+   * Disable PIA validator email field and saves data.
+   */
+  piaValidatorEmailFocusOut() {
+    let userText = this.piaForm.value.validator_email;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
+    }
+    if (userText !== '') {
+      this.pia.validator_email = this.piaForm.value.validator_email;
       this.pia.update();
       this.piaEvent.emit(this.pia);
     }
