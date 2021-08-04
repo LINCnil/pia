@@ -1,18 +1,18 @@
 # BUILDER
 FROM node:14 AS nodebuild
 
-ENV PIA_VERSION 3.0.0
+ENV PIA_VERSION 2.3.0
 
 WORKDIR /usr/app/pia
 
 COPY . .
 
-RUN  npm install npm@latest -g \
+RUN  npm install -g npm \
  && npm install --unsafe-perm -g node-sass \
  && npm install -g @angular/cli
 
 RUN yarn install \
- && sed -i -e "s/version: '3.0.0'/version: '$PIA_VERSION'/g" src/environments/environment.prod.ts \
+ && sed -i -e "s/version: '2.3.0'/version: '$PIA_VERSION'/g" src/environments/environment.prod.ts \
  && /usr/app/pia/node_modules/@angular/cli/bin/ng build --prod --build-optimizer
 
 
