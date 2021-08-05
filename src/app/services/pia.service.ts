@@ -347,8 +347,11 @@ export class PiaService {
     pia.name = '(' + prefix + ') ' + data.pia.name;
     pia.category = data.pia.category;
     pia.author_name = data.pia.author_name;
+    pia.author_email = data.pia.author_email;
     pia.evaluator_name = data.pia.evaluator_name;
+    pia.evaluator_email = data.pia.evaluator_email;
     pia.validator_name = data.pia.validator_name;
+    pia.validator_email = data.pia.validator_email;
     pia.dpo_status = data.pia.dpo_status;
     pia.dpo_opinion = data.pia.dpo_opinion;
     pia.concerned_people_opinion = data.pia.concerned_people_opinion;
@@ -417,8 +420,11 @@ export class PiaService {
       pia.name = piaExport.pia.name;
       pia.category = piaExport.pia.category;
       pia.author_name = piaExport.pia.author_name;
+      pia.author_email = piaExport.pia.author_email;
       pia.evaluator_name = piaExport.pia.evaluator_name;
+      pia.evaluator_email = piaExport.pia.evaluator_email;
       pia.validator_name = piaExport.pia.validator_name;
+      pia.validator_email = piaExport.pia.validator_email;
       pia.dpo_status = piaExport.pia.dpo_status;
       pia.dpo_opinion = piaExport.pia.dpo_opinion;
       pia.concerned_people_opinion = piaExport.pia.concerned_people_opinion;
