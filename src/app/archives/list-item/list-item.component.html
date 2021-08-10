@@ -27,8 +27,11 @@
 </td>
 <td class="pia-listsBlock-item"><time *ngIf="archivedPia.updated_at && archivedPia.updated_at.toString() !== 'Invalid Date'">{{ archivedPia.updated_at | date: "shortDate":"":_languagesService.selectedLanguage }}</time></td>
 <td class="pia-listsBlock-item"><div>{{ archivedPia.author_name }}</div></td>
+<td class="pia-listsBlock-item"><div>{{ archivedPia.author_email }}</div></td>
 <td class="pia-listsBlock-item"><div>{{ archivedPia.evaluator_name }}</div></td>
+<td class="pia-listsBlock-item"><div>{{ archivedPia.evaluator_email }}</div></td>
 <td class="pia-listsBlock-item"><div>{{ archivedPia.validator_name }}</div></td>
+<td class="pia-listsBlock-item"><div>{{ archivedPia.validator_email }}</div></td>
 <td class="pia-listsBlock-item"><div *ngIf="archivedPia.structure_id">{{ archivedPia.structure_name }}</div></td>
 <td class="pia-listsBlock-item progress">
   <div class="pia-cardsBlock-item-status-progressBar">

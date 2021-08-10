@@ -251,7 +251,9 @@
 		},
 		"filters": {
 			"assessor": "Reviewer",
+			"evaluator_email":"Evaluator Email",
 			"author": "Author",
+			"author_email":"Author Email",
 			"card": "Card view",
 			"card_rocket_content": "Get started !<br>To initiate a PIA,<br> click on the +",
 			"card_rocket_content_structure": "Get started ! To initiate <br>a template, click on the +",
@@ -269,14 +271,17 @@
 			"sort": "Sort",
 			"sort_by": "by",
 			"status": "Status",
-			"validator": "Validator"
+			"validator": "Validator",
+			"validator_email":"Validator Email"
 		},
 		"lists": {
 			"column_actions": "Actions",
 			"column_author": "Editing",
+			"column_author_email": "Author email",
 			"column_category": "Category",
 			"column_creation": "Created",
 			"column_evaluation": "Review",
+			"column_evaluator_email": "Evaluator email",
 			"column_pia": "PIA",
 			"column_progression": "Progress",
 			"column_sector_name": "Associated sector",
@@ -285,6 +290,7 @@
 			"column_structure_name": "Template",
 			"column_updated_at": "Last opened",
 			"column_validation": "Validation",
+			"column_validator_email": "Validator email",
 			"item": {
 				"tools": {
 					"action_plan": "Display action plan",

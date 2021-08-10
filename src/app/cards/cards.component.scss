@@ -241,7 +241,7 @@
         border: 1px solid $pia-green;
         border-radius: 20px;
         color: $pia-green;
-        padding: 9px 12px 9px 16px;
+        padding: 9px 29px 9px 16px;
         font-size: 1.3rem;
         position: relative;
         z-index: 999;
@@ -361,7 +361,7 @@
       display: table-row;
     }
     th {
-      min-width: 128px;
+      min-width: 110px;
       display: table-cell;
       a {
         padding: 5px 0;
@@ -373,10 +373,10 @@
         position: relative;
         span {
           align-self: center;
-          padding-left: 13px;
+          padding-left: 9.5px;
         }
         i {
-          padding-right: 13px;
+          padding-right: 4px;
           color: $pia-white;
           font-size: 2.5rem;
           align-self: center;

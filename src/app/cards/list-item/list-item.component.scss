@@ -4,12 +4,11 @@
   position: relative;
   padding: 0 10px;
   cursor: pointer;
-  white-space: nowrap;
   /* overflow: hidden; */
   &-title {
-    width: 270px !important;
+    width: 146.5px !important;
     div:first-child {
-      width: 230px !important;
+      width: 146.5px !important;
     }
   }
   &:first-child {
@@ -21,12 +20,14 @@
   }
   div[contenteditable] {
     cursor: text;
-    white-space: nowrap;
     overflow: hidden;
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       outline: 1px dotted $pia-green;
     }
-    &:focus, &:active {
+    &:focus,
+    &:active {
       background-color: #fff;
     }
   }
@@ -73,7 +74,9 @@
         }
       }
     }
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       ul {
         display: block;
       }

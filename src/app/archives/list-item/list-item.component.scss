@@ -4,12 +4,10 @@
   position: relative;
   padding: 0 10px;
   cursor: pointer;
-  white-space: nowrap;
   /* overflow: hidden; */
   &-title {
     div:first-child {
-      width: 250px !important;
-      white-space: nowrap;
+      width: 150px !important;
       text-overflow: ellipsis;
       overflow: hidden;
     }
@@ -64,7 +62,9 @@
         }
       }
     }
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       ul {
         display: block;
       }

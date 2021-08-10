@@ -60,11 +60,20 @@
                 <li [ngClass]="{'active': sortValue === 'author_name'}">
                   <a (click)="sortBy('author_name');">{{ 'homepage.filters.author' | translate }}</a>
                 </li>
+                <li [ngClass]="{'active': sortValue === 'author_email'}">
+                  <a (click)="sortBy('author_email');">{{ 'homepage.filters.author_email' | translate }}</a>
+                </li>
                 <li [ngClass]="{'active': sortValue === 'evaluator_name'}">
                   <a (click)="sortBy('evaluator_name');">{{ 'homepage.filters.assessor' | translate }}</a>
                 </li>
+                <li [ngClass]="{'active': sortValue === 'evaluator_email'}">
+                  <a (click)="sortBy('evaluator_email');">{{ 'homepage.filters.evaluator_email' | translate }}</a>
+                </li>
                 <li [ngClass]="{'active': sortValue === 'validator_name'}">
                   <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator' | translate }}</a>
+                </li>
+                <li [ngClass]="{'active': sortValue === 'validator_email'}">
+                  <a (click)="sortBy('validator_name');">{{ 'homepage.filters.validator_email' | translate }}</a>
                 </li>
               </ul>
             </div>
@@ -201,10 +210,26 @@
                 </a>
               </th>
               <th>
+                <a (click)="sortBy('author_email')">
+                  <span>{{ 'homepage.lists.column_author_email' | translate }}</span>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'author_email' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
+                </a>
+              </th>
+              <th>
                 <a (click)="sortBy('evaluator_name')">
                   <span>{{ 'homepage.lists.column_evaluation' | translate }}</span>
                   <i class="fa"
                     [ngClass]="[sortValue === 'evaluator_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
+                </a>
+              </th>
+              <th>
+                <a (click)="sortBy('evaluator_email')">
+                  <span>{{ 'homepage.lists.column_evaluator_email' | translate }}</span>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'evaluator_email' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
                   ></i>
                 </a>
               </th>
@@ -216,6 +241,15 @@
                   ></i>
                 </a>
               </th>
+              <th>
+                <a (click)="sortBy('validator_email')">
+                  <span>{{ 'homepage.lists.column_validator_email' | translate }}</span>
+                  <i class="fa"
+                    [ngClass]="[sortValue === 'validator_email' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+                  ></i>
+                </a>
+              </th>
+              
               <th>
                 <a (click)="sortBy('structure_name')">
                   <span>{{ 'homepage.lists.column_structure_name' | translate }}</span>

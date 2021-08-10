@@ -252,6 +252,8 @@
 		"filters": {
 			"assessor": "Évaluateur",
 			"author": "Éditeur",
+			"author_email": "Adresse courriel du rédacteur",
+			"evaluator_email": "Adresse courriel d'évaluateur",
 			"card": "Affichage carte",
 			"card_rocket_content": "Lancez-vous !<br><br>Pour commencer<br>un PIA, cliquez<br> sur le +",
 			"card_rocket_content_structure": "Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
@@ -269,14 +271,17 @@
 			"sort": "Trier",
 			"sort_by": "par",
 			"status": "Statut",
-			"validator": "Validateur"
+			"validator": "Validateur",
+			"validator_email": "Adresse courriel du validateur"
 		},
 		"lists": {
 			"column_actions": "Actions",
 			"column_author": "Saisie",
+			"column_author_email": "Adresse courriel du rédacteur",
 			"column_category": "Catégorie",
 			"column_creation": "Création",
 			"column_evaluation": "Évaluation",
+			"column_evaluator_email":"Adresse courriel de l'évaluateur",
 			"column_pia": "PIA",
 			"column_progression": "Progression",
 			"column_sector_name": "Secteur associé",
@@ -285,6 +290,7 @@
 			"column_structure_name": "Modèle",
 			"column_updated_at": "Modifié le",
 			"column_validation": "Validation",
+			"column_validator_email": "Adresse courriel du validateur",
 			"item": {
 				"tools": {
 					"action_plan": "Afficher le plan d'action",

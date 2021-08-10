@@ -35,8 +35,11 @@
 </td>
 <td class="pia-listsBlock-item"><time *ngIf="pia.updated_at && pia.updated_at.toString() !== 'Invalid Date'">{{ pia.updated_at | date: "shortDate":"":_languagesService.selectedLanguage }}</time></td>
 <td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('author_name', $event)">{{ pia.author_name }}</div></td>
+<td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('author_email', $event)">{{ pia.author_email }}</div></td>
 <td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('evaluator_name', $event)">{{ pia.evaluator_name }}</div></td>
+<td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('evaluator_email', $event)">{{ pia.evaluator_email }}</div></td>
 <td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('validator_name', $event)">{{ pia.validator_name }}</div></td>
+<td class="pia-listsBlock-item"><div contenteditable (focusout)="onFocusOut('validator_email', $event)">{{ pia.validator_email }}</div></td>
 <td class="pia-listsBlock-item"><div *ngIf="pia.structure_id">{{ pia.structure_name }}</div></td>
 <td class="pia-listsBlock-item progress">
   <div class="pia-cardsBlock-item-status-progressBar">
