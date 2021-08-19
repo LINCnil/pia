@@ -1,3 +1,5 @@
+import { environment } from './../environments/environment';
+
 export class ApplicationDb {
   protected serverUrl: string;
   public pia_id: number;
@@ -12,8 +14,8 @@ export class ApplicationDb {
   constructor(dbVersion: number, tableName: string) {
     this.dbVersion = dbVersion;
     this.tableName = tableName;
-    if (localStorage.getItem('server_url')) {
-      this.serverUrl = localStorage.getItem('server_url');
+    if (environment.backendurl) {
+      this.serverUrl = environment.backendurl;
     } else {
       this.serverUrl = null;
     }
