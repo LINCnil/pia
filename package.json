@@ -67,7 +67,7 @@
     "foundation-sites": "^6.6.3",
     "html2canvas": "1.0.0-rc.1",
     "intro.js": "^2.9.3",
-    "jszip": "^3.2.2",
+    "jszip": "^3.7.0",
     "ng2-pdfjs-viewer": "^5.0.7",
     "ngx-chips": "2.1.0",
     "normalize.css": "^8.0.1",
