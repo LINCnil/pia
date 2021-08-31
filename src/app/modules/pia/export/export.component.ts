@@ -348,6 +348,10 @@ export class ExportComponent implements OnInit {
    * Prepare .doc file
    */
   async prepareDocFile(element): Promise<any> {
+
+    const headerTitle = `<h1>${this.pia.name}</h1>`;
+    const headerData = document.querySelector('header.pia-fullPreviewBlock-header .pia-fullPreviewBlock-header-data');
+
     const risksCartography = document.querySelector('#risksCartographyImg');
     const actionPlanOverview = document.querySelector('#actionPlanOverviewImg');
     const risksOverview = document.querySelector('#risksOverviewSvg');
@@ -362,7 +366,8 @@ export class ExportComponent implements OnInit {
       "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
     const postHtml = '</body></html>';
     const html =
-      preHtml + document.getElementById(element).innerHTML + postHtml;
+      preHtml + '<header>' + headerTitle
+        + headerData.innerHTML + '</header>' + document.getElementById(element).innerHTML + postHtml;
     const blob = new Blob(['\ufeff', html], {
       type: 'application/msword'
     });
