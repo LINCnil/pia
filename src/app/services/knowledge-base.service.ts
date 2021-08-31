@@ -206,7 +206,6 @@ export class KnowledgeBaseService extends ApplicationDb {
           view: window
         });
         a.dispatchEvent(event);
-        console.log(data);
       });
     });
   }
