@@ -14,6 +14,7 @@ export class LanguagesService {
   initLanguages(): void {
     this.translateService.addLangs([
       'en',
+      'bg',
       'cz',
       'de',
       'dk',
@@ -50,7 +51,7 @@ export class LanguagesService {
       // Set default language
       const browserLang = this.translateService.getBrowserLang();
       language = browserLang.match(
-        /en|cz|de|dk|el|es|et|fi|fr|hr|hu|it|lt|nl|no|pl|pt|ro|sl|sv|lv/
+        /en|bg|cz|de|dk|el|es|et|fi|fr|hr|hu|it|lt|nl|no|pl|pt|ro|sl|sv|lv/
       )
         ? browserLang
         : 'fr';
