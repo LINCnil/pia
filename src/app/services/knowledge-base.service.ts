@@ -190,20 +190,23 @@ export class KnowledgeBaseService extends ApplicationDb {
    */
   export(id: number): void {
     const date = new Date().getTime();
-    this.find(id).then(data => {
-      const a = document.getElementById('pia-exportBlock');
-      const url =
-        'data:text/json;charset=utf-8,' +
-        encodeURIComponent(JSON.stringify(data));
-      a.setAttribute('href', url);
-      a.setAttribute(
-        'download',
-        date + '_export_knowledgebase_' + id + '.json'
-      );
-      const event = new MouseEvent('click', {
-        view: window
+    this.find(id).then((data: KnowledgeBase) => {
+      this.knowledgesService.getEntries(id).then(knowledges => {
+        data.knowledges = knowledges;
+        const a = document.getElementById('pia-exportBlock');
+        const url =
+          'data:text/json;charset=utf-8,' +
+          encodeURIComponent(JSON.stringify(data));
+        a.setAttribute('href', url);
+        a.setAttribute(
+          'download',
+          date + '_export_knowledgebase_' + id + '.json'
+        );
+        const event = new MouseEvent('click', {
+          view: window
+        });
+        a.dispatchEvent(event);
       });
-      a.dispatchEvent(event);
     });
   }
 
@@ -219,11 +222,18 @@ export class KnowledgeBaseService extends ApplicationDb {
           data.name + ' (copy)',
           data.author,
           data.contributors,
-          data.knowleges
+          new Date()
         );
         this.create(newKnowledgeBase)
-          .then((resp: KnowledgeBase) => {
+          .then(async (resp: KnowledgeBase) => {
             newKnowledgeBase.id = resp.id;
+            for (const knowledge of data.knowledges) {
+              delete knowledge.id;
+              await this.knowledgesService
+                .create(newKnowledgeBase.id, knowledge)
+                .then()
+                .catch();
+            }
             resolve(newKnowledgeBase);
           })
           .catch(error => {
