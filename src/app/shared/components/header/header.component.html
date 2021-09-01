@@ -437,6 +437,18 @@
                     {{ "header.languages.lv" | translate }}
                   </a>
                 </li>
+                <li
+                  [ngClass]="{
+                    is_active: languagesService.selectedLanguage === 'bg'
+                  }"
+                >
+                  <a
+                    href="javascript:;"
+                    (click)="languagesService.updateCurrentLanguage('bg')"
+                  >
+                    {{ "header.languages.bg" | translate }}
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>

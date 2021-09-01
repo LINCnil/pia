@@ -13,11 +13,12 @@ export class LanguagesService {
    */
   initLanguages(): void {
     this.translateService.addLangs([
-      'en',
+      'bg',
       'cz',
       'de',
       'dk',
       'el',
+      'en',
       'es',
       'et',
       'fi',
@@ -26,14 +27,14 @@ export class LanguagesService {
       'hu',
       'it',
       'lt',
+      'lv',
       'nl',
       'no',
       'pl',
       'pt',
       'ro',
       'sl',
-      'sv',
-      'lv'
+      'sv'
     ]);
     this.translateService.setDefaultLang('fr');
   }
@@ -50,7 +51,7 @@ export class LanguagesService {
       // Set default language
       const browserLang = this.translateService.getBrowserLang();
       language = browserLang.match(
-        /en|cz|de|dk|el|es|et|fi|fr|hr|hu|it|lt|nl|no|pl|pt|ro|sl|sv|lv/
+        /bg|cz|de|dk|el|en|es|et|fi|fr|hr|hu|it|lt|lv|nl|no|pl|pt|ro|sl|sv/
       )
         ? browserLang
         : 'fr';
