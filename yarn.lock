@@ -268,10 +268,10 @@
   dependencies:
     tslib "^2.0.0"
 
-"@atnos/pia-i18n@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@atnos/pia-i18n/-/pia-i18n-0.0.3.tgz#6b112369de40adc1f5fb86370e9e026348dc5770"
-  integrity sha512-j2AQW6F8QuLS+JB5YmMfHVJvXOv5ZCx3+CyA4ujoDBdIp5WI2cJqj1ipmLLKEuiaLYf82yw3fPm8oc+aLAVYog==
+"@atnos/pia-i18n@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@atnos/pia-i18n/-/pia-i18n-0.0.4.tgz#bb87470be990694498ed5428785f18fa3225c478"
+  integrity sha512-DqGRoEV2TSQhX4iz4I6ChyNUWBpznQpjNT4i9NXmpFNH4CrDzC/xkUVHOJA1NVYoddZYZJUWcH6EVJ6zDEJ6Og==
   dependencies:
     tslib "^2.0.0"
 
