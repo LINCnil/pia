@@ -1,6 +1,7 @@
 # Pia [v.3.0.1](https://github.com/LINCnil/pia/releases/tag/v3.0.1) 
 
 # Le logiciel PIA / The PIA Software
+## Présentation / Presentation
 <img src="https://raw.githubusercontent.com/LINCnil/pia/master/src/assets/images/pia-auth-logo.png" align="left" hspace="10" vspace="6"> Le logiciel PIA est un outil distribué librement par la [CNIL](https://www.cnil.fr/fr/outil-pia-telechargez-et-installez-le-logiciel-de-la-cnil) afin de faciliter la réalisation d’analyses d’impact sur la protection des données prévues par le RGPD.
 
 La dernière version de l'outil est téléchargeable dans la section [Release](https://github.com/LINCnil/pia/releases) de ce dépôt. 
@@ -9,6 +10,14 @@ La dernière version de l'outil est téléchargeable dans la section [Release](h
 The PIA software is a free tool published by the [CNIL](https://www.cnil.fr/en/open-source-pia-software-helps-carry-out-data-protection-impact-assesment) which aims to help data controllers build and demonstrate compliance to the GDPR. 
 
 The latest version of the tool can be downloaded in the [Release](https://github.com/LINCnil/pia/releases) section of this repository.
+
+## Traduire le logiciel PIA / Translating the PIA Software
+Pour traduire le logiciel, nous vous invitons à vous rendre dans le [dépôt dédié](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n) dans lequel les étapes de traduction sont décrites.
+
+To translate the software, we invite you to visit the [related repository](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n) where the translation steps are described.
+
+
+# Information de développement / Dev information
 
 ![CI](https://github.com/atnos/pia/workflows/integration-tests/badge.svg?branch=master)
 
