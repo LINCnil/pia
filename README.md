@@ -1,5 +1,8 @@
 # Pia
 
+# Le logiciel PIA / The PIA Software
+<img src="https://raw.githubusercontent.com/LINCnil/pia/master/src/assets/images/pia-auth-logo.png" align="left" hspace="10" vspace="6"> Le logiciel PIA est un outil distribué librement par la [CNIL](https://www.cnil.fr/fr/outil-pia-telechargez-et-installez-le-logiciel-de-la-cnil) afin de faciliter la réalisation d’analyses d’impact sur la protection des données prévues par le RGPD.
+
 ![CI](https://github.com/atnos/pia/workflows/integration-tests/badge.svg?branch=master)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
