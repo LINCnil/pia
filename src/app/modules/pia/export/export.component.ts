@@ -7,6 +7,7 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
+
 import { Pia } from 'src/app/models/pia.model';
 declare const require: any;
 
@@ -97,7 +98,7 @@ export class ExportComponent implements OnInit {
           const fileTitle = 'pia-' + slugify(this.pia.name);
           switch (this.exportSelected[0]) {
             case 'doc': // Only doc
-              this.generateDocx('pia-full-content').then(() => {
+              this.generateDoc('pia-full-content').then(() => {
                 resolve();
               });
               break;
@@ -322,9 +323,9 @@ export class ExportComponent implements OnInit {
   /****************************** DOC EXPORT ************************************/
   /**
    *
-   * @param element block in the HTML view used to generate the docx
+   * @param element block in the HTML view used to generate the doc (.odt)
    */
-  async generateDocx(element): Promise<boolean> {
+  async generateDoc(element): Promise<boolean> {
     return new Promise((resolve, reject) => {
       this.prepareDocFile(element).then(dataDoc => {
         setTimeout(() => {
@@ -334,7 +335,14 @@ export class ExportComponent implements OnInit {
             navigator.msSaveOrOpenBlob(dataDoc.blob, dataDoc.filename);
           } else {
             downloadLink.href = dataDoc.url;
-            downloadLink.download = dataDoc.filename;
+            const newDate = new Date(Date.now());
+            const data =
+              newDate.getDate() +
+              '-' +
+              newDate.getMonth() +
+              '-' +
+              newDate.getFullYear();
+            downloadLink.download = data + '-pia.odt';
             downloadLink.click();
           }
           document.body.removeChild(downloadLink);
@@ -348,9 +356,10 @@ export class ExportComponent implements OnInit {
    * Prepare .doc file
    */
   async prepareDocFile(element): Promise<any> {
-
     const headerTitle = `<h1>${this.pia.name}</h1>`;
-    const headerData = document.querySelector('header.pia-fullPreviewBlock-header .pia-fullPreviewBlock-header-data');
+    const headerData = document.querySelector(
+      'header.pia-fullPreviewBlock-header .pia-fullPreviewBlock-header-data'
+    );
 
     const risksCartography = document.querySelector('#risksCartographyImg');
     const actionPlanOverview = document.querySelector('#actionPlanOverviewImg');
@@ -366,8 +375,13 @@ export class ExportComponent implements OnInit {
       "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
     const postHtml = '</body></html>';
     const html =
-      preHtml + '<header>' + headerTitle
-        + headerData.innerHTML + '</header>' + document.getElementById(element).innerHTML + postHtml;
+      preHtml +
+      '<header>' +
+      headerTitle +
+      headerData.innerHTML +
+      '</header>' +
+      document.getElementById(element).innerHTML +
+      postHtml;
     const blob = new Blob(['\ufeff', html], {
       type: 'application/msword'
     });
@@ -389,12 +403,19 @@ export class ExportComponent implements OnInit {
     if (risksOverviewContainer) {
       risksOverviewContainer.appendChild(risksOverview);
     }
+    const newDate = new Date(Date.now());
+    const data =
+      newDate.getDate() +
+      '-' +
+      newDate.getMonth() +
+      '-' +
+      newDate.getFullYear();
     return {
       url:
         'data:application/vnd.ms-word;charset=utf-8,' +
         encodeURIComponent(html),
       blob,
-      filename: 'pia.doc'
+      filename: data + '-pia.odt'
     };
   }
   /****************************** END DOC EXPORT ********************************/
