@@ -55,6 +55,11 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  disconnectUser() {
+    this.authService.logout();
+    this.router.navigateByUrl('/');
+  }
+
   updateFullScreenMessage(): void {
     const displayMessage: HTMLElement = document.querySelector(
       '.pia-closeFullScreenModeAlertBlock'

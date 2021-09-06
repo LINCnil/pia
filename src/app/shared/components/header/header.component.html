@@ -100,20 +100,24 @@
                 </a>
                 <form>
                   <fieldset>
-                    <a
-                      routerLink="/users"
-                      *ngIf="
-                        authService.state &&
-                        authService.currentUserValue !== null &&
-                        authService.currentUserValue.access_type.includes(
-                          'technical'
-                        )
-                      "
-                      >{{ "header.tools.users" | translate }}</a
-                    >
-                    <a routerLink="/url">{{
-                      "header.tools.url_setting" | translate
-                    }}</a>
+                    <div>
+                      <a
+                        routerLink="/users"
+                        *ngIf="
+                          authService.state &&
+                          authService.currentUserValue !== null &&
+                          authService.currentUserValue.access_type.includes(
+                            'technical'
+                          )
+                        "
+                        >{{ "header.tools.users" | translate }}</a
+                      >
+                    </div>
+                    <div>
+                      <a routerLink="/url">{{
+                        "header.tools.url_setting" | translate
+                      }}</a>
+                    </div>
                     <div>
                       <input
                         type="checkbox"
@@ -129,6 +133,16 @@
                     <div>
                       <a routerLink="/about">{{
                         "header.tools.about" | translate
+                      }}</a>
+                    </div>
+                    <div
+                      *ngIf="
+                        authService.state &&
+                        authService.currentUserValue !== null
+                      "
+                    >
+                      <a (click)="disconnectUser()">{{
+                        "header.tools.sign_out_button" | translate
                       }}</a>
                     </div>
                   </fieldset>
@@ -163,7 +177,7 @@
                       id="pia-onboarding"
                       (click)="restartOnboarding()"
                     >
-                      {{ "header.tools.onboarding" | translate }}
+                      {{ "authentication.onboarding" | translate }}
                     </button>
                   </li>
                   <li>
