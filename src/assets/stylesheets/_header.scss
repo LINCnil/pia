@@ -180,9 +180,6 @@
             padding: 0;
             a {
               cursor: pointer;
-              &:first-of-type {
-                //border-bottom: 1px solid $pia-gray;
-              }
               &:hover {
                 font-weight: 500 !important;
               }
