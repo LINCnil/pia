@@ -181,7 +181,7 @@
             a {
               cursor: pointer;
               &:first-of-type {
-                border-bottom: 1px solid $pia-gray;
+                //border-bottom: 1px solid $pia-gray;
               }
               &:hover {
                 font-weight: 500 !important;
@@ -194,7 +194,11 @@
             }
           }
           div {
-            border-top: 1px solid $pia-gray;
+            border-top: 1px solid $pia-gray !important;
+            padding: 8px 0;
+            &:first-of-type {
+              border-top: none;
+            }
 
             /* input, label {
               display: inline-block;
