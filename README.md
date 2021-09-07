@@ -104,11 +104,20 @@ You can work on this project with a [pia-i18n](https://github.com/LINCnil/pia-i1
 
 This process permit to check your changes on the pia-i18n code (for traduction updates, fixes...) directly on the pia project
 
+### /!\ Requirements /!\ :
+
+- nodejs in lts version (14.17.4)
+- ng client `npm install -g @angular/cli`
+
+If you have to update your node version, you may to remove ./node_modules folder and type "npm i or yarn install" before continue.
+
+### Set up your pia project
+
 Get pia-i18n in the projects folder
 Clone pia-i18n in a ./projects/pia-i18n folder
 
 ```
-git clone git@github.com:LINCnil/pia-i18n.git ./project/pia-i18n
+git clone git@github.com:LINCnil/pia-i18n.git ./projects/pia-i18n
 ```
 
 Stop using npm dependancy
