@@ -192,9 +192,9 @@
           }
           div {
             border-top: 1px solid $pia-gray !important;
-            padding: 8px 0;
+            padding: 20px 0 !important;
             &:first-of-type {
-              border-top: none;
+              border-top: none !important;
             }
 
             /* input, label {
@@ -263,7 +263,7 @@
             }
           }
           a {
-            padding: 10px 0 !important;
+            //padding: 10px 0 !important;
             color: $pia-light-black !important;
             font-weight: 400 !important;
             display: block;
