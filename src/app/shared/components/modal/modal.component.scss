@@ -15,6 +15,7 @@
     &.open {
       opacity: 1;
       display: block;
+      z-index: 999;
     }
     &-close {
       position: absolute;
