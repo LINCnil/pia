@@ -30,7 +30,10 @@
     <div class="container">
       <div class="row">
         <div class="small-12 medium-12 columns">
-          <ul class="pia-navigationBlock-list" *ngIf="router.url !== '/'">
+          <ul
+            class="pia-navigationBlock-list"
+            *ngIf="authService.state && authService.currentUserValue !== null"
+          >
             <li
               class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-pias"
             >
