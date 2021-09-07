@@ -172,7 +172,7 @@
           right: -1px;
           color: $pia-light-black;
           padding: 0 10px;
-          z-index: 999;
+          z-index: 999999;
           background-color: #fff;
           > fieldset {
             border: none;
@@ -192,7 +192,7 @@
           }
           div {
             border-top: 1px solid $pia-gray !important;
-            padding: 20px 0 !important;
+            padding: 10px 0 !important;
             &:first-of-type {
               border-top: none !important;
             }

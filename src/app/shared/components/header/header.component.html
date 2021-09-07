@@ -103,18 +103,18 @@
                 </a>
                 <form>
                   <fieldset>
-                    <div>
-                      <a
-                        routerLink="/users"
-                        *ngIf="
-                          authService.state &&
-                          authService.currentUserValue !== null &&
-                          authService.currentUserValue.access_type.includes(
-                            'technical'
-                          )
-                        "
-                        >{{ "header.tools.users" | translate }}</a
-                      >
+                    <div
+                      *ngIf="
+                        authService.state &&
+                        authService.currentUserValue !== null &&
+                        authService.currentUserValue.access_type.includes(
+                          'technical'
+                        )
+                      "
+                    >
+                      <a routerLink="/users">{{
+                        "header.tools.users" | translate
+                      }}</a>
                     </div>
                     <div>
                       <a routerLink="/url">{{
@@ -153,7 +153,9 @@
               </li>
               <li
                 class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-help"
-                *ngIf="router.url !== '/'"
+                *ngIf="
+                  authService.state && authService.currentUserValue !== null
+                "
               >
                 <a href="javascript:;">
                   {{ "header.help.title" | translate }}
