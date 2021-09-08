@@ -32,7 +32,10 @@
         <div class="small-12 medium-12 columns">
           <ul
             class="pia-navigationBlock-list"
-            *ngIf="!authService.state || authService.currentUserValue !== null"
+            *ngIf="
+              (!authService.state && router.url !== '/') ||
+              authService.currentUserValue !== null
+            "
           >
             <li
               class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-pias"
@@ -153,9 +156,6 @@
               </li>
               <li
                 class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-help"
-                *ngIf="
-                  authService.state && authService.currentUserValue !== null
-                "
               >
                 <a href="javascript:;">
                   {{ "header.help.title" | translate }}
@@ -165,7 +165,13 @@
                   ></span>
                 </a>
                 <ul>
-                  <li *ngIf="languagesService.selectedLanguage === 'fr'">
+                  <li
+                    *ngIf="
+                      (languagesService.selectedLanguage === 'fr' &&
+                        !authService.state && router.url !== '/') ||
+                      authService.currentUserValue !== null
+                    "
+                  >
                     <a (click)="goToExample()">
                       {{ "header.help.pia_example_link" | translate }}
                     </a>
@@ -175,7 +181,12 @@
                       "header.help.manual" | translate
                     }}</a>
                   </li>
-                  <li>
+                  <li
+                    *ngIf="
+                      (!authService.state && router.url !== '/') ||
+                      authService.currentUserValue !== null
+                    "
+                  >
                     <button
                       type="button"
                       name="pia-onboarding"
