@@ -107,10 +107,13 @@ export class NewPiaComponent implements OnInit {
    */
   onSubmit(): void {
     let data;
+    console.log(this.piaForm.controls.guest_name.value);
     if (this.authService.state) {
       data = {
         ...this.piaForm.value,
-        guest_name: this.piaForm.controls.guest_name.value.map(x => x.id),
+        guest_name: this.piaForm.controls.guest_name.value
+          ? this.piaForm.controls.guest_name.value.map(x => x.id)
+          : null,
         validator_name: this.piaForm.controls.validator_name.value.map(
           x => x.id
         ),
