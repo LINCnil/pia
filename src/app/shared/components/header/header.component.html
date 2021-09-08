@@ -32,7 +32,7 @@
         <div class="small-12 medium-12 columns">
           <ul
             class="pia-navigationBlock-list"
-            *ngIf="authService.state && authService.currentUserValue !== null"
+            *ngIf="!authService.state || authService.currentUserValue !== null"
           >
             <li
               class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-pias"
