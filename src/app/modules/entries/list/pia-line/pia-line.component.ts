@@ -253,9 +253,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
     }
 
     // TODO: UPDATE WITH BACK END
-    // this.pia.author_name = this.authorField[0].id;
-    // this.pia.validator_name = this.validatorField[0].id;
-    // this.pia.evaluator_name = this.evaluatorField[0].id;
-    // this.piaService.update(this.pia);
+    this.pia[field] = this.piaForm.controls[field].value[0].id;
+    this.piaService.update(this.pia);
   }
 }
