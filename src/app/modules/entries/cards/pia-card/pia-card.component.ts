@@ -374,9 +374,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
       });
     }
     // TODO: UPDATE WITH BACK END
-    // this.pia.author_name = this.piaForm.controls.author_name[0].id;
-    // this.pia.validator_name = this.piaForm.controls.validator_name[0].id;
-    // this.pia.evaluator_name = this.piaForm.controls.evaluator_name[0].id;
-    // this.piaService.update(this.pia);
+    this.pia[field] = this.piaForm.controls[field].value[0].id;
+    this.piaService.update(this.pia);
   }
 }
