@@ -449,7 +449,6 @@ export class EvaluationsComponent
       autoresize_bottom_margin: 30,
       auto_focus: autofocus ? elementId : '',
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + elementId,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
