@@ -4,6 +4,8 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-archive-card',
@@ -15,16 +17,36 @@ export class ArchiveCardComponent implements OnInit {
   @Input() previousArchivedPia: any;
   @Output() deleted = new EventEmitter<any>();
   attachments: any;
+  piaForm: FormGroup;
 
   constructor(
     public languagesService: LanguagesService,
     public archiveService: ArchiveService,
     private dialogService: DialogService,
     public piaService: PiaService,
-    private attachmentsService: AttachmentsService
+    private attachmentsService: AttachmentsService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.piaForm = new FormGroup({
+      author_name: new FormControl(),
+      evaluator_name: new FormControl(),
+      validator_name: new FormControl(),
+      guest_name: new FormControl()
+    });
+
+    this.piaForm.controls.author_name.setValue([this.archivedPia.author_name]);
+    this.piaForm.controls.evaluator_name.setValue([
+      this.archivedPia.evaluator_name
+    ]);
+    this.piaForm.controls.validator_name.setValue([
+      this.archivedPia.validator_name
+    ]);
+    if (this.archivedPia.guest_name) {
+      this.piaForm.controls.guest_name.setValue(this.archivedPia.guest_name);
+    }
+
     this.attachments = [];
     this.attachmentsService.pia_id = this.archivedPia.id;
     this.attachmentsService
