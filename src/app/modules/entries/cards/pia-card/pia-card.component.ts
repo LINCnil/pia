@@ -83,8 +83,12 @@ export class PiaCardComponent implements OnInit, OnChanges {
           this.piaForm.controls.evaluator_name.setValue([
             this.pia.evaluator_name
           ]);
-          this.piaForm.controls.guest_name.setValue([this.pia.validator_name]);
-          this.piaForm.controls.validator_name.setValue(this.pia.guest_name);
+          // TODO: Voir si il faut conditionner si le champ est bien remplit
+          this.piaForm.controls.guest_name.setValue(['brancher', 'le', 'back']);
+
+          this.piaForm.controls.validator_name.setValue([
+            this.pia.validator_name
+          ]);
         } else {
           this.piaForm.controls.author_name.setValue(this.pia.author_name);
           this.piaForm.controls.evaluator_name.setValue(
