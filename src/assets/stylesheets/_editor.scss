@@ -41,6 +41,9 @@
 
 .mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last {
   border: none !important;
+  iframe {
+    background-color: purple !important;
+  }
 }
 
 app-editor {
