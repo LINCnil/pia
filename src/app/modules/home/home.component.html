@@ -17,19 +17,7 @@
       <div class="pia-authenticationBlock-auth">
         <div *ngIf="authService.state; else elseBlock">
           <div [ngSwitch]="stepForm">
-            <ng-container *ngSwitchCase="'checkUuid'">
-              <app-uuid
-                (canceled)="changeDisplay('logIn')"
-                (validated)="changeDisplay('signUp')"
-              ></app-uuid>
-            </ng-container>
-            <ng-container *ngSwitchCase="'signUp'">
-              <app-password
-                (validated)="changeDisplay('logIn'); fromValidation = true"
-                (canceled)="changeDisplay('checkUuid')"
-                (validated)="changeDisplay('logIn')"
-              ></app-password>
-            </ng-container>
+            <!-- Initial block / Sign in -->
             <ng-container *ngSwitchCase="'logIn'">
               <app-sign-in
                 [fromSignUp]="fromValidation"
@@ -38,25 +26,46 @@
                 (forget)="changeDisplay('forgetPassword')"
               ></app-sign-in>
             </ng-container>
-            <ng-container *ngSwitchCase="'resetPassword'">
-              <app-reset-password
+
+            <!-- New account - Activation code -->
+            <ng-container *ngSwitchCase="'checkUuid'">
+              <app-uuid
                 (canceled)="changeDisplay('logIn')"
-                (validated)="changeDisplay('newPassword')"
-              ></app-reset-password>
+                (validated)="changeDisplay('signUp')"
+              ></app-uuid>
             </ng-container>
-            <ng-container *ngSwitchCase="'newPassword'">
+
+            <!-- New account - Define password -->
+            <ng-container *ngSwitchCase="'signUp'">
               <app-password
-                [reset]="true"
                 (validated)="changeDisplay('logIn'); fromValidation = true"
                 (canceled)="changeDisplay('checkUuid')"
-                (validated)="changeDisplay('logIn')"
               ></app-password>
             </ng-container>
+
+            <!-- Account recovery - Email -->
             <ng-container *ngSwitchCase="'forgetPassword'">
               <app-forget-password
                 (canceled)="changeDisplay('logIn')"
                 (validated)="changeDisplay('resetPassword')"
               ></app-forget-password>
+            </ng-container>
+
+            <!-- Account recovery - Reset code -->
+            <ng-container *ngSwitchCase="'resetPassword'">
+              <app-reset-password
+                (canceled)="changeDisplay('forgetPassword')"
+                (validated)="changeDisplay('newPassword')"
+              ></app-reset-password>
+            </ng-container>
+
+            <!-- Account recovery - New password -->
+            <ng-container *ngSwitchCase="'newPassword'">
+              <app-password
+                [reset]="true"
+                (canceled)="changeDisplay('resetPassword')"
+                (validated)="changeDisplay('logIn')"
+              ></app-password>
             </ng-container>
           </div>
         </div>

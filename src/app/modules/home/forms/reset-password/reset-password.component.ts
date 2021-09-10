@@ -1,5 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators
+} from '@angular/forms';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -11,7 +16,11 @@ import { TranslateService } from '@ngx-translate/core';
 export class ResetPasswordComponent implements OnInit {
   @Output() canceled = new EventEmitter<boolean>();
   @Output() validated = new EventEmitter<boolean>();
+
   resetPassword: FormGroup;
+  uuidRegex = new RegExp(
+    /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+  );
 
   constructor(
     private formBuilder: FormBuilder,
@@ -19,7 +28,10 @@ export class ResetPasswordComponent implements OnInit {
   ) {
     // Prepare resetPassword form
     this.resetPassword = this.formBuilder.group({
-      resetCode: ['', Validators.required]
+      resetCode: new FormControl('', [
+        Validators.required,
+        Validators.pattern(this.uuidRegex)
+      ])
     });
   }
 
