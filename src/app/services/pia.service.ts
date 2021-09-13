@@ -168,6 +168,7 @@ export class PiaService extends ApplicationDb {
       pia.author_name = piaForm.author_name;
       pia.evaluator_name = piaForm.evaluator_name;
       pia.validator_name = piaForm.validator_name;
+      pia.guest_name = piaForm.guest_name;
       pia.created_at = new Date();
       pia.updated_at = new Date();
       const structure_id = piaForm.structure_id;
