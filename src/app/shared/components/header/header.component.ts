@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
   providers: [{ provide: Window, useValue: window }],
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements OnInit {
   public increaseContrast: string;
   appVersion: string;
   pia_is_example: boolean;
