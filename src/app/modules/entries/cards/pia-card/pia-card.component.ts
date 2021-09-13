@@ -83,8 +83,8 @@ export class PiaCardComponent implements OnInit, OnChanges {
           this.piaForm.controls.evaluator_name.setValue([
             this.pia.evaluator_name
           ]);
-          // TODO: Voir si il faut conditionner si le champ est bien remplit
-          this.piaForm.controls.guest_name.setValue(['brancher', 'le', 'back']);
+
+          this.piaForm.controls.guest_name.setValue(this.pia.guest_name);
 
           this.piaForm.controls.validator_name.setValue([
             this.pia.validator_name
@@ -374,7 +374,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
       });
     }
     // TODO: UPDATE WITH BACK END
-    this.pia[field] = this.piaForm.controls[field].value[0].id;
+    if (field !== 'guest_name') {
+      this.pia[field] = this.piaForm.controls[field].value[0].id;
+    } else {
+      this.pia[field] = this.piaForm.controls[field].value.map(x => x.id);
+    }
     this.piaService.update(this.pia);
   }
 }
