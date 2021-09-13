@@ -98,7 +98,7 @@ export class HeaderComponent implements OnInit {
 
   goToExample(): void {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['pia', 1, 'section', 1, 'item', 1]);
+      this.router.navigate(['pia', 'example', 'section', 1, 'item', 1]);
     });
   }
 }

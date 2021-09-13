@@ -74,77 +74,27 @@ export class PiaComponent implements OnInit, DoCheck {
     this.appDataService.entrieMode = 'pia';
     const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     const itemId = parseInt(this.route.snapshot.params.item_id, 10);
-    this.piaService
-      .find(parseInt(this.route.snapshot.params.id))
-      .then((pia: Pia) => {
-        // INIT PIA
-        this.pia = pia;
-        this.piaService.calculPiaProgress(this.pia);
-
-        if (!sectionId || !itemId) {
-          this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);
-        } else {
-          if (this.pia.structure_data) {
-            this.appDataService.dataNav = this.pia.structure_data;
-          } else {
-            this.appDataService.resetDataNav();
-          }
-
-          this.data = this.appDataService.dataNav;
-        }
-
-        this.globalEvaluationService.pia = this.pia;
-
-        this.route.params.subscribe((params: Params) => {
-          this.getSectionAndItem(
-            parseInt(params.section_id, 10),
-            parseInt(params.item_id, 10)
-          );
-          window.scroll(0, 0);
+    if (this.route.snapshot.params.id == 'example') {
+      this.piaService
+        .getPiaExample()
+        .then((pia: Pia) => {
+          this.pia = pia;
+          this.setupPage(sectionId, itemId);
+        })
+        .catch(err => {
+          console.error(err);
         });
-
-        // Suscribe to measure service messages
-        this.subscription = this.measureService.behaviorSubject.subscribe(
-          val => {
-            this.measureToRemoveFromTags = val;
-          }
-        );
-
-        // Start onboarding
-        if (!localStorage.getItem('onboardingEntryConfirmed')) {
-          this.introjsService.start('entry');
-        } else if (localStorage.getItem('onboardingEntryConfirmed')) {
-          this.introjsService.start('evaluation');
-        }
-
-        // Subscribe to Auth type for enable / disable rigths on fields
-        this.authService.currentUser.subscribe({
-          complete: () => {
-            if (this.authService.state) {
-              // TODO: UPDATE editMode var with current user
-              this.editMode = [];
-              switch (this.authService.currentUserValue.id) {
-                case this.pia.author_name:
-                  this.editMode.push('author');
-                case this.pia.evaluator_name:
-                  this.editMode.push('evaluator');
-                case this.pia.validator_name:
-                  this.editMode.push('validator');
-                default:
-                  this.editMode.push('guest');
-              }
-
-              // TODO: Remove it after test
-              this.editMode.push('validator');
-            } else {
-              this.editMode = 'local';
-            }
-          }
+    } else {
+      this.piaService
+        .find(parseInt(this.route.snapshot.params.id))
+        .then((pia: Pia) => {
+          this.pia = pia;
+          this.setupPage(sectionId, itemId);
+        })
+        .catch(err => {
+          console.error(err);
         });
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    }
   }
 
   ngDoCheck(): void {
@@ -197,6 +147,61 @@ export class PiaComponent implements OnInit, DoCheck {
         });
       });
     }
+  }
+
+  setupPage(sectionId, itemId) {
+    this.piaService.calculPiaProgress(this.pia);
+    if (!sectionId || !itemId) {
+      this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);
+    } else {
+      if (this.pia.structure_data) {
+        this.appDataService.dataNav = this.pia.structure_data;
+      } else {
+        this.appDataService.resetDataNav();
+      }
+      this.data = this.appDataService.dataNav;
+    }
+    this.globalEvaluationService.pia = this.pia;
+    this.route.params.subscribe((params: Params) => {
+      this.getSectionAndItem(
+        parseInt(params.section_id, 10),
+        parseInt(params.item_id, 10)
+      );
+      window.scroll(0, 0);
+    });
+    // Suscribe to measure service messages
+    this.subscription = this.measureService.behaviorSubject.subscribe(val => {
+      this.measureToRemoveFromTags = val;
+    });
+    // Start onboarding
+    if (!localStorage.getItem('onboardingEntryConfirmed')) {
+      this.introjsService.start('entry');
+    } else if (localStorage.getItem('onboardingEntryConfirmed')) {
+      this.introjsService.start('evaluation');
+    }
+    // Subscribe to Auth type for enable / disable rigths on fields
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        if (this.authService.state) {
+          // TODO: UPDATE editMode var with current user
+          this.editMode = [];
+          switch (this.authService.currentUserValue.id) {
+            case this.pia.author_name:
+              this.editMode.push('author');
+            case this.pia.evaluator_name:
+              this.editMode.push('evaluator');
+            case this.pia.validator_name:
+              this.editMode.push('validator');
+            default:
+              this.editMode.push('guest');
+          }
+          // TODO: Remove it after test
+          this.editMode.push('validator');
+        } else {
+          this.editMode = 'local';
+        }
+      }
+    });
   }
 
   /**
