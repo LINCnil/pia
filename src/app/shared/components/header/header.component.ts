@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
   providers: [{ provide: Window, useValue: window }],
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   public increaseContrast: string;
   appVersion: string;
   pia_is_example: boolean;
@@ -35,11 +35,6 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.updateFullScreenMessage();
-    this.window.onresize = () => {
-      this.updateFullScreenMessage();
-    };
-
     this.appVersion = environment.version;
 
     this.pia_is_example = false;
@@ -53,21 +48,28 @@ export class HeaderComponent implements OnInit {
     if (this.router.url.indexOf('/knowledges') > -1) {
       this.isKnowledgeHeader = true;
     }
+    this.updateFullScreenMessage();
+    this.window.addEventListener('load', () => {
+      this.window.onresize = () => {
+        this.updateFullScreenMessage();
+      };
+    });
   }
 
   disconnectUser() {
     this.authService.logout();
-    this.router.navigateByUrl('/');
+    this.router.navigate(['/']);
   }
 
   updateFullScreenMessage(): void {
     const displayMessage: HTMLElement = document.querySelector(
       '.pia-closeFullScreenModeAlertBlock'
     );
-
-    this.window.innerHeight === screen.height
-      ? (displayMessage.style.display = 'block')
-      : (displayMessage.style.display = 'none');
+    if (this.window.innerHeight === screen.height) {
+      displayMessage.classList.toggle('hide');
+    } else {
+      displayMessage.classList.add('hide');
+    }
   }
 
   /**
