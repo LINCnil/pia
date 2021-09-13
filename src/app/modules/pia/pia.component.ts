@@ -74,12 +74,10 @@ export class PiaComponent implements OnInit, DoCheck {
     this.appDataService.entrieMode = 'pia';
     const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     const itemId = parseInt(this.route.snapshot.params.item_id, 10);
-
     this.piaService
       .find(parseInt(this.route.snapshot.params.id))
       .then((pia: Pia) => {
         // INIT PIA
-
         this.pia = pia;
         this.piaService.calculPiaProgress(this.pia);
 

@@ -226,7 +226,7 @@ export class ApplicationDb {
    * Only One Result
    * @param {any} id - The record id.
    */
-  async find(id: number) {
+  async find(id: number | string) {
     return new Promise((resolve, reject) => {
       if (id) {
         if (this.apiService && this.apiService.base) {
