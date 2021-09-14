@@ -80,6 +80,7 @@ export class PiaComponent implements OnInit, DoCheck {
         .then((pia: Pia) => {
           this.pia = pia;
           this.setupPage(sectionId, itemId);
+          this.router.navigate(['pia', pia.id, 'section', 1, 'item', 1]);
         })
         .catch(err => {
           console.error(err);
