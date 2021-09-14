@@ -121,7 +121,7 @@ export class PiaService extends ApplicationDb {
   async getPiaExample(): Promise<any> {
     return new Promise((resolve, reject) => {
       super
-        .findWithReference('/example', { index: 'index3', value: 'true' })
+        .findWithReference('/example', { index: 'index3', value: 1 })
         .then((resp: Pia) => {
           resolve(resp);
         })
@@ -171,13 +171,9 @@ export class PiaService extends ApplicationDb {
    */
   async saveNewPia(piaForm: Pia): Promise<any> {
     return new Promise((resolve, reject) => {
-      const pia = new Pia();
-      pia.name = piaForm.name;
-      pia.category = piaForm.category;
-      pia.author_name = piaForm.author_name;
-      pia.evaluator_name = piaForm.evaluator_name;
-      pia.validator_name = piaForm.validator_name;
-      pia.guest_name = piaForm.guest_name;
+      const pia: Pia = {
+        ...piaForm
+      };
       pia.created_at = new Date();
       pia.updated_at = new Date();
       const structure_id = piaForm.structure_id;

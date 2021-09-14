@@ -107,11 +107,10 @@ export class NewPiaComponent implements OnInit {
    */
   onSubmit(): void {
     let data;
-    console.log(this.piaForm.controls.guest_name.value);
     if (this.authService.state) {
       data = {
         ...this.piaForm.value,
-        guest_name: this.piaForm.controls.guest_name.value.map(x => x.id),
+        update_guests: this.piaForm.controls.guest_name.value.map(x => x.id),
         validator_name: this.piaForm.controls.validator_name.value.map(
           x => x.id
         ),
@@ -123,6 +122,7 @@ export class NewPiaComponent implements OnInit {
     } else {
       data = { ...this.piaForm.value };
     }
+    console.log('tesst', this.piaForm.controls.guest_name.value);
 
     this.piaService.saveNewPia(data).then((result: Pia) => {
       this.submited.emit(result.id);

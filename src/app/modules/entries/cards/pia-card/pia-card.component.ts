@@ -84,16 +84,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
             this.pia.evaluator_name
           ]);
 
-          this.piaForm.controls.guest_name.setValue(
-            this.pia.guest_name.map(g => {
-              return {
-                display: `${g.firstname} ${g.lastname}`,
-                id: g.id
-              };
-            })
-          );
-
-          console.log(this.piaForm.controls.guest_name.value);
+          this.piaForm.controls.guest_name.setValue(this.pia.guests);
 
           this.piaForm.controls.validator_name.setValue([
             this.pia.validator_name
@@ -266,12 +257,12 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   piaGuestNameFocusOut(): void {
-    let userText = this.piaForm.value.guest_name;
+    let userText = this.piaForm.value.guests;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     if (userText !== '') {
-      this.pia.guest_name = this.piaForm.value.guest_name;
+      this.pia.guests = this.piaForm.value.guests;
       this.piaService.update(this.pia);
       this.changed.emit(this.pia);
     }
@@ -386,7 +377,9 @@ export class PiaCardComponent implements OnInit, OnChanges {
     if (field !== 'guest_name') {
       this.pia[field] = this.piaForm.controls[field].value[0].id;
     } else {
-      this.pia[field] = this.piaForm.controls[field].value.map(x => x.id);
+      this.pia['update_guests'] = this.piaForm.controls[field].value.map(
+        x => x.id
+      );
     }
     this.piaService.update(this.pia);
   }

@@ -48,8 +48,8 @@ export class ContentComponent implements OnInit {
     this.knowledgeBaseService.toHide = [];
 
     // Update the last edited date for this PIA
-    this.pia.updated_at = new Date();
-    this.piaService.update(this.pia);
+    // this.pia.updated_at = new Date();
+    // this.piaService.update(this.pia);
 
     if (this.pia.is_archive === 1) {
       this.router.navigate(['/entries']);
