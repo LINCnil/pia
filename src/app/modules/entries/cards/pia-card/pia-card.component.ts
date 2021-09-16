@@ -8,7 +8,7 @@ import {
   OnInit,
   OnChanges
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
@@ -69,26 +69,32 @@ export class PiaCardComponent implements OnInit, OnChanges {
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: false }),
       category: new FormControl({ value: this.pia.category, disabled: false }),
-      author_name: new FormControl(),
-      evaluator_name: new FormControl(),
-      validator_name: new FormControl(),
+      author_name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
+      evaluator_name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
+      validator_name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
       guest_name: new FormControl()
     });
 
     this.authService.currentUser.subscribe({
       complete: () => {
         if (this.authService.state) {
-          // TODO: CONVERT BACK author, evaluator, validator into tagModel
           this.piaForm.controls.author_name.setValue([this.pia.author_name]);
           this.piaForm.controls.evaluator_name.setValue([
             this.pia.evaluator_name
           ]);
-
-          this.piaForm.controls.guest_name.setValue(this.pia.guests);
-
           this.piaForm.controls.validator_name.setValue([
             this.pia.validator_name
           ]);
+          this.piaForm.controls.guest_name.setValue(this.pia.guests);
         } else {
           this.piaForm.controls.author_name.setValue(this.pia.author_name);
           this.piaForm.controls.evaluator_name.setValue(

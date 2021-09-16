@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
 import { BehaviorSubject } from 'rxjs';
 import { Pia } from 'src/app/models/pia.model';
@@ -53,9 +53,18 @@ export class NewPiaComponent implements OnInit {
   ngOnInit(): void {
     this.piaForm = new FormGroup({
       name: new FormControl(),
-      author_name: new FormControl(),
-      evaluator_name: new FormControl(),
-      validator_name: new FormControl(),
+      author_name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
+      evaluator_name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
+      validator_name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
       guest_name: new FormControl(),
       category: new FormControl(),
       structure_id: new FormControl()
@@ -110,7 +119,9 @@ export class NewPiaComponent implements OnInit {
     if (this.authService.state) {
       data = {
         ...this.piaForm.value,
-        update_guests: this.piaForm.controls.guest_name.value.map(x => x.id),
+        update_guests: this.piaForm.controls.guest_name.value
+          ? this.piaForm.controls.guest_name.value.map(x => x.id)
+          : [],
         validator_name: this.piaForm.controls.validator_name.value.map(
           x => x.id
         ),

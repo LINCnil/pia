@@ -319,6 +319,7 @@
             [routerLink]="['/pia', pia.id, 'section', 1, 'item', 1]"
             title="{{ 'homepage.cards.item.edit_pia' | translate }}"
             class="btn btn-green"
+            [class.disabled]="piaForm.invalid"
             >{{ "homepage.cards.item.validate_pia" | translate }}
           </a>
           <ng-template #editBlock>
@@ -326,6 +327,7 @@
               [routerLink]="['/pia', pia.id, 'section', 1, 'item', 1]"
               title="{{ 'homepage.cards.item.edit_pia' | translate }}"
               class="btn btn-green"
+              [class.disabled]="piaForm.invalid"
               >{{ "homepage.cards.item.edit_pia" | translate }}</a
             >
           </ng-template>
@@ -338,6 +340,7 @@
             routerLink="/preview/{{ pia.id }}"
             title="{{ 'homepage.cards.item.consult_pia' | translate }}"
             class="btn btn-green"
+            [class.disabled]="piaForm.invalid"
             >{{ "homepage.cards.item.consult_pia" | translate }}</a
           >
         </div>
