@@ -98,22 +98,18 @@
           <div class="archive">{{ archivedPia.validator_name }}</div>
         </ng-template>
       </div>
-      <div>
+      <div *ngIf="authService.state">
         <label for="pia-edit-guest-name">{{
           "homepage.cards.guest" | translate
         }}</label>
         <div class="archive">{{ archivedPia.guest_name }}</div>
         <tag-input
-          *ngIf="authService.state; else elseGuestBlock"
           [theme]="'foundation-theme'"
           [removable]="false"
           formControlName="guest_name"
           [hideForm]="true"
         >
         </tag-input>
-        <ng-template #elseGuestBlock>
-          <div class="archive">{{ archivedPia.guest_name }}</div>
-        </ng-template>
       </div>
       <div>
         <label for="pia-edit-category">{{

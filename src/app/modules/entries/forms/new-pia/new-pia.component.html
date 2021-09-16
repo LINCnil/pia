@@ -133,9 +133,9 @@
   <!-- END VALIDATOR FIELD DATA LIST -->
 
   <!-- GUEST FIELD DATA LIST -->
-  <div>
+  <div *ngIf="authService.state">
     <label for="guest_name">{{ "homepage.cards.guest" | translate }}</label>
-    <div *ngIf="authService.state; else guest_name">
+    <div>
       <tag-input
         id="guest_name"
         class="guest"
@@ -158,14 +158,6 @@
         ></tag-input-dropdown>
       </tag-input>
     </div>
-    <ng-template #guest_name>
-      <input
-        formControlName="guest_name"
-        type="text"
-        placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
-        id="guest_name"
-      />
-    </ng-template>
   </div>
   <!-- END GUEST FIELD DATA LIST -->
 
