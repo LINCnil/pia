@@ -5,7 +5,6 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
@@ -16,13 +15,6 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    const user: User = this.authService.currentUserValue;
-    const correspondance = {
-      technique: ['users', 'pia', 'entries'],
-      fonctionnel: ['pia', 'entries'],
-      user: ['pia', 'entries']
-    };
-
     const module = state.url.split('/')[1];
 
     if (!this.authService.state) {
@@ -58,6 +50,10 @@ export class AuthGuard implements CanActivate {
             ) && this.authService.currentUserValue.access_type.includes('user');
           break;
         default:
+          if (module === '') {
+            // you are on home but already sign in, go back entries
+            this.router.navigate(['/entries']);
+          }
           bool = true; // EVERY ELSE
           break;
       }

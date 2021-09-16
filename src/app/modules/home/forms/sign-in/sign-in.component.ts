@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
 import { AuthService } from 'src/app/services/auth.service';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sign-in',
@@ -20,8 +18,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private translateService: TranslateService
+    private authService: AuthService
   ) {
     // Prepare login form
     this.logIn = this.formBuilder.group({

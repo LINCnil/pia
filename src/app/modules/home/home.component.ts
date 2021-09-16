@@ -31,6 +31,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     public languagesService: LanguagesService,
     public authService: AuthService
   ) {
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        if (this.authService.state) {
+          if (this.authService.currentUserValue) {
+            this.router.navigate(['entries']);
+          }
+        }
+      }
+    });
+
     this.renderer.addClass(document.body, 'pia-authentication');
 
     // Prepare login form

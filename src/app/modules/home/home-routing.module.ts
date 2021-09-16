@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthGuard } from 'src/app/shared/guards/auth.guards';
 import { HomeComponent } from './home.component';
 
 @NgModule({
@@ -7,7 +8,8 @@ import { HomeComponent } from './home.component';
     RouterModule.forChild([
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard]
       }
     ])
   ],
