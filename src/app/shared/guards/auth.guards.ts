@@ -50,10 +50,6 @@ export class AuthGuard implements CanActivate {
             ) && this.authService.currentUserValue.access_type.includes('user');
           break;
         default:
-          if (module === '') {
-            // you are on home but already sign in, go back entries
-            this.router.navigate(['/entries']);
-          }
           bool = true; // EVERY ELSE
           break;
       }

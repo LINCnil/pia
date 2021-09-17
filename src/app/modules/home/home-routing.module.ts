@@ -8,8 +8,7 @@ import { HomeComponent } from './home.component';
     RouterModule.forChild([
       {
         path: '',
-        component: HomeComponent,
-        canActivate: [AuthGuard]
+        component: HomeComponent
       }
     ])
   ],
