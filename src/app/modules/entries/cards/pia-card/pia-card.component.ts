@@ -94,7 +94,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
           this.piaForm.controls.validator_name.setValue([
             this.pia.validator_name
           ]);
-          this.piaForm.controls.guest_name.setValue(this.pia.guests);
+          this.piaForm.controls.guest_name.setValue(
+            this.pia.guests.map(x => {
+              return { display: x.firstname + x.lastname, id: x.id };
+            })
+          );
         } else {
           this.piaForm.controls.author_name.setValue(this.pia.author_name);
           this.piaForm.controls.evaluator_name.setValue(
@@ -387,6 +391,13 @@ export class PiaCardComponent implements OnInit, OnChanges {
         x => x.id
       );
     }
+    this.piaService.update(this.pia, this.piaForm.controls[field]);
+  }
+
+  onRemove($event: TagModelClass, field: string) {
+    this.pia['update_guests'] = this.piaForm.controls[field].value.map(
+      x => x.id
+    );
     this.piaService.update(this.pia);
   }
 }

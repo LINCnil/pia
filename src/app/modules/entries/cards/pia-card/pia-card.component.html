@@ -249,6 +249,7 @@
           identifyBy="id"
           formControlName="guest_name"
           (onAdd)="onAddUser($event, 'guest_name')"
+          (onRemove)="onRemove($event, 'guest_name')"
           [theme]="'foundation-theme'"
           [editable]="false"
           [clearOnBlur]="true"
