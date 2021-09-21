@@ -44,6 +44,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
   authorField: Array<TagModelClass> = [];
   validatorField: Array<TagModelClass> = [];
   evaluatorField: Array<TagModelClass> = [];
+  guestField: Array<TagModelClass> = [];
 
   constructor(
     public piaService: PiaService,
@@ -69,6 +70,14 @@ export class PiaLineComponent implements OnInit, OnChanges {
         display: this.pia.validator_name,
         id: this.pia.validator_name
       });
+      if (this.pia.guests.length > 0) {
+        this.pia.guests.forEach(element => {
+          this.guestField.push({
+            display: element.firstname + ' ' + element.lastname,
+            id: element.id
+          });
+        });
+      }
     }
 
     this.attachments = [];
