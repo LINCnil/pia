@@ -373,25 +373,33 @@ export class PiaCardComponent implements OnInit, OnChanges {
           );
           if (userBehavior.value) {
             // user is created
-            // Update tag id
             let values = this.piaForm.controls[field].value;
             values[tagIndex].id = userBehavior.value.id;
+
+            if (field !== 'guest_name') {
+              this.pia[field] = this.piaForm.controls[field].value[0].id;
+            } else {
+              this.pia['update_guests'] = this.piaForm.controls[
+                field
+              ].value.map(x => x.id);
+            }
+            this.piaService.update(this.pia, this.piaForm.controls[field]);
           } else {
             // Remove tag, because user form is canceled
             this.piaForm.controls[field].value.splice(tagIndex, 1);
           }
         }
       });
-    }
-    // TODO: UPDATE WITH BACK END
-    if (field !== 'guest_name') {
-      this.pia[field] = this.piaForm.controls[field].value[0].id;
     } else {
-      this.pia['update_guests'] = this.piaForm.controls[field].value.map(
-        x => x.id
-      );
+      if (field !== 'guest_name') {
+        this.pia[field] = this.piaForm.controls[field].value[0].id;
+      } else {
+        this.pia['update_guests'] = this.piaForm.controls[field].value.map(
+          x => x.id
+        );
+      }
+      this.piaService.update(this.pia, this.piaForm.controls[field]);
     }
-    this.piaService.update(this.pia, this.piaForm.controls[field]);
   }
 
   onRemove($event: TagModelClass, field: string) {

@@ -218,7 +218,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
       observable.subscribe({
         complete: () => {
           if (userBehavior.value) {
-            // si notre nouvel utilisateur est bien saisi
+            // user is created
             switch (field) {
               case 'author_name':
                 this.authorField = [
