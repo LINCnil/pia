@@ -102,11 +102,11 @@
         <label for="pia-edit-guest-name">{{
           "homepage.cards.guest" | translate
         }}</label>
-        <div class="archive">{{ archivedPia.guest_name }}</div>
+        <div class="archive">{{ archivedPia.guests }}</div>
         <tag-input
           [theme]="'foundation-theme'"
           [removable]="false"
-          formControlName="guest_name"
+          formControlName="guests"
           [hideForm]="true"
         >
         </tag-input>

@@ -33,7 +33,7 @@ export class ArchiveCardComponent implements OnInit {
       author_name: new FormControl(),
       evaluator_name: new FormControl(),
       validator_name: new FormControl(),
-      guest_name: new FormControl()
+      guests: new FormControl()
     });
 
     this.piaForm.controls.author_name.setValue([this.archivedPia.author_name]);
@@ -43,8 +43,8 @@ export class ArchiveCardComponent implements OnInit {
     this.piaForm.controls.validator_name.setValue([
       this.archivedPia.validator_name
     ]);
-    if (this.archivedPia.guest_name) {
-      this.piaForm.controls.guest_name.setValue(this.archivedPia.guest_name);
+    if (this.archivedPia.guests) {
+      this.piaForm.controls.guests.setValue(this.archivedPia.guests);
     }
 
     this.attachments = [];

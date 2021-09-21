@@ -134,14 +134,14 @@
 
   <!-- GUEST FIELD DATA LIST -->
   <div *ngIf="authService.state">
-    <label for="guest_name">{{ "homepage.cards.guest" | translate }}</label>
+    <label for="guests">{{ "homepage.cards.guest" | translate }}</label>
     <div>
       <tag-input
-        id="guest_name"
+        id="guests"
         class="guest"
         identifyBy="id"
-        formControlName="guest_name"
-        (onAdd)="onAddUser($event, 'guest_name')"
+        formControlName="guests"
+        (onAdd)="onAddUser($event, 'guests')"
         [theme]="'foundation-theme'"
         [editable]="false"
         [clearOnBlur]="true"

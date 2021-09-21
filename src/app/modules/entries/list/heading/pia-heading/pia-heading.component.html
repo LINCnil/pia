@@ -67,12 +67,12 @@
   </a>
 </th>
 <th *ngIf="authService.state">
-  <a (click)="sortBy('guest_name')">
+  <a (click)="sortBy('guests')">
     <span>Invité(s)</span>
     <i
       class="fa"
       [ngClass]="[
-        sortValue === 'guest_name'
+        sortValue === 'guests'
           ? 'fa-caret-' + sortOrder
           : 'fa-caret-down desactivate'
       ]"

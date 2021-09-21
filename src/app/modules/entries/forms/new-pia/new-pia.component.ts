@@ -65,7 +65,7 @@ export class NewPiaComponent implements OnInit {
         Validators.required,
         Validators.minLength(1)
       ]),
-      guest_name: new FormControl(),
+      guests: new FormControl(),
       category: new FormControl(),
       structure_id: new FormControl()
     });
@@ -119,8 +119,8 @@ export class NewPiaComponent implements OnInit {
     if (this.authService.state) {
       data = {
         ...this.piaForm.value,
-        update_guests: this.piaForm.controls.guest_name.value
-          ? this.piaForm.controls.guest_name.value.map(x => x.id)
+        guests: this.piaForm.controls.guests.value
+          ? this.piaForm.controls.guests.value.map(x => x.id)
           : [],
         validator_name: this.piaForm.controls.validator_name.value.map(
           x => x.id
@@ -133,7 +133,6 @@ export class NewPiaComponent implements OnInit {
     } else {
       data = { ...this.piaForm.value };
     }
-    console.log('tesst', this.piaForm.controls.guest_name.value);
 
     this.piaService.saveNewPia(data).then((result: Pia) => {
       this.submited.emit(result.id);

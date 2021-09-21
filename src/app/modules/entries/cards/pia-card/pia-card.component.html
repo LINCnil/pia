@@ -247,9 +247,9 @@
             !authService.currentUserValue.access_type.includes('functional')
           "
           identifyBy="id"
-          formControlName="guest_name"
-          (onAdd)="onAddUser($event, 'guest_name')"
-          (onRemove)="onRemove($event, 'guest_name')"
+          formControlName="guests"
+          (onAdd)="onAddUser($event, 'guests')"
+          (onRemove)="onRemove($event, 'guests')"
           [theme]="'foundation-theme'"
           [editable]="false"
           [clearOnBlur]="true"

@@ -81,7 +81,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
         Validators.required,
         Validators.minLength(1)
       ]),
-      guest_name: new FormControl()
+      guests: new FormControl()
     });
 
     this.authService.currentUser.subscribe({
@@ -94,7 +94,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
           this.piaForm.controls.validator_name.setValue([
             this.pia.validator_name
           ]);
-          this.piaForm.controls.guest_name.setValue(
+          this.piaForm.controls.guests.setValue(
             this.pia.guests.map(x => {
               return { display: x.firstname + x.lastname, id: x.id };
             })
@@ -262,22 +262,6 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
   }
 
-  piaGuestNameFocusIn(): void {
-    this.piaGuestName.nativeElement.focus();
-  }
-
-  piaGuestNameFocusOut(): void {
-    let userText = this.piaForm.value.guests;
-    if (userText) {
-      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
-    }
-    if (userText !== '') {
-      this.pia.guests = this.piaForm.value.guests;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
-    }
-  }
-
   /**
    * Focus PIA category field.
    */
@@ -376,12 +360,12 @@ export class PiaCardComponent implements OnInit, OnChanges {
             let values = this.piaForm.controls[field].value;
             values[tagIndex].id = userBehavior.value.id;
 
-            if (field !== 'guest_name') {
+            if (field !== 'guests') {
               this.pia[field] = this.piaForm.controls[field].value[0].id;
             } else {
-              this.pia['update_guests'] = this.piaForm.controls[
-                field
-              ].value.map(x => x.id);
+              this.pia['guests'] = this.piaForm.controls[field].value.map(
+                x => x.id
+              );
             }
             this.piaService.update(this.pia, this.piaForm.controls[field]);
           } else {
@@ -391,21 +375,17 @@ export class PiaCardComponent implements OnInit, OnChanges {
         }
       });
     } else {
-      if (field !== 'guest_name') {
+      if (field !== 'guests') {
         this.pia[field] = this.piaForm.controls[field].value[0].id;
       } else {
-        this.pia['update_guests'] = this.piaForm.controls[field].value.map(
-          x => x.id
-        );
+        this.pia['guests'] = this.piaForm.controls[field].value.map(x => x.id);
       }
       this.piaService.update(this.pia, this.piaForm.controls[field]);
     }
   }
 
   onRemove($event: TagModelClass, field: string) {
-    this.pia['update_guests'] = this.piaForm.controls[field].value.map(
-      x => x.id
-    );
+    this.pia['guests'] = this.piaForm.controls[field].value.map(x => x.id);
     this.piaService.update(this.pia);
   }
 }
