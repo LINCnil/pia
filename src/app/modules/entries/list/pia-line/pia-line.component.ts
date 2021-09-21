@@ -243,7 +243,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
                 ];
                 break;
               case 'validator_name':
-                this.authorField = [
+                this.validatorField = [
                   {
                     display:
                       userBehavior.value.firstname +
@@ -256,13 +256,29 @@ export class PiaLineComponent implements OnInit, OnChanges {
               default:
                 break;
             }
+            this.pia[field] = [userBehavior.value.id];
+            this.piaService.update(this.pia);
           }
         }
       });
+    } else {
+      switch (field) {
+        case 'author_name':
+          this.evaluatorField = [$event];
+          this.pia[field] = $event.id;
+          break;
+        case 'evaluator_name':
+          this.evaluatorField = [$event];
+          this.pia[field] = $event.id;
+          break;
+        case 'validator_name':
+          this.validatorField = [$event];
+          this.pia[field] = $event.id;
+          break;
+        default:
+          break;
+      }
+      this.piaService.update(this.pia);
     }
-
-    // TODO: UPDATE WITH BACK END
-    this.pia[field] = this.piaForm.controls[field].value[0].id;
-    this.piaService.update(this.pia);
   }
 }
