@@ -44,7 +44,11 @@ export class ArchiveCardComponent implements OnInit {
       this.archivedPia.validator_name
     ]);
     if (this.archivedPia.guests) {
-      this.piaForm.controls.guests.setValue(this.archivedPia.guests);
+      this.piaForm.controls.guests.setValue(
+        this.archivedPia.guests.map(x => {
+          return { display: x.firstname + x.lastname, id: x.id };
+        })
+      );
     }
 
     this.attachments = [];
