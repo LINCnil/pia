@@ -83,9 +83,7 @@ export class PasswordComponent implements OnInit {
     return this.signUp.controls;
   }
 
-  ngOnInit(): void {
-    console.log(this.accountData);
-  }
+  ngOnInit(): void {}
 
   onCanceled() {
     this.canceled.emit(true);
