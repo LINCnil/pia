@@ -54,10 +54,11 @@
 
             <!-- Account recovery - Reset code -->
             <ng-container *ngSwitchCase="'resetPassword'">
-              <app-reset-password
+              <app-uuid
+                [reset]="true"
                 (canceled)="changeDisplay('forgetPassword')"
-                (validated)="changeDisplay('newPassword')"
-              ></app-reset-password>
+                (validated)="changeDisplay('newPassword'); accountData = $event"
+              ></app-uuid>
             </ng-container>
 
             <!-- Account recovery - New password -->
@@ -66,6 +67,7 @@
                 [reset]="true"
                 (canceled)="changeDisplay('resetPassword')"
                 (validated)="changeDisplay('logIn')"
+                [accountData]="accountData"
               ></app-password>
             </ng-container>
           </div>

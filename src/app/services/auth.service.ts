@@ -175,17 +175,22 @@ export class AuthService {
         .then((result: any) => {
           resolve(result);
         })
-        .catch(error => {
-          reject(error);
+        .catch(err => {
+          reject(err);
         });
     });
   }
 
-  async reset(email: string): Promise<boolean | Error> {
+  async reset(email: string): Promise<User> {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
+      this.apiService
+        .get('/users/password-forgotten/' + email)
+        .then((result: User) => {
+          resolve(result);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 

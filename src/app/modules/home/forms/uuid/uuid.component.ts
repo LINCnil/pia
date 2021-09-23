@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -16,6 +16,7 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['../form.scss', './uuid.component.scss']
 })
 export class UuidComponent implements OnInit {
+  @Input() reset = false;
   @Output() canceled = new EventEmitter<boolean>();
   @Output() validated = new EventEmitter<boolean | User>();
 

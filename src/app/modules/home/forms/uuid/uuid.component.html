@@ -9,7 +9,15 @@
       [class.is-not-empty]="f.uuid.value.length > 0"
       [class.is-invalid]="f.uuid.value.length > 0 && f.uuid.errors"
     >
-      <legend>{{ "authentication.create_account" | translate }}</legend>
+      <ng-container *ngIf="reset; else noReset">
+        <legend>{{ "authentication.account_recovery" | translate }}</legend>
+        <p class="is-valid">
+          {{ "authentication.recovery_code_message" | translate }}
+        </p>
+      </ng-container>
+      <ng-template #noReset>
+        <legend>{{ "authentication.create_account" | translate }}</legend>
+      </ng-template>
 
       <p class="msg" *ngIf="msgFromBack">
         {{ msgFromBack }}
@@ -17,7 +25,11 @@
 
       <input
         type="text"
-        placeholder="{{ 'authentication.activation_code' | translate }}"
+        placeholder="{{
+          reset
+            ? ('authentication.recovery_code' | translate)
+            : ('authentication.activation_code' | translate)
+        }}"
         id="pia-account-activate-code"
         formControlName="uuid"
       />
