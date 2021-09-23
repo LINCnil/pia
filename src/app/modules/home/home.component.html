@@ -31,15 +31,16 @@
             <ng-container *ngSwitchCase="'checkUuid'">
               <app-uuid
                 (canceled)="changeDisplay('logIn')"
-                (validated)="changeDisplay('signUp')"
+                (validated)="changeDisplay('signUp'); accountData = $event"
               ></app-uuid>
             </ng-container>
 
             <!-- New account - Define password -->
             <ng-container *ngSwitchCase="'signUp'">
               <app-password
-                (validated)="changeDisplay('logIn'); fromValidation = true"
+                (validated)="changeDisplay('logIn'); fromValidation = $event"
                 (canceled)="changeDisplay('checkUuid')"
+                [accountData]="accountData"
               ></app-password>
             </ng-container>
 
@@ -53,10 +54,11 @@
 
             <!-- Account recovery - Reset code -->
             <ng-container *ngSwitchCase="'resetPassword'">
-              <app-reset-password
+              <app-uuid
+                [reset]="true"
                 (canceled)="changeDisplay('forgetPassword')"
-                (validated)="changeDisplay('newPassword')"
-              ></app-reset-password>
+                (validated)="changeDisplay('newPassword'); accountData = $event"
+              ></app-uuid>
             </ng-container>
 
             <!-- Account recovery - New password -->
@@ -64,7 +66,8 @@
               <app-password
                 [reset]="true"
                 (canceled)="changeDisplay('resetPassword')"
-                (validated)="changeDisplay('logIn')"
+                (validated)="changeDisplay('logIn'); fromValidation = $event"
+                [accountData]="accountData"
               ></app-password>
             </ng-container>
           </div>

@@ -143,27 +143,54 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
   }
 
-  async checkUuid(uuid: string): Promise<boolean | Error> {
+  async checkUuid(uuid: string): Promise<User> {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
+      if (this.apiService && this.apiService.base) {
+        this.apiService
+          .get('/users/unlock_access/' + uuid)
+          .then((result: User) => {
+            resolve(result);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      } else {
+        reject();
+      }
     });
   }
 
-  async checkPassword(password: string): Promise<boolean | Error> {
+  async sendPassword(
+    userId: number,
+    password: string,
+    confirmPassword: string
+  ): Promise<any> {
+    const formData = new FormData();
+    formData.append('password', password);
+    formData.append('password_confirmation', confirmPassword);
+
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
+      this.apiService
+        .put('/users/' + userId + '/change-password', formData)
+        .then((result: any) => {
+          resolve(result);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 
-  async reset(email: string): Promise<boolean | Error> {
+  async reset(email: string): Promise<User> {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
+      this.apiService
+        .get('/users/password-forgotten/' + email)
+        .then((result: User) => {
+          resolve(result);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 

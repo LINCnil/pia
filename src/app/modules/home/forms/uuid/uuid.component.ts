@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -8,6 +8,7 @@ import {
 
 import { AuthService } from 'src/app/services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-uuid',
@@ -15,8 +16,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['../form.scss', './uuid.component.scss']
 })
 export class UuidComponent implements OnInit {
+  @Input() reset = false;
   @Output() canceled = new EventEmitter<boolean>();
-  @Output() validated = new EventEmitter<boolean>();
+  @Output() validated = new EventEmitter<boolean | User>();
 
   loading: boolean = false;
   uuidActivation: FormGroup;
@@ -54,9 +56,9 @@ export class UuidComponent implements OnInit {
     this.loading = true;
     this.authService
       .checkUuid(this.uuidActivation.controls.uuid.value)
-      .then(() => {
+      .then((response: User) => {
         this.loading = false;
-        this.validated.emit(true);
+        this.validated.emit(response);
       })
       .catch(err => {
         this.loading = false;
