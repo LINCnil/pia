@@ -143,12 +143,12 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
   }
 
-  async checkUuid(uuid: string): Promise<boolean | Error> {
+  async checkUuid(uuid: string): Promise<User> {
     return new Promise((resolve, reject) => {
       if (this.apiService && this.apiService.base) {
         this.apiService
           .get('/users/unlock_access/' + uuid)
-          .then((result: any) => {
+          .then((result: User) => {
             resolve(result);
           })
           .catch(error => {
@@ -164,7 +164,7 @@ export class AuthService {
     userId: number,
     password: string,
     confirmPassword: string
-  ): Promise<boolean | Error> {
+  ): Promise<any> {
     const formData = new FormData();
     formData.append('password', password);
     formData.append('password_confirmation', confirmPassword);

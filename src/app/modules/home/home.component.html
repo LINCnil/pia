@@ -38,7 +38,7 @@
             <!-- New account - Define password -->
             <ng-container *ngSwitchCase="'signUp'">
               <app-password
-                (validated)="changeDisplay('logIn'); fromValidation = true"
+                (validated)="changeDisplay('logIn'); fromValidation = $event"
                 (canceled)="changeDisplay('checkUuid')"
                 [accountData]="accountData"
               ></app-password>
