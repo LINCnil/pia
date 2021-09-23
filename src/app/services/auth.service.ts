@@ -145,9 +145,18 @@ export class AuthService {
 
   async checkUuid(uuid: string): Promise<boolean | Error> {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
+      if (this.apiService && this.apiService.base) {
+        this.apiService
+          .get('/users/unlock_access/' + uuid)
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      } else {
+        reject();
+      }
     });
   }
 

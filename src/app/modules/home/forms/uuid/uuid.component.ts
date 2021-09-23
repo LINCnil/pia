@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class UuidComponent implements OnInit {
   @Output() canceled = new EventEmitter<boolean>();
-  @Output() validated = new EventEmitter<boolean>();
+  @Output() validated = new EventEmitter<any>();
 
   loading: boolean = false;
   uuidActivation: FormGroup;
@@ -54,9 +54,9 @@ export class UuidComponent implements OnInit {
     this.loading = true;
     this.authService
       .checkUuid(this.uuidActivation.controls.uuid.value)
-      .then(() => {
+      .then(response => {
         this.loading = false;
-        this.validated.emit(true);
+        this.validated.emit(response);
       })
       .catch(err => {
         this.loading = false;
