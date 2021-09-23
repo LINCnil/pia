@@ -18,7 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class PasswordComponent implements OnInit {
   @Input() reset = false;
-  @Input() newAccountData = null;
+  @Input() accountData = null;
   @Output() canceled = new EventEmitter<boolean>();
   @Output() validated = new EventEmitter<boolean>();
   loading: boolean = false;
@@ -84,7 +84,7 @@ export class PasswordComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.newAccountData);
+    console.log(this.accountData);
   }
 
   onCanceled() {
@@ -94,7 +94,11 @@ export class PasswordComponent implements OnInit {
   ngOnSubmit() {
     this.loading = true;
     this.authService
-      .checkPassword(this.signUp.controls.password.value)
+      .sendPassword(
+        this.accountData.id,
+        this.signUp.controls.password.value,
+        this.signUp.controls.confirmPassword.value
+      )
       .then(() => {
         this.loading = false;
         this.validated.emit(true);

@@ -160,11 +160,24 @@ export class AuthService {
     });
   }
 
-  async checkPassword(password: string): Promise<boolean | Error> {
+  async sendPassword(
+    userId: number,
+    password: string,
+    confirmPassword: string
+  ): Promise<boolean | Error> {
+    const formData = new FormData();
+    formData.append('password', password);
+    formData.append('password_confirmation', confirmPassword);
+
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
+      this.apiService
+        .put('/users/' + userId + '/change-password', formData)
+        .then((result: any) => {
+          resolve(result);
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
 

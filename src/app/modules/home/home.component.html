@@ -31,7 +31,7 @@
             <ng-container *ngSwitchCase="'checkUuid'">
               <app-uuid
                 (canceled)="changeDisplay('logIn')"
-                (validated)="changeDisplay('signUp'); newAccountData = $event"
+                (validated)="changeDisplay('signUp'); accountData = $event"
               ></app-uuid>
             </ng-container>
 
@@ -40,7 +40,7 @@
               <app-password
                 (validated)="changeDisplay('logIn'); fromValidation = true"
                 (canceled)="changeDisplay('checkUuid')"
-                [newAccountData]="newAccountData"
+                [accountData]="accountData"
               ></app-password>
             </ng-container>
 

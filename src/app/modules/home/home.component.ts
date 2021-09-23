@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   logIn: FormGroup;
   fromValidation: boolean = false;
   stepForm = 'logIn';
-  public newAccountData = null;
+  public accountData = null;
 
   constructor(
     private router: Router,
