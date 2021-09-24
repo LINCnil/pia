@@ -54,7 +54,7 @@ export class SignInComponent implements OnInit {
       })
       .catch(err => {
         this.loading = false;
-        this.msgFromBack = err.message;
+        this.msgFromBack = err.status;
       });
   }
 }
