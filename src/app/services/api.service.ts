@@ -92,10 +92,8 @@ export class ApiService {
               message = result.message;
             }
             throw response;
-          } else {
-            result = await response.json();
-            return result;
           }
+          return result;
         })
         .then(result => {
           resolve(result);
@@ -150,10 +148,8 @@ export class ApiService {
               message = result.message;
             }
             throw response;
-          } else {
-            result = await response.json();
-            return result;
           }
+          return result;
         })
         .then(result => {
           resolve(result);
