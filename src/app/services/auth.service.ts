@@ -163,15 +163,18 @@ export class AuthService {
   async sendPassword(
     userId: number,
     password: string,
-    confirmPassword: string
+    confirmPassword: string,
+    uuid: string
   ): Promise<any> {
     const formData = new FormData();
+    formData.append('id', userId.toString());
     formData.append('password', password);
     formData.append('password_confirmation', confirmPassword);
+    formData.append('uuid', uuid);
 
     return new Promise((resolve, reject) => {
       this.apiService
-        .put('/users/' + userId + '/change-password', formData)
+        .put('/users/change-password', formData)
         .then((result: any) => {
           resolve(result);
         })
@@ -181,11 +184,13 @@ export class AuthService {
     });
   }
 
-  async reset(email: string): Promise<User> {
+  async reset(email: string): Promise<any> {
+    const formData = new FormData();
+    formData.append('email', email);
     return new Promise((resolve, reject) => {
       this.apiService
-        .get('/users/password-forgotten/' + email)
-        .then((result: User) => {
+        .post('/users/password-forgotten/', formData)
+        .then(result => {
           resolve(result);
         })
         .catch(err => {

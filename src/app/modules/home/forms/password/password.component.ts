@@ -95,7 +95,8 @@ export class PasswordComponent implements OnInit {
       .sendPassword(
         this.accountData.id,
         this.signUp.controls.password.value,
-        this.signUp.controls.confirmPassword.value
+        this.signUp.controls.confirmPassword.value,
+        this.accountData.uuid
       )
       .then(() => {
         this.loading = false;

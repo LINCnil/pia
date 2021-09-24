@@ -5,4 +5,5 @@ export class User {
   public lastname: string;
   public firstname: string;
   public access_type: Array<string> = [];
+  public uuid?: string;
 }

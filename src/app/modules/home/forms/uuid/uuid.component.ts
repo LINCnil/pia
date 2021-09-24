@@ -58,7 +58,11 @@ export class UuidComponent implements OnInit {
       .checkUuid(this.uuidActivation.controls.uuid.value)
       .then((response: User) => {
         this.loading = false;
-        this.validated.emit(response);
+        const user: User = {
+          ...response,
+          uuid: this.uuidActivation.controls.uuid.value
+        };
+        this.validated.emit(user);
       })
       .catch(err => {
         this.loading = false;
