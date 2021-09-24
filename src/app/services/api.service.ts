@@ -91,9 +91,11 @@ export class ApiService {
             if (result && result.message && result.message.length > 0) {
               message = result.message;
             }
-            reject(new Error(message));
+            throw response;
+          } else {
+            result = await response.json();
+            return result;
           }
-          return result;
         })
         .then(result => {
           resolve(result);
@@ -147,9 +149,11 @@ export class ApiService {
             if (result && result.message && result.message.length > 0) {
               message = result.message;
             }
-            reject(new Error(message));
+            throw response;
+          } else {
+            result = await response.json();
+            return result;
           }
-          return result;
         })
         .then(result => {
           resolve(result);
