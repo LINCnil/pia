@@ -47,7 +47,7 @@ export class ForgetPasswordComponent implements OnInit {
       })
       .catch(err => {
         this.loading = false;
-        this.msgFromBack = err;
+        this.msgFromBack = err.status;
       });
   }
 }

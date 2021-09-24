@@ -20,7 +20,7 @@
       </ng-template>
 
       <p class="msg" *ngIf="msgFromBack">
-        {{ msgFromBack }}
+        {{ "authentication.errors.code." + msgFromBack | translate }}
       </p>
 
       <input
@@ -34,7 +34,11 @@
         formControlName="uuid"
       />
       <label
-        >{{ "authentication.activation_code" | translate }}
+        >{{
+          reset
+            ? ("authentication.recovery_code" | translate)
+            : ("authentication.activation_code" | translate | translate)
+        }}
         <span *ngIf="f.uuid.hasError('pattern')">{{
           "authentication.wrong_activation_code" | translate
         }}</span></label
