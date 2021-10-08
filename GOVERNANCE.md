@@ -45,7 +45,7 @@ Si un contributeur au projet est reconnu comme ayant les qualités précédemmen
 - en cas de choix personnel lié à des changements de priorités et d’intérêt ;
 - en cas d’inactivité du modérateur sur les trois derniers mois. La personne sera contactée par un autre modérateur pour déterminer si elle est encore intéressée par le rôle. En cas de non réponse au bout d’un mois ou bien d’une réponse positive mais où il est observé que la personne n’est pas en capacité d’exercer son rôle, un vote des modérateurs déterminera si la personne doit être démise de ses fonctions ;
 - en cas d’un comportement inadéquat, c’est-à-dire allant à l’encontre des règles établies dans le Code de Conduite. En fonction de la gravité du comportement, le modérateur pourra se voir révoquer son statut. Autrement, un vote des modérateurs déterminera si la personne doit être démise de ses fonctions.
-  Dans tous les cas de figure décrits ci-dessus, les votes des modérateurs se déroulent sur 7 jours et son résultat est déterminé par la majorité absolue.  
+  Dans tous les cas de figure décrits ci-dessus, les votes des modérateurs se déroulent sur 7 jours et son résultat est déterminé par la majorité absolue.
   Dans le cas d’un départ volontaire, le modérateur est invité à faire une pull request au niveau du fichier MAINTAINERS afin de passer son nom dans la liste des anciens modérateurs. Dans les autres cas de démission, un autre modérateur s’occupera de faire ce changement.
 
 ## EN
