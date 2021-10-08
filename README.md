@@ -1,4 +1,4 @@
-# Pia [v.3.0.1](https://github.com/LINCnil/pia/releases/tag/v3.0.1) 
+# Pia [v3.0.2](https://github.com/LINCnil/pia/releases/tag/v3.0.2) 
 
 # Le logiciel PIA / The PIA Software
 ## Présentation / Presentation
