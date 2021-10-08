@@ -360,19 +360,19 @@
                 <app-new-pia
                   [users]="users"
                   (newUserNeeded)="onNewUserNeeded($event)"
-                  (submited)="onFormSubmited($event, 'pia')"
+                  (submitted)="onFormSubmited($event, 'pia')"
                 >
                 </app-new-pia>
               </ng-container>
               <ng-container *ngSwitchCase="'structure'">
                 <app-new-structure
-                  (submited)="onFormSubmited($event, 'structure')"
+                  (submitted)="onFormsubmited($event, 'structure')"
                 >
                 </app-new-structure>
               </ng-container>
               <ng-container *ngSwitchCase="'knowledgeBase'">
                 <app-new-knowledgebase
-                  (submited)="onFormSubmited($event, 'knowledgeBase')"
+                  (submitted)="onFormsubmited($event, 'knowledgeBase')"
                 >
                 </app-new-knowledgebase>
               </ng-container>
@@ -571,19 +571,19 @@
       <app-new-pia
         [users]="users"
         (newUserNeeded)="onNewUserNeeded($event)"
-        (submited)="onFormSubmited($event, 'pia'); showModal = false"
+        (submitted)="onFormSubmited($event, 'pia'); showModal = false"
       >
       </app-new-pia>
     </ng-container>
     <ng-container *ngSwitchCase="'structure'">
       <app-new-structure
-        (submited)="onFormSubmited($event, 'structure'); showModal = false"
+        (submitted)="onFormsubmited($event, 'structure'); showModal = false"
       >
       </app-new-structure>
     </ng-container>
     <ng-container *ngSwitchCase="'knowledgeBase'">
       <app-new-knowledgebase
-        (submited)="onFormSubmited($event, 'knowledgeBase'); showModal = false"
+        (submitted)="onFormsubmited($event, 'knowledgeBase'); showModal = false"
       >
       </app-new-knowledgebase>
     </ng-container>

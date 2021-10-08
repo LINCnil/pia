@@ -44,7 +44,7 @@ export class LanguagesService {
    */
   getOrSetCurrentLanguage(): void {
     let language = localStorage.getItem('userLanguage');
-    // If there is already a language choosen
+    // If a language has already been chosen
     if (language && language.length > 0) {
       this.translateService.use(language);
     } else {

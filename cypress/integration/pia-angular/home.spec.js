@@ -3,7 +3,7 @@ describe("Home", () => {
    * initialization
    */
   before(() => {
-    // Clear datas
+    // Clear data
     cy.init();
   });
 

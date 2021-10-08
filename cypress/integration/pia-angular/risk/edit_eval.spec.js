@@ -4,7 +4,7 @@ export function risk_edit_eval() {
      * initialization
      */
     before(() => {
-      // Clear datas
+      // Clear data
       cy.init();
     });
 

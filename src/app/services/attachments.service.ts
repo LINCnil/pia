@@ -92,7 +92,7 @@ export class AttachmentsService extends ApplicationDb {
   }
 
   /**
-   * Update all signed attachement.
+   * Update all signed attachment.
    */
   async updateSignedAttachmentsList(piaId): Promise<any> {
     return new Promise((resolve, reject) => {

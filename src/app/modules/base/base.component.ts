@@ -44,7 +44,7 @@ export class BaseComponent implements OnInit {
   filtersCategoriesCorrespondance = {
     'knowledge_base.category.measure_on_data': 'measure.data_processing',
     'knowledge_base.category.general_measure': 'measure.security',
-    'knowledge_base.category.organizational_measure': 'measure.goverance',
+    'knowledge_base.category.organizational_measure': 'measure.governance',
     'knowledge_base.category.definition': 'measure.definition'
   };
 

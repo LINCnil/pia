@@ -19,7 +19,7 @@ export class NewPiaComponent implements OnInit {
   @Input() users: Array<User>;
   userList: Array<TagModel>;
   @Output() newUserNeeded: EventEmitter<any> = new EventEmitter<any>();
-  @Output() submited: EventEmitter<any> = new EventEmitter<any>();
+  @Output() submitted: EventEmitter<any> = new EventEmitter<any>();
   piaForm: FormGroup;
   structureList: Array<Structure> = [];
 
@@ -138,7 +138,7 @@ export class NewPiaComponent implements OnInit {
     }
 
     this.piaService.saveNewPia(data).then((result: Pia) => {
-      this.submited.emit(result.id);
+      this.submitted.emit(result.id);
     });
   }
 }

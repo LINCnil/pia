@@ -4,7 +4,7 @@ export function fundamental_principle_edit_eval() {
      * initialization
      */
     before(() => {
-      // Clear datas
+      // Clear data
       cy.init();
     });
 
@@ -32,7 +32,7 @@ export function fundamental_principle_edit_eval() {
       });
 
       /**
-       * Validate datas
+       * Validate data
        */
       it("should valid evaluation", () => {
         cy.validateEval();
@@ -59,7 +59,7 @@ export function fundamental_principle_edit_eval() {
       });
 
       /**
-       * Validate datas
+       * Validate data
        */
       it("should valid evaluation", () => {
         cy.validateEval();

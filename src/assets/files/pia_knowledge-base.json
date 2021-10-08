@@ -274,7 +274,7 @@
   },
   {
     "slug": "PIA_ORG_ORG",
-    "filters": "measure.goverance",
+    "filters": "measure.governance",
     "category": "knowledge_base.category.organizational_measure",
     "placeholder": "knowledge_base.slugs.PIA_ORG_ORG.placeholder",
     "name": "knowledge_base.slugs.PIA_ORG_ORG.name",
@@ -282,7 +282,7 @@
   },
   {
     "slug": "PIA_ORG_POL",
-    "filters": "measure.goverance",
+    "filters": "measure.governance",
     "category": "knowledge_base.category.organizational_measure",
     "placeholder": "knowledge_base.slugs.PIA_ORG_POL.placeholder",
     "name": "knowledge_base.slugs.PIA_ORG_POL.name",
@@ -290,7 +290,7 @@
   },
   {
     "slug": "PIA_ORG_RMGT",
-    "filters": "measure.goverance",
+    "filters": "measure.governance",
     "category": "knowledge_base.category.organizational_measure",
     "placeholder": "knowledge_base.slugs.PIA_ORG_RMGT.placeholder",
     "name": "knowledge_base.slugs.PIA_ORG_RMGT.name",
@@ -298,7 +298,7 @@
   },
   {
     "slug": "PIA_ORG_PBD",
-    "filters": "measure.goverance",
+    "filters": "measure.governance",
     "category": "knowledge_base.category.organizational_measure",
     "placeholder": "knowledge_base.slugs.PIA_ORG_PBD.placeholder",
     "name": "knowledge_base.slugs.PIA_ORG_PBD.name",
@@ -306,7 +306,7 @@
   },
   {
     "slug": "PIA_ORG_VIOL",
-    "filters": "measure.goverance",
+    "filters": "measure.governance",
     "category": "knowledge_base.category.organizational_measure",
     "placeholder": "knowledge_base.slugs.PIA_ORG_VIOL.placeholder",
     "name": "knowledge_base.slugs.PIA_ORG_VIOL.name",
@@ -314,7 +314,7 @@
   },
   {
     "slug": "PIA_ORG_PERS",
-    "filters": "measure.goverance",
+    "filters": "measure.governance",
     "category": "knowledge_base.category.organizational_measure",
     "placeholder": "knowledge_base.slugs.PIA_ORG_PERS.placeholder",
     "name": "knowledge_base.slugs.PIA_ORG_PERS.name",
@@ -322,7 +322,7 @@
   },
   {
     "slug": "PIA_ORG_EXT",
-    "filters": "measure.goverance",
+    "filters": "measure.governance",
     "category": "knowledge_base.category.organizational_measure",
     "placeholder": "knowledge_base.slugs.PIA_ORG_EXT.placeholder",
     "name": "knowledge_base.slugs.PIA_ORG_EXT.name",
@@ -330,7 +330,7 @@
   },
   {
     "slug": "PIA_ORG_AUD",
-    "filters": "measure.goverance",
+    "filters": "measure.governance",
     "category": "knowledge_base.category.organizational_measure",
     "placeholder": "knowledge_base.slugs.PIA_ORG_AUD.placeholder",
     "name": "knowledge_base.slugs.PIA_ORG_AUD.name",

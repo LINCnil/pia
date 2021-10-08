@@ -241,7 +241,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Focuse PIA name field.
+   * Focus PIA name field.
    */
   piaNameFocusIn(): void {
     this.piaForm.controls['name'].enable();
@@ -265,7 +265,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Focuse PIA author name field.
+   * Focus PIA author name field.
    */
   piaAuthorNameFocusIn(): void {
     this.piaAuthorName.nativeElement.focus();
@@ -422,7 +422,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
       // open form in entries
       this.newUserNeeded.emit(userBehavior);
 
-      // waiting for submited user form
+      // waiting for submitted user form
       observable.subscribe({
         complete: async () => {
           // Get tag in form
