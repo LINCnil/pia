@@ -266,7 +266,10 @@
       <!-- New PIA -->
       <div
         *ngIf="
-          !authService.state ||
+          (!authService.state &&
+            (type_entries === 'pia' ||
+              type_entries === 'structure' ||
+              type_entries === 'knowledgeBase')) ||
           (showPiaForm &&
             (type_entries === 'pia' ||
               type_entries === 'structure' ||
