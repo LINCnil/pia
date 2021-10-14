@@ -13,6 +13,7 @@ export class LanguagesService {
    */
   initLanguages(): void {
     this.translateService.addLangs([
+      'ar',
       'bg',
       'cz',
       'de',
@@ -51,13 +52,14 @@ export class LanguagesService {
       // Set default language
       const browserLang = this.translateService.getBrowserLang();
       language = browserLang.match(
-        /bg|cz|de|dk|el|en|es|et|fi|fr|hr|hu|it|lt|lv|nl|no|pl|pt|ro|sl|sv/
+        /ar|bg|cz|de|dk|el|en|es|et|fi|fr|hr|hu|it|lt|lv|nl|no|pl|pt|ro|sl|sv/
       )
         ? browserLang
         : 'fr';
       this.translateService.use(language);
     }
     this.selectedLanguage = language;
+    this.useAdequateDirection(this.selectedLanguage);
   }
 
   /**
@@ -68,5 +70,21 @@ export class LanguagesService {
     localStorage.setItem('userLanguage', selectedLanguage);
     this.translateService.use(selectedLanguage);
     this.selectedLanguage = selectedLanguage;
+    this.useAdequateDirection(this.selectedLanguage);
+  }
+
+  /**
+   * Use LTR or RTL direction according to current language
+   * @param selectedLanguage
+   */
+  useAdequateDirection(selectedLanguage: string): void {
+    const htmlElement = document.getElementById('htmlElement');
+    if (htmlElement) {
+      if (selectedLanguage == 'ar') {
+        htmlElement.setAttribute('dir', 'rtl');
+      } else {
+        htmlElement.setAttribute('dir', 'ltr');
+      }
+    }
   }
 }
