@@ -323,7 +323,7 @@ export class ExportComponent implements OnInit {
   /****************************** DOC EXPORT ************************************/
   /**
    *
-   * @param element block in the HTML view used to generate the doc (.odt)
+   * @param element block in the HTML view used to generate the doc
    */
   async generateDoc(element): Promise<boolean> {
     return new Promise((resolve, reject) => {
@@ -342,7 +342,7 @@ export class ExportComponent implements OnInit {
               newDate.getMonth() +
               '-' +
               newDate.getFullYear();
-            downloadLink.download = data + '-pia.odt';
+            downloadLink.download = data + '-pia.doc';
             downloadLink.click();
           }
           document.body.removeChild(downloadLink);
@@ -415,7 +415,7 @@ export class ExportComponent implements OnInit {
         'data:application/vnd.ms-word;charset=utf-8,' +
         encodeURIComponent(html),
       blob,
-      filename: data + '-pia.odt'
+      filename: data + '-pia.doc'
     };
   }
   /****************************** END DOC EXPORT ********************************/

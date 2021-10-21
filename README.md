@@ -1,21 +1,22 @@
 # Pia [v3.0.2](https://github.com/LINCnil/pia/releases/tag/v3.0.2) 
 
 # Le logiciel PIA / The PIA Software
+
 ## Présentation / Presentation
+
 <img src="https://raw.githubusercontent.com/LINCnil/pia/master/src/assets/images/pia-auth-logo.png" align="left" hspace="10" vspace="6"> Le logiciel PIA est un outil distribué librement par la [CNIL](https://www.cnil.fr/fr/outil-pia-telechargez-et-installez-le-logiciel-de-la-cnil) afin de faciliter la réalisation d’analyses d’impact sur la protection des données prévues par le RGPD.
 
-La dernière version de l'outil est téléchargeable dans la section [Release](https://github.com/LINCnil/pia/releases) de ce dépôt. 
+La dernière version de l'outil est téléchargeable dans la section [Release](https://github.com/LINCnil/pia/releases) de ce dépôt.
 
-
-The PIA software is a free tool published by the [CNIL](https://www.cnil.fr/en/open-source-pia-software-helps-carry-out-data-protection-impact-assesment) which aims to help data controllers build and demonstrate compliance to the GDPR. 
+The PIA software is a free tool published by the [CNIL](https://www.cnil.fr/en/open-source-pia-software-helps-carry-out-data-protection-impact-assesment) which aims to help data controllers build and demonstrate compliance to the GDPR.
 
 The latest version of the tool can be downloaded in the [Release](https://github.com/LINCnil/pia/releases) section of this repository.
 
 ## Traduire le logiciel PIA / Translating the PIA Software
+
 Pour traduire le logiciel, nous vous invitons à vous rendre dans le [dépôt dédié](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n) dans lequel les étapes de traduction sont décrites.
 
 To translate the software, we invite you to visit the [related repository](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n) where the translation steps are described.
-
 
 # Information de développement / Dev information
 
@@ -88,3 +89,46 @@ See: https://www.electron.build/configuration/publish
 ```
 GH_TOKEN=YOUR_GITHUB_TOKEN yarn electron:publish-to-github
 ```
+
+## How to work on pia-i18n
+
+You can work on this project with a [pia-i18n](https://github.com/LINCnil/pia-i18n) directly in development process.
+
+This process permit to check your changes on the pia-i18n code (for traduction updates, fixes...) directly on the pia project
+
+### /!\ Requirements /!\ :
+
+- nodejs in lts version (14.17.4)
+- ng client `npm install -g @angular/cli`
+
+If you have to update your node version, you may to remove ./node_modules folder and type "npm i or yarn install" before continue.
+
+### Set up your pia project
+
+Get pia-i18n in the projects folder
+Clone pia-i18n in a ./projects/pia-i18n folder
+
+```
+git clone git@github.com:LINCnil/pia-i18n.git ./projects/pia-i18n
+```
+
+Stop using npm dependancy
+
+- remove @atnos/pia-i18n dependancy in package.json
+- yarn
+
+**warning** no commit this changes on the pia repository
+
+build / rebuild the local
+
+```
+ng build pia-i18n --prod
+```
+
+start pia project
+
+```
+yarn start
+```
+
+This process replace npm @atnos/pia-i18n by the local pia-i18n dist folder

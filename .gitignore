@@ -50,6 +50,7 @@ Thumbs.db
 src/environments/environment.prod.ts
 /cypress/videos/*
 /documentation
+projects/*
 
 # electron
 electron/releases/

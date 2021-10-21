@@ -145,6 +145,44 @@
           }
         }
       }
+    },
+    "pia-i18n": {
+      "projectType": "library",
+      "root": "projects/pia-i18n",
+      "sourceRoot": "projects/pia-i18n/src",
+      "prefix": "atnos",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/pia-i18n/tsconfig.lib.json",
+            "project": "projects/pia-i18n/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/pia-i18n/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/pia-i18n/src/test.ts",
+            "tsConfig": "projects/pia-i18n/tsconfig.spec.json",
+            "karmaConfig": "projects/pia-i18n/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/pia-i18n/tsconfig.lib.json",
+              "projects/pia-i18n/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pia",
