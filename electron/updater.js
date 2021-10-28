@@ -9,8 +9,31 @@ autoUpdater.logger.transports.file.level = "info";
 
 autoUpdater.autoDownload = false;
 
+// All in one command
+// autoUpdater.checkForUpdatesAndNotify()
+
 exports.check = () => {
-  autoUpdater.checkForUpdates();
+  let progressWin = new BrowserWindow({
+    width: 350,
+    height: 35,
+    useContentSize: true,
+    autoHideMenuBar: true,
+    maximizable: false,
+    fullscreen: false,
+    fullscreenable: false,
+    resizable: false,
+    show: false,
+    modal: true
+  });
+
+  autoUpdater
+    .checkForUpdates()
+    .then(response => {
+      autoUpdater.logger.info(response);
+    })
+    .catch(err => {
+      autoUpdater.logger.warn(err);
+    });
 
   autoUpdater.on("update-available", () => {
     dialog
@@ -22,20 +45,16 @@ exports.check = () => {
         buttons: ["Update", "No"]
       })
       .then(result => {
-        console.log(result.response);
         if (result.response !== 0) return;
-
-        autoUpdater.downloadUpdate();
-        let progressWin = new BrowserWindow({
-          width: 350,
-          height: 35,
-          useContentSize: true,
-          autoHideMenuBar: true,
-          maximizable: false,
-          fullscreen: false,
-          fullscreenable: false,
-          resizable: false
-        });
+        autoUpdater.logger.info("----->>>>> USER WANT TO UPDATE APP");
+        autoUpdater
+          .downloadUpdate()
+          .then(response => {
+            autoUpdater.logger.info(response);
+          })
+          .catch(err => {
+            autoUpdater.logger.warn(err);
+          });
 
         progressWin.loadURL(
           url.format({
@@ -45,25 +64,30 @@ exports.check = () => {
           })
         );
 
+        progressWin.once("ready-to-show", () => {
+          progressWin.show();
+        });
+
         progressWin.on("closed", () => {
           progressWin = null;
         });
-        autoUpdater.on("update-downloaded", () => {
-          if (progressWin) progressWin.close();
-          dialog
-            .showMessageBox({
-              type: "info",
-              title: "Update ready",
-              message: "A new version of PIA is ready. Quit and install now?",
-              buttons: ["Yes", "Later"]
-            })
-            .then(result => {
-              if (result.response === 0) autoUpdater.quitAndInstall();
-            })
-            .catch(err => {
-              console.log(err);
-            });
-        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+
+  autoUpdater.on("update-downloaded", () => {
+    if (progressWin) progressWin.close();
+    dialog
+      .showMessageBox({
+        type: "info",
+        title: "Update ready",
+        message: "A new version of PIA is ready. Quit and install now?",
+        buttons: ["Yes", "Later"]
+      })
+      .then(result => {
+        if (result.response === 0) autoUpdater.quitAndInstall();
       })
       .catch(err => {
         console.log(err);
