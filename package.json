@@ -127,8 +127,9 @@
     },
     "win": {
       "target": "nsis",
+      "signAndEditExecutable": true,
       "icon": "electron/icons/512x512.png",
-      "verifyUpdateCodeSignature": false,
+      "verifyUpdateCodeSignature": true,
       "publisherName": "ATNOS"
     },
     "linux": {
