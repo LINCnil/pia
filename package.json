@@ -127,6 +127,7 @@
     },
     "win": {
       "target": "nsis",
+      "sign": "electron/sign.js",
       "signAndEditExecutable": true,
       "icon": "electron/icons/512x512.png",
       "verifyUpdateCodeSignature": true,
