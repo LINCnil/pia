@@ -91,7 +91,7 @@ export class ApiService {
             if (result && result.message && result.message.length > 0) {
               message = result.message;
             }
-            reject(new Error(message));
+            throw response;
           }
           return result;
         })
@@ -147,7 +147,7 @@ export class ApiService {
             if (result && result.message && result.message.length > 0) {
               message = result.message;
             }
-            reject(new Error(message));
+            throw response;
           }
           return result;
         })

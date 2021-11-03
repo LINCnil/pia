@@ -189,7 +189,7 @@ export class AuthService {
     formData.append('email', email);
     return new Promise((resolve, reject) => {
       this.apiService
-        .post('/users/password-forgotten/', formData)
+        .post('/users/password-forgotten', formData)
         .then(result => {
           resolve(result);
         })
