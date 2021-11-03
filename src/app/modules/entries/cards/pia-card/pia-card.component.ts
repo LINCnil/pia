@@ -95,8 +95,14 @@ export class PiaCardComponent implements OnInit, OnChanges {
             this.pia.validator_name
           ]);
           this.piaForm.controls.guests.setValue(
-            this.pia.guests.map(x => {
-              return { display: x.firstname + x.lastname, id: x.id };
+            this.pia.guests.map((guest: User) => {
+              return {
+                display:
+                  guest.firstname && guest.lastname
+                    ? guest.firstname + ' ' + guest.lastname
+                    : guest.email,
+                id: guest.id
+              };
             })
           );
         } else {

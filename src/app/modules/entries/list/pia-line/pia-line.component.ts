@@ -71,10 +71,13 @@ export class PiaLineComponent implements OnInit, OnChanges {
         id: this.pia.validator_name
       });
       if (this.pia.guests.length > 0) {
-        this.pia.guests.forEach(element => {
+        this.pia.guests.forEach((guest: User) => {
           this.guestField.push({
-            display: element.firstname + ' ' + element.lastname,
-            id: element.id
+            display:
+              guest.firstname && guest.lastname
+                ? guest.firstname + ' ' + guest.lastname
+                : guest.email,
+            id: guest.id
           });
         });
       }
@@ -287,7 +290,9 @@ export class PiaLineComponent implements OnInit, OnChanges {
           this.pia[field] = $event.id;
           break;
         case 'guests':
-          const guests: any = this.pia['guests'].map(x => (x.id ? x.id : x));
+          const guests: Array<User | number> = this.pia['guests'].map(x =>
+            typeof x === 'object' ? x.id : x
+          );
           guests.push($event.id);
           this.pia[field] = guests;
           break;
@@ -299,14 +304,18 @@ export class PiaLineComponent implements OnInit, OnChanges {
   }
 
   onRemove($event: TagModelClass, field: string) {
-    // this.pia['guests'] = this.piaForm.controls[field].value.map(x => x.id);
-    // this.piaService.update(this.pia);
-    const index = this.pia['guests'].findIndex(x => x.id === $event.id);
+    const index: number = this.pia['guests'].findIndex(
+      (x: User | number | string) => {
+        if (typeof x === 'object') {
+          return x.id === $event.id;
+        }
+        return x === $event.id;
+      }
+    );
     if (index !== -1) {
-      const guests: any = this.pia['guests'];
+      const guests: Array<User | number> = this.pia['guests'];
       guests.splice(index, 1);
-      guests.map(x => (x.id ? x.id : x));
-      console.log($event, guests);
+      guests.map(x => (typeof x === 'object' ? x.id : x));
       this.pia['guests'] = guests;
       this.piaService.update(this.pia);
     }
