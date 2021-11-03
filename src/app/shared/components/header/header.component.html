@@ -148,7 +148,7 @@
                       "
                     >
                       <a (click)="disconnectUser()">{{
-                        "header.tools.sign_out_button" | translate
+                        "authentication.sign_out_button" | translate
                       }}</a>
                     </div>
                   </fieldset>
@@ -168,7 +168,8 @@
                   <li
                     *ngIf="
                       (languagesService.selectedLanguage === 'fr' &&
-                        !authService.state && router.url !== '/') ||
+                        !authService.state &&
+                        router.url !== '/') ||
                       authService.currentUserValue !== null
                     "
                   >
