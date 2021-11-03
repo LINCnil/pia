@@ -20,7 +20,12 @@
       </ng-template>
 
       <p class="msg" *ngIf="msgFromBack">
-        {{ "authentication.errors.code." + msgFromBack | translate }}
+        {{
+          "authentication.errors." +
+            (reset ? "account_recovery" : "create_account") +
+            ".uuid." +
+            msgFromBack | translate
+        }}
       </p>
 
       <input
