@@ -304,7 +304,8 @@ export class PiaLineComponent implements OnInit, OnChanges {
   }
 
   onRemove($event: TagModelClass, field: string) {
-    const index: number = this.pia['guests'].findIndex(
+    const guests: Array<User | number> = this.pia[field];
+    const index: number = this.pia[field].findIndex(
       (x: User | number | string) => {
         if (typeof x === 'object') {
           return x.id === $event.id;
@@ -313,11 +314,10 @@ export class PiaLineComponent implements OnInit, OnChanges {
       }
     );
     if (index !== -1) {
-      const guests: Array<User | number> = this.pia['guests'];
       guests.splice(index, 1);
-      guests.map(x => (typeof x === 'object' ? x.id : x));
-      this.pia['guests'] = guests;
-      this.piaService.update(this.pia);
     }
+
+    this.pia[field] = guests.map(x => (typeof x === 'object' ? x.id : x));
+    this.piaService.update(this.pia);
   }
 }
