@@ -23,6 +23,7 @@ export class NewUserComponent implements OnInit, OnChanges {
   @Input() user = null;
   @Output() userAdded: EventEmitter<any> = new EventEmitter<any>();
   @Output() canceled: EventEmitter<any> = new EventEmitter<any>();
+  msgFromBack: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -69,6 +70,7 @@ export class NewUserComponent implements OnInit, OnChanges {
       })
       .catch(err => {
         this.loading = false;
+        this.msgFromBack = err.status;
         console.log(err);
       });
   }

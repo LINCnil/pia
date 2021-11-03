@@ -3,6 +3,11 @@
   <ng-template #addPia
     ><h2>{{ "users.add_new_user" | translate }}</h2></ng-template
   >
+
+  <p class="msg" *ngIf="msgFromBack">
+    {{ "users.errors.edit_user." + msgFromBack | translate }}
+  </p>
+
   <legend>{{ "users.data" | translate }}</legend>
   <div class="input">
     <div>
