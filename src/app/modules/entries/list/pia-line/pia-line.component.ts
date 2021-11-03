@@ -128,7 +128,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
    * Add all active attachments (not the removed ones) to the zip after converting them as blob files
    * @param zip zip
    */
-  async addAttachmentsToZip(zip): Promise<void> {
+  async addAttachmentsToZip(zip): Promise<any> {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
         const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
@@ -287,14 +287,27 @@ export class PiaLineComponent implements OnInit, OnChanges {
           this.pia[field] = $event.id;
           break;
         case 'guests':
-          const guests = this.pia[field].map(x => (x.id ? x.id : x));
+          const guests: any = this.pia['guests'].map(x => (x.id ? x.id : x));
           guests.push($event.id);
           this.pia[field] = guests;
-          console.log($event, this.pia[field]);
           break;
         default:
           break;
       }
+      this.piaService.update(this.pia);
+    }
+  }
+
+  onRemove($event: TagModelClass, field: string) {
+    // this.pia['guests'] = this.piaForm.controls[field].value.map(x => x.id);
+    // this.piaService.update(this.pia);
+    const index = this.pia['guests'].findIndex(x => x.id === $event.id);
+    if (index !== -1) {
+      const guests: any = this.pia['guests'];
+      guests.splice(index, 1);
+      guests.map(x => (x.id ? x.id : x));
+      console.log($event, guests);
+      this.pia['guests'] = guests;
       this.piaService.update(this.pia);
     }
   }

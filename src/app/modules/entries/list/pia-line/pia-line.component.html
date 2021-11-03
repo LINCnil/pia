@@ -191,6 +191,7 @@
       "
       identifyBy="id"
       (onAdd)="onAddUser($event, 'guests')"
+      (onRemove)="onRemove($event, 'guests')"
       [ngModel]="guestField"
       [theme]="'foundation-theme'"
       [editable]="false"
