@@ -253,6 +253,17 @@ export class PiaLineComponent implements OnInit, OnChanges {
                   }
                 ];
                 break;
+              case 'guests':
+                this.guestField = [
+                  {
+                    display:
+                      userBehavior.value.firstname +
+                      ' ' +
+                      userBehavior.value.lastname,
+                    id: userBehavior.value.id
+                  }
+                ];
+                break;
               default:
                 break;
             }
@@ -274,6 +285,12 @@ export class PiaLineComponent implements OnInit, OnChanges {
         case 'validator_name':
           this.validatorField = [$event];
           this.pia[field] = $event.id;
+          break;
+        case 'guests':
+          const guests = this.pia[field].map(x => (x.id ? x.id : x));
+          guests.push($event.id);
+          this.pia[field] = guests;
+          console.log($event, this.pia[field]);
           break;
         default:
           break;
