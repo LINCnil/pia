@@ -290,15 +290,15 @@ export class PiaLineComponent implements OnInit, OnChanges {
           this.pia[field] = $event.id;
           break;
         case 'guests':
-          const guests: Array<User | number> = this.pia['guests'].map(x =>
-            typeof x === 'object' ? x.id : x
-          );
-          guests.push($event.id);
-          this.pia[field] = guests;
+          this.pia[field].push($event.id);
           break;
         default:
           break;
       }
+
+      this.pia['guests'] = this.pia['guests'].map(x =>
+        typeof x === 'object' ? x.id : x
+      );
       this.piaService.update(this.pia);
     }
   }

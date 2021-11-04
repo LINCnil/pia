@@ -87,13 +87,15 @@ export class PiaCardComponent implements OnInit, OnChanges {
     this.authService.currentUser.subscribe({
       complete: () => {
         if (this.authService.state) {
-          this.piaForm.controls.author_name.setValue([this.pia.author_name]);
-          this.piaForm.controls.evaluator_name.setValue([
-            this.pia.evaluator_name
-          ]);
-          this.piaForm.controls.validator_name.setValue([
-            this.pia.validator_name
-          ]);
+          this.piaForm.controls.author_name.setValue(
+            this.pia.author_name ? [this.pia.author_name] : []
+          );
+          this.piaForm.controls.evaluator_name.setValue(
+            this.pia.evaluator_name ? [this.pia.evaluator_name] : []
+          );
+          this.piaForm.controls.validator_name.setValue(
+            this.pia.validator_name ? [this.pia.validator_name] : []
+          );
           this.piaForm.controls.guests.setValue(
             this.pia.guests.map((guest: User) => {
               return {
@@ -373,6 +375,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
                 x => x.id
               );
             }
+
             this.piaService.update(this.pia, this.piaForm.controls[field]);
           } else {
             // Remove tag, because user form is canceled
@@ -383,10 +386,10 @@ export class PiaCardComponent implements OnInit, OnChanges {
     } else {
       if (field !== 'guests') {
         this.pia[field] = this.piaForm.controls[field].value[0].id;
-      } else {
-        this.pia['guests'] = this.piaForm.controls[field].value.map(x => x.id);
       }
-      this.piaService.update(this.pia, this.piaForm.controls[field]);
+      this.pia['guests'] = this.piaForm.controls['guests'].value.map(x => x.id);
+
+      this.piaService.update(this.pia);
     }
   }
 
