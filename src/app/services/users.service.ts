@@ -64,16 +64,16 @@ export class UsersService extends ApplicationDb {
       // Get data
       const usersList: User[] = await this.getUsers();
       const userPias: Pia[] = await this.getUserPias(userId);
-
-      const user: User = this.authService.currentUserValue;
+      const authUser: User = this.authService.currentUserValue;
 
       // Check if the current user doesn't try to delete himself from the database
-      if (userId !== user.id) {
+      if (userId !== authUser.id) {
         if (usersList) {
           // Check if user don't delete all technical Administrator
           if (
-            usersList.filter(u => u.access_type.includes('technical')).length >
-            1
+            usersList.filter(
+              u => u.access_type.includes('technical') && u.id !== userId
+            ).length >= 1
           ) {
             // Check pias presence
             if (userPias && userPias.length <= 0) {
