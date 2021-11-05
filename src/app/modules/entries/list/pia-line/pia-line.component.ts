@@ -99,7 +99,10 @@ export class PiaLineComponent implements OnInit, OnChanges {
     if (changes.users && changes.users.currentValue) {
       this.userList = changes.users.currentValue.map(x => {
         return {
-          display: x.firstname + ' ' + x.lastname,
+          display:
+            x.firstname && x.lastname
+              ? x.firstname + ' ' + x.lastname
+              : x.email,
           id: x.id
         };
       });
