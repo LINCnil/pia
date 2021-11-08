@@ -25,38 +25,46 @@
           >{{ "homepage.lists.item.tools.consult" | translate }}</span
         >
       </a>
-      <a
-        href="javascript:;"
-        (click)="onDuplicate(pia.id)"
-        class="btn pia-tooltip"
+      <ng-container
+        *ngIf="
+          !authService.state ||
+          authService.currentUserValue.access_type.includes('technical') ||
+          authService.currentUserValue.access_type.includes('functional')
+        "
       >
-        <i class="fa fa-files-o" aria-hidden="true"></i>
-        <span
-          title="{{ 'homepage.lists.item.tools.duplicate' | translate }}"
-          class="pia-tooltip-text"
-          >{{ "homepage.lists.item.tools.duplicate" | translate }}</span
+        <a
+          href="javascript:;"
+          (click)="onDuplicate(pia.id)"
+          class="btn pia-tooltip"
         >
-      </a>
-      <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
-        <i class="fa fa-download" aria-hidden="true"></i>
-        <span
-          title="{{ 'homepage.lists.item.tools.export' | translate }}"
-          class="pia-tooltip-text"
-          >{{ "homepage.lists.item.tools.export" | translate }}</span
+          <i class="fa fa-files-o" aria-hidden="true"></i>
+          <span
+            title="{{ 'homepage.lists.item.tools.duplicate' | translate }}"
+            class="pia-tooltip-text"
+            >{{ "homepage.lists.item.tools.duplicate" | translate }}</span
+          >
+        </a>
+        <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
+          <i class="fa fa-download" aria-hidden="true"></i>
+          <span
+            title="{{ 'homepage.lists.item.tools.export' | translate }}"
+            class="pia-tooltip-text"
+            >{{ "homepage.lists.item.tools.export" | translate }}</span
+          >
+        </a>
+        <a
+          href="javascript:;"
+          (click)="archivePia(pia.id)"
+          class="btn pia-tooltip"
         >
-      </a>
-      <a
-        href="javascript:;"
-        (click)="archivePia(pia.id)"
-        class="btn pia-tooltip"
-      >
-        <i class="fa fa-archive" aria-hidden="true"></i>
-        <span
-          title="{{ 'homepage.lists.item.tools.archive' | translate }}"
-          class="pia-tooltip-text"
-          >{{ "homepage.lists.item.tools.archive" | translate }}</span
-        >
-      </a>
+          <i class="fa fa-archive" aria-hidden="true"></i>
+          <span
+            title="{{ 'homepage.lists.item.tools.archive' | translate }}"
+            class="pia-tooltip-text"
+            >{{ "homepage.lists.item.tools.archive" | translate }}</span
+          >
+        </a>
+      </ng-container>
     </div>
   </td>
   <td class="pia-listsBlock-item pia-listsBlock-item-title">
