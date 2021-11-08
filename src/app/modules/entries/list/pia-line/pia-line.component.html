@@ -87,6 +87,7 @@
   <td class="pia-listsBlock-item">
     <div *ngIf="authService.state; else author_name">
       <tag-input
+        #input
         [disable]="
           authService.currentUserValue &&
           !authService.currentUserValue.access_type.includes('functional')
@@ -103,6 +104,17 @@
           'homepage.cards.placeholder_validation' | translate
         "
       >
+        <ng-template let-item="item" let-index="index">
+          <div
+            [ngClass]="{
+              'custom-tag': true,
+              'user-not-found': !checkIfUserExist('author_name')
+            }"
+          >
+            {{ item.display }}
+            <delete-icon (click)="input.removeItem(item, index)"></delete-icon>
+          </div>
+        </ng-template>
         <tag-input-dropdown
           [keepOpen]="false"
           identifyBy="id"
@@ -120,6 +132,7 @@
   <td class="pia-listsBlock-item">
     <div *ngIf="authService.state; else evaluator_name">
       <tag-input
+        #input
         [disable]="
           authService.currentUserValue &&
           !authService.currentUserValue.access_type.includes('functional')
@@ -136,6 +149,17 @@
           'homepage.cards.placeholder_validation' | translate
         "
       >
+        <ng-template let-item="item" let-index="index">
+          <div
+            [ngClass]="{
+              'custom-tag': true,
+              'user-not-found': !checkIfUserExist('evaluator_name')
+            }"
+          >
+            {{ item.display }}
+            <delete-icon (click)="input.removeItem(item, index)"></delete-icon>
+          </div>
+        </ng-template>
         <tag-input-dropdown
           [keepOpen]="false"
           identifyBy="id"
@@ -153,6 +177,7 @@
   <td class="pia-listsBlock-item">
     <div *ngIf="authService.state; else validator_name">
       <tag-input
+        #input
         [disable]="
           authService.currentUserValue &&
           !authService.currentUserValue.access_type.includes('functional')
@@ -169,6 +194,17 @@
           'homepage.cards.placeholder_validation' | translate
         "
       >
+        <ng-template let-item="item" let-index="index">
+          <div
+            [ngClass]="{
+              'custom-tag': true,
+              'user-not-found': !checkIfUserExist('validator_name')
+            }"
+          >
+            {{ item.display }}
+            <delete-icon (click)="input.removeItem(item, index)"></delete-icon>
+          </div>
+        </ng-template>
         <tag-input-dropdown
           [keepOpen]="false"
           identifyBy="id"
@@ -185,6 +221,7 @@
   </td>
   <td *ngIf="authService.state">
     <tag-input
+      #input
       [disable]="
         authService.currentUserValue &&
         !authService.currentUserValue.access_type.includes('functional')
@@ -201,6 +238,12 @@
         'homepage.cards.placeholder_validation' | translate
       "
     >
+      <ng-template let-item="item" let-index="index">
+        <div [ngClass]="{ 'custom-tag': true }">
+          {{ item.display }}
+          <delete-icon (click)="input.removeItem(item, index)"></delete-icon>
+        </div>
+      </ng-template>
       <tag-input-dropdown
         [keepOpen]="false"
         identifyBy="id"
