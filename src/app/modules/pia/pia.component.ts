@@ -184,20 +184,26 @@ export class PiaComponent implements OnInit, DoCheck {
     this.authService.currentUser.subscribe({
       complete: () => {
         if (this.authService.state) {
-          // TODO: UPDATE editMode var with current user
           this.editMode = [];
-          switch (this.authService.currentUserValue.id) {
-            case this.pia.author_name:
-              this.editMode.push('author');
-            case this.pia.evaluator_name:
-              this.editMode.push('evaluator');
-            case this.pia.validator_name:
-              this.editMode.push('validator');
-            default:
-              this.editMode.push('guest');
+          console.log(this.authService.currentUserValue);
+
+          if (
+            this.authService.currentUserValue.access_type.includes(
+              'technique'
+            ) ||
+            this.authService.currentUserValue.access_type.includes('functional')
+          ) {
+            this.editMode = ['author', 'validator', 'evaluator', 'guest'];
+          } else {
+            this.pia.user_pias.forEach(up => {
+              if (
+                up.user.id ===
+                this.authService.currentUserValue.resource_owner_id
+              ) {
+                this.editMode.push(up.role);
+              }
+            });
           }
-          // TODO: Remove it after test
-          this.editMode.push('validator');
         } else {
           this.editMode = 'local';
         }
