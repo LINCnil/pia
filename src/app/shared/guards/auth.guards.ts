@@ -32,22 +32,22 @@ export class AuthGuard implements CanActivate {
 
       let bool: boolean;
       switch (module) {
-        case 'users':
+        case 'users': // ACCESS ONLY FOR TECHNICAL USERS
           bool = this.authService.currentUserValue.access_type.includes(
             'technical'
           );
           break;
-        case 'pia':
+        case 'pia': // ACCESS FOR ALL USERS WHO INCLUDES FUNCTIONAL AND USER
           bool =
             this.authService.currentUserValue.access_type.includes(
               'functional'
-            ) && this.authService.currentUserValue.access_type.includes('user');
+            ) || this.authService.currentUserValue.access_type.includes('user');
           break;
         case 'entries':
           bool =
             this.authService.currentUserValue.access_type.includes(
               'functional'
-            ) && this.authService.currentUserValue.access_type.includes('user');
+            ) || this.authService.currentUserValue.access_type.includes('user');
           break;
         default:
           bool = true; // EVERY ELSE

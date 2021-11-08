@@ -326,7 +326,9 @@ export class PiaLineComponent implements OnInit, OnChanges {
 
   private checkUserInField(field) {
     return (
-      this.users.findIndex(u => u.firstname + ' ' + u.lastname === field) !== -1
+      this.pia.user_pias.findIndex(
+        u => u.user.firstname + ' ' + u.user.lastname === field
+      ) !== -1
     );
   }
 

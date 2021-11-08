@@ -28,6 +28,7 @@ export class Pia {
   public structure_data: { sections: any };
   public created_at: Date;
   public updated_at: Date;
+  public user_pias: Array<{ user: User; role: string }>;
 
   constructor() {
     this.created_at = new Date();

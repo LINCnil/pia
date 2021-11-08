@@ -410,9 +410,9 @@ export class PiaCardComponent implements OnInit, OnChanges {
 
   checkIfUserExist(field): boolean {
     return (
-      this.users.findIndex(
+      this.pia.user_pias.findIndex(
         u =>
-          u.firstname + ' ' + u.lastname ===
+          u.user.firstname + ' ' + u.user.lastname ===
           this.piaForm.controls[field].value[0].display
       ) !== -1
     );
