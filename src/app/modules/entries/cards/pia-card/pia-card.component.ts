@@ -23,6 +23,7 @@ import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
 import { User } from 'src/app/models/user.model';
 import { SimpleChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { TagInputComponent } from 'ngx-chips';
 declare const require: any;
 
 @Component({
@@ -51,8 +52,9 @@ export class PiaCardComponent implements OnInit, OnChanges {
   piaEvaluatorName: ElementRef;
   @ViewChild('piaValidatorName')
   piaValidatorName: ElementRef;
-  @ViewChild('piaGuestName')
-  piaGuestName: ElementRef;
+
+  @ViewChild('authorTagInput')
+  authorTagInput: TagInputComponent;
 
   constructor(
     public piaService: PiaService,
@@ -88,14 +90,19 @@ export class PiaCardComponent implements OnInit, OnChanges {
       complete: () => {
         if (this.authService.state) {
           this.piaForm.controls.author_name.setValue(
-            this.pia.author_name ? [this.pia.author_name] : []
+            this.pia.author_name ? [{ display: this.pia.author_name }] : []
           );
           this.piaForm.controls.evaluator_name.setValue(
-            this.pia.evaluator_name ? [this.pia.evaluator_name] : []
+            this.pia.evaluator_name
+              ? [{ display: this.pia.evaluator_name }]
+              : []
           );
           this.piaForm.controls.validator_name.setValue(
-            this.pia.validator_name ? [this.pia.validator_name] : []
+            this.pia.validator_name
+              ? [{ display: this.pia.validator_name }]
+              : []
           );
+
           this.piaForm.controls.guests.setValue(
             this.pia.guests.map((guest: User) => {
               return {
@@ -399,5 +406,15 @@ export class PiaCardComponent implements OnInit, OnChanges {
   onRemove($event: TagModelClass, field: string) {
     this.pia['guests'] = this.piaForm.controls[field].value.map(x => x.id);
     this.piaService.update(this.pia);
+  }
+
+  checkIfUserExist(field): boolean {
+    return (
+      this.users.findIndex(
+        u =>
+          u.firstname + ' ' + u.lastname ===
+          this.piaForm.controls[field].value[0].display
+      ) !== -1
+    );
   }
 }

@@ -275,3 +275,13 @@ tag-input-form {
     max-width: 650px !important;
   }
 }
+
+.ng2-tag-input.foundation-theme tag {
+  padding: 0px;
+  .custom-tag {
+    padding: 0.08rem 0.45rem;
+    &.user-not-found {
+      background-color: gray;
+    }
+  }
+}

@@ -98,6 +98,7 @@
 
         <div *ngIf="authService.state; else elseAuthorBlock">
           <tag-input
+            #input
             id="pia-edit-{{ pia.id }}-author-name"
             [disable]="
               authService.currentUserValue &&
@@ -116,6 +117,19 @@
               'homepage.cards.placeholder_author' | translate
             "
           >
+            <ng-template let-item="item" let-index="index">
+              <span
+                [ngClass]="{
+                  'custom-tag': true,
+                  'user-not-found': !checkIfUserExist('author_name')
+                }"
+              >
+                {{ item.display }}
+              </span>
+              <delete-icon
+                (click)="input.removeItem(item, index)"
+              ></delete-icon>
+            </ng-template>
             <tag-input-dropdown
               [keepOpen]="false"
               identifyBy="id"
@@ -146,6 +160,7 @@
         }}</label>
         <div *ngIf="authService.state; else elseEvaluatorBlock">
           <tag-input
+            #input
             id="pia-edit-{{ pia.id }}-evaluator-name"
             [disable]="
               authService.currentUserValue &&
@@ -163,6 +178,19 @@
               'homepage.cards.placeholder_evaluation' | translate
             "
           >
+            <ng-template let-item="item" let-index="index">
+              <div
+                [ngClass]="{
+                  'custom-tag': true,
+                  'user-not-found': !checkIfUserExist('evaluator_name')
+                }"
+              >
+                {{ item.display }}
+                <delete-icon
+                  (click)="input.removeItem(item, index)"
+                ></delete-icon>
+              </div>
+            </ng-template>
             <tag-input-dropdown
               [keepOpen]="false"
               identifyBy="id"
@@ -193,6 +221,7 @@
         }}</label>
         <div *ngIf="authService.state; else elseValidatorBlock">
           <tag-input
+            #input
             id="pia-edit-{{ pia.id }}-validator-name"
             [disable]="
               authService.currentUserValue &&
@@ -210,6 +239,19 @@
               'homepage.cards.placeholder_validation' | translate
             "
           >
+            <ng-template let-item="item" let-index="index">
+              <span
+                [ngClass]="{
+                  'custom-tag': true,
+                  'user-not-found': !checkIfUserExist('validator_name')
+                }"
+              >
+                {{ item.display }}
+              </span>
+              <delete-icon
+                (click)="input.removeItem(item, index)"
+              ></delete-icon>
+            </ng-template>
             <tag-input-dropdown
               [keepOpen]="false"
               identifyBy="id"
