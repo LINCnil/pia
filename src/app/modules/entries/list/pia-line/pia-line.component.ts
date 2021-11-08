@@ -323,4 +323,23 @@ export class PiaLineComponent implements OnInit, OnChanges {
     this.pia[field] = guests.map(x => (typeof x === 'object' ? x.id : x));
     this.piaService.update(this.pia);
   }
+
+  private checkUserInField(field) {
+    return (
+      this.users.findIndex(u => u.firstname + ' ' + u.lastname === field) !== -1
+    );
+  }
+
+  checkIfUserExist(field): boolean {
+    switch (field) {
+      case 'author_name':
+        return this.checkUserInField(this.authorField[0].display);
+      case 'evaluator_name':
+        return this.checkUserInField(this.evaluatorField[0].display);
+      case 'validator_name':
+        return this.checkUserInField(this.validatorField[0].display);
+      default:
+        return false;
+    }
+  }
 }

@@ -118,17 +118,17 @@
             "
           >
             <ng-template let-item="item" let-index="index">
-              <span
+              <div
                 [ngClass]="{
                   'custom-tag': true,
                   'user-not-found': !checkIfUserExist('author_name')
                 }"
               >
                 {{ item.display }}
-              </span>
-              <delete-icon
-                (click)="input.removeItem(item, index)"
-              ></delete-icon>
+                <delete-icon
+                  (click)="input.removeItem(item, index)"
+                ></delete-icon>
+              </div>
             </ng-template>
             <tag-input-dropdown
               [keepOpen]="false"
@@ -240,17 +240,17 @@
             "
           >
             <ng-template let-item="item" let-index="index">
-              <span
+              <div
                 [ngClass]="{
                   'custom-tag': true,
                   'user-not-found': !checkIfUserExist('validator_name')
                 }"
               >
                 {{ item.display }}
-              </span>
-              <delete-icon
-                (click)="input.removeItem(item, index)"
-              ></delete-icon>
+                <delete-icon
+                  (click)="input.removeItem(item, index)"
+                ></delete-icon>
+              </div>
             </ng-template>
             <tag-input-dropdown
               [keepOpen]="false"
@@ -282,6 +282,7 @@
           "homepage.cards.guest" | translate
         }}</label>
         <tag-input
+          #input
           class="pia-users-tags"
           id="pia-edit-{{ pia.id }}-guest-name"
           [disable]="
@@ -300,6 +301,14 @@
             'homepage.cards.placeholder_validation' | translate
           "
         >
+          <ng-template let-item="item" let-index="index">
+            <div [ngClass]="{ 'custom-tag': true }">
+              {{ item.display }}
+              <delete-icon
+                (click)="input.removeItem(item, index)"
+              ></delete-icon>
+            </div>
+          </ng-template>
           <tag-input-dropdown
             [keepOpen]="false"
             identifyBy="id"
