@@ -26,7 +26,14 @@
         </ng-container>
       </ul>
     </div>
-    <div class="pia-cardsBlock-toolbar">
+    <div
+      class="pia-cardsBlock-toolbar"
+      *ngIf="
+        !authService.state ||
+        authService.currentUserValue.access_type.includes('technical') ||
+        authService.currentUserValue.access_type.includes('functional')
+      "
+    >
       <div class="pia-cardsBlock-toolbar-export">
         <a
           *ngIf="!pia.is_example"
