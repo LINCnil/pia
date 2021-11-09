@@ -6,4 +6,5 @@ export class User {
   public firstname: string;
   public access_type: Array<string> = [];
   public uuid?: string;
+  resource_owner_id?: number;
 }

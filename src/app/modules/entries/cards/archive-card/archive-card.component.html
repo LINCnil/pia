@@ -14,7 +14,14 @@
     </div>
 
     <div class="pia-cardsBlock-toolbar">
-      <div class="pia-cardsBlock-toolbar-export">
+      <div
+        class="pia-cardsBlock-toolbar-export"
+        *ngIf="
+          !authService.state ||
+          authService.currentUserValue.access_type.includes('technical') ||
+          authService.currentUserValue.access_type.includes('functional')
+        "
+      >
         <a
           href="javascript:;"
           (click)="unarchive(archivedPia.id)"
@@ -55,12 +62,25 @@
           "homepage.cards.author" | translate
         }}</label>
         <tag-input
+          [disable]="
+            authService.currentUserValue &&
+            !authService.currentUserValue.access_type.includes('functional')
+          "
           *ngIf="authService.state; else elseAuthorBlock"
           [theme]="'foundation-theme'"
           [removable]="false"
           formControlName="author_name"
           [hideForm]="true"
         >
+          <ng-template let-item="item" let-index="index">
+            <div
+              [ngClass]="{
+                'custom-tag': true
+              }"
+            >
+              {{ item.display }}
+            </div>
+          </ng-template>
         </tag-input>
         <ng-template #elseAuthorBlock>
           <div class="archive">{{ archivedPia.author_name }}</div>
@@ -71,12 +91,25 @@
           "homepage.cards.evaluation" | translate
         }}</label>
         <tag-input
+          [disable]="
+            authService.currentUserValue &&
+            !authService.currentUserValue.access_type.includes('functional')
+          "
           *ngIf="authService.state; else elseEvaluatorBlock"
           [theme]="'foundation-theme'"
           [removable]="false"
           formControlName="evaluator_name"
           [hideForm]="true"
         >
+          <ng-template let-item="item" let-index="index">
+            <div
+              [ngClass]="{
+                'custom-tag': true
+              }"
+            >
+              {{ item.display }}
+            </div>
+          </ng-template>
         </tag-input>
         <ng-template #elseEvaluatorBlock>
           <div class="archive">{{ archivedPia.evaluator_name }}</div>
@@ -87,12 +120,25 @@
           "homepage.cards.validation" | translate
         }}</label>
         <tag-input
+          [disable]="
+            authService.currentUserValue &&
+            !authService.currentUserValue.access_type.includes('functional')
+          "
           *ngIf="authService.state; else elseValidatorBlock"
           [theme]="'foundation-theme'"
           [removable]="false"
           formControlName="validator_name"
           [hideForm]="true"
         >
+          <ng-template let-item="item" let-index="index">
+            <div
+              [ngClass]="{
+                'custom-tag': true
+              }"
+            >
+              {{ item.display }}
+            </div>
+          </ng-template>
         </tag-input>
         <ng-template #elseValidatorBlock>
           <div class="archive">{{ archivedPia.validator_name }}</div>
@@ -104,11 +150,25 @@
         }}</label>
         <div class="archive">{{ archivedPia.guests }}</div>
         <tag-input
+          [disable]="
+            authService.currentUserValue &&
+            !authService.currentUserValue.access_type.includes('functional')
+          "
           [theme]="'foundation-theme'"
           [removable]="false"
+          [editable]="false"
           formControlName="guests"
           [hideForm]="true"
         >
+          <ng-template let-item="item" let-index="index">
+            <div
+              [ngClass]="{
+                'custom-tag': true
+              }"
+            >
+              {{ item.display }}
+            </div>
+          </ng-template>
         </tag-input>
       </div>
       <div>
