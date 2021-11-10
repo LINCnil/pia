@@ -396,7 +396,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
     this.pia[field] = this.piaForm.controls[field].value.map(x => x.id);
 
     await this.piaService.update(this.pia).then((resp: Pia) => {
-      this.pia.user_pias = resp.user_pias;
+      this.pia = resp;
     });
   }
 

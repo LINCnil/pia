@@ -274,7 +274,9 @@ export class PiaLineComponent implements OnInit, OnChanges {
                 break;
             }
             this.pia[field] = [userBehavior.value.id];
-            this.piaService.update(this.pia);
+            this.piaService.update(this.pia).then((resp: Pia) => {
+              this.pia = resp;
+            });
           }
         }
       });
@@ -302,7 +304,9 @@ export class PiaLineComponent implements OnInit, OnChanges {
       this.pia['guests'] = this.pia['guests'].map(x =>
         typeof x === 'object' ? x.id : x
       );
-      this.piaService.update(this.pia);
+      this.piaService.update(this.pia).then((resp: Pia) => {
+        this.pia = resp;
+      });
     }
   }
 
