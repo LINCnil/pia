@@ -347,7 +347,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
    * Add user to new Pia Form
    * Update user on author, evaluator and validator
    */
-  onAddUser($event: TagModelClass, field: string): void {
+  async onAddUser($event: TagModelClass, field: string): void {
     // User selected exist ?
     const index = this.users.findIndex(u => u.id === $event.id);
 
@@ -368,7 +368,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
 
       // waiting for submited user form
       observable.subscribe({
-        complete: () => {
+        complete: async () => {
           // Get tag in form
           const tagIndex = this.piaForm.controls[field].value.findIndex(
             f => f.id === $event.display
@@ -377,16 +377,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
             // user is created
             let values = this.piaForm.controls[field].value;
             values[tagIndex].id = userBehavior.value.id;
-
-            if (field !== 'guests') {
-              this.pia[field] = this.piaForm.controls[field].value[0].id;
-            } else {
-              this.pia['guests'] = this.piaForm.controls[field].value.map(
-                x => x.id
-              );
-            }
-
-            this.piaService.update(this.pia, this.piaForm.controls[field]);
+            await this.savePiaAfterUserAssign(field);
           } else {
             // Remove tag, because user form is canceled
             this.piaForm.controls[field].value.splice(tagIndex, 1);
@@ -394,13 +385,19 @@ export class PiaCardComponent implements OnInit, OnChanges {
         }
       });
     } else {
-      if (field !== 'guests') {
-        this.pia[field] = this.piaForm.controls[field].value[0].id;
-      }
-      this.pia['guests'] = this.piaForm.controls['guests'].value.map(x => x.id);
-
-      this.piaService.update(this.pia);
+      await this.savePiaAfterUserAssign(field);
     }
+  }
+
+  async savePiaAfterUserAssign(field: string): Promise<any> {
+    if (field !== 'guests') {
+      this.pia[field] = this.piaForm.controls[field].value[0].id;
+    }
+    this.pia[field] = this.piaForm.controls[field].value.map(x => x.id);
+
+    await this.piaService.update(this.pia).then((resp: Pia) => {
+      this.pia.user_pias = resp.user_pias;
+    });
   }
 
   onRemove($event: TagModelClass, field: string) {
