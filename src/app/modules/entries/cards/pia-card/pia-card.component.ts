@@ -347,7 +347,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
    * Add user to new Pia Form
    * Update user on author, evaluator and validator
    */
-  async onAddUser($event: TagModelClass, field: string): void {
+  async onAddUser($event: TagModelClass, field: string): Promise<void> {
     // User selected exist ?
     const index = this.users.findIndex(u => u.id === $event.id);
 

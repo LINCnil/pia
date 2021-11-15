@@ -185,12 +185,7 @@ export class PiaComponent implements OnInit, DoCheck {
       complete: () => {
         if (this.authService.state) {
           this.editMode = [];
-          console.log(this.authService.currentUserValue);
-
           if (
-            this.authService.currentUserValue.access_type.includes(
-              'technique'
-            ) ||
             this.authService.currentUserValue.access_type.includes('functional')
           ) {
             this.editMode = ['author', 'validator', 'evaluator', 'guest'];
@@ -198,7 +193,8 @@ export class PiaComponent implements OnInit, DoCheck {
             this.pia.user_pias.forEach(up => {
               if (
                 up.user.id ===
-                this.authService.currentUserValue.resource_owner_id
+                  this.authService.currentUserValue.resource_owner_id &&
+                Array.isArray(this.editMode)
               ) {
                 this.editMode.push(up.role);
               }
