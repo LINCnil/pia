@@ -80,7 +80,10 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
     this.authService.currentUser.subscribe({
       complete: () => {
-        if (this.authService.state) {
+        if (
+          this.authService.state &&
+          this.authService.currentUserValue.access_type.includes('functional')
+        ) {
           // GET USER LIST
           this.userService
             .getUsers()
