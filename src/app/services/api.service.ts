@@ -51,7 +51,7 @@ export class ApiService {
           ) {
             this.dialogService.confirmThis(
               {
-                text: "Vous n'avez l'autorisation d'accéder à cette ressource",
+                text: 'authentification.errors.unauthorized',
                 type: 'yes',
                 yes: 'modals.back_to_home',
                 no: '',
