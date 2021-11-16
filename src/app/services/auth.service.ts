@@ -6,7 +6,9 @@ import { ApiService } from './api.service';
 
 @Injectable()
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<User>;
+  private currentUserSubject: BehaviorSubject<User> = new BehaviorSubject<User>(
+    null
+  );
   public currentUser: Observable<User>;
   public state: boolean;
 
