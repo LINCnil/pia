@@ -261,7 +261,7 @@
     <!-- "Card" mode -->
     <div
       *ngIf="viewStyle.view === 'card'; else viewList"
-      class="small-12 medium-12 columns"
+      class="small-12 medium-12 columns pia-list"
     >
       <!-- New PIA -->
       <div
@@ -386,6 +386,9 @@
         <!-- PIA, ARCHIVE Cards switch -->
         <ng-container [ngSwitch]="type_entries">
           <ng-container *ngSwitchCase="'pia'">
+            <div *ngIf="entries.length <= 0 && !loading" class="no-pia">
+              {{ "homepage.no_entries.pia" | translate }}
+            </div>
             <app-pia-card
               *ngFor="
                 let pia of entries | filterForUser: searchText;
@@ -402,6 +405,9 @@
             </app-pia-card>
           </ng-container>
           <ng-container *ngSwitchCase="'archive'">
+            <div *ngIf="entries.length <= 0" class="no-pia">
+              {{ "homepage.no_entries.archive" | translate }}
+            </div>
             <app-archive-card
               *ngFor="
                 let archivedPia of entries | filterForUser: searchText;
@@ -545,6 +551,9 @@
             </tbody>
           </ng-template>
         </table>
+        <div *ngIf="entries.length <= 0 && !loading" class="entries-missing">
+          {{ "homepage.no_entries." + type_entries | translate }}
+        </div>
       </div>
     </ng-template>
   </div>
