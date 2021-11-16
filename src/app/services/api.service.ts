@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
@@ -9,7 +10,10 @@ export class ApiService {
     mode: 'cors'
   };
 
-  constructor(private translateService: TranslateService) {
+  constructor(
+    private dialogService: DialogService,
+    private translateService: TranslateService
+  ) {
     this.base = localStorage.getItem('server_url')
       ? localStorage.getItem('server_url')
       : '';
@@ -41,6 +45,29 @@ export class ApiService {
         })
         .catch(err => {
           reject(err);
+          if (
+            (err.status === 401 || err.status === 500) &&
+            !err.url.includes('oauth/token/info')
+          ) {
+            this.dialogService.confirmThis(
+              {
+                text: "Vous n'avez l'autorisation d'accéder à cette ressource",
+                type: 'yes',
+                yes: 'modals.back_to_home',
+                no: '',
+                icon: 'pia-icons pia-icon-sad',
+                data: {
+                  no_cross_button: true
+                }
+              },
+              () => {
+                window.location.href = './';
+              },
+              () => {
+                return;
+              }
+            );
+          }
         });
     });
   }
