@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { Subject } from 'rxjs/Subject';
 import { Structure } from '../models/structure.model';
 import { StructureService } from './structure.service';
 

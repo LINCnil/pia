@@ -14,7 +14,7 @@
       "severity": "warning"
     },
     "eofline": true,
-    "import-blacklist": [true, "rxjs/Rx"],
+    "import-blacklist": [true, "rxjs/Rx", "rxjs"],
     "import-spacing": true,
     "indent": {
       "options": ["spaces"]

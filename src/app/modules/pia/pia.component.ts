@@ -186,7 +186,10 @@ export class PiaComponent implements OnInit, DoCheck {
         if (this.authService.state) {
           this.editMode = [];
           if (
-            this.authService.currentUserValue.access_type.includes('functional')
+            this.authService.currentUserValue.access_type.includes(
+              'functional'
+            ) ||
+            this.pia.is_example
           ) {
             this.editMode = ['author', 'validator', 'evaluator', 'guest'];
           } else {
