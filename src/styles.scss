@@ -280,6 +280,7 @@ tag-input-form {
   padding: 0px;
   .custom-tag {
     padding: 0.08rem 0.45rem;
+    width: max-content;
     &.user-not-found {
       background-color: #a7a7a7;
     }
