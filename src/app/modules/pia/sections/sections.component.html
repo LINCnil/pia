@@ -17,9 +17,7 @@
     {{ "homepage.cards.category" | translate }} "{{ pia.category }}"
   </div>
 
-  <div class="pia-sectionBlock-category" *ngIf="pia.category">
-    Mode: {{ editMode }}
-  </div>
+  <div class="pia-sectionBlock-category">Mode: {{ editMode }}</div>
 
   <div class="pia-sectionBlock-body" *ngIf="!loading; else statusSettingElse">
     <div

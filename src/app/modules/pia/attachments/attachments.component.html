@@ -25,7 +25,10 @@
     />
     <button
       class="pia-attachmentsBlock-addBtn btn"
-      *ngIf="editMode.includes('author') || editMode === 'local'"
+      *ngIf="
+        ['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
+        editMode === 'local'
+      "
       [disabled]="loading"
       [ngClass]="{ hide: !dispplayAttachmentButton }"
       type="button"

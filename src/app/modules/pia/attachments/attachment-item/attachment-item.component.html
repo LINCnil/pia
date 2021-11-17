@@ -20,7 +20,8 @@
     *ngIf="
       !isPreview &&
       showAddAttachmentButton() &&
-      (editMode.includes('author') || editMode === 'local')
+      (['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
+        editMode === 'local')
     "
     type="button"
     class="btn"
