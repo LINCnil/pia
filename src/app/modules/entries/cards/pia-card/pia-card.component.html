@@ -133,6 +133,11 @@
               >
                 {{ item.display }}
                 <delete-icon
+                  *ngIf="
+                    authService.currentUserValue.access_type.includes(
+                      'functional'
+                    )
+                  "
                   (click)="input.removeItem(item, index)"
                 ></delete-icon>
               </div>
@@ -194,6 +199,11 @@
               >
                 {{ item.display }}
                 <delete-icon
+                  *ngIf="
+                    authService.currentUserValue.access_type.includes(
+                      'functional'
+                    )
+                  "
                   (click)="input.removeItem(item, index)"
                 ></delete-icon>
               </div>
@@ -255,6 +265,11 @@
               >
                 {{ item.display }}
                 <delete-icon
+                  *ngIf="
+                    authService.currentUserValue.access_type.includes(
+                      'functional'
+                    )
+                  "
                   (click)="input.removeItem(item, index)"
                 ></delete-icon>
               </div>
@@ -312,6 +327,11 @@
             <div [ngClass]="{ 'custom-tag': true }">
               {{ item.display }}
               <delete-icon
+                *ngIf="
+                  authService.currentUserValue.access_type.includes(
+                    'functional'
+                  )
+                "
                 (click)="input.removeItem(item, index)"
               ></delete-icon>
             </div>
