@@ -5,7 +5,8 @@
   position: relative;
   margin-right: 12px;
   margin-bottom: 40px;
-  height: 500px;
+  min-height: 500px;
+  height: min-content;
   border: 1px solid #ddd;
   background-color: #fff;
   &-title {
