@@ -2,6 +2,7 @@
   <p>{{ "pia.attachments.title" | translate }}</p>
 
   <app-attachment-item
+    [editMode]="editMode"
     *ngFor="let attachment of attachments; let i = index"
     [attachment]="attachment"
     (deleted)="onDeleted($event)"
@@ -24,9 +25,8 @@
     />
     <button
       class="pia-attachmentsBlock-addBtn btn"
-      [disabled]="
-        loading || !(editMode.includes('author') || editMode === 'local')
-      "
+      *ngIf="editMode.includes('author') || editMode === 'local'"
+      [disabled]="loading"
       [ngClass]="{ hide: !dispplayAttachmentButton }"
       type="button"
       (click)="addAttachment()"
