@@ -102,10 +102,9 @@
         ></div>
         <textarea
           *ngIf="
-            question.answer_type == 'text' || question.answer_type == 'gauge'
-          "
-          [attr.disabled]="
-            !editMode.includes('author') && editMode !== 'local' ? 'true' : null
+            (question.answer_type == 'text' ||
+              question.answer_type == 'gauge') &&
+            (editMode.includes('author') || editMode === 'local')
           "
           [attr.data-id]="question.id"
           id="pia-question-content-{{ question.id }}"
