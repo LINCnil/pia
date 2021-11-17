@@ -6,9 +6,7 @@
     <h4>{{ "summary.revision.pia_version" | translate }}</h4>
     <p>
       <i class="fa fa-circle"></i>
-      {{
-        currentVersion | date: "short":"":languagesService.selectedLanguage
-      }}
+      {{ currentVersion | date: "short":"":languagesService.selectedLanguage }}
       - {{ "summary.revision.current_version" | translate }}
     </p>
     <a
@@ -55,7 +53,14 @@
         </ul>
       </div>
     </div>
-    <button class="pia-revisions-new" (click)="newRevision()">
+    <button
+      class="pia-revisions-new"
+      *ngIf="
+        ['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
+        editMode === 'local'
+      "
+      (click)="newRevision()"
+    >
       <span class="pia-icons pia-icon-add-white"></span>
       {{ "summary.revision.save" | translate }}
     </button>

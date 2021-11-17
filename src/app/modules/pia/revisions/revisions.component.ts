@@ -45,7 +45,8 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() pia: Pia;
   @Input() currentVersion: Date;
   @Input() title = true;
-
+  @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
+    'local';
   revisions: Array<any>;
   subscription: Subscription;
   public opened = false;
