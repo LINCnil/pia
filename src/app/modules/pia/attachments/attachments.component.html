@@ -1,15 +1,22 @@
 <div class="pia-attachmentsBlock" *ngIf="attachments">
   <p>{{ "pia.attachments.title" | translate }}</p>
 
-  <app-attachment-item
-    [editMode]="editMode"
-    *ngFor="let attachment of attachments; let i = index"
-    [attachment]="attachment"
-    (deleted)="onDeleted($event)"
-    [isPreview]="isPreview"
-    [pia]="pia"
-  >
-  </app-attachment-item>
+  <ng-container *ngIf="attachments.length > 0; else noAttachments">
+    <app-attachment-item
+      [editMode]="editMode"
+      *ngFor="let attachment of attachments; let i = index"
+      [attachment]="attachment"
+      (deleted)="onDeleted($event)"
+      [isPreview]="isPreview"
+      [pia]="pia"
+    >
+    </app-attachment-item>
+  </ng-container>
+  <ng-template #noAttachments>
+    <p>
+      <small>{{ "pia.attachments.no_attachment" | translate }}</small>
+    </p>
+  </ng-template>
 
   <form
     *ngIf="!isPreview && attachments"
