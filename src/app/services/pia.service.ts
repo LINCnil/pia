@@ -174,6 +174,8 @@ export class PiaService extends ApplicationDb {
       const pia: Pia = {
         ...piaForm
       };
+      pia.is_example = 0;
+      pia.status = 0;
       pia.created_at = new Date();
       pia.updated_at = new Date();
       const structure_id = piaForm.structure_id;
