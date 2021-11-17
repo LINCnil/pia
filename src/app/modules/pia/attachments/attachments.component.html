@@ -1,25 +1,42 @@
-<div class="pia-attachmentsBlock"  *ngIf="attachments">
-  <p>{{ 'pia.attachments.title' | translate }}</p>
+<div class="pia-attachmentsBlock" *ngIf="attachments">
+  <p>{{ "pia.attachments.title" | translate }}</p>
 
   <app-attachment-item
-    *ngFor="let attachment of attachments;let i=index"
+    *ngFor="let attachment of attachments; let i = index"
     [attachment]="attachment"
     (deleted)="onDeleted($event)"
-    [isPreview]="isPreview" [pia]="pia">
+    [isPreview]="isPreview"
+    [pia]="pia"
+  >
   </app-attachment-item>
 
-  <form *ngIf="!isPreview && attachments" enctype="multipart/form-data" [formGroup]="attachmentForm">
-    <input type="file" formControlName="attachment_file" id="attachment_file" (change)="uploadAttachement($event)" class="hide">
-    <button class="pia-attachmentsBlock-addBtn btn"
-      [disabled]="loading"
-      [ngClass]="{'hide': !dispplayAttachmentButton}" type="button"
-      (click)="addAttachment()">
+  <form
+    *ngIf="!isPreview && attachments"
+    enctype="multipart/form-data"
+    [formGroup]="attachmentForm"
+  >
+    <input
+      type="file"
+      formControlName="attachment_file"
+      id="attachment_file"
+      (change)="uploadAttachement($event)"
+      class="hide"
+    />
+    <button
+      class="pia-attachmentsBlock-addBtn btn"
+      [disabled]="
+        loading || !(editMode.includes('author') || editMode === 'local')
+      "
+      [ngClass]="{ hide: !dispplayAttachmentButton }"
+      type="button"
+      (click)="addAttachment()"
+    >
       <ng-container *ngIf="!loading; else loadingElse">
         <span class="pia-icons pia-icon-add"></span>
-        {{ 'pia.attachments.add' | translate }}
+        {{ "pia.attachments.add" | translate }}
       </ng-container>
       <ng-template #loadingElse>
-        {{ 'pia.attachments.loading' | translate }}
+        {{ "pia.attachments.loading" | translate }}
       </ng-template>
     </button>
   </form>
