@@ -40,6 +40,8 @@ export class RevisionPreviewComponent implements OnInit {
   @Input() revision: Revision;
   @Input() date: Date;
   @Output() restored = new EventEmitter();
+  @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
+    'local';
   export: any;
   pia: Pia;
   allData: any;

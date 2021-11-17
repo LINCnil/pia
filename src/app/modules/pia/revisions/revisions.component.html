@@ -71,6 +71,10 @@
   (clickOnClose)="preview = null"
   specialClass="revision-preview-modal"
 >
-  <app-revision-preview *ngIf="preview" [revision]="preview">
+  <app-revision-preview
+    *ngIf="preview"
+    [revision]="preview"
+    [editMode]="editMode"
+  >
   </app-revision-preview>
 </app-modal>
