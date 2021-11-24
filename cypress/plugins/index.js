@@ -47,11 +47,9 @@ module.exports = (on, config) => {
     }
   });
 
-  return Object.assign({}, config, {
-    env: {
-      URL: process.env.CYPRESS_PIA_BACK_URL,
-      ID: process.env.CYPRESS_PIA_BACK_ID,
-      SECRET: process.env.CYPRESS_PIA_BACK_SECRET
-    }
-  });
+  config.env.URL = process.env.CYPRESS_PIA_BACK_URL;
+  config.env.ID = process.env.CYPRESS_PIA_BACK_ID;
+  config.env.SECRET = process.env.CYPRESS_PIA_BACK_SECRET;
+
+  return config;
 };
