@@ -14,3 +14,7 @@ jobs:
           browser: chrome
           headless: true
           wait-on: http://localhost:4200
+        env: # Or as an environment variable
+          CYPRESS_PIA_BACK_URL: ${{ secrets.CYPRESS_PIA_BACK_URL }}
+          CYPRESS_PIA_BACK_ID: ${{ secrets.CYPRESS_PIA_BACK_ID }}
+          CYPRESS_PIA_BACK_SECRET: ${{ secrets.CYPRESS_PIA_BACK_SECRET }}
