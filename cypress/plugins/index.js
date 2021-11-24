@@ -47,9 +47,9 @@ module.exports = (on, config) => {
     }
   });
 
-  config.env.URL = process.env.CYPRESS_PIA_BACK_URL;
-  config.env.ID = process.env.CYPRESS_PIA_BACK_ID;
-  config.env.SECRET = process.env.CYPRESS_PIA_BACK_SECRET;
+  config.env.URL = process.env.CYPRESS_URL;
+  config.env.ID = process.env.CYPRESS_ID;
+  config.env.SECRET = process.env.CYPRESS_SECRET;
 
   return config;
 };
