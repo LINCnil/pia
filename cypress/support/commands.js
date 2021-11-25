@@ -303,7 +303,7 @@ Cypress.Commands.add("validateDPO", () => {
     cy.wrap($el)
       .find("input")
       .first()
-      .type("DPO Pia");
+      .type("DPO Pia", { force: true });
     cy.wrap($el)
       .find(".pia-entryContentBlock-content-DPO-treatment")
       .find("label")
@@ -328,7 +328,7 @@ Cypress.Commands.add("validateDPO", () => {
       .last()
       .find("input")
       .first()
-      .type("DPO Pia");
+      .type("DPO Pia", { force: true });
     cy.wrap($el)
       .find("form")
       .last()
