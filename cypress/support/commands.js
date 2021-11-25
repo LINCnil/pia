@@ -128,7 +128,7 @@ Cypress.Commands.add("test_add_measure", () => {
         cy.wrap($el).click();
         cy.wrap($el)
           .find("textarea")
-          .type("Measure 1");
+          .type("Measure 1", { force: true });
       });
 
       // Set content of measure
