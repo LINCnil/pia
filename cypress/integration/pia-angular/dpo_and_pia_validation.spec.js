@@ -1,4 +1,6 @@
 describe("Validation", () => {
+  let visit_id = null;
+
   before(() => {
     cy.init();
   });
@@ -12,41 +14,34 @@ describe("Validation", () => {
     // TODO: Import pia with .json
     it("File Upload using cypress-file-upload package", () => {
       cy.import_pia();
+      cy.get("a.btn.btn-green")
+        .first()
+        .click();
     });
   });
 
   context("Avis du DPD et des personnes concernées", () => {
     it("should complete DPD", () => {
-      cy.go_edited_pia(1, 4, 3).then(() => {
-        cy.validateDPO();
+      cy.get_current_pia_id(id => {
+        visit_id = id;
+        cy.go_edited_pia(id, 4, 3).then(() => {
+          cy.validateDPO();
+        });
       });
     });
+
     it("should valid pia", () => {
       cy.validatePia();
       // cy.closeValidationEvaluationModal();
     });
+
     it("should show report", () => {
       cy.closeValidationEvaluationModal();
-      cy.get('.pia-previewBlock[href="#/preview/1"]').click();
+      cy.get("a.btn.pia-previewBlock").click();
 
-      cy.url().should("include", "/preview/1");
+      cy.url().should("include", "/preview/" + visit_id);
 
       cy.get(".pia-fullPreviewBlock-data").should("exist");
-    });
-  });
-
-  context("Refuse or ask pia signature", () => {
-    it("Upload file", () => {
-      cy.init();
-      cy.disable_onboarding();
-      cy.import_pia();
-    });
-
-    it("should refuse pia", () => {
-      cy.go_edited_pia(1, 4, 3).then(() => {
-        cy.validateDPO();
-      });
-      cy.refusePia();
     });
   });
 });
