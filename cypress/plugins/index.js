@@ -47,11 +47,9 @@ module.exports = (on, config) => {
     }
   });
 
-  return Object.assign({}, config, {
-    env: {
-      URL: process.env.CYPRESS_URL,
-      ID: process.env.CYPRESS_ID,
-      SECRET: process.env.CYPRESS_SECRET
-    }
-  });
+  config.env.URL = process.env.CYPRESS_URL;
+  config.env.ID = process.env.CYPRESS_ID;
+  config.env.SECRET = process.env.CYPRESS_SECRET;
+
+  return config;
 };

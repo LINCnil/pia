@@ -30,12 +30,13 @@
           [section]="section"
           [item]="item"
         ></app-sections>
-        <app-attachments [pia]="pia"></app-attachments>
+        <app-attachments [pia]="pia" [editMode]="editMode"></app-attachments>
         <app-revisions
           *ngIf="pia.is_example == 0 && pia.is_archive == 0"
           [pia]="pia"
           [title]="false"
           [currentVersion]="pia.updated_at"
+          [editMode]="editMode"
         >
         </app-revisions>
       </aside>

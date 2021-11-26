@@ -24,7 +24,8 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 })
 export class AttachmentItemComponent implements OnInit {
   @ViewChild('pdfViewerAutoLoad', { static: false }) pdfViewerAutoLoad;
-
+  @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
+    'local';
   @Input() isPreview: boolean;
   @Input() attachment: Attachment;
   @Input() pia: any;

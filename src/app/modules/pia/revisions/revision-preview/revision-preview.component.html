@@ -20,7 +20,12 @@
             <div>{{ "homepage.cards.item.tools.export" | translate }}</div>
           </button>
         </div>
-        <div>
+        <div
+          *ngIf="
+            ['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
+            editMode === 'local'
+          "
+        >
           <button type="button" (click)="restoreRevision()">
             <i aria-hidden="true" class="fa fa-refresh"></i>
             <div>{{ "summary.revision.restore_version" | translate }}</div>
