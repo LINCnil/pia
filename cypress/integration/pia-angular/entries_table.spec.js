@@ -55,7 +55,7 @@ describe("Entries_table", () => {
       cy.get(".pia-list-table tbody tr td:eq(1) div")
         .click()
         .clear()
-        .type("pia edited");
+        .type("pia edited for table test");
 
       //Edit author
       cy.get(".pia-list-table tbody tr td:eq(3) div")

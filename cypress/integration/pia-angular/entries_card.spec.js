@@ -39,7 +39,9 @@ describe("Entries_card", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
       cy.wait(3000);
-      cy.get("#pia-edit-2-name").type("pia edited");
+      cy.get("#pia-edit-2-name")
+        .clear()
+        .type("pia edited");
       cy.get("#pia-edit-2-author-name")
         .clear()
         .type("author edited");
@@ -75,7 +77,7 @@ describe("Entries_card", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
       cy.get(".pia-cardsBlock-toolbar-export a")
-        .eq(1)
+        .eq(2)
         .click();
     });
   });
