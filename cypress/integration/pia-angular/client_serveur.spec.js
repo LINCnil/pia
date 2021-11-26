@@ -42,7 +42,7 @@ describe("Client-Server", () => {
     it("Click on save", () => {
       cy.get(".btn-green").click();
       cy.wait(5000);
-      cy.get(".btn-green")
+      cy.get("button[type=button]")
         .eq(1)
         .click();
 

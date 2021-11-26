@@ -1,31 +1,6 @@
 import "cypress-localstorage-commands";
 import "cypress-file-upload";
 
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add("init", () => {
   // TODO: DO IT IF PIA.id 2 exist
   indexedDB.deleteDatabase("pia");
@@ -38,6 +13,7 @@ Cypress.Commands.add("init", () => {
   cy.clearCookies();
   cy.window().then(win => {
     win.sessionStorage.clear();
+    cy.reload(true);
   });
   cy.wait(1000);
 });
@@ -54,8 +30,9 @@ Cypress.Commands.add("skip_onboarding", () => {
 });
 
 Cypress.Commands.add("focus_out", () => {
-  cy.wait(1000);
-  cy.get(".pia-knowledgeBaseBlock-searchForm form input").type("aaa");
+  cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
+    force: true
+  });
 });
 
 Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
@@ -116,6 +93,7 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
           });
       });
     }
+    cy.focus_out();
   });
 });
 
@@ -141,13 +119,11 @@ Cypress.Commands.add("test_add_measure", () => {
           );
         cy.wrap($el)
           .parent()
-          .wait(500)
+          .wait(1000)
           .click();
-
         expect($el.find("textarea").val().length > 0).to.be.true;
-
-        cy.focus_out();
       });
+      cy.focus_out();
     });
 });
 
@@ -236,13 +212,12 @@ Cypress.Commands.add("test_move_gauges", () => {
 });
 
 Cypress.Commands.add("validateEval", () => {
-  cy.focus_out().then(() => {
-    cy.wait(1000);
-    cy.get(".pia-entryContentBlock-footer")
-      .find(".btn-green")
-      .should("have.class", "btn-active")
-      .click({ force: true });
-  });
+  cy.focus_out();
+  cy.wait(1000);
+  cy.get(".pia-entryContentBlock-footer")
+    .find(".btn-green")
+    .should("have.class", "btn-active")
+    .click({ force: true });
 });
 
 Cypress.Commands.add("acceptEval", () => {
