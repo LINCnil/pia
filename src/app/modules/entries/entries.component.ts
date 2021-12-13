@@ -449,7 +449,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
   get showPiaForm(): boolean {
     return (
       (this.authService.state &&
-        this.authService.currentUserValue.access_type.includes('technical') &&
         this.authService.currentUserValue.access_type.includes('functional')) ||
       !this.authService.state
     );
