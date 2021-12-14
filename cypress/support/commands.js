@@ -15,7 +15,6 @@ Cypress.Commands.add("init", () => {
     win.sessionStorage.clear();
     cy.reload(true);
   });
-  cy.wait(1000);
 });
 
 Cypress.Commands.add("disable_onboarding", () => {
@@ -70,6 +69,7 @@ Cypress.Commands.add("create_new_pia", () => {
   cy.get("#pia-save-card-btn")
     .first()
     .click();
+  cy.wait(5000); // Redirection to pia page
 });
 
 Cypress.Commands.add("get_current_pia_id", callback => {
