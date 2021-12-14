@@ -65,9 +65,8 @@ describe("Entries_card", () => {
         .eq(1)
         .click();
       // Redirect into entries
-      cy.visit(`/#/entries`).then(() => {
-        cy.get(".pia-cardsBlock.pia").should("have.length", 2);
-      });
+      cy.wait(5000);
+      cy.get(".pia-cardsBlock.pia").should("have.length", 2);
     });
 
     /**

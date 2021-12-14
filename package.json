@@ -8,7 +8,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "cypress open --config watchForFileChanges=false",
+    "e2e": "cypress open --config watchForFileChanges=false --browser chrome",
     "prod": "ng build --prod --build-optimizer",
     "clean": "rimraf ./dist/",
     "format:write": "prettier src/**/*.{ts,json,md,scss} --write",

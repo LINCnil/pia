@@ -51,6 +51,11 @@
           </th>
           <th>
             <a
+              ><span>{{ "users.state" | translate }}</span></a
+            >
+          </th>
+          <th>
+            <a
               ><span>{{ "users.profile" | translate }}</span></a
             >
           </th>
@@ -82,6 +87,9 @@
             <td class="pia-listsBlock-item-value">{{ user.lastname }}</td>
             <td class="pia-listsBlock-item-value">{{ user.firstname }}</td>
             <td class="pia-listsBlock-item-value">{{ user.email }}</td>
+            <td class="pia-listsBlock-item-value">
+              {{ "users.access_locked." + user.access_locked | translate }}
+            </td>
             <td class="pia-listsBlock-item-value">
               <input
                 type="checkbox"

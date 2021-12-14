@@ -40,7 +40,7 @@ export class PasswordComponent implements OnInit {
               // 1. Password Field is Required
               Validators.required,
               // 2. check whether the entered password has a number
-              // CustomValidators.patternValidator(/\d/, { hasNumber: true }),
+              CustomValidators.patternValidator(/\d/, { hasNumber: true }),
               // 3. check whether the entered password has upper case letter
               CustomValidators.patternValidator(/[A-Z]/, {
                 hasCapitalCase: true
