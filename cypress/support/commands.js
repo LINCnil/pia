@@ -29,7 +29,7 @@ Cypress.Commands.add("skip_onboarding", () => {
 });
 
 Cypress.Commands.add("focus_out", () => {
-  cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
+  cy.get(".pia-knowledgeBaseBlock-searchForm form input").type("text", {
     force: true
   });
 });
