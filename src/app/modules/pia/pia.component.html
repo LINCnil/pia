@@ -107,5 +107,10 @@
 </section>
 
 <app-loading-overlay [visibility]="download"></app-loading-overlay>
-<app-preview [pia]="pia" [onlyData]="true" *ngIf="download"></app-preview>
+<app-preview
+  [pia]="pia"
+  [onlyData]="true"
+  *ngIf="download"
+  [editMode]="editMode"
+></app-preview>
 <app-dialog></app-dialog>

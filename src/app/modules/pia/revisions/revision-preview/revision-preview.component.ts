@@ -12,6 +12,7 @@ import { PiaService } from 'src/app/services/pia.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { Router } from '@angular/router';
 import { EvaluationService } from 'src/app/services/evaluation.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 function slugify(text) {
   return text
@@ -48,6 +49,7 @@ export class RevisionPreviewComponent implements OnInit {
   data: any;
 
   constructor(
+    public authService: AuthService,
     private translateService: TranslateService,
     public appDataService: AppDataService,
     public sidStatusService: SidStatusService,

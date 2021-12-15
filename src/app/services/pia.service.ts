@@ -532,6 +532,10 @@ export class PiaService extends ApplicationDb {
         pia.structure_sector_name = piaExport.pia.structure_sector_name;
       }
 
+      if (piaExport.pia.guests) {
+        pia.guests = piaExport.pia.guests.map(x => x.id);
+      }
+
       if (updateOption) {
         this.update(pia, dateExport) // update pia storage
           .then(async entry => {
