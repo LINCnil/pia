@@ -36,7 +36,7 @@
     >
       <div class="pia-cardsBlock-toolbar-export">
         <a
-          *ngIf="!pia.is_example && pia.progress < 96"
+          *ngIf="pia.status >= 2"
           [routerLink]="['/pia', pia.id, 'section', 1, 'item', 1]"
           class="btn pia-tooltip"
         >
