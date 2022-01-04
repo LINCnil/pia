@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as FileSaver from 'file-saver';
-import * as html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
 import { svgAsPngUri } from 'save-svg-as-png';
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
@@ -495,14 +495,16 @@ export class ExportComponent implements OnInit {
    * Download the action plan overview as an image
    * @async
    */
-  async getActionPlanOverviewImg(): Promise<void> {
+  async getActionPlanOverviewImg(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const actionPlanOverviewImg = document.querySelector(
           '#actionPlanOverviewImg'
         );
         if (actionPlanOverviewImg) {
-          html2canvas(actionPlanOverviewImg, { scale: 1.4 }).then(canvas => {
+          html2canvas(actionPlanOverviewImg as HTMLElement, {
+            scale: 1.4
+          }).then(canvas => {
             if (canvas) {
               const img = canvas.toDataURL();
               resolve(img);
@@ -517,19 +519,21 @@ export class ExportComponent implements OnInit {
    * Download the risks cartography as an image
    * @async
    */
-  async getRisksCartographyImg(): Promise<void> {
+  async getRisksCartographyImg(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const risksCartographyImg = document.querySelector(
           '#risksCartographyImg'
         );
         if (risksCartographyImg) {
-          html2canvas(risksCartographyImg, { scale: 1.4 }).then(canvas => {
-            if (canvas) {
-              const img = canvas.toDataURL();
-              resolve(img);
+          html2canvas(risksCartographyImg as HTMLElement, { scale: 1.4 }).then(
+            canvas => {
+              if (canvas) {
+                const img = canvas.toDataURL();
+                resolve(img);
+              }
             }
-          });
+          );
         }
       }, 250);
     });
