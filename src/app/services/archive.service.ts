@@ -40,6 +40,7 @@ export class ArchiveService {
         .find(id)
         .then((entry: Pia) => {
           entry.is_archive = 0;
+          entry.progress = 0; // Is calculated in PiaService
           this.piaService.update(entry);
           resolve();
         })

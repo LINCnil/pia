@@ -767,16 +767,17 @@ export class PiaService extends ApplicationDb {
 
   // UPDATE
   archive(id): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       // Update the PIA in DB.
       const pia = new Pia();
       this.find(id)
         .then((entry: Pia) => {
           entry.is_archive = 1;
           this.calculPiaProgress(entry).then(() => {
-            this.update(entry);
+            this.update(entry).then(() => {
+              resolve();
+            });
           });
-          resolve();
         })
         .catch(err => {
           console.error(err);
