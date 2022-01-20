@@ -131,16 +131,23 @@ export class PiaService extends ApplicationDb {
     });
   }
 
-  calculPiaProgress(pia): void {
+  async calculPiaProgress(pia): Promise<void> {
     pia.progress = 0.0;
     if (pia.status > 0) {
       pia.progress += 4;
     }
-    this.data.sections.forEach((section: any) => {
-      section.items.forEach((item: any) => {
-        this.sidStatusService.setSidStatus(pia, section, item);
-      });
-    });
+
+    // this.data.sections.forEach((section: any) => {
+    //   section.items.forEach((item: any) => {
+    //     this.sidStatusService.setSidStatus(pia, section, item);
+    //   });
+    // });
+
+    for (const section of this.data.sections) {
+      for (const item of section.items) {
+        await this.sidStatusService.setSidStatus(pia, section, item);
+      }
+    }
   }
 
   /**
@@ -760,14 +767,17 @@ export class PiaService extends ApplicationDb {
 
   // UPDATE
   archive(id): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       // Update the PIA in DB.
       const pia = new Pia();
       this.find(id)
         .then((entry: Pia) => {
           entry.is_archive = 1;
-          this.update(entry);
-          resolve();
+          this.calculPiaProgress(entry).then(() => {
+            this.update(entry).then(() => {
+              resolve();
+            });
+          });
         })
         .catch(err => {
           console.error(err);

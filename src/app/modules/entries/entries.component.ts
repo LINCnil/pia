@@ -192,9 +192,10 @@ export class EntriesComponent implements OnInit, OnDestroy {
             .findAllArchives()
             .then((entries: Array<Pia>) => {
               this.entries = entries;
-              this.entries.forEach(entrie =>
-                this.archiveService.calculPiaProgress(entrie)
-              );
+              console.log(entries);
+              // this.entries.forEach(entrie =>
+              //   this.archiveService.calculPiaProgress(entrie)
+              // );
               this.loading = false;
               this.sortOrder = localStorage.getItem('archiveOrder');
               this.sortValue = localStorage.getItem('archiveValue');
