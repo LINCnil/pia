@@ -1,5 +1,3 @@
-# Pia [v3.0.2](https://github.com/LINCnil/pia/releases/tag/v3.0.2) 
-
 # Le logiciel PIA / The PIA Software
 
 ## Présentation / Presentation
@@ -20,7 +18,7 @@ To translate the software, we invite you to visit the [related repository](https
 
 # Information de développement / Dev information
 
-![CI](https://github.com/atnos/pia/workflows/integration-tests/badge.svg?branch=master)
+![CI](https://github.com/lincnil/pia/workflows/integration-tests/badge.svg?branch=master)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
