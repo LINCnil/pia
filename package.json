@@ -74,7 +74,7 @@
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.5.5",
     "save-svg-as-png": "^1.4.17",
-    "tinymce": "^4.9.11",
+    "tinymce": "^5.10.0",
     "tslib": "^2.0.3",
     "zone.js": "~0.10.3"
   },
