@@ -484,7 +484,7 @@ export class PiaService extends ApplicationDb {
    */
   exportData(id: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.find(id).then((pia: PiaService) => {
+      super.find(id).then((pia: PiaService) => {
         // SET progress attribute
         this.calculPiaProgress(pia);
         const data = {
@@ -502,10 +502,7 @@ export class PiaService extends ApplicationDb {
               data['evaluations'] = evaluations;
               this.commentsService.findAllByPia(id).then(comments => {
                 data['comments'] = comments;
-                // attachment.findAll().then((attachments) => {
-                // data['attachments'] = attachments;
                 resolve(data);
-                // });
               });
             });
           });
@@ -532,7 +529,7 @@ export class PiaService extends ApplicationDb {
         reject(new Error('wrong pia file'));
         return;
       }
-      
+
       const pia = new Pia();
       pia.name = '(' + prefix + ') ' + data.pia.name;
       pia.category = data.pia.category;
@@ -589,13 +586,18 @@ export class PiaService extends ApplicationDb {
       }
 
       this.create(pia)
-        .then((piaId: number) => {
+        .then(async (piaId: number) => {
           pia.id = piaId;
+          this.pia_id = pia.id;
+          this.answerService.pia_id = pia.id;
+          this.measuresService.pia_id = pia.id;
+          this.commentsService.pia_id = pia.id;
+          this.evaluationService.pia_id = pia.id;
 
-          this.importAnswers(data.answers, piaId);
-          this.importMeasures(data, piaId, is_duplicate);
+          await this.importAnswers(data.answers, pia.id);
+          await this.importMeasures(data, pia.id, is_duplicate);
           if (!is_duplicate) {
-            this.importComments(data.comments, piaId);
+            await this.importComments(data.comments, pia.id);
           }
 
           // this.pias.push(pia);
