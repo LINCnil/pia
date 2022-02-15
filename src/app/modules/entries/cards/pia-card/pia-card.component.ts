@@ -390,12 +390,12 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   async savePiaAfterUserAssign(field: string): Promise<any> {
-    if (field !== 'guests') {
-      this.pia[field] = this.piaForm.controls[field].value[0].id;
-    }
-    this.pia[field] = this.piaForm.controls[field].value.map(x => x.id);
+    console.log(field);
+    const piaCloned = { ...this.pia };
+    piaCloned[field] = this.piaForm.controls[field].value[0].id;
+    piaCloned['guests'] = this.piaForm.controls['guests'].value.map(x => x.id);
 
-    await this.piaService.update(this.pia).then((resp: Pia) => {
+    await this.piaService.update(piaCloned).then((resp: Pia) => {
       this.pia = resp;
     });
   }
