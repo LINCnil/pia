@@ -109,6 +109,35 @@ export class PiaLineComponent implements OnInit, OnChanges {
     }
   }
 
+  get usersForGuests(): Array<TagModel> {
+    let usersForGuests: Array<TagModel> = this.userList;
+    const validator: { user: User; role: string } = this.pia.user_pias.find(
+      u => u.role === 'validator'
+    );
+    const evaluator: { user: User; role: string } = this.pia.user_pias.find(
+      u => u.role === 'evaluator'
+    );
+    const author: { user: User; role: string } = this.pia.user_pias.find(
+      u => u.role === 'author'
+    );
+    if (validator) {
+      usersForGuests = usersForGuests.filter(
+        (x: User) => x.id !== validator.user.id
+      );
+    }
+    if (evaluator) {
+      usersForGuests = usersForGuests.filter(
+        (x: User) => x.id !== evaluator.user.id
+      );
+    }
+    if (author) {
+      usersForGuests = usersForGuests.filter(
+        (x: User) => x.id !== author.user.id
+      );
+    }
+    return usersForGuests;
+  }
+
   /**
    * Generate a ZIP with the attachments and the .json
    */
