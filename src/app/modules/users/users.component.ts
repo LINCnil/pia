@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -16,6 +17,7 @@ export class UsersComponent implements OnInit {
   public userToEdit: User;
 
   constructor(
+    public authService: AuthService,
     private dialogService: DialogService,
     public usersService: UsersService
   ) {
