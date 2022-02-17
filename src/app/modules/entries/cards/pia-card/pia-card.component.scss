@@ -19,14 +19,12 @@
 }
 
 .tag-input-container {
-  clear: both;
-  width: 100%;
-  float: left;
-  tag-input {
-    float: left;
+  label {
+    display: block;
+    width: 100%;
   }
-
+  tag-input,
   .btn-add-user {
-    float: rigth;
+    display: inline-block;
   }
 }
