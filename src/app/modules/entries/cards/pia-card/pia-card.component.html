@@ -120,7 +120,7 @@
             formControlName="author_name"
             (onAdd)="onAddUser($event, 'author_name')"
             [theme]="'foundation-theme'"
-            (onTextChange)="onTyped($event, pia.id, 'author')"
+            (onTextChange)="onTyped($event, pia.id, 'author_name')"
             [editable]="false"
             [clearOnBlur]="true"
             [placeholder]="'homepage.cards.placeholder_author' | translate"
@@ -154,17 +154,21 @@
             ></tag-input-dropdown>
           </tag-input>
           <button
+            type="button"
             class="btn btn-add-user"
             (click)="
-              onAddUser(
-                { display: addBtnForSpecificInput.display },
+              onAddUserWithIcon(
+                {
+                  display: addBtnForSpecificInput.display,
+                  id: addBtnForSpecificInput.display
+                },
                 'author_name'
               )
             "
             *ngIf="
               addBtnForSpecificInput &&
               addBtnForSpecificInput.pia_id === pia.id &&
-              addBtnForSpecificInput.field === 'author'
+              addBtnForSpecificInput.field === 'author_name'
             "
           >
             +
@@ -204,7 +208,7 @@
             identifyBy="id"
             [maxItems]="1"
             formControlName="evaluator_name"
-            (onTextChange)="onTyped($event, pia.id, 'evaluator')"
+            (onTextChange)="onTyped($event, pia.id, 'evaluator_name')"
             (onAdd)="onAddUser($event, 'evaluator_name')"
             [theme]="'foundation-theme'"
             [editable]="false"
@@ -240,17 +244,21 @@
             ></tag-input-dropdown>
           </tag-input>
           <button
+            type="button"
             class="btn btn-add-user"
             (click)="
-              onAddUser(
-                { display: addBtnForSpecificInput.display },
+              onAddUserWithIcon(
+                {
+                  display: addBtnForSpecificInput.display,
+                  id: addBtnForSpecificInput.display
+                },
                 'evaluator_name'
               )
             "
             *ngIf="
               addBtnForSpecificInput &&
               addBtnForSpecificInput.pia_id === pia.id &&
-              addBtnForSpecificInput.field === 'evaluator'
+              addBtnForSpecificInput.field === 'evaluator_name'
             "
           >
             +
@@ -276,7 +284,10 @@
         <label for="pia-edit-{{ pia.id }}-validator-name">{{
           "homepage.cards.validation" | translate
         }}</label>
-        <div *ngIf="authService.state; else elseValidatorBlock">
+        <div
+          class="tag-input-container"
+          *ngIf="authService.state; else elseValidatorBlock"
+        >
           <tag-input
             #input
             id="pia-edit-{{ pia.id }}-validator-name"
@@ -287,6 +298,7 @@
             identifyBy="id"
             [maxItems]="1"
             formControlName="validator_name"
+            (onTextChange)="onTyped($event, pia.id, 'validator_name')"
             (onAdd)="onAddUser($event, 'validator_name')"
             [theme]="'foundation-theme'"
             [editable]="false"
@@ -322,17 +334,21 @@
             ></tag-input-dropdown>
           </tag-input>
           <button
+            type="button"
             class="btn btn-add-user"
             (click)="
-              onAddUser(
-                { display: addBtnForSpecificInput.display },
+              onAddUserWithIcon(
+                {
+                  display: addBtnForSpecificInput.display,
+                  id: addBtnForSpecificInput.display
+                },
                 'validator_name'
               )
             "
             *ngIf="
               addBtnForSpecificInput &&
               addBtnForSpecificInput.pia_id === pia.id &&
-              addBtnForSpecificInput.field === 'validator'
+              addBtnForSpecificInput.field === 'validator_name'
             "
           >
             +
@@ -401,9 +417,16 @@
           ></tag-input-dropdown>
         </tag-input>
         <button
+          type="button"
           class="btn btn-add-user"
           (click)="
-            onAddUser({ display: addBtnForSpecificInput.display }, 'guests')
+            onAddUserWithIcon(
+              {
+                display: addBtnForSpecificInput.display,
+                id: addBtnForSpecificInput.display
+              },
+              'guests'
+            )
           "
           *ngIf="
             addBtnForSpecificInput &&

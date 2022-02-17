@@ -393,12 +393,18 @@ export class PiaCardComponent implements OnInit, OnChanges {
     });
   }
 
+  onAddUserWithIcon(tag, field) {
+    this.onAddUser(tag, field);
+    this.piaForm.controls[field].setValue([tag]);
+  }
+
   /**
    * Add user to new Pia Form
    * Update user on author, evaluator and validator
    */
   async onAddUser($event: TagModelClass, field: string): Promise<void> {
     // User selected exist ?
+    console.log($event, field);
     const index = this.users.findIndex(u => u.id === $event.id);
 
     if (index === -1) {
@@ -426,6 +432,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
           if (userBehavior.value) {
             // user is created
             let values = this.piaForm.controls[field].value;
+            console.log(userBehavior.value, values);
             values[tagIndex].id = userBehavior.value.id;
             await this.savePiaAfterUserAssign(field);
           } else {

@@ -108,7 +108,7 @@
         (onAdd)="onAddUser($event, 'author_name')"
         [ngModel]="authorField"
         [theme]="'foundation-theme'"
-        (onTextChange)="onTyped($event, pia.id, 'author')"
+        (onTextChange)="onTyped($event, pia.id, 'author_name')"
         [editable]="false"
         [clearOnBlur]="true"
         [placeholder]="'homepage.cards.placeholder_validation' | translate"
@@ -137,12 +137,18 @@
       <button
         class="btn btn-add-user"
         (click)="
-          onAddUser({ display: addBtnForSpecificInput.display }, 'author_name')
+          onAddUser(
+            {
+              display: addBtnForSpecificInput.display,
+              id: addBtnForSpecificInput.display
+            },
+            'author_name'
+          )
         "
         *ngIf="
           addBtnForSpecificInput &&
           addBtnForSpecificInput.pia_id === pia.id &&
-          addBtnForSpecificInput.field === 'author'
+          addBtnForSpecificInput.field === 'author_name'
         "
       >
         +
@@ -170,7 +176,7 @@
         (onAdd)="onAddUser($event, 'evaluator_name')"
         [ngModel]="evaluatorField"
         [theme]="'foundation-theme'"
-        (onTextChange)="onTyped($event, pia.id, 'evaluator')"
+        (onTextChange)="onTyped($event, pia.id, 'evaluator_name')"
         [editable]="false"
         [clearOnBlur]="true"
         [placeholder]="'homepage.cards.placeholder_validation' | translate"
@@ -200,14 +206,17 @@
         class="btn btn-add-user"
         (click)="
           onAddUser(
-            { display: addBtnForSpecificInput.display },
+            {
+              display: addBtnForSpecificInput.display,
+              id: addBtnForSpecificInput.display
+            },
             'evaluator_name'
           )
         "
         *ngIf="
           addBtnForSpecificInput &&
           addBtnForSpecificInput.pia_id === pia.id &&
-          addBtnForSpecificInput.field === 'evaluator'
+          addBtnForSpecificInput.field === 'evaluator_name'
         "
       >
         +
@@ -235,7 +244,7 @@
         (onAdd)="onAddUser($event, 'validator_name')"
         [ngModel]="validatorField"
         [theme]="'foundation-theme'"
-        (onTextChange)="onTyped($event, pia.id, 'validator')"
+        (onTextChange)="onTyped($event, pia.id, 'validator_name')"
         [editable]="false"
         [clearOnBlur]="true"
         [placeholder]="'homepage.cards.placeholder_validation' | translate"
@@ -265,14 +274,17 @@
         class="btn btn-add-user"
         (click)="
           onAddUser(
-            { display: addBtnForSpecificInput.display },
+            {
+              display: addBtnForSpecificInput.display,
+              id: addBtnForSpecificInput.display
+            },
             'validator_name'
           )
         "
         *ngIf="
           addBtnForSpecificInput &&
           addBtnForSpecificInput.pia_id === pia.id &&
-          addBtnForSpecificInput.field === 'validator'
+          addBtnForSpecificInput.field === 'validator_name'
         "
       >
         +
@@ -319,7 +331,15 @@
     </tag-input>
     <button
       class="btn btn-add-user"
-      (click)="onAddUser({ display: addBtnForSpecificInput.display }, 'guests')"
+      (click)="
+        onAddUser(
+          {
+            display: addBtnForSpecificInput.display,
+            id: addBtnForSpecificInput.display
+          },
+          'guests'
+        )
+      "
       *ngIf="
         addBtnForSpecificInput &&
         addBtnForSpecificInput.pia_id === pia.id &&
