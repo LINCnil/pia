@@ -98,12 +98,24 @@ tr {
 }
 
 .tag-input-container {
+  position: relative;
   label {
     display: block;
     width: 100%;
   }
-  tag-input,
-  .btn-add-user {
-    display: inline-block;
+  tag-input {
+    z-index: 200;
   }
+  .btn-add-user {
+    color: $pia-blue;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+  }
+  // tag-input,
+  // .btn-add-user {
+  //   display: inline-block;
+  // }
 }

@@ -19,12 +19,21 @@
 }
 
 .tag-input-container {
+  position: relative;
   label {
     display: block;
     width: 100%;
   }
-  tag-input,
   .btn-add-user {
-    display: inline-block;
+    color: $pia-blue;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 0;
   }
+  // tag-input,
+  // .btn-add-user {
+  //   display: inline-block;
+  // }
 }
