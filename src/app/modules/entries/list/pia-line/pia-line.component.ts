@@ -45,6 +45,11 @@ export class PiaLineComponent implements OnInit, OnChanges {
   validatorField: Array<TagModelClass> = [];
   evaluatorField: Array<TagModelClass> = [];
   guestField: Array<TagModelClass> = [];
+  addBtnForSpecificInput: {
+    display: string;
+    pia_id: number;
+    field: string;
+  } = null;
 
   constructor(
     public piaService: PiaService,
@@ -106,6 +111,18 @@ export class PiaLineComponent implements OnInit, OnChanges {
           id: x.id
         };
       });
+    }
+  }
+
+  onTyped($event, pia_id, field) {
+    if ($event != '') {
+      this.addBtnForSpecificInput = {
+        display: $event,
+        pia_id: pia_id,
+        field: field
+      };
+    } else {
+      this.addBtnForSpecificInput = null;
     }
   }
 
