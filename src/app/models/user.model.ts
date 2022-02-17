@@ -7,4 +7,5 @@ export class User {
   public access_type: Array<string> = [];
   public uuid?: string;
   resource_owner_id?: number;
+  user_pias: Array<any> = [];
 }
