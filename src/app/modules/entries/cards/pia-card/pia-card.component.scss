@@ -17,3 +17,16 @@
 .pia-cardsBlock-item-form {
   padding-bottom: 65px;
 }
+
+.tag-input-container {
+  clear: both;
+  width: 100%;
+  float: left;
+  tag-input {
+    float: left;
+  }
+
+  .btn-add-user {
+    float: rigth;
+  }
+}

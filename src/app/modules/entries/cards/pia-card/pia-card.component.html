@@ -103,7 +103,10 @@
           "homepage.cards.author" | translate
         }}</label>
 
-        <div *ngIf="authService.state; else elseAuthorBlock">
+        <div
+          class="tag-input-container"
+          *ngIf="authService.state; else elseAuthorBlock"
+        >
           <tag-input
             #input
             id="pia-edit-{{ pia.id }}-author-name"
@@ -117,6 +120,7 @@
             formControlName="author_name"
             (onAdd)="onAddUser($event, 'author_name')"
             [theme]="'foundation-theme'"
+            (onTextChange)="onTyped($event, pia.id, 'author')"
             [editable]="false"
             [clearOnBlur]="true"
             [placeholder]="'homepage.cards.placeholder_author' | translate"
@@ -149,6 +153,22 @@
               [autocompleteItems]="userList"
             ></tag-input-dropdown>
           </tag-input>
+          <button
+            class="btn btn-green btn-add-user"
+            (click)="
+              onAddUser(
+                { display: addBtnForSpecificInput.display },
+                'author_name'
+              )
+            "
+            *ngIf="
+              addBtnForSpecificInput &&
+              addBtnForSpecificInput.pia_id === pia.id &&
+              addBtnForSpecificInput.field === 'author'
+            "
+          >
+            +
+          </button>
         </div>
         <ng-template #elseAuthorBlock>
           <div (click)="piaAuthorNameFocusIn()">
@@ -170,7 +190,10 @@
         <label for="pia-edit-{{ pia.id }}-evaluator-name">{{
           "homepage.cards.evaluation" | translate
         }}</label>
-        <div *ngIf="authService.state; else elseEvaluatorBlock">
+        <div
+          class="tag-input-container"
+          *ngIf="authService.state; else elseEvaluatorBlock"
+        >
           <tag-input
             #input
             id="pia-edit-{{ pia.id }}-evaluator-name"
@@ -181,6 +204,7 @@
             identifyBy="id"
             [maxItems]="1"
             formControlName="evaluator_name"
+            (onTextChange)="onTyped($event, pia.id, 'evaluator')"
             (onAdd)="onAddUser($event, 'evaluator_name')"
             [theme]="'foundation-theme'"
             [editable]="false"
@@ -215,6 +239,22 @@
               [autocompleteItems]="userList"
             ></tag-input-dropdown>
           </tag-input>
+          <button
+            class="btn btn-green btn-add-user"
+            (click)="
+              onAddUser(
+                { display: addBtnForSpecificInput.display },
+                'evaluator_name'
+              )
+            "
+            *ngIf="
+              addBtnForSpecificInput &&
+              addBtnForSpecificInput.pia_id === pia.id &&
+              addBtnForSpecificInput.field === 'evaluator'
+            "
+          >
+            +
+          </button>
         </div>
         <ng-template #elseEvaluatorBlock>
           <div (click)="piaEvaluatorNameFocusIn()">
@@ -281,6 +321,22 @@
               [autocompleteItems]="userList"
             ></tag-input-dropdown>
           </tag-input>
+          <button
+            class="btn btn-green btn-add-user"
+            (click)="
+              onAddUser(
+                { display: addBtnForSpecificInput.display },
+                'validator_name'
+              )
+            "
+            *ngIf="
+              addBtnForSpecificInput &&
+              addBtnForSpecificInput.pia_id === pia.id &&
+              addBtnForSpecificInput.field === 'validator'
+            "
+          >
+            +
+          </button>
         </div>
         <ng-template #elseValidatorBlock>
           <div (click)="piaValidatorNameFocusIn()">
@@ -299,7 +355,7 @@
         </ng-template>
       </div>
 
-      <div *ngIf="authService.state">
+      <div class="tag-input-container" *ngIf="authService.state">
         <label for="pia-edit-{{ pia.id }}-guest-name">{{
           "homepage.cards.guest" | translate
         }}</label>
@@ -313,6 +369,7 @@
           "
           identifyBy="id"
           formControlName="guests"
+          (onTextChange)="onTyped($event, pia.id, 'guests')"
           (onAdd)="onAddUser($event, 'guests')"
           (onRemove)="onRemove($event, 'guests')"
           [theme]="'foundation-theme'"
@@ -343,6 +400,19 @@
             [autocompleteItems]="usersForGuests"
           ></tag-input-dropdown>
         </tag-input>
+        <button
+          class="btn btn-green btn-add-user"
+          (click)="
+            onAddUser({ display: addBtnForSpecificInput.display }, 'guests')
+          "
+          *ngIf="
+            addBtnForSpecificInput &&
+            addBtnForSpecificInput.pia_id === pia.id &&
+            addBtnForSpecificInput.field === 'guests'
+          "
+        >
+          +
+        </button>
       </div>
 
       <div (click)="piaCategoryFocusIn()">

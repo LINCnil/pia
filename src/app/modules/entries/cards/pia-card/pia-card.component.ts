@@ -43,6 +43,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
   piaForm: FormGroup;
   attachments: any;
   userList: Array<TagModel> = [];
+  addBtnForSpecificInput: {
+    display: string;
+    pia_id: number;
+    field: string;
+  } = null;
 
   @ViewChild('piaName') piaName: ElementRef;
   @ViewChild('piaCategory') piaCategory: ElementRef;
@@ -150,6 +155,22 @@ export class PiaCardComponent implements OnInit, OnChanges {
         };
       });
     }
+  }
+
+  onTyped($event, pia_id, field) {
+    if ($event != '') {
+      this.addBtnForSpecificInput = {
+        display: $event,
+        pia_id: pia_id,
+        field: field
+      };
+    } else {
+      this.addBtnForSpecificInput = null;
+    }
+  }
+
+  get f() {
+    return this.piaForm.controls;
   }
 
   get usersForGuests(): Array<TagModel> {
@@ -419,7 +440,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   async savePiaAfterUserAssign(field: string): Promise<any> {
-    console.log(field);
+    // console.log(field);
     const piaCloned = { ...this.pia };
     piaCloned[field] = this.piaForm.controls[field].value[0].id;
     piaCloned['guests'] = this.piaForm.controls['guests'].value.map(x => x.id);
