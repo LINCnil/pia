@@ -17,7 +17,13 @@
     {{ "homepage.cards.category" | translate }} "{{ pia.category }}"
   </div>
 
-  <div class="pia-sectionBlock-category">Mode: {{ editMode }}</div>
+  <div class="pia-sectionBlock-category">
+    {{ "users.role.label" | translate }}: [<ng-container
+      *ngFor="let item of editMode; let i = index"
+      >{{ "users.role." + item | translate
+      }}<span *ngIf="i < editMode.length - 1">, </span></ng-container
+    >]
+  </div>
 
   <div class="pia-sectionBlock-body" *ngIf="!loading; else statusSettingElse">
     <div
