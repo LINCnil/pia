@@ -328,6 +328,7 @@ export class GlobalEvaluationService {
             const newEvaluation = new Evaluation();
             newEvaluation.pia_id = this.pia.id;
             newEvaluation.reference_to = reference_to;
+            newEvaluation.evaluation_infos = JSON.stringify(this.item);
             this.evaluationService.create(newEvaluation).then(entry => {
               resolve(entry);
             });
