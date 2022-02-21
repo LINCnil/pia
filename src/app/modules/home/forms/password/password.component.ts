@@ -50,12 +50,9 @@ export class PasswordComponent implements OnInit {
                 hasSmallCase: true
               }),
               // 5. check whether the entered password has a special char
-              CustomValidators.patternValidator(
-                /[!@#$%^&*(),.?":{}|<>_'àáâãäåçèéêëìíîïðòóôõöùúûüýÿ -]/,
-                {
-                  hashSpecialChar: true
-                }
-              ),
+              CustomValidators.patternValidator(/[!@#$%^&*(),.?":{}|<>_' -]/, {
+                hashSpecialChar: true
+              }),
               // 6. Has a minimum length of 8 characters
               Validators.minLength(12)
             ])
