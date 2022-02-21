@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -16,6 +17,7 @@ export class UsersComponent implements OnInit {
   public userToEdit: User;
 
   constructor(
+    public authService: AuthService,
     private dialogService: DialogService,
     public usersService: UsersService
   ) {
@@ -42,6 +44,7 @@ export class UsersComponent implements OnInit {
     this.usersService
       .preventDeleteUser(userId)
       .then(() => {
+        const index = this.users.findIndex(u => u.id === userId);
         this.dialogService.confirmThis(
           {
             text: 'modals.users.delete.content',
@@ -50,6 +53,10 @@ export class UsersComponent implements OnInit {
             no: 'modals.cancel',
             icon: 'pia-icons pia-icon-sad',
             data: {
+              additional_text:
+                index != -1 && this.users[index].user_pias.length > 0
+                  ? 'modals.users.delete.pia_exist'
+                  : null,
               btn_no: 'btn-blue',
               btn_yes: 'btn-red',
               modal_id: 'deleteUser'
@@ -61,7 +68,6 @@ export class UsersComponent implements OnInit {
               .deleteUser(userId)
               .then(() => {
                 // Delete from this.users
-                const index = this.users.findIndex(u => u.id === userId);
                 if (index !== -1) {
                   this.users.splice(index, 1);
                 }

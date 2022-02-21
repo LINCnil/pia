@@ -43,6 +43,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
   piaForm: FormGroup;
   attachments: any;
   userList: Array<TagModel> = [];
+  addBtnForSpecificInput: {
+    display: string;
+    pia_id: number;
+    field: string;
+  } = null;
 
   @ViewChild('piaName') piaName: ElementRef;
   @ViewChild('piaCategory') piaCategory: ElementRef;
@@ -150,6 +155,51 @@ export class PiaCardComponent implements OnInit, OnChanges {
         };
       });
     }
+  }
+
+  onTyped($event, pia_id, field) {
+    if ($event != '') {
+      this.addBtnForSpecificInput = {
+        display: $event,
+        pia_id: pia_id,
+        field: field
+      };
+    } else {
+      this.addBtnForSpecificInput = null;
+    }
+  }
+
+  get f() {
+    return this.piaForm.controls;
+  }
+
+  get usersForGuests(): Array<TagModel> {
+    let usersForGuests: Array<TagModel> = this.userList;
+    const validator: { user: User; role: string } = this.pia.user_pias.find(
+      u => u.role === 'validator'
+    );
+    const evaluator: { user: User; role: string } = this.pia.user_pias.find(
+      u => u.role === 'evaluator'
+    );
+    const author: { user: User; role: string } = this.pia.user_pias.find(
+      u => u.role === 'author'
+    );
+    if (validator) {
+      usersForGuests = usersForGuests.filter(
+        (x: User) => x.id !== validator.user.id
+      );
+    }
+    if (evaluator) {
+      usersForGuests = usersForGuests.filter(
+        (x: User) => x.id !== evaluator.user.id
+      );
+    }
+    if (author) {
+      usersForGuests = usersForGuests.filter(
+        (x: User) => x.id !== author.user.id
+      );
+    }
+    return usersForGuests;
   }
 
   /**
@@ -343,12 +393,18 @@ export class PiaCardComponent implements OnInit, OnChanges {
     });
   }
 
+  onAddUserWithIcon(tag, field) {
+    this.onAddUser(tag, field);
+    this.piaForm.controls[field].setValue([tag]);
+  }
+
   /**
    * Add user to new Pia Form
    * Update user on author, evaluator and validator
    */
   async onAddUser($event: TagModelClass, field: string): Promise<void> {
     // User selected exist ?
+    console.log($event, field);
     const index = this.users.findIndex(u => u.id === $event.id);
 
     if (index === -1) {
@@ -376,6 +432,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
           if (userBehavior.value) {
             // user is created
             let values = this.piaForm.controls[field].value;
+            console.log(userBehavior.value, values);
             values[tagIndex].id = userBehavior.value.id;
             await this.savePiaAfterUserAssign(field);
           } else {
@@ -390,12 +447,12 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   async savePiaAfterUserAssign(field: string): Promise<any> {
-    if (field !== 'guests') {
-      this.pia[field] = this.piaForm.controls[field].value[0].id;
-    }
-    this.pia[field] = this.piaForm.controls[field].value.map(x => x.id);
+    // console.log(field);
+    const piaCloned = { ...this.pia };
+    piaCloned[field] = this.piaForm.controls[field].value[0].id;
+    piaCloned['guests'] = this.piaForm.controls['guests'].value.map(x => x.id);
 
-    await this.piaService.update(this.pia).then((resp: Pia) => {
+    await this.piaService.update(piaCloned).then((resp: Pia) => {
       this.pia = resp;
     });
   }
