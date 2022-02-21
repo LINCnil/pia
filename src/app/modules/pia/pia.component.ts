@@ -195,7 +195,7 @@ export class PiaComponent implements OnInit, DoCheck {
           } else {
             this.pia.user_pias.forEach(up => {
               if (
-                up.user.id ===
+                parseInt(up.user.id) ===
                   this.authService.currentUserValue.resource_owner_id &&
                 Array.isArray(this.editMode)
               ) {
