@@ -12,4 +12,5 @@ export class Evaluation {
   public global_status = 0; // 0: No evaluation, 1: Evaluation started, 2: Evaluation completed
   public created_at;
   public updated_at;
+  evaluation_infos: string;
 }
