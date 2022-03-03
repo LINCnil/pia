@@ -124,7 +124,10 @@ export class GlobalEvaluationService {
             } else {
               evaluation.global_status = 2;
             }
+
+            evaluation.evaluation_infos = JSON.stringify(this.item);
             this.evaluationService.update(evaluation).then(async () => {
+              console.log('test update');
               await this.validate();
               resolve(evaluation.status === 1);
             });
@@ -146,6 +149,8 @@ export class GlobalEvaluationService {
                 } else {
                   evaluation.global_status = 2;
                 }
+
+                evaluation.evaluation_infos = JSON.stringify(this.item);
                 this.evaluationService.update(evaluation).then(async () => {
                   count++;
                   if (count === this.answersOrMeasures.length) {
