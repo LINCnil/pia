@@ -127,7 +127,6 @@ export class GlobalEvaluationService {
 
             evaluation.evaluation_infos = JSON.stringify(this.item);
             this.evaluationService.update(evaluation).then(async () => {
-              console.log('test update');
               await this.validate();
               resolve(evaluation.status === 1);
             });
