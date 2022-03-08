@@ -17,7 +17,7 @@
     {{ "homepage.cards.category" | translate }} "{{ pia.category }}"
   </div>
 
-  <div class="pia-sectionBlock-category">
+  <div class="pia-sectionBlock-category" *ngIf="editMode !== 'local'">
     {{ "users.role.label" | translate }}: [<ng-container
       *ngFor="let item of editMode; let i = index"
       >{{ "users.role." + item | translate
