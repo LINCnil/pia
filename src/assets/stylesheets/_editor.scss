@@ -2,7 +2,7 @@
   border: none;
   margin-bottom: 30px;
   > div {
-    border-bottom: 2px solid #3ee095;
+    border-bottom: 2px solid $pia-green;
   }
 }
 
@@ -13,14 +13,14 @@
     position: absolute;
     bottom: 0;
     left: 66px;
-    background-color: #3ee095;
+    background-color: $pia-green;
     .mce-widget,
     .mce-btn {
-      background-color: #3ee095;
+      background-color: $pia-green;
     }
   }
   .mce-flow-layout {
-    background-color: #3ee095 !important;
+    background-color: $pia-green !important;
     position: absolute;
     bottom: -32px;
     &:before {
@@ -30,7 +30,7 @@
       left: 242px;
       border-left: 16px solid transparent;
       border-right: 16px solid transparent;
-      border-bottom: 16px solid #3ee095;
+      border-bottom: 16px solid $pia-green;
       margin-left: -16px;
     }
     i {
@@ -41,10 +41,13 @@
 
 .mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last {
   border: none !important;
+  iframe {
+    background-color: #eee !important;
+  }
 }
 
 app-editor {
   width: 90%;
-  border-bottom: #3ee095 solid 0.3rem;
+  border-bottom: $pia-green solid 0.3rem;
   margin: auto;
 }

@@ -480,6 +480,30 @@
                     {{ "header.languages.sv" | translate }}
                   </a>
                 </li>
+                <li
+                  [ngClass]="{
+                    is_active: languagesService.selectedLanguage === 'lv'
+                  }"
+                >
+                  <a
+                    href="javascript:;"
+                    (click)="languagesService.updateCurrentLanguage('lv')"
+                  >
+                    {{ "header.languages.lv" | translate }}
+                  </a>
+                </li>
+                <li
+                  [ngClass]="{
+                    is_active: languagesService.selectedLanguage === 'bg'
+                  }"
+                >
+                  <a
+                    href="javascript:;"
+                    (click)="languagesService.updateCurrentLanguage('bg')"
+                  >
+                    {{ "header.languages.bg" | translate }}
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>

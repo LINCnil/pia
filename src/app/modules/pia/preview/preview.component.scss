@@ -1,4 +1,6 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
+@import "~/src/app/modules/pia/content/action-plan/action-plan.component";
+
 
 .pia {
   &-fullPreviewBlock {
@@ -83,7 +85,8 @@
             a {
               width: 81%;
               border-radius: 4px;
-              &:hover, &.active {
+              &:hover,
+              &.active {
                 color: #fff !important;
               }
             }
@@ -99,7 +102,8 @@
                   max-width: 164px;
                 }
                 a {
-                  &:hover,, &.active {
+                  &:hover,
+                  &.active {
                     background-color: $pia-green;
                   }
                 }
@@ -114,7 +118,8 @@
                   max-width: 62px;
                 }
                 a {
-                  &:hover, &.active {
+                  &:hover,
+                  &.active {
                     background-color: $pia-blue;
                   }
                 }
@@ -129,7 +134,8 @@
                   max-width: 182px;
                 }
                 a {
-                  &:hover, &.active {
+                  &:hover,
+                  &.active {
                     background-color: $pia-red;
                   }
                 }
@@ -145,7 +151,8 @@
                   display: none;
                 }
                 a {
-                  &:hover, &.active {
+                  &:hover,
+                  &.active {
                     background-color: $pia-dark-black;
                   }
                 }
@@ -172,10 +179,10 @@
     margin-bottom: 80px;
     h1 {
       color: $pia-blue;
-      border-bottom: 4px solid #091C6B;
+      border-bottom: 4px solid $pia-blue;
     }
     h2 {
-      color: #393939;
+      color: $pia-light-black;
       margin: 0;
       padding: 15px 20px;
       background-color: #fff;
@@ -183,7 +190,7 @@
       font-size: 1.6rem;
     }
     h3 {
-      color: #091C6B;
+      color: $pia-blue;
       margin: 2px 0;
       font-weight: 500;
     }
@@ -210,7 +217,7 @@
     .actionplanbox {
       h2 {
         margin: 2px 0;
-        color: #393939;
+        color: $pia-light-black;
       }
     }
     .evaluationValue {
@@ -267,7 +274,8 @@
       &-title {
         padding-bottom: 16px;
         width: 87%;
-        h1, h2 {
+        h1,
+        h2 {
           margin: 0;
           padding: 0;
           line-height: 1.2;
@@ -338,7 +346,7 @@
             position: absolute;
             left: 0;
             top: 50%;
-            content: '';
+            content: "";
             height: 12px;
             width: 1px;
             margin-top: -6px;
@@ -346,7 +354,7 @@
           }
           &:before {
             position: absolute;
-            content: '';
+            content: "";
             left: 0;
             right: 0;
             top: 50%;
@@ -386,7 +394,8 @@
           padding-top: 5px;
           border: 1px solid $pia-green;
         }
-        i, div {
+        i,
+        div {
           color: $pia-green;
         }
         div {
@@ -446,7 +455,7 @@
       }
     }
     &-subheadline {
-      color: #393939 !important;
+      color: $pia-light-black !important;
       margin: 0 !important;
       padding: 10px 0;
       background-color: #fff;
@@ -464,10 +473,8 @@
       }
     }
   }
-
 }
 
 .pagebreak {
   page-break-before: always;
 }
-

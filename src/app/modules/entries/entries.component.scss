@@ -447,19 +447,19 @@
         }
       }
       .pia-filtersBlock-filters-list {
-        border: 2px solid #fd4664;
+        border: 2px solid $pia-red;
         li:focus,
         li:hover,
         li:active,
         li .active {
-          background-color: #fd4664;
+          background-color: $pia-red;
         }
       }
       &:focus,
       &:hover,
       &:active {
         .pia-filtersBlock-filters-btn {
-          background-color: #fd4664;
+          background-color: $pia-red;
           color: white;
         }
         + .pia-filtersBlock-filters-list {

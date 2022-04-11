@@ -2,7 +2,8 @@ name: integration-tests
 on: [push]
 jobs:
   cypress-run:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.7.0-chrome84
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -10,7 +11,7 @@ jobs:
       - name: Cypress
         uses: cypress-io/github-action@v2
         with:
-          start: npm start
+          start: yarn start
           browser: chrome
           headless: true
           wait-on: http://localhost:4200

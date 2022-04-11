@@ -45,7 +45,7 @@ Cypress.Commands.add("import_pia", () => {
 
   // Import
   cy.get('input[type="file"]#import_file').attachFile(filepath);
-  cy.wait(5000);
+  cy.wait(10000);
 
   // there is a new pia ?
   cy.get(".pia-cardsBlock.pia").should("have.length", 1);

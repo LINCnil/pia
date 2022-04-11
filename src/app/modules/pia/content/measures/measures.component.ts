@@ -329,7 +329,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      content_style: 'body {background-color:#eee!important;}',
       selector: '#' + this.elementId,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',

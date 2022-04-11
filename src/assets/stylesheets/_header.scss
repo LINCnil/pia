@@ -68,7 +68,7 @@
             }
             a {
               padding: 10px 0 !important;
-              color: #393939 !important;
+              color: $pia-light-black !important;
               font-weight: 400 !important;
               color: $pia-blue;
               padding: 0 8px;
@@ -324,7 +324,7 @@
           .dpaTranslations,
           .communityTranslations {
             font-weight: 600;
-            color: #393939;
+            color: $pia-light-black;
             list-style-type: none;
             padding: 5px 8px;
           }
