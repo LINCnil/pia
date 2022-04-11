@@ -148,16 +148,25 @@ export class KnowledgeBaseService extends ApplicationDb {
 
         const newKnowledgeBase = new KnowledgeBase(
           null,
-          data.name + ' (copy)',
+          data.name + ' (IMPORT)',
           data.author,
           data.contributors,
           new Date()
         );
         this.create(newKnowledgeBase)
-          .then((resp: KnowledgeBase) => {
+          .then(async (resp: KnowledgeBase) => {
+            newKnowledgeBase.id = resp.id;
+            for (const knowledge of data.knowledges) {
+              delete knowledge.id;
+              await this.knowledgesService
+                .add(newKnowledgeBase.id, knowledge)
+                .then()
+                .catch();
+            }
             resolve(newKnowledgeBase);
           })
           .catch(error => {
+            console.log(error);
             reject(error);
           });
       };
