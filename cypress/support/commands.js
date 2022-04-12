@@ -326,7 +326,7 @@ Cypress.Commands.add("validatePia", () => {
   cy.get(".pia-validatePIABlock")
     .find(".btn-green")
     .should("have.class", "btn-active")
-    .click();
+    .click({ force: true });
   cy.wait(1000)
     .get(".pia-entryContentBlock-content-list-confirm")
     .each(($el, $index, $list) => {
@@ -335,7 +335,7 @@ Cypress.Commands.add("validatePia", () => {
         .click({ force: true });
     })
     .then(() => {
-      cy.get("#pia-simple-validation").click();
+      cy.get("#pia-simple-validation").click({ force: true });
     });
 });
 Cypress.Commands.add("validateModalComplete", () => {
@@ -359,7 +359,7 @@ Cypress.Commands.add("refusePia", () => {
     .then(() => {
       cy.get(".btn-red")
         .first()
-        .click();
+        .click({ force: true });
       cy.wait(6000);
       cy.get(".pia-entryContentBlock-content-subject-textarea")
         .find("textarea", { force: true })
@@ -373,7 +373,7 @@ Cypress.Commands.add("refusePia", () => {
         });
       cy.get(".pia-entryContentBlock-content-subject")
         .wait(1000)
-        .click("bottom");
+        .click("bottom", { force: true });
       cy.wait(1000)
         .get(".pia-entryContentBlock-footer")
         .find("button")
