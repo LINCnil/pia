@@ -325,7 +325,6 @@ export class ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            console.error('Request failed', error);
             reject(error);
           });
       } else {

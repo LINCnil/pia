@@ -19,6 +19,7 @@ import { MeasureService } from './measures.service';
 import { CommentsService } from './comments.service';
 import { EvaluationService } from './evaluation.service';
 import { ApiService } from './api.service';
+import { AuthService } from './auth.service';
 
 function encode_utf8(s): string {
   return unescape(encodeURIComponent(s));
@@ -39,6 +40,7 @@ export class PiaService extends ApplicationDb {
     private measuresService: MeasureService,
     private commentsService: CommentsService,
     private evaluationService: EvaluationService,
+    private authService: AuthService,
     protected apiService: ApiService
   ) {
     // PREPARE DBS
@@ -439,9 +441,6 @@ export class PiaService extends ApplicationDb {
       const pia = new Pia();
       pia.name = '(' + prefix + ') ' + data.pia.name;
       pia.category = data.pia.category;
-      pia.author_name = data.pia.author_name;
-      pia.evaluator_name = data.pia.evaluator_name;
-      pia.validator_name = data.pia.validator_name;
       pia.dpo_status = data.pia.dpo_status;
       pia.dpo_opinion = data.pia.dpo_opinion;
       pia.concerned_people_opinion = data.pia.concerned_people_opinion;
@@ -455,6 +454,34 @@ export class PiaService extends ApplicationDb {
       pia.created_at = data.pia.created_at;
       pia.dpos_names = data.pia.dpos_names;
       pia.people_names = data.pia.people_names;
+      console.log(this.authService.state, data);
+
+      if (this.authService.state && data.pia.user_pias) {
+        const author = data.pia.user_pias.find(
+          user_pia => user_pia.role === 'author'
+        );
+        const evaluator = data.pia.user_pias.find(
+          user_pia => user_pia.role === 'evaluator'
+        );
+        const validator = data.pia.user_pias.find(
+          user_pia => user_pia.role === 'validator'
+        );
+        console.log(author, evaluator, validator);
+        if (author) {
+          pia.author_name = author.user.id;
+        }
+        if (evaluator) {
+          pia.evaluator_name = evaluator.user.id;
+        }
+        if (validator) {
+          pia.validator_name = validator.user.id;
+        }
+      } else {
+        pia.author_name = data.pia.author_name;
+        pia.evaluator_name = data.pia.evaluator_name;
+        pia.validator_name = data.pia.validator_name;
+      }
+
       /* Structure import if there is a specific one associated to this PIA */
       if (data.pia.structure_id) {
         pia.structure_id = data.pia.structure_id;
