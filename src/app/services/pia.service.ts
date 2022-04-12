@@ -476,6 +476,8 @@ export class PiaService extends ApplicationDb {
         if (validator) {
           pia.validator_name = validator.user.id;
         }
+
+        pia.guests = data.pia.guests.map(guest => guest.id).join(',');
       } else {
         pia.author_name = data.pia.author_name;
         pia.evaluator_name = data.pia.evaluator_name;
