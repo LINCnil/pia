@@ -61,8 +61,7 @@ describe("Entries_card", () => {
       cy.visit(`/#/entries`);
       cy.wait(3000);
       cy.get(".pia-cardsBlock.pia").should("have.length", 1);
-      cy.get(".pia-cardsBlock-toolbar-export a")
-        .eq(1)
+      cy.get(".pia-cardsBlock-toolbar-export a:eq(0)")
         .click()
         .then(() => {
           cy.wait(10000);
