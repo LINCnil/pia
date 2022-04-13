@@ -3,7 +3,7 @@ describe("Entries_table", () => {
    * initialization
    */
   before(() => {
-    // Clear datas
+    // Clear data
     cy.init();
   });
 

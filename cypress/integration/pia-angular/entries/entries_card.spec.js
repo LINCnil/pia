@@ -3,7 +3,7 @@ describe("Entries_card", () => {
    * initialization
    */
   before(() => {
-    // Clear datas
+    // Clear data
     cy.init();
   });
 
