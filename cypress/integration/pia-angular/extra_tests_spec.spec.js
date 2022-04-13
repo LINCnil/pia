@@ -3,7 +3,7 @@ describe("Test Search KnowledgeBase", () => {
    * initialization
    */
   before(() => {
-    // Clear datas
+    // Clear data
     cy.init();
   });
 
