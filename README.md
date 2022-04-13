@@ -1,3 +1,5 @@
+# Pia [v.3.0.1](https://github.com/LINCnil/pia/releases/tag/v3.0.1)
+
 # Le logiciel PIA / The PIA Software
 
 ## Présentation / Presentation
@@ -20,6 +22,7 @@ To translate the software, we invite you to visit the [related repository](https
 
 ![CI](https://github.com/lincnil/pia/workflows/integration-tests/badge.svg?branch=master)
 [![CodeQL](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml/badge.svg?branch=3.0.0)](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 

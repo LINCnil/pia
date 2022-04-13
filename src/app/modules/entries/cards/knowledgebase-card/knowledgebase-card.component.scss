@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 .pia-cardsBlock-item.pia-doingBlock-item {
   input {
     &:focus,
@@ -18,4 +18,12 @@
       background-color: $pia-red;
     }
   }
+}
+.pia-cardsBlock-item-btn {
+  position: absolute;
+  bottom: 0;
+  width: 93%;
+}
+.pia-cardsBlock-item-form {
+  padding-bottom: 65px;
 }

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
 import { AppDataService } from 'src/app/services/app-data.service';
 import { Pia } from '../models/pia.model';
 import { PiaService } from './pia.service';
@@ -19,34 +18,17 @@ export class ArchiveService {
     this.data = this.appDataService.dataNav;
   }
 
-  async calculProgress(): Promise<void> {
-    this.archivedPias.forEach((archivedPia: Pia) => {
-      this.calculPiaProgress(archivedPia);
-    });
-  }
-
-  async calculPiaProgress(pia): Promise<void> {
-    pia.progress = 0.0;
-    if (pia.status > 0) {
-      pia.progress += 4;
-    }
-    this.data.sections.forEach((section: any) => {
-      section.items.forEach((item: any) => {
-        this.sidStatusService.setSidStatus(pia, section, item);
-      });
-    });
-  }
-
   // UPDATE
   remove(id): Promise<void> {
     return new Promise((resolve, reject) => {
       // Removes from DB
-      this.piaService.delete(id)
+      this.piaService
+        .delete(id)
         .then(() => {
           localStorage.removeItem('pia-to-remove-id');
           resolve();
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
     });
@@ -54,13 +36,15 @@ export class ArchiveService {
 
   unarchive(id): Promise<void> {
     return new Promise((resolve, reject) => {
-      this.piaService.find(id)
+      this.piaService
+        .find(id)
         .then((entry: Pia) => {
           entry.is_archive = 0;
+          entry.progress = 0; // Is calculated in PiaService
           this.piaService.update(entry);
           resolve();
         })
-        .catch((err) => {
+        .catch(err => {
           reject(err);
         });
     });

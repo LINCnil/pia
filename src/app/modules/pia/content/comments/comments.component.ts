@@ -15,6 +15,9 @@ import { CommentsService } from 'src/app/services/comments.service';
 export class CommentsComponent implements OnInit {
   commentsForm: FormGroup;
   comments: any;
+  @Input() editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
   @Input() question: any;
   @Input() measure: any;
   @Input() questionId: any;

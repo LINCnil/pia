@@ -20,7 +20,12 @@
             <div>{{ "homepage.cards.item.tools.export" | translate }}</div>
           </button>
         </div>
-        <div>
+        <div
+          *ngIf="
+            ['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
+            editMode === 'local'
+          "
+        >
           <button type="button" (click)="restoreRevision()">
             <i aria-hidden="true" class="fa fa-refresh"></i>
             <div>{{ "summary.revision.restore_version" | translate }}</div>
@@ -56,6 +61,15 @@
               <div>
                 <div>{{ "summary.preview_validation" | translate }} :</div>
                 <div>{{ export.pia.validator_name }}</div>
+              </div>
+
+              <div *ngIf="this.authService.state">
+                <div>{{ "summary.preview_guests" | translate }} :</div>
+                <div>
+                  <ng-container *ngFor="let guest of export.pia.guests">
+                    {{ guest.firstname + " " + guest.lastname }},
+                  </ng-container>
+                </div>
               </div>
             </div>
             <div>

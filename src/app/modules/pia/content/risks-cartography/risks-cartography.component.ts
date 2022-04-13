@@ -12,7 +12,6 @@ import { Pia } from 'src/app/models/pia.model';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: `.app-risks-cartography`,
   templateUrl: './risks-cartography.component.html',
   styleUrls: ['./risks-cartography.component.scss']
@@ -36,7 +35,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     private evaluationService: EvaluationService
   ) {}
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.risk1Letter = this.translateService.instant(
       'cartography.risk1_access'
     );
@@ -157,14 +156,14 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
   /**
    * Loads the risks cartography with author and evalutor choices positioned as dots.
    */
-  loadCartography() {
+  loadCartography(): void {
     // Instanciation of canvas context
     const canvas = <HTMLCanvasElement>(
       document.getElementById('actionPlanCartography')
@@ -541,7 +540,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
     fromy: number,
     tox: number,
     toy: number
-  ) {
+  ): void {
     const headlength = 16;
     const angle = Math.atan2(toy - fromy, tox - fromx);
     context.moveTo(fromx, fromy);

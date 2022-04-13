@@ -12,26 +12,20 @@ describe("Validation", () => {
     // TODO: Import pia with .json
     it("File Upload using cypress-file-upload package", () => {
       cy.import_pia();
+      cy.get("a.btn.btn-green")
+        .first()
+        .click();
     });
   });
 
   context("Refuse or ask pia signature", () => {
-    it(
-      "should refuse pia",
-      {
-        retries: {
-          runMode: 2,
-          openMode: 2
-        }
-      },
-      () => {
-        cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 4, 3).then(() => {
-            cy.validateDPO();
-          });
+    it("should refuse pia", () => {
+      cy.get_current_pia_id(id => {
+        cy.go_edited_pia(id, 4, 3).then(() => {
+          cy.validateDPO();
           cy.refusePia();
         });
-      }
-    );
+      });
+    });
   });
 });

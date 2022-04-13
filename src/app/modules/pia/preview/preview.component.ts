@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  AfterViewChecked,
-  Input,
-} from '@angular/core';
+import { Component, OnInit, AfterViewChecked, Input } from '@angular/core';
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -17,6 +12,7 @@ import { AnswerService } from 'src/app/services/answer.service';
 import { Pia } from 'src/app/models/pia.model';
 import { MeasureService } from 'src/app/services/measures.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-preview',
@@ -34,8 +30,11 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
   @Input() onlyData = false;
   public revisions = null;
   public revisionOverlay = false;
+  @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
+    'local';
 
   constructor(
+    public authService: AuthService,
     public actionPlanService: ActionPlanService,
     private translateService: TranslateService,
     public piaService: PiaService,

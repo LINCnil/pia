@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { reject } from 'cypress/types/bluebird';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 
@@ -12,7 +13,7 @@ export class NewKnowledgebaseComponent implements OnInit {
   @Output() submited = new EventEmitter();
   knowledgeBaseForm: FormGroup;
 
-  constructor(private knowledgeBaseService: KnowledgeBaseService) { }
+  constructor(private knowledgeBaseService: KnowledgeBaseService) {}
 
   ngOnInit(): void {
     this.knowledgeBaseForm = new FormGroup({
@@ -30,10 +31,13 @@ export class NewKnowledgebaseComponent implements OnInit {
       this.knowledgeBaseForm.value.contributors,
       new Date()
     );
-    this.knowledgeBaseService.create(kb)
+    this.knowledgeBaseService
+      .create(kb)
       .then((result: KnowledgeBase) => {
         this.submited.emit(result.id);
+      })
+      .catch(err => {
+        console.error(err);
       });
   }
-
 }

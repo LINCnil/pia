@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 tr {
   display: table-row;
 }
@@ -34,10 +34,13 @@ tr {
     cursor: text;
     white-space: nowrap;
     overflow: hidden;
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       outline: 1px dotted $pia-green;
     }
-    &:focus, &:active {
+    &:focus,
+    &:active {
       background-color: #fff;
     }
   }
@@ -84,10 +87,35 @@ tr {
         }
       }
     }
-    &:focus, &:hover, &:active {
+    &:focus,
+    &:hover,
+    &:active {
       ul {
         display: block;
       }
     }
   }
+}
+
+.tag-input-container {
+  position: relative;
+  label {
+    display: block;
+    width: 100%;
+  }
+  tag-input {
+    z-index: 200;
+  }
+  .btn-add-user {
+    color: $pia-blue;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+  }
+  // tag-input,
+  // .btn-add-user {
+  //   display: inline-block;
+  // }
 }

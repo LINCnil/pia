@@ -10,5 +10,4 @@ export class Knowledge {
   public items: any[] = [];
   public updated_at: Date;
   public created_at: Date;
-
 }

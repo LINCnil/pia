@@ -17,7 +17,7 @@ export class LanguagesService {
       'cz',
       'de',
       'dk',
-      'el',
+      'el',      
       'en',
       'es',
       'et',
@@ -27,14 +27,14 @@ export class LanguagesService {
       'hu',
       'it',
       'lt',
-      'lv',
       'nl',
       'no',
       'pl',
       'pt',
       'ro',
       'sl',
-      'sv'
+      'sv',
+      'lv'
     ]);
     this.translateService.setDefaultLang('fr');
   }

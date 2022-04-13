@@ -1,11 +1,11 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 .pia {
   &-questionBlock {
     position: relative;
     margin-bottom: 10px;
     background-color: #fff;
     padding: 12px 40px;
-    box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
+    box-shadow: 1px 1px 15px 1px rgba(210, 210, 210, 1);
     .pia-accordeon {
       position: absolute;
       right: 15px;
@@ -13,7 +13,7 @@
       cursor: pointer;
       &:before {
         position: absolute;
-        content: '';
+        content: "";
         top: -4px;
         right: -4px;
         left: -4px;
@@ -57,8 +57,11 @@
         &::placeholder {
           font-style: italic;
         }
-        &:disabled {
+        &.hide {
+          padding: 0px;
           background-color: transparent;
+          min-height: 0;
+          max-height: 0;
           color: $pia-dark-black;
           cursor: pointer;
         }

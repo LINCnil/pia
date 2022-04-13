@@ -1,6 +1,9 @@
 import { NavigationEnd } from '@angular/router';
+import { ApiService } from './services/api.service';
 
 export class ApplicationDb {
+  protected apiService: ApiService;
+
   protected serverUrl: string;
   public pia_id: number;
   public structure_id: number;
@@ -15,11 +18,12 @@ export class ApplicationDb {
   constructor(dbVersion: number, tableName: string) {
     this.dbVersion = dbVersion;
     this.tableName = tableName;
-    if (localStorage.getItem('server_url')) {
-      this.serverUrl = localStorage.getItem('server_url');
-    } else {
-      this.serverUrl = null;
-    }
+
+    // if (localStorage.getItem('server_url')) {
+    //   this.serverUrl = localStorage.getItem('server_url');
+    // } else {
+    //   this.serverUrl = null;
+    // }
 
     if (window.location.hash && window.location.hash.split('/')[2]) {
       switch (window.location.hash.split('/')[1]) {
@@ -39,6 +43,10 @@ export class ApplicationDb {
           break;
       }
     }
+  }
+
+  prepareApi(apiService: ApiService) {
+    this.apiService = apiService;
   }
 
   /**
@@ -168,28 +176,33 @@ export class ApplicationDb {
 
   /**
    * Find all entries without conditions.
+   * Many result items (cursor for indexedDb)
    * @returns {Promise}
    */
-  async findAll() {
+  async findAll(urlParams?: string, withIndex?: { index: string; value: any }) {
     const items = [];
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl(), {
-          mode: 'cors'
-        })
-          .then(response => {
-            return response.json();
-          })
+      if (this.apiService && this.apiService.base) {
+        this.apiService
+          .get(this.getServerUrl() + (urlParams ? urlParams : ''))
           .then((result: any) => {
             resolve(result);
           })
           .catch(error => {
-            console.error('Request failed', error);
-            reject();
+            reject(error);
           });
       } else {
+        // console.log(this.getServerUrl(), 'indexdb');
         this.getObjectStore().then(() => {
-          const evt = this.objectStore.openCursor();
+          let evt;
+          let index1;
+          if (withIndex) {
+            index1 = this.objectStore.index(withIndex.index);
+            evt = index1.openCursor(IDBKeyRange.only(withIndex.value));
+          } else {
+            evt = this.objectStore.openCursor();
+          }
+
           evt.onerror = (event: any) => {
             console.error(event);
             reject(Error(event));
@@ -210,25 +223,20 @@ export class ApplicationDb {
 
   /**
    * Default find method for an entry in the database.
+   * Only One Result
    * @param {any} id - The record id.
-   * @returns {Promise}
    */
-  async find(id) {
+  async find(id: number | string) {
     return new Promise((resolve, reject) => {
       if (id) {
-        if (this.serverUrl) {
-          fetch(this.getServerUrl() + '/' + id, {
-            mode: 'cors'
-          })
-            .then(response => {
-              return response.json();
-            })
+        if (this.apiService && this.apiService.base) {
+          this.apiService
+            .get(this.getServerUrl() + '/' + id)
             .then((result: any) => {
               resolve(result);
             })
             .catch(error => {
-              console.error('Request failed', error);
-              reject();
+              reject(error);
             });
         } else {
           this.getObjectStore().then(() => {
@@ -243,7 +251,145 @@ export class ApplicationDb {
           });
         }
       } else {
-        reject();
+        reject(new Error('No Id selected'));
+      }
+    });
+  }
+
+  /**
+   *
+   * get for index db
+   */
+  async findWithReference(
+    urlParams?: string,
+    withIndex?: { index: string; value: any }
+  ) {
+    return new Promise((resolve, reject) => {
+      if (this.apiService && this.apiService.base) {
+        this.apiService
+          .get(this.getServerUrl() + urlParams)
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      } else {
+        this.getObjectStore().then(() => {
+          const index1 = this.objectStore.index(withIndex.index);
+          const evt = index1.get(IDBKeyRange.only(withIndex.value));
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            resolve(event.target.result);
+          };
+        });
+      }
+    });
+  }
+
+  async create(data: any | FormData, prefix?: string, preformated?: FormData) {
+    return new Promise((resolve, reject) => {
+      if (this.apiService && this.apiService.base) {
+        let formData = new FormData();
+        if (!preformated) {
+          for (const d in data) {
+            if (data.hasOwnProperty(d)) {
+              let value = data[d];
+
+              if (
+                d === 'data' ||
+                d === 'structure_data' ||
+                d === 'items' ||
+                d === 'access_type'
+              ) {
+                // Structure.data
+                value = JSON.stringify(value);
+              }
+
+              formData.append(
+                `${prefix ? prefix : 'pia'}[${d}]`,
+                value !== null ? value : ''
+              );
+            }
+          }
+        } else {
+          formData = preformated;
+        }
+
+        this.apiService
+          .post(this.getServerUrl(), formData)
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      } else {
+        this.getObjectStore().then(() => {
+          const evt = this.objectStore.add(data);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            // TODO: retrun the entire object
+            resolve({ ...data, id: event.target.result });
+          };
+        });
+      }
+    });
+  }
+
+  async update(id: any, entry: any, prefix?: string, preformated?: FormData) {
+    return new Promise((resolve, reject) => {
+      if (this.apiService && this.apiService.base) {
+        let formData = new FormData();
+        if (!preformated) {
+          for (const d in entry) {
+            if (entry.hasOwnProperty(d)) {
+              let value = entry[d];
+              if (
+                d === 'data' ||
+                d === 'structure_data' ||
+                d === 'items' ||
+                d === 'access_type'
+              ) {
+                // Structure.data
+                value = JSON.stringify(value);
+              }
+
+              formData.append(
+                `${prefix ? prefix : 'pia'}[${d}]`,
+                value !== null ? value : ''
+              );
+            }
+          }
+        } else {
+          formData = preformated;
+        }
+
+        this.apiService
+          .patch(this.getServerUrl() + '/' + id, formData)
+          .then((result: any) => {
+            resolve(result);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      } else {
+        this.getObjectStore().then(() => {
+          const evt = this.objectStore.put(entry);
+          evt.onerror = (event: any) => {
+            console.error(event);
+            reject(Error(event));
+          };
+          evt.onsuccess = (event: any) => {
+            resolve(event.target.result);
+          };
+        });
       }
     });
   }
@@ -255,20 +401,14 @@ export class ApplicationDb {
    */
   async delete(id) {
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl() + '/' + id, {
-          method: 'DELETE',
-          mode: 'cors'
-        })
-          .then(response => {
-            return response;
-          })
-          .then(item => {
-            resolve(item);
+      if (this.apiService && this.apiService.base) {
+        this.apiService
+          .delete(this.getServerUrl() + '/' + id)
+          .then((result: any) => {
+            resolve(result);
           })
           .catch(error => {
-            console.error('Request failed', error);
-            reject();
+            reject(error);
           });
       } else {
         this.getObjectStore().then(() => {
@@ -278,7 +418,7 @@ export class ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            resolve(event);
+            resolve(event.target);
           };
         });
       }
@@ -308,14 +448,19 @@ export class ApplicationDb {
       id = this.knowledge_base_id;
     }
 
+    if (this.tableName === 'user') {
+      prefix = '/users';
+    }
+
     if (
       this.tableName !== 'pia' &&
       this.tableName !== 'structure' &&
-      this.tableName !== 'knowledgeBase'
+      this.tableName !== 'knowledgeBase' &&
+      this.tableName !== 'user'
     ) {
-      return this.serverUrl + prefix + '/' + id + '/' + this.tableName + 's';
+      return prefix + '/' + id + '/' + this.tableName + 's';
     } else {
-      return this.serverUrl + prefix;
+      return prefix;
     }
   }
 

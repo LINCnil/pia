@@ -1,3 +1,5 @@
+import { User } from './user.model';
+
 export class Pia {
   public id: number;
   public status = 0; // 0: doing, 1: refused, 2: simple_validation, 3: signed_validation, 4: archived
@@ -6,6 +8,7 @@ export class Pia {
   public author_name: string;
   public evaluator_name: string;
   public validator_name: string;
+  public guests: Array<User | number>;
   public dpo_status: number; // 0: NOK, 1: OK
   public dpo_opinion: string;
   public concerned_people_opinion: string;
@@ -25,9 +28,9 @@ export class Pia {
   public structure_data: { sections: any };
   public created_at: Date;
   public updated_at: Date;
+  public user_pias: Array<{ user: User; role: string }>;
 
   constructor() {
     this.created_at = new Date();
   }
-
 }

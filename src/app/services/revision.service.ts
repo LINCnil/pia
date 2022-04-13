@@ -4,13 +4,19 @@ import { PiaService } from './pia.service';
 import { Router } from '@angular/router';
 import { Revision } from '../models/revision.model';
 import { ApplicationDb } from '../application.db';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class RevisionService extends ApplicationDb {
   public revisionSelected: number;
 
-  constructor(public piaService: PiaService, private router: Router) {
+  constructor(
+    public piaService: PiaService,
+    protected apiService: ApiService,
+    private router: Router
+  ) {
     super(201911191636, 'revision');
+    super.prepareApi(this.apiService);
     super.prepareServerUrl(this.router);
   }
 
@@ -21,39 +27,15 @@ export class RevisionService extends ApplicationDb {
   async findAllByPia(piaId: number): Promise<any> {
     const items = [];
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl(), {
-          mode: 'cors'
+      super
+        .findAll(null, { index: 'index1', value: piaId })
+        .then((result: any) => {
+          resolve(result);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index1 = this.objectStore.index('index1');
-          const evt = index1.openCursor(IDBKeyRange.only(piaId));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
+        .catch(error => {
+          console.error('Request failed', error);
+          reject();
         });
-      }
     });
   }
 
@@ -64,13 +46,18 @@ export class RevisionService extends ApplicationDb {
    */
   async get(id: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.find(id).then((entry: any) => {
-        if (entry) {
-          this.export = entry.export;
-          this.created_at = new Date(entry.created_at);
-        }
-        resolve();
-      });
+      super
+        .find(id)
+        .then((entry: any) => {
+          if (entry) {
+            this.export = entry.export;
+            this.created_at = new Date(entry.created_at);
+          }
+          resolve(entry);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 
@@ -84,44 +71,14 @@ export class RevisionService extends ApplicationDb {
       created_at: new Date()
     };
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        const formData = new FormData();
-        for (const d in data) {
-          if (data.hasOwnProperty(d)) {
-            let value = data[d];
-            if (d === 'data') {
-              value = JSON.stringify(value);
-            }
-            formData.append('revision[' + d + ']', value);
-          }
-        }
-        fetch(this.getServerUrl(), {
-          method: 'POST',
-          body: formData,
-          mode: 'cors'
+      super
+        .create(data, 'revision')
+        .then((result: any) => {
+          resolve({ ...result, id: result.id });
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve({ ...result, id: result.id });
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject(error);
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const evt = this.objectStore.add(data);
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            resolve({ ...data, id: event.target.result });
-          };
+        .catch(error => {
+          reject(error);
         });
-      }
     });
   }
 
@@ -130,7 +87,7 @@ export class RevisionService extends ApplicationDb {
    */
   async loadRevision(revisionId: number): Promise<void> {
     return new Promise(resolve => {
-      this.find(revisionId).then((revision: Revision) => {
+      super.find(revisionId).then((revision: Revision) => {
         const piaExport = JSON.parse(revision.export);
         this.piaService
           .replacePiaByExport(piaExport, true, true, revision.created_at)
@@ -171,7 +128,7 @@ export class RevisionService extends ApplicationDb {
 
   /**
    * Get the status of the PIA.
-   * @returns {string} - Locale for translation.
+   * @returns - Locale for translation.
    */
   getStatusName(status): string {
     if (status >= 0) {
@@ -181,8 +138,7 @@ export class RevisionService extends ApplicationDb {
 
   /**
    * Get gauge name.
-   * @param {*} value - The gauge value.
-   * @returns {string} - Locale for translation.
+   * @param value - The gauge value.
    */
   getGaugeName(value: any): string {
     if (value) {

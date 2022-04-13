@@ -11,7 +11,7 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { Pia } from 'src/app/models/pia.model';
 declare const require: any;
 
-function slugify(text) {
+function slugify(text): string {
   return text
     .toString()
     .toLowerCase()
@@ -109,7 +109,7 @@ export class ExportComponent implements OnInit {
               break;
             case 'json': // Only json
               this.piaService.export(this.pia.id).then((json: any) => {
-                let downloadLink = document.createElement('a');
+                const downloadLink = document.createElement('a');
                 document.body.appendChild(downloadLink);
                 if (navigator.msSaveOrOpenBlob) {
                   window.navigator.msSaveBlob(json, fileTitle + '.json');
@@ -159,7 +159,6 @@ export class ExportComponent implements OnInit {
    * @param exports files to exports array ['doc', 'images', 'csv', 'json']
    */
   async generateExportsZip(element, exports: Array<string>): Promise<void> {
-    // await setTimeout(async () => {
     const zipName = 'pia-' + slugify(this.pia.name) + '.zip';
     const JSZip = require('jszip');
     const zip = new JSZip();
@@ -219,12 +218,17 @@ export class ExportComponent implements OnInit {
   }
 
   convertToCSV(objArray): string {
-    const array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    const array =
+      typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
-    for (var i = 0; i < array.length; i++) {
-      var line = '';
-      for (var index in array[i]) {
-        if (line != '') line += ',';
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < array.length; i++) {
+      let line = '';
+      // tslint:disable-next-line: forin
+      for (const index in array[i]) {
+        if (line !== '') {
+          line += ',';
+        }
         line += array[i][index];
       }
       str += line + '\r\n';

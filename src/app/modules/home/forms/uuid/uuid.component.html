@@ -1,0 +1,70 @@
+<form
+  class="pia-authenticationBlock-login"
+  [formGroup]="uuidActivation"
+  (ngSubmit)="ngOnSubmit()"
+>
+  <fieldset>
+    <div
+      class="form-group"
+      [class.is-not-empty]="f.uuid.value.length > 0"
+      [class.is-invalid]="f.uuid.value.length > 0 && f.uuid.errors"
+    >
+      <ng-container *ngIf="reset; else noReset">
+        <legend>{{ "authentication.account_recovery" | translate }}</legend>
+        <p class="is-valid">
+          {{ "authentication.recovery_code_message" | translate }}
+        </p>
+      </ng-container>
+      <ng-template #noReset>
+        <legend>{{ "authentication.create_account" | translate }}</legend>
+      </ng-template>
+
+      <p class="msg" *ngIf="msgFromBack">
+        {{
+          "authentication.errors." +
+            (reset ? "account_recovery" : "create_account") +
+            ".uuid." +
+            msgFromBack | translate
+        }}
+      </p>
+
+      <input
+        type="text"
+        placeholder="{{
+          reset
+            ? ('authentication.recovery_code' | translate)
+            : ('authentication.activation_code' | translate)
+        }}"
+        id="pia-account-activate-code"
+        formControlName="uuid"
+      />
+      <label
+        >{{
+          reset
+            ? ("authentication.recovery_code" | translate)
+            : ("authentication.activation_code" | translate | translate)
+        }}
+        <span *ngIf="f.uuid.hasError('pattern')">{{
+          "authentication.wrong_activation_code" | translate
+        }}</span></label
+      >
+    </div>
+    <div class="validForm">
+      <button (click)="onCanceled()">
+        {{ "authentication.cancel" | translate }}
+      </button>
+      <button
+        [disabled]="uuidActivation.invalid || loading"
+        type="submit"
+        class="btn btn-green"
+      >
+        <ng-container *ngIf="loading; else loadingElse">
+          ...
+        </ng-container>
+        <ng-template #loadingElse>
+          {{ "authentication.continue" | translate }}
+        </ng-template>
+      </button>
+    </div>
+  </fieldset>
+</form>

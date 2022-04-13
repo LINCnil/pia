@@ -1,41 +1,86 @@
-<div class="pia-attachmentsBlock-item bounceIn" *ngIf="attachment.file && attachment.file.length > 0">
-  <a href="javascript:;" (click)="downloadAttachment()" title="{{ 'pia.attachments.download' | translate }}">
+<div
+  class="pia-attachmentsBlock-item bounceIn"
+  *ngIf="attachment.file && attachment.file.length > 0"
+>
+  <a
+    href="javascript:;"
+    (click)="downloadAttachment()"
+    title="{{ 'pia.attachments.download' | translate }}"
+  >
     <i class="fa fa-download" aria-hidden="true"></i>
   </a>
-  <a href="javascript:;" (click)="previewAttachment(true)" title="{{attachment.name}}" class="truncate">{{attachment.name}}</a>
-  <button *ngIf="!isPreview && showAddAttachmentButton()" type="button" class="btn" (click)="removeAttachment(attachment.id)" title="{{ 'pia.attachments.remove' | translate }}">
+  <a
+    href="javascript:;"
+    (click)="previewAttachment(true)"
+    title="{{ attachment.name }}"
+    class="truncate"
+    >{{ attachment.name }}</a
+  >
+  <button
+    *ngIf="
+      !isPreview &&
+      showAddAttachmentButton() &&
+      (['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
+        editMode === 'local')
+    "
+    type="button"
+    class="btn"
+    (click)="removeAttachment(attachment.id)"
+    title="{{ 'pia.attachments.remove' | translate }}"
+  >
     <span class="pia-icons pia-icon-close"></span>
   </button>
 </div>
 <div class="pia-attachmentsBlock-item-preview hide">
-  <img src="" class="hide">
-  <button (click)="previewAttachment(false)" class="pia-icons pia-icon-close-big" title="{{ 'modals.close' | translate }}"></button>
-  <div style="width:80%; height:100%; margin:auto;"
-  *ngIf="fileUrl" >
+  <img src="" class="hide" />
+  <button
+    (click)="previewAttachment(false)"
+    class="pia-icons pia-icon-close-big"
+    title="{{ 'modals.close' | translate }}"
+  ></button>
+  <div style="width:80%; height:100%; margin:auto;" *ngIf="fileUrl">
     <ng2-pdfjs-viewer
       [pdfSrc]="fileUrl"
       [openFile]="false"
-      [viewBookmark]="false">
+      [viewBookmark]="false"
+    >
     </ng2-pdfjs-viewer>
   </div>
 </div>
 
-<app-modal *ngIf="showRemoveAttachmentForm" (clickOnClose)="showRemoveAttachmentForm = false">
+<app-modal
+  *ngIf="showRemoveAttachmentForm"
+  (clickOnClose)="showRemoveAttachmentForm = false"
+>
   <p [innerHTML]="'modals.remove_attachment.content' | translate"></p>
-    <form [formGroup]="removeAttachmentForm" class="pia-remove-attachment-comment">
-      <label for="pia-remove-attachment-comment">{{ 'modals.remove_attachment.comment' | translate }}</label>
-      <br>
-      <textarea id="pia-remove-attachment-comment"
-        formControlName="comment">
-      </textarea>
-    </form>
-    <div class="pia-modalBlock-buttons-choice">
-      <button tabindex="1" class="btn btn-red" type="button" (click)="showRemoveAttachmentForm = false">
-          {{ 'modals.remove_attachment.keep' | translate }}
-      </button>
-      <button tabindex="2" class="btn btn-red get-focus" [disabled]="removeAttachmentForm.invalid"
-        (click)="submitRemoveAttachment()" type="button">
-        {{ 'modals.remove_attachment.remove' | translate }}
-      </button>
-    </div>
+  <form
+    [formGroup]="removeAttachmentForm"
+    class="pia-remove-attachment-comment"
+  >
+    <label for="pia-remove-attachment-comment">{{
+      "modals.remove_attachment.comment" | translate
+    }}</label>
+    <br />
+    <textarea id="pia-remove-attachment-comment" formControlName="comment">
+    </textarea>
+  </form>
+  <div class="pia-modalBlock-buttons-choice">
+    <button
+      tabindex="1"
+      class="btn btn-red"
+      type="button"
+      (click)="showRemoveAttachmentForm = false"
+    >
+      {{ "modals.remove_attachment.keep" | translate }}
+    </button>
+    <button
+      tabindex="2"
+      class="btn btn-red get-focus"
+      [disabled]="removeAttachmentForm.invalid"
+      (click)="submitRemoveAttachment()"
+      type="button"
+    >
+      {{ "modals.remove_attachment.remove" | translate }}
+    </button>
+  </div>
 </app-modal>

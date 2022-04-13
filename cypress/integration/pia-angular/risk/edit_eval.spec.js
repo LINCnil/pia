@@ -69,16 +69,22 @@ export function risk_edit_eval() {
     });
 
     context("Accès illégitime à des données", () => {
-      it("should add tags and move gauges", () => {
-        cy.get_current_pia_id(id => {
-          // change section and item
-          cy.go_edited_pia(id, 3, 2).then(() => {
-            cy.test_add_tags();
-            cy.test_move_gauges();
-            cy.test_writing_on_textarea();
+      it(
+        "should add tags and move gauges",
+        {
+          retries: 1
+        },
+        () => {
+          cy.get_current_pia_id(id => {
+            // change section and item
+            cy.go_edited_pia(id, 3, 2).then(() => {
+              cy.test_add_tags();
+              cy.test_move_gauges();
+              cy.test_writing_on_textarea();
+            });
           });
-        });
-      });
+        }
+      );
 
       it("should valid evaluation", () => {
         cy.validateEval();

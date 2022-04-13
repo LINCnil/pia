@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Answer } from '../models/answer.model';
 import { Evaluation } from '../models/evaluation.model';
 import { Measure } from '../models/measure.model';
 import { Pia } from '../models/pia.model';
 import { AnswerService } from './answer.service';
+import { ApiService } from './api.service';
 import { EvaluationService } from './evaluation.service';
 import { MeasureService } from './measures.service';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class GlobalEvaluationService {
@@ -29,10 +30,13 @@ export class GlobalEvaluationService {
   private evaluationService;
   private measureService;
 
-  constructor() {
-    this.answerService = new AnswerService(this.router);
-    this.evaluationService = new EvaluationService(this.router);
-    this.measureService = new MeasureService(this.router);
+  constructor(private apiService: ApiService) {
+    this.answerService = new AnswerService(this.router, this.apiService);
+    this.evaluationService = new EvaluationService(
+      this.router,
+      this.apiService
+    );
+    this.measureService = new MeasureService(this.router, this.apiService);
   }
 
   /**
@@ -108,7 +112,6 @@ export class GlobalEvaluationService {
     return new Promise((resolve, reject) => {
       this.evaluationService.pia_id = this.pia.id;
       if (this.item.evaluation_mode === 'item') {
-        // const evaluation = new Evaluation();
         this.evaluationService
           .getByReference(this.pia.id, this.reference_to)
           .then(async (evaluation: Evaluation) => {
@@ -121,6 +124,8 @@ export class GlobalEvaluationService {
             } else {
               evaluation.global_status = 2;
             }
+
+            evaluation.evaluation_infos = JSON.stringify(this.item);
             this.evaluationService.update(evaluation).then(async () => {
               await this.validate();
               resolve(evaluation.status === 1);
@@ -130,7 +135,6 @@ export class GlobalEvaluationService {
         let count = 0;
         let toFix = false;
         this.answersOrMeasures.forEach(answerOrMeasure => {
-          // const evaluation = new Evaluation();
           this.evaluationService
             .getByReference(
               this.pia.id,
@@ -144,6 +148,8 @@ export class GlobalEvaluationService {
                 } else {
                   evaluation.global_status = 2;
                 }
+
+                evaluation.evaluation_infos = JSON.stringify(this.item);
                 this.evaluationService.update(evaluation).then(async () => {
                   count++;
                   if (count === this.answersOrMeasures.length) {
@@ -191,7 +197,6 @@ export class GlobalEvaluationService {
     return new Promise((resolve, reject) => {
       this.evaluationService.pia_id = piaId;
       if (this.item.evaluation_mode === 'item') {
-        // const evaluation = new Evaluation();
         this.evaluationService
           .getByReference(this.pia.id, this.reference_to)
           .then((evaluation: Evaluation) => {
@@ -219,7 +224,7 @@ export class GlobalEvaluationService {
               });
             });
         }
-        resolve();
+        resolve(true);
       }
     });
   }
@@ -320,7 +325,6 @@ export class GlobalEvaluationService {
       const reference_to = new_reference_to
         ? new_reference_to
         : this.reference_to;
-      // const evaluation = new Evaluation();
       this.evaluationService
         .getByReference(this.pia.id, reference_to)
         .then((evaluation: Evaluation) => {
@@ -328,6 +332,7 @@ export class GlobalEvaluationService {
             const newEvaluation = new Evaluation();
             newEvaluation.pia_id = this.pia.id;
             newEvaluation.reference_to = reference_to;
+            newEvaluation.evaluation_infos = JSON.stringify(this.item);
             this.evaluationService.create(newEvaluation).then(entry => {
               resolve(entry);
             });
@@ -592,11 +597,11 @@ export class GlobalEvaluationService {
                   this.answersOrMeasures.push(measure);
                 }
                 if (count === measures.length) {
-                  resolve();
+                  resolve(measures);
                 }
               });
             } else {
-              resolve();
+              resolve(measures);
             }
           });
       } else {
@@ -614,12 +619,12 @@ export class GlobalEvaluationService {
                   this.item.questions &&
                   count === this.item.questions.length
                 ) {
-                  resolve();
+                  resolve(result);
                 }
               });
           });
         } else {
-          resolve();
+          resolve(true);
         }
       }
     });
@@ -637,18 +642,16 @@ export class GlobalEvaluationService {
       this.evaluationService.pia_id = this.pia.id;
       this.measureService.pia_id = this.pia.id;
       if (this.item.evaluation_mode === 'item') {
-        // const evaluationModel = new Evaluation();
         this.evaluationService
           .getByReference(this.pia.id, this.reference_to)
           .then((evaluationModel: any) => {
             this.evaluations = evaluationModel ? [evaluationModel] : [];
-            resolve();
+            resolve(evaluationModel);
           });
       } else if (this.item.is_measure) {
         this.measureService.findAllByPia(this.pia.id).then((measures: any) => {
           if (measures && measures.length > 0) {
             measures.forEach(measure => {
-              // const evaluationModel = new Evaluation();
               this.evaluationService
                 .getByReference(
                   this.pia.id,
@@ -660,12 +663,12 @@ export class GlobalEvaluationService {
                     this.evaluations.push(evaluationModel);
                   }
                   if (count === measures.length) {
-                    resolve();
+                    resolve(true);
                   }
                 });
             });
           } else {
-            resolve();
+            resolve(true);
           }
         });
       } else if (this.item.evaluation_mode === 'question') {
@@ -674,7 +677,6 @@ export class GlobalEvaluationService {
             .getByReferenceAndPia(this.pia.id, question.id)
             .then((evaluationModel1: Answer) => {
               if (evaluationModel1) {
-                // const evaluationModel = new Evaluation();
                 this.evaluationService
                   .getByReference(
                     this.pia.id,
@@ -686,11 +688,11 @@ export class GlobalEvaluationService {
                       this.evaluations.push(evaluationModel2);
                     }
                     if (count === this.item.questions.length) {
-                      resolve();
+                      resolve(true);
                     }
                   });
               } else {
-                resolve();
+                resolve(true);
               }
             });
         });
@@ -705,7 +707,6 @@ export class GlobalEvaluationService {
    * @returns {Promise}
    */
   private async deleteEvaluationInDb(reference_to: string): Promise<void> {
-    // const evaluation = new Evaluation();
     return new Promise((resolve, reject) => {
       this.evaluationService.pia_id = this.pia.id;
       this.evaluationService

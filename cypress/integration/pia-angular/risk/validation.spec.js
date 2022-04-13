@@ -1,4 +1,4 @@
-import risk_edit_eval from "./edit_eval.spec";
+import risk_edit_eval from "./edit_eval.spec"; // DO NOT DELETE THIS LINE (launch test)
 export function risk_validation() {
   describe("Risques Validation", () => {
     beforeEach(() => {

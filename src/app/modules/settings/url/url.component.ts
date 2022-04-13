@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DialogService } from 'src/app/services/dialog.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-url',
@@ -13,23 +14,33 @@ export class UrlComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    public authService: AuthService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.settingsForm = this.fb.group({
       id: 1,
-      server_url: ['', Validators.required]
+      server_url: ['', Validators.required],
+      client_id: ['', Validators.required],
+      client_secret: ['', Validators.required]
     });
+
     this.settingsForm.patchValue({
-      server_url: localStorage.getItem('server_url')
+      server_url: localStorage.getItem('server_url'),
+      client_id: localStorage.getItem('client_id')
+        ? localStorage.getItem('client_id')
+        : '',
+      client_secret: localStorage.getItem('client_secret')
+        ? localStorage.getItem('client_secret')
+        : ''
     });
   }
 
   /**
    * Record the URL of the server.
    */
-  onSubmit() {
+  onSubmit(): void {
     /* Set it back to empty if server mode is disabled */
     if (
       this.settingsForm.controls['server_url'].value === null ||
@@ -56,7 +67,7 @@ export class UrlComponent implements OnInit {
       );
     } else {
       const serverUrl = this.settingsForm.value.server_url.trim();
-      fetch(serverUrl + '/pias', {
+      fetch(serverUrl + '/info', {
         mode: 'cors'
       })
         .then(response => {
@@ -65,16 +76,32 @@ export class UrlComponent implements OnInit {
         .then((ok: boolean) => {
           if (ok) {
             localStorage.setItem('server_url', serverUrl);
+            // TODO: Find another securely way
+            localStorage.setItem(
+              'client_id',
+              this.settingsForm.value.client_id
+            );
+            localStorage.setItem(
+              'client_secret',
+              this.settingsForm.value.client_secret
+            );
             this.dialogService.confirmThis(
               {
                 text: 'modals.update_server_url_ok.content',
                 type: 'yes',
                 yes: 'modals.back_to_home',
                 no: '',
-                icon: 'pia-icons pia-icon-happy'
+                icon: 'pia-icons pia-icon-happy',
+                data: {
+                  no_cross_button: true
+                }
               },
               () => {
-                window.location.href = './';
+                if (this.authService.currentUserValue == null) {
+                  window.location.href = './';
+                } else {
+                  window.location.href = './#/entries';
+                }
               },
               () => {
                 return;

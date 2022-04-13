@@ -1,0 +1,110 @@
+<form class="pia-newUser" [formGroup]="userForm" (submit)="onSubmit()">
+  <h2 *ngIf="user; else addPia">{{ "users.edit_user" | translate }}</h2>
+  <ng-template #addPia
+    ><h2>{{ "users.add_new_user" | translate }}</h2></ng-template
+  >
+
+  <p class="msg" *ngIf="msgFromBack">
+    {{ "users.errors.edit_user." + msgFromBack | translate }}
+  </p>
+
+  <legend>{{ "users.data" | translate }}</legend>
+  <div class="input">
+    <div>
+      <input
+        type="text"
+        name="firstname"
+        placeholder="{{ 'users.first_name' | translate }}"
+        formControlName="firstname"
+      />
+      <label>{{ "users.first_name" | translate }}</label>
+    </div>
+    <div>
+      <input
+        type="text"
+        name="{{ 'users.last_name' | translate }}"
+        placeholder="{{ 'users.last_name' | translate }}"
+        formControlName="lastname"
+      />
+      <label>{{ "users.last_name" | translate }}</label>
+    </div>
+  </div>
+  <div
+    class="invalid mail input"
+    [class.is-invalid]="f.email.value.length > 0 && f.email.hasError('email')"
+  >
+    <input
+      type="email"
+      name="email"
+      placeholder="{{ 'users.email' | translate }}"
+      email
+      formControlName="email"
+      id="mail"
+    />
+    <label
+      *ngIf="
+        f.email.value.length > 0 && f.email.hasError('email');
+        else emailBlock
+      "
+    >
+      {{ "authentication.wrong_email" | translate }}
+    </label>
+    <ng-template #emailBlock>
+      <label>
+        {{ "authentication.email" | translate }}
+      </label>
+    </ng-template>
+  </div>
+  <div class="pia-newUser-checkbox">
+    <legend>{{ "users.choose_profile" | translate }}</legend>
+    <div>
+      <input
+        [checked]="f.access_type.value.includes('technical')"
+        (change)="setProfil($event)"
+        [disabled]="forceUserType"
+        type="checkbox"
+        value="technical"
+        id="pia-profile-technical-admin"
+      />
+      <label for="pia-profile-technical-admin">{{
+        "users.technical_admin" | translate
+      }}</label>
+    </div>
+    <div>
+      <input
+        [checked]="f.access_type.value.includes('functional')"
+        [disabled]="f.access_type.value.includes('technical') || forceUserType"
+        (change)="setProfil($event)"
+        type="checkbox"
+        value="functional"
+        id="pia-profile-functional-admin"
+      />
+      <label for="pia-profile-functional-admin">{{
+        "users.functional_admin" | translate
+      }}</label>
+    </div>
+    <div>
+      <input
+        [checked]="f.access_type.value.includes('user')"
+        [disabled]="f.access_type.value.includes('functional')"
+        (change)="setProfil($event)"
+        type="checkbox"
+        value="user"
+        id="pia-profile-user"
+      />
+      <label for="pia-profile-user">{{ "users.user" | translate }}</label>
+    </div>
+  </div>
+  <div class="pia-newUser-submit">
+    <button class="btn btn-red" (click)="canceled.emit()">
+      {{ "users.cancel" | translate }}
+    </button>
+    <button
+      class="btn btn-green"
+      type="submit"
+      [disabled]="userForm.invalid || loading"
+    >
+      {{ "users.continue" | translate }}
+    </button>
+  </div>
+</form>

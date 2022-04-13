@@ -1,32 +1,32 @@
-@import './assets/stylesheets/variables';
+@import "./assets/stylesheets/variables";
 
-@import '~normalize.css/normalize.css';
+@import "~normalize.css/normalize.css";
 
-$fa-font-path: '~font-awesome/fonts';
-@import '~font-awesome/scss/font-awesome.scss';
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome.scss";
 
 // Foundation styles
-@import '~foundation-sites/scss/foundation.scss';
+@import "~foundation-sites/scss/foundation.scss";
 @include foundation-global-styles;
 @include foundation-flex-grid;
 @include foundation-flex-classes;
 
 // Common styles
-@import './assets/stylesheets/fonts';
-@import './assets/stylesheets/sprites';
-@import './assets/stylesheets/btn';
-@import './assets/stylesheets/tooltip';
-@import './assets/stylesheets/card';
-@import './assets/stylesheets/animations';
-@import './assets/stylesheets/tags';
-@import './assets/stylesheets/gauges';
-@import './assets/stylesheets/action-plan';
-@import './assets/stylesheets/breadcrumb';
-@import './assets/stylesheets/editor';
-@import './assets/stylesheets/print';
-@import './assets/stylesheets/header';
-@import './assets/stylesheets/onboarding';
-@import './assets/stylesheets/contrast';
+@import "./assets/stylesheets/fonts";
+@import "./assets/stylesheets/sprites";
+@import "./assets/stylesheets/btn";
+@import "./assets/stylesheets/tooltip";
+@import "./assets/stylesheets/card";
+@import "./assets/stylesheets/animations";
+@import "./assets/stylesheets/tags";
+@import "./assets/stylesheets/gauges";
+@import "./assets/stylesheets/action-plan";
+@import "./assets/stylesheets/breadcrumb";
+@import "./assets/stylesheets/editor";
+@import "./assets/stylesheets/print";
+@import "./assets/stylesheets/header";
+@import "./assets/stylesheets/onboarding";
+@import "./assets/stylesheets/contrast";
 
 @-moz-document url-prefix() {
   .pia-gaugeBlock-user-choice {
@@ -40,7 +40,7 @@ html {
 }
 body {
   font-size: 1.2rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: $pia-white;
 }
 html,
@@ -49,7 +49,8 @@ body {
 }
 body {
   &.pia-authentication {
-    background: url('./assets/images/authentication-bg.png') no-repeat center center transparent;
+    background: url("./assets/images/authentication-bg.png") no-repeat center
+      center transparent;
     background-size: cover;
   }
 }
@@ -106,7 +107,7 @@ angular2csv {
 // Mostly used for displayers
 .close,
 .hide {
-  display: none !important;
+  display: none;
 }
 .open {
   display: block !important;
@@ -122,7 +123,7 @@ angular2csv {
   &:after {
     cursor: not-allowed;
     z-index: 1000;
-    content: '';
+    content: "";
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
     top: 0;
@@ -272,5 +273,16 @@ tag-input-form {
   }
   img {
     max-width: 650px !important;
+  }
+}
+
+.ng2-tag-input.foundation-theme tag {
+  padding: 0px;
+  .custom-tag {
+    padding: 0.08rem 0.45rem;
+    width: max-content;
+    &.user-not-found {
+      background-color: #a7a7a7;
+    }
   }
 }

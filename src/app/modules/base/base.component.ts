@@ -172,7 +172,7 @@ export class BaseComponent implements OnInit {
     entry.updated_at = entry.created_at;
 
     this.knowledgesService
-      .create(this.base.id, entry)
+      .add(this.base.id, entry)
       .then((result: Knowledge) => {
         this.knowledges.push(result);
         this.entryForm.reset();

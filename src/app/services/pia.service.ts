@@ -13,14 +13,15 @@ import { StructureService } from './structure.service';
 import { AnswerService } from './answer.service';
 import { ApplicationDb } from '../application.db';
 import { Router } from '@angular/router';
-import { DialogService } from './dialog.service';
 
 import piaExample from 'src/assets/files/2018-02-21-pia-example.json';
 import { MeasureService } from './measures.service';
 import { CommentsService } from './comments.service';
 import { EvaluationService } from './evaluation.service';
+import { ApiService } from './api.service';
+import { AuthService } from './auth.service';
 
-function encode_utf8(s) {
+function encode_utf8(s): string {
   return unescape(encodeURIComponent(s));
 }
 
@@ -38,71 +39,21 @@ export class PiaService extends ApplicationDb {
     private answerService: AnswerService,
     private measuresService: MeasureService,
     private commentsService: CommentsService,
-    private evaluationService: EvaluationService
+    private evaluationService: EvaluationService,
+    private authService: AuthService,
+    protected apiService: ApiService
   ) {
+    // PREPARE DBS
     super(201910230914, 'pia');
+    super.prepareApi(this.apiService);
     super.prepareServerUrl(this.router);
+
     this.data = this.appDataService.dataNav;
 
     // there isn't pia ? load it
-    this.getPiaExample().then(entry => {
-      if (!entry) {
-        this.importData(piaExample, 'EXAMPLE', false, true);
-      }
-    });
-  }
-
-  /**
-   * Create a new PIA.
-   * @returns {Promise} - Return new Promise
-   */
-  async create(pia): Promise<number> {
-    if (this.created_at === undefined) {
-      this.created_at = new Date();
-    }
-    const data = {
-      ...pia,
-      structure_id: pia.structure_id ? pia.structure_id : ''
-    };
-
-    return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        const formData = new FormData();
-        for (const d in data) {
-          if (data.hasOwnProperty(d)) {
-            let value = data[d];
-            if (d === 'structure_data') {
-              value = JSON.stringify(value);
-            }
-            formData.append('pia[' + d + ']', value !== null ? value : '');
-          }
-        }
-        fetch(this.getServerUrl(), {
-          method: 'POST',
-          body: formData,
-          mode: 'cors'
-        })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result.id);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const evt = this.objectStore.add(data);
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            resolve(event.target.result);
-          };
-        });
+    this.getPiaExample().then(async examples => {
+      if (!examples) {
+        await this.importData(piaExample, 'EXAMPLE', false, true);
       }
     });
   }
@@ -111,7 +62,7 @@ export class PiaService extends ApplicationDb {
    * Find all entries without conditions.
    * @returns {Promise} - Return new Promise
    */
-  async getAllActives() {
+  async getAllActives(): Promise<any> {
     const items = [];
     return new Promise((resolve, reject) => {
       this.findAll().then((entries: any) => {
@@ -128,42 +79,19 @@ export class PiaService extends ApplicationDb {
    * Find all archived PIAs
    * @param structure_id the structure id
    */
-  async findAllArchives() {
+  async findAllArchives(): Promise<any> {
     const items = [];
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(`${this.getServerUrl()}?is_archive=true`, {
-          mode: 'cors'
+      this.findAll('?is_archive=true', {
+        index: 'index5',
+        value: 1
+      })
+        .then((result: any) => {
+          resolve(result);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index5 = this.objectStore.index('index5');
-          const evt = index5.openCursor(IDBKeyRange.only(1));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
+        .catch(error => {
+          reject();
         });
-      }
     });
   }
 
@@ -171,42 +99,20 @@ export class PiaService extends ApplicationDb {
    * Get all PIA linked to a specific structure
    * @param structure_id the structure id
    */
-  async getAllWithStructure(structure_id: number) {
+  async getAllWithStructure(structure_id: number): Promise<Pia[]> {
     const items = [];
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl(), {
-          mode: 'cors'
+      this.findAll('?structure_id=' + structure_id, {
+        index: 'index4',
+        value: structure_id
+      })
+        .then((result: any) => {
+          resolve(result);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index4 = this.objectStore.index('index4');
-          const evt = index4.openCursor(IDBKeyRange.only(structure_id));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
+        .catch(error => {
+          console.error('Request failed', error);
+          reject();
         });
-      }
     });
   }
 
@@ -214,49 +120,36 @@ export class PiaService extends ApplicationDb {
    * Get the PIA example.
    * @returns {Promise}
    */
-  async getPiaExample(): Promise<Pia> {
+  async getPiaExample(): Promise<any> {
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        fetch(this.getServerUrl() + '/' + 'example', {
-          mode: 'cors'
+      super
+        .findWithReference('/example', { index: 'index3', value: 1 })
+        .then((resp: Pia) => {
+          resolve(resp);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        this.getObjectStore().then(() => {
-          const index3 = this.objectStore.index('index3');
-          const evt = index3.get(IDBKeyRange.only(1));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const entry = event.target.result;
-            resolve(entry);
-          };
+        .catch(err => {
+          reject(err);
         });
-      }
     });
   }
 
-  calculPiaProgress(pia): void {
+  async calculPiaProgress(pia): Promise<void> {
     pia.progress = 0.0;
     if (pia.status > 0) {
       pia.progress += 4;
     }
-    this.data.sections.forEach((section: any) => {
-      section.items.forEach((item: any) => {
-        this.sidStatusService.setSidStatus(pia, section, item);
-      });
-    });
+
+    // this.data.sections.forEach((section: any) => {
+    //   section.items.forEach((item: any) => {
+    //     this.sidStatusService.setSidStatus(pia, section, item);
+    //   });
+    // });
+
+    for (const section of this.data.sections) {
+      for (const item of section.items) {
+        await this.sidStatusService.setSidStatus(pia, section, item);
+      }
+    }
   }
 
   /**
@@ -275,8 +168,8 @@ export class PiaService extends ApplicationDb {
         pia.people_names = null;
         pia.concerned_people_status = null;
         pia.concerned_people_opinion = null;
-        this.update(pia).then(() => {
-          resolve();
+        this.update(pia).then(res => {
+          resolve(res);
         });
       });
     });
@@ -285,17 +178,17 @@ export class PiaService extends ApplicationDb {
   /**
    * Create a new PIA
    */
-  async saveNewPia(piaForm: any): Promise<any> {
+  async saveNewPia(piaForm: Pia): Promise<any> {
     return new Promise((resolve, reject) => {
-      const pia = new Pia();
-      pia.name = piaForm.value.name;
-      pia.category = piaForm.value.category;
-      pia.author_name = piaForm.value.author_name;
-      pia.evaluator_name = piaForm.value.evaluator_name;
-      pia.validator_name = piaForm.value.validator_name;
+      const pia: Pia = {
+        ...piaForm
+      };
+      pia.is_example = 0;
+      pia.status = 0;
       pia.created_at = new Date();
       pia.updated_at = new Date();
-      const structure_id = piaForm.value.structure;
+      const structure_id = piaForm.structure_id;
+
       if (structure_id && structure_id > 0) {
         this.structureService
           .find(structure_id)
@@ -304,14 +197,29 @@ export class PiaService extends ApplicationDb {
             pia.structure_name = structure.name;
             pia.structure_sector_name = structure.sector_name;
             pia.structure_data = this.removeEmptyElements(structure.data);
-            this.create(pia).then(id => {
-              this.structureCreateMeasures(pia, id).then(() => {
-                this.structureCreateAnswers(pia, id).then(() => resolve(id));
+
+            super
+              .create(pia)
+              .then((result: Pia) => {
+                this.structureCreateMeasures(pia, result.id).then(() => {
+                  this.structureCreateAnswers(pia, result.id).then(() => {
+                    resolve(result);
+                  });
+                });
+              })
+              .catch(err => {
+                reject(err);
               });
-            });
           });
       } else {
-        this.create(pia).then(id => resolve(id));
+        super
+          .create(pia)
+          .then((result: Pia) => {
+            resolve(result);
+          })
+          .catch(err => {
+            reject(err);
+          });
       }
     });
   }
@@ -356,7 +264,7 @@ export class PiaService extends ApplicationDb {
       // Record the structures Measures
       const structures_measures = pia.structure_data.sections
         .filter(s => s.id === 3)[0]
-        .items.filter(i => i.id === 1)[0].answers;
+        .items.filter((item: any) => item.id === 1)[0].answers;
       let i = 0;
       if (structures_measures.length > 0) {
         for (const m in structures_measures) {
@@ -368,13 +276,13 @@ export class PiaService extends ApplicationDb {
             this.measuresService.create(measure).then(() => {
               i++;
               if (i === structures_measures.length) {
-                resolve();
+                resolve(true);
               }
             });
           }
         }
       } else {
-        resolve();
+        resolve(true);
       }
     });
   }
@@ -404,15 +312,15 @@ export class PiaService extends ApplicationDb {
           answer.pia_id = id;
           answer.reference_to = question.id;
           answer.data = { text: question.answer, gauge: null, list: null };
-          this.answerService.create(answer).then(() => {
+          this.answerService.create(answer).then(res => {
             i++;
             if (i === questions.length) {
-              resolve();
+              resolve(res);
             }
           });
         });
       } else {
-        resolve();
+        resolve(true);
       }
     });
   }
@@ -467,8 +375,8 @@ export class PiaService extends ApplicationDb {
     return new Promise((resolve, reject) => {
       this.exportData(id).then(data => {
         this.importData(data, 'COPY', true)
-          .then(() => {
-            resolve();
+          .then(res => {
+            resolve(res);
           })
           .then(err => {
             reject(err);
@@ -533,9 +441,6 @@ export class PiaService extends ApplicationDb {
       const pia = new Pia();
       pia.name = '(' + prefix + ') ' + data.pia.name;
       pia.category = data.pia.category;
-      pia.author_name = data.pia.author_name;
-      pia.evaluator_name = data.pia.evaluator_name;
-      pia.validator_name = data.pia.validator_name;
       pia.dpo_status = data.pia.dpo_status;
       pia.dpo_opinion = data.pia.dpo_opinion;
       pia.concerned_people_opinion = data.pia.concerned_people_opinion;
@@ -549,6 +454,36 @@ export class PiaService extends ApplicationDb {
       pia.created_at = data.pia.created_at;
       pia.dpos_names = data.pia.dpos_names;
       pia.people_names = data.pia.people_names;
+      console.log(this.authService.state, data);
+
+      if (this.authService.state && data.pia.user_pias) {
+        const author = data.pia.user_pias.find(
+          user_pia => user_pia.role === 'author'
+        );
+        const evaluator = data.pia.user_pias.find(
+          user_pia => user_pia.role === 'evaluator'
+        );
+        const validator = data.pia.user_pias.find(
+          user_pia => user_pia.role === 'validator'
+        );
+        console.log(author, evaluator, validator);
+        if (author) {
+          pia.author_name = author.user.id;
+        }
+        if (evaluator) {
+          pia.evaluator_name = evaluator.user.id;
+        }
+        if (validator) {
+          pia.validator_name = validator.user.id;
+        }
+
+        pia.guests = data.pia.guests.map(guest => guest.id).join(',');
+      } else {
+        pia.author_name = data.pia.author_name;
+        pia.evaluator_name = data.pia.evaluator_name;
+        pia.validator_name = data.pia.validator_name;
+      }
+
       /* Structure import if there is a specific one associated to this PIA */
       if (data.pia.structure_id) {
         pia.structure_id = data.pia.structure_id;
@@ -585,9 +520,11 @@ export class PiaService extends ApplicationDb {
         }
       }
 
-      this.create(pia)
-        .then(async (piaId: number) => {
-          pia.id = piaId;
+      super
+        .create(pia)
+        .then(async (result: Pia) => {
+          // ADD ID TO QUERIES
+          pia.id = result.id;
           this.pia_id = pia.id;
           this.answerService.pia_id = pia.id;
           this.measuresService.pia_id = pia.id;
@@ -600,7 +537,6 @@ export class PiaService extends ApplicationDb {
             await this.importComments(data.comments, pia.id);
           }
 
-          // this.pias.push(pia);
           this.calculPiaProgress(pia);
           resolve(pia);
         })
@@ -630,6 +566,10 @@ export class PiaService extends ApplicationDb {
         pia.structure_data = piaExport.pia.structure_data;
         pia.structure_name = piaExport.pia.structure_name;
         pia.structure_sector_name = piaExport.pia.structure_sector_name;
+      }
+
+      if (piaExport.pia.guests) {
+        pia.guests = piaExport.pia.guests.map(x => x.id);
       }
 
       if (updateOption) {
@@ -711,7 +651,7 @@ export class PiaService extends ApplicationDb {
    * Make a JSON from the PIA data
    * @param id - The PIA id.
    */
-  async export(id: number) {
+  async export(id: number): Promise<string> {
     return new Promise(async (resolve, reject) => {
       this.exportData(id).then(data => {
         const finalData = encode_utf8(JSON.stringify(data));
@@ -724,7 +664,7 @@ export class PiaService extends ApplicationDb {
    * Import the PIA from file.
    * @param file - The exported PIA file.
    */
-  async import(file: any) {
+  async import(file: any): Promise<any> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsText(file);
@@ -856,14 +796,17 @@ export class PiaService extends ApplicationDb {
 
   // UPDATE
   archive(id): Promise<void> {
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       // Update the PIA in DB.
       const pia = new Pia();
       this.find(id)
         .then((entry: Pia) => {
           entry.is_archive = 1;
-          this.update(entry);
-          resolve();
+          this.calculPiaProgress(entry).then(() => {
+            this.update(entry).then(() => {
+              resolve();
+            });
+          });
         })
         .catch(err => {
           console.error(err);
@@ -873,7 +816,7 @@ export class PiaService extends ApplicationDb {
 
   update(pia: Pia, date = null): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.find(pia.id).then((entry: any) => {
+      super.find(pia.id).then((entry: any) => {
         entry = {
           ...entry,
           ...pia
@@ -885,44 +828,15 @@ export class PiaService extends ApplicationDb {
           entry.is_archive = pia.is_archive;
         }
         entry.updated_at = date ? date : new Date();
-        if (this.serverUrl) {
-          const formData = new FormData();
-          for (const d in entry) {
-            if (entry.hasOwnProperty(d)) {
-              let value = entry[d];
-              if (d === 'structure_data') {
-                value = JSON.stringify(value);
-              }
-              formData.append('pia[' + d + ']', value !== null ? value : '');
-            }
-          }
-          fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
-            body: formData,
-            mode: 'cors'
+        super
+          .update(entry.id, entry)
+          .then((result: any) => {
+            resolve(result);
           })
-            .then(response => {
-              return response.json();
-            })
-            .then((result: any) => {
-              resolve(result);
-            })
-            .catch(error => {
-              console.error('Request failed', error);
-              reject();
-            });
-        } else {
-          this.getObjectStore().then(() => {
-            const evt = this.objectStore.put(entry);
-            evt.onerror = (event: any) => {
-              console.error(event);
-              reject(Error(event));
-            };
-            evt.onsuccess = (event: any) => {
-              resolve(event.target.result);
-            };
+          .catch(error => {
+            console.error('Request failed', error);
+            reject();
           });
-        }
       });
     });
   }

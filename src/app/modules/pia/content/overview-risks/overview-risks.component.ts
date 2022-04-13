@@ -89,7 +89,7 @@ export class OverviewRisksComponent implements OnInit {
         });
       }
 
-      resolve();
+      resolve(this.data);
     });
   }
 
@@ -97,7 +97,7 @@ export class OverviewRisksComponent implements OnInit {
    * Initialize the SVG.
    * @private
    */
-  private async initSvg() {
+  private async initSvg(): Promise<void> {
     const dataNav = this.appDataService.dataNav;
     this.svg = d3.select('svg');
     this.svg.attr('viewBox', '0 0 590 800');
@@ -350,7 +350,7 @@ export class OverviewRisksComponent implements OnInit {
    * @param {any} y - Position Y.
    * @returns {Promise}
    */
-  private async parseQuestions(questionGauges, g, x, y) {
+  private async parseQuestions(questionGauges, g, x, y): Promise<any[]> {
     let i = 0;
     const data = [];
     const gauges_value = {

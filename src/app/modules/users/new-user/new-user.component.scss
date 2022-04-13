@@ -1,0 +1,106 @@
+@import "~src/assets/stylesheets/variables";
+.pia {
+  &-newUser {
+    font-style: normal;
+    text-align: left;
+    h2 {
+      font-weight: 300;
+      margin-top: 0px;
+      margin-bottom: 20px;
+      font-size: 2.3em;
+      width: 100%;
+      text-align: center;
+    }
+    legend {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 10px 0;
+    }
+    div:first-of-type {
+      display: flex;
+      div {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .mail {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    input {
+      &[type="text"],
+      &[type="email"] {
+        border: none;
+        border-bottom: 1px solid $pia-blue;
+        & + label {
+          display: none;
+          padding-left: 5px;
+        }
+        &:focus {
+          border-bottom: 1px solid $pia-green;
+          & + label {
+            color: $pia-green;
+            display: block;
+          }
+          &::placeholder {
+            color: transparent !important;
+          }
+        }
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: $pia-blue;
+        }
+      }
+      &[type="email"] {
+        width: 100%;
+      }
+      &[type="checkbox"] {
+        & + label {
+          font-size: 12px;
+        }
+      }
+    }
+    #mail {
+      margin: 20px 0px 0px 0px;
+    }
+    #first_name {
+      margin-right: 30px;
+    }
+    &-checkbox {
+      display: flex;
+      margin: 15px 0px 35px 0px;
+      flex-wrap: wrap;
+      legend {
+        width: 100%;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 33.33%;
+        text-align: center;
+      }
+    }
+    &-submit {
+      display: flex;
+      justify-content: space-around;
+      padding: 0px 100px;
+    }
+    .is {
+      &-invalid {
+        input {
+          &[type="text"],
+          &[type="email"] {
+            border-bottom: 1px solid $pia-red;
+            & + label {
+              color: $pia-red;
+            }
+          }
+        }
+      }
+    }
+  }
+}

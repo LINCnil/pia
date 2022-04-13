@@ -3,56 +3,105 @@
 </th>
 <th>
   <a (click)="sortBy('name')">
-    <span>{{ 'homepage.lists.column_pia' | translate }}</span>
-    <i class="fa"
-      [ngClass]="[sortValue === 'name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"></i>
+    <span>{{ "homepage.lists.column_pia" | translate }}</span>
+    <i
+      class="fa"
+      [ngClass]="[
+        sortValue === 'name'
+          ? 'fa-caret-' + sortOrder
+          : 'fa-caret-down desactivate'
+      ]"
+    ></i>
   </a>
 </th>
 <th>
   <a (click)="sortBy('updated_at')">
-    <span>{{ 'homepage.lists.column_updated_at' | translate }}</span>
-    <i class="fa"
-      [ngClass]="[sortValue === 'updated_at' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+    <span>{{ "homepage.lists.column_updated_at" | translate }}</span>
+    <i
+      class="fa"
+      [ngClass]="[
+        sortValue === 'updated_at'
+          ? 'fa-caret-' + sortOrder
+          : 'fa-caret-down desactivate'
+      ]"
     ></i>
   </a>
 </th>
 <th>
   <a (click)="sortBy('author_name')">
-    <span>{{ 'homepage.lists.column_author' | translate }}</span>
-    <i class="fa"
-      [ngClass]="[sortValue === 'author_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+    <span>{{ "homepage.lists.column_author" | translate }}</span>
+    <i
+      class="fa"
+      [ngClass]="[
+        sortValue === 'author_name'
+          ? 'fa-caret-' + sortOrder
+          : 'fa-caret-down desactivate'
+      ]"
     ></i>
   </a>
 </th>
 <th>
   <a (click)="sortBy('evaluator_name')">
-    <span>{{ 'homepage.lists.column_evaluation' | translate }}</span>
-    <i class="fa"
-      [ngClass]="[sortValue === 'evaluator_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+    <span>{{ "homepage.lists.column_evaluation" | translate }}</span>
+    <i
+      class="fa"
+      [ngClass]="[
+        sortValue === 'evaluator_name'
+          ? 'fa-caret-' + sortOrder
+          : 'fa-caret-down desactivate'
+      ]"
     ></i>
   </a>
 </th>
 <th>
   <a (click)="sortBy('validator_name')">
-    <span>{{ 'homepage.lists.column_validation' | translate }}</span>
-    <i class="fa"
-      [ngClass]="[sortValue === 'validator_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+    <span>{{ "homepage.lists.column_validation" | translate }}</span>
+    <i
+      class="fa"
+      [ngClass]="[
+        sortValue === 'validator_name'
+          ? 'fa-caret-' + sortOrder
+          : 'fa-caret-down desactivate'
+      ]"
+    ></i>
+  </a>
+</th>
+<th *ngIf="authService.state">
+  <a (click)="sortBy('guests')">
+    <span>Invité(s)</span>
+    <i
+      class="fa"
+      [ngClass]="[
+        sortValue === 'guests'
+          ? 'fa-caret-' + sortOrder
+          : 'fa-caret-down desactivate'
+      ]"
     ></i>
   </a>
 </th>
 <th>
   <a (click)="sortBy('structure_name')">
-    <span>{{ 'homepage.lists.column_structure_name' | translate }}</span>
-    <i class="fa"
-      [ngClass]="[sortValue === 'structure_name' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+    <span>{{ "homepage.lists.column_structure_name" | translate }}</span>
+    <i
+      class="fa"
+      [ngClass]="[
+        sortValue === 'structure_name'
+          ? 'fa-caret-' + sortOrder
+          : 'fa-caret-down desactivate'
+      ]"
     ></i>
   </a>
 </th>
 <th>
   <a (click)="sortBy('progress')">
-    <span>{{ 'homepage.lists.column_status' | translate }}</span>
-    <i class="fa"
-      [ngClass]="[sortValue === 'progress' ? 'fa-caret-' + sortOrder : 'fa-caret-down desactivate']"
+    <span>{{ "homepage.lists.column_status" | translate }}</span>
+    <i
+      class="fa"
+      [ngClass]="[
+        sortValue === 'progress'
+          ? 'fa-caret-' + sortOrder
+          : 'fa-caret-down desactivate'
+      ]"
     ></i>
   </a>
 </th>

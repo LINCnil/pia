@@ -1,6 +1,9 @@
 <div
   class="pia-evaluationBlock"
-  *ngIf="globalEvaluationService.status >= 3"
+  *ngIf="
+    globalEvaluationService.status >= 3 &&
+    (editMode.includes('evaluator') || editMode === 'local')
+  "
   [ngClass]="{
     'pia-evaluationBlock-shadowed': item.evaluation_mode === 'item'
   }"

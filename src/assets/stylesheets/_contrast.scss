@@ -65,7 +65,72 @@ main.pia-contrast {
       color: $pia-blue;
     }
   }
-
+  /* Home page */
+  .pia-authenticationBlock {
+    &-logo {
+      h2,
+      p,
+      ::before {
+        background-color: $pia-green-dark !important;
+      }
+    }
+    .pia-authenticationBlock-auth {
+      a,
+      p {
+        color: $pia-green-dark !important;
+        &.is-valid {
+          color: $pia-green-dark !important;
+        }
+        &.is-invalid {
+          color: $pia-red-dark !important;
+        }
+      }
+      button {
+        color: $pia-green-dark !important;
+      }
+      input {
+        & + label {
+          color: $pia-green-dark !important;
+        }
+        &:focus {
+          border-bottom: 1px $pia-green-dark solid !important;
+        }
+      }
+      .is {
+        &-invalid input {
+          &[type="checkbox"] {
+            border: 1px solid $pia-red-dark !important;
+            color: $pia-red-dark !important;
+          }
+          &:focus {
+            border-bottom: 1px $pia-red-dark solid !important;
+            & + label {
+              color: $pia-red-dark !important;
+            }
+          }
+          border-bottom: 1px $pia-red-dark solid !important;
+          & + label {
+            color: $pia-red-dark !important;
+          }
+        }
+        &-valid input {
+          &[type="checkbox"] {
+            border: 1px solid $pia-green-dark !important;
+            color: $pia-green-dark !important;
+          }
+        }
+      }
+      button[type="submit"] {
+        background-color: $pia-green-dark !important;
+        color: white !important;
+        &:disabled {
+          background-color: inherit !important;
+          color: $pia-green-dark !important;
+          border: 1px $pia-green-dark solid;
+        }
+      }
+    }
+  }
   /* risks overview */
   .pia-risksOverviewBlock {
     .rect_2 {
@@ -282,6 +347,9 @@ main.pia-contrast {
     }
   }
   .pia-listsBlock-item {
+    span {
+      background-color: $pia-green-dark !important;
+    }
     progress {
       appearance: none;
       -moz-appearance: none;
@@ -648,6 +716,21 @@ main.pia-contrast {
 
   /* modals */
   .pia-modalBlock {
+    input[type="text"],
+    input[type="email"]:focus {
+      border-bottom: 1px solid $pia-green-dark !important;
+      & + label {
+        color: $pia-green-dark !important;
+      }
+    }
+    .is-invalid {
+      input[type="email"] {
+        border-bottom: 1px solid $pia-red-dark !important;
+        & + label {
+          color: $pia-red-dark !important;
+        }
+      }
+    }
     .pia-icon-happy {
       background-position: -127px -391px;
     }

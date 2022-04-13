@@ -26,7 +26,9 @@ import { StructureService } from 'src/app/services/structure.service';
 })
 export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
   searchForm: FormGroup;
-  noTitle = false;
+  @Input() editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
   @Input() item: any;
   @Input() structure: Structure;
   @Input() pia: Pia;
@@ -128,7 +130,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
               ...result
             ];
           }
-          resolve(result);
+          resolve(this.customKnowledgeBases);
         })
         .catch(() => {
           reject();
@@ -139,7 +141,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
   /**
    * New knowledge base search query.
    */
-  onSubmit() {
+  onSubmit(): void {
     this.knowledgeBaseService.translateService = this.translateService;
     this.knowledgeBaseService.q = this.searchForm.value.q;
     const filterBlock = this.el.nativeElement.querySelector(
@@ -155,7 +157,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
    * Allows an user to add a new measure (with its title and its placeholder) through the knowledge base.
    * @param event - Any kind of event.
    */
-  addNewMeasure(event) {
+  addNewMeasure(event): void {
     if (this.pia) {
       this.measureService
         .addNewMeasure(this.pia, event.name, event.placeholder)
@@ -183,7 +185,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  switch(selectedKnowledBase) {
+  switch(selectedKnowledBase): void {
     this.knowledgeBaseService
       .switch(selectedKnowledBase)
       .then(() => {

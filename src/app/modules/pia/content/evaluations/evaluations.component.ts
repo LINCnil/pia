@@ -32,6 +32,9 @@ export class EvaluationsComponent
   private riskSubscription: Subscription;
   private placeholderSubscription: Subscription;
   evaluationForm: FormGroup;
+  @Input() editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
   @Input() item: any;
   @Input() pia: any;
   @Input() section: any;
@@ -339,7 +342,6 @@ export class EvaluationsComponent
     this.evaluationService.update(this.evaluation).then(() => {
       this.ngZone.run(() => {
         this.globalEvaluationService.validate();
-        // this.globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       });
     });
   }
@@ -358,6 +360,7 @@ export class EvaluationsComponent
    * Executes actions when losing focus from evaluation comment.
    */
   evaluationCommentFocusOut(): void {
+    console.log('évaluationf focus out');
     this.knowledgeBaseService.placeholder = null;
     this.editorEvaluationComment = false;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
@@ -371,7 +374,6 @@ export class EvaluationsComponent
       this.evaluationEvent.emit(this.evaluation);
       this.ngZone.run(() => {
         this.globalEvaluationService.validate();
-        // this.globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
       });
     });
   }
@@ -426,7 +428,6 @@ export class EvaluationsComponent
     }
     this.evaluationService.update(this.evaluation).then(() => {
       this.globalEvaluationService.validate();
-      // this.globalEvaluationService.checkForFinalValidation(this.pia, this.section, this.item);
     });
   }
 

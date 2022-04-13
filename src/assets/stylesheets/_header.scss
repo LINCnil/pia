@@ -172,7 +172,7 @@
           right: -1px;
           color: $pia-light-black;
           padding: 0 10px;
-          z-index: 999;
+          z-index: 999999;
           background-color: #fff;
           > fieldset {
             border: none;
@@ -191,9 +191,12 @@
             }
           }
           div {
-            border-top: 1px solid $pia-gray;
-            border-bottom: 1px solid $pia-gray;
-            padding: 8px 0;
+            border-top: 1px solid $pia-gray !important;
+            padding: 10px 0 !important;
+            &:first-of-type {
+              border-top: none !important;
+            }
+
             /* input, label {
               display: inline-block;
               vertical-align: top;
@@ -260,7 +263,7 @@
             }
           }
           a {
-            padding: 10px 0 !important;
+            //padding: 10px 0 !important;
             color: $pia-light-black !important;
             font-weight: 400 !important;
             display: block;

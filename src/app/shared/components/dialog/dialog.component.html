@@ -3,7 +3,7 @@
   [id]="message.data && message.data.modal_id ? message.data.modal_id : null"
   *ngIf="message"
 >
-  <div class="pia-modalBlock-content bounceIn">
+  <div class="pia-modalBlock-content">
     <button
       *ngIf="!message.data || (message.data && !message.data.no_cross_button)"
       tabindex="3"
@@ -30,6 +30,11 @@
     <ng-template #templateElse>
       <p [innerHTML]="message.text | translate"></p>
     </ng-template>
+    <div
+      *ngIf="message.data && message.data.additional_text"
+      class="abandonText"
+      [innerHTML]="message.data.additional_text | translate"
+    ></div>
     <p *ngIf="message.icon">
       <i [ngClass]="message.icon" aria-hidden="true"></i>
     </p>
@@ -60,10 +65,5 @@
         [innerHtml]="message.yes | translate"
       ></button>
     </div>
-    <div
-      *ngIf="message.data && message.data.additional_text"
-      class="abandonText"
-      [innerHTML]="message.data.additional_text | translate"
-    ></div>
   </div>
 </div>

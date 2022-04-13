@@ -1,0 +1,285 @@
+@import "~src/assets/stylesheets/variables";
+
+// List PIA
+.pia {
+  &-list-table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 380px;
+    border-bottom: 1px solid #d0d0d0;
+    thead {
+      background-color: $pia-dark-black;
+      color: $pia-white;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      text-align: left;
+      display: table-header-group;
+      vertical-align: middle;
+      tr {
+        display: table-row;
+      }
+      th {
+        display: table-cell;
+        a {
+          padding: 5px 0;
+          color: $pia-white;
+          text-decoration: none;
+          display: flex;
+          justify-content: space-between;
+          position: relative;
+          span {
+            align-self: center;
+            padding-left: 13px;
+          }
+        }
+        span {
+          border-left: solid 1px $pia-white;
+          &:last-child {
+            padding-left: 13px;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        position: relative;
+        &:nth-child(even) {
+          background-color: rgba(62, 224, 149, 0.15);
+        }
+        &:hover {
+          background-color: rgba(62, 224, 149, 0.25);
+        }
+        .pia-listsBlock-item {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-evenly;
+          align-items: flex-start;
+          align-content: stretch;
+          margin-left: 10px;
+          a {
+            color: $pia-green;
+            font-size: 1.8rem;
+            margin: 0 10px 0 0;
+            text-decoration: none;
+            width: 18px;
+          }
+          span {
+            background-color: $pia-green;
+          }
+          &-value {
+            padding-left: 15px;
+            input,
+            span {
+              vertical-align: middle;
+            }
+            span {
+              margin-right: 20px;
+              margin-left: 8px;
+            }
+          }
+          &-actions {
+            display: flex;
+          }
+        }
+      }
+
+      .entries-loading {
+        display: inline-block;
+        vertical-align: top;
+        &.entries-loading-line {
+          position: relative;
+          left: 576px;
+          height: 160px;
+        }
+      }
+    }
+  }
+  &-searchInput {
+    width: 150px;
+    margin-left: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    .search-icon {
+      font-style: initial;
+      transition: all ease 0.5s;
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: 1px;
+      font-size: 2.35rem;
+      color: $pia-green;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+    .search-close {
+      display: block;
+      position: absolute;
+      right: 10px;
+      top: 2px;
+      font-size: 2.5rem;
+      line-height: 3rem;
+      font-style: normal;
+      font-weight: lighter;
+      color: $pia-green;
+      cursor: pointer;
+    }
+    input.btn.btn-search {
+      float: right;
+      background: none;
+      border: 1px solid $pia-green;
+      border-radius: 20px;
+      color: $pia-green;
+      font-size: 1.3rem;
+      transition: all ease 0.5s;
+      outline-style: none;
+      box-shadow: none;
+      position: relative;
+      padding-left: 30px;
+      &::placeholder {
+        color: $pia-green;
+      }
+      &:focus,
+      &.typed {
+        width: 350px;
+        border: 0px;
+        border: 1px solid $pia-green;
+        border-radius: 20px;
+        color: $pia-green;
+        + .search-icon {
+          left: -190px;
+        }
+      }
+    }
+  }
+  &-search-createUser {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px auto;
+  }
+  &-newUser {
+    font-style: normal;
+    text-align: left;
+    h2 {
+      font-weight: 300;
+      margin-top: 0px;
+      margin-bottom: 20px;
+      font-size: 2.3em;
+      width: 100%;
+      text-align: center;
+    }
+    legend {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 10px 0;
+    }
+    div:first-of-type {
+      display: flex;
+      div {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .mail {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    input {
+      &[type="text"],
+      &[type="email"] {
+        border: none;
+        border-bottom: 1px solid $pia-blue;
+        & + label {
+          display: none;
+          padding-left: 5px;
+        }
+        &:focus {
+          border-bottom: 1px solid $pia-green;
+          & + label {
+            color: $pia-green;
+            display: block;
+          }
+          &::placeholder {
+            color: transparent !important;
+          }
+        }
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: $pia-blue;
+        }
+      }
+      &[type="email"] {
+        width: 100%;
+      }
+      &[type="checkbox"] {
+        & + label {
+          font-size: 12px;
+        }
+      }
+    }
+    #mail {
+      margin: 20px 0px 0px 0px;
+    }
+    #first_name {
+      margin-right: 30px;
+    }
+    &-checkbox {
+      display: flex;
+      margin: 15px 0px 35px 0px;
+      flex-wrap: wrap;
+      legend {
+        width: 100%;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 33.33%;
+        text-align: center;
+      }
+    }
+    &-submit {
+      display: flex;
+      justify-content: space-around;
+      padding: 0px 100px;
+      button {
+        background: none;
+        border: 1px solid $pia-red;
+        border-radius: 20px;
+        box-shadow: none;
+        padding: 10px 30px;
+        color: $pia-red;
+        cursor: pointer;
+        &[type="submit"] {
+          color: $pia-green;
+          border: 1px solid $pia-green;
+          &:disabled {
+            border: 1px solid $pia-gray;
+            color: $pia-gray;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+    .is {
+      &-invalid {
+        input {
+          &[type="text"],
+          &[type="email"] {
+            border-bottom: 1px solid $pia-red;
+            & + label {
+              color: $pia-red;
+            }
+          }
+        }
+      }
+    }
+  }
+}

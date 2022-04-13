@@ -12,6 +12,8 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 export class AttachmentsComponent implements OnInit {
   @Input() isPreview: boolean;
   @Input() pia: Pia;
+  @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
+    'local';
   attachments: Array<Attachment> = [];
   attachmentForm: FormGroup;
   dispplayAttachmentButton = false;
@@ -69,7 +71,7 @@ export class AttachmentsComponent implements OnInit {
         this.loading = false;
       })
       .catch(() => {
-        this.loading = true;
+        this.loading = false;
       });
   }
 }

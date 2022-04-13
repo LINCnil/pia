@@ -12,7 +12,7 @@ export class ActionPlanComponent implements OnInit {
 
   constructor(public actionPlanService: ActionPlanService) {}
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.actionPlanService.pia = this.pia;
     this.actionPlanService.data = this.data;
     await this.actionPlanService.listActionPlan().then(() => {});

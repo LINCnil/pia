@@ -24,6 +24,7 @@ import { PiaHeadingComponent } from './list/heading/pia-heading/pia-heading.comp
 import { StructureHeadingComponent } from './list/heading/structure-heading/structure-heading.component';
 import { KnowledgebaseHeadingComponent } from './list/heading/knowledgebase-heading/knowledgebase-heading.component';
 import { EvaluationService } from 'src/app/services/evaluation.service';
+import { UsersModule } from 'src/app/modules/users/users.module';
 import { PiaI18nModule } from '@atnos/pia-i18n';
 
 @NgModule({
@@ -44,7 +45,13 @@ import { PiaI18nModule } from '@atnos/pia-i18n';
     StructureHeadingComponent,
     KnowledgebaseHeadingComponent
   ],
-  imports: [SharedModule, PiaI18nModule, CommonModule, EntriesRoutingModule],
+  imports: [
+    SharedModule,
+    PiaI18nModule,
+    CommonModule,
+    EntriesRoutingModule,
+    UsersModule
+  ],
   providers: [
     PiaService,
     ArchiveService,

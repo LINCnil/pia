@@ -11,7 +11,7 @@
     padding: 70px 40px;
     font-size: 1.9rem;
     color: $pia-green;
-    height: 440px;
+    height: 500px;
     width: 276px;
     &-new,
     &-import {
@@ -38,7 +38,7 @@
     }
     > span {
       display: block;
-      padding: 22px 0;
+      padding: 50px 0;
       color: $pia-gray;
       font-size: 2.1rem;
     }
@@ -343,23 +343,27 @@
 }
 
 // List PIA
-.pia-list-table {
-  position: relative;
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #d0d0d0;
-  thead {
-    background-color: $pia-dark-black;
-    color: $pia-white;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    text-align: left;
-    display: table-header-group;
-    vertical-align: middle;
-    tr {
-      display: table-row;
+.pia-list {
+  display: flex;
+  flex-wrap: wrap;
+  &-table {
+    position: relative;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #d0d0d0;
+    thead {
+      background-color: $pia-dark-black;
+      color: $pia-white;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      text-align: left;
+      display: table-header-group;
+      vertical-align: middle;
+      tr {
+        display: table-row;
+      }
     }
   }
 }
@@ -378,6 +382,12 @@
 .pia-cardsBlock-item-btn button {
   display: flex;
   margin: auto;
+}
+
+.pia-cardsBlock-item-btn {
+  position: absolute !important;
+  bottom: 0 !important;
+  width: 93% !important;
 }
 
 /* UPDATE */
@@ -463,17 +473,30 @@
   }
 }
 
-.entries-loading {
-  display: inline-block;
-  vertical-align: top;
-  &.entries-loading-card {
-    position: relative;
-    height: 500px;
-    width: calc(100% - 290px);
+.entries {
+  &-missing {
+    text-align: center;
   }
-  &.entries-loading-line {
-    position: absolute;
-    width: 100%;
-    height: 150px;
+  &-loading {
+    display: inline-block;
+    vertical-align: top;
+    &.entries-loading-card {
+      position: relative;
+      height: 500px;
+      width: calc(100% - 290px);
+    }
+    &.entries-loading-line {
+      position: absolute;
+      width: 100%;
+      height: 150px;
+    }
   }
+}
+
+// No Pia
+
+.no-pia {
+  flex: 1;
+  text-align: center;
+  align-self: center;
 }

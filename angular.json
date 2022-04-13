@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pia": {
+    "pia-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pia",
+            "outputPath": "dist/pia-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -92,18 +92,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pia:build"
+            "browserTarget": "pia-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pia:build:production"
+              "browserTarget": "pia-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pia:build"
+            "browserTarget": "pia-angular:build"
           }
         },
         "test": {
@@ -136,11 +136,11 @@
         "e2e": {
           "builder": "ngx-cypress-builder:cypress",
           "options": {
-            "devServerTarget": "pia:serve"
+            "devServerTarget": "pia-angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pia:serve:production"
+              "devServerTarget": "pia-angular:serve:production"
             }
           }
         }
@@ -185,7 +185,7 @@
       }
     }
   },
-  "defaultProject": "pia",
+  "defaultProject": "pia-angular",
   "cli": {
     "analytics": false
   }

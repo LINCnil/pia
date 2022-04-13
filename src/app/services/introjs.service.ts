@@ -1,4 +1,4 @@
-import { Injectable, OnChanges } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import * as introJs from 'intro.js/intro.js';
 
@@ -544,7 +544,6 @@ export class IntrojsService {
     let interval;
     switch (onBoarding) {
       case 'dashboard':
-        console.log('INTRO DASHBOARD');
         interval = setInterval(() => {
           if (document.querySelector('.pia-newBlock-item.front')) {
             this.prepareDashboardOnBoarding();
@@ -553,7 +552,6 @@ export class IntrojsService {
         }, 2000);
         break;
       case 'entry':
-        console.log('INTRO ENTRY');
         interval = setInterval(() => {
           if (document.querySelector('.pia-sectionsBlock')) {
             this.prepareEntryOnBoarding();
@@ -563,7 +561,6 @@ export class IntrojsService {
         break;
       case 'validated':
         if (!localStorage.getItem('onboardingValidatedConfirmed')) {
-          console.log('INTRO VALIDATED');
           interval = setInterval(() => {
             if (document.querySelector('.pia-cardsBlock.pia-archiveBlock')) {
               this.prepareValidatedOnBoarding();
@@ -574,7 +571,6 @@ export class IntrojsService {
         break;
       case 'evaluation':
         if (!localStorage.getItem('onboardingEvaluationConfirmed')) {
-          console.log('INTRO EVALUATION');
           interval = setInterval(() => {
             if (
               document.querySelector('.pia-evaluationBlock') &&

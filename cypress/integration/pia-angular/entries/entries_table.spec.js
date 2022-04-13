@@ -17,6 +17,7 @@ describe("Entries_table", () => {
    */
   context("entries_table", () => {
     it("change display", () => {
+      cy.init();
       cy.click_on_start();
       cy.get(".pia-filtersBlock-switch").click();
     });
@@ -54,7 +55,7 @@ describe("Entries_table", () => {
       cy.get(".pia-list-table tbody tr td:eq(1) div")
         .click()
         .clear()
-        .type("pia edited");
+        .type("pia edited for table test");
 
       //Edit author
       cy.get(".pia-list-table tbody tr td:eq(3) div")
@@ -80,7 +81,12 @@ describe("Entries_table", () => {
      */
     it("should duplicate pia", () => {
       cy.get(".pia-list-table tbody tr").should("have.length", 1);
-      cy.get(".pia-list-table tbody tr td:eq(0) .fa-files-o")
+      // cy.get(".pia-list-table tbody tr) td:eq(0) .fa-files-o")
+      //   .click()
+      //   .then(() => {
+      //     cy.get(".pia-list-table tbody tr").should("have.length", 2);
+      //   });
+      cy.get(".app-list-item:eq(0) td:eq(0) a:eq(1)")
         .click()
         .then(() => {
           cy.get(".pia-list-table tbody tr").should("have.length", 2);

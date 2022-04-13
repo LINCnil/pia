@@ -25,6 +25,9 @@ import { MeasureService } from 'src/app/services/measures.service';
   styleUrls: ['./measures.component.scss']
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
+  @Input() editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
   @Input() measure: Measure;
   @Input() item: any;
   @Input() section: any;

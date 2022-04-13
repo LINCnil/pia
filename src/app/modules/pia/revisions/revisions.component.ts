@@ -3,8 +3,6 @@ import {
   OnInit,
   OnDestroy,
   Input,
-  Output,
-  EventEmitter,
   SimpleChanges,
   OnChanges
 } from '@angular/core';
@@ -18,7 +16,7 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { RelativeDate } from './RelativeDate.class';
 import { Pia } from 'src/app/models/pia.model';
 
-function slugify(data) {
+function slugify(data): string {
   const a =
     'àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹńňñòóöôœøṕŕřßşśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;';
   const b =
@@ -47,7 +45,8 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() pia: Pia;
   @Input() currentVersion: Date;
   @Input() title = true;
-
+  @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
+    'local';
   revisions: Array<any>;
   subscription: Subscription;
   public opened = false;
@@ -95,7 +94,9 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     this.revisions.forEach(obj => {
       // Determite key and translate it
 
-      let temp = slugify(new RelativeDate(obj.created_at).simple());
+      let temp: string | string[] = slugify(
+        new RelativeDate(obj.created_at).simple()
+      );
       if (/\d/.test(temp)) {
         temp = temp.split('-');
         temp = this.translateService.instant('date.' + temp[0]) + ' ' + temp[1];
@@ -109,17 +110,18 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
           temp = this.translateService.instant('date.' + temp);
         }
       }
+
       const key = temp;
       // Group by key
-      if (this.revisionsGroupByMonth[key]) {
-        this.revisionsGroupByMonth[key].push(obj);
+      if (this.revisionsGroupByMonth[`${key}`]) {
+        this.revisionsGroupByMonth[`${key}`].push(obj);
         // ORDER DATE ARRAY
-        this.revisionsGroupByMonth[key].sort(function(a, b) {
+        this.revisionsGroupByMonth[`${key}`].sort((a, b) => {
           return b.created_at - a.created_at;
         });
       } else {
-        this.revisionsGroupByMonth[key] = [];
-        this.revisionsGroupByMonth[key].push(obj);
+        this.revisionsGroupByMonth[`${key}`] = [];
+        this.revisionsGroupByMonth[`${key}`].push(obj);
       }
     });
     this.revisionsGroupByMonthInArray = Object.keys(this.revisionsGroupByMonth); // Get Properties on array

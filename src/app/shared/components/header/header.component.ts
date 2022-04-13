@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
@@ -7,10 +7,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
+  providers: [{ provide: Window, useValue: window }],
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
@@ -20,28 +22,19 @@ export class HeaderComponent implements OnInit {
   isKnowledgeHeader: boolean;
   isStructureHeader: boolean;
   isArchiveHeader: boolean;
+  userRole: boolean;
 
   constructor(
+    private window: Window,
     public router: Router,
     private introjsService: IntrojsService,
     public translateService: TranslateService,
     public languagesService: LanguagesService,
-    public appDataService: AppDataService
+    public appDataService: AppDataService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    const displayMessage = document.querySelector(
-      '.pia-closeFullScreenModeAlertBlock'
-    );
-    window.screenTop === 0 && window.screenY === 0
-      ? displayMessage.classList.remove('hide')
-      : displayMessage.classList.add('hide');
-    window.onresize = () => {
-      window.screenTop === 0 && window.screenY === 0
-        ? displayMessage.classList.remove('hide')
-        : displayMessage.classList.add('hide');
-    };
-
     this.appVersion = environment.version;
 
     this.pia_is_example = false;
@@ -55,6 +48,28 @@ export class HeaderComponent implements OnInit {
     if (this.router.url.indexOf('/knowledges') > -1) {
       this.isKnowledgeHeader = true;
     }
+    this.updateFullScreenMessage();
+    this.window.addEventListener('load', () => {
+      this.window.onresize = () => {
+        this.updateFullScreenMessage();
+      };
+    });
+  }
+
+  disconnectUser() {
+    this.authService.logout();
+    this.router.navigate(['/']);
+  }
+
+  updateFullScreenMessage(): void {
+    const displayMessage: HTMLElement = document.querySelector(
+      '.pia-closeFullScreenModeAlertBlock'
+    );
+    if (this.window.innerHeight === screen.height) {
+      displayMessage.classList.toggle('hide');
+    } else {
+      displayMessage.classList.add('hide');
+    }
   }
 
   /**
@@ -65,7 +80,6 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('onboardingDashboardConfirmed');
     localStorage.removeItem('onboardingEntryConfirmed');
     localStorage.removeItem('onboardingValidatedConfirmed');
-    // location.reload();
     this.introjsService.reset();
     const currentUrl = this.router.url;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -75,16 +89,16 @@ export class HeaderComponent implements OnInit {
 
   /**
    * Manually updates the contrast. Can be executed by users through header.
-   * @param {any} event - Any kind of event.
+   * @param event - Any kind of event.
    */
   changeContrast(event: any): void {
     localStorage.setItem('increaseContrast', event.target.checked);
     this.appDataService.contrastMode = event.target.checked;
   }
 
-  goToExample() {
+  goToExample(): void {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['pia', 1, 'section', 1, 'item', 1]);
+      this.router.navigate(['pia', 'example', 'section', 1, 'item', 1]);
     });
   }
 }

@@ -1,53 +1,199 @@
-<form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="piaForm">
+<form
+  class="pia-cardsBlock-item-form"
+  (ngSubmit)="onSubmit()"
+  [formGroup]="piaForm"
+>
   <div>
-    <label for="name">{{ 'homepage.cards.pia_name' | translate }}</label>
-    <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}" id="name" required>
-  </div>
-  <div>
-    <label for="author_name">{{ 'homepage.cards.author' | translate }}</label>
+    <label for="name">{{ "homepage.cards.pia_name" | translate }}</label>
     <input
-      formControlName="author_name"
+      formControlName="name"
       type="text"
-      placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
-      id="author_name"
-      required>
+      placeholder="{{ 'homepage.cards.placeholder_pia_name' | translate }}"
+      id="name"
+      required
+    />
   </div>
+
+  <!-- AUTHOR FIELD DATA LIST -->
   <div>
-    <label for="evaluator_name">{{ 'homepage.cards.evaluation' | translate }}</label>
-    <input
-      formControlName="evaluator_name"
-      type="text"
-      placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
-      id="evaluator_name"
-      required>
+    <label for="author_name">{{ "homepage.cards.author" | translate }}</label>
+    <div *ngIf="authService.state; else author_name">
+      <tag-input
+        id="author_name"
+        identifyBy="id"
+        [maxItems]="1"
+        formControlName="author_name"
+        (onAdd)="onAddUser($event, 'author_name')"
+        [theme]="'foundation-theme'"
+        [editable]="false"
+        [clearOnBlur]="true"
+        [placeholder]="'homepage.cards.placeholder_validation' | translate"
+        [secondaryPlaceholder]="
+          'homepage.cards.placeholder_validation' | translate
+        "
+      >
+        <tag-input-dropdown
+          [keepOpen]="false"
+          identifyBy="id"
+          [showDropdownIfEmpty]="true"
+          [autocompleteItems]="userList"
+        ></tag-input-dropdown>
+      </tag-input>
+    </div>
+    <ng-template #author_name>
+      <input
+        formControlName="author_name"
+        type="text"
+        placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
+        id="author_name"
+        required
+      />
+    </ng-template>
   </div>
+  <!-- END AUTHOR FIELD DATA LIST -->
+
+  <!-- EVALUATOR FIELD DATA LIST -->
   <div>
-    <label for="validator_name">{{ 'homepage.cards.validation' | translate }}</label>
-    <input
-      formControlName="validator_name"
-      type="text"
-      placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
-      id="validator_name"
-      required>
+    <label for="evaluator_name">{{
+      "homepage.cards.evaluation" | translate
+    }}</label>
+    <div *ngIf="authService.state; else evaluator_name">
+      <tag-input
+        id="evaluator_name"
+        identifyBy="id"
+        [maxItems]="1"
+        formControlName="evaluator_name"
+        (onAdd)="onAddUser($event, 'evaluator_name')"
+        [theme]="'foundation-theme'"
+        [editable]="false"
+        [clearOnBlur]="true"
+        [placeholder]="'homepage.cards.placeholder_validation' | translate"
+        [secondaryPlaceholder]="
+          'homepage.cards.placeholder_validation' | translate
+        "
+      >
+        <tag-input-dropdown
+          [keepOpen]="false"
+          identifyBy="id"
+          [showDropdownIfEmpty]="true"
+          [autocompleteItems]="userList"
+        ></tag-input-dropdown>
+      </tag-input>
+    </div>
+    <ng-template #evaluator_name>
+      <input
+        formControlName="evaluator_name"
+        type="text"
+        placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
+        id="evaluator_name"
+        required
+      />
+    </ng-template>
   </div>
+  <!-- END EVALUATOR FIELD DATA LIST -->
+
+  <!-- VALIDATOR FIELD DATA LIST -->
   <div>
-    <label for="category">{{ 'homepage.cards.category' | translate }}</label>
+    <label for="validator_name">{{
+      "homepage.cards.validation" | translate
+    }}</label>
+    <div *ngIf="authService.state; else validator_name">
+      <tag-input
+        id="validator_name"
+        identifyBy="id"
+        [maxItems]="1"
+        formControlName="validator_name"
+        (onAdd)="onAddUser($event, 'validator_name')"
+        [theme]="'foundation-theme'"
+        [editable]="false"
+        [clearOnBlur]="true"
+        [placeholder]="'homepage.cards.placeholder_validation' | translate"
+        [secondaryPlaceholder]="
+          'homepage.cards.placeholder_validation' | translate
+        "
+      >
+        <tag-input-dropdown
+          [keepOpen]="false"
+          identifyBy="id"
+          [showDropdownIfEmpty]="true"
+          [autocompleteItems]="userList"
+        ></tag-input-dropdown>
+      </tag-input>
+    </div>
+    <ng-template #validator_name>
+      <input
+        formControlName="validator_name"
+        type="text"
+        placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
+        id="validator_name"
+        required
+      />
+    </ng-template>
+  </div>
+  <!-- END VALIDATOR FIELD DATA LIST -->
+
+  <!-- GUEST FIELD DATA LIST -->
+  <div *ngIf="authService.state">
+    <label for="guests">{{ "homepage.cards.guest" | translate }}</label>
+    <div>
+      <tag-input
+        id="guests"
+        class="guest"
+        identifyBy="id"
+        formControlName="guests"
+        (onAdd)="onAddUser($event, 'guests')"
+        [theme]="'foundation-theme'"
+        [editable]="false"
+        [clearOnBlur]="true"
+        [placeholder]="'homepage.cards.placeholder_validation' | translate"
+        [secondaryPlaceholder]="
+          'homepage.cards.placeholder_validation' | translate
+        "
+      >
+        <tag-input-dropdown
+          [keepOpen]="false"
+          identifyBy="id"
+          [showDropdownIfEmpty]="true"
+          [autocompleteItems]="userList"
+        ></tag-input-dropdown>
+      </tag-input>
+    </div>
+  </div>
+  <!-- END GUEST FIELD DATA LIST -->
+
+  <div>
+    <label for="category">{{ "homepage.cards.category" | translate }}</label>
     <input
       formControlName="category"
       type="text"
       placeholder="{{ 'homepage.cards.placeholder_category' | translate }}"
-      id="category">
+      id="category"
+    />
   </div>
+
   <div>
-    <label for="structure">{{ 'homepage.cards.structure' | translate }}</label>
-    <div  class="pia-structure-wrapper">
-      <select formControlName="structure" id="structure">
-        <option value="" selected>{{ 'homepage.cards.placeholder_structure' | translate }}</option>
-        <option *ngFor="let item of structureList" [ngValue]="item.id">{{item.name}}</option>
+    <label for="structure">{{ "homepage.cards.structure" | translate }}</label>
+    <div class="pia-structure-wrapper">
+      <select formControlName="structure_id" id="structure">
+        <option [value]="null" selected>{{
+          "homepage.cards.placeholder_structure" | translate
+        }}</option>
+        <option *ngFor="let item of structureList" [ngValue]="item.id">{{
+          item.name
+        }}</option>
       </select>
     </div>
   </div>
-  <div class="pia-cardsBlock-item-btn" style="padding-top:26px;">
-    <button type="submit" [disabled]="piaForm.invalid" class="btn btn-green" id="pia-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
+
+  <div class="pia-cardsBlock-item-btn">
+    <button
+      type="submit"
+      [disabled]="piaForm.invalid"
+      class="btn btn-green"
+      id="pia-save-card-btn"
+      title="{{ 'homepage.cards.placeholder_start' | translate }}"
+    >
+      {{ "homepage.cards.start" | translate }}
+    </button>
   </div>
 </form>

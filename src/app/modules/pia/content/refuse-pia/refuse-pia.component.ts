@@ -111,7 +111,7 @@ export class RefusePIAComponent implements OnInit {
               type: 'yes',
               yes: 'modals.continue',
               no: '',
-              icon: 'fa fa-cog icon-red',
+              icon: 'pia-icons fa fa-cog icon-red',
               data: {
                 modal_id: 'modal-refuse-pia',
                 btn_yes: 'btn-red'
@@ -218,8 +218,8 @@ export class RefusePIAComponent implements OnInit {
 
   /**
    * Enable auto resizing on textarea
-   * @param {*} event - Any Event.
-   * @param {HTMLElement} textarea - Texarea element.
+   * @param event - Any Event.
+   * @param extarea - Texarea element.
    */
   autoTextareaResize(event: any, textarea?: HTMLElement): void {
     if (event) {

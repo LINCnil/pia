@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Attachment } from 'src/app/models/attachment.model';
 import { ArchiveService } from 'src/app/services/archive.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
 import { DialogService } from 'src/app/services/dialog.service';

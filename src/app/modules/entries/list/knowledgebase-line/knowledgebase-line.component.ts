@@ -33,7 +33,7 @@ export class KnowledgebaseLineComponent implements OnInit {
           this.nbEntries = result.length;
         })
         .catch(err => {
-          console.log('catch');
+          console.log(err);
         });
     } else {
       // exemple

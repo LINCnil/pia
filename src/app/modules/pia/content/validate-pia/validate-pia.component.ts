@@ -41,7 +41,7 @@ export class ValidatePIAComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.validateForm = new FormGroup({
       validateStatus1: new FormControl(),
       validateStatus2: new FormControl(),
@@ -62,11 +62,7 @@ export class ValidatePIAComponent implements OnInit {
       this.pia.status > 1
     );
 
-    this.attachmentsService
-      .updateSignedAttachmentsList(this.pia.id)
-      .then(res => {
-        // console.log(res);
-      });
+    await this.attachmentsService.updateSignedAttachmentsList(this.pia.id);
     this.actionPlanService.listActionPlan();
   }
 

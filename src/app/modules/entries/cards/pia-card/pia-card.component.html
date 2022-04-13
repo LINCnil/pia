@@ -1,7 +1,8 @@
 <div
   class="pia-cardsBlock pia"
-  *ngIf="!pia.is_example && pia.name"
+  *ngIf="!pia.is_example"
   [ngClass]="{
+    'pia-exampleBlock': pia.is_example === 1,
     'pia-archiveBlock': pia.status > 1,
     'pia-doingBlock': pia.status < 2
   }"
@@ -25,10 +26,17 @@
         </ng-container>
       </ul>
     </div>
-    <div class="pia-cardsBlock-toolbar">
+    <div
+      class="pia-cardsBlock-toolbar"
+      *ngIf="
+        !authService.state ||
+        authService.currentUserValue.access_type.includes('technical') ||
+        authService.currentUserValue.access_type.includes('functional')
+      "
+    >
       <div class="pia-cardsBlock-toolbar-export">
         <a
-          *ngIf="!pia.is_example"
+          *ngIf="pia.status >= 2"
           [routerLink]="['/pia', pia.id, 'section', 1, 'item', 1]"
           class="btn pia-tooltip"
         >
@@ -90,52 +98,346 @@
           (focusout)="piaNameFocusOut()"
         />
       </div>
-      <div (click)="piaAuthorNameFocusIn()">
+      <div>
         <label for="pia-edit-{{ pia.id }}-author-name">{{
           "homepage.cards.author" | translate
         }}</label>
-        <input
-          type="text"
-          #piaAuthorName
-          formControlName="author_name"
-          required
-          placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
-          id="pia-edit-{{ pia.id }}-author-name"
-          (focusout)="piaAuthorNameFocusOut()"
-        />
+
+        <div
+          class="tag-input-container"
+          *ngIf="authService.state; else elseAuthorBlock"
+        >
+          <tag-input
+            #input
+            id="pia-edit-{{ pia.id }}-author-name"
+            [disable]="
+              authService.currentUserValue &&
+              !authService.currentUserValue.access_type.includes('functional')
+            "
+            identifyBy="id"
+            displayBy="display"
+            [maxItems]="1"
+            formControlName="author_name"
+            (onAdd)="onAddUser($event, 'author_name')"
+            [theme]="'foundation-theme'"
+            (onTextChange)="onTyped($event, pia.id, 'author_name')"
+            [editable]="false"
+            [clearOnBlur]="true"
+            [placeholder]="'homepage.cards.placeholder_author' | translate"
+            [secondaryPlaceholder]="
+              'homepage.cards.placeholder_author' | translate
+            "
+          >
+            <ng-template let-item="item" let-index="index">
+              <div
+                [ngClass]="{
+                  'custom-tag': true,
+                  'user-not-found': !checkIfUserExist('author_name')
+                }"
+              >
+                {{ item.display }}
+                <delete-icon
+                  *ngIf="
+                    authService.currentUserValue.access_type.includes(
+                      'functional'
+                    )
+                  "
+                  (click)="input.removeItem(item, index)"
+                ></delete-icon>
+              </div>
+            </ng-template>
+            <tag-input-dropdown
+              [keepOpen]="false"
+              identifyBy="id"
+              [showDropdownIfEmpty]="true"
+              [autocompleteItems]="userList"
+            ></tag-input-dropdown>
+          </tag-input>
+          <button
+            type="button"
+            class="btn btn-add-user"
+            (click)="
+              onAddUserWithIcon(
+                {
+                  display: addBtnForSpecificInput.display,
+                  id: addBtnForSpecificInput.display
+                },
+                'author_name'
+              )
+            "
+            *ngIf="
+              addBtnForSpecificInput &&
+              addBtnForSpecificInput.pia_id === pia.id &&
+              addBtnForSpecificInput.field === 'author_name'
+            "
+          >
+            +
+          </button>
+        </div>
+        <ng-template #elseAuthorBlock>
+          <div (click)="piaAuthorNameFocusIn()">
+            <input
+              type="text"
+              #piaAuthorName
+              formControlName="author_name"
+              required
+              placeholder="{{
+                'homepage.cards.placeholder_author' | translate
+              }}"
+              id="pia-edit-{{ pia.id }}-author-name"
+              (focusout)="piaAuthorNameFocusOut()"
+            />
+          </div>
+        </ng-template>
       </div>
-      <div (click)="piaEvaluatorNameFocusIn()">
+      <div>
         <label for="pia-edit-{{ pia.id }}-evaluator-name">{{
           "homepage.cards.evaluation" | translate
         }}</label>
-        <input
-          type="text"
-          #piaEvaluatorName
-          formControlName="evaluator_name"
-          required
-          placeholder="{{
-            'homepage.cards.placeholder_evaluation' | translate
-          }}"
-          id="pia-edit-{{ pia.id }}-evaluator-name"
-          (focusout)="piaEvaluatorNameFocusOut()"
-        />
+        <div
+          class="tag-input-container"
+          *ngIf="authService.state; else elseEvaluatorBlock"
+        >
+          <tag-input
+            #input
+            id="pia-edit-{{ pia.id }}-evaluator-name"
+            [disable]="
+              authService.currentUserValue &&
+              !authService.currentUserValue.access_type.includes('functional')
+            "
+            identifyBy="id"
+            [maxItems]="1"
+            formControlName="evaluator_name"
+            (onTextChange)="onTyped($event, pia.id, 'evaluator_name')"
+            (onAdd)="onAddUser($event, 'evaluator_name')"
+            [theme]="'foundation-theme'"
+            [editable]="false"
+            [clearOnBlur]="true"
+            [placeholder]="'homepage.cards.placeholder_evaluation' | translate"
+            [secondaryPlaceholder]="
+              'homepage.cards.placeholder_evaluation' | translate
+            "
+          >
+            <ng-template let-item="item" let-index="index">
+              <div
+                [ngClass]="{
+                  'custom-tag': true,
+                  'user-not-found': !checkIfUserExist('evaluator_name')
+                }"
+              >
+                {{ item.display }}
+                <delete-icon
+                  *ngIf="
+                    authService.currentUserValue.access_type.includes(
+                      'functional'
+                    )
+                  "
+                  (click)="input.removeItem(item, index)"
+                ></delete-icon>
+              </div>
+            </ng-template>
+            <tag-input-dropdown
+              [keepOpen]="false"
+              identifyBy="id"
+              [showDropdownIfEmpty]="true"
+              [autocompleteItems]="userList"
+            ></tag-input-dropdown>
+          </tag-input>
+          <button
+            type="button"
+            class="btn btn-add-user"
+            (click)="
+              onAddUserWithIcon(
+                {
+                  display: addBtnForSpecificInput.display,
+                  id: addBtnForSpecificInput.display
+                },
+                'evaluator_name'
+              )
+            "
+            *ngIf="
+              addBtnForSpecificInput &&
+              addBtnForSpecificInput.pia_id === pia.id &&
+              addBtnForSpecificInput.field === 'evaluator_name'
+            "
+          >
+            +
+          </button>
+        </div>
+        <ng-template #elseEvaluatorBlock>
+          <div (click)="piaEvaluatorNameFocusIn()">
+            <input
+              type="text"
+              #piaEvaluatorName
+              formControlName="evaluator_name"
+              required
+              placeholder="{{
+                'homepage.cards.placeholder_evaluation' | translate
+              }}"
+              id="pia-edit-{{ pia.id }}-evaluator-name"
+              (focusout)="piaEvaluatorNameFocusOut()"
+            />
+          </div>
+        </ng-template>
       </div>
-      <div (click)="piaValidatorNameFocusIn()">
+      <div>
         <label for="pia-edit-{{ pia.id }}-validator-name">{{
           "homepage.cards.validation" | translate
         }}</label>
-        <input
-          type="text"
-          #piaValidatorName
-          formControlName="validator_name"
-          required
-          placeholder="{{
-            'homepage.cards.placeholder_validation' | translate
-          }}"
-          id="pia-edit-{{ pia.id }}-validator-name"
-          (focusout)="piaValidatorNameFocusOut()"
-        />
+        <div
+          class="tag-input-container"
+          *ngIf="authService.state; else elseValidatorBlock"
+        >
+          <tag-input
+            #input
+            id="pia-edit-{{ pia.id }}-validator-name"
+            [disable]="
+              authService.currentUserValue &&
+              !authService.currentUserValue.access_type.includes('functional')
+            "
+            identifyBy="id"
+            [maxItems]="1"
+            formControlName="validator_name"
+            (onTextChange)="onTyped($event, pia.id, 'validator_name')"
+            (onAdd)="onAddUser($event, 'validator_name')"
+            [theme]="'foundation-theme'"
+            [editable]="false"
+            [clearOnBlur]="true"
+            [placeholder]="'homepage.cards.placeholder_validation' | translate"
+            [secondaryPlaceholder]="
+              'homepage.cards.placeholder_validation' | translate
+            "
+          >
+            <ng-template let-item="item" let-index="index">
+              <div
+                [ngClass]="{
+                  'custom-tag': true,
+                  'user-not-found': !checkIfUserExist('validator_name')
+                }"
+              >
+                {{ item.display }}
+                <delete-icon
+                  *ngIf="
+                    authService.currentUserValue.access_type.includes(
+                      'functional'
+                    )
+                  "
+                  (click)="input.removeItem(item, index)"
+                ></delete-icon>
+              </div>
+            </ng-template>
+            <tag-input-dropdown
+              [keepOpen]="false"
+              identifyBy="id"
+              [showDropdownIfEmpty]="true"
+              [autocompleteItems]="userList"
+            ></tag-input-dropdown>
+          </tag-input>
+          <button
+            type="button"
+            class="btn btn-add-user"
+            (click)="
+              onAddUserWithIcon(
+                {
+                  display: addBtnForSpecificInput.display,
+                  id: addBtnForSpecificInput.display
+                },
+                'validator_name'
+              )
+            "
+            *ngIf="
+              addBtnForSpecificInput &&
+              addBtnForSpecificInput.pia_id === pia.id &&
+              addBtnForSpecificInput.field === 'validator_name'
+            "
+          >
+            +
+          </button>
+        </div>
+        <ng-template #elseValidatorBlock>
+          <div (click)="piaValidatorNameFocusIn()">
+            <input
+              type="text"
+              #piaValidatorName
+              formControlName="validator_name"
+              required
+              placeholder="{{
+                'homepage.cards.placeholder_validation' | translate
+              }}"
+              id="pia-edit-{{ pia.id }}-validator-name"
+              (focusout)="piaValidatorNameFocusOut()"
+            />
+          </div>
+        </ng-template>
       </div>
+
+      <div class="tag-input-container" *ngIf="authService.state">
+        <label for="pia-edit-{{ pia.id }}-guest-name">{{
+          "homepage.cards.guest" | translate
+        }}</label>
+        <tag-input
+          #input
+          class="pia-users-tags"
+          id="pia-edit-{{ pia.id }}-guest-name"
+          [disable]="
+            authService.currentUserValue &&
+            !authService.currentUserValue.access_type.includes('functional')
+          "
+          identifyBy="id"
+          formControlName="guests"
+          (onTextChange)="onTyped($event, pia.id, 'guests')"
+          (onAdd)="onAddUser($event, 'guests')"
+          (onRemove)="onRemove($event, 'guests')"
+          [theme]="'foundation-theme'"
+          [editable]="false"
+          [clearOnBlur]="true"
+          [placeholder]="'homepage.cards.placeholder_validation' | translate"
+          [secondaryPlaceholder]="
+            'homepage.cards.placeholder_validation' | translate
+          "
+        >
+          <ng-template let-item="item" let-index="index">
+            <div [ngClass]="{ 'custom-tag': true }">
+              {{ item.display }}
+              <delete-icon
+                *ngIf="
+                  authService.currentUserValue.access_type.includes(
+                    'functional'
+                  )
+                "
+                (click)="input.removeItem(item, index)"
+              ></delete-icon>
+            </div>
+          </ng-template>
+          <tag-input-dropdown
+            [keepOpen]="false"
+            identifyBy="id"
+            [showDropdownIfEmpty]="true"
+            [autocompleteItems]="usersForGuests"
+          ></tag-input-dropdown>
+        </tag-input>
+        <button
+          type="button"
+          class="btn btn-add-user"
+          (click)="
+            onAddUserWithIcon(
+              {
+                display: addBtnForSpecificInput.display,
+                id: addBtnForSpecificInput.display
+              },
+              'guests'
+            )
+          "
+          *ngIf="
+            addBtnForSpecificInput &&
+            addBtnForSpecificInput.pia_id === pia.id &&
+            addBtnForSpecificInput.field === 'guests'
+          "
+        >
+          +
+        </button>
+      </div>
+
       <div (click)="piaCategoryFocusIn()">
         <label for="pia-edit-{{ pia.id }}-category">{{
           "homepage.cards.category" | translate
@@ -144,7 +446,6 @@
           type="text"
           #piaCategory
           formControlName="category"
-          required
           placeholder="{{ 'homepage.cards.placeholder_category' | translate }}"
           id="pia-edit-{{ pia.id }}-category"
           (focusout)="piaCategoryFocusOut()"
@@ -192,6 +493,7 @@
             [routerLink]="['/pia', pia.id, 'section', 1, 'item', 1]"
             title="{{ 'homepage.cards.item.edit_pia' | translate }}"
             class="btn btn-green"
+            [class.disabled]="piaForm.invalid"
             >{{ "homepage.cards.item.validate_pia" | translate }}
           </a>
           <ng-template #editBlock>
@@ -199,6 +501,7 @@
               [routerLink]="['/pia', pia.id, 'section', 1, 'item', 1]"
               title="{{ 'homepage.cards.item.edit_pia' | translate }}"
               class="btn btn-green"
+              [class.disabled]="piaForm.invalid"
               >{{ "homepage.cards.item.edit_pia" | translate }}</a
             >
           </ng-template>
@@ -211,6 +514,7 @@
             routerLink="/preview/{{ pia.id }}"
             title="{{ 'homepage.cards.item.consult_pia' | translate }}"
             class="btn btn-green"
+            [class.disabled]="piaForm.invalid"
             >{{ "homepage.cards.item.consult_pia" | translate }}</a
           >
         </div>

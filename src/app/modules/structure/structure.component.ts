@@ -3,10 +3,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Structure } from 'src/app/models/structure.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
-import { AnswerStructureService } from 'src/app/services/answer-structure.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
-import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { MeasureService } from 'src/app/services/measures.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { StructureService } from 'src/app/services/structure.service';
@@ -68,10 +66,6 @@ export class StructureComponent implements OnInit {
     this.subscription = this.measureService.behaviorSubject.subscribe(val => {
       this.measureToRemoveFromTags = val;
     });
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 
   initStructure(structure): void {

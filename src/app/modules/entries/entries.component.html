@@ -58,7 +58,9 @@
             "
           >
             <div
-              *ngIf="viewStyle.view === 'list'"
+              *ngIf="
+                !authService.state || (showPiaForm && viewStyle.view === 'list')
+              "
               class="pia-filtersBlock-buttons"
             >
               <button
@@ -259,14 +261,15 @@
     <!-- "Card" mode -->
     <div
       *ngIf="viewStyle.view === 'card'; else viewList"
-      class="small-12 medium-12 columns"
+      class="small-12 medium-12 columns pia-list"
     >
       <!-- New PIA -->
       <div
         *ngIf="
-          type_entries === 'pia' ||
-          type_entries === 'structure' ||
-          type_entries === 'knowledgeBase'
+          showPiaForm &&
+          (type_entries === 'pia' ||
+            type_entries === 'structure' ||
+            type_entries === 'knowledgeBase')
         "
         class="pia-cardsBlock pia-newBlock"
         id="cardsSwitch"
@@ -354,7 +357,11 @@
 
             <ng-container [ngSwitch]="type_entries">
               <ng-container *ngSwitchCase="'pia'">
-                <app-new-pia (submited)="onFormSubmited($event, 'pia')">
+                <app-new-pia
+                  [users]="users"
+                  (newUserNeeded)="onNewUserNeeded($event)"
+                  (submited)="onFormSubmited($event, 'pia')"
+                >
                 </app-new-pia>
               </ng-container>
               <ng-container *ngSwitchCase="'structure'">
@@ -379,11 +386,16 @@
         <!-- PIA, ARCHIVE Cards switch -->
         <ng-container [ngSwitch]="type_entries">
           <ng-container *ngSwitchCase="'pia'">
+            <div *ngIf="entries.length <= 0 && !loading" class="no-pia">
+              {{ "homepage.no_entries.pia" | translate }}
+            </div>
             <app-pia-card
               *ngFor="
                 let pia of entries | filterForUser: searchText;
                 let i = index
               "
+              [users]="users"
+              (newUserNeeded)="onNewUserNeeded($event)"
               (changed)="updateEntrie($event)"
               (duplicated)="refreshContent()"
               (archived)="refreshContent()"
@@ -393,6 +405,9 @@
             </app-pia-card>
           </ng-container>
           <ng-container *ngSwitchCase="'archive'">
+            <div *ngIf="entries.length <= 0" class="no-pia">
+              {{ "homepage.no_entries.archive" | translate }}
+            </div>
             <app-archive-card
               *ngFor="
                 let archivedPia of entries | filterForUser: searchText;
@@ -477,6 +492,8 @@
                     (duplicated)="refreshContent()"
                     (archived)="refreshContent()"
                     [pia]="pia"
+                    [users]="users"
+                    (newUserNeeded)="onNewUserNeeded($event)"
                   ></tr>
                 </ng-container>
                 <ng-container *ngSwitchCase="'archive'">
@@ -534,6 +551,9 @@
             </tbody>
           </ng-template>
         </table>
+        <div *ngIf="entries.length <= 0 && !loading" class="entries-missing">
+          {{ "homepage.no_entries." + type_entries | translate }}
+        </div>
       </div>
     </ng-template>
   </div>
@@ -549,6 +569,8 @@
   <ng-container [ngSwitch]="type_entries">
     <ng-container *ngSwitchCase="'pia'">
       <app-new-pia
+        [users]="users"
+        (newUserNeeded)="onNewUserNeeded($event)"
         (submited)="onFormSubmited($event, 'pia'); showModal = false"
       >
       </app-new-pia>
@@ -570,3 +592,16 @@
 </app-modal>
 
 <app-dialog></app-dialog>
+
+<app-modal
+  *ngIf="showNewUserForm"
+  specialClass="newUserForm"
+  (clickOnClose)="onCancelUser()"
+>
+  <app-new-user
+    [forceUserType]="true"
+    [user]="userBehavior.value ? userBehavior.value : null"
+    (userAdded)="onUserAdded($event)"
+    (canceled)="onCancelUser()"
+  ></app-new-user>
+</app-modal>

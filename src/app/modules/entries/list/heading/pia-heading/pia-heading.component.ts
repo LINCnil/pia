@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -11,19 +12,16 @@ export class PiaHeadingComponent implements OnInit {
   sortValue: string;
   @Output() sorting = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(public authService: AuthService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   /**
    * Click on sort by attribute
-   * @param fieldToSort
    */
   sortBy(fieldToSort: string): void {
     this.sortValue = fieldToSort;
     this.sortOrder = this.sortOrder === 'down' ? 'up' : 'down';
     this.sorting.emit(fieldToSort);
   }
-
 }

@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  SimpleChanges,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -19,6 +12,7 @@ import { PiaService } from 'src/app/services/pia.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { Router } from '@angular/router';
 import { EvaluationService } from 'src/app/services/evaluation.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 function slugify(text) {
   return text
@@ -47,12 +41,15 @@ export class RevisionPreviewComponent implements OnInit {
   @Input() revision: Revision;
   @Input() date: Date;
   @Output() restored = new EventEmitter();
+  @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
+    'local';
   export: any;
   pia: Pia;
   allData: any;
   data: any;
 
   constructor(
+    public authService: AuthService,
     private translateService: TranslateService,
     public appDataService: AppDataService,
     public sidStatusService: SidStatusService,
@@ -218,17 +215,18 @@ export class RevisionPreviewComponent implements OnInit {
       '-yyyy-MM-dd-HH-mm'
     );
     const fileTitle = 'pia-' + slugify(this.export.pia.name) + revisionDate;
-    const downloadLink = document.createElement('a');
+    let downloadLink = document.createElement('a');
     document.body.appendChild(downloadLink);
-    const pia_exported = this.revision.export;
     if (navigator.msSaveOrOpenBlob) {
       window.navigator.msSaveBlob(
-        'data:text/json;charset=utf-8,' + encodeURIComponent(pia_exported),
+        'data:text/json;charset=utf-8,' +
+          encodeURIComponent(JSON.stringify(this.revision)),
         fileTitle + '.json'
       );
     } else {
       downloadLink.href =
-        'data:text/json;charset=utf-8,' + encodeURIComponent(pia_exported);
+        'data:text/json;charset=utf-8,' +
+        encodeURIComponent(JSON.stringify(this.revision));
       downloadLink.download = fileTitle + '.json';
       downloadLink.click();
     }

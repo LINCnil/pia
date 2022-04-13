@@ -12,6 +12,9 @@ import { Pia } from 'src/app/models/pia.model';
 })
 export class DPOPeopleOpinionsComponent implements OnInit {
   @Input() pia: Pia;
+  @Input() editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
   DPOForm: FormGroup;
   searchedOpinionsForm: FormGroup;
   peopleForm: FormGroup;
@@ -132,7 +135,11 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses dpo name.
    */
   dpoNameFocusIn(): any {
-    if (this.pia.status >= 2 || this.pia.is_example === 1) {
+    if (
+      this.pia.status >= 2 ||
+      this.pia.is_example === 1 ||
+      (!this.editMode.includes('evaluator') && this.editMode !== 'local')
+    ) {
       return false;
     } else {
       this.DPOForm.controls['DPONames'].enable();

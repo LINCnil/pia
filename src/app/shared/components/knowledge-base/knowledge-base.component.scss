@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 .pia {
   &-knowledgeBaseBlock {
     &-none {
@@ -13,9 +13,6 @@
       }
     }
     &-scroll {
-      // position: fixed;
-      // top: 0;
-      // bottom: 0;
       .pia-knowledgeBaseBlock-list {
         overflow-y: scroll;
       }
@@ -35,7 +32,6 @@
     }
     &-searchForm {
       position: relative;
-      // padding-top: 17px;
       margin-bottom: 2rem;
       form {
         margin: 0;
@@ -87,7 +83,8 @@
       padding-bottom: 18px;
       border-top: solid 1px $pia-green;
       position: relative;
-      &-accordion, &-definition {
+      &-accordion,
+      &-definition {
         display: inline-block;
         vertical-align: middle;
       }
@@ -98,7 +95,8 @@
       &-definition {
         position: relative;
         width: 90%;
-        button, p {
+        button,
+        p {
           display: inline-block;
           vertical-align: top;
         }

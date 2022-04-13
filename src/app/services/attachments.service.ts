@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { cpuUsage } from 'process';
+import { Router } from '@angular/router';
 import { ApplicationDb } from '../application.db';
 import { Attachment } from '../models/attachment.model';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class AttachmentsService extends ApplicationDb {
@@ -9,8 +10,10 @@ export class AttachmentsService extends ApplicationDb {
   attachment_signed: any;
   pia_signed;
 
-  constructor() {
+  constructor(private router: Router, protected apiService: ApiService) {
     super(201708291502, 'attachment');
+    super.prepareApi(this.apiService);
+    super.prepareServerUrl(this.router);
   }
 
   /**
@@ -21,80 +24,34 @@ export class AttachmentsService extends ApplicationDb {
     if (pia_id) {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
-        if (this.serverUrl) {
-          fetch(this.getServerUrl(), {
-            mode: 'cors'
+        super
+          .findAll(null, { index: 'index1', value: pia_id })
+          .then((result: any) => {
+            resolve(result);
           })
-            .then(response => {
-              return response.json();
-            })
-            .then((result: any) => {
-              resolve(result);
-            })
-            .catch(error => {
-              console.error('Request failed', error);
-              reject();
-            });
-        } else {
-          const index1 = this.objectStore.index('index1');
-          const evt = index1.openCursor(IDBKeyRange.only(pia_id));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
-        }
+          .catch(error => {
+            reject(error);
+          });
       });
     }
   }
 
-  async create(attachment): Promise<Attachment> {
+  async add(attachment): Promise<Attachment> {
     this.created_at = new Date();
     const data = {
       ...attachment
     };
     await this.getObjectStore();
     return new Promise((resolve, reject) => {
-      if (this.serverUrl) {
-        const formData = new FormData();
-        for (const d in data) {
-          if (data.hasOwnProperty(d)) {
-            formData.append('attachment[' + d + ']', data[d]);
-          }
-        }
-        fetch(this.getServerUrl(), {
-          method: 'POST',
-          body: formData,
-          mode: 'cors'
+      super
+        .create(data, 'attachment')
+        .then((result: any) => {
+          resolve(result);
         })
-          .then(response => {
-            return response.json();
-          })
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      } else {
-        const evt = this.objectStore.add(data);
-        evt.onsuccess = (event: any) => {
-          resolve(event.target.result);
-        };
-        evt.onerror = (event: any) => {
-          console.error(event);
-          reject(Error(event));
-        };
-      }
+        .catch(error => {
+          console.error('Request failed', error);
+          reject();
+        });
     });
   }
 
@@ -104,40 +61,15 @@ export class AttachmentsService extends ApplicationDb {
         entry.file = null;
         entry.comment = comment;
         entry.updated_at = new Date();
-        if (this.serverUrl) {
-          const formData = new FormData();
-          for (const d in entry) {
-            if (entry.hasOwnProperty(d)) {
-              formData.append('attachment[' + d + ']', entry[d]);
-            }
-          }
-          fetch(this.getServerUrl() + '/' + entry.id, {
-            method: 'PATCH',
-            body: formData,
-            mode: 'cors'
+        super
+          .update(entry.id, entry, 'attachment')
+          .then((result: any) => {
+            resolve(result);
           })
-            .then(response => {
-              return response.json();
-            })
-            .then((result: any) => {
-              resolve(result);
-            })
-            .catch(error => {
-              console.error('Request failed', error);
-              reject(error);
-            });
-        } else {
-          this.getObjectStore().then(() => {
-            const evt = this.objectStore.put(entry);
-            evt.onerror = (event: any) => {
-              console.error(event);
-              reject(Error(event));
-            };
-            evt.onsuccess = (event: any) => {
-              resolve(event.target.result);
-            };
+          .catch(error => {
+            console.error('Request failed', error);
+            reject(error);
           });
-        }
       });
     });
   }
@@ -147,37 +79,14 @@ export class AttachmentsService extends ApplicationDb {
     if (this.pia_id) {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
-        if (this.serverUrl) {
-          fetch(this.getServerUrl(), {
-            mode: 'cors'
+        super
+          .findAll(null, { index: 'index1', value: this.pia_id })
+          .then(function(result: any) {
+            resolve(result);
           })
-            .then(function(response) {
-              return response.json();
-            })
-            .then(function(result: any) {
-              resolve(result);
-            })
-            .catch(function(error) {
-              console.error('Request failed', error);
-              reject();
-            });
-        } else {
-          const index1 = this.objectStore.index('index1');
-          const evt = index1.openCursor(IDBKeyRange.only(this.pia_id));
-          evt.onerror = (event: any) => {
-            console.error(event);
-            reject(Error(event));
-          };
-          evt.onsuccess = (event: any) => {
-            const cursor = event.target.result;
-            if (cursor) {
-              items.push(cursor.value);
-              cursor.continue();
-            } else {
-              resolve(items);
-            }
-          };
-        }
+          .catch(function(error) {
+            reject(error);
+          });
       });
     }
   }
@@ -248,7 +157,8 @@ export class AttachmentsService extends ApplicationDb {
         attachment.pia_id = piaId;
         attachment.pia_signed = this.pia_signed ? this.pia_signed : 0;
         attachment.comment = '';
-        this.create(attachment)
+        super
+          .create(attachment, 'attachment')
           .then((res: any) => {
             // To refresh signed attachments on validation page
             this.updateSignedAttachmentsList(piaId).then(() => {
@@ -257,8 +167,8 @@ export class AttachmentsService extends ApplicationDb {
               resolve({ ...attachment, id: res });
             });
           })
-          .catch(() => {
-            reject(true);
+          .catch(err => {
+            reject(err);
           });
       };
     });
@@ -269,7 +179,7 @@ export class AttachmentsService extends ApplicationDb {
    * @param {number} id - Id of the attachment.
    */
   downloadAttachment(id: number): void {
-    this.find(id).then((entry: any) => {
+    super.find(id).then((entry: any) => {
       fetch(entry.file, {
         mode: 'cors'
       })

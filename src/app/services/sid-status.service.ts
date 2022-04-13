@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { GlobalEvaluationService } from './global-evaluation.service';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class SidStatusService {
@@ -16,7 +17,10 @@ export class SidStatusService {
   enableDpoValidation: boolean;
   public subject = new Subject();
 
-  constructor(private globalEvaluationService: GlobalEvaluationService) {
+  constructor(
+    private globalEvaluationService: GlobalEvaluationService,
+    private apiService: ApiService
+  ) {
     this.specialIcon = {
       '3.5': 'fa-line-chart',
       '4.1': 'fa-line-chart',
@@ -57,7 +61,9 @@ export class SidStatusService {
   async setSidStatus(pia: any, section: any, item: any): Promise<any> {
     const referenceTo = section.id + '.' + item.id;
     // We need to instanciate a new instance of GLobalEvaluationService
-    const globalEvaluationService = new GlobalEvaluationService();
+    const globalEvaluationService = new GlobalEvaluationService(
+      this.apiService
+    );
     globalEvaluationService.pia = pia;
     globalEvaluationService.section = section;
     globalEvaluationService.item = item;

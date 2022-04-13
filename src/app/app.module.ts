@@ -11,6 +11,7 @@ import { PiaModule } from './modules/pia/pia.module';
 import { SettingsModule } from './modules/settings/settings.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { UsersModule } from './modules/users/users.module';
 import { PiaI18nModule } from '@atnos/pia-i18n';
 
 @NgModule({
@@ -25,10 +26,12 @@ import { PiaI18nModule } from '@atnos/pia-i18n';
     PiaModule,
     SettingsModule,
     AppRoutingModule,
+    UsersModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     })
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -11,7 +11,7 @@
             "header.logo_subtitle" | translate
           }}</span>
         </div>
-        <div class="hide-for-print pia-closeFullScreenModeAlertBlock hide">
+        <div class="hide-for-print pia-closeFullScreenModeAlertBlock">
           {{ "header.exit_full_screen_mode" | translate }}
         </div>
       </div>
@@ -30,7 +30,13 @@
     <div class="container">
       <div class="row">
         <div class="small-12 medium-12 columns">
-          <ul class="pia-navigationBlock-list" *ngIf="router.url !== '/'">
+          <ul
+            class="pia-navigationBlock-list"
+            *ngIf="
+              (!authService.state && router.url !== '/') ||
+              authService.currentUserValue !== null
+            "
+          >
             <li
               class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-pias"
             >
@@ -76,13 +82,13 @@
             >
               <a
                 style="text-transform:uppercase;"
-                [routerLink]="['entries', 'knowledgebase']"
+                [routerLink]="['entries', 'knowledge_bases']"
                 >{{ "header.knowledge_base_link" | translate }}</a
               >
             </li>
           </ul>
           <ul class="pia-navigationBlock-list">
-            <ng-container *ngIf="router.url !== '/'">
+            <ng-container>
               <li
                 class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-company"
               >
@@ -100,9 +106,24 @@
                 </a>
                 <form>
                   <fieldset>
-                    <a routerLink="/url">{{
-                      "header.tools.url_setting" | translate
-                    }}</a>
+                    <div
+                      *ngIf="
+                        authService.state &&
+                        authService.currentUserValue !== null &&
+                        authService.currentUserValue.access_type.includes(
+                          'technical'
+                        )
+                      "
+                    >
+                      <a routerLink="/users">{{
+                        "header.tools.users" | translate
+                      }}</a>
+                    </div>
+                    <div>
+                      <a routerLink="/url">{{
+                        "header.tools.url_setting" | translate
+                      }}</a>
+                    </div>
                     <div>
                       <input
                         type="checkbox"
@@ -120,6 +141,16 @@
                         "header.tools.about" | translate
                       }}</a>
                     </div>
+                    <div
+                      *ngIf="
+                        authService.state &&
+                        authService.currentUserValue !== null
+                      "
+                    >
+                      <a (click)="disconnectUser()">{{
+                        "authentication.sign_out_button" | translate
+                      }}</a>
+                    </div>
                   </fieldset>
                 </form>
               </li>
@@ -134,7 +165,14 @@
                   ></span>
                 </a>
                 <ul>
-                  <li *ngIf="languagesService.selectedLanguage === 'fr'">
+                  <li
+                    *ngIf="
+                      (languagesService.selectedLanguage === 'fr' &&
+                        !authService.state &&
+                        router.url !== '/') ||
+                      authService.currentUserValue !== null
+                    "
+                  >
                     <a (click)="goToExample()">
                       {{ "header.help.pia_example_link" | translate }}
                     </a>
@@ -144,7 +182,12 @@
                       "header.help.manual" | translate
                     }}</a>
                   </li>
-                  <li>
+                  <li
+                    *ngIf="
+                      (!authService.state && router.url !== '/') ||
+                      authService.currentUserValue !== null
+                    "
+                  >
                     <button
                       type="button"
                       name="pia-onboarding"
@@ -276,6 +319,18 @@
                     (click)="languagesService.updateCurrentLanguage('fi')"
                   >
                     {{ "header.languages.fi" | translate }}
+                  </a>
+                </li>
+                <li
+                  [ngClass]="{
+                    is_active: languagesService.selectedLanguage === 'lv'
+                  }"
+                >
+                  <a
+                    href="javascript:;"
+                    (click)="languagesService.updateCurrentLanguage('lv')"
+                  >
+                    {{ "header.languages.lv" | translate }}
                   </a>
                 </li>
                 <li class="communityTranslations">

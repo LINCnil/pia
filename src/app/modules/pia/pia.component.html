@@ -1,7 +1,7 @@
 <section class="container pia-mainContainerBlock" *ngIf="pia && data">
   <div class="row">
     <div
-      *ngIf="pia.is_example === 1; else elseBreadCrumb"
+      *ngIf="pia.is_example === 1"
       class="pia-breadcrumb hide-for-print small-12 medium-12 columns"
     >
       <strong
@@ -9,32 +9,34 @@
         {{ "header.help.pia_example_link" | translate }}</strong
       >
     </div>
-    <ng-template #elseBreadCrumb>
-      <div class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
-        <a [routerLink]="['/entries']"
-          >{{ "header.homepage_link" | translate }} >
-          {{ "header.current_pias" | translate }}</a
-        >
-        <strong> > {{ pia.name }}</strong>
-      </div>
-    </ng-template>
-
+    <div
+      *ngIf="pia.is_example === 0"
+      class="pia-breadcrumb hide-for-print small-12 medium-12 columns"
+    >
+      <a [routerLink]="['/entries']"
+        >{{ "header.homepage_link" | translate }} >
+        {{ "header.current_pias" | translate }}</a
+      >
+      <strong> > {{ pia.name }}</strong>
+    </div>
     <!-- Left sidebar (sections) -->
     <nav class="hide-for-print small-12 medium-3 columns">
       <aside class="pia-leftSidebarBlock">
         <app-sections
+          [editMode]="editMode"
           *ngIf="section"
           [data]="data"
           [pia]="pia"
           [section]="section"
           [item]="item"
         ></app-sections>
-        <app-attachments [pia]="pia"></app-attachments>
+        <app-attachments [pia]="pia" [editMode]="editMode"></app-attachments>
         <app-revisions
-          *ngIf="pia.is_example !== 1 && pia.is_archive !== 1"
+          *ngIf="pia.is_example == 0 && pia.is_archive == 0"
           [pia]="pia"
           [title]="false"
           [currentVersion]="pia.updated_at"
+          [editMode]="editMode"
         >
         </app-revisions>
       </aside>
@@ -43,6 +45,7 @@
     <!-- Main entry content -->
     <section class="small-12 medium-6 columns pia-mainContentForPrint">
       <app-content
+        [editMode]="editMode"
         [pia]="pia"
         [questions]="questions"
         [section]="section"
@@ -90,6 +93,7 @@
         >
         </app-export>
         <app-knowledge-base
+          [editMode]="editMode"
           (newMeasureEvent)="newMeasureAdded($event)"
           answerService
           [pia]="pia"
@@ -103,5 +107,10 @@
 </section>
 
 <app-loading-overlay [visibility]="download"></app-loading-overlay>
-<app-preview [pia]="pia" [onlyData]="true" *ngIf="download"></app-preview>
+<app-preview
+  [pia]="pia"
+  [onlyData]="true"
+  *ngIf="download"
+  [editMode]="editMode"
+></app-preview>
 <app-dialog></app-dialog>

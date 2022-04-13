@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Answer } from 'src/app/models/answer.model';
@@ -6,6 +6,7 @@ import { Pia } from 'src/app/models/pia.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
@@ -21,7 +22,7 @@ import { SidStatusService } from 'src/app/services/sid-status.service';
   templateUrl: './pia.component.html',
   styleUrls: ['./pia.component.scss']
 })
-export class PiaComponent implements OnInit {
+export class PiaComponent implements OnInit, DoCheck {
   section: { id: number; title: string; short_help: string; items: any };
   item: {
     id: number;
@@ -43,6 +44,10 @@ export class PiaComponent implements OnInit {
   public download = false;
   public preview;
 
+  public editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
+
   constructor(
     private route: ActivatedRoute,
     private appDataService: AppDataService,
@@ -57,65 +62,40 @@ export class PiaComponent implements OnInit {
     private answerService: AnswerService,
     private introjsService: IntrojsService,
     private paginationService: PaginationService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    public authService: AuthService
   ) {
     this.introjsService.entrySideViewChange.subscribe(value => {
       this.sideView = value;
     });
   }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.appDataService.entrieMode = 'pia';
     const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     const itemId = parseInt(this.route.snapshot.params.item_id, 10);
-
-    this.piaService
-      .find(parseInt(this.route.snapshot.params.id))
-      .then((pia: Pia) => {
-        // INIT PIA
-
-        this.pia = pia;
-        this.piaService.calculPiaProgress(this.pia);
-
-        if (!sectionId || !itemId) {
-          this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);
-        } else {
-          if (this.pia.structure_data) {
-            this.appDataService.dataNav = this.pia.structure_data;
-          } else {
-            this.appDataService.resetDataNav();
-          }
-
-          this.data = this.appDataService.dataNav;
-        }
-
-        this.globalEvaluationService.pia = this.pia;
-
-        this.route.params.subscribe((params: Params) => {
-          this.getSectionAndItem(
-            parseInt(params.section_id, 10),
-            parseInt(params.item_id, 10)
-          );
-          window.scroll(0, 0);
+    if (this.route.snapshot.params.id == 'example') {
+      this.piaService
+        .getPiaExample()
+        .then((pia: Pia) => {
+          this.pia = pia;
+          this.setupPage(sectionId, itemId);
+          this.router.navigate(['pia', pia.id, 'section', 1, 'item', 1]);
+        })
+        .catch(err => {
+          console.error(err);
         });
-
-        // Suscribe to measure service messages
-        this.subscription = this.measureService.behaviorSubject.subscribe(
-          val => {
-            this.measureToRemoveFromTags = val;
-          }
-        );
-
-        // Start onboarding
-        if (!localStorage.getItem('onboardingEntryConfirmed')) {
-          this.introjsService.start('entry');
-        } else if (localStorage.getItem('onboardingEntryConfirmed')) {
-          this.introjsService.start('evaluation');
-        }
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    } else {
+      this.piaService
+        .find(parseInt(this.route.snapshot.params.id))
+        .then((pia: Pia) => {
+          this.pia = pia;
+          this.setupPage(sectionId, itemId);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
   }
 
   ngDoCheck(): void {
@@ -170,8 +150,64 @@ export class PiaComponent implements OnInit {
     }
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  setupPage(sectionId, itemId) {
+    this.piaService.calculPiaProgress(this.pia);
+    if (!sectionId || !itemId) {
+      this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);
+    } else {
+      if (this.pia.structure_data) {
+        this.appDataService.dataNav = this.pia.structure_data;
+      } else {
+        this.appDataService.resetDataNav();
+      }
+      this.data = this.appDataService.dataNav;
+    }
+    this.globalEvaluationService.pia = this.pia;
+    this.route.params.subscribe((params: Params) => {
+      this.getSectionAndItem(
+        parseInt(params.section_id, 10),
+        parseInt(params.item_id, 10)
+      );
+      window.scroll(0, 0);
+    });
+    // Suscribe to measure service messages
+    this.subscription = this.measureService.behaviorSubject.subscribe(val => {
+      this.measureToRemoveFromTags = val;
+    });
+    // Start onboarding
+    if (!localStorage.getItem('onboardingEntryConfirmed')) {
+      this.introjsService.start('entry');
+    } else if (localStorage.getItem('onboardingEntryConfirmed')) {
+      this.introjsService.start('evaluation');
+    }
+    // Subscribe to Auth type for enable / disable rigths on fields
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        if (this.authService.state) {
+          this.editMode = [];
+          if (
+            this.authService.currentUserValue.access_type.includes(
+              'functional'
+            ) ||
+            this.pia.is_example
+          ) {
+            this.editMode = ['author', 'validator', 'evaluator', 'guest'];
+          } else {
+            this.pia.user_pias.forEach(up => {
+              if (
+                parseInt(up.user.id) ===
+                  this.authService.currentUserValue.resource_owner_id &&
+                Array.isArray(this.editMode)
+              ) {
+                this.editMode.push(up.role);
+              }
+            });
+          }
+        } else {
+          this.editMode = 'local';
+        }
+      }
+    });
   }
 
   /**
