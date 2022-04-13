@@ -63,10 +63,11 @@ describe("Entries_card", () => {
       cy.get(".pia-cardsBlock.pia").should("have.length", 1);
       cy.get(".pia-cardsBlock-toolbar-export a")
         .eq(1)
-        .click();
-      // Redirect into entries
-      cy.wait(5000);
-      cy.get(".pia-cardsBlock.pia").should("have.length", 2);
+        .click()
+        .then(() => {
+          cy.wait(10000);
+          cy.get(".pia-cardsBlock.pia").should("have.length", 2);
+        });
     });
 
     /**
