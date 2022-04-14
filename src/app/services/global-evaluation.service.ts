@@ -312,7 +312,7 @@ export class GlobalEvaluationService {
   }
 
   /**
-   * Create a new evaluation or udpate it.
+   * Create a new evaluation or update it.
    * @private
    * @param {string} [new_reference_to] - The reference.
    * @returns {Promise}
