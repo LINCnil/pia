@@ -266,7 +266,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
       // open form in entries
       this.newUserNeeded.emit(userBehavior);
 
-      // waiting for submited user form
+      // waiting for submitted user form
       observable.subscribe({
         complete: () => {
           if (userBehavior.value) {

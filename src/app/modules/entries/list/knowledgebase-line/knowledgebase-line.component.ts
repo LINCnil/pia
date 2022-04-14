@@ -36,7 +36,7 @@ export class KnowledgebaseLineComponent implements OnInit {
           console.log(err);
         });
     } else {
-      // exemple
+      // example
       this.nbEntries = piakb.length;
     }
   }

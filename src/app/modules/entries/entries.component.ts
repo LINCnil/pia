@@ -177,9 +177,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
               this.entries.splice(index, 1);
             }
 
-            this.entries.forEach(entrie => {
-              this.piaService.pia_id = entrie.id;
-              this.piaService.calculPiaProgress(entrie);
+            this.entries.forEach(entry => {
+              this.piaService.pia_id = entry.id;
+              this.piaService.calculPiaProgress(entry);
             });
             this.loading = false;
             this.startIntroJs('pia');
@@ -193,8 +193,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
             .then((entries: Array<Pia>) => {
               this.entries = entries;
               console.log(entries);
-              // this.entries.forEach(entrie =>
-              //   this.archiveService.calculPiaProgress(entrie)
+              // this.entries.forEach(entry =>
+              //   this.archiveService.calculPiaProgress(entry)
               // );
               this.loading = false;
               this.sortOrder = localStorage.getItem('archiveOrder');
@@ -242,11 +242,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
     }, 200);
   }
 
-  updateEntrie(entrie): void {
-    if (this.entries.includes(entrie)) {
+  updateEntrie(entry): void {
+    if (this.entries.includes(entry)) {
       this.entries.forEach(item => {
-        if (item.id === entrie.id) {
-          item = entrie;
+        if (item.id === entry.id) {
+          item = entry;
         }
       });
     }
@@ -272,7 +272,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
   /**
    * Go to the new entry route
    */
-  onFormSubmited(id, type: string = null): void {
+  onFormsubmitted(id, type: string = null): void {
     this.showModal = false;
     // go to the edit page
     if (type) {

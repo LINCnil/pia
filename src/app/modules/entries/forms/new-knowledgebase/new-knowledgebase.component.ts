@@ -10,7 +10,7 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
   styleUrls: ['../form.component.scss']
 })
 export class NewKnowledgebaseComponent implements OnInit {
-  @Output() submited = new EventEmitter();
+  @Output() submitted = new EventEmitter();
   knowledgeBaseForm: FormGroup;
 
   constructor(private knowledgeBaseService: KnowledgeBaseService) {}
@@ -34,7 +34,7 @@ export class NewKnowledgebaseComponent implements OnInit {
     this.knowledgeBaseService
       .create(kb)
       .then((result: KnowledgeBase) => {
-        this.submited.emit(result.id);
+        this.submitted.emit(result.id);
       })
       .catch(err => {
         console.error(err);

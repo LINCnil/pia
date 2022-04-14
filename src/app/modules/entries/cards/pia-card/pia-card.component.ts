@@ -241,7 +241,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Focuse PIA name field.
+   * Focus PIA name field.
    */
   piaNameFocusIn(): void {
     this.piaForm.controls['name'].enable();
@@ -265,7 +265,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Focuse PIA author name field.
+   * Focus PIA author name field.
    */
   piaAuthorNameFocusIn(): void {
     this.piaAuthorName.nativeElement.focus();
