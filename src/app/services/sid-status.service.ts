@@ -60,7 +60,7 @@ export class SidStatusService {
    */
   async setSidStatus(pia: any, section: any, item: any): Promise<any> {
     const referenceTo = section.id + '.' + item.id;
-    // We need to instanciate a new instance of GLobalEvaluationService
+    // We need to instantiate a new instance of GLobalEvaluationService
     const globalEvaluationService = new GlobalEvaluationService(
       this.apiService
     );
