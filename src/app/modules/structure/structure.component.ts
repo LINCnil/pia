@@ -62,7 +62,7 @@ export class StructureComponent implements OnInit {
       });
     }
 
-    // Suscribe to measure service messages
+    // Subscribe to measure service messages
     this.subscription = this.measureService.behaviorSubject.subscribe(val => {
       this.measureToRemoveFromTags = val;
     });
