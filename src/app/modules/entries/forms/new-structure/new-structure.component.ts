@@ -10,12 +10,13 @@ import { StructureService } from 'src/app/services/structure.service';
   styleUrls: ['../form.component.scss']
 })
 export class NewStructureComponent implements OnInit {
-  @Output() submited: EventEmitter<any> = new EventEmitter<any>();
+  @Output() submitted: EventEmitter<any> = new EventEmitter<any>();
   structureForm: FormGroup;
 
   constructor(
     private appDataService: AppDataService,
-    private structureService: StructureService) { }
+    private structureService: StructureService
+  ) {}
 
   ngOnInit(): void {
     this.structureForm = new FormGroup({
@@ -33,7 +34,8 @@ export class NewStructureComponent implements OnInit {
     structure.name = this.structureForm.value.name;
     structure.sector_name = this.structureForm.value.sector_name;
     structure.data = this.appDataService.dataNav;
-    this.structureService.create(structure).then(result => this.submited.emit(result));
+    this.structureService
+      .create(structure)
+      .then(result => this.submitted.emit(result));
   }
-
 }
