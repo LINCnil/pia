@@ -156,7 +156,7 @@ export class RefusePIAComponent implements OnInit {
   }
 
   /**
-   * Executes functionnalities when losing focus from rejection reason field.
+   * Executes functionalities when losing focus from rejection reason field.
    */
   rejectionReasonFocusOut(): void {
     let userText = this.rejectionReasonForm.controls['rejectionReason'].value;
@@ -187,7 +187,7 @@ export class RefusePIAComponent implements OnInit {
   }
 
   /**
-   * Executes functionnalities when losing focus from modifications made field.
+   * Executes functionalities when losing focus from modifications made field.
    */
   modificationsMadeFocusOut(): void {
     let userText = this.modificationsMadeForm.controls['modificationsMade']

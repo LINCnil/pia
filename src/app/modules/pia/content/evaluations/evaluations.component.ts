@@ -259,7 +259,7 @@ export class EvaluationsComponent
     this.evaluation.global_status = 0;
     this.evaluation.status = status;
 
-    // Action plan comment : hides action plan field + switchs its value to comment field + removes its value.
+    // Action plan comment : hides action plan field + switches its value to comment field + removes its value.
     if (status !== 2) {
       const evaluationPlanValue = this.evaluationForm.controls[
         'actionPlanComment'

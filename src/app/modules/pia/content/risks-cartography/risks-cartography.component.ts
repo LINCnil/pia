@@ -164,7 +164,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
    * Loads the risks cartography with author and evalutor choices positioned as dots.
    */
   loadCartography(): void {
-    // Instanciation of canvas context
+    // Instantiation of canvas context
     const canvas = <HTMLCanvasElement>(
       document.getElementById('actionPlanCartography')
     );
