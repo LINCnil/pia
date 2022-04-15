@@ -392,9 +392,10 @@ export class PiaService extends ApplicationDb {
    */
   exportData(id: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      super.find(id).then((pia: PiaService) => {
+      super.find(id).then(async (pia: PiaService) => {
+        this.pia_id = id;
         // SET progress attribute
-        this.calculPiaProgress(pia);
+        await this.calculPiaProgress(pia);
         const data = {
           pia,
           answers: null,
