@@ -61,6 +61,7 @@ export class MeasureService extends ApplicationDb {
   async findAllByPia(pia_id: number): Promise<any> {
     const items = [];
     return new Promise((resolve, reject) => {
+      this.pia_id = pia_id;
       super
         .findAll(null, { index: 'index1', value: pia_id })
         .then((result: any) => {
