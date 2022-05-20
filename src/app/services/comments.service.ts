@@ -56,6 +56,7 @@ export class CommentsService extends ApplicationDb {
   async findAllByPia(pia_id: number): Promise<Array<Comment>> {
     const items = [];
     return new Promise((resolve, reject) => {
+      this.pia_id = pia_id;
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           mode: 'cors'

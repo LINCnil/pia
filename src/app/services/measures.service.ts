@@ -106,6 +106,7 @@ export class MeasureService extends ApplicationDb {
   async findAllByPia(pia_id: number): Promise<any> {
     const items = [];
     return new Promise((resolve, reject) => {
+      this.pia_id = pia_id;
       if (this.serverUrl) {
         fetch(this.getServerUrl(), {
           mode: 'cors'

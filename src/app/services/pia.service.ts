@@ -484,9 +484,10 @@ export class PiaService extends ApplicationDb {
    */
   exportData(id: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.find(id).then((pia: PiaService) => {
+      this.find(id).then(async (pia: PiaService) => {
+        this.pia_id = id;
         // SET progress attribute
-        this.calculPiaProgress(pia);
+        await this.calculPiaProgress(pia);
         const data = {
           pia,
           answers: null,
@@ -532,7 +533,7 @@ export class PiaService extends ApplicationDb {
         reject(new Error('wrong pia file'));
         return;
       }
-      
+
       const pia = new Pia();
       pia.name = '(' + prefix + ') ' + data.pia.name;
       pia.category = data.pia.category;
