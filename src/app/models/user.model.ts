@@ -1,5 +1,5 @@
 export class User {
-  public token?: string;
+  public access_token?: string;
   public id?: number;
   public email: string;
   public lastname: string;

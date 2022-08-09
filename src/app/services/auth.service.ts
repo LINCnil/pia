@@ -24,10 +24,7 @@ export class AuthService {
       ? JSON.parse(localStorage.getItem('currentUser')).access_token
       : '';
 
-    this.apiService.defaultConfig.headers.set(
-      'Authorization',
-      `Bearer ${token}`
-    );
+    this.apiService.defaultConfig.headers.set('Authorization', token);
 
     // 2 - check token validity
     this.apiService
@@ -103,19 +100,28 @@ export class AuthService {
         .post('/oauth/token', formData)
         .then((response: any) => {
           if (response.access_token) {
-            const user: User = { ...response };
+            formData.append('token', response.access_token);
 
-            this.apiService.defaultConfig.headers.set(
-              'Authorization',
-              `Bearer ${response.access_token}`
-            );
+            // Introspect token
+            this.apiService
+              .post('/oauth/introspect', formData)
+              .then((userInfos: User) => {
+                // Construct user
+                const user: User = { ...userInfos };
+                user.access_token = `Bearer ${response.access_token}`;
 
-            localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('currentUser', JSON.stringify(user));
 
-            this.currentUserSubject.next(user);
-            this.currentUserSubject.complete();
+                // Save token in headers for next queries
+                this.apiService.defaultConfig.headers.set(
+                  'Authorization',
+                  `${response.token_type} ${response.access_token}`
+                );
 
-            resolve(response);
+                this.currentUserSubject.next(user);
+                this.currentUserSubject.complete();
+                resolve(response);
+              });
           } else {
             reject('No token');
           }
