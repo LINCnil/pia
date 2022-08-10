@@ -116,11 +116,11 @@
             "
             identifyBy="id"
             displayBy="display"
-            [maxItems]="1"
-            formControlName="author_name"
-            (onAdd)="onAddUser($event, 'author_name')"
+            formControlName="authors"
+            (onAdd)="onAddUser($event, 'authors')"
+            (onRemove)="onRemove($event, 'authors')"
             [theme]="'foundation-theme'"
-            (onTextChange)="onTyped($event, pia.id, 'author_name')"
+            (onTextChange)="onTyped($event, pia.id, 'authors')"
             [editable]="false"
             [clearOnBlur]="true"
             [placeholder]="'homepage.cards.placeholder_author' | translate"
@@ -132,7 +132,7 @@
               <div
                 [ngClass]="{
                   'custom-tag': true,
-                  'user-not-found': !checkIfUserExist('author_name')
+                  'user-not-found': !checkIfUserExist('authors')
                 }"
               >
                 {{ item.display }}
@@ -162,13 +162,13 @@
                   display: addBtnForSpecificInput.display,
                   id: addBtnForSpecificInput.display
                 },
-                'author_name'
+                'authors'
               )
             "
             *ngIf="
               addBtnForSpecificInput &&
               addBtnForSpecificInput.pia_id === pia.id &&
-              addBtnForSpecificInput.field === 'author_name'
+              addBtnForSpecificInput.field === 'authors'
             "
           >
             +
@@ -206,10 +206,10 @@
               !authService.currentUserValue.access_type.includes('functional')
             "
             identifyBy="id"
-            [maxItems]="1"
-            formControlName="evaluator_name"
-            (onTextChange)="onTyped($event, pia.id, 'evaluator_name')"
-            (onAdd)="onAddUser($event, 'evaluator_name')"
+            formControlName="evaluators"
+            (onTextChange)="onTyped($event, pia.id, 'evaluators')"
+            (onAdd)="onAddUser($event, 'evaluators')"
+            (onRemove)="onRemove($event, 'evaluators')"
             [theme]="'foundation-theme'"
             [editable]="false"
             [clearOnBlur]="true"
@@ -222,7 +222,7 @@
               <div
                 [ngClass]="{
                   'custom-tag': true,
-                  'user-not-found': !checkIfUserExist('evaluator_name')
+                  'user-not-found': !checkIfUserExist('evaluators')
                 }"
               >
                 {{ item.display }}
@@ -252,13 +252,13 @@
                   display: addBtnForSpecificInput.display,
                   id: addBtnForSpecificInput.display
                 },
-                'evaluator_name'
+                'evaluators'
               )
             "
             *ngIf="
               addBtnForSpecificInput &&
               addBtnForSpecificInput.pia_id === pia.id &&
-              addBtnForSpecificInput.field === 'evaluator_name'
+              addBtnForSpecificInput.field === 'evaluators'
             "
           >
             +
@@ -290,16 +290,16 @@
         >
           <tag-input
             #input
-            id="pia-edit-{{ pia.id }}-validator-name"
+            id="pia-edit-{{ pia.id }}-validators"
             [disable]="
               authService.currentUserValue &&
               !authService.currentUserValue.access_type.includes('functional')
             "
             identifyBy="id"
-            [maxItems]="1"
-            formControlName="validator_name"
-            (onTextChange)="onTyped($event, pia.id, 'validator_name')"
-            (onAdd)="onAddUser($event, 'validator_name')"
+            formControlName="validators"
+            (onTextChange)="onTyped($event, pia.id, 'validators')"
+            (onAdd)="onAddUser($event, 'validators')"
+            (onRemove)="onRemove($event, 'validators')"
             [theme]="'foundation-theme'"
             [editable]="false"
             [clearOnBlur]="true"
@@ -312,7 +312,7 @@
               <div
                 [ngClass]="{
                   'custom-tag': true,
-                  'user-not-found': !checkIfUserExist('validator_name')
+                  'user-not-found': !checkIfUserExist('validators')
                 }"
               >
                 {{ item.display }}
