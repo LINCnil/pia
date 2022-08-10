@@ -198,31 +198,36 @@ export class PiaCardComponent implements OnInit, OnChanges {
     return this.piaForm.controls;
   }
 
+  /**
+   * Disable the already selected users in the guests field
+   */
   get usersForGuests(): Array<TagModel> {
     let usersForGuests: Array<TagModel> = this.userList;
-    const validator: { user: User; role: string } = this.pia.user_pias.find(
-      u => u.role === 'validator'
-    );
-    const evaluator: { user: User; role: string } = this.pia.user_pias.find(
-      u => u.role === 'evaluator'
-    );
-    const author: { user: User; role: string } = this.pia.user_pias.find(
+    const validators: {
+      user: User;
+      role: string;
+    }[] = this.pia.user_pias.filter(u => u.role === 'validator');
+    const evaluators: {
+      user: User;
+      role: string;
+    }[] = this.pia.user_pias.filter(u => u.role === 'evaluator');
+    const authors: { user: User; role: string }[] = this.pia.user_pias.filter(
       u => u.role === 'author'
     );
 
-    if (validator) {
+    if (validators) {
       usersForGuests = usersForGuests.filter(
-        (x: User) => x.id !== validator.user.id
+        (x: User) => !validators.map(vs => vs.user.id).includes(x.id)
       );
     }
-    if (evaluator) {
+    if (evaluators) {
       usersForGuests = usersForGuests.filter(
-        (x: User) => x.id !== evaluator.user.id
+        (x: User) => !evaluators.map(es => es.user.id).includes(x.id)
       );
     }
-    if (author) {
+    if (authors) {
       usersForGuests = usersForGuests.filter(
-        (x: User) => x.id !== author.user.id
+        (x: User) => !authors.map(as => as.user.id).includes(x.id)
       );
     }
     return usersForGuests;
