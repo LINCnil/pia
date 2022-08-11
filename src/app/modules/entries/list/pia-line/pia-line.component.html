@@ -104,11 +104,11 @@
           !authService.currentUserValue.access_type.includes('functional')
         "
         identifyBy="id"
-        [maxItems]="1"
-        (onAdd)="onAddUser($event, 'author_name')"
-        [ngModel]="authorField"
+        (onAdd)="onAddUser($event, 'authors')"
+        (onRemove)="onRemove($event, 'authors')"
+        [ngModel]="authors"
         [theme]="'foundation-theme'"
-        (onTextChange)="onTyped($event, pia.id, 'author_name')"
+        (onTextChange)="onTyped($event, pia.id, 'authors')"
         [editable]="false"
         [clearOnBlur]="true"
         [placeholder]="'homepage.cards.placeholder_validation' | translate"
@@ -120,7 +120,7 @@
           <div
             [ngClass]="{
               'custom-tag': true,
-              'user-not-found': !checkIfUserExist('author_name')
+              'user-not-found': !checkIfUserExist('authors', item)
             }"
           >
             {{ item.display }}
@@ -172,11 +172,11 @@
           !authService.currentUserValue.access_type.includes('functional')
         "
         identifyBy="id"
-        [maxItems]="1"
-        (onAdd)="onAddUser($event, 'evaluator_name')"
-        [ngModel]="evaluatorField"
+        (onAdd)="onAddUser($event, 'evaluators')"
+        (onRemove)="onRemove($event, 'evaluators')"
+        [ngModel]="evaluators"
         [theme]="'foundation-theme'"
-        (onTextChange)="onTyped($event, pia.id, 'evaluator_name')"
+        (onTextChange)="onTyped($event, pia.id, 'evaluators')"
         [editable]="false"
         [clearOnBlur]="true"
         [placeholder]="'homepage.cards.placeholder_validation' | translate"
@@ -188,7 +188,7 @@
           <div
             [ngClass]="{
               'custom-tag': true,
-              'user-not-found': !checkIfUserExist('evaluator_name')
+              'user-not-found': !checkIfUserExist('evaluators')
             }"
           >
             {{ item.display }}
@@ -240,11 +240,11 @@
           !authService.currentUserValue.access_type.includes('functional')
         "
         identifyBy="id"
-        [maxItems]="1"
-        (onAdd)="onAddUser($event, 'validator_name')"
-        [ngModel]="validatorField"
+        (onAdd)="onAddUser($event, 'validators')"
+        (onRemove)="onRemove($event, 'validators')"
+        [ngModel]="validators"
         [theme]="'foundation-theme'"
-        (onTextChange)="onTyped($event, pia.id, 'validator_name')"
+        (onTextChange)="onTyped($event, pia.id, 'validators')"
         [editable]="false"
         [clearOnBlur]="true"
         [placeholder]="'homepage.cards.placeholder_validation' | translate"
@@ -256,7 +256,7 @@
           <div
             [ngClass]="{
               'custom-tag': true,
-              'user-not-found': !checkIfUserExist('validator_name')
+              'user-not-found': !checkIfUserExist('validators')
             }"
           >
             {{ item.display }}
@@ -306,7 +306,7 @@
       identifyBy="id"
       (onAdd)="onAddUser($event, 'guests')"
       (onRemove)="onRemove($event, 'guests')"
-      [ngModel]="guestField"
+      [ngModel]="guests"
       [theme]="'foundation-theme'"
       (onTextChange)="onTyped($event, pia.id, 'guests')"
       [editable]="false"
