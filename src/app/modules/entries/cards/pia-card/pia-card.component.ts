@@ -487,8 +487,4 @@ export class PiaCardComponent implements OnInit, OnChanges {
   onRemove($event: TagModelClass, field: string) {
     this.savePiaAfterUserAssign(field);
   }
-
-  checkIfUserExist(field): boolean {
-    return true;
-  }
 }
