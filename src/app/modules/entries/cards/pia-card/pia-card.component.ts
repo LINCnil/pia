@@ -163,33 +163,33 @@ export class PiaCardComponent implements OnInit, OnChanges {
       { field: 'guests', role: 'guest', dump_field: null }
     ].forEach(ob => {
       // get user_pias with role
-      const authors: { user: User; role: String }[] = user_pias.filter(
+      const filteredUserPias: { user: User; role: String }[] = user_pias.filter(
         up => up.role == ob.role
       );
 
       // convert as tag
-      let authors_converted = authors.map(a => {
+      let tags = filteredUserPias.map(a => {
         return {
           display: a.user.firstname + ' ' + a.user.lastname,
           id: a.user.id
         };
       });
 
-      // authors was deleted but present in the dump_field ?
+      // user was deleted but present in the dump_field ?
       if (ob.dump_field) {
         const fullnames = this.pia[ob.dump_field].split(',');
         fullnames.forEach(fullname => {
-          // present in authors_converted ?
-          const exist = authors_converted.find(ac => ac.display == fullname);
+          // present in tags ?
+          const exist = tags.find(ac => ac.display == fullname);
           if (!exist) {
             // add to tag
-            authors_converted.push({ display: fullname, id: null });
+            tags.push({ display: fullname, id: null });
           }
         });
       }
 
       // save tags
-      this.piaForm.controls[ob.field].setValue(authors_converted);
+      this.piaForm.controls[ob.field].setValue(tags);
     });
   }
 
