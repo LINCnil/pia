@@ -308,12 +308,12 @@ export class PiaLineComponent implements OnInit, OnChanges {
     const piaCloned = { ...this.pia };
     piaCloned[field] = this[field].map(x => x.id);
     this.piaService.update(piaCloned).then((resp: Pia) => {
-      // this.pia = resp;
+      this.setUserPiasAsFields(resp.user_pias);
     });
   }
 
   onRemove($event: TagModelClass, field: string) {
-    const guests: Array<User | number> = this[field];
+    const tags: Array<User | number> = this[field];
     const index: number = this[field].findIndex((x: User | number | string) => {
       if (typeof x === 'object') {
         return x.id === $event.id;
@@ -321,10 +321,10 @@ export class PiaLineComponent implements OnInit, OnChanges {
       return x === $event.id;
     });
     if (index !== -1) {
-      guests.splice(index, 1);
+      tags.splice(index, 1);
     }
 
-    this.pia[field] = guests.map(x => (typeof x === 'object' ? x.id : x));
+    this.pia[field] = tags.map(x => (typeof x === 'object' ? x.id : x));
     this.piaService.update(this.pia);
   }
 
