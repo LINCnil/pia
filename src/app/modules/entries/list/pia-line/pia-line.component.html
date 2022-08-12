@@ -120,7 +120,7 @@
           <div
             [ngClass]="{
               'custom-tag': true,
-              'user-not-found': !checkIfUserExist('authors', item)
+              'user-not-found': item.id == null
             }"
           >
             {{ item.display }}
@@ -188,7 +188,7 @@
           <div
             [ngClass]="{
               'custom-tag': true,
-              'user-not-found': !checkIfUserExist('evaluators')
+              'user-not-found': item.id == null
             }"
           >
             {{ item.display }}
@@ -256,7 +256,7 @@
           <div
             [ngClass]="{
               'custom-tag': true,
-              'user-not-found': !checkIfUserExist('validators')
+              'user-not-found': item.id == null
             }"
           >
             {{ item.display }}

@@ -62,50 +62,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     if (this.authService.state) {
-      // Use pia.user_pias relation to preselect field
-      const authors_pias: {
-        user: User;
-        role: String;
-      }[] = this.pia.user_pias.filter(up => up.role == 'author');
-      this.authors = authors_pias.map(a => {
-        return {
-          display: a.user.firstname + ' ' + a.user.lastname,
-          id: a.user.id
-        };
-      });
-
-      const validators_pias: {
-        user: User;
-        role: String;
-      }[] = this.pia.user_pias.filter(up => up.role == 'validator');
-      this.validators = validators_pias.map(a => {
-        return {
-          display: a.user.firstname + ' ' + a.user.lastname,
-          id: a.user.id
-        };
-      });
-
-      const evaluators_pias: {
-        user: User;
-        role: String;
-      }[] = this.pia.user_pias.filter(up => up.role == 'evaluator');
-      this.evaluators = evaluators_pias.map(a => {
-        return {
-          display: a.user.firstname + ' ' + a.user.lastname,
-          id: a.user.id
-        };
-      });
-
-      const guests_pias: {
-        user: User;
-        role: String;
-      }[] = this.pia.user_pias.filter(up => up.role == 'guest');
-      this.guests = guests_pias.map(a => {
-        return {
-          display: a.user.firstname + ' ' + a.user.lastname,
-          id: a.user.id
-        };
-      });
+      this.setUserPiasAsFields(this.pia.user_pias);
     }
 
     this.attachments = [];
@@ -147,37 +104,65 @@ export class PiaLineComponent implements OnInit, OnChanges {
   }
 
   /**
+   * Convert user_pias datas into fields for the form
+   */
+  setUserPiasAsFields(user_pias: { user: User; role: String }[]) {
+    [
+      { field: 'authors', role: 'author', dump_field: 'author_name' },
+      { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
+      { field: 'validators', role: 'validator', dump_field: 'validator_name' },
+      { field: 'guests', role: 'guest', dump_field: null }
+    ].forEach(ob => {
+      // get user_pias with role
+      const filteredUserPias: { user: User; role: String }[] = user_pias.filter(
+        up => up.role == ob.role
+      );
+
+      // convert as tag
+      let tags = filteredUserPias.map(a => {
+        return {
+          display: a.user.firstname + ' ' + a.user.lastname,
+          id: a.user.id
+        };
+      });
+
+      // user was deleted but present in the dump_field ?
+      if (ob.dump_field) {
+        const fullnames = this.pia[ob.dump_field].split(',');
+        fullnames.forEach(fullname => {
+          // present in tags ?
+          const exist = tags.find(ac => ac.display == fullname);
+          if (!exist) {
+            // add to tag
+            tags.push({ display: fullname, id: null });
+          }
+        });
+      }
+
+      // save tags
+      this[ob.field] = tags;
+    });
+  }
+
+  /**
    * Disable the already selected users in the guests field
    */
   get usersForGuests(): Array<TagModel> {
     let usersForGuests: Array<TagModel> = this.userList;
-    const validators: {
-      user: User;
-      role: string;
-    }[] = this.pia.user_pias.filter(u => u.role === 'validator');
-    const evaluators: {
-      user: User;
-      role: string;
-    }[] = this.pia.user_pias.filter(u => u.role === 'evaluator');
-    const authors: { user: User; role: string }[] = this.pia.user_pias.filter(
-      u => u.role === 'author'
-    );
-
-    if (validators) {
-      usersForGuests = usersForGuests.filter(
-        (x: User) => !validators.map(vs => vs.user.id).includes(x.id)
+    [
+      { field: 'authors', role: 'author', dump_field: 'author_name' },
+      { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
+      { field: 'validators', role: 'validator', dump_field: 'validator_name' }
+    ].forEach(ob => {
+      const users: { user: User; role: string }[] = this.pia.user_pias.filter(
+        u => u.role === ob.role
       );
-    }
-    if (evaluators) {
-      usersForGuests = usersForGuests.filter(
-        (x: User) => !evaluators.map(es => es.user.id).includes(x.id)
-      );
-    }
-    if (authors) {
-      usersForGuests = usersForGuests.filter(
-        (x: User) => !authors.map(as => as.user.id).includes(x.id)
-      );
-    }
+      if (users) {
+        usersForGuests = usersForGuests.filter(
+          (x: User) => !users.map(as => as.user.id).includes(x.id)
+        );
+      }
+    });
     return usersForGuests;
   }
 
@@ -349,9 +334,5 @@ export class PiaLineComponent implements OnInit, OnChanges {
         u => u.user.firstname + ' ' + u.user.lastname === field
       ) !== -1
     );
-  }
-
-  checkIfUserExist(field, item): boolean {
-    return true;
   }
 }
