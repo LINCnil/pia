@@ -279,22 +279,17 @@ export class PiaLineComponent implements OnInit, OnChanges {
 
       // waiting for submitted user form
       observable.subscribe({
-        complete: () => {
+        complete: async () => {
+          console.log(this[field], $event);
           if (userBehavior.value) {
-            // user is created
-            this[field] = [
-              {
-                display:
-                  userBehavior.value.firstname +
-                  ' ' +
-                  userBehavior.value.lastname,
-                id: userBehavior.value.id
-              }
-            ];
-            this.pia[field] = [userBehavior.value.id];
-            this.piaService.update(this.pia).then(async (resp: Pia) => {
-              await this.savePiaAfterUserAssign(field);
+            this[field].push({
+              display: `${userBehavior.value.firstname} ${userBehavior.value.lastname}`,
+              id: userBehavior.value.id
             });
+            // user is created
+            await this.savePiaAfterUserAssign(field);
+          } else {
+            // Remove tag, because user form is canceled
           }
         }
       });
