@@ -202,33 +202,20 @@ export class PiaCardComponent implements OnInit, OnChanges {
    */
   get usersForGuests(): Array<TagModel> {
     let usersForGuests: Array<TagModel> = this.userList;
-    const validators: {
-      user: User;
-      role: string;
-    }[] = this.pia.user_pias.filter(u => u.role === 'validator');
-    const evaluators: {
-      user: User;
-      role: string;
-    }[] = this.pia.user_pias.filter(u => u.role === 'evaluator');
-    const authors: { user: User; role: string }[] = this.pia.user_pias.filter(
-      u => u.role === 'author'
-    );
-
-    if (validators) {
-      usersForGuests = usersForGuests.filter(
-        (x: User) => !validators.map(vs => vs.user.id).includes(x.id)
+    [
+      { field: 'authors', role: 'author', dump_field: 'author_name' },
+      { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
+      { field: 'validators', role: 'validator', dump_field: 'validator_name' }
+    ].forEach(ob => {
+      const users: { user: User; role: string }[] = this.pia.user_pias.filter(
+        u => u.role === ob.role
       );
-    }
-    if (evaluators) {
-      usersForGuests = usersForGuests.filter(
-        (x: User) => !evaluators.map(es => es.user.id).includes(x.id)
-      );
-    }
-    if (authors) {
-      usersForGuests = usersForGuests.filter(
-        (x: User) => !authors.map(as => as.user.id).includes(x.id)
-      );
-    }
+      if (users) {
+        usersForGuests = usersForGuests.filter(
+          (x: User) => !users.map(as => as.user.id).includes(x.id)
+        );
+      }
+    });
     return usersForGuests;
   }
 
