@@ -109,7 +109,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
       complete: () => {
         if (this.authService.state) {
           // lock tags with users
-          this.setFormUsersField(this.pia.user_pias);
+          this.setUserPiasAsFields(this.pia.user_pias);
         }
       }
     });
@@ -152,46 +152,45 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
   }
 
-  private setFormUsersField(user_pias: { user: User; role: String }[]) {
-    console.log(user_pias);
-    // Use pia.user_pias relation to preselect field
-    const authors: { user: User; role: String }[] = user_pias.filter(
-      up => up.role == 'author'
-    );
-    let authors_converted = authors.map(a => {
-      return {
-        display: a.user.firstname + ' ' + a.user.lastname,
-        id: a.user.id
-      };
-    });
-    this.piaForm.controls.authors.setValue(authors_converted);
+  /**
+   * Convert user_pias datas into fields for the form
+   */
+  setUserPiasAsFields(user_pias: { user: User; role: String }[]) {
+    [
+      { field: 'authors', role: 'author', dump_field: 'author_name' },
+      { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
+      { field: 'validators', role: 'validator', dump_field: 'validator_name' },
+      { field: 'guests', role: 'guest', dump_field: null }
+    ].forEach(ob => {
+      // get user_pias with role
+      const authors: { user: User; role: String }[] = user_pias.filter(
+        up => up.role == ob.role
+      );
 
-    const validators = user_pias.filter(up => up.role == 'validator');
-    let validators_converted = validators.map(a => {
-      return {
-        display: a.user.firstname + ' ' + a.user.lastname,
-        id: a.user.id
-      };
-    });
-    this.piaForm.controls.validators.setValue(validators_converted);
+      // convert as tag
+      let authors_converted = authors.map(a => {
+        return {
+          display: a.user.firstname + ' ' + a.user.lastname,
+          id: a.user.id
+        };
+      });
 
-    const evaluators = user_pias.filter(up => up.role == 'evaluator');
-    let evaluators_converted = evaluators.map(a => {
-      return {
-        display: a.user.firstname + ' ' + a.user.lastname,
-        id: a.user.id
-      };
-    });
-    this.piaForm.controls.evaluators.setValue(evaluators_converted);
+      // authors was deleted but present in the dump_field ?
+      if (ob.dump_field) {
+        const fullnames = this.pia[ob.dump_field].split(',');
+        fullnames.forEach(fullname => {
+          // present in authors_converted ?
+          const exist = authors_converted.find(ac => ac.display == fullname);
+          if (!exist) {
+            // add to tag
+            authors_converted.push({ display: fullname, id: null });
+          }
+        });
+      }
 
-    const guests = user_pias.filter(up => up.role == 'guest');
-    let guests_converted = guests.map(a => {
-      return {
-        display: a.user.firstname + ' ' + a.user.lastname,
-        id: a.user.id
-      };
+      // save tags
+      this.piaForm.controls[ob.field].setValue(authors_converted);
     });
-    this.piaForm.controls.guests.setValue(guests_converted);
   }
 
   get f() {
@@ -435,7 +434,6 @@ export class PiaCardComponent implements OnInit, OnChanges {
    */
   async onAddUser($event: TagModelClass, field: string): Promise<void> {
     // User selected exist ?
-    console.log($event, field);
     const index = this.users.findIndex(u => u.id === $event.id);
 
     if (index === -1) {
@@ -463,7 +461,6 @@ export class PiaCardComponent implements OnInit, OnChanges {
           if (userBehavior.value) {
             // user is created
             let values = this.piaForm.controls[field].value;
-            console.log(userBehavior.value, values);
             values[tagIndex].id = userBehavior.value.id;
             await this.savePiaAfterUserAssign(field);
           } else {
@@ -478,19 +475,17 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   async savePiaAfterUserAssign(field: string): Promise<any> {
-    console.log(field, this.piaForm.controls[field].value);
     const piaCloned = { ...this.pia };
     piaCloned[field] = this.piaForm.controls[field].value.map(x => x.id);
 
     await this.piaService.update(piaCloned).then((resp: Pia) => {
       this.pia = resp;
-      this.setFormUsersField(resp.user_pias);
+      this.setUserPiasAsFields(resp.user_pias);
     });
   }
 
   onRemove($event: TagModelClass, field: string) {
-    this.pia[field] = this.piaForm.controls[field].value.map(x => x.id);
-    this.piaService.update(this.pia);
+    this.savePiaAfterUserAssign(field);
   }
 
   checkIfUserExist(field): boolean {
