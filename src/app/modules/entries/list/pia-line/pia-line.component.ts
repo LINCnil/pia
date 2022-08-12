@@ -134,7 +134,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
           const exist = tags.find(ac => ac.display == fullname);
           if (!exist) {
             // add to tag
-            tags.push({ display: fullname, id: null });
+            tags.push({ display: fullname, id: null }); // id = null is for deleted user but dumped
           }
         });
       }
@@ -306,7 +306,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
 
   async savePiaAfterUserAssign(field: string): Promise<any> {
     const piaCloned = { ...this.pia };
-    piaCloned[field] = this[field].map(x => x.id);
+    piaCloned[field] = this[field].map(x => (x.id ? x.id : x.display));
     this.piaService.update(piaCloned).then((resp: Pia) => {
       this.setUserPiasAsFields(resp.user_pias);
     });
