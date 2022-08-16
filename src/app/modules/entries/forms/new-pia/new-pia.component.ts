@@ -61,7 +61,7 @@ export class NewPiaComponent implements OnInit {
     }
   }
 
-  normalizeForm() {
+  normalizeForm(): any {
     const formFields = {
       name: new FormControl(),
       category: new FormControl(),
@@ -90,7 +90,7 @@ export class NewPiaComponent implements OnInit {
   /**
    * Add user to new Pia Form
    */
-  onAddUser($event: TagModelClass, field: string) {
+  onAddUser($event: TagModelClass, field: string): void {
     // Get tag in form
     const tagIndex = this.piaForm.controls[field].value.findIndex(
       f => f.id === $event.display

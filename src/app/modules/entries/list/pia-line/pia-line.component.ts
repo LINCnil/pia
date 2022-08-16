@@ -91,12 +91,12 @@ export class PiaLineComponent implements OnInit, OnChanges {
     }
   }
 
-  onTyped($event, pia_id, field) {
+  onTyped($event, pia_id, field): void {
     if ($event != '') {
       this.addBtnForSpecificInput = {
         display: $event,
-        pia_id: pia_id,
-        field: field
+        pia_id,
+        field
       };
     } else {
       this.addBtnForSpecificInput = null;
@@ -106,7 +106,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
   /**
    * Convert user_pias datas into fields for the form
    */
-  setUserPiasAsFields(user_pias: { user: User; role: String }[]) {
+  setUserPiasAsFields(user_pias: { user: User; role: String }[]): void {
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -119,7 +119,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
       );
 
       // convert as tag
-      let tags = filteredUserPias.map(a => {
+      const tags = filteredUserPias.map(a => {
         return {
           display: a.user.firstname + ' ' + a.user.lastname,
           id: a.user.id
@@ -299,6 +299,9 @@ export class PiaLineComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Main method to save users role field
+   */
   async savePiaAfterUserAssign(field: string): Promise<any> {
     if (
       ['authors', 'evaluators', 'validators'].includes(field) &&
@@ -314,7 +317,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
     });
   }
 
-  onRemove($event: TagModelClass, field: string) {
+  onRemove($event: TagModelClass, field: string): void {
     const index = this[field].findIndex(t => t == $event);
     if (index != -1) {
       this[field].splice(index, 1);

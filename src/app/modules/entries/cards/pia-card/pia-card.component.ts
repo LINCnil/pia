@@ -108,7 +108,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
   }
 
-  normalizeForm() {
+  normalizeForm(): any {
     const formFields = {
       id: new FormControl(this.pia.id),
       name: new FormControl({ value: this.pia.name, disabled: false }),
@@ -134,12 +134,12 @@ export class PiaCardComponent implements OnInit, OnChanges {
     return formFields;
   }
 
-  onTyped($event, pia_id, field) {
+  onTyped($event, pia_id, field): void {
     if ($event != '') {
       this.addBtnForSpecificInput = {
         display: $event,
-        pia_id: pia_id,
-        field: field
+        pia_id,
+        field
       };
     } else {
       this.addBtnForSpecificInput = null;
@@ -162,7 +162,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
       );
 
       // convert as tag
-      let tags = filteredUserPias.map(a => {
+      const tags = filteredUserPias.map(a => {
         return {
           display: a.user.firstname + ' ' + a.user.lastname,
           id: a.user.id
@@ -404,7 +404,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
     });
   }
 
-  onAddUserWithIcon(tag, field) {
+  onAddUserWithIcon(tag, field): void {
     this.onAddUser(tag, field);
     this.piaForm.controls[field].setValue([tag]);
   }
@@ -455,6 +455,9 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Main method to save users role field
+   */
   async savePiaAfterUserAssign(field: string): Promise<any> {
     if (this.piaForm.controls[field].hasError('required')) {
       return;
@@ -470,7 +473,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
     });
   }
 
-  onRemove($event: TagModelClass, field: string) {
+  onRemove($event: TagModelClass, field: string): void {
     this.savePiaAfterUserAssign(field);
   }
 }
