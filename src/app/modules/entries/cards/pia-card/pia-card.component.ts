@@ -74,9 +74,9 @@ export class PiaCardComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.authService.currentUser.subscribe({
       complete: () => {
+        this.piaForm = new FormGroup(this.normalizeForm());
+        // lock tags with users
         if (this.authService.state) {
-          this.piaForm = new FormGroup(this.normalizeForm());
-          // lock tags with users
           this.setUserPiasAsFields(this.pia.user_pias);
         }
       }
@@ -127,8 +127,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
         );
       });
     } else {
-      ['author_name', 'evaluator_name', 'validators_name'].forEach(field => {
-        formFields[field] = new FormControl([], [Validators.required]);
+      ['author_name', 'evaluator_name', 'validator_name'].forEach(field => {
+        formFields[field] = new FormControl(
+          this.pia[field],
+          Validators.required
+        );
       });
     }
     return formFields;

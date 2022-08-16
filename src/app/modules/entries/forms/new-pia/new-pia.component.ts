@@ -81,7 +81,7 @@ export class NewPiaComponent implements OnInit {
       });
     } else {
       ['author_name', 'evaluator_name', 'validator_name'].forEach(field => {
-        formFields[field] = new FormControl([], [Validators.required]);
+        formFields[field] = new FormControl('', Validators.required);
       });
     }
     return formFields;
