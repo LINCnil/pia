@@ -80,7 +80,7 @@ export class NewPiaComponent implements OnInit {
         );
       });
     } else {
-      ['author_name', 'evaluator_name', 'validators_name'].forEach(field => {
+      ['author_name', 'evaluator_name', 'validator_name'].forEach(field => {
         formFields[field] = new FormControl([], [Validators.required]);
       });
     }
