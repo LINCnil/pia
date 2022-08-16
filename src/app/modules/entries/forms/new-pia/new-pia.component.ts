@@ -39,6 +39,14 @@ export class NewPiaComponent implements OnInit {
       });
   }
 
+  ngOnInit(): void {
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        this.piaForm = new FormGroup(this.normalizeForm());
+      }
+    });
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.users && changes.users.currentValue) {
       this.userList = changes.users.currentValue.map(x => {
@@ -53,25 +61,25 @@ export class NewPiaComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.piaForm = new FormGroup({
+  normalizeForm() {
+    const formFields = {
       name: new FormControl(),
-      author_name: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(1)
-      ]),
-      evaluator_name: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(1)
-      ]),
-      validator_name: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(1)
-      ]),
-      guests: new FormControl(),
       category: new FormControl(),
       structure_id: new FormControl()
-    });
+    };
+    if (this.authService.state) {
+      ['authors', 'evaluators', 'validators', 'guests'].forEach(field => {
+        formFields[field] = new FormControl(
+          [],
+          [Validators.required, Validators.minLength(1)]
+        );
+      });
+    } else {
+      ['author_name', 'evaluator_name', 'validators_name'].forEach(field => {
+        formFields[field] = new FormControl([], [Validators.required]);
+      });
+    }
+    return formFields;
   }
 
   /**
@@ -121,18 +129,25 @@ export class NewPiaComponent implements OnInit {
     let data;
     if (this.authService.state) {
       data = {
-        ...this.piaForm.value,
-        guests: this.piaForm.controls.guests.value
-          ? this.piaForm.controls.guests.value.map(x => x.id)
-          : [],
-        validator_name: this.piaForm.controls.validator_name.value.map(
-          x => x.id
-        ),
-        evaluator_name: this.piaForm.controls.evaluator_name.value.map(
-          x => x.id
-        ),
-        author_name: this.piaForm.controls.author_name.value.map(x => x.id)
+        ...this.piaForm.value
       };
+
+      [
+        { field: 'authors', role: 'author', dump_field: 'author_name' },
+        {
+          field: 'evaluators',
+          role: 'evaluator',
+          dump_field: 'evaluator_name'
+        },
+        {
+          field: 'validators',
+          role: 'validator',
+          dump_field: 'validator_name'
+        },
+        { field: 'guests', role: 'guest', dump_field: null }
+      ].forEach(ob => {
+        data[ob.field] = this.piaForm.controls[ob.field].value.map(x => x.id);
+      });
     } else {
       data = { ...this.piaForm.value };
     }

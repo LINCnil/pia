@@ -1,4 +1,5 @@
 <form
+  *ngIf="piaForm"
   class="pia-cardsBlock-item-form"
   (ngSubmit)="onSubmit()"
   [formGroup]="piaForm"
@@ -21,9 +22,8 @@
       <tag-input
         id="author_name"
         identifyBy="id"
-        [maxItems]="1"
-        formControlName="author_name"
-        (onAdd)="onAddUser($event, 'author_name')"
+        formControlName="authors"
+        (onAdd)="onAddUser($event, 'authors')"
         [theme]="'foundation-theme'"
         [editable]="false"
         [clearOnBlur]="true"
@@ -61,9 +61,8 @@
       <tag-input
         id="evaluator_name"
         identifyBy="id"
-        [maxItems]="1"
-        formControlName="evaluator_name"
-        (onAdd)="onAddUser($event, 'evaluator_name')"
+        formControlName="evaluators"
+        (onAdd)="onAddUser($event, 'evaluators')"
         [theme]="'foundation-theme'"
         [editable]="false"
         [clearOnBlur]="true"
@@ -101,9 +100,8 @@
       <tag-input
         id="validator_name"
         identifyBy="id"
-        [maxItems]="1"
-        formControlName="validator_name"
-        (onAdd)="onAddUser($event, 'validator_name')"
+        formControlName="validators"
+        (onAdd)="onAddUser($event, 'validators')"
         [theme]="'foundation-theme'"
         [editable]="false"
         [clearOnBlur]="true"
