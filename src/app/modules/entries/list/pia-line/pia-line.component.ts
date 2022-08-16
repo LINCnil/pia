@@ -315,12 +315,4 @@ export class PiaLineComponent implements OnInit, OnChanges {
     }
     this.savePiaAfterUserAssign(field);
   }
-
-  private checkUserInField(field) {
-    return (
-      this.pia.user_pias.findIndex(
-        u => u.user.firstname + ' ' + u.user.lastname === field
-      ) !== -1
-    );
-  }
 }
