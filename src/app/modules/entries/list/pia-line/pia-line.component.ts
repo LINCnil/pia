@@ -300,6 +300,12 @@ export class PiaLineComponent implements OnInit, OnChanges {
   }
 
   async savePiaAfterUserAssign(field: string): Promise<any> {
+    if (
+      ['authors', 'evaluators', 'validators'].includes(field) &&
+      this[field].length === 0
+    ) {
+      return;
+    }
     const piaCloned = { ...this.pia };
     piaCloned[field] = this[field].map(x => (x.id ? x.id : x.display));
     this.piaService.update(piaCloned).then((resp: Pia) => {

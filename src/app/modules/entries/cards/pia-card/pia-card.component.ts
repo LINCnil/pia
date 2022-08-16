@@ -456,6 +456,9 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   async savePiaAfterUserAssign(field: string): Promise<any> {
+    if (this.piaForm.controls[field].hasError('required')) {
+      return;
+    }
     const piaCloned = { ...this.pia };
     piaCloned[field] = this.piaForm.controls[field].value.map(x =>
       x.id ? x.id : x.display
