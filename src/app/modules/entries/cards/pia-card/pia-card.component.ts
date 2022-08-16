@@ -72,42 +72,10 @@ export class PiaCardComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
-    this.piaForm = new FormGroup({
-      id: new FormControl(this.pia.id),
-      name: new FormControl({ value: this.pia.name, disabled: false }),
-      category: new FormControl({ value: this.pia.category, disabled: false }),
-      // FOR AUTHENTIFICATE MODE
-      authors: new FormControl(
-        [],
-        [Validators.required, Validators.minLength(1)]
-      ),
-      evaluators: new FormControl(
-        [],
-        [Validators.required, Validators.minLength(1)]
-      ),
-      validators: new FormControl(
-        [],
-        [Validators.required, Validators.minLength(1)]
-      ),
-      // FOR NORMAL MODE
-      author_name: new FormControl(this.pia.author_name, [
-        Validators.required,
-        Validators.minLength(1)
-      ]),
-      evaluator_name: new FormControl(this.pia.evaluator_name, [
-        Validators.required,
-        Validators.minLength(1)
-      ]),
-      validator_name: new FormControl(this.pia.validator_name, [
-        Validators.required,
-        Validators.minLength(1)
-      ]),
-      guests: new FormControl()
-    });
-
     this.authService.currentUser.subscribe({
       complete: () => {
         if (this.authService.state) {
+          this.piaForm = new FormGroup(this.normalizeForm());
           // lock tags with users
           this.setUserPiasAsFields(this.pia.user_pias);
         }
@@ -138,6 +106,32 @@ export class PiaCardComponent implements OnInit, OnChanges {
         };
       });
     }
+  }
+
+  normalizeForm() {
+    const formFields = {
+      id: new FormControl(this.pia.id),
+      name: new FormControl({ value: this.pia.name, disabled: false }),
+      category: new FormControl({ value: this.pia.category, disabled: false })
+    };
+    if (this.authService.state) {
+      [
+        { field: 'authors', required: true },
+        { field: 'evaluators', required: true },
+        { field: 'validators', required: true },
+        { field: 'guests', required: false }
+      ].forEach(ob => {
+        formFields[ob.field] = new FormControl(
+          [],
+          ob.required ? [Validators.required, Validators.minLength(1)] : []
+        );
+      });
+    } else {
+      ['author_name', 'evaluator_name', 'validators_name'].forEach(field => {
+        formFields[field] = new FormControl([], [Validators.required]);
+      });
+    }
+    return formFields;
   }
 
   onTyped($event, pia_id, field) {

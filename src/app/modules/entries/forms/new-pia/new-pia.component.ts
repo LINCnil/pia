@@ -68,10 +68,15 @@ export class NewPiaComponent implements OnInit {
       structure_id: new FormControl()
     };
     if (this.authService.state) {
-      ['authors', 'evaluators', 'validators', 'guests'].forEach(field => {
-        formFields[field] = new FormControl(
+      [
+        { field: 'authors', required: true },
+        { field: 'evaluators', required: true },
+        { field: 'validators', required: true },
+        { field: 'guests', required: false }
+      ].forEach(ob => {
+        formFields[ob.field] = new FormControl(
           [],
-          [Validators.required, Validators.minLength(1)]
+          ob.required ? [Validators.required, Validators.minLength(1)] : []
         );
       });
     } else {

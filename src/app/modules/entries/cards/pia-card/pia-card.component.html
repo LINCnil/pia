@@ -82,7 +82,11 @@
       </div>
     </div>
 
-    <form class="pia-cardsBlock-item-form" [formGroup]="piaForm">
+    <form
+      class="pia-cardsBlock-item-form"
+      *ngIf="piaForm"
+      [formGroup]="piaForm"
+    >
       <input type="hidden" formControlName="id" />
       <div (click)="piaNameFocusIn()" style="margin-top:20px;">
         <label for="pia-edit-{{ pia.id }}-name">{{
