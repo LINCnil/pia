@@ -82,8 +82,14 @@
     </div>
   </div>
   <ng-template #statusSettingElse>
-    <div class="pia-sectionBlock-body">
-      <p style="width: 100%; text-align: center;">...</p>
+    <div
+      class="pia-sectionBlock-body"
+      style="position:relative; height: 150px;"
+    >
+      <app-loading-overlay
+        [visibility]="true"
+        [childMode]="true"
+      ></app-loading-overlay>
     </div>
   </ng-template>
 </div>
