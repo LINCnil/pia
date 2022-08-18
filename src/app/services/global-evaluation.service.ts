@@ -170,24 +170,30 @@ export class GlobalEvaluationService {
   /**
    * Cancel evaluation and return in edit mode.
    */
-  cancelForEvaluation(): void {
-    if (this.item.evaluation_mode === 'item') {
-      this.deleteEvaluationInDb(this.reference_to).then(() => {
-        this.validate();
-      });
-    } else if (this.answersOrMeasures.length > 0) {
-      let count = 0;
-      this.answersOrMeasures.forEach(answerOrMeasure => {
-        this.deleteEvaluationInDb(
-          this.getAnswerReferenceTo(answerOrMeasure)
-        ).then(() => {
-          count++;
-          if (count === this.answersOrMeasures.length) {
-            this.validate();
-          }
+  cancelForEvaluation(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      if (this.item.evaluation_mode === 'item') {
+        await this.deleteEvaluationInDb(this.reference_to).then(async () => {
+          await this.validate();
+          resolve(true);
         });
-      });
-    }
+      } else if (this.answersOrMeasures.length > 0) {
+        let count = 0;
+        this.answersOrMeasures.forEach(answerOrMeasure => {
+          this.deleteEvaluationInDb(this.getAnswerReferenceTo(answerOrMeasure))
+            .then(async () => {
+              count++;
+              if (count === this.answersOrMeasures.length) {
+                await this.validate();
+              }
+              resolve(true);
+            })
+            .catch(() => {
+              reject(true);
+            });
+        });
+      }
+    });
   }
 
   /**
@@ -201,8 +207,8 @@ export class GlobalEvaluationService {
           .getByReference(this.pia.id, this.reference_to)
           .then((evaluation: Evaluation) => {
             evaluation.global_status = 1;
-            this.evaluationService.update(evaluation).then(() => {
-              this.validate();
+            this.evaluationService.update(evaluation).then(async () => {
+              await this.validate();
               resolve(evaluation);
             });
           });

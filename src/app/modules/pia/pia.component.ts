@@ -5,6 +5,7 @@ import { Answer } from 'src/app/models/answer.model';
 import { Pia } from 'src/app/models/pia.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
+import { ApiService } from 'src/app/services/api.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -63,7 +64,8 @@ export class PiaComponent implements OnInit, DoCheck {
     private introjsService: IntrojsService,
     private paginationService: PaginationService,
     private dialogService: DialogService,
-    public authService: AuthService
+    public authService: AuthService,
+    public apiService: ApiService
   ) {
     this.introjsService.entrySideViewChange.subscribe(value => {
       this.sideView = value;

@@ -1,4 +1,5 @@
 <div
+  *ngIf="!loading"
   class="pia-questionBlock"
   [ngClass]="{ approved: evaluation.status === 2 || evaluation.status === 3 }"
   [attr.data-id]="question.id"

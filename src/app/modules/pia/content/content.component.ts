@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Pia } from 'src/app/models/pia.model';
+import { ApiService } from 'src/app/services/api.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
@@ -29,6 +30,8 @@ export class ContentComponent implements OnInit {
   userAnswersForImpacts = [];
   userAnswersForThreats = [];
   userAnswersForSources = [];
+
+  loading = false;
 
   constructor(
     private router: Router,
@@ -74,59 +77,66 @@ export class ContentComponent implements OnInit {
    * Prepare entry for evaluation.
    */
   prepareForEvaluation(): void {
-    this.globalEvaluationService.prepareForEvaluation().then(() => {
-      let isPiaFullyEdited = true;
-      for (const el in this.sidStatusService.itemStatus) {
-        if (
-          this.sidStatusService.itemStatus.hasOwnProperty(el) &&
-          this.sidStatusService.itemStatus[el] < 4 &&
-          el !== '4.3'
-        ) {
-          isPiaFullyEdited = false;
+    this.loading = true;
+    this.globalEvaluationService
+      .prepareForEvaluation()
+      .then(() => {
+        let isPiaFullyEdited = true;
+        for (const el in this.sidStatusService.itemStatus) {
+          if (
+            this.sidStatusService.itemStatus.hasOwnProperty(el) &&
+            this.sidStatusService.itemStatus[el] < 4 &&
+            el !== '4.3'
+          ) {
+            isPiaFullyEdited = false;
+          }
         }
-      }
-      if (isPiaFullyEdited) {
-        this.goToNextSectionItem(4, 5);
-        this.dialogService.confirmThis(
-          {
-            text: 'modals.completed_edition.content',
-            type: 'yes',
-            yes: 'modals.continue',
-            no: '',
-            icon: 'fa fa-cog icon-gray'
-          },
-          () => {
-            return;
-          },
-          () => {
-            return;
-          }
-        );
-      } else {
-        this.goToNextSectionItem(0, 4);
-        this.dialogService.confirmThis(
-          {
-            text: 'modals.ask_for_evaluation.content',
-            type: 'yes',
-            yes: 'modals.continue',
-            no: '',
-            icon: 'fa fa-pencil-square-o icon-green'
-          },
-          () => {
-            return;
-          },
-          () => {
-            return;
-          }
-        );
-      }
-    });
+        if (isPiaFullyEdited) {
+          this.goToNextSectionItem(4, 5);
+          this.dialogService.confirmThis(
+            {
+              text: 'modals.completed_edition.content',
+              type: 'yes',
+              yes: 'modals.continue',
+              no: '',
+              icon: 'fa fa-cog icon-gray'
+            },
+            () => {
+              return;
+            },
+            () => {
+              return;
+            }
+          );
+        } else {
+          this.goToNextSectionItem(0, 4);
+          this.dialogService.confirmThis(
+            {
+              text: 'modals.ask_for_evaluation.content',
+              type: 'yes',
+              yes: 'modals.continue',
+              no: '',
+              icon: 'fa fa-pencil-square-o icon-green'
+            },
+            () => {
+              return;
+            },
+            () => {
+              return;
+            }
+          );
+        }
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
   /**
    * Allow an user to validate evaluation for a section.
    */
   validateEvaluation(): void {
+    this.loading = true;
     this.globalEvaluationService
       .validateAllEvaluation()
       .then((toFix: boolean) => {
@@ -198,6 +208,9 @@ export class ContentComponent implements OnInit {
             }
           );
         }
+      })
+      .finally(() => {
+        this.loading = false;
       });
   }
 
@@ -227,36 +240,16 @@ export class ContentComponent implements OnInit {
    * Allow an user to return in edit mode.
    */
   cancelAskForEvaluation(): void {
-    this.globalEvaluationService.cancelForEvaluation();
-    this.dialogService.confirmThis(
-      {
-        text: 'modals.back_to_edition.content',
-        type: 'yes',
-        yes: 'modals.continue',
-        no: '',
-        icon: 'fa fa-pencil-square-o icon-gray'
-      },
-      () => {
-        return;
-      },
-      () => {
-        return;
-      }
-    );
-  }
-
-  /**
-   * Allow an user to cancel the validation.
-   */
-  cancelValidateEvaluation(): void {
-    this.globalEvaluationService.cancelValidation(this.pia.id).then(() => {
+    this.loading = true;
+    this.globalEvaluationService.cancelForEvaluation().finally(() => {
+      this.loading = false;
       this.dialogService.confirmThis(
         {
-          text: 'modals.back_to_evaluation.content',
+          text: 'modals.back_to_edition.content',
           type: 'yes',
           yes: 'modals.continue',
           no: '',
-          icon: 'fa fa-cog icon-gray'
+          icon: 'fa fa-pencil-square-o icon-gray'
         },
         () => {
           return;
@@ -266,6 +259,35 @@ export class ContentComponent implements OnInit {
         }
       );
     });
+  }
+
+  /**
+   * Allow an user to cancel the validation.
+   */
+  cancelValidateEvaluation(): void {
+    this.loading = true;
+    this.globalEvaluationService
+      .cancelValidation(this.pia.id)
+      .then(() => {
+        this.dialogService.confirmThis(
+          {
+            text: 'modals.back_to_evaluation.content',
+            type: 'yes',
+            yes: 'modals.continue',
+            no: '',
+            icon: 'fa fa-cog icon-gray'
+          },
+          () => {
+            return;
+          },
+          () => {
+            return;
+          }
+        );
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
   onAddNewMeasure(): void {

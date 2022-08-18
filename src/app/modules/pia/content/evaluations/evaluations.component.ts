@@ -52,7 +52,7 @@ export class EvaluationsComponent
   evaluationCommentElementId: string;
   editor: any;
   editorEvaluationComment: any;
-  loading: boolean = false;
+  loading = false;
 
   constructor(
     private el: ElementRef,
@@ -68,7 +68,10 @@ export class EvaluationsComponent
   async ngOnInit(): Promise<void> {
     // Prefix item
     this.reference_to = this.section.id + '.' + this.item.id;
-    await this.checkEvaluationValidation();
+    this.loading = true;
+    this.checkEvaluationValidation().finally(() => {
+      this.loading = false;
+    });
 
     this.riskName = {
       value: this.translateService.instant(
@@ -132,7 +135,10 @@ export class EvaluationsComponent
       this.previousReferenceTo !== this.reference_to
     ) {
       this.previousReferenceTo = this.reference_to;
-      this.checkEvaluationValidation();
+      this.loading = true;
+      this.checkEvaluationValidation().finally(() => {
+        this.loading = false;
+      });
     }
   }
 
@@ -169,6 +175,7 @@ export class EvaluationsComponent
       gaugeY: new FormControl()
     });
 
+    this.loading = true;
     this.evaluationService
       .getByReference(this.pia.id, this.reference_to)
       .then(evaluation => {
@@ -215,13 +222,18 @@ export class EvaluationsComponent
             this.evaluationForm.controls['gaugeY'].patchValue(0);
           }
         }
+      })
+      .finally(() => {
+        this.loading = false;
       });
 
     if (this.item.questions) {
       const questions: any[] = this.item.questions.filter(question => {
         return question.answer_type === 'gauge';
       });
-      questions.forEach(question => {
+
+      this.loading = true;
+      for await (const question of questions) {
         this.aswerService
           .getByReferenceAndPia(this.pia.id, question.id)
           .then((answer: Answer) => {
@@ -230,7 +242,8 @@ export class EvaluationsComponent
                 answer.data.gauge;
             }
           });
-      });
+      }
+      this.loading = false;
     }
   }
 
@@ -302,18 +315,22 @@ export class EvaluationsComponent
     }
 
     this.loading = true;
-    this.evaluationService.update(this.evaluation).then(() => {
-      // Pass the evaluation to the parent component
-      this.globalEvaluationService.validate().then(() => {
+    this.evaluationService
+      .update(this.evaluation)
+      .then(() => {
+        // Pass the evaluation to the parent component
+        this.globalEvaluationService.validate().then(() => {
+          this.evaluationEvent.emit(this.evaluation);
+          // Displays content (action plan & comment fields).
+          const content = this.el.nativeElement.querySelector(
+            '.pia-evaluationBlock-content'
+          );
+          content.classList.remove('hide');
+        });
+      })
+      .finally(() => {
         this.loading = false;
-        this.evaluationEvent.emit(this.evaluation);
-        // Displays content (action plan & comment fields).
-        const content = this.el.nativeElement.querySelector(
-          '.pia-evaluationBlock-content'
-        );
-        content.classList.remove('hide');
       });
-    });
   }
 
   /**
@@ -341,7 +358,10 @@ export class EvaluationsComponent
     this.evaluation.action_plan_comment = userText;
     this.evaluationService.update(this.evaluation).then(() => {
       this.ngZone.run(() => {
-        this.globalEvaluationService.validate();
+        this.loading = true;
+        this.globalEvaluationService.validate().finally(() => {
+          this.loading = false;
+        });
       });
     });
   }
@@ -373,7 +393,10 @@ export class EvaluationsComponent
     this.evaluationService.update(this.evaluation).then(() => {
       this.evaluationEvent.emit(this.evaluation);
       this.ngZone.run(() => {
-        this.globalEvaluationService.validate();
+        this.loading = true;
+        this.globalEvaluationService.validate().finally(() => {
+          this.loading = false;
+        });
       });
     });
   }
@@ -426,8 +449,12 @@ export class EvaluationsComponent
     if (gaugeValueY >= 0) {
       this.evaluation.gauges['y'] = gaugeValueY;
     }
+
+    this.loading = true;
     this.evaluationService.update(this.evaluation).then(() => {
-      this.globalEvaluationService.validate();
+      this.globalEvaluationService.validate().then(() => {
+        this.loading = false;
+      });
     });
   }
 

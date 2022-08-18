@@ -45,6 +45,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   lastSelectedTag: string;
   elementId: String;
   editor: any;
+  loading = false;
 
   constructor(
     private el: ElementRef,
@@ -64,9 +65,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
+    this.loading = true;
     this.answerService
       .getByReferenceAndPia(this.pia.id, this.question.id)
       .then((answer: Answer) => {
+        this.loading = false;
         if (answer) {
           this.answer = answer;
           this.questionForm.controls['gauge'].patchValue(
@@ -89,13 +92,18 @@ export class QuestionsComponent implements OnInit, OnDestroy {
               );
           }
         }
+      })
+      .catch(() => {
+        this.loading = false;
       });
 
     this.measure.pia_id = this.pia.id;
 
     // Fill tags list for Measures
+    this.loading = true;
     this.measureService.pia_id = this.pia.id;
     this.measureService.findAllByPia(this.pia.id).then((entries: any[]) => {
+      this.loading = false;
       if (entries) {
         entries.forEach(entry => {
           if (entry.title) {
@@ -106,7 +114,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     });
 
     // Fill tags list for Impacts, Threats and Sources from all risks (1, 2 & 3)
+    this.loading = true;
     this.answerService.findAllByPia(this.pia.id).then((entries: any[]) => {
+      this.loading = false;
       this.allUserAnswersForImpacts = [];
       this.allUserAnswersForThreats = [];
       this.allUserAnswersForSources = [];
