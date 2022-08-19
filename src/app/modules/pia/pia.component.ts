@@ -234,6 +234,8 @@ export class PiaComponent implements OnInit, DoCheck {
       })[0];
     }
 
+    // reset status on section change, this will be calculed again
+    this.globalEvaluationService.status = null;
     this.globalEvaluationService.section = this.section;
     this.globalEvaluationService.item = this.item;
 
@@ -245,7 +247,7 @@ export class PiaComponent implements OnInit, DoCheck {
       });
     }
 
-    this.globalEvaluationService.validate();
+    await this.globalEvaluationService.validate();
 
     this.measureService.findAllByPia(this.pia.id).then(measures => {
       this.measures = measures;

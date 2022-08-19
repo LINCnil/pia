@@ -265,11 +265,7 @@
   </div>
 </ng-container>
 <ng-template #loadingElse>
-  <div
-    *ngIf="globalEvaluationService.status != 0"
-    class="pia-sectionBlock-body"
-    style="position:relative; height: 150px;"
-  >
+  <div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
     <app-loading-overlay
       [visibility]="true"
       [childMode]="true"

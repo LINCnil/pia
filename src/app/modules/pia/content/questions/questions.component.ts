@@ -102,91 +102,99 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     // Fill tags list for Measures
     this.loading = true;
     this.measureService.pia_id = this.pia.id;
-    this.measureService.findAllByPia(this.pia.id).then((entries: any[]) => {
-      this.loading = false;
-      if (entries) {
-        entries.forEach(entry => {
-          if (entry.title) {
-            this.userMeasures.push(entry.title);
-          }
-        });
-      }
-    });
+    this.measureService
+      .findAllByPia(this.pia.id)
+      .then((entries: any[]) => {
+        if (entries) {
+          entries.forEach(entry => {
+            if (entry.title) {
+              this.userMeasures.push(entry.title);
+            }
+          });
+        }
+      })
+      .finally(() => {
+        this.loading = false;
+      });
 
     // Fill tags list for Impacts, Threats and Sources from all risks (1, 2 & 3)
     this.loading = true;
-    this.answerService.findAllByPia(this.pia.id).then((entries: any[]) => {
-      this.loading = false;
-      this.allUserAnswersForImpacts = [];
-      this.allUserAnswersForThreats = [];
-      this.allUserAnswersForSources = [];
-      if (entries) {
-        entries.forEach(entry => {
-          if (entry.data.list && entry.data.list.length > 0) {
-            // All user answers for Impacts
-            if (
-              entry.reference_to === 321 ||
-              entry.reference_to === 331 ||
-              entry.reference_to === 341
-            ) {
-              this.allUserAnswersForImpacts.push(entry.data.list);
-            } else if (
-              entry.reference_to === 322 ||
-              entry.reference_to === 332 ||
-              entry.reference_to === 342
-            ) {
-              // All user answers for Threats
-              this.allUserAnswersForThreats.push(entry.data.list);
-            } else if (
-              entry.reference_to === 323 ||
-              entry.reference_to === 333 ||
-              entry.reference_to === 343
-            ) {
-              // All user answers for Sources
-              this.allUserAnswersForSources.push(entry.data.list);
+    this.answerService
+      .findAllByPia(this.pia.id)
+      .then((entries: any[]) => {
+        this.allUserAnswersForImpacts = [];
+        this.allUserAnswersForThreats = [];
+        this.allUserAnswersForSources = [];
+        if (entries) {
+          entries.forEach(entry => {
+            if (entry.data.list && entry.data.list.length > 0) {
+              // All user answers for Impacts
+              if (
+                entry.reference_to === 321 ||
+                entry.reference_to === 331 ||
+                entry.reference_to === 341
+              ) {
+                this.allUserAnswersForImpacts.push(entry.data.list);
+              } else if (
+                entry.reference_to === 322 ||
+                entry.reference_to === 332 ||
+                entry.reference_to === 342
+              ) {
+                // All user answers for Threats
+                this.allUserAnswersForThreats.push(entry.data.list);
+              } else if (
+                entry.reference_to === 323 ||
+                entry.reference_to === 333 ||
+                entry.reference_to === 343
+              ) {
+                // All user answers for Sources
+                this.allUserAnswersForSources.push(entry.data.list);
+              }
             }
-          }
-        });
-        this.allUserAnswersForImpacts = [].concat.apply(
-          [],
-          this.allUserAnswersForImpacts
-        );
-        this.allUserAnswersForThreats = [].concat.apply(
-          [],
-          this.allUserAnswersForThreats
-        );
-        this.allUserAnswersForSources = [].concat.apply(
-          [],
-          this.allUserAnswersForSources
-        );
+          });
+          this.allUserAnswersForImpacts = [].concat.apply(
+            [],
+            this.allUserAnswersForImpacts
+          );
+          this.allUserAnswersForThreats = [].concat.apply(
+            [],
+            this.allUserAnswersForThreats
+          );
+          this.allUserAnswersForSources = [].concat.apply(
+            [],
+            this.allUserAnswersForSources
+          );
 
-        // Si la question courante concerne les impacts (321, 331, 341)
-        if (
-          this.question.id === 321 ||
-          this.question.id === 331 ||
-          this.question.id === 341
-        ) {
-          this.userAnswersToDisplay = this.allUserAnswersForImpacts;
-        } else if (
-          this.question.id === 322 ||
-          this.question.id === 332 ||
-          this.question.id === 342
-        ) {
-          // Sinon si la question courante concerne les menaces (322, 332, 342)
-          this.userAnswersToDisplay = this.allUserAnswersForThreats;
-        } else if (
-          this.question.id === 323 ||
-          this.question.id === 333 ||
-          this.question.id === 343
-        ) {
-          // Sinon si la question courante concerne les sources (323, 333, 343)
-          this.userAnswersToDisplay = this.allUserAnswersForSources;
+          // Si la question courante concerne les impacts (321, 331, 341)
+          if (
+            this.question.id === 321 ||
+            this.question.id === 331 ||
+            this.question.id === 341
+          ) {
+            this.userAnswersToDisplay = this.allUserAnswersForImpacts;
+          } else if (
+            this.question.id === 322 ||
+            this.question.id === 332 ||
+            this.question.id === 342
+          ) {
+            // Sinon si la question courante concerne les menaces (322, 332, 342)
+            this.userAnswersToDisplay = this.allUserAnswersForThreats;
+          } else if (
+            this.question.id === 323 ||
+            this.question.id === 333 ||
+            this.question.id === 343
+          ) {
+            // Sinon si la question courante concerne les sources (323, 333, 343)
+            this.userAnswersToDisplay = this.allUserAnswersForSources;
+          }
+          this.userAnswersToDisplay = this.userAnswersToDisplay
+            .reduce((a, x) => (a.includes(x) ? a : [...a, x]), [])
+            .sort();
         }
-        this.userAnswersToDisplay = this.userAnswersToDisplay
-          .reduce((a, x) => (a.includes(x) ? a : [...a, x]), [])
-          .sort();
-      }
-    });
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
   ngOnDestroy(): void {
@@ -227,26 +235,40 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
+
+    this.loading = true;
     if (this.answer.id) {
       this.answer.data = {
         text: this.answer.data.text,
         gauge: gaugeValue,
         list: this.answer.data.list
       };
-      this.answerService.update(this.answer).then(() => {
-        this.ngZone.run(() => {
-          this.globalEvaluationService.validate();
+
+      this.answerService
+        .update(this.answer)
+        .then(() => {
+          this.ngZone.run(() => {
+            this.globalEvaluationService.validate();
+          });
+        })
+        .finally(() => {
+          this.loading = false;
         });
-      });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
-      this.answerService.create(this.answer).then(() => {
-        this.ngZone.run(() => {
-          this.globalEvaluationService.validate();
+
+      this.answerService
+        .create(this.answer)
+        .then(() => {
+          this.ngZone.run(() => {
+            this.globalEvaluationService.validate();
+          });
+        })
+        .finally(() => {
+          this.loading = false;
         });
-      });
     }
   }
 
@@ -275,11 +297,18 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         gauge: this.answer.data.gauge,
         list: this.answer.data.list
       };
-      this.answerService.update(this.answer).then(() => {
-        this.ngZone.run(() => {
-          this.globalEvaluationService.validate();
+
+      this.loading = true;
+      this.answerService
+        .update(this.answer)
+        .then(() => {
+          this.ngZone.run(() => {
+            this.globalEvaluationService.validate();
+          });
+        })
+        .finally(() => {
+          this.loading = false;
         });
-      });
     } else if (!this.answer.id && userText !== '') {
       if (
         this.questionForm.value.text &&
@@ -292,11 +321,18 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           gauge: gaugeValueForCurrentQuestion,
           list: []
         };
-        this.answerService.create(this.answer).then(() => {
-          this.ngZone.run(() => {
-            this.globalEvaluationService.validate();
+
+        this.loading = true;
+        this.answerService
+          .create(this.answer)
+          .then(() => {
+            this.ngZone.run(() => {
+              this.globalEvaluationService.validate();
+            });
+          })
+          .finally(() => {
+            this.loading = false;
           });
-        });
       }
     }
   }
@@ -397,22 +433,34 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {string[]} list - List of tags.
    */
   private createOrUpdateList(list: string[]): void {
+    this.loading = true;
     if (this.answer.id) {
       this.answer.data = {
         text: this.answer.data.text,
         gauge: this.answer.data.gauge,
         list: list
       };
-      this.answerService.update(this.answer).then(() => {
-        this.globalEvaluationService.validate();
-      });
+      this.answerService
+        .update(this.answer)
+        .then(() => {
+          this.globalEvaluationService.validate();
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
-      this.answerService.create(this.answer).then(() => {
-        this.globalEvaluationService.validate();
-      });
+
+      this.answerService
+        .create(this.answer)
+        .then(() => {
+          this.globalEvaluationService.validate();
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     }
   }
 

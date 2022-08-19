@@ -390,15 +390,21 @@ export class EvaluationsComponent
     this.evaluation.evaluation_comment = userText;
 
     this.evaluation.global_status = 0;
-    this.evaluationService.update(this.evaluation).then(() => {
-      this.evaluationEvent.emit(this.evaluation);
-      this.ngZone.run(() => {
-        this.loading = true;
-        this.globalEvaluationService.validate().finally(() => {
-          this.loading = false;
+    this.loading = true;
+    this.evaluationService
+      .update(this.evaluation)
+      .then(() => {
+        this.evaluationEvent.emit(this.evaluation);
+        this.ngZone.run(() => {
+          this.loading = true;
+          this.globalEvaluationService.validate().finally(() => {
+            this.loading = false;
+          });
         });
+      })
+      .finally(() => {
+        this.loading = false;
       });
-    });
   }
 
   /**
@@ -451,11 +457,17 @@ export class EvaluationsComponent
     }
 
     this.loading = true;
-    this.evaluationService.update(this.evaluation).then(() => {
-      this.globalEvaluationService.validate().then(() => {
+    this.evaluationService
+      .update(this.evaluation)
+      .then(() => {
+        this.loading = true;
+        this.globalEvaluationService.validate().then(() => {
+          this.loading = false;
+        });
+      })
+      .finally(() => {
         this.loading = false;
       });
-    });
   }
 
   /**

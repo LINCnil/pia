@@ -16,7 +16,7 @@ export class GlobalEvaluationService {
   public pia: Pia;
   public section: any;
   public item: any;
-  public status: number;
+  public status: number = null;
   public answerEditionEnabled = false;
   public evaluationEditionEnabled = false;
   public reference_to: string;
