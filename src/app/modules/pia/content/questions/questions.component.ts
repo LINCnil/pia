@@ -43,7 +43,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   answer: Answer = new Answer();
   measure: Measure = new Measure();
   lastSelectedTag: string;
-  elementId: String;
+  elementId: string;
   editor: any;
   loading = false;
 
@@ -69,7 +69,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.answerService
       .getByReferenceAndPia(this.pia.id, this.question.id)
       .then((answer: Answer) => {
-        this.loading = false;
         if (answer) {
           this.answer = answer;
           this.questionForm.controls['gauge'].patchValue(
@@ -93,7 +92,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           }
         }
       })
-      .catch(() => {
+      .finally(() => {
         this.loading = false;
       });
 
@@ -236,7 +235,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
 
-    this.loading = true;
+    // this.loading = true;
     if (this.answer.id) {
       this.answer.data = {
         text: this.answer.data.text,
@@ -244,31 +243,27 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         list: this.answer.data.list
       };
 
-      this.answerService
-        .update(this.answer)
-        .then(() => {
-          this.ngZone.run(() => {
-            this.globalEvaluationService.validate();
-          });
-        })
-        .finally(() => {
-          this.loading = false;
+      this.answerService.update(this.answer).then(() => {
+        this.ngZone.run(() => {
+          this.globalEvaluationService.validate();
         });
+      });
+      // .finally(() => {
+      //   this.loading = false;
+      // });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
 
-      this.answerService
-        .create(this.answer)
-        .then(() => {
-          this.ngZone.run(() => {
-            this.globalEvaluationService.validate();
-          });
-        })
-        .finally(() => {
-          this.loading = false;
+      this.answerService.create(this.answer).then(() => {
+        this.ngZone.run(() => {
+          this.globalEvaluationService.validate();
         });
+      });
+      // .finally(() => {
+      //   this.loading = false;
+      // });
     }
   }
 
@@ -298,17 +293,15 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         list: this.answer.data.list
       };
 
-      this.loading = true;
-      this.answerService
-        .update(this.answer)
-        .then(() => {
-          this.ngZone.run(() => {
-            this.globalEvaluationService.validate();
-          });
-        })
-        .finally(() => {
-          this.loading = false;
+      // this.loading = true;
+      this.answerService.update(this.answer).then(() => {
+        this.ngZone.run(() => {
+          this.globalEvaluationService.validate();
         });
+      });
+      // .finally(() => {
+      //   this.loading = false;
+      // });
     } else if (!this.answer.id && userText !== '') {
       if (
         this.questionForm.value.text &&
@@ -322,17 +315,15 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           list: []
         };
 
-        this.loading = true;
-        this.answerService
-          .create(this.answer)
-          .then(() => {
-            this.ngZone.run(() => {
-              this.globalEvaluationService.validate();
-            });
-          })
-          .finally(() => {
-            this.loading = false;
+        // this.loading = true;
+        this.answerService.create(this.answer).then(() => {
+          this.ngZone.run(() => {
+            this.globalEvaluationService.validate();
           });
+        });
+        // .finally(() => {
+        //   this.loading = false;
+        // });
       }
     }
   }
