@@ -251,7 +251,6 @@ export class PiaCardComponent implements OnInit, OnChanges {
   /**
    * Disabls PIA name field and saves data.
    */
-
   piaNameFocusOut(): void {
     let userText = this.piaForm.controls['name'].value;
     if (userText) {
@@ -259,8 +258,10 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.name = this.piaForm.value.name;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService.update(this.pia).then((pia: Pia) => {
+        this.pia = pia;
+        this.changed.emit(this.pia);
+      });
     }
   }
 
@@ -281,8 +282,10 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.author_name = this.piaForm.value.author_name;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService.update(this.pia).then((pia: Pia) => {
+        this.pia = pia;
+        this.changed.emit(this.pia);
+      });
     }
   }
 
@@ -303,8 +306,10 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.evaluator_name = this.piaForm.value.evaluator_name;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService.update(this.pia).then((pia: Pia) => {
+        this.pia = pia;
+        this.changed.emit(this.pia);
+      });
     }
   }
 
@@ -325,8 +330,10 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.validator_name = this.piaForm.value.validator_name;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService.update(this.pia).then((pia: Pia) => {
+        this.pia = pia;
+        this.changed.emit(this.pia);
+      });
     }
   }
 
@@ -347,8 +354,10 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.category = this.piaForm.value.category;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService.update(this.pia).then((pia: Pia) => {
+        this.pia = pia;
+        this.changed.emit(this.pia);
+      });
     }
   }
 

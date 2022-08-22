@@ -817,28 +817,19 @@ export class PiaService extends ApplicationDb {
 
   update(pia: Pia, date = null): Promise<any> {
     return new Promise((resolve, reject) => {
-      super.find(pia.id).then((entry: any) => {
-        entry = {
-          ...entry,
-          ...pia
-        };
-        entry.structure_id = pia.structure_id ? pia.structure_id : '';
-        if (entry.is_archive === undefined || entry.is_archive === null) {
-          entry.is_archive = 0;
-        } else {
-          entry.is_archive = pia.is_archive;
-        }
-        entry.updated_at = date ? date : new Date();
-        super
-          .update(entry.id, entry)
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      });
+      if (pia.is_archive === undefined || pia.is_archive === null) {
+        pia.is_archive = 0;
+      }
+      pia.updated_at = date ? date : new Date();
+      super
+        .update(pia.id, pia)
+        .then((result: any) => {
+          resolve(result);
+        })
+        .catch(error => {
+          console.error('Request failed', error);
+          reject();
+        });
     });
   }
 
