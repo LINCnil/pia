@@ -201,8 +201,10 @@ export class PiaLineComponent implements OnInit, OnChanges {
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
     this.pia[attribute] = text;
-    this.piaService.update(this.pia);
-    this.changed.emit(this.pia);
+    this.piaService.update(this.pia).then((pia: Pia) => {
+      this.pia = pia;
+      this.changed.emit(this.pia);
+    });
   }
 
   /**
