@@ -223,7 +223,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         gauge: gaugeValue,
         list: this.answer.data.list
       };
-      this.answerService.update(this.answer).then(() => {
+      this.answerService.update(this.answer).then((answer: Answer) => {
+        this.answer = answer;
         this.ngZone.run(() => {
           this.globalEvaluationService.validate();
         });
@@ -265,7 +266,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         gauge: this.answer.data.gauge,
         list: this.answer.data.list
       };
-      this.answerService.update(this.answer).then(() => {
+      this.answerService.update(this.answer).then((answer: Answer) => {
+        this.answer = answer;
         this.ngZone.run(() => {
           this.globalEvaluationService.validate();
         });
@@ -393,7 +395,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         gauge: this.answer.data.gauge,
         list: list
       };
-      this.answerService.update(this.answer).then(() => {
+      this.answerService.update(this.answer).then((answer: Answer) => {
+        this.answer = answer;
         this.globalEvaluationService.validate();
       });
     } else {
