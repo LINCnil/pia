@@ -422,7 +422,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
       // open form in entries
       this.newUserNeeded.emit(userBehavior);
 
-      // waiting for submited user form
+      // waiting for submitted user form
       observable.subscribe({
         complete: async () => {
           // Get tag in form
