@@ -170,7 +170,7 @@ export class PiaComponent implements OnInit, DoCheck {
       );
       window.scroll(0, 0);
     });
-    // Suscribe to measure service messages
+    // Subscribe to measure service messages
     this.subscription = this.measureService.behaviorSubject.subscribe(val => {
       this.measureToRemoveFromTags = val;
     });
@@ -180,7 +180,7 @@ export class PiaComponent implements OnInit, DoCheck {
     } else if (localStorage.getItem('onboardingEntryConfirmed')) {
       this.introjsService.start('evaluation');
     }
-    // Subscribe to Auth type for enable / disable rigths on fields
+    // Subscribe to Auth type for enable / disable rights on fields
     this.authService.currentUser.subscribe({
       complete: () => {
         if (this.authService.state) {

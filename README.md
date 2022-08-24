@@ -23,7 +23,6 @@ To translate the software, we invite you to visit the [related repository](https
 ![CI](https://github.com/lincnil/pia/workflows/integration-tests/badge.svg?branch=master)
 [![CodeQL](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml/badge.svg?branch=3.0.0)](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml)
 
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
 ## Package Version
@@ -114,9 +113,9 @@ Clone pia-i18n in a ./projects/pia-i18n folder
 git clone git@github.com:LINCnil/pia-i18n.git ./projects/pia-i18n
 ```
 
-Stop using npm dependancy
+Stop using npm dependency
 
-- remove @atnos/pia-i18n dependancy in package.json
+- remove @atnos/pia-i18n dependency in package.json
 - yarn
 
 **warning** no commit this changes on the pia repository
