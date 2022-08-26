@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 tr {
   display: table-row;
 }
@@ -24,7 +24,7 @@ th {
       align-self: center;
       position: absolute;
       right: 0px;
-      &.desactivate {
+      &.deactivate {
         color: gray;
       }
     }
@@ -32,7 +32,7 @@ th {
   span {
     border-left: solid 1px $pia-white;
     &:last-child {
-        padding-left: 13px;
+      padding-left: 13px;
     }
   }
   &:first-child span:first-of-type {
