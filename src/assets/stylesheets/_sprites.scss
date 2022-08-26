@@ -2,15 +2,16 @@
   &-icons {
     display: inline-block;
     vertical-align: middle;
-    background: url('~src/assets/images/sprites.png') no-repeat center center transparent;
+    background: url("~src/assets/images/sprites.png") no-repeat center center
+      transparent;
   }
   &-icon {
-    &-accordeon-up {
+    &-accordion-up {
       width: 13px;
       height: 9px;
       background-position: -343px -129px;
     }
-    &-accordeon-down {
+    &-accordion-down {
       width: 13px;
       height: 9px;
       background-position: -341px -175px;

@@ -46,7 +46,7 @@ export class KnowledgeBaseItemComponent implements OnInit {
    * Shows or hides an help item.
    */
   displayItem() {
-    const accordeon = this.el.nativeElement.querySelector(
+    const accordion = this.el.nativeElement.querySelector(
       '.pia-knowledgeBaseBlock-item-accordion button span'
     );
     const displayer = this.el.nativeElement.querySelector(
@@ -54,12 +54,12 @@ export class KnowledgeBaseItemComponent implements OnInit {
     );
     if (displayer.classList.contains('hide')) {
       displayer.classList.remove('hide');
-      accordeon.classList.remove('pia-icon-accordeon-down');
-      accordeon.classList.add('pia-icon-accordeon-up');
+      accordion.classList.remove('pia-icon-accordion-down');
+      accordion.classList.add('pia-icon-accordion-up');
     } else {
       displayer.classList.add('hide');
-      accordeon.classList.remove('pia-icon-accordeon-up');
-      accordeon.classList.add('pia-icon-accordeon-down');
+      accordion.classList.remove('pia-icon-accordion-up');
+      accordion.classList.add('pia-icon-accordion-down');
     }
   }
 

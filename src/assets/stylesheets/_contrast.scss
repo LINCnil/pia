@@ -603,10 +603,10 @@ main.pia-contrast {
     }
     &-item {
       border-top-color: $pia-green-dark;
-      .pia-icon-accordeon-up {
+      .pia-icon-accordion-up {
         background-position: -343px -140px;
       }
-      .pia-icon-accordeon-down {
+      .pia-icon-accordion-down {
         background-position: -341px -166px;
       }
       &-definition {
@@ -640,10 +640,10 @@ main.pia-contrast {
       border-color: $pia-gray-dark;
     }
     &-title {
-      .pia-icon-accordeon-up {
+      .pia-icon-accordion-up {
         background-position: -343px -140px;
       }
-      .pia-icon-accordeon-down {
+      .pia-icon-accordion-down {
         background-position: -341px -166px;
       }
       .green-highlight {
@@ -672,10 +672,10 @@ main.pia-contrast {
     &-btn {
       button {
         color: $pia-green-dark !important;
-        .pia-icon-accordeon-up {
+        .pia-icon-accordion-up {
           background-position: -343px -140px;
         }
-        .pia-icon-accordeon-down {
+        .pia-icon-accordion-down {
           background-position: -341px -166px;
         }
       }
