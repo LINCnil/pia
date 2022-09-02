@@ -545,7 +545,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
           label: this.translateService.instant('conflict.merge'),
           callback: () => {
             let newPiaFixed: Pia = { ...err.record };
-            newPiaFixed[error.field] += ' ' + err.params[error.field];
+            let separator = error.field === 'name' ? ' ' : ',';
+            newPiaFixed[error.field] += separator + err.params[error.field];
             this.piaService
               .update(newPiaFixed)
               .then(() => {
