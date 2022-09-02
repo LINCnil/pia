@@ -39,7 +39,7 @@ export class AnswerService extends ApplicationDb {
           resolve(result);
         })
         .catch(error => {
-          reject();
+          reject(error);
         });
     });
   }
@@ -72,7 +72,7 @@ export class AnswerService extends ApplicationDb {
             }
           }
         } else {
-          if (data[d]) {
+          if (data[d] != null) {
             formData.append('answer[' + d + ']', data[d]);
           } else {
             formData.append('answer[' + d + ']', '');

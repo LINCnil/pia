@@ -266,12 +266,17 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         gauge: this.answer.data.gauge,
         list: this.answer.data.list
       };
-      this.answerService.update(this.answer).then((answer: Answer) => {
-        this.answer = answer;
-        this.ngZone.run(() => {
-          this.globalEvaluationService.validate();
+      this.answerService
+        .update(this.answer)
+        .then((answer: Answer) => {
+          this.answer = answer;
+          this.ngZone.run(() => {
+            this.globalEvaluationService.validate();
+          });
+        })
+        .catch(err => {
+          console.log(err);
         });
-      });
     } else if (!this.answer.id && userText !== '') {
       if (
         this.questionForm.value.text &&
