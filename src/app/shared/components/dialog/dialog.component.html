@@ -39,31 +39,47 @@
       <i [ngClass]="message.icon" aria-hidden="true"></i>
     </p>
     <div class="pia-modalBlock-buttons-choice">
-      <button
-        tabindex="2"
-        style="margin-right: 30px;"
-        class="btn"
-        [ngClass]="
-          message.data && message.data.btn_no ? message.data.btn_no : 'btn-red'
-        "
-        (click)="message.noFn()"
-        type="button"
-        *ngIf="message.type === 'confirm'"
-        [innerHtml]="message.no | translate"
-      ></button>
-      <button
-        tabindex="1"
-        class="btn"
-        *ngIf="message.yes"
-        [ngClass]="
-          message.data && message.data.btn_yes
-            ? message.data.btn_yes
-            : 'btn-green'
-        "
-        type="button"
-        (click)="message.yesFn()"
-        [innerHtml]="message.yes | translate"
-      ></button>
+      <ng-container *ngIf="message.type != 'others'; else othersBtns">
+        <button
+          tabindex="2"
+          style="margin-right: 30px;"
+          class="btn"
+          [ngClass]="
+            message.data && message.data.btn_no
+              ? message.data.btn_no
+              : 'btn-red'
+          "
+          (click)="message.noFn()"
+          type="button"
+          *ngIf="message.type === 'confirm'"
+          [innerHtml]="message.no | translate"
+        ></button>
+        <button
+          tabindex="1"
+          class="btn"
+          *ngIf="message.yes"
+          [ngClass]="
+            message.data && message.data.btn_yes
+              ? message.data.btn_yes
+              : 'btn-green'
+          "
+          type="button"
+          (click)="message.yesFn()"
+          [innerHtml]="message.yes | translate"
+        ></button>
+      </ng-container>
+      <ng-template #othersBtns>
+        <ng-container *ngFor="let btn of message.othersActionsBtn">
+          <button
+            tabindex="2"
+            style="margin-right: 30px;"
+            class="btn"
+            (click)="btn.callback()"
+            type="button"
+            [innerHtml]="btn.label | translate"
+          ></button>
+        </ng-container>
+      </ng-template>
     </div>
   </div>
 </div>

@@ -18,6 +18,8 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { Answer } from 'src/app/models/answer.model';
 import { AnswerService } from 'src/app/services/answer.service';
 import { MeasureService } from 'src/app/services/measures.service';
+import { TranslateService } from '@ngx-translate/core';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-questions',
@@ -52,7 +54,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     private ngZone: NgZone,
     public globalEvaluationService: GlobalEvaluationService,
     private answerService: AnswerService,
-    private measureService: MeasureService
+    private measureService: MeasureService,
+    private translateService: TranslateService,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -275,7 +279,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           });
         })
         .catch(err => {
-          console.log(err);
+          if (err.statusText === 'Conflict') {
+            this.conflictDialog(err);
+          }
         });
     } else if (!this.answer.id && userText !== '') {
       if (
@@ -486,5 +492,78 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.knowledgeBaseService.placeholder = null;
     tinymce.remove(this.editor);
     this.editor = null;
+  }
+
+  /**
+   * Open a dialog modal for deal with the conflict
+   * @param err
+   */
+  private conflictDialog(err) {
+    let additional_text: string;
+
+    // Text
+    additional_text = `
+      ${this.translateService.instant('conflict.initial_content')}: ${
+      err.record.data.text
+    }
+      <br>
+      ${this.translateService.instant('conflict.new_content')}: ${
+      err.params.data.text
+    }
+    `;
+
+    // Open dialog here
+    this.dialogService.confirmThis(
+      {
+        text: this.translateService.instant('conflict.conflict_title'),
+        type: 'others',
+        yes: '',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_no: false,
+          additional_text
+        }
+      },
+      null,
+      null,
+      [
+        {
+          label: this.translateService.instant('conflict.keep_initial'),
+          callback: () => {
+            window.location.reload();
+            return;
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.keep_new'),
+          callback: () => {
+            let newAnswerFixed = { ...err.params };
+            newAnswerFixed.lock_version = err.record.lock_version;
+            this.answerService
+              .update(newAnswerFixed)
+              .then(resp => {
+                window.location.reload();
+                return;
+              })
+              .catch(err => {});
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.merge'),
+          callback: () => {
+            let newAnswerFixed: Answer = { ...err.record };
+            newAnswerFixed.data.text += '\n' + err.params.data.text;
+            this.answerService
+              .update(newAnswerFixed)
+              .then(resp => {
+                window.location.reload();
+                return;
+              })
+              .catch(err => {});
+          }
+        }
+      ]
+    );
   }
 }

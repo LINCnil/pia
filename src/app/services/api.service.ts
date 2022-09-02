@@ -196,10 +196,6 @@ export class ApiService {
           resolve(result);
         })
         .catch(err => {
-          // Conflict Modale
-          if (err.statusText === 'Conflict') {
-            this.conflictModal(err);
-          }
           reject(err);
         });
     });
@@ -234,45 +230,5 @@ export class ApiService {
           reject(err);
         });
     });
-  }
-
-  public conflictModal(err) {
-    let additional_text = '';
-    switch (err.model) {
-      case 'answer':
-        additional_text = `
-          Contenu initial: ${err.record.data.text}
-          <br>
-          Nouveau contenu: ${err.params.data.text}
-        `;
-        break;
-      case 'pia':
-        additional_text = `
-
-        `;
-        break;
-      default:
-        break;
-    }
-
-    this.dialogService.confirmThis(
-      {
-        text: 'authentification.errors.conflict',
-        type: 'yes',
-        yes: 'modals.back_to_home',
-        no: '',
-        icon: 'pia-icons pia-icon-sad',
-        data: {
-          additional_text,
-          no_cross_button: false
-        }
-      },
-      () => {
-        window.location.href = './';
-      },
-      () => {
-        return;
-      }
-    );
   }
 }
