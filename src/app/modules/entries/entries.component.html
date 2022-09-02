@@ -489,6 +489,7 @@
                       let pia of entries | filterForUser: searchText;
                       let i = index
                     "
+                    (conflictDetected)="conflictDialog($event)"
                     (changed)="updateEntrie($event)"
                     (duplicated)="refreshContent()"
                     (archived)="refreshContent()"

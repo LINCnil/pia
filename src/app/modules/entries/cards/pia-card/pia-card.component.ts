@@ -389,11 +389,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
           this.pia = pia;
           this.changed.emit(this.pia);
         })
-        .catch(err => {
-          if (err.statusText === 'Conflict') {
-            this.conflictDetected.emit({ field: 'category', err });
-          }
-        });
+        .catch(err => {});
     }
   }
 
