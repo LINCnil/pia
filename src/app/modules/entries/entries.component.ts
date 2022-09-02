@@ -480,4 +480,82 @@ export class EntriesComponent implements OnInit, OnDestroy {
     this.userBehavior = null;
     this.showNewUserForm = false;
   }
+
+  /**
+   * Open a dialog modal for deal with the conflict
+   * @param err
+   */
+  conflictDialog(error: { field: string; err: { record: Pia; params: any } }) {
+    const err = error.err;
+    let additional_text: string;
+    // Text
+    additional_text = `
+      ${this.translateService.instant('conflict.pia_field_name')}: ${
+      error.field
+    }
+      <br>
+      ${this.translateService.instant('conflict.initial_content')}: ${
+      err.record[error.field]
+    }
+      <br>
+      ${this.translateService.instant('conflict.new_content')}: ${
+      err.params[error.field]
+    }
+    `;
+
+    // Open dialog here
+    this.dialogService.confirmThis(
+      {
+        text: this.translateService.instant('conflict.conflict_title'),
+        type: 'others',
+        yes: '',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_no: false,
+          additional_text
+        }
+      },
+      null,
+      null,
+      [
+        {
+          label: this.translateService.instant('conflict.keep_initial'),
+          callback: () => {
+            window.location.reload();
+            return;
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.keep_new'),
+          callback: () => {
+            let newPiaFixed: Pia = { ...err.params };
+            newPiaFixed.id = err.record.id;
+            newPiaFixed.lock_version = err.record.lock_version;
+            this.piaService
+              .update(newPiaFixed)
+              .then(() => {
+                window.location.reload();
+                return;
+              })
+              .catch(err => {});
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.merge'),
+          callback: () => {
+            let newPiaFixed: Pia = { ...err.record };
+            newPiaFixed[error.field] += ' ' + err.params[error.field];
+            this.piaService
+              .update(newPiaFixed)
+              .then(() => {
+                window.location.reload();
+                return;
+              })
+              .catch(err => {});
+          }
+        }
+      ]
+    );
+  }
 }

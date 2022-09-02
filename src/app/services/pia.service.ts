@@ -827,8 +827,7 @@ export class PiaService extends ApplicationDb {
           resolve(result);
         })
         .catch(error => {
-          console.error('Request failed', error);
-          reject();
+          reject(error);
         });
     });
   }

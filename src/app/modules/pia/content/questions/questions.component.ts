@@ -525,8 +525,12 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           additional_text
         }
       },
-      null,
-      null,
+      () => {
+        return;
+      },
+      () => {
+        return;
+      },
       [
         {
           label: this.translateService.instant('conflict.keep_initial'),
@@ -538,11 +542,12 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.keep_new'),
           callback: () => {
-            let newAnswerFixed = { ...err.params };
+            let newAnswerFixed: Answer = { ...err.params };
+            newAnswerFixed.id = err.record.id;
             newAnswerFixed.lock_version = err.record.lock_version;
             this.answerService
               .update(newAnswerFixed)
-              .then(resp => {
+              .then(() => {
                 window.location.reload();
                 return;
               })
@@ -556,7 +561,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             newAnswerFixed.data.text += '\n' + err.params.data.text;
             this.answerService
               .update(newAnswerFixed)
-              .then(resp => {
+              .then(() => {
                 window.location.reload();
                 return;
               })

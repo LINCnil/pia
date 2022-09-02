@@ -395,6 +395,7 @@
                 let i = index
               "
               [users]="users"
+              (conflictDetected)="conflictDialog($event)"
               (newUserNeeded)="onNewUserNeeded($event)"
               (changed)="updateEntrie($event)"
               (duplicated)="refreshContent()"
