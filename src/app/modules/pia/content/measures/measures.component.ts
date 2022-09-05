@@ -397,8 +397,12 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           additional_text
         }
       },
-      null,
-      null,
+      () => {
+        return;
+      },
+      () => {
+        return;
+      },
       [
         {
           label: this.translateService.instant('conflict.keep_initial'),
