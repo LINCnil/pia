@@ -414,6 +414,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           label: this.translateService.instant('conflict.keep_new'),
           callback: () => {
             let newMeasureFixed: Measure = { ...error.params };
+            newMeasureFixed.id = error.record.id;
             newMeasureFixed.lock_version = error.record.lock_version;
             this.measuresService.update(newMeasureFixed).then(() => {
               window.location.reload();
