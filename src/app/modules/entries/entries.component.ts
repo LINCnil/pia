@@ -512,6 +512,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
         no: '',
         icon: 'pia-icons pia-icon-sad',
         data: {
+          no_cross_button: true,
           btn_no: false,
           additional_text
         }
