@@ -11,6 +11,7 @@ import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 
 import piakb from 'src/assets/files/pia_knowledge-base.json';
+import { Measure } from '../../models/measure.model';
 
 function slugify(text): string {
   return text
@@ -262,7 +263,7 @@ export class BaseComponent implements OnInit {
   /**
    * One shot update
    */
-  focusOut(): void {
+  focusOut(field?: string): void {
     if (this.selectedKnowledgeId) {
       const entry = { ...this.entryForm.value };
       entry.id = this.selectedKnowledgeId;
@@ -282,7 +283,9 @@ export class BaseComponent implements OnInit {
           }
         })
         .catch(err => {
-          console.log(err);
+          if (err.statusText === 'Conflict' && field) {
+            this.conflictDialog(field, err);
+          }
         });
     }
   }
@@ -384,5 +387,79 @@ export class BaseComponent implements OnInit {
    */
   closeNewElementForm(): void {
     this.showForm = false;
+  }
+
+  /**
+   * Open a dialog modal for deal with the conflict
+   * @param err
+   */
+  conflictDialog(field, error) {
+    let additional_text: string;
+    // Text
+    additional_text = `
+      ${this.translateService.instant('conflict.pia_field_name')}:
+      ${field}
+      <br>
+      ${this.translateService.instant('conflict.initial_content')}:
+      ${error.record[field]}
+      <br>
+      ${this.translateService.instant('conflict.new_content')}:
+      ${error.params[field]}
+    `;
+
+    // Open dialog here
+    this.dialogService.confirmThis(
+      {
+        text: this.translateService.instant('conflict.conflict_title'),
+        type: 'others',
+        yes: '',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          no_cross_button: true,
+          btn_no: false,
+          additional_text
+        }
+      },
+      () => {
+        return;
+      },
+      () => {
+        return;
+      },
+      [
+        {
+          label: this.translateService.instant('conflict.keep_initial'),
+          callback: () => {
+            window.location.reload();
+            return;
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.keep_new'),
+          callback: () => {
+            let newKnowledgeFixed: Knowledge = { ...error.params };
+            newKnowledgeFixed.id = error.record.id;
+            newKnowledgeFixed.lock_version = error.record.lock_version;
+            this.knowledgesService.update(newKnowledgeFixed).then(() => {
+              window.location.reload();
+              return;
+            });
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.merge'),
+          callback: () => {
+            let newKnowledgeFixed: Knowledge = { ...error.record };
+            let separator = field === 'title' ? ' ' : '\n';
+            newKnowledgeFixed[field] += separator + error.params[field];
+            this.knowledgesService.update(newKnowledgeFixed).then(() => {
+              window.location.reload();
+              return;
+            });
+          }
+        }
+      ]
+    );
   }
 }
