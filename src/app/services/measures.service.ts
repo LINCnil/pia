@@ -52,7 +52,7 @@ export class MeasureService extends ApplicationDb {
             resolve(result);
           })
           .catch(error => {
-            reject();
+            reject(error);
           });
       });
     });

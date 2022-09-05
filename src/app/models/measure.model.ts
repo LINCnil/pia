@@ -1,4 +1,4 @@
-export class Measure{
+export class Measure {
   public id: number;
   public title: string;
   public content: string;
@@ -6,4 +6,5 @@ export class Measure{
   public pia_id: number;
   public created_at: Date;
   public updated_at: Date;
+  public lock_version: number;
 }

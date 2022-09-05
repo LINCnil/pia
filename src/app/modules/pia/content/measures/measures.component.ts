@@ -18,6 +18,8 @@ import { Measure } from 'src/app/models/measure.model';
 import { AnswerService } from 'src/app/services/answer.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { MeasureService } from 'src/app/services/measures.service';
+import { Pia } from '../../../../models/pia.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-measures',
@@ -42,6 +44,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   editTitle = true;
 
   constructor(
+    private translateService: TranslateService,
     public globalEvaluationService: GlobalEvaluationService,
     private dialogService: DialogService,
     private el: ElementRef,
@@ -144,60 +147,68 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.pia_id = this.pia.id;
     const previousTitle = this.measureModel.title;
     this.measureModel.title = userText;
-    this.measuresService.update(this.measureModel).then(() => {
-      if (previousTitle !== this.measureModel.title) {
-        this.knowledgeBaseService.removeItemIfPresent(
-          this.measureModel.title,
-          previousTitle
-        );
-      }
+    this.measuresService
+      .update(this.measureModel)
+      .then((response: Measure) => {
+        this.measureModel.lock_version = response.lock_version;
+        if (previousTitle !== this.measureModel.title) {
+          this.knowledgeBaseService.removeItemIfPresent(
+            this.measureModel.title,
+            previousTitle
+          );
+        }
 
-      // Update tags
-      this.answerService
-        .getByReferenceAndPia(this.pia.id, 324)
-        .then((answer: Answer) => {
-          if (answer && answer.data && answer.data.list) {
-            const index = answer.data.list.indexOf(previousTitle);
-            if (index !== -1) {
-              answer.data.list[index] = this.measureModel.title;
-              this.answerService.update(answer);
+        // Update tags
+        this.answerService
+          .getByReferenceAndPia(this.pia.id, 324)
+          .then((answer: Answer) => {
+            if (answer && answer.data && answer.data.list) {
+              const index = answer.data.list.indexOf(previousTitle);
+              if (index !== -1) {
+                answer.data.list[index] = this.measureModel.title;
+                this.answerService.update(answer);
+              }
             }
-          }
-        });
+          });
 
-      this.answerService
-        .getByReferenceAndPia(this.pia.id, 334)
-        .then((answer: Answer) => {
-          if (answer && answer.data && answer.data.list) {
-            const index = answer.data.list.indexOf(previousTitle);
-            if (index !== -1) {
-              answer.data.list[index] = this.measureModel.title;
-              this.answerService.update(answer);
+        this.answerService
+          .getByReferenceAndPia(this.pia.id, 334)
+          .then((answer: Answer) => {
+            if (answer && answer.data && answer.data.list) {
+              const index = answer.data.list.indexOf(previousTitle);
+              if (index !== -1) {
+                answer.data.list[index] = this.measureModel.title;
+                this.answerService.update(answer);
+              }
             }
-          }
-        });
+          });
 
-      this.answerService
-        .getByReferenceAndPia(this.pia.id, 344)
-        .then((answer: Answer) => {
-          if (answer && answer.data && answer.data.list) {
-            const index = answer.data.list.indexOf(previousTitle);
-            if (index !== -1) {
-              answer.data.list[index] = this.measureModel.title;
-              this.answerService.update(answer);
+        this.answerService
+          .getByReferenceAndPia(this.pia.id, 344)
+          .then((answer: Answer) => {
+            if (answer && answer.data && answer.data.list) {
+              const index = answer.data.list.indexOf(previousTitle);
+              if (index !== -1) {
+                answer.data.list[index] = this.measureModel.title;
+                this.answerService.update(answer);
+              }
             }
-          }
-        });
+          });
 
-      if (
-        this.measureForm.value.measureTitle &&
-        this.measureForm.value.measureTitle.length > 0
-      ) {
-        this.measureForm.controls['measureTitle'].disable();
-      }
+        if (
+          this.measureForm.value.measureTitle &&
+          this.measureForm.value.measureTitle.length > 0
+        ) {
+          this.measureForm.controls['measureTitle'].disable();
+        }
 
-      this.globalEvaluationService.validate();
-    });
+        this.globalEvaluationService.validate();
+      })
+      .catch(err => {
+        if (err.statusText === 'Conflict') {
+          this.conflictDialog('title', err);
+        }
+      });
   }
 
   /**
@@ -223,11 +234,19 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     }
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.content = userText;
-    this.measuresService.update(this.measureModel).then(() => {
-      this.ngZone.run(() => {
-        this.globalEvaluationService.validate();
+    this.measuresService
+      .update(this.measureModel)
+      .then((response: Measure) => {
+        this.measureModel.lock_version = response.lock_version;
+        this.ngZone.run(() => {
+          this.globalEvaluationService.validate();
+        });
+      })
+      .catch(err => {
+        if (err.statusText === 'Conflict') {
+          this.conflictDialog('content', err);
+        }
       });
-    });
   }
 
   /**
@@ -344,5 +363,74 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         });
       }
     });
+  }
+
+  /**
+   * Open a dialog modal for deal with the conflict
+   * @param err
+   */
+  conflictDialog(field, error) {
+    const err = error.err;
+    let additional_text: string;
+    // Text
+    additional_text = `
+      ${this.translateService.instant('conflict.pia_field_name')}:
+      ${field}
+      <br>
+      ${this.translateService.instant('conflict.initial_content')}:
+      ${error.record[field]}
+      <br>
+      ${this.translateService.instant('conflict.new_content')}:
+      ${error.params[field]}
+    `;
+
+    // Open dialog here
+    this.dialogService.confirmThis(
+      {
+        text: this.translateService.instant('conflict.conflict_title'),
+        type: 'others',
+        yes: '',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          btn_no: false,
+          additional_text
+        }
+      },
+      null,
+      null,
+      [
+        {
+          label: this.translateService.instant('conflict.keep_initial'),
+          callback: () => {
+            window.location.reload();
+            return;
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.keep_new'),
+          callback: () => {
+            let newMeasureFixed: Measure = { ...err.params };
+            newMeasureFixed.lock_version = err.record.lock_version;
+            this.measuresService.update(newMeasureFixed).then(() => {
+              window.location.reload();
+              return;
+            });
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.merge'),
+          callback: () => {
+            let newMeasureFixed: Measure = { ...err.record };
+            let separator = field === 'title' ? ' ' : '\n';
+            newMeasureFixed[field] += separator + err.params[error.field];
+            this.measuresService.update(newMeasureFixed).then(() => {
+              window.location.reload();
+              return;
+            });
+          }
+        }
+      ]
+    );
   }
 }
