@@ -426,7 +426,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           callback: () => {
             let newMeasureFixed: Measure = { ...error.record };
             let separator = field === 'title' ? ' ' : '\n';
-            newMeasureFixed[field] += separator + error.params[error.field];
+            newMeasureFixed[field] += separator + error.params[field];
             this.measuresService.update(newMeasureFixed).then(() => {
               window.location.reload();
               return;
