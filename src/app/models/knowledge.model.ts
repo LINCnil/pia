@@ -8,6 +8,7 @@ export class Knowledge {
   public description: string;
   public knowledge_base_id: number;
   public items: any[] = [];
+  public lock_version: number;
   public updated_at: Date;
   public created_at: Date;
 }

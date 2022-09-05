@@ -80,7 +80,8 @@ export class BaseComponent implements OnInit {
       this.entryForm = new FormGroup({
         name: new FormControl(),
         category: new FormControl(),
-        description: new FormControl()
+        description: new FormControl(),
+        lock_version: new FormControl()
       });
 
       // get default categories
@@ -110,7 +111,8 @@ export class BaseComponent implements OnInit {
       this.entryForm = new FormGroup({
         name: new FormControl({ disabled: true }),
         category: new FormControl({ disabled: true }),
-        description: new FormControl({ disabled: true })
+        description: new FormControl({ disabled: true }),
+        lock_version: new FormControl({ disabled: true })
       });
     }
   }
@@ -166,7 +168,6 @@ export class BaseComponent implements OnInit {
     entry.slug = slugify(entry.name);
     entry.category = this.entryForm.value.category;
     entry.items = this.itemsSelected.map(x => parseInt(x));
-
     entry.filters = this.checkFilters();
     entry.created_at = new Date();
     entry.updated_at = entry.created_at;
@@ -194,11 +195,18 @@ export class BaseComponent implements OnInit {
           this.entryForm.controls['name'].setValue(result.name);
           this.entryForm.controls['category'].setValue(result.category);
           this.entryForm.controls['description'].setValue(result.description);
+          this.entryForm.controls['lock_version'].setValue(result.lock_version);
           this.itemsSelected = [];
           if (result.items) {
             this.itemsSelected = result.items.map(x => x.toString());
           }
           this.checkLockedChoice();
+
+          // Update list
+          const index = this.knowledges.findIndex(e => e.id === result.id);
+          if (index !== -1) {
+            this.knowledges[index] = result;
+          }
 
           this.editMode = 'edit';
           this.showForm = true;
@@ -256,29 +264,22 @@ export class BaseComponent implements OnInit {
    */
   focusOut(): void {
     if (this.selectedKnowledgeId) {
+      const entry = { ...this.entryForm.value };
+      entry.id = this.selectedKnowledgeId;
+      entry.slug = slugify(entry.name);
+      entry.category = this.entryForm.value.category;
+      entry.lock_version = this.entryForm.value.lock_version;
+      entry.items = this.itemsSelected.map(x => parseInt(x));
+      entry.filters = this.checkFilters();
+      entry.knowledge_base_id = this.base.id;
       this.knowledgesService
-        .find(this.selectedKnowledgeId)
-        .then((entry: Knowledge) => {
-          entry.name = this.entryForm.value.name;
-          entry.description = this.entryForm.value.description;
-          entry.slug = slugify(entry.name);
-          entry.category = this.entryForm.value.category;
-          entry.items = this.itemsSelected.map(x => parseInt(x));
-          entry.filters = this.checkFilters();
-          entry.knowledge_base_id = this.base.id;
-          // Update object
-          this.knowledgesService
-            .update(entry)
-            .then(() => {
-              // Update list
-              const index = this.knowledges.findIndex(e => e.id === entry.id);
-              if (index !== -1) {
-                this.knowledges[index] = entry;
-              }
-            })
-            .catch(err => {
-              console.log(err);
-            });
+        .update(entry)
+        .then(() => {
+          // Update list
+          const index = this.knowledges.findIndex(e => e.id === entry.id);
+          if (index !== -1) {
+            this.knowledges[index] = entry;
+          }
         })
         .catch(err => {
           console.log(err);
