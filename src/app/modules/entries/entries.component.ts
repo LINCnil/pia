@@ -485,23 +485,115 @@ export class EntriesComponent implements OnInit, OnDestroy {
    * Open a dialog modal for deal with the conflict
    * @param err
    */
-  conflictDialog(error: { field: string; err: { record: Pia; params: any } }) {
+  conflictDialog(error: {
+    field: string;
+    err: { model: string; record: Pia | KnowledgeBase; params: any };
+  }) {
     const err = error.err;
     let additional_text: string;
-    // Text
-    additional_text = `
-      ${this.translateService.instant('conflict.pia_field_name')}: ${
-      error.field
+    let keep_initial: any;
+    let keep_new: any;
+    let merge: any;
+
+    switch (error.err.model) {
+      case 'pia':
+        // Text
+        additional_text = `
+          ${this.translateService.instant('conflict.title')}: ${error.field}
+          <br>
+          ${this.translateService.instant('conflict.initial_content')}: ${
+          err.record[error.field]
+        }
+          <br>
+          ${this.translateService.instant('conflict.new_content')}: ${
+          err.params[error.field]
+        }
+        `;
+
+        // keep initial action
+        keep_initial = () => {
+          window.location.reload();
+          return;
+        };
+
+        // keep new action
+        keep_new = () => {
+          let newPiaFixed: Pia = { ...err.params };
+          newPiaFixed.id = err.record.id;
+          newPiaFixed.lock_version = err.record.lock_version;
+          this.piaService
+            .update(newPiaFixed)
+            .then(() => {
+              window.location.reload();
+              return;
+            })
+            .catch(err => {});
+        };
+
+        // merge
+        merge = () => {
+          let newPiaFixed: any = { ...err.record };
+          let separator = error.field === 'name' ? ' ' : ',';
+          newPiaFixed[error.field] += separator + err.params[error.field];
+          this.piaService
+            .update(newPiaFixed)
+            .then(() => {
+              window.location.reload();
+              return;
+            })
+            .catch(err => {});
+        };
+        break;
+      case 'knowledge_base':
+        // Text
+        additional_text = `
+          ${this.translateService.instant('conflict.title')}: ${error.field}
+          <br>
+          ${this.translateService.instant('conflict.initial_content')}: ${
+          err.record[error.field]
+        }
+          <br>
+          ${this.translateService.instant('conflict.new_content')}: ${
+          err.params[error.field]
+        }
+        `;
+
+        // keep initial action
+        keep_initial = () => {
+          window.location.reload();
+          return;
+        };
+
+        // keep new action
+        keep_new = () => {
+          let newKnwoledgeBaseFixed: KnowledgeBase = { ...err.params };
+          newKnwoledgeBaseFixed.id = err.record.id;
+          newKnwoledgeBaseFixed.lock_version = err.record.lock_version;
+          this.knowledgeBaseService
+            .update(newKnwoledgeBaseFixed)
+            .then(() => {
+              window.location.reload();
+              return;
+            })
+            .catch(err => {});
+        };
+
+        // merge
+        merge = () => {
+          let newKnwoledgeBaseFixed: any = { ...err.record };
+          let separator = error.field === 'name' ? ' ' : ',';
+          newKnwoledgeBaseFixed[error.field] +=
+            separator + err.params[error.field];
+          this.knowledgeBaseService
+            .update(newKnwoledgeBaseFixed)
+            .then(() => {
+              window.location.reload();
+              return;
+            })
+            .catch(err => {});
+        };
+        break;
     }
-      <br>
-      ${this.translateService.instant('conflict.initial_content')}: ${
-      err.record[error.field]
-    }
-      <br>
-      ${this.translateService.instant('conflict.new_content')}: ${
-      err.params[error.field]
-    }
-    `;
 
     // Open dialog here
     this.dialogService.confirmThis(
@@ -527,38 +619,19 @@ export class EntriesComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.keep_initial'),
           callback: () => {
-            window.location.reload();
-            return;
+            keep_initial();
           }
         },
         {
           label: this.translateService.instant('conflict.keep_new'),
           callback: () => {
-            let newPiaFixed: Pia = { ...err.params };
-            newPiaFixed.id = err.record.id;
-            newPiaFixed.lock_version = err.record.lock_version;
-            this.piaService
-              .update(newPiaFixed)
-              .then(() => {
-                window.location.reload();
-                return;
-              })
-              .catch(err => {});
+            keep_new();
           }
         },
         {
           label: this.translateService.instant('conflict.merge'),
           callback: () => {
-            let newPiaFixed: Pia = { ...err.record };
-            let separator = error.field === 'name' ? ' ' : ',';
-            newPiaFixed[error.field] += separator + err.params[error.field];
-            this.piaService
-              .update(newPiaFixed)
-              .then(() => {
-                window.location.reload();
-                return;
-              })
-              .catch(err => {});
+            merge();
           }
         }
       ]

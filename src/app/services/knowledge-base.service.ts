@@ -64,7 +64,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * @param id - The KnowledgeBase id.
    * @returns - New Promise
    */
-  async get(id: number): Promise<KnowledgeBase> {
+  get(id: number): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
       this.find(id)
         .then((entry: any) => {
@@ -80,7 +80,7 @@ export class KnowledgeBaseService extends ApplicationDb {
    * Create a new Structure.
    * @returns - New Promise
    */
-  async create(base: KnowledgeBase): Promise<KnowledgeBase> {
+  create(base: KnowledgeBase): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
       super
         .create(base, 'knowledge_base')
@@ -93,23 +93,16 @@ export class KnowledgeBaseService extends ApplicationDb {
     });
   }
 
-  async update(base: KnowledgeBase): Promise<KnowledgeBase> {
+  update(base: KnowledgeBase): Promise<KnowledgeBase> {
     return new Promise((resolve, reject) => {
-      this.find(base.id).then((entry: any) => {
-        entry.name = base.name;
-        entry.author = base.author;
-        entry.contributors = base.contributors;
-        entry.updated_at = new Date();
-
-        super
-          .update(base.id, entry, 'knowledge_base')
-          .then((res: KnowledgeBase) => {
-            resolve(res);
-          })
-          .catch(err => {
-            reject(err);
-          });
-      });
+      super
+        .update(base.id, base, 'knowledge_base')
+        .then((res: KnowledgeBase) => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 
