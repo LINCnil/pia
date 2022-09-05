@@ -370,7 +370,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @param err
    */
   conflictDialog(field, error) {
-    const err = error.err;
     let additional_text: string;
     // Text
     additional_text = `
@@ -414,8 +413,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.keep_new'),
           callback: () => {
-            let newMeasureFixed: Measure = { ...err.params };
-            newMeasureFixed.lock_version = err.record.lock_version;
+            let newMeasureFixed: Measure = { ...error.params };
+            newMeasureFixed.lock_version = error.record.lock_version;
             this.measuresService.update(newMeasureFixed).then(() => {
               window.location.reload();
               return;
@@ -425,9 +424,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.merge'),
           callback: () => {
-            let newMeasureFixed: Measure = { ...err.record };
+            let newMeasureFixed: Measure = { ...error.record };
             let separator = field === 'title' ? ' ' : '\n';
-            newMeasureFixed[field] += separator + err.params[error.field];
+            newMeasureFixed[field] += separator + error.params[error.field];
             this.measuresService.update(newMeasureFixed).then(() => {
               window.location.reload();
               return;
