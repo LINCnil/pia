@@ -6,4 +6,5 @@ export class Answer {
   public created_at: Date;
   public updated_at: Date;
   public pia_id: number;
+  lock_version: any;
 }

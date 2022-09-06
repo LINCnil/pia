@@ -6,7 +6,12 @@ import { Dialog } from '../models/dialog.model';
 export class DialogService {
   private subject = new Subject<any>();
 
-  confirmThis(message: Dialog, yesFn: () => void, noFn: () => void): any {
+  confirmThis(
+    message: Dialog,
+    yesFn: () => void,
+    noFn: () => void,
+    othersActionsBtn?: { label: string; callback: () => void }[]
+  ): any {
     const header = document.querySelector('.pia-headerBlock');
     const container = document.querySelector('.pia-mainContainerBlock');
     const specialRevisionModal = document.querySelector(
@@ -21,10 +26,15 @@ export class DialogService {
     if (specialRevisionModal) {
       specialRevisionModal.classList.toggle('noBackground');
     }
-    this.setConfirmation(message, yesFn, noFn);
+    this.setConfirmation(message, yesFn, noFn, othersActionsBtn);
   }
 
-  setConfirmation(message: Dialog, yesFn: () => void, noFn: () => void): any {
+  setConfirmation(
+    message: Dialog,
+    yesFn: () => void,
+    noFn: () => void,
+    othersActionsBtn?: { label: string; callback: () => void }[]
+  ): any {
     const that = this;
     const header = document.querySelector('.pia-headerBlock');
     const container = document.querySelector('.pia-mainContainerBlock');
@@ -51,7 +61,8 @@ export class DialogService {
         if (specialRevisionModal) {
           specialRevisionModal.classList.toggle('noBackground');
         }
-      }
+      },
+      othersActionsBtn
     });
   }
 
