@@ -167,19 +167,23 @@ export class PiaCardComponent implements OnInit, OnChanges {
 
       // convert as tag
       const tags = filteredUserPias.map(a => {
+        let display =
+          a.user.firstname && a.user.lastname
+            ? a.user.firstname + ' ' + a.user.lastname
+            : a.user.email;
         return {
-          display: a.user.firstname + ' ' + a.user.lastname,
+          display: display,
           id: a.user.id
         };
       });
 
       // user was deleted but present in the dump_field ?
-      if (ob.dump_field) {
+      if (ob.dump_field && this.pia[ob.dump_field]) {
         const fullnames = this.pia[ob.dump_field].split(',');
         fullnames.forEach(fullname => {
           // present in tags ?
           const exist = tags.find(ac => ac.display == fullname);
-          if (!exist) {
+          if (!exist && fullname != '') {
             // add to tag
             tags.push({ display: fullname, id: null }); // id = null is for deleted user but dumped
           }
