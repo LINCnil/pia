@@ -32,26 +32,11 @@ export class KnowledgeBaseService extends ApplicationDb {
     super.prepareServerUrl(this.router);
   }
 
-  public getAll(): Promise<any> {
+  public getAll(): Promise<KnowledgeBase[]> {
     return new Promise((resolve, reject) => {
       this.findAll()
-        .then((response: any) => {
-          const result: KnowledgeBase[] = [];
-
-          if (response && response.length > 0) {
-            response.forEach(e => {
-              result.push(
-                new KnowledgeBase(
-                  e.id,
-                  e.name,
-                  e.author,
-                  e.contributors,
-                  e.created_at
-                )
-              );
-            });
-          }
-          resolve(result);
+        .then((response: KnowledgeBase[]) => {
+          resolve(response);
         })
         .catch(error => {
           reject(error);

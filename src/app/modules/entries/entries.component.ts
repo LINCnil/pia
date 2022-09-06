@@ -217,23 +217,25 @@ export class EntriesComponent implements OnInit, OnDestroy {
           });
           break;
         case 'knowledgeBase':
-          await this.knowledgeBaseService.getAll().then((result: any) => {
-            // Parse default Knowledge base json
-            const defaultKnowledgeBase = new KnowledgeBase(
-              0,
-              this.translateService.instant(
-                'knowledge_base.default_knowledge_base'
-              ),
-              'CNIL',
-              'CNIL'
-            );
-            defaultKnowledgeBase.is_example = true;
-            result.push(defaultKnowledgeBase);
-            this.entries = result;
-            this.loading = false;
-            this.sortOrder = localStorage.getItem('knowledgeBaseOrder');
-            this.sortValue = localStorage.getItem('knowledgeBaseValue');
-          });
+          await this.knowledgeBaseService
+            .getAll()
+            .then((result: KnowledgeBase[]) => {
+              // Parse default Knowledge base json
+              const defaultKnowledgeBase = new KnowledgeBase(
+                0,
+                this.translateService.instant(
+                  'knowledge_base.default_knowledge_base'
+                ),
+                'CNIL',
+                'CNIL'
+              );
+              defaultKnowledgeBase.is_example = true;
+              result.push(defaultKnowledgeBase);
+              this.entries = result;
+              this.loading = false;
+              this.sortOrder = localStorage.getItem('knowledgeBaseOrder');
+              this.sortValue = localStorage.getItem('knowledgeBaseValue');
+            });
           break;
         default:
           break;
@@ -518,7 +520,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
         // keep new action
         keep_new = () => {
-          let newPiaFixed: Pia = { ...err.params };
+          let newPiaFixed: Pia = <Pia>{ ...err.record };
+          newPiaFixed[error.field] = err.params[error.field];
           newPiaFixed.id = err.record.id;
           newPiaFixed.lock_version = err.record.lock_version;
           this.piaService
@@ -532,7 +535,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
         // merge
         merge = () => {
-          let newPiaFixed: any = { ...err.record };
+          let newPiaFixed: Pia = <Pia>{ ...err.record };
           let separator = error.field === 'name' ? ' ' : ',';
           newPiaFixed[error.field] += separator + err.params[error.field];
           this.piaService
@@ -566,8 +569,10 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
         // keep new action
         keep_new = () => {
-          let newKnwoledgeBaseFixed: KnowledgeBase = { ...err.params };
-          newKnwoledgeBaseFixed.id = err.record.id;
+          let newKnwoledgeBaseFixed: KnowledgeBase = <KnowledgeBase>{
+            ...err.record
+          };
+          newKnwoledgeBaseFixed[error.field] = err.params[error.field];
           newKnwoledgeBaseFixed.lock_version = err.record.lock_version;
           this.knowledgeBaseService
             .update(newKnwoledgeBaseFixed)
@@ -580,7 +585,9 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
         // merge
         merge = () => {
-          let newKnwoledgeBaseFixed: any = { ...err.record };
+          let newKnwoledgeBaseFixed: KnowledgeBase = <KnowledgeBase>{
+            ...err.record
+          };
           let separator = error.field === 'name' ? ' ' : ',';
           newKnwoledgeBaseFixed[error.field] +=
             separator + err.params[error.field];
