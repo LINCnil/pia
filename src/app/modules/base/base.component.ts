@@ -282,25 +282,43 @@ export class BaseComponent implements OnInit {
           }
         })
         .catch(err => {
-          if (err.statusText === 'Conflict' && field && field !== 'checkbox') {
-            this.conflictDialog(field, err);
-          } else if (field === 'checkbox') {
-            // AUTO FIX checkboxes conflict
-            // update the lock_version and the checkboxes
-            entry.items = err.record.items;
-            entry.lock_version = err.record.lock_version;
-            this.knowledgesService
-              .update(entry)
-              .then(kbFixed => {
-                // Update list
-                const index = this.knowledges.findIndex(e => e.id === entry.id);
-                if (index !== -1) {
-                  this.knowledges[index] = entry;
-                }
-              })
-              .catch(err => {
-                console.log(err);
-              });
+          if (err.statusText === 'Conflict' && field) {
+            // AUTO FIX checkboxes conflict, here because we have to update form
+            // force entry with the new lock_version
+            if (field === 'checkbox') {
+              entry.name = err.record.name;
+              entry.description = err.record.description;
+              entry.lock_version = err.record.lock_version;
+              this.knowledgesService
+                .update(entry)
+                .then(kbFixed => {
+                  // Update list
+                  const index = this.knowledges.findIndex(
+                    e => e.id === entry.id
+                  );
+                  if (index !== -1) {
+                    this.knowledges[index] = entry;
+                  }
+                  // Update form
+                  this.entryForm.controls.name.setValue(kbFixed.name);
+                  this.entryForm.controls.description.setValue(
+                    kbFixed.description
+                  );
+                  this.entryForm.controls.lock_version.setValue(
+                    kbFixed.lock_version
+                  );
+                  if (kbFixed.items) {
+                    this.itemsSelected = kbFixed.items.map(x => x.toString());
+                  }
+                  this.checkLockedChoice();
+                })
+                .catch(err => {
+                  console.log(err);
+                });
+            } else {
+              // Normal conflict dialog
+              this.conflictDialog(field, err);
+            }
           }
         });
     }
