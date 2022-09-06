@@ -285,6 +285,7 @@ export class BaseComponent implements OnInit {
           if (err.statusText === 'Conflict' && field && field !== 'checkbox') {
             this.conflictDialog(field, err);
           } else if (field === 'checkbox') {
+            // AUTO FIX checkboxes conflict
             // update the lock_version and the checkboxes
             entry.items = err.record.items;
             entry.lock_version = err.record.lock_version;
