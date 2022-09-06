@@ -1,4 +1,5 @@
 <div
+  *ngIf="!loading && measure; else loadingElse"
   class="pia-measureBlock"
   [ngClass]="{ approved: evaluation.status === 2 || evaluation.status === 3 }"
   [attr.data-id]="measure.id"
@@ -100,3 +101,11 @@
     [measureId]="measure.id"
   ></app-evaluations>
 </div>
+<ng-template #loadingElse>
+  <div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
+    <app-loading-overlay
+      [visibility]="true"
+      [childMode]="true"
+    ></app-loading-overlay>
+  </div>
+</ng-template>

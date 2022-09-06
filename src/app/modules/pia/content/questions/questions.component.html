@@ -13,7 +13,10 @@
     (click)="displayQuestion($event)"
     title="{{ 'misc.display' | translate }}"
   ></button>
-  <div class="pia-questionBlock-displayer fadeIn">
+  <div
+    class="pia-questionBlock-displayer fadeIn"
+    *ngIf="!loading; else loadingElse"
+  >
     <form [formGroup]="questionForm">
       <!-- Gauge -->
       <div class="pia-gaugeBlock" *ngIf="question.answer_type == 'gauge'">
@@ -146,3 +149,12 @@
     [questionId]="question.id"
   ></app-evaluations>
 </div>
+
+<ng-template #loadingElse>
+  <div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
+    <app-loading-overlay
+      [visibility]="true"
+      [childMode]="true"
+    ></app-loading-overlay>
+  </div>
+</ng-template>

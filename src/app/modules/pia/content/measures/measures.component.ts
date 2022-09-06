@@ -42,6 +42,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   measureForm: FormGroup;
   measureModel: Measure = new Measure();
   editTitle = true;
+  loading = false;
 
   constructor(
     private translateService: TranslateService,
@@ -60,30 +61,36 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       measureContent: new FormControl()
     });
     this.measureModel.pia_id = this.pia.id;
-    this.measuresService.find(this.measure.id).then((entry: Measure) => {
-      this.measureModel = entry;
-      this.knowledgeBaseService.toHide.push(this.measure.title);
-      this.elementId = 'pia-measure-content-' + this.measure.id;
-      if (this.measureModel) {
-        this.measureForm.controls['measureTitle'].patchValue(
-          this.measureModel.title
-        );
-        this.measureForm.controls['measureContent'].patchValue(
-          this.measureModel.content
-        );
-        if (this.measureModel.title) {
-          this.measureForm.controls['measureTitle'].disable();
-          this.editTitle = false;
+    this.loading = true;
+    this.measuresService
+      .find(this.measure.id)
+      .then((entry: Measure) => {
+        this.measureModel = entry;
+        this.knowledgeBaseService.toHide.push(this.measure.title);
+        this.elementId = 'pia-measure-content-' + this.measure.id;
+        if (this.measureModel) {
+          this.measureForm.controls['measureTitle'].patchValue(
+            this.measureModel.title
+          );
+          this.measureForm.controls['measureContent'].patchValue(
+            this.measureModel.content
+          );
+          if (this.measureModel.title) {
+            this.measureForm.controls['measureTitle'].disable();
+            this.editTitle = false;
+          }
         }
-      }
 
-      const measureTitleTextarea = document.getElementById(
-        'pia-measure-title-' + this.measure.id
-      );
-      if (measureTitleTextarea) {
-        this.autoTextareaResize(null, measureTitleTextarea);
-      }
-    });
+        const measureTitleTextarea = document.getElementById(
+          'pia-measure-title-' + this.measure.id
+        );
+        if (measureTitleTextarea) {
+          this.autoTextareaResize(null, measureTitleTextarea);
+        }
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
   ngOnDestroy(): void {

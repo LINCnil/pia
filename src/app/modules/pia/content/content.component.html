@@ -113,41 +113,55 @@
     </div>
   </div>
 
-  <ng-container *ngIf="item.is_measure; else appQuestions">
-    <button
-      (click)="onAddNewMeasure()"
-      class="btn btn-white btn-addMeasure"
-      type="button"
-      *ngIf="
-        globalEvaluationService.answerEditionEnabled &&
-        (editMode.includes('author') || editMode === 'local')
-      "
-    >
-      <span class="pia-icons pia-icon-add"></span>
-      {{ "measures.add" | translate }}
-    </button>
-    <app-measures
-      *ngFor="let measure of measures"
-      [editMode]="editMode"
-      [measure]="measure"
-      [pia]="pia"
-      [section]="section"
-      [item]="item"
-      (deleted)="onDeletedMeasure($event)"
-    >
-    </app-measures>
+  <ng-container *ngIf="!loading; else elseTemplate">
+    <ng-container *ngIf="item.is_measure; else appQuestions">
+      <button
+        (click)="onAddNewMeasure()"
+        class="btn btn-white btn-addMeasure"
+        type="button"
+        *ngIf="
+          globalEvaluationService.answerEditionEnabled &&
+          (editMode.includes('author') || editMode === 'local')
+        "
+      >
+        <span class="pia-icons pia-icon-add"></span>
+        {{ "measures.add" | translate }}
+      </button>
+      <app-measures
+        *ngFor="let measure of measures"
+        [editMode]="editMode"
+        [measure]="measure"
+        [pia]="pia"
+        [section]="section"
+        [item]="item"
+        (deleted)="onDeletedMeasure($event)"
+      >
+      </app-measures>
+    </ng-container>
+    <ng-template #appQuestions>
+      <app-questions
+        [editMode]="editMode"
+        *ngFor="let question of questions"
+        [question]="question"
+        [pia]="pia"
+        [section]="section"
+        [item]="item"
+      >
+      </app-questions>
+    </ng-template>
   </ng-container>
-  <ng-template #appQuestions>
-    <app-questions
-      [editMode]="editMode"
-      *ngFor="let question of questions"
-      [question]="question"
-      [pia]="pia"
-      [section]="section"
-      [item]="item"
+  <ng-template #elseTemplate>
+    <div
+      class="pia-sectionBlock-body"
+      style="position:relative; height: 150px;"
     >
-    </app-questions>
+      <app-loading-overlay
+        [visibility]="true"
+        [childMode]="true"
+      ></app-loading-overlay>
+    </div>
   </ng-template>
+
   <app-evaluations
     [editMode]="editMode"
     *ngIf="item.evaluation_mode === 'item'"
