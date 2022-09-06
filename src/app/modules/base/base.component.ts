@@ -9,9 +9,7 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
-
 import piakb from 'src/assets/files/pia_knowledge-base.json';
-import { Measure } from '../../models/measure.model';
 
 function slugify(text): string {
   return text
