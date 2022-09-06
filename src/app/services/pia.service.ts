@@ -99,7 +99,7 @@ export class PiaService extends ApplicationDb {
    * Get all PIA linked to a specific structure
    * @param structure_id the structure id
    */
-  async getAllWithStructure(structure_id: number): Promise<Pia[]> {
+  getAllWithStructure(structure_id: number): Promise<Pia[]> {
     const items = [];
     return new Promise((resolve, reject) => {
       this.findAll('?structure_id=' + structure_id, {
@@ -120,7 +120,7 @@ export class PiaService extends ApplicationDb {
    * Get the PIA example.
    * @returns {Promise}
    */
-  async getPiaExample(): Promise<any> {
+  getPiaExample(): Promise<Pia> {
     return new Promise((resolve, reject) => {
       super
         .findWithReference('/example', { index: 'index3', value: 1 })
@@ -329,7 +329,7 @@ export class PiaService extends ApplicationDb {
    * Cancel all validated evaluations.
    * @returns - Return a new Promise
    */
-  async cancelAllValidatedEvaluation(pia: Pia): Promise<void> {
+  cancelAllValidatedEvaluation(pia: Pia): Promise<void> {
     return new Promise((resolve, reject) => {
       let count = 0;
       this.evaluationService
@@ -455,7 +455,6 @@ export class PiaService extends ApplicationDb {
       pia.created_at = data.pia.created_at;
       pia.dpos_names = data.pia.dpos_names;
       pia.people_names = data.pia.people_names;
-      console.log(this.authService.state, data);
 
       if (this.authService.state && data.pia.user_pias) {
         const author = data.pia.user_pias.find(
@@ -547,7 +546,7 @@ export class PiaService extends ApplicationDb {
     });
   }
 
-  async replacePiaByExport(
+  replacePiaByExport(
     piaExport,
     resetOption,
     updateOption,
@@ -652,7 +651,7 @@ export class PiaService extends ApplicationDb {
    * Make a JSON from the PIA data
    * @param id - The PIA id.
    */
-  async export(id: number): Promise<string> {
+  export(id: number): Promise<string> {
     return new Promise(async (resolve, reject) => {
       this.exportData(id).then(data => {
         const finalData = encode_utf8(JSON.stringify(data));
@@ -817,28 +816,18 @@ export class PiaService extends ApplicationDb {
 
   update(pia: Pia, date = null): Promise<any> {
     return new Promise((resolve, reject) => {
-      super.find(pia.id).then((entry: any) => {
-        entry = {
-          ...entry,
-          ...pia
-        };
-        entry.structure_id = pia.structure_id ? pia.structure_id : '';
-        if (entry.is_archive === undefined || entry.is_archive === null) {
-          entry.is_archive = 0;
-        } else {
-          entry.is_archive = pia.is_archive;
-        }
-        entry.updated_at = date ? date : new Date();
-        super
-          .update(entry.id, entry)
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      });
+      if (pia.is_archive === undefined || pia.is_archive === null) {
+        pia.is_archive = 0;
+      }
+      pia.updated_at = date ? date : new Date();
+      super
+        .update(pia.id, pia)
+        .then((result: any) => {
+          resolve(result);
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
 

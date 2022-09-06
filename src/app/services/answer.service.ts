@@ -33,18 +33,14 @@ export class AnswerService extends ApplicationDb {
 
   async update(answer: Answer): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.find(answer.id).then((entry: any) => {
-        entry.data = answer.data;
-        entry.updated_at = new Date();
-        super
-          .update(answer.id, entry, null, this.setFormData(entry))
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            reject();
-          });
-      });
+      super
+        .update(answer.id, answer, null, this.setFormData(answer))
+        .then((result: any) => {
+          resolve(result);
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
 
@@ -76,7 +72,7 @@ export class AnswerService extends ApplicationDb {
             }
           }
         } else {
-          if (data[d]) {
+          if (data[d] != null) {
             formData.append('answer[' + d + ']', data[d]);
           } else {
             formData.append('answer[' + d + ']', '');

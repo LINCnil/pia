@@ -171,10 +171,24 @@ export class ApiService {
             let message = this.translateService.instant(
               'authentication.transaction_error'
             );
+
             if (result && result.message && result.message.length > 0) {
               message = result.message;
             }
-            throw response;
+
+            const responseError = {
+              statusText: response.statusText || 'Error',
+              message: message || 'Something went wrong'
+            };
+
+            let error = new Error();
+            error = {
+              ...error,
+              ...result.errors,
+              ...response,
+              ...responseError
+            };
+            throw error;
           }
           return result;
         })

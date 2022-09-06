@@ -18,6 +18,8 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { Answer } from 'src/app/models/answer.model';
 import { AnswerService } from 'src/app/services/answer.service';
 import { MeasureService } from 'src/app/services/measures.service';
+import { TranslateService } from '@ngx-translate/core';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-questions',
@@ -53,7 +55,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     private ngZone: NgZone,
     public globalEvaluationService: GlobalEvaluationService,
     private answerService: AnswerService,
-    private measureService: MeasureService
+    private measureService: MeasureService,
+    private translateService: TranslateService,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -243,7 +247,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         list: this.answer.data.list
       };
 
-      this.answerService.update(this.answer).then(() => {
+      this.answerService.update(this.answer).then((answer: Answer) => {
+        this.answer = answer;
         this.ngZone.run(() => {
           this.globalEvaluationService.validate();
         });
@@ -294,11 +299,19 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       };
 
       // this.loading = true;
-      this.answerService.update(this.answer).then(() => {
-        this.ngZone.run(() => {
-          this.globalEvaluationService.validate();
-        });
-      });
+      this.answerService
+        .update(this.answer)
+        .then((answer: Answer) => {
+          this.answer = answer;
+          this.ngZone.run(() => {
+            this.globalEvaluationService.validate();
+          });
+        })
+        .catch(err => {
+          if (err.statusText === 'Conflict') {
+            this.conflictDialog(err);
+          }
+        })
       // .finally(() => {
       //   this.loading = false;
       // });
@@ -431,14 +444,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         gauge: this.answer.data.gauge,
         list: list
       };
-      this.answerService
-        .update(this.answer)
-        .then(() => {
-          this.globalEvaluationService.validate();
-        })
-        .finally(() => {
-          this.loading = false;
-        });
+
+      this.answerService.update(this.answer).then((answer: Answer) => {
+        this.answer = answer;
+        this.globalEvaluationService.validate();
+      })
+      .finally(() => {
+        this.loading = false;
+      });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
@@ -527,5 +540,84 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.knowledgeBaseService.placeholder = null;
     tinymce.remove(this.editor);
     this.editor = null;
+  }
+
+  /**
+   * Open a dialog modal for deal with the conflict
+   * @param err
+   */
+  private conflictDialog(err) {
+    let additional_text: string;
+
+    // Text
+    additional_text = `
+      ${this.translateService.instant('conflict.initial_content')}: ${
+      err.record.data.text
+    }
+      <br>
+      ${this.translateService.instant('conflict.new_content')}: ${
+      err.params.data.text
+    }
+    `;
+
+    // Open dialog here
+    this.dialogService.confirmThis(
+      {
+        text: this.translateService.instant('conflict.conflict_title'),
+        type: 'others',
+        yes: '',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          no_cross_button: true,
+          btn_no: false,
+          additional_text
+        }
+      },
+      () => {
+        return;
+      },
+      () => {
+        return;
+      },
+      [
+        {
+          label: this.translateService.instant('conflict.keep_initial'),
+          callback: () => {
+            window.location.reload();
+            return;
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.keep_new'),
+          callback: () => {
+            let newAnswerFixed: Answer = { ...err.params };
+            newAnswerFixed.id = err.record.id;
+            newAnswerFixed.lock_version = err.record.lock_version;
+            this.answerService
+              .update(newAnswerFixed)
+              .then(() => {
+                window.location.reload();
+                return;
+              })
+              .catch(err => {});
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.merge'),
+          callback: () => {
+            let newAnswerFixed: Answer = { ...err.record };
+            newAnswerFixed.data.text += '\n' + err.params.data.text;
+            this.answerService
+              .update(newAnswerFixed)
+              .then(() => {
+                window.location.reload();
+                return;
+              })
+              .catch(err => {});
+          }
+        }
+      ]
+    );
   }
 }

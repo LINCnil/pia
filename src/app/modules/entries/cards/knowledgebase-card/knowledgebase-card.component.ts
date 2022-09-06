@@ -21,6 +21,7 @@ export class KnowledgebaseCardComponent implements OnInit {
   @Output() changed = new EventEmitter<Structure>();
   @Output() duplicated = new EventEmitter<Structure>();
   @Output() deleted = new EventEmitter<any>();
+  @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
 
   constructor(
     private knowledgesService: KnowledgesService,
@@ -88,7 +89,16 @@ export class KnowledgebaseCardComponent implements OnInit {
       this.base.name = this.knowledgeBaseForm.value.name;
       this.base.author = this.knowledgeBaseForm.value.author;
       this.base.contributors = this.knowledgeBaseForm.value.contributors;
-      this.knowledgeBaseService.update(this.base);
+      this.knowledgeBaseService
+        .update(this.base)
+        .then((response: KnowledgeBase) => {
+          this.base = response;
+        })
+        .catch(err => {
+          if (err.statusText === 'Conflict') {
+            this.conflictDetected.emit({ field: 'name', err });
+          }
+        });
     }
   }
 

@@ -395,6 +395,7 @@
                 let i = index
               "
               [users]="users"
+              (conflictDetected)="conflictDialog($event)"
               (newUserNeeded)="onNewUserNeeded($event)"
               (changed)="updateEntrie($event)"
               (duplicated)="refreshContent()"
@@ -439,6 +440,7 @@
                 let base of entries | filterForUser: searchText;
                 let i = index
               "
+              (conflictDetected)="conflictDialog($event)"
               (changed)="updateEntrie($event)"
               (duplicated)="refreshContent()"
               (deleted)="refreshContent()"
@@ -488,6 +490,7 @@
                       let pia of entries | filterForUser: searchText;
                       let i = index
                     "
+                    (conflictDetected)="conflictDialog($event)"
                     (changed)="updateEntrie($event)"
                     (duplicated)="refreshContent()"
                     (archived)="refreshContent()"
@@ -530,6 +533,7 @@
                       let base of entries | filterForUser: searchText;
                       let i = index
                     "
+                    (conflictDetected)="conflictDialog($event)"
                     (changed)="updateEntrie($event)"
                     (duplicated)="refreshContent()"
                     (deleted)="refreshContent()"

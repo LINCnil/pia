@@ -38,7 +38,8 @@ export class PiaCardComponent implements OnInit, OnChanges {
   @Output() changed = new EventEmitter<Pia>();
   @Output() duplicated = new EventEmitter<Pia>();
   @Output() archived = new EventEmitter<Pia>();
-  @Output() newUserNeeded: EventEmitter<any> = new EventEmitter<any>();
+  @Output() newUserNeeded = new EventEmitter<any>();
+  @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
 
   piaForm: FormGroup;
   attachments: any;
@@ -251,7 +252,6 @@ export class PiaCardComponent implements OnInit, OnChanges {
   /**
    * Disabls PIA name field and saves data.
    */
-
   piaNameFocusOut(): void {
     let userText = this.piaForm.controls['name'].value;
     if (userText) {
@@ -259,8 +259,17 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.name = this.piaForm.value.name;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService
+        .update(this.pia)
+        .then((pia: Pia) => {
+          this.pia = pia;
+          this.changed.emit(this.pia);
+        })
+        .catch(err => {
+          if (err.statusText === 'Conflict') {
+            this.conflictDetected.emit({ field: 'name', err });
+          }
+        });
     }
   }
 
@@ -281,8 +290,17 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.author_name = this.piaForm.value.author_name;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService
+        .update(this.pia)
+        .then((pia: Pia) => {
+          this.pia = pia;
+          this.changed.emit(this.pia);
+        })
+        .catch(err => {
+          if (err.statusText === 'Conflict') {
+            this.conflictDetected.emit({ field: 'author_name', err });
+          }
+        });
     }
   }
 
@@ -303,8 +321,17 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.evaluator_name = this.piaForm.value.evaluator_name;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService
+        .update(this.pia)
+        .then((pia: Pia) => {
+          this.pia = pia;
+          this.changed.emit(this.pia);
+        })
+        .catch(err => {
+          if (err.statusText === 'Conflict') {
+            this.conflictDetected.emit({ field: 'evaluator_name', err });
+          }
+        });
     }
   }
 
@@ -325,8 +352,17 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.validator_name = this.piaForm.value.validator_name;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService
+        .update(this.pia)
+        .then((pia: Pia) => {
+          this.pia = pia;
+          this.changed.emit(this.pia);
+        })
+        .catch(err => {
+          if (err.statusText === 'Conflict') {
+            this.conflictDetected.emit({ field: 'validator_name', err });
+          }
+        });
     }
   }
 
@@ -347,8 +383,13 @@ export class PiaCardComponent implements OnInit, OnChanges {
     }
     if (userText !== '') {
       this.pia.category = this.piaForm.value.category;
-      this.piaService.update(this.pia);
-      this.changed.emit(this.pia);
+      this.piaService
+        .update(this.pia)
+        .then((pia: Pia) => {
+          this.pia = pia;
+          this.changed.emit(this.pia);
+        })
+        .catch(err => {});
     }
   }
 

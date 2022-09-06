@@ -11,7 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
-import { FormGroup } from '@angular/forms';
 
 import * as FileSaver from 'file-saver';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -35,9 +34,9 @@ export class PiaLineComponent implements OnInit, OnChanges {
   @Output() duplicated = new EventEmitter<Pia>();
   @Output() archived = new EventEmitter<Pia>();
   @Output() newUserNeeded: EventEmitter<any> = new EventEmitter<any>();
+  @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
   @Input() users: Array<User>;
 
-  piaForm: FormGroup;
   userList: Array<TagModel> = [];
   attachments: any;
 
@@ -201,8 +200,17 @@ export class PiaLineComponent implements OnInit, OnChanges {
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
     this.pia[attribute] = text;
-    this.piaService.update(this.pia);
-    this.changed.emit(this.pia);
+    this.piaService
+      .update(this.pia)
+      .then((pia: Pia) => {
+        this.pia = pia;
+        this.changed.emit(this.pia);
+      })
+      .catch(err => {
+        if (err.statusText === 'Conflict') {
+          this.conflictDetected.emit({ field: attribute, err });
+        }
+      });
   }
 
   /**
