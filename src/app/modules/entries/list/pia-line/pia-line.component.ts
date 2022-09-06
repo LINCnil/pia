@@ -11,7 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
-import { FormGroup } from '@angular/forms';
 
 import * as FileSaver from 'file-saver';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -38,7 +37,6 @@ export class PiaLineComponent implements OnInit, OnChanges {
   @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
   @Input() users: Array<User>;
 
-  piaForm: FormGroup;
   userList: Array<TagModel> = [];
   attachments: any;
 
