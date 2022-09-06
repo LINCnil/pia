@@ -533,6 +533,7 @@
                       let base of entries | filterForUser: searchText;
                       let i = index
                     "
+                    (conflictDetected)="conflictDialog($event)"
                     (changed)="updateEntrie($event)"
                     (duplicated)="refreshContent()"
                     (deleted)="refreshContent()"

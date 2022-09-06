@@ -273,16 +273,33 @@ export class BaseComponent implements OnInit {
       entry.knowledge_base_id = this.base.id;
       this.knowledgesService
         .update(entry)
-        .then(() => {
+        .then(response => {
+          this.entryForm.controls.lock_version.setValue(response.lock_version);
           // Update list
           const index = this.knowledges.findIndex(e => e.id === entry.id);
           if (index !== -1) {
-            this.knowledges[index] = entry;
+            this.knowledges[index] = response;
           }
         })
         .catch(err => {
-          if (err.statusText === 'Conflict' && field) {
+          if (err.statusText === 'Conflict' && field && field !== 'checkbox') {
             this.conflictDialog(field, err);
+          } else if (field === 'checkbox') {
+            // update the lock_version and the checkboxes
+            entry.items = err.record.items;
+            entry.lock_version = err.record.lock_version;
+            this.knowledgesService
+              .update(entry)
+              .then(kbFixed => {
+                // Update list
+                const index = this.knowledges.findIndex(e => e.id === entry.id);
+                if (index !== -1) {
+                  this.knowledges[index] = entry;
+                }
+              })
+              .catch(err => {
+                console.log(err);
+              });
           }
         });
     }
@@ -304,7 +321,7 @@ export class BaseComponent implements OnInit {
       }
     }
     this.itemsSelected = ar;
-    this.focusOut();
+    this.focusOut('checkbox');
   }
 
   /**
