@@ -72,19 +72,19 @@ export class CommentsComponent implements OnInit {
       '.pia-commentsBlock-new'
     );
     // Opens comments list if it's closed.
-    const accordeonButton = this.el.nativeElement.querySelector(
+    const accordionButton = this.el.nativeElement.querySelector(
       '.pia-commentsBlock-btn button span'
     );
     const commentsList = this.el.nativeElement.querySelector(
       '.pia-commentsBlock-list'
     );
-    if (commentsList && accordeonButton) {
+    if (commentsList && accordionButton) {
       if (
         commentsList.classList.contains('close') &&
-        accordeonButton.classList.contains('pia-icon-accordeon-down')
+        accordionButton.classList.contains('pia-icon-accordion-down')
       ) {
-        accordeonButton.classList.toggle('pia-icon-accordeon-up');
-        accordeonButton.classList.remove('pia-icon-accordeon-down');
+        accordionButton.classList.toggle('pia-icon-accordion-up');
+        accordionButton.classList.remove('pia-icon-accordion-down');
       }
       commentsList.classList.remove('close');
     }
@@ -140,7 +140,7 @@ export class CommentsComponent implements OnInit {
         );
       } else {
         // Creates the new comment and pushes it as the first comment in list.
-        // Updates accordeon and counter + removes the written comment.
+        // Updates accordion and counter + removes the written comment.
         const commentRecord = new Comment();
         commentRecord.for_measure = false;
         commentRecord.description = this.commentsForm.value.description;
@@ -155,7 +155,7 @@ export class CommentsComponent implements OnInit {
           commentRecord.id = id;
           this.comments.unshift(commentRecord);
           this.commentsForm.controls['description'].setValue('');
-          this.getCommentsAccordeonStatus();
+          this.getCommentsAccordionStatus();
           this.newCommentDisplayer = false;
         });
       }
@@ -172,8 +172,8 @@ export class CommentsComponent implements OnInit {
     const btn = this.el.nativeElement.querySelector(
       '.pia-commentsBlock-btn button span'
     );
-    btn.classList.toggle('pia-icon-accordeon-down');
-    btn.classList.toggle('pia-icon-accordeon-up');
+    btn.classList.toggle('pia-icon-accordion-down');
+    btn.classList.toggle('pia-icon-accordion-up');
     commentsList.classList.toggle('close');
   }
 
@@ -181,7 +181,7 @@ export class CommentsComponent implements OnInit {
    * Returns a status about the comments number.
    * @returns - True if there are comments, False otherwise.
    */
-  getCommentsAccordeonStatus(): boolean {
+  getCommentsAccordionStatus(): boolean {
     return this.comments.length > 0 ? true : false;
   }
 }
