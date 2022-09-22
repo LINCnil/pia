@@ -180,10 +180,10 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * @param {*} event - Any Event.
    */
   displayMeasure(event: any): void {
-    const accordeon = this.el.nativeElement.querySelector(
+    const accordion = this.el.nativeElement.querySelector(
       '.pia-measureBlock-title button'
     );
-    accordeon.classList.toggle('pia-icon-accordeon-down');
+    accordion.classList.toggle('pia-icon-accordion-down');
     const displayer = this.el.nativeElement.querySelector(
       '.pia-measureBlock-displayer'
     );

@@ -19,8 +19,7 @@ export class PiaValidateHistoryComponent implements OnInit {
     public languagesService: LanguagesService
   ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * Shows or hides the validation history list.
@@ -32,7 +31,7 @@ export class PiaValidateHistoryComponent implements OnInit {
     const btn = this.el.nativeElement.querySelector(
       '.pia-historyBlock-btn span'
     );
-    btn.classList.toggle('pia-icon-accordeon-down');
+    btn.classList.toggle('pia-icon-accordion-down');
     historyList.classList.toggle('close');
   }
 
@@ -46,7 +45,7 @@ export class PiaValidateHistoryComponent implements OnInit {
     const btn = this.el.nativeElement.querySelector(
       '.pia-refuseBlock-btn span'
     );
-    btn.classList.toggle('pia-icon-accordeon-down');
+    btn.classList.toggle('pia-icon-accordion-down');
     refuseList.classList.toggle('close');
   }
 
@@ -56,8 +55,7 @@ export class PiaValidateHistoryComponent implements OnInit {
    */
   showValidationHistory() {
     return (
-      (this.pia.status === 2 ||
-        this.pia.status === 3) &&
+      (this.pia.status === 2 || this.pia.status === 3) &&
       this.pia.applied_adjustements &&
       this.pia.rejected_reason
     );

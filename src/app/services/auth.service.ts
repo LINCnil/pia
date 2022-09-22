@@ -56,7 +56,7 @@ export class AuthService {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
         this.currentUserSubject.complete();
-        // 404 -> no authentification
+        // 404 -> no authentication
         if (err.status == 404) {
           this.state = false; // Pas d'auth
         }

@@ -1,6 +1,6 @@
 describe("Client-Server", () => {
   before(() => {
-    // Clear datas
+    // Clear data
     cy.init();
   });
 

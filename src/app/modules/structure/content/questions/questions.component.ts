@@ -197,8 +197,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {*} event - Any Event.
    */
   displayQuestion(event: any): void {
-    const accordeon = this.el.nativeElement.querySelector('.pia-accordeon');
-    accordeon.classList.toggle('pia-icon-accordeon-down');
+    const accordion = this.el.nativeElement.querySelector('.pia-accordion');
+    accordion.classList.toggle('pia-icon-accordion-down');
     const displayer = this.el.nativeElement.querySelector(
       '.pia-questionBlock-displayer'
     );

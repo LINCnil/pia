@@ -1,19 +1,19 @@
-@import '~src/assets/stylesheets/variables';
+@import "~src/assets/stylesheets/variables";
 .pia {
   &-questionBlock {
     position: relative;
     margin-bottom: 10px;
     background-color: #fff;
     padding: 12px 40px;
-    box-shadow: 1px 1px 15px 1px rgba(210,210,210,1);
-    .pia-accordeon {
+    box-shadow: 1px 1px 15px 1px rgba(210, 210, 210, 1);
+    .pia-accordion {
       position: absolute;
       right: 15px;
       top: 22px;
       cursor: pointer;
       &:before {
         position: absolute;
-        content: '';
+        content: "";
         top: -4px;
         right: -4px;
         left: -4px;
@@ -42,7 +42,7 @@
         cursor: pointer;
         &:before {
           position: absolute;
-          content: '';
+          content: "";
           top: -4px;
           right: -4px;
           left: -4px;
@@ -85,14 +85,6 @@
     &-highlight {
       color: $pia-red;
     }
-
-
-
-
-
-
-
-
 
     &-content {
       padding: 0;
