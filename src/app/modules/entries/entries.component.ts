@@ -605,7 +605,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
     // Open dialog here
     this.dialogService.confirmThis(
       {
-        text: this.translateService.instant('conflict.conflict_title'),
+        text: this.translateService.instant('conflict.title'),
         type: 'others',
         yes: '',
         no: '',

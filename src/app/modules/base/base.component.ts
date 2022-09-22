@@ -444,7 +444,7 @@ export class BaseComponent implements OnInit {
     // Open dialog here
     this.dialogService.confirmThis(
       {
-        text: this.translateService.instant('conflict.conflict_title'),
+        text: this.translateService.instant('conflict.title'),
         type: 'others',
         yes: '',
         no: '',

@@ -311,7 +311,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           if (err.statusText === 'Conflict') {
             this.conflictDialog(err);
           }
-        })
+        });
       // .finally(() => {
       //   this.loading = false;
       // });
@@ -445,13 +445,15 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         list: list
       };
 
-      this.answerService.update(this.answer).then((answer: Answer) => {
-        this.answer = answer;
-        this.globalEvaluationService.validate();
-      })
-      .finally(() => {
-        this.loading = false;
-      });
+      this.answerService
+        .update(this.answer)
+        .then((answer: Answer) => {
+          this.answer = answer;
+          this.globalEvaluationService.validate();
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
@@ -563,7 +565,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     // Open dialog here
     this.dialogService.confirmThis(
       {
-        text: this.translateService.instant('conflict.conflict_title'),
+        text: this.translateService.instant('conflict.title'),
         type: 'others',
         yes: '',
         no: '',
