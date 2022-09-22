@@ -39,6 +39,7 @@ export class BaseComponent implements OnInit {
   data: any;
   itemsSelected: any = [];
   lockedChoice = false;
+  loadingEntry = false;
 
   filtersCategoriesCorrespondance = {
     'knowledge_base.category.measure_on_data': 'measure.data_processing',
@@ -187,6 +188,7 @@ export class BaseComponent implements OnInit {
    */
   editEntry(id): void {
     if (id) {
+      this.loadingEntry = true;
       this.selectedKnowledgeId = id;
       this.knowledgesService
         .find(id)
@@ -212,6 +214,9 @@ export class BaseComponent implements OnInit {
         })
         .catch(err => {
           console.log(err);
+        })
+        .finally(() => {
+          this.loadingEntry = false;
         });
     }
   }
