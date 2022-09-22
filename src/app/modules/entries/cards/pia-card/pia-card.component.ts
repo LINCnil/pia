@@ -172,7 +172,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
             ? a.user.firstname + ' ' + a.user.lastname
             : a.user.email;
         return {
-          display: display,
+          display,
           id: a.user.id
         };
       });

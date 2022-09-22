@@ -119,8 +119,12 @@ export class PiaLineComponent implements OnInit, OnChanges {
 
       // convert as tag
       const tags = filteredUserPias.map(a => {
+        let display =
+          a.user.firstname && a.user.lastname
+            ? a.user.firstname + ' ' + a.user.lastname
+            : a.user.email;
         return {
-          display: a.user.firstname + ' ' + a.user.lastname,
+          display,
           id: a.user.id
         };
       });
@@ -131,7 +135,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
         fullnames.forEach(fullname => {
           // present in tags ?
           const exist = tags.find(ac => ac.display == fullname);
-          if (!exist) {
+          if (!exist && fullname != '') {
             // add to tag
             tags.push({ display: fullname, id: null }); // id = null is for deleted user but dumped
           }
