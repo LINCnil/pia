@@ -206,12 +206,4 @@ export class AuthService {
         });
     });
   }
-
-  async signIn(login: string, password: string): Promise<boolean | Error> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
-    });
-  }
 }
