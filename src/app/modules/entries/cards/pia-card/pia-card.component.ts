@@ -511,14 +511,29 @@ export class PiaCardComponent implements OnInit, OnChanges {
       return;
     }
     const piaCloned = { ...this.pia };
-    piaCloned[field] = this.piaForm.controls[field].value.map(x =>
+    const userAssignValues = this.piaForm.controls[field].value.map(x =>
       x.id ? x.id : x.display
     );
+    piaCloned[field] = userAssignValues;
 
-    await this.piaService.update(piaCloned).then((resp: Pia) => {
-      this.pia = resp;
-      this.setUserPiasAsFields(resp.user_pias);
-    });
+    await this.piaService
+      .update(piaCloned)
+      .then((resp: Pia) => {
+        this.pia = resp;
+        this.setUserPiasAsFields(resp.user_pias);
+      })
+      .catch(err => {
+        if (err.statusText === 'Conflict') {
+          // AUTO FIX
+          // this.conflictDetected.emit({ field: 'name', err });
+          const piaCloned = err.record;
+          piaCloned[field] = userAssignValues;
+          this.piaService.update(piaCloned).then((resp: Pia) => {
+            this.pia = resp;
+            this.setUserPiasAsFields(resp.user_pias);
+          });
+        }
+      });
   }
 
   onRemove($event: TagModelClass, field: string): void {
