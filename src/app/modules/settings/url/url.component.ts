@@ -98,7 +98,7 @@ export class UrlComponent implements OnInit {
               },
               () => {
                 if (this.authService.currentUserValue == null) {
-                  window.location.href = './';
+                  window.location.href = './#/';
                 } else {
                   window.location.href = './#/entries';
                 }
