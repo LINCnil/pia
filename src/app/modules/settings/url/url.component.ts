@@ -59,7 +59,7 @@ export class UrlComponent implements OnInit {
           }
         },
         () => {
-          window.location.href = './';
+          window.location.href = './#/';
         },
         () => {
           return;

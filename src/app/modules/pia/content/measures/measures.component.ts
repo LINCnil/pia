@@ -20,6 +20,7 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { MeasureService } from 'src/app/services/measures.service';
 import { Pia } from '../../../../models/pia.model';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-measures',
@@ -45,6 +46,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   loading = false;
 
   constructor(
+    private router: Router,
     private translateService: TranslateService,
     public globalEvaluationService: GlobalEvaluationService,
     private dialogService: DialogService,
@@ -378,6 +380,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   conflictDialog(field, error) {
     let additional_text: string;
+    const currentUrl = this.router.url;
     // Text
     additional_text = `
       ${this.translateService.instant('conflict.pia_field_name')}:
@@ -414,7 +417,11 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.keep_initial'),
           callback: () => {
-            window.location.reload();
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
             return;
           }
         },
@@ -425,7 +432,11 @@ export class MeasuresComponent implements OnInit, OnDestroy {
             newMeasureFixed.id = error.record.id;
             newMeasureFixed.lock_version = error.record.lock_version;
             this.measuresService.update(newMeasureFixed).then(() => {
-              window.location.reload();
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
               return;
             });
           }
@@ -437,7 +448,11 @@ export class MeasuresComponent implements OnInit, OnDestroy {
             let separator = field === 'title' ? ' ' : '\n';
             newMeasureFixed[field] += separator + error.params[field];
             this.measuresService.update(newMeasureFixed).then(() => {
-              window.location.reload();
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
               return;
             });
           }

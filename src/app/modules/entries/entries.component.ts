@@ -497,6 +497,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
     let keep_new: any;
     let merge: any;
 
+    const currentUrl = this.router.url;
     switch (error.err.model) {
       case 'pia':
         // Text
@@ -514,7 +515,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
         // keep initial action
         keep_initial = () => {
-          window.location.reload();
+          this.router
+            .navigateByUrl('/', { skipLocationChange: true })
+            .then(() => {
+              this.router.navigate([currentUrl]);
+            });
           return;
         };
 
@@ -527,7 +532,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
           this.piaService
             .update(newPiaFixed)
             .then(() => {
-              window.location.reload();
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
               return;
             })
             .catch(err => {});
@@ -541,7 +550,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
           this.piaService
             .update(newPiaFixed)
             .then(() => {
-              window.location.reload();
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
               return;
             })
             .catch(err => {});
@@ -563,7 +576,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
         // keep initial action
         keep_initial = () => {
-          window.location.reload();
+          this.router
+            .navigateByUrl('/', { skipLocationChange: true })
+            .then(() => {
+              this.router.navigate([currentUrl]);
+            });
           return;
         };
 
@@ -577,7 +594,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
           this.knowledgeBaseService
             .update(newKnwoledgeBaseFixed)
             .then(() => {
-              window.location.reload();
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
               return;
             })
             .catch(err => {});
@@ -594,7 +615,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
           this.knowledgeBaseService
             .update(newKnwoledgeBaseFixed)
             .then(() => {
-              window.location.reload();
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
               return;
             })
             .catch(err => {});

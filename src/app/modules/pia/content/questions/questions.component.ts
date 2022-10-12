@@ -20,6 +20,7 @@ import { AnswerService } from 'src/app/services/answer.service';
 import { MeasureService } from 'src/app/services/measures.service';
 import { TranslateService } from '@ngx-translate/core';
 import { DialogService } from 'src/app/services/dialog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questions',
@@ -50,6 +51,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   loading = false;
 
   constructor(
+    private router: Router,
     private el: ElementRef,
     private knowledgeBaseService: KnowledgeBaseService,
     private ngZone: NgZone,
@@ -550,6 +552,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   private conflictDialog(err) {
     let additional_text: string;
+    const currentUrl = this.router.url;
 
     // Text
     additional_text = `
@@ -586,7 +589,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.keep_initial'),
           callback: () => {
-            window.location.reload();
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
             return;
           }
         },
@@ -599,7 +606,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.answerService
               .update(newAnswerFixed)
               .then(() => {
-                window.location.reload();
+                this.router
+                  .navigateByUrl('/', { skipLocationChange: true })
+                  .then(() => {
+                    this.router.navigate([currentUrl]);
+                  });
                 return;
               })
               .catch(err => {});
@@ -613,7 +624,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.answerService
               .update(newAnswerFixed)
               .then(() => {
-                window.location.reload();
+                this.router
+                  .navigateByUrl('/', { skipLocationChange: true })
+                  .then(() => {
+                    this.router.navigate([currentUrl]);
+                  });
                 return;
               })
               .catch(err => {});

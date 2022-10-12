@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
@@ -49,6 +49,7 @@ export class BaseComponent implements OnInit {
   };
 
   constructor(
+    private router: Router,
     public languagesService: LanguagesService,
     private translateService: TranslateService,
     private knowledgesService: KnowledgesService,
@@ -434,6 +435,7 @@ export class BaseComponent implements OnInit {
    */
   conflictDialog(field, error) {
     let additional_text: string;
+    const currentUrl = this.router.url;
     // Text
     additional_text = `
       ${this.translateService.instant('conflict.pia_field_name')}:
@@ -470,7 +472,11 @@ export class BaseComponent implements OnInit {
         {
           label: this.translateService.instant('conflict.keep_initial'),
           callback: () => {
-            window.location.reload();
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
             return;
           }
         },
@@ -481,7 +487,11 @@ export class BaseComponent implements OnInit {
             newKnowledgeFixed.id = error.record.id;
             newKnowledgeFixed.lock_version = error.record.lock_version;
             this.knowledgesService.update(newKnowledgeFixed).then(() => {
-              window.location.reload();
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
               return;
             });
           }
@@ -493,7 +503,11 @@ export class BaseComponent implements OnInit {
             let separator = field === 'title' ? ' ' : '\n';
             newKnowledgeFixed[field] += separator + error.params[field];
             this.knowledgesService.update(newKnowledgeFixed).then(() => {
-              window.location.reload();
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
               return;
             });
           }
