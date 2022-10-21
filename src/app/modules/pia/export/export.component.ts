@@ -114,9 +114,11 @@ export class ExportComponent implements OnInit {
                 if (navigator.msSaveOrOpenBlob) {
                   window.navigator.msSaveBlob(json, fileTitle + '.json');
                 } else {
-                  downloadLink.href = json;
+                  const blob = new Blob([json], { type: 'text/plain' });
+                  downloadLink.href = URL.createObjectURL(blob);
                   downloadLink.download = fileTitle + '.json';
                   downloadLink.click();
+                  downloadLink.remove();
                 }
                 resolve();
               });
