@@ -61,6 +61,33 @@ export class NewPiaComponent implements OnInit {
     }
   }
 
+  /**
+   * Disable the already selected users in the guests field
+   */
+  get usersForGuests(): Array<any> {
+    const res = [];
+
+    if (this.piaForm) {
+      this.userList.forEach((u: any) => {
+        if (this.piaForm) {
+          let presence = false;
+          for (const role of ['authors', 'evaluators', 'validators']) {
+            if (
+              this.piaForm.controls[role].value.map(x => x.id).includes(u.id)
+            ) {
+              presence = true;
+            }
+          }
+          if (!presence) {
+            res.push(u);
+          }
+        }
+      });
+    }
+
+    return res;
+  }
+
   normalizeForm(): any {
     const formFields = {
       name: new FormControl(),
