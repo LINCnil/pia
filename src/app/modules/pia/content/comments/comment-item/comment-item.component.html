@@ -3,7 +3,7 @@
     {{ "comments.comment" | translate }}
     <ng-container *ngIf="comment.user">
       <span>
-        {{ "comments.comment_by" | translate }}
+        {{ "comments.written_by" | translate }}
         {{
           comment.user.firstname && comment.user.lastname
             ? comment.user.firstname + " " + comment.user.lastname
