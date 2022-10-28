@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-url',
@@ -13,9 +14,9 @@ export class UrlComponent implements OnInit {
   settingsForm: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private dialogService: DialogService,
-    public authService: AuthService
+    public authService: AuthService,
+    public apiService: ApiService
   ) {}
 
   ngOnInit(): void {
@@ -64,6 +65,8 @@ export class UrlComponent implements OnInit {
               'client_secret',
               this.settingsForm.value.client_secret
             );
+            this.apiService.base = serverUrl;
+            this.authService.state = true;
             this.dialogService.confirmThis(
               {
                 text: 'modals.update_server_url_ok.content',
@@ -124,6 +127,9 @@ export class UrlComponent implements OnInit {
         });
     } else {
       /* Logout and reset authService */
+      this.apiService.base = null;
+      this.authService.logout();
+      this.authService.state = false;
       localStorage.removeItem('server_url');
       this.dialogService.confirmThis(
         {
@@ -137,7 +143,6 @@ export class UrlComponent implements OnInit {
           }
         },
         () => {
-          this.authService.logout();
           window.location.href = './#/';
         },
         () => {
