@@ -41,31 +41,10 @@ export class UrlComponent implements OnInit {
    * Record the URL of the server.
    */
   onSubmit(): void {
-    /* Set it back to empty if server mode is disabled */
     if (
-      this.settingsForm.controls['server_url'].value === null ||
-      this.settingsForm.controls['server_url'].value.length <= 0
+      this.settingsForm.controls.server_url.value &&
+      this.settingsForm.controls.server_url.value != ''
     ) {
-      localStorage.removeItem('server_url');
-      this.dialogService.confirmThis(
-        {
-          text: 'modals.update_server_url_ok.content',
-          type: 'yes',
-          yes: 'modals.back_to_home',
-          no: '',
-          icon: 'pia-icons pia-icon-happy',
-          data: {
-            no_cross_button: true
-          }
-        },
-        () => {
-          window.location.href = './#/';
-        },
-        () => {
-          return;
-        }
-      );
-    } else {
       const serverUrl = this.settingsForm.value.server_url.trim();
       fetch(serverUrl + '/info', {
         mode: 'cors'
@@ -143,6 +122,28 @@ export class UrlComponent implements OnInit {
             }
           );
         });
+    } else {
+      /* Logout and reset authService */
+      localStorage.removeItem('server_url');
+      this.dialogService.confirmThis(
+        {
+          text: 'modals.update_server_url_ok.content',
+          type: 'yes',
+          yes: 'modals.back_to_home',
+          no: '',
+          icon: 'pia-icons pia-icon-happy',
+          data: {
+            no_cross_button: true
+          }
+        },
+        () => {
+          this.authService.logout();
+          window.location.href = './#/';
+        },
+        () => {
+          return;
+        }
+      );
     }
   }
 }
