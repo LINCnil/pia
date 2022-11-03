@@ -471,16 +471,20 @@ export class PiaService extends ApplicationDb {
         );
 
         if (authors) {
-          pia.authors = authors.map(guest => guest.user.id).join(',');
+          pia.authors = authors.map(userRole => userRole.user.id).join(',');
         }
         if (evaluators) {
-          pia.evaluators = evaluators.map(guest => guest.user.id).join(',');
+          pia.evaluators = evaluators
+            .map(userRole => userRole.user.id)
+            .join(',');
         }
         if (validators) {
-          pia.validators = validators.map(guest => guest.user.id).join(',');
+          pia.validators = validators
+            .map(userRole => userRole.user.id)
+            .join(',');
         }
         if (guests) {
-          pia.guests = guests.map(guest => guest.user.id).join(',');
+          pia.guests = guests.map(userRole => userRole.user.id).join(',');
         }
       } else {
         pia.author_name = data.pia.author_name;
