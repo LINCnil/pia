@@ -457,27 +457,31 @@ export class PiaService extends ApplicationDb {
       pia.people_names = data.pia.people_names;
 
       if (this.authService.state && data.pia.user_pias) {
-        const author = data.pia.user_pias.find(
+        const authors = data.pia.user_pias.filter(
           user_pia => user_pia.role === 'author'
         );
-        const evaluator = data.pia.user_pias.find(
+        const evaluators = data.pia.user_pias.filter(
           user_pia => user_pia.role === 'evaluator'
         );
-        const validator = data.pia.user_pias.find(
+        const validators = data.pia.user_pias.filter(
           user_pia => user_pia.role === 'validator'
         );
-        console.log(author, evaluator, validator);
-        if (author) {
-          pia.author_name = author.user.id;
-        }
-        if (evaluator) {
-          pia.evaluator_name = evaluator.user.id;
-        }
-        if (validator) {
-          pia.validator_name = validator.user.id;
-        }
+        const guests = data.pia.user_pias.filter(
+          user_pia => user_pia.role === 'guest'
+        );
 
-        pia.guests = data.pia.guests.map(guest => guest.id).join(',');
+        if (authors) {
+          pia.authors = authors.map(guest => guest.user.id).join(',');
+        }
+        if (evaluators) {
+          pia.evaluators = evaluators.map(guest => guest.user.id).join(',');
+        }
+        if (validators) {
+          pia.validators = validators.map(guest => guest.user.id).join(',');
+        }
+        if (guests) {
+          pia.guests = guests.map(guest => guest.user.id).join(',');
+        }
       } else {
         pia.author_name = data.pia.author_name;
         pia.evaluator_name = data.pia.evaluator_name;

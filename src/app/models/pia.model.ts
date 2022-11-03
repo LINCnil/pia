@@ -30,6 +30,9 @@ export class Pia {
   public updated_at: Date;
   public user_pias: Array<{ user: User; role: string }>;
   lock_version: any;
+  public authors;
+  public validators;
+  public evaluators;
 
   constructor() {
     this.created_at = new Date();
