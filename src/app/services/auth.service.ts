@@ -30,26 +30,31 @@ export class AuthService {
     this.apiService
       .get('/oauth/token/info')
       .then((response: any) => {
+        const currentUserInfo = JSON.parse(localStorage.getItem('currentUser'));
         // TOKEN OK
         this.state = true;
-        // Update user
-        localStorage.setItem(
-          'currentUser',
-          JSON.stringify({
+        if (currentUserInfo.access_token && currentUserInfo.access_type) {
+          // Update user
+          localStorage.setItem(
+            'currentUser',
+            JSON.stringify({
+              ...JSON.parse(localStorage.getItem('currentUser')),
+              ...response
+            })
+          );
+
+          // set currentUser
+          this.currentUserSubject.next({
+            // Update users infos after /me request
             ...JSON.parse(localStorage.getItem('currentUser')),
             ...response
-          })
-        );
+          });
 
-        // set currentUser
-        this.currentUserSubject.next({
-          // Update users infos after /me request
-          ...JSON.parse(localStorage.getItem('currentUser')),
-          ...response
-        });
-
-        // finish
-        this.currentUserSubject.complete();
+          // finish
+          this.currentUserSubject.complete();
+        } else {
+          this.logout();
+        }
       })
       .catch(err => {
         // BACK TO HOME
@@ -101,13 +106,11 @@ export class AuthService {
         .then((response: any) => {
           if (response.access_token) {
             formData.append('token', response.access_token);
-
             // Introspect token
-            this.apiService
-              .post('/oauth/introspect', formData)
-              .then((userInfos: User) => {
+            this.introspect(formData)
+              .then((userIntrospectedData: User) => {
                 // Construct user
-                const user: User = { ...userInfos };
+                const user: User = { ...userIntrospectedData };
                 user.access_token = `Bearer ${response.access_token}`;
 
                 localStorage.setItem('currentUser', JSON.stringify(user));
@@ -121,13 +124,36 @@ export class AuthService {
                 this.currentUserSubject.next(user);
                 this.currentUserSubject.complete();
                 resolve(response);
+              })
+              .catch(err => {
+                this.logout();
+                reject(err);
               });
           } else {
+            this.logout();
             reject('No token');
           }
         })
         .catch((err: Error) => {
+          this.logout();
           reject(err);
+        });
+    });
+  }
+
+  introspect(formData: FormData) {
+    return new Promise((resolve, reject) => {
+      this.apiService
+        .post('/oauth/introspect', formData)
+        .then((userInfos: User) => {
+          if (userInfos.access_type) {
+            resolve(userInfos);
+          } else {
+            reject({ status: 'incompatibility' });
+          }
+        })
+        .catch(() => {
+          reject('No introspect route');
         });
     });
   }
