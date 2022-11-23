@@ -8,7 +8,6 @@ export class Pia {
   public author_name: string;
   public evaluator_name: string;
   public validator_name: string;
-  public guests: Array<User | number>;
   public dpo_status: number; // 0: NOK, 1: OK
   public dpo_opinion: string;
   public concerned_people_opinion: string;
@@ -30,9 +29,10 @@ export class Pia {
   public updated_at: Date;
   public user_pias: Array<{ user: User; role: string }>;
   lock_version: any;
-  public authors;
-  public validators;
-  public evaluators;
+  public authors: Array<User | number> | string;
+  public validators: Array<User | number> | string;
+  public evaluators: Array<User | number> | string;
+  public guests: Array<User | number> | string;
 
   constructor() {
     this.created_at = new Date();

@@ -560,7 +560,7 @@ export class PiaService extends ApplicationDb {
     updateOption,
     dateExport
   ): Promise<void> {
-    return new Promise(async resolve => {
+    return new Promise(async (resolve, reject) => {
       let pia = new Pia();
       pia = {
         pia,
@@ -576,24 +576,60 @@ export class PiaService extends ApplicationDb {
         pia.structure_sector_name = piaExport.pia.structure_sector_name;
       }
 
-      if (piaExport.pia.guests) {
-        pia.guests = piaExport.pia.guests.map(x => x.id);
-      }
-
       if (updateOption) {
-        this.update(pia, dateExport) // update pia storage
-          .then(async entry => {
-            // DELETE EVERY ANSWERS, MEASURES AND COMMENT
-            await this.destroyData(pia.id);
-            // CREATE NEW ANSWERS, MEASURES AND COMMENT
-            await this.importAnswers(piaExport.answers, pia.id);
-            await this.importMeasures(piaExport, pia.id, false);
-            await this.importComments(piaExport.comments, pia.id);
-            resolve(entry);
-          })
-          .catch(err => {
-            console.log(err);
-          });
+        this.find(pia.id).then((data: Pia) => {
+          // Get lock version
+
+          if (data.lock_version) {
+            pia.lock_version = data.lock_version;
+          }
+
+          if (this.authService.state && pia.user_pias) {
+            const authors = pia.user_pias.filter(
+              user_pia => user_pia.role === 'author'
+            );
+            const evaluators = pia.user_pias.filter(
+              user_pia => user_pia.role === 'evaluator'
+            );
+            const validators = pia.user_pias.filter(
+              user_pia => user_pia.role === 'validator'
+            );
+            const guests = pia.user_pias.filter(
+              user_pia => user_pia.role === 'guest'
+            );
+
+            if (authors) {
+              pia.authors = authors.map(userRole => userRole.user.id).join(',');
+            }
+            if (evaluators) {
+              pia.evaluators = evaluators
+                .map(userRole => userRole.user.id)
+                .join(',');
+            }
+            if (validators) {
+              pia.validators = validators
+                .map(userRole => userRole.user.id)
+                .join(',');
+            }
+            if (guests) {
+              pia.guests = guests.map(userRole => userRole.user.id).join(',');
+            }
+          }
+
+          this.update(pia, dateExport) // update pia storage
+            .then(async entry => {
+              // DELETE EVERY ANSWERS, MEASURES AND COMMENT
+              await this.destroyData(pia.id);
+              // CREATE NEW ANSWERS, MEASURES AND COMMENT
+              await this.importAnswers(piaExport.answers, pia.id);
+              await this.importMeasures(piaExport, pia.id, false);
+              await this.importComments(piaExport.comments, pia.id);
+              resolve(entry);
+            })
+            .catch(err => {
+              reject(err);
+            });
+        });
       } else {
         resolve();
       }

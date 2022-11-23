@@ -86,13 +86,16 @@ export class RevisionService extends ApplicationDb {
    * Load a new revision
    */
   async loadRevision(revisionId: number): Promise<void> {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       super.find(revisionId).then((revision: Revision) => {
         const piaExport = JSON.parse(revision.export);
         this.piaService
           .replacePiaByExport(piaExport, true, true, revision.created_at)
-          .then(pia => {
+          .then(() => {
             resolve(piaExport);
+          })
+          .catch(err => {
+            reject(err);
           });
       });
     });
