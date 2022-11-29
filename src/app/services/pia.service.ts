@@ -90,7 +90,7 @@ export class PiaService extends ApplicationDb {
           resolve(result);
         })
         .catch(error => {
-          reject();
+          reject(error);
         });
     });
   }
@@ -111,7 +111,7 @@ export class PiaService extends ApplicationDb {
         })
         .catch(error => {
           console.error('Request failed', error);
-          reject();
+          reject(error);
         });
     });
   }
@@ -439,7 +439,7 @@ export class PiaService extends ApplicationDb {
         return;
       }
 
-      const pia = new Pia();
+      let pia = new Pia();
       pia.name = '(' + prefix + ') ' + data.pia.name;
       pia.category = data.pia.category;
       pia.dpo_status = data.pia.dpo_status;
@@ -456,36 +456,8 @@ export class PiaService extends ApplicationDb {
       pia.dpos_names = data.pia.dpos_names;
       pia.people_names = data.pia.people_names;
 
-      if (this.authService.state && data.pia.user_pias) {
-        const authors = data.pia.user_pias.filter(
-          user_pia => user_pia.role === 'author'
-        );
-        const evaluators = data.pia.user_pias.filter(
-          user_pia => user_pia.role === 'evaluator'
-        );
-        const validators = data.pia.user_pias.filter(
-          user_pia => user_pia.role === 'validator'
-        );
-        const guests = data.pia.user_pias.filter(
-          user_pia => user_pia.role === 'guest'
-        );
-
-        if (authors) {
-          pia.authors = authors.map(userRole => userRole.user.id).join(',');
-        }
-        if (evaluators) {
-          pia.evaluators = evaluators
-            .map(userRole => userRole.user.id)
-            .join(',');
-        }
-        if (validators) {
-          pia.validators = validators
-            .map(userRole => userRole.user.id)
-            .join(',');
-        }
-        if (guests) {
-          pia.guests = guests.map(userRole => userRole.user.id).join(',');
-        }
+      if (this.authService.state && pia.user_pias) {
+        pia = Pia.formatUsersDatas(pia);
       } else {
         pia.author_name = data.pia.author_name;
         pia.evaluator_name = data.pia.evaluator_name;
@@ -585,35 +557,7 @@ export class PiaService extends ApplicationDb {
           }
 
           if (this.authService.state && pia.user_pias) {
-            const authors = pia.user_pias.filter(
-              user_pia => user_pia.role === 'author'
-            );
-            const evaluators = pia.user_pias.filter(
-              user_pia => user_pia.role === 'evaluator'
-            );
-            const validators = pia.user_pias.filter(
-              user_pia => user_pia.role === 'validator'
-            );
-            const guests = pia.user_pias.filter(
-              user_pia => user_pia.role === 'guest'
-            );
-
-            if (authors) {
-              pia.authors = authors.map(userRole => userRole.user.id).join(',');
-            }
-            if (evaluators) {
-              pia.evaluators = evaluators
-                .map(userRole => userRole.user.id)
-                .join(',');
-            }
-            if (validators) {
-              pia.validators = validators
-                .map(userRole => userRole.user.id)
-                .join(',');
-            }
-            if (guests) {
-              pia.guests = guests.map(userRole => userRole.user.id).join(',');
-            }
+            pia = Pia.formatUsersDatas(pia);
           }
 
           this.update(pia, dateExport) // update pia storage
@@ -864,6 +808,11 @@ export class PiaService extends ApplicationDb {
         pia.is_archive = 0;
       }
       pia.updated_at = date ? date : new Date();
+
+      if (this.authService.state && pia.user_pias) {
+        pia = Pia.formatUsersDatas(pia);
+      }
+
       super
         .update(pia.id, pia)
         .then((result: any) => {

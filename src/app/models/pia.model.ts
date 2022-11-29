@@ -37,4 +37,32 @@ export class Pia {
   constructor() {
     this.created_at = new Date();
   }
+
+  static formatUsersDatas(pia) {
+    const authors = pia.user_pias.filter(
+      user_pia => user_pia.role === 'author'
+    );
+    const evaluators = pia.user_pias.filter(
+      user_pia => user_pia.role === 'evaluator'
+    );
+    const validators = pia.user_pias.filter(
+      user_pia => user_pia.role === 'validator'
+    );
+    const guests = pia.user_pias.filter(user_pia => user_pia.role === 'guest');
+
+    if (authors) {
+      pia.authors = authors.map(userRole => userRole.user.id).join(',');
+    }
+    if (evaluators) {
+      pia.evaluators = evaluators.map(userRole => userRole.user.id).join(',');
+    }
+    if (validators) {
+      pia.validators = validators.map(userRole => userRole.user.id).join(',');
+    }
+    if (guests) {
+      pia.guests = guests.map(userRole => userRole.user.id).join(',');
+    }
+
+    return pia;
+  }
 }
