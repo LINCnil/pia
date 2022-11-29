@@ -19,11 +19,6 @@
                     (focusout)="dpoNameFocusOut()"
                     #DpoNames
                     type="text"
-                    [attr.disabled]="
-                      !editMode.includes('evaluation') && editMode !== 'local'
-                        ? 'true'
-                        : null
-                    "
                     class="DPOName"
                     formControlName="DPONames"
                     placeholder="{{
@@ -42,11 +37,6 @@
               <input
                 type="radio"
                 id="treatment-1"
-                [attr.disabled]="
-                  !editMode.includes('evaluation') && editMode !== 'local'
-                    ? 'true'
-                    : null
-                "
                 [attr.dirty]="pia.dpo_status === 1"
                 [checked]="pia.dpo_status === 1"
                 (click)="enableDpoStatusRadioButtons()"
@@ -64,11 +54,6 @@
               <input
                 type="radio"
                 id="treatment-2"
-                [attr.disabled]="
-                  !editMode.includes('evaluation') && editMode !== 'local'
-                    ? 'true'
-                    : null
-                "
                 [attr.dirty]="pia.dpo_status === 0"
                 [checked]="pia.dpo_status === 0"
                 (click)="enableDpoStatusRadioButtons()"
