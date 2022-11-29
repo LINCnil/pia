@@ -101,6 +101,16 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.disable();
     }
 
+    // Check user role
+    if (!this.editMode.includes('evaluator') && this.editMode != 'local') {
+      this.DPOForm.controls['DPONames'].disable();
+      this.DPOForm.controls['DPOStatus'].disable();
+      this.DPOForm.controls['DPOOpinion'].disable();
+      this.searchedOpinionsForm.controls['searchContent'].disable();
+      this.peopleForm.controls['peopleStatus'].disable();
+      this.peopleForm.controls['peopleOpinion'].disable();
+    }
+
     // Textareas auto resize
     const DPOTextarea = document.getElementById('pia-opinions-dpo');
     if (DPOTextarea) {
@@ -116,11 +126,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Focuses dpo name.
    */
   dpoNameFocusIn(): any {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1 ||
-      (!this.editMode.includes('evaluator') && this.editMode !== 'local')
-    ) {
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
       return false;
     } else {
       this.DPOForm.controls['DPONames'].enable();
