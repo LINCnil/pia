@@ -101,13 +101,9 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
     // Check user role
     if (!this.editMode.includes('validator') && this.editMode != 'local') {
-      this.DPOForm.controls.DPONames.disable();
-      this.DPOForm.controls.DPOStatus.disable();
-      this.DPOForm.controls.DPOOpinion.disable();
-      this.searchedOpinionsForm.controls.searchStatus.disable();
-      this.searchedOpinionsForm.controls.searchContent.disable();
-      this.peopleForm.controls.peopleStatus.disable();
-      this.peopleForm.controls.peopleOpinion.disable();
+      this.DPOForm.disable();
+      this.searchedOpinionsForm.disable();
+      this.peopleForm.disable();
     }
 
     // Textareas auto resize
@@ -291,8 +287,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   /**
    * Auto textarea resize.
-   * @param {*} event - Any Event.
-   * @param {HTMLElement} [textarea] - Textarea HTML element.
    */
   autoTextareaResize(event: any, textarea?: HTMLElement) {
     if (event) {
@@ -311,12 +305,12 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Checks if concerned people name is filled to enable other fields.
    */
   checkConcernedPeopleName() {
-    if (!this.peopleForm.controls['peopleNames'].value) {
+    if (!this.peopleForm.controls.peopleNames.value) {
       this.elementRef2.nativeElement.focus();
-      this.peopleForm.controls['peopleStatus'].disable();
-      this.peopleForm.controls['peopleOpinion'].disable();
-      this.peopleForm.controls['peopleStatus'].patchValue(null);
-      this.peopleForm.controls['peopleOpinion'].patchValue(null);
+      this.peopleForm.controls.peopleStatus.disable();
+      this.peopleForm.controls.peopleOpinion.disable();
+      this.peopleForm.controls.peopleStatus.patchValue(null);
+      this.peopleForm.controls.peopleOpinion.patchValue(null);
     }
   }
 }
