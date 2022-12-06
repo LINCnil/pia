@@ -29,16 +29,18 @@
               </ng-container>
               <ng-template #displayNames1>
                 {{ pia.dpos_names }}
-              </ng-template> </span
-            >{{ "opinions.content" | translate }}
+              </ng-template>
+            </span>
+            {{ "opinions.content" | translate }}
           </p>
           <div class="pia-entryContentBlock-content-DPO-treatment">
-            <div>
+            <div (click)="changeFocusIfDisable('DPOName')">
               <input
                 type="radio"
                 id="treatment-1"
                 [attr.dirty]="pia.dpo_status === 1"
                 [checked]="pia.dpo_status === 1"
+                (click)="changeFocusIfDisable('DPOName')"
                 (change)="dpoStatusFocusOut()"
                 formControlName="DPOStatus"
                 [value]="1"
@@ -49,7 +51,7 @@
                 <span>{{ "opinions.treatment_ok" | translate }}</span>
               </label>
             </div>
-            <div>
+            <div (click)="changeFocusIfDisable('DPOName')">
               <input
                 type="radio"
                 id="treatment-2"
@@ -167,7 +169,7 @@
                   <input
                     #PeopleNames
                     type="text"
-                    class="DPOName"
+                    class="peopleNames"
                     (change)="concernedPeopleNameFocusOut()"
                     formControlName="peopleNames"
                     placeholder="{{
@@ -182,7 +184,7 @@
             >{{ "opinions.content" | translate }}
           </p>
           <div class="pia-entryContentBlock-content-people-treatment">
-            <div>
+            <div (click)="changeFocusIfDisable('peopleNames')">
               <input
                 type="radio"
                 id="dpoAvis-1"
@@ -197,7 +199,7 @@
                 <span>{{ "opinions.treatment_ok" | translate }}</span>
               </label>
             </div>
-            <div>
+            <div (click)="changeFocusIfDisable('peopleNames')">
               <input
                 type="radio"
                 id="dpoAvis-2"

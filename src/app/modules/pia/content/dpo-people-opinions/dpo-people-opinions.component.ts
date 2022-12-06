@@ -313,4 +313,22 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.controls.peopleOpinion.patchValue(null);
     }
   }
+
+  changeFocusIfDisable(inputClass) {
+    console.log('enter', inputClass);
+    switch (inputClass) {
+      case 'DPOName':
+        console.log(this.DPOForm.controls.DPONames.value);
+        if (!this.DPOForm.controls.DPONames.value) {
+          document.querySelector(`input.${inputClass}`).focus();
+        }
+        break;
+      case 'peopleNames':
+        console.log(this.peopleForm.controls.peopleNames.value);
+        if (!this.peopleForm.controls.peopleNames.value) {
+          document.querySelector(`input.${inputClass}`).focus();
+        }
+        break;
+    }
+  }
 }
