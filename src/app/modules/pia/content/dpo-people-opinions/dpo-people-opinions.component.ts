@@ -301,21 +301,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
   }
 
-  /**
-   * Checks if concerned people name is filled to enable other fields.
-   */
-  checkConcernedPeopleName() {
-    if (!this.peopleForm.controls.peopleNames.value) {
-      this.elementRef2.nativeElement.focus();
-      this.peopleForm.controls.peopleStatus.disable();
-      this.peopleForm.controls.peopleOpinion.disable();
-      this.peopleForm.controls.peopleStatus.patchValue(null);
-      this.peopleForm.controls.peopleOpinion.patchValue(null);
-    }
-  }
-
   changeFocusIfDisable(inputClass) {
-    console.log('enter', inputClass);
     switch (inputClass) {
       case 'DPOName':
         console.log(this.DPOForm.controls.DPONames.value);
