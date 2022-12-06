@@ -306,13 +306,19 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       case 'DPOName':
         console.log(this.DPOForm.controls.DPONames.value);
         if (!this.DPOForm.controls.DPONames.value) {
-          document.querySelector(`input.${inputClass}`).focus();
+          let input: HTMLInputElement = document.querySelector(
+            `input.${inputClass}`
+          );
+          input.focus();
         }
         break;
       case 'peopleNames':
         console.log(this.peopleForm.controls.peopleNames.value);
         if (!this.peopleForm.controls.peopleNames.value) {
-          document.querySelector(`input.${inputClass}`).focus();
+          let input: HTMLInputElement = document.querySelector(
+            `input.${inputClass}`
+          );
+          input.focus();
         }
         break;
     }
