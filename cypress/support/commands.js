@@ -29,8 +29,12 @@ Cypress.Commands.add("skip_onboarding", () => {
 });
 
 Cypress.Commands.add("focus_out", () => {
-  cy.get(".pia-knowledgeBaseBlock-searchForm form input").type("text", {
-    force: true
+  cy.get(".pia-knowledgeBaseBlock-searchForm form input").then($el => {
+    $el.trigger("focus", { force: true });
+    $el.val("text", {
+      force: true
+    });
+    $el.trigger("blur", { force: true });
   });
 });
 
@@ -45,7 +49,7 @@ Cypress.Commands.add("import_pia", () => {
 
   // Import
   cy.get('input[type="file"]#import_file').attachFile(filepath);
-  cy.wait(10000);
+  cy.wait(5000);
 
   // there is a new pia ?
   cy.get(".pia-cardsBlock.pia").should("have.length", 1);
@@ -83,17 +87,19 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
   cy.get("textarea").then($el => {
     for (const $textarea of $el) {
       cy.wrap($textarea).then($textarea => {
+        cy.get($textarea).trigger("focus", { force: true });
         $textarea.val(
           "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
         );
         cy.wrap($textarea)
           .click({ force: true })
           .then(() => {
-            cy.wait(1000);
+            cy.wait(2000);
           });
+        cy.get($textarea).trigger("blur", { force: true });
+        cy.focus_out();
       });
     }
-    cy.focus_out();
   });
 });
 
@@ -112,18 +118,22 @@ Cypress.Commands.add("test_add_measure", () => {
       // Set content of measure
       cy.get(".pia-measureBlock-content").each(($el, $index, $list) => {
         cy.wrap($el).click();
+
         $el
           .find("textarea")
           .val(
             "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
           );
+
         cy.wrap($el)
           .parent()
           .wait(1000)
           .click();
-        expect($el.find("textarea").val().length > 0).to.be.true;
+
+        // expect($el.find("textarea").val().length > 0).to.be.true;
+
+        cy.focus_out();
       });
-      cy.focus_out();
     });
 });
 
@@ -278,7 +288,7 @@ Cypress.Commands.add("validateDPO", () => {
   const baseContentDPO = ".pia-entryContentBlock-content-DPO ";
   const reactTime = 1000;
   cy.wait(reactTime);
-  cy.get(baseContentDPO + "input[type=text]")
+  cy.get(baseContentDPO + "input.DPOName")
     .first()
     .type("DPO Pia", { force: true });
   cy.get(baseContentDPO + ".pia-entryContentBlock-content-DPO-treatment label")
@@ -300,9 +310,9 @@ Cypress.Commands.add("validateDPO", () => {
 
   cy.wait(reactTime);
   cy.wait(reactTime);
-  cy.get(baseContentPeople + "input.DPOName")
+  cy.get(baseContentPeople + "input.peopleNames")
     .first()
-    .type("DPO Pia", { force: true });
+    .type("Pia's concerned people", { force: true });
 
   cy.wait(reactTime);
   cy.get(baseContentPeople + "label[for=dpoAvis-1]")
@@ -360,7 +370,7 @@ Cypress.Commands.add("refusePia", () => {
       cy.get(".btn-red")
         .first()
         .click({ force: true });
-      cy.wait(6000);
+      cy.wait(3000);
       cy.get(".pia-entryContentBlock-content-subject-textarea")
         .find("textarea", { force: true })
         .then(() => {
@@ -370,15 +380,30 @@ Cypress.Commands.add("refusePia", () => {
               "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
               { force: true }
             );
+
+          cy.get(".pia-entryContentBlock-content-subject").click("bottom", {
+            force: true
+          });
+
+          cy.get(".pia-entryContentBlock-footer")
+            .find("button")
+            .last()
+            .click({ force: true });
+
+          cy.get("#pia-refuse-modifications")
+            .type(
+              "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
+              { force: true }
+            )
+            .trigger("blur", { force: true });
+
+          cy.focus_out();
+
+          cy.get(".pia-entryContentBlock-footer")
+            .find("button")
+            .trigger("click");
+          cy.wait(1000);
+          cy.url().should("contain", "4/item/4");
         });
-      cy.get(".pia-entryContentBlock-content-subject")
-        .wait(1000)
-        .click("bottom", { force: true });
-      cy.wait(1000)
-        .get(".pia-entryContentBlock-footer")
-        .find("button")
-        .last()
-        .click({ force: true });
-      cy.get("#modal-refuse-pia > .pia-modalBlock-content > .btn").click();
     });
 });
