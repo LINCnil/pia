@@ -56,8 +56,8 @@ export class PiaValidateHistoryComponent implements OnInit {
   showValidationHistory() {
     return (
       (this.pia.status === 2 || this.pia.status === 3) &&
-      this.pia.applied_adjustements &&
-      this.pia.rejected_reason
+      this.pia.applied_adjustments &&
+      this.pia.rejection_reason
     );
   }
 

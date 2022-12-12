@@ -168,9 +168,13 @@ export class PiaService extends ApplicationDb {
         pia.people_names = null;
         pia.concerned_people_status = null;
         pia.concerned_people_opinion = null;
-        this.update(pia).then(res => {
-          resolve(res);
-        });
+        this.update(pia)
+          .then(res => {
+            resolve(res);
+          })
+          .catch(err => {
+            reject(err);
+          });
       });
     });
   }
@@ -360,10 +364,17 @@ export class PiaService extends ApplicationDb {
   /**
    * Allows an user to abandon a treatment (archive a PIA).
    */
-  abandonTreatment(pia: Pia): void {
-    pia.status = 4;
-    this.update(pia).then(() => {
-      this.router.navigate(['/entries']);
+  abandonTreatment(pia: Pia): Promise<Pia> {
+    return new Promise((resolve, reject) => {
+      pia.status = 4;
+      this.update(pia)
+        .then(data => {
+          this.router.navigate(['/entries']);
+          resolve(data);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 
@@ -450,8 +461,8 @@ export class PiaService extends ApplicationDb {
         data.pia.concerned_people_searched_opinion;
       pia.concerned_people_searched_content =
         data.pia.concerned_people_searched_content;
-      pia.rejected_reason = data.pia.rejected_reason;
-      pia.applied_adjustements = data.pia.applied_adjustements;
+      pia.rejection_reason = data.pia.rejection_reason;
+      pia.applied_adjustments = data.pia.applied_adjustments;
       pia.created_at = data.pia.created_at;
       pia.dpos_names = data.pia.dpos_names;
       pia.people_names = data.pia.people_names;

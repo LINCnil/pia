@@ -178,11 +178,13 @@
   ></div>
 
   <app-validate-pia
+    [editMode]="editMode"
     [pia]="pia"
     *ngIf="section.id == 4 && item.id == 4"
   ></app-validate-pia>
 
   <app-refuse-pia
+    [editMode]="editMode"
     [pia]="pia"
     *ngIf="section.id == 4 && item.id == 5"
   ></app-refuse-pia>
