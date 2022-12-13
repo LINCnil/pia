@@ -29,6 +29,10 @@ Cypress.Commands.add("skip_onboarding", () => {
 });
 
 Cypress.Commands.add("focus_out", () => {
+  cy.get("body").click();
+  cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
+    force: true
+  });
   cy.get(".pia-knowledgeBaseBlock-searchForm form input").then($el => {
     $el.trigger("focus", { force: true });
     $el.val("text", {
@@ -84,23 +88,23 @@ Cypress.Commands.add("get_current_pia_id", callback => {
 });
 
 Cypress.Commands.add("test_writing_on_textarea", () => {
-  cy.get("textarea").then($el => {
-    for (const $textarea of $el) {
-      cy.wrap($textarea).then($textarea => {
-        cy.get($textarea).trigger("focus", { force: true });
-        $textarea.val(
-          "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
-        );
-        cy.wrap($textarea)
-          .click({ force: true })
-          .then(() => {
-            cy.wait(2000);
-          });
-        cy.get($textarea).trigger("blur", { force: true });
-        cy.focus_out();
-      });
-    }
+  cy.get("textarea").then($textarea => {
+    $textarea.val(
+      "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
+      { force: true }
+    );
   });
+
+  cy.get(".pia-questionBlock-displayer .pia-questionBlock-contentText").then(
+    $el => {
+      cy.get($el)
+        .click({ force: true, multiple: true })
+        .then(() => {
+          cy.wait(1000);
+          cy.focus_out();
+        });
+    }
+  );
 });
 
 Cypress.Commands.add("test_add_measure", () => {
@@ -124,11 +128,6 @@ Cypress.Commands.add("test_add_measure", () => {
           .val(
             "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
           );
-
-        cy.wrap($el)
-          .parent()
-          .wait(1000)
-          .click();
 
         // expect($el.find("textarea").val().length > 0).to.be.true;
 
@@ -235,6 +234,7 @@ Cypress.Commands.add("acceptEval", () => {
     .find(".btn-green")
     .click()
     .then(() => {
+      cy.wait(4000);
       cy.get(".pia-entryContentBlock-footer")
         .find(".btn-green")
         .should("have.class", "btn-active")
