@@ -88,23 +88,22 @@ Cypress.Commands.add("get_current_pia_id", callback => {
 });
 
 Cypress.Commands.add("test_writing_on_textarea", () => {
-  cy.get("textarea").then($textarea => {
-    $textarea.val(
-      "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
-      { force: true }
+  cy.get("textarea").each((textarea, index, els) => {
+    cy.get(textarea).then($e =>
+      $e.val(
+        "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
+        { force: true }
+      )
     );
-  });
-
-  cy.get(".pia-questionBlock-displayer .pia-questionBlock-contentText").then(
-    $el => {
-      cy.get($el)
-        .click({ force: true, multiple: true })
-        .then(() => {
-          cy.wait(1000);
-          cy.focus_out();
-        });
+    for (const el of [...textarea]) {
+      cy.get(el).click({ force: true });
+      cy.get(el).trigger("focus", { force: true });
+      cy.wait(1000);
+      cy.get(el).trigger("blur", { force: true });
+      cy.focus_out();
     }
-  );
+    cy.focus_out();
+  });
 });
 
 Cypress.Commands.add("test_add_measure", () => {

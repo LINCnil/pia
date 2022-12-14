@@ -287,6 +287,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Disables question field + shows edit button + save data.
    */
   questionContentFocusOut(): void {
+    console.log('save content');
     this.answer.pia_id = this.pia.id;
     this.answer.reference_to = this.question.id;
     let userText = this.questionForm.controls['text'].value;
@@ -510,8 +511,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor(): void {
+    this.closeEditor();
+
+    // unset knowlegebase
     this.knowledgeBaseService.placeholder = this.question.placeholder;
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
+
+    // init new editor
     tinymce.init({
       branding: false,
       menubar: false,
@@ -526,11 +532,15 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       skin: false,
       setup: editor => {
-        this.editor = editor;
+        editor.on('focusin', () => {
+          console.log('focus in !');
+          this.editor = editor;
+        });
         editor.on('focusout', () => {
+          // Save content
           this.questionForm.controls['text'].patchValue(editor.getContent());
           this.questionContentFocusOut();
-          this.closeEditor();
+          this.knowledgeBaseService.placeholder = null;
         });
       }
     });
@@ -541,9 +551,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @private
    */
   private closeEditor() {
-    this.knowledgeBaseService.placeholder = null;
-    tinymce.remove(this.editor);
+    console.log('kill editor');
     this.editor = null;
+    tinymce.remove(this.editor);
   }
 
   /**
