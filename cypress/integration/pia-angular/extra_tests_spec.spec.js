@@ -16,7 +16,6 @@ describe("Test Search KnowledgeBase", () => {
     it("should search an element", () => {
       cy.create_new_pia().then(() => {
         cy.visit("/#/pia/2/section/2/item/2");
-        cy.wait(3000);
         cy.get(".pia-knowledgeBaseBlock-searchForm")
           .find("input")
           .type("Transf");

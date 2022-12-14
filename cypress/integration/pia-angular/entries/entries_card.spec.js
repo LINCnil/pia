@@ -26,19 +26,15 @@ describe("Entries_card", () => {
      * Create new pia
      */
     it("should add new pia", () => {
-      cy.create_new_pia().then(() => {
-        cy.wait(500);
-      });
+      cy.create_new_pia();
     });
 
     /**
      * Edit pia
      */
     it("should edit pia", () => {
-      //cy.wait(500);
       // Redirect into entries
       cy.visit(`/#/entries`);
-      cy.wait(3000);
       cy.get("#pia-edit-2-name")
         .clear()
         .type("pia edited");
@@ -59,12 +55,10 @@ describe("Entries_card", () => {
     it("should duplicate pia", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
-      cy.wait(3000);
       cy.get(".pia-cardsBlock.pia").should("have.length", 1);
       cy.get(".pia-cardsBlock-toolbar-export a:eq(0)")
         .click()
         .then(() => {
-          cy.wait(10000);
           cy.get(".pia-cardsBlock.pia").should("have.length", 2);
         });
     });
