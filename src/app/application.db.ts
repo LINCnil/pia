@@ -389,12 +389,14 @@ export class ApplicationDb {
           evt.onsuccess = (event: any) => {
             // Return object data after update
 
-            // const evtF = this.objectStore.get(id);
-            // evtF.onsuccess = (eventF: any) => {
-            //   resolve(eventF.target.result);
-            // };
-
-            resolve(event.target.result);
+            try {
+              const evtF = this.objectStore.get(id);
+              evtF.onsuccess = (eventF: any) => {
+                resolve(eventF.target.result);
+              };
+            } catch {
+              resolve(event.target.result);
+            }
           };
         });
       }
