@@ -35,7 +35,6 @@ export class EvaluationService extends ApplicationDb {
       super
         .find(evaluation.id)
         .then((entry: any) => {
-          console.log(entry.id);
           entry = {
             ...entry,
             ...evaluation
