@@ -88,18 +88,17 @@ export class GlobalEvaluationService {
       } else {
         await this.answersVerification();
         let count = 0;
-        this.answersOrMeasures.forEach(
-          async (answerOrMeasure: Answer | Measure) => {
-            count++;
-            this.createOrUpdateEvaluation(
-              this.getAnswerReferenceTo(answerOrMeasure)
-            );
-            if (count === this.answersOrMeasures.length) {
-              await this.validate();
-              resolve();
-            }
+        for (const answerOrMeasure of this.answersOrMeasures) {
+          count++;
+          await this.createOrUpdateEvaluation(
+            this.getAnswerReferenceTo(answerOrMeasure)
+          );
+
+          if (count === this.answersOrMeasures.length) {
+            await this.validate();
           }
-        );
+        }
+        resolve();
       }
     });
   }
@@ -109,7 +108,7 @@ export class GlobalEvaluationService {
    * @returns {Promise}
    */
   async validateAllEvaluation(): Promise<any> {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       this.evaluationService.pia_id = this.pia.id;
       if (this.item.evaluation_mode === 'item') {
         this.evaluationService
@@ -126,16 +125,23 @@ export class GlobalEvaluationService {
             }
 
             evaluation.evaluation_infos = JSON.stringify(this.item);
-            this.evaluationService.update(evaluation).then(async () => {
-              await this.validate();
-              resolve(evaluation.status === 1);
-            });
+            this.evaluationService
+              .update(evaluation)
+              .then(async () => {
+                await this.validate();
+                resolve(evaluation.status === 1);
+              })
+              .reject(err => {
+                reject(err);
+              });
           });
       } else if (this.answersOrMeasures.length > 0) {
+        console.log('test 2');
         let count = 0;
         let toFix = false;
-        this.answersOrMeasures.forEach(answerOrMeasure => {
-          this.evaluationService
+
+        for (const answerOrMeasure of this.answersOrMeasures) {
+          await this.evaluationService
             .getByReference(
               this.pia.id,
               this.getAnswerReferenceTo(answerOrMeasure)
@@ -150,19 +156,25 @@ export class GlobalEvaluationService {
                 }
 
                 evaluation.evaluation_infos = JSON.stringify(this.item);
-                this.evaluationService.update(evaluation).then(async () => {
-                  count++;
-                  if (count === this.answersOrMeasures.length) {
-                    await this.validate();
-                    resolve(toFix);
-                  }
-                });
+                this.evaluationService
+                  .update(evaluation)
+                  .then(async () => {
+                    count++;
+                    if (count === this.answersOrMeasures.length) {
+                      await this.validate();
+                      // resolve(toFix);
+                    }
+                  })
+                  .catch(err => {
+                    console.log('erro update');
+                  });
               } else {
                 await this.validate();
-                resolve(false);
+                // resolve(false);
               }
             });
-        });
+        }
+        resolve(toFix);
       }
     });
   }
@@ -173,25 +185,30 @@ export class GlobalEvaluationService {
   cancelForEvaluation(): Promise<any> {
     return new Promise(async (resolve, reject) => {
       if (this.item.evaluation_mode === 'item') {
-        await this.deleteEvaluationInDb(this.reference_to).then(async () => {
-          await this.validate();
-          resolve(true);
-        });
+        this.deleteEvaluationInDb(this.reference_to)
+          .then(async () => {
+            await this.validate();
+            resolve(true);
+          })
+          .catch(err => {
+            reject(err);
+          });
       } else if (this.answersOrMeasures.length > 0) {
         let count = 0;
-        this.answersOrMeasures.forEach(answerOrMeasure => {
+        for (const answerOrMeasure of this.answersOrMeasures) {
           this.deleteEvaluationInDb(this.getAnswerReferenceTo(answerOrMeasure))
             .then(async () => {
               count++;
               if (count === this.answersOrMeasures.length) {
                 await this.validate();
               }
-              resolve(true);
+              // resolve(true);
             })
             .catch(() => {
-              reject(true);
+              // reject(true);
             });
-        });
+        }
+        resolve(true);
       }
     });
   }

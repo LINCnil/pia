@@ -460,7 +460,7 @@ export class EvaluationsComponent
       .update(this.evaluation)
       .then(() => {
         this.loading = true;
-        this.globalEvaluationService.validate().then(() => {
+        this.globalEvaluationService.validate().finally(() => {
           this.loading = false;
         });
       })

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Pia } from 'src/app/models/pia.model';
-import { ApiService } from 'src/app/services/api.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
