@@ -801,10 +801,8 @@ export class PiaService extends ApplicationDb {
       this.find(id)
         .then((entry: Pia) => {
           entry.is_archive = 1;
-          this.calculPiaProgress(entry).then(() => {
-            this.update(entry).then(() => {
-              resolve();
-            });
+          this.update(entry).then(() => {
+            resolve();
           });
         })
         .catch(err => {
