@@ -35,18 +35,30 @@ describe("Entries_card", () => {
     it("should edit pia", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
-      cy.get("#pia-edit-2-name")
+      cy.wait(1000);
+      cy.get(".pia-cardsBlock-item-form input[formcontrolname='name']")
+        .eq(1)
         .clear()
-        .type("pia edited");
-      cy.get("#pia-edit-2-author-name")
+        .type("name edited");
+      cy.get(".pia-cardsBlock-item-form input[formcontrolname='author_name']")
+        .eq(1)
         .clear()
-        .type("author edited");
-      cy.get("#pia-edit-2-evaluator-name")
+        .type("author_name edited");
+      cy.get(
+        ".pia-cardsBlock-item-form input[formcontrolname='evaluator_name']"
+      )
+        .eq(1)
         .clear()
-        .type("evaluator edited");
-      cy.get("#pia-edit-2-validator-name")
+        .type("evaluator_name edited");
+      cy.get(
+        ".pia-cardsBlock-item-form input[formcontrolname='validator_name']"
+      )
+        .eq(1)
         .clear()
-        .type("validator edited");
+        .type("validator_name edited");
+      cy.get(".pia-cardsBlock-item-form input[formcontrolname='category']")
+        .eq(1)
+        .click();
     });
 
     /**
@@ -69,8 +81,8 @@ describe("Entries_card", () => {
     it("should export pia", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
-      cy.get(".pia-cardsBlock-toolbar-export a")
-        .eq(2)
+      cy.get(".pia-cardsBlock-toolbar-export .fa-download")
+        .eq(1)
         .click();
     });
   });

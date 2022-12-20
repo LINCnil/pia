@@ -10,21 +10,19 @@ export function context_validation() {
     context("Validation for 'Vue d'ensemble'", () => {
       it("should acept evaluation", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 1, 1).then(() => {
-            cy.acceptEval();
-            cy.closeValidationEvaluationModal();
-          });
+          cy.go_edited_pia(id, 1, 1);
+          cy.acceptEval();
+          cy.closeValidationEvaluationModal();
         });
       });
 
       it("check accepted btn is blocked", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 1, 1).then(() => {
-            cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
-              "have.attr",
-              "disabled"
-            );
-          });
+          cy.go_edited_pia(id, 1, 1);
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
         });
       });
     });
@@ -32,21 +30,19 @@ export function context_validation() {
     context("Validation for 'Données, processus et supports'", () => {
       it("should acept evaluation", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 1, 2).then(() => {
-            cy.acceptEval();
-            cy.closeValidationEvaluationModal();
-          });
+          cy.go_edited_pia(id, 1, 2);
+          cy.acceptEval();
+          cy.closeValidationEvaluationModal();
         });
       });
 
       it("check accepted btn is blocked", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 1, 2).then(() => {
-            cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
-              "have.attr",
-              "disabled"
-            );
-          });
+          cy.go_edited_pia(id, 1, 2);
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
         });
       });
     });

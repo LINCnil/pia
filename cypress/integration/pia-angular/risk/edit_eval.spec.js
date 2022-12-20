@@ -27,13 +27,11 @@ export function risk_edit_eval() {
     context("Test skip step (bad utilisation)", () => {
       it("alert modal", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 3) // Move prematurely to section 3, 3
-            .then(() => {
-              cy.get(".pia-modalBlock-content p.ng-star-inserted").should(
-                "have.text",
-                "Before evaluating risks,you must report theexisting or planned measures."
-              );
-            });
+          cy.go_edited_pia(id, 3, 3); // Move prematurely to section 3, 3
+          cy.get(".pia-modalBlock-content p.ng-star-inserted").should(
+            "have.text",
+            "Before evaluating risks,you must report theexisting or planned measures."
+          );
         });
       });
 
@@ -47,9 +45,8 @@ export function risk_edit_eval() {
       it("set Measures from sidebar", () => {
         // change section and item
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 1).then(() => {
-            cy.test_add_measure_from_sidebar(); // Set measure
-          });
+          cy.go_edited_pia(id, 3, 1);
+          cy.test_add_measure_from_sidebar(); // Set measure
         });
       });
 
@@ -77,11 +74,10 @@ export function risk_edit_eval() {
         () => {
           cy.get_current_pia_id(id => {
             // change section and item
-            cy.go_edited_pia(id, 3, 2).then(() => {
-              cy.test_add_tags();
-              cy.test_move_gauges();
-              cy.test_writing_on_textarea();
-            });
+            cy.go_edited_pia(id, 3, 2);
+            cy.test_add_tags();
+            cy.test_move_gauges();
+            cy.test_writing_on_textarea_gauges();
           });
         }
       );
@@ -102,7 +98,7 @@ export function risk_edit_eval() {
           cy.go_edited_pia(id, 3, 3).then(() => {
             cy.test_add_tags_next();
             cy.test_move_gauges();
-            cy.test_writing_on_textarea();
+            cy.test_writing_on_textarea_gauges();
           });
         });
       });
@@ -120,11 +116,10 @@ export function risk_edit_eval() {
       it("should complete together view", () => {
         cy.get_current_pia_id(id => {
           // change section and item
-          cy.go_edited_pia(id, 3, 4).then(() => {
-            cy.test_add_tags_next();
-            cy.test_move_gauges();
-            cy.test_writing_on_textarea();
-          });
+          cy.go_edited_pia(id, 3, 4);
+          cy.test_add_tags_next();
+          cy.test_move_gauges();
+          cy.test_writing_on_textarea_gauges();
         });
       });
       it("should valid evaluation", () => {

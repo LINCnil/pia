@@ -13,21 +13,19 @@ export function risk_validation() {
     context("Validation for 'Mesures existantes ou prévues'", () => {
       it("should acept evaluation", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 1).then(() => {
-            cy.acceptMultipleEval();
-            cy.closeValidationEvaluationModal();
-          });
+          cy.go_edited_pia(id, 3, 1);
+          cy.acceptMultipleEval();
+          cy.closeValidationEvaluationModal();
         });
       });
 
       it("check accepted btn is blocked", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 1).then(() => {
-            cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
-              "have.attr",
-              "disabled"
-            );
-          });
+          cy.go_edited_pia(id, 3, 1);
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
         });
       });
     });
@@ -35,21 +33,19 @@ export function risk_validation() {
     context("Validation for 'Accès illégitime à des données'", () => {
       it("should acept evaluation", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 2).then(() => {
-            cy.acceptEval();
-            cy.closeValidationEvaluationModal();
-          });
+          cy.go_edited_pia(id, 3, 2);
+          cy.acceptEval();
+          cy.closeValidationEvaluationModal();
         });
       });
 
       it("check accepted btn is blocked", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 2).then(() => {
-            cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
-              "have.attr",
-              "disabled"
-            );
-          });
+          cy.go_edited_pia(id, 3, 2);
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
         });
       });
     });
@@ -57,21 +53,19 @@ export function risk_validation() {
     context("Validation for 'Modification non désirées de données'", () => {
       it("should acept evaluation", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 3).then(() => {
-            cy.acceptEval();
-            cy.closeValidationEvaluationModal();
-          });
+          cy.go_edited_pia(id, 3, 3);
+          cy.acceptEval();
+          cy.closeValidationEvaluationModal();
         });
       });
 
       it("check accepted btn is blocked", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 3).then(() => {
-            cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
-              "have.attr",
-              "disabled"
-            );
-          });
+          cy.go_edited_pia(id, 3, 3);
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
         });
       });
     });
@@ -79,21 +73,19 @@ export function risk_validation() {
     context("Validation for 'Disparition de données'", () => {
       it("should acept evaluation", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 4).then(() => {
-            cy.acceptEval();
-            cy.closeValidationEvaluationModal();
-          });
+          cy.go_edited_pia(id, 3, 4);
+          cy.acceptEval();
+          cy.closeValidationEvaluationModal();
         });
       });
 
       it("check accepted btn is blocked", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 3, 4).then(() => {
-            cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
-              "have.attr",
-              "disabled"
-            );
-          });
+          cy.go_edited_pia(id, 3, 4);
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
         });
       });
     });

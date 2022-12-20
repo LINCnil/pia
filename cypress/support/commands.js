@@ -44,6 +44,8 @@ Cypress.Commands.add("focus_out", () => {
 
 Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
   cy.visit(`/#/pia/${id}/section/${section}/item/${item}`);
+  // TODO: Need a way to remove this cy.wait
+  // cy.wait(5000)
 });
 
 Cypress.Commands.add("import_pia", () => {
@@ -84,51 +86,77 @@ Cypress.Commands.add("get_current_pia_id", callback => {
 });
 
 Cypress.Commands.add("test_writing_on_textarea", () => {
-  cy.get("textarea").each((textarea, index, els) => {
-    cy.get(textarea).then($e =>
-      $e.val(
-        "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
-        { force: true }
-      )
-    );
-    for (const el of [...textarea]) {
-      cy.get(el).click({ force: true });
-      cy.get(el).trigger("focus", { force: true });
-      cy.wait(1000);
-      cy.get(el).trigger("blur", { force: true });
-      cy.focus_out();
-    }
+  cy.get(".pia-questionBlock").each(($el, index) => {
+    cy.wait(500);
+    cy.wrap($el)
+      .find(`textarea`)
+      .first()
+      .click({ force: true });
+    cy.wrap($el)
+      .find("iframe")
+      .then($iframe => {
+        const $body = $iframe.contents().find("body");
+        cy.wrap($body)
+          .clear({ force: true })
+          .type(
+            "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
+          );
+      });
     cy.focus_out();
   });
 });
 
+Cypress.Commands.add("test_writing_on_textarea_gauges", () => {
+  cy.get(".pia-gaugeBlock")
+    .parent()
+    .each(($el, index) => {
+      cy.wait(500);
+      cy.wrap($el)
+        .find(`textarea`)
+        .last()
+        .click({ force: true });
+      cy.wrap($el)
+        .find("iframe")
+        .then($iframe => {
+          const $body = $iframe.contents().find("body");
+          cy.wrap($body)
+            .clear({ force: true })
+            .type(
+              "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
+            );
+        });
+      cy.focus_out();
+    });
+});
+
 Cypress.Commands.add("test_add_measure", () => {
-  cy.get(".btn-white > .pia-icons")
-    .click()
-    .then(() => {
-      // Set title of measure
-      cy.get(".pia-measureBlock-title").each(($el, $index, $list) => {
-        cy.wrap($el).click();
-        cy.wrap($el)
-          .find("textarea")
-          .type("Measure 1", { force: true });
-      });
+  cy.get(".btn-white > .pia-icons").click();
+  cy.wait(1000);
+  cy.get(".pia-measureBlock-title").each(($el, $index, $list) => {
+    cy.wrap($el).click();
+    cy.wrap($el)
+      .find("textarea")
+      .clear({ force: true })
+      .type("Measure " + $index, { force: true });
+  });
 
-      // Set content of measure
-      cy.get(".pia-measureBlock-content").each(($el, $index, $list) => {
-        cy.wrap($el).click();
-
-        $el
-          .find("textarea")
-          .val(
+  // Set content of measure
+  cy.get(".pia-measureBlock-content").each(($el, $index, $list) => {
+    cy.wrap($el)
+      .find(`textarea`)
+      .first()
+      .click({ force: true });
+    cy.wrap($el)
+      .find("iframe")
+      .then($iframe => {
+        const $body = $iframe.contents().find("body");
+        cy.wrap($body)
+          .clear({ force: true })
+          .type(
             "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
           );
-
-        // expect($el.find("textarea").val().length > 0).to.be.true;
-
-        cy.focus_out();
       });
-    });
+  });
 });
 
 Cypress.Commands.add("test_add_measure_from_sidebar", () => {
@@ -147,8 +175,6 @@ Cypress.Commands.add("test_add_measure_from_sidebar", () => {
       .click();
 
     expect($el.find("textarea").val().length > 0).to.be.true;
-
-    cy.focus_out();
   });
 });
 
@@ -211,8 +237,6 @@ Cypress.Commands.add("test_move_gauges", () => {
 });
 
 Cypress.Commands.add("validateEval", () => {
-  cy.focus_out();
-  cy.wait(1000);
   cy.get(".pia-entryContentBlock-footer")
     .find(".btn-green")
     .should("have.class", "btn-active")
@@ -220,22 +244,18 @@ Cypress.Commands.add("validateEval", () => {
 });
 
 Cypress.Commands.add("acceptEval", () => {
-  cy.get(".pia-evaluationBlock")
-    .find(".btn-green")
-    .click()
-    .then(() => {
-      cy.get(".pia-entryContentBlock-footer")
-        .find(".btn-green")
-        .should("have.class", "btn-active")
-        .click();
-    });
+  cy.get(".pia-evaluationBlock .btn-green").click();
+  cy.get(".pia-entryContentBlock-footer .btn-green")
+    .should("have.class", "btn-active")
+    .click();
 });
 Cypress.Commands.add("acceptMultipleEval", () => {
+  cy.wait(3000);
   cy.get(".pia-evaluationBlock")
     .find(".btn-green")
     .each(($el, $index, $list) => {
       cy.wait(500);
-      cy.wrap($el).click();
+      cy.wrap($el).click({ force: true });
     });
   cy.get(".pia-entryContentBlock-footer")
     .find(".btn-green")
@@ -355,19 +375,32 @@ Cypress.Commands.add("refusePia", () => {
             .last()
             .click({ force: true });
 
-          cy.get("#pia-refuse-modifications")
-            .type(
-              "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
-              { force: true }
-            )
-            .trigger("blur", { force: true });
+          cy.wait(500);
+          cy.get(
+            ".pia-modalBlock.open .pia-modalBlock-buttons-choice button"
+          ).click();
 
-          cy.focus_out();
+          cy.url().should("contain", "1/item/1");
+          // cy.get("#pia-refuse-modifications")
+          //   .type(
+          //     "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
+          //     { force: true }
+          //   )
+          //   .trigger("blur", { force: true });
+          //
+          // cy.focus_out();
+          //
+          // cy.get(".pia-entryContentBlock-footer")
+          //   .find("button")
+          //   .trigger("click");
 
-          cy.get(".pia-entryContentBlock-footer")
-            .find("button")
-            .trigger("click");
-          cy.url().should("contain", "4/item/4");
+          // TODO: Annuler l'evaluation
+          // Faire des modifications
+          // Redemander l'éval
+          // Valider l'évaluation
+          // Valider le pia => Url 4/item/5
+          // Remplie le 2nd champ "modifications apportées"
+          // Valider
         });
     });
 });
