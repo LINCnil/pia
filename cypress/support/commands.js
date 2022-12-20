@@ -237,8 +237,8 @@ Cypress.Commands.add("test_move_gauges", () => {
 });
 
 Cypress.Commands.add("validateEval", () => {
-  cy.get(".pia-entryContentBlock-footer")
-    .find(".btn-green")
+  cy.wait(2000)
+    .get(".pia-entryContentBlock-footer .btn-green")
     .should("have.class", "btn-active")
     .click({ force: true });
 });
