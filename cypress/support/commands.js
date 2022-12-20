@@ -339,9 +339,11 @@ Cypress.Commands.add("validatePia", () => {
     });
 });
 Cypress.Commands.add("validateModalComplete", () => {
+  cy.wait(2000);
   cy.get(".btn.btn-green").click({ force: true });
 });
 Cypress.Commands.add("refusePia", () => {
+  cy.wait(2000);
   cy.get(".pia-validatePIABlock")
     .find(".btn-green")
     .should("have.class", "btn-active")
