@@ -29,17 +29,17 @@ Cypress.Commands.add("skip_onboarding", () => {
 });
 
 Cypress.Commands.add("focus_out", () => {
-  // cy.get("body").click();
+  // cy.get("body").click()
   // cy.get(".pia-knowledgeBaseBlock-searchForm form input[type='search']").click({
   //   force: true
-  // });
+  // })
   // cy.get(".pia-knowledgeBaseBlock-searchForm form input").then($el => {
-  //   $el.trigger("focus", { force: true });
+  //   $el.trigger("focus", { force: true })
   //   $el.val("text", {
   //     force: true
-  //   });
-  //   $el.trigger("blur", { force: true });
-  // });
+  //   })
+  //   $el.trigger("blur", { force: true })
+  // })
   cy.get(".pia-knowledgeBaseBlock-searchForm form input[type='search']")
     .clear({ force: true })
     .type("Focus out")
@@ -167,7 +167,6 @@ Cypress.Commands.add("test_add_measure", () => {
           );
       });
   });
-
   cy.focus_out();
 });
 
@@ -375,7 +374,6 @@ Cypress.Commands.add("refusePia", () => {
               "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
               { force: true }
             );
-
           cy.get(".pia-entryContentBlock-content-subject").click("bottom", {
             force: true
           });
@@ -391,19 +389,6 @@ Cypress.Commands.add("refusePia", () => {
           ).click();
 
           cy.url().should("contain", "1/item/1");
-          // cy.get("#pia-refuse-modifications")
-          //   .type(
-          //     "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
-          //     { force: true }
-          //   )
-          //   .trigger("blur", { force: true });
-          //
-          // cy.focus_out();
-          //
-          // cy.get(".pia-entryContentBlock-footer")
-          //   .find("button")
-          //   .trigger("click");
-
           // TODO: Annuler l'evaluation
           // Faire des modifications
           // Redemander l'éval
