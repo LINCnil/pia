@@ -262,12 +262,11 @@ Cypress.Commands.add("acceptEval", () => {
     .click();
 });
 Cypress.Commands.add("acceptMultipleEval", () => {
-  cy.get(".pia-evaluationBlock")
-    .find(".btn-green")
-    .each(($el, $index, $list) => {
-      cy.wait(500);
-      cy.wrap($el).click({ force: true });
-    });
+  cy.wait(3000);
+  cy.get(".pia-evaluationBlock .btn-green").each(($el, $index, $list) => {
+    cy.wait(500);
+    cy.wrap($el).click({ force: true });
+  });
   cy.get(".pia-entryContentBlock-footer")
     .find(".btn-green")
     .should("have.class", "btn-active")
