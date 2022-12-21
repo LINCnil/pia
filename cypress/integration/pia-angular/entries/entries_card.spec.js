@@ -82,7 +82,7 @@ describe("Entries_card", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
       cy.get(".pia-cardsBlock-toolbar-export .fa-download")
-        .eq(1)
+        .eq(0)
         .click();
     });
   });

@@ -29,23 +29,25 @@ Cypress.Commands.add("skip_onboarding", () => {
 });
 
 Cypress.Commands.add("focus_out", () => {
-  cy.get("body").click();
-  cy.get(".pia-knowledgeBaseBlock-searchForm form input").click({
-    force: true
-  });
-  cy.get(".pia-knowledgeBaseBlock-searchForm form input").then($el => {
-    $el.trigger("focus", { force: true });
-    $el.val("text", {
-      force: true
-    });
-    $el.trigger("blur", { force: true });
-  });
+  // cy.get("body").click();
+  // cy.get(".pia-knowledgeBaseBlock-searchForm form input[type='search']").click({
+  //   force: true
+  // });
+  // cy.get(".pia-knowledgeBaseBlock-searchForm form input").then($el => {
+  //   $el.trigger("focus", { force: true });
+  //   $el.val("text", {
+  //     force: true
+  //   });
+  //   $el.trigger("blur", { force: true });
+  // });
+  cy.get(".pia-knowledgeBaseBlock-searchForm form input[type='search']")
+    .clear({ force: true })
+    .type("Focus out")
+    .trigger("blur", { force: true });
 });
 
 Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
   cy.visit(`/#/pia/${id}/section/${section}/item/${item}`);
-  // TODO: Need a way to remove this cy.wait
-  // cy.wait(5000)
 });
 
 Cypress.Commands.add("import_pia", () => {
@@ -87,7 +89,6 @@ Cypress.Commands.add("get_current_pia_id", callback => {
 
 Cypress.Commands.add("test_writing_on_textarea", () => {
   cy.get(".pia-questionBlock").each(($el, index) => {
-    cy.wait(500);
     cy.wrap($el)
       .find(`textarea`)
       .first()
@@ -100,10 +101,19 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
           .clear({ force: true })
           .type(
             "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
-          );
+          )
+          .trigger("blur", { force: true });
       });
-    cy.focus_out();
+    cy.wait(500);
   });
+  cy.get(".pia-questionBlock").each(($el, index) => {
+    cy.wrap($el)
+      .find(`textarea`)
+      .first()
+      .click();
+    cy.wait(500);
+  });
+  cy.focus_out();
 });
 
 Cypress.Commands.add("test_writing_on_textarea_gauges", () => {
@@ -157,6 +167,8 @@ Cypress.Commands.add("test_add_measure", () => {
           );
       });
   });
+
+  cy.focus_out();
 });
 
 Cypress.Commands.add("test_add_measure_from_sidebar", () => {
@@ -237,8 +249,8 @@ Cypress.Commands.add("test_move_gauges", () => {
 });
 
 Cypress.Commands.add("validateEval", () => {
-  cy.wait(2000)
-    .get(".pia-entryContentBlock-footer .btn-green")
+  cy.focus_out();
+  cy.get(".pia-entryContentBlock-footer .btn-green")
     .should("have.class", "btn-active")
     .click({ force: true });
 });
@@ -250,7 +262,6 @@ Cypress.Commands.add("acceptEval", () => {
     .click();
 });
 Cypress.Commands.add("acceptMultipleEval", () => {
-  cy.wait(3000);
   cy.get(".pia-evaluationBlock")
     .find(".btn-green")
     .each(($el, $index, $list) => {
@@ -339,11 +350,9 @@ Cypress.Commands.add("validatePia", () => {
     });
 });
 Cypress.Commands.add("validateModalComplete", () => {
-  cy.wait(2000);
   cy.get(".btn.btn-green").click({ force: true });
 });
 Cypress.Commands.add("refusePia", () => {
-  cy.wait(2000);
   cy.get(".pia-validatePIABlock")
     .find(".btn-green")
     .should("have.class", "btn-active")

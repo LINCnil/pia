@@ -51,9 +51,8 @@ export function risk_edit_eval() {
       });
 
       it("set Measures with + ", () => {
-        cy.test_add_measure().then(() => {
-          cy.wait(200);
-        });
+        cy.test_add_measure();
+        cy.wait(200);
       });
 
       it("should valid evaluation", () => {
