@@ -35,9 +35,7 @@ Cypress.Commands.add("focus_out", () => {
   // })
   // cy.get(".pia-knowledgeBaseBlock-searchForm form input").then($el => {
   //   $el.trigger("focus", { force: true })
-  //   $el.val("text", {
-  //     force: true
-  //   })
+  //   $el.val("text", { force: true })
   //   $el.trigger("blur", { force: true })
   // })
   cy.get(".pia-knowledgeBaseBlock-searchForm form input[type='search']")
@@ -135,8 +133,17 @@ Cypress.Commands.add("test_writing_on_textarea_gauges", () => {
               "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
             );
         });
-      cy.focus_out();
     });
+  cy.get(".pia-gaugeBlock")
+    .parent()
+    .each(($el, index) => {
+      cy.wait(500);
+      cy.wrap($el)
+        .find(`textarea`)
+        .last()
+        .click({ force: true });
+    });
+  cy.focus_out();
 });
 
 Cypress.Commands.add("test_add_measure", () => {
