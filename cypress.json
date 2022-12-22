@@ -4,9 +4,10 @@
   "viewportHeight": 660,
   "baseUrl": "http://localhost:4200",
   "experimentalSourceRewriting": false,
+  "trashAssetsBeforeRuns": true,
   "download.default_directory": "./cypress/download",
   "profile.default_content_settings.popups": 0,
-  "defaultCommandTimeout": 30000,
+  "defaultCommandTimeout": 10000,
   "video": false,
   "retries": 5
 }
