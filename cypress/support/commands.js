@@ -29,15 +29,6 @@ Cypress.Commands.add("skip_onboarding", () => {
 });
 
 Cypress.Commands.add("focus_out", () => {
-  // cy.get("body").click()
-  // cy.get(".pia-knowledgeBaseBlock-searchForm form input[type='search']").click({
-  //   force: true
-  // })
-  // cy.get(".pia-knowledgeBaseBlock-searchForm form input").then($el => {
-  //   $el.trigger("focus", { force: true })
-  //   $el.val("text", { force: true })
-  //   $el.trigger("blur", { force: true })
-  // })
   cy.get(".pia-knowledgeBaseBlock-searchForm form input[type='search']")
     .clear({ force: true })
     .type("Focus out")
