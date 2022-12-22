@@ -11,8 +11,8 @@ Cypress.Commands.add("init", () => {
   indexedDB.deleteDatabase("structure");
   cy.clearLocalStorage();
   cy.clearCookies();
-  cy.window().then(win => {
-    win.sessionStorage.clear();
+  cy.window().then($win => {
+    $win.sessionStorage.clear();
     cy.reload(true);
   });
 });
@@ -86,7 +86,7 @@ Cypress.Commands.add("get_current_pia_id", callback => {
 });
 
 Cypress.Commands.add("test_writing_on_textarea", () => {
-  cy.get(".pia-questionBlock").each(($el, index) => {
+  cy.get(".pia-questionBlock").each($el => {
     cy.wrap($el)
       .find(`textarea`)
       .first()
@@ -104,7 +104,7 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
       });
     cy.wait(500);
   });
-  cy.get(".pia-questionBlock").each(($el, index) => {
+  cy.get(".pia-questionBlock").each($el => {
     cy.wrap($el)
       .find(`textarea`)
       .first()
@@ -117,7 +117,7 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
 Cypress.Commands.add("test_writing_on_textarea_gauges", () => {
   cy.get(".pia-gaugeBlock")
     .parent()
-    .each(($el, index) => {
+    .each($el => {
       cy.wait(500);
       cy.wrap($el)
         .find(`textarea`)
@@ -136,7 +136,7 @@ Cypress.Commands.add("test_writing_on_textarea_gauges", () => {
     });
   cy.get(".pia-gaugeBlock")
     .parent()
-    .each(($el, index) => {
+    .each($el => {
       cy.wait(500);
       cy.wrap($el)
         .find(`textarea`)
@@ -149,7 +149,7 @@ Cypress.Commands.add("test_writing_on_textarea_gauges", () => {
 Cypress.Commands.add("test_add_measure", () => {
   cy.get(".btn-white > .pia-icons").click();
   cy.wait(1000);
-  cy.get(".pia-measureBlock-title").each(($el, $index, $list) => {
+  cy.get(".pia-measureBlock-title").each(($el, $index) => {
     cy.wrap($el).click();
     cy.wrap($el)
       .find("textarea")
@@ -158,7 +158,7 @@ Cypress.Commands.add("test_add_measure", () => {
   });
 
   // Set content of measure
-  cy.get(".pia-measureBlock-content").each(($el, $index, $list) => {
+  cy.get(".pia-measureBlock-content").each($el => {
     cy.wrap($el)
       .find(`textarea`)
       .first()
@@ -181,7 +181,7 @@ Cypress.Commands.add("test_add_measure_from_sidebar", () => {
   cy.get(".pia-knowledgeBaseBlock-item-definition > .btn")
     .first()
     .click();
-  cy.get(".pia-measureBlock-content").each(($el, $index, $list) => {
+  cy.get(".pia-measureBlock-content").each($el => {
     $el
       .find("textarea")
       .val(
@@ -246,7 +246,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
 });
 
 Cypress.Commands.add("test_move_gauges", () => {
-  cy.get(".pia-gaugeBlock").each(($el, $index, $list) => {
+  cy.get(".pia-gaugeBlock").each($el => {
     cy.wrap($el)
       .find("input")
       .invoke("val", 3)
@@ -269,7 +269,7 @@ Cypress.Commands.add("acceptEval", () => {
 });
 Cypress.Commands.add("acceptMultipleEval", () => {
   cy.wait(3000);
-  cy.get(".pia-evaluationBlock .btn-green").each(($el, $index, $list) => {
+  cy.get(".pia-evaluationBlock .btn-green").each($el => {
     cy.wait(500);
     cy.wrap($el).click({ force: true });
   });
@@ -345,7 +345,7 @@ Cypress.Commands.add("validatePia", () => {
     .should("have.class", "btn-active")
     .click({ force: true });
   cy.get(".pia-entryContentBlock-content-list-confirm")
-    .each(($el, $index, $list) => {
+    .each($el => {
       cy.wrap($el)
         .find("label")
         .click({ force: true });
@@ -363,7 +363,7 @@ Cypress.Commands.add("refusePia", () => {
     .should("have.class", "btn-active")
     .click({ force: true });
   cy.get(".pia-entryContentBlock-content-list-confirm")
-    .each(($el, $index, $list) => {
+    .each($el => {
       cy.wrap($el)
         .find("label")
         .click({ force: true });
