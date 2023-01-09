@@ -818,9 +818,9 @@ export class PiaService extends ApplicationDb {
       }
       pia.updated_at = date ? date : new Date();
 
-      if (this.authService.state && pia.user_pias) {
-        pia = Pia.formatUsersDatas(pia);
-      }
+      // if (this.authService.state && pia.user_pias) {
+      //   pia = Pia.formatUsersDatas(pia);
+      // }
 
       super
         .update(pia.id, pia)
