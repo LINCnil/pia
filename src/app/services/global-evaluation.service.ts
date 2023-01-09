@@ -131,7 +131,7 @@ export class GlobalEvaluationService {
                 await this.validate();
                 resolve(evaluation.status === 1);
               })
-              .reject(err => {
+              .catch(err => {
                 reject(err);
               });
           });
