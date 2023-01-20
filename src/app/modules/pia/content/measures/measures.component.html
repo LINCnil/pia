@@ -42,8 +42,7 @@
         class="btn pia-measureBlock-delete"
         *ngIf="
           globalEvaluationService.answerEditionEnabled &&
-          !editMode.includes('author') &&
-          editMode !== 'local'
+          (editMode.includes('author') || editMode == 'local')
         "
         (click)="removeMeasure(measure.id)"
         title="{{ 'measures.remove' | translate }}"
