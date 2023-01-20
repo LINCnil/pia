@@ -222,10 +222,14 @@
             globalEvaluationService.status === 2 ||
             globalEvaluationService.status === 3
         }"
-        [disabled]="globalEvaluationService.status === 1"
+        [disabled]="
+          globalEvaluationService.status === 1 ||
+          !(editMode.includes('author') || editMode === 'local')
+        "
       >
         {{ "pia.footer.ask_evaluation" | translate }}
       </button>
+
       <button
         class="btn btn-green"
         (click)="validateEvaluation()"
@@ -238,6 +242,7 @@
       >
         {{ "pia.footer.validate_evaluation" | translate }}
       </button>
+
       <button
         class="btn btn-pending-validation"
         disabled
@@ -265,6 +270,7 @@
       >
         {{ "pia.sections.status.evaluation.cancel_button" | translate }}
       </button>
+
       <button
         class="btn pia-cancelBtn"
         (click)="cancelValidateEvaluation()"

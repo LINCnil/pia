@@ -8,10 +8,7 @@
 >
   <div
     class="pia-evaluationBlock"
-    *ngIf="
-      globalEvaluationService.status >= 3 &&
-      (editMode.includes('evaluator') || editMode === 'local')
-    "
+    *ngIf="globalEvaluationService.status >= 3"
     [ngClass]="{
       'pia-evaluationBlock-shadowed': item.evaluation_mode === 'item'
     }"
@@ -34,7 +31,8 @@
             [disabled]="
               evaluation.status === 1 ||
               !globalEvaluationService.evaluationEditionEnabled ||
-              loading
+              loading ||
+              !editMode.includes('evaluator')
             "
             (click)="selectedButton($event, 1)"
             name="fix"
@@ -49,7 +47,8 @@
             [disabled]="
               evaluation.status === 2 ||
               !globalEvaluationService.evaluationEditionEnabled ||
-              loading
+              loading ||
+              !editMode.includes('evaluator')
             "
             *ngIf="section.id !== 1"
             (click)="selectedButton($event, 2)"
@@ -65,7 +64,8 @@
             [disabled]="
               evaluation.status === 3 ||
               !globalEvaluationService.evaluationEditionEnabled ||
-              loading
+              loading ||
+              !editMode.includes('evaluator')
             "
             (click)="selectedButton($event, 3)"
             name="acceptable"
@@ -113,6 +113,7 @@
               }"
             ></div>
             <textarea
+              *ngIf="editMode.includes('evaluator')"
               (keyup)="autoTextareaResize($event)"
               id="{{ evaluationCommentElementId }}"
               rows="8"
