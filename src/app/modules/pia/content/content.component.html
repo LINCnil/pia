@@ -240,7 +240,7 @@
         [ngClass]="{ 'btn-active': globalEvaluationService.status === 6 }"
         [disabled]="
           globalEvaluationService.status === 5 ||
-          (!editMode.includes('validator') && editMode !== 'local')
+          (!editMode.includes('evaluator') && editMode !== 'local')
         "
       >
         {{ "pia.footer.validate_evaluation" | translate }}
