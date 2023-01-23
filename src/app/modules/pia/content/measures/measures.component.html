@@ -12,7 +12,6 @@
         (click)="displayMeasure($event)"
         title="{{ 'misc.display' | translate }}"
       ></button>
-
       <!-- Measure title -->
       <div
         (click)="measureTitleFocusIn()"
@@ -20,6 +19,7 @@
         [ngClass]="{ hide: editTitle }"
         [innerHTML]="measureForm.controls['measureTitle'].value | safeHtml"
       ></div>
+
       <textarea
         maxlength="120"
         [attr.disabled]="
