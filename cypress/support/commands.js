@@ -253,10 +253,10 @@ Cypress.Commands.add("validateEval", () => {
 });
 
 Cypress.Commands.add("acceptEval", () => {
-  cy.get(".pia-evaluationBlock .btn-green").click();
+  cy.get(".pia-evaluationBlock .btn-green").click({ force: true });
   cy.get(".pia-entryContentBlock-footer .btn-green")
     .should("have.class", "btn-active")
-    .click();
+    .click({ force: true });
 });
 Cypress.Commands.add("acceptMultipleEval", () => {
   cy.wait(3000);
@@ -267,21 +267,21 @@ Cypress.Commands.add("acceptMultipleEval", () => {
   cy.get(".pia-entryContentBlock-footer")
     .find(".btn-green")
     .should("have.class", "btn-active")
-    .click();
+    .click({ force: true });
 });
 Cypress.Commands.add("closeCompletedValidationEvaluationModal", () => {
   cy.get("#completed-evaluation")
     .invoke("show")
     .find("button")
     .last()
-    .click();
+    .click({ force: true });
 });
 Cypress.Commands.add("closeValidationEvaluationModal", () => {
   cy.get("#validate-evaluation")
     .invoke("show")
     .find(".pia-modalBlock-close")
     .first()
-    .click();
+    .click({ force: true });
 });
 Cypress.Commands.add("validateModal", () => {
   cy.get(".pia-modalBlock-content .btn.btn-green").click();

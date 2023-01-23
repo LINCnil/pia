@@ -32,7 +32,7 @@
               evaluation.status === 1 ||
               !globalEvaluationService.evaluationEditionEnabled ||
               loading ||
-              !editMode.includes('evaluator')
+              (!editMode.includes('evaluator') && editMode !== 'local')
             "
             (click)="selectedButton($event, 1)"
             name="fix"
@@ -48,7 +48,7 @@
               evaluation.status === 2 ||
               !globalEvaluationService.evaluationEditionEnabled ||
               loading ||
-              !editMode.includes('evaluator')
+              (!editMode.includes('evaluator') && editMode !== 'local')
             "
             *ngIf="section.id !== 1"
             (click)="selectedButton($event, 2)"
@@ -65,7 +65,7 @@
               evaluation.status === 3 ||
               !globalEvaluationService.evaluationEditionEnabled ||
               loading ||
-              !editMode.includes('evaluator')
+              (!editMode.includes('evaluator') && editMode !== 'local')
             "
             (click)="selectedButton($event, 3)"
             name="acceptable"
@@ -113,7 +113,7 @@
               }"
             ></div>
             <textarea
-              *ngIf="editMode.includes('evaluator')"
+              *ngIf="editMode.includes('evaluator') || editMode === 'local'"
               (keyup)="autoTextareaResize($event)"
               id="{{ evaluationCommentElementId }}"
               rows="8"
