@@ -286,8 +286,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Disables question field + shows edit button + save data.
    */
-  questionContentFocusOut(): void {
-    console.log('save content');
+  async questionContentFocusOut(): Promise<void> {
     this.answer.pia_id = this.pia.id;
     this.answer.reference_to = this.question.id;
     let userText = this.questionForm.controls['text'].value;
@@ -302,7 +301,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       };
 
       // this.loading = true;
-      this.answerService
+      await this.answerService
         .update(this.answer)
         .then((answer: Answer) => {
           this.answer = answer;
@@ -332,7 +331,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         };
 
         // this.loading = true;
-        this.answerService.create(this.answer).then(() => {
+        await this.answerService.create(this.answer).then(() => {
           this.ngZone.run(() => {
             this.globalEvaluationService.validate();
           });
@@ -533,13 +532,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       skin: false,
       setup: editor => {
         editor.on('focusin', () => {
-          console.log('focus in !');
           this.editor = editor;
         });
         editor.on('focusout', () => {
           // Save content
           this.questionForm.controls['text'].patchValue(editor.getContent());
-          this.questionContentFocusOut();
+          this.questionContentFocusOut().then(() => {
+            this.closeEditor();
+          });
           this.knowledgeBaseService.placeholder = null;
         });
       }
