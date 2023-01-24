@@ -38,8 +38,6 @@
               <input
                 type="radio"
                 id="treatment-1"
-                [attr.dirty]="pia.dpo_status === 1"
-                [checked]="pia.dpo_status === 1"
                 (click)="changeFocusIfDisable('DPOName')"
                 (change)="dpoStatusFocusOut()"
                 formControlName="DPOStatus"
@@ -55,8 +53,6 @@
               <input
                 type="radio"
                 id="treatment-2"
-                [attr.dirty]="pia.dpo_status === 0"
-                [checked]="pia.dpo_status === 0"
                 (change)="dpoStatusFocusOut()"
                 formControlName="DPOStatus"
                 [value]="0"
@@ -105,8 +101,6 @@
               <input
                 type="radio"
                 id="concerned-people-choice-searched"
-                [attr.dirty]="pia.concerned_people_searched_opinion === true"
-                [checked]="pia.concerned_people_searched_opinion === true"
                 (change)="searchedOpinionsFocusOut()"
                 formControlName="searchStatus"
                 [value]="true"
@@ -121,8 +115,6 @@
               <input
                 type="radio"
                 id="concerned-people-choice-unsearched"
-                [attr.dirty]="pia.concerned_people_searched_opinion === false"
-                [checked]="pia.concerned_people_searched_opinion === false"
                 (change)="searchedOpinionsFocusOut()"
                 formControlName="searchStatus"
                 [value]="false"

@@ -31,7 +31,11 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   ngOnInit(): void {
     // DPO Form init
     this.DPOForm = new FormGroup({
-      DPOStatus: new FormControl(this.pia.dpo_status),
+      DPOStatus: new FormControl(
+        this.pia.dpo_status != null && this.pia.dpos_names
+          ? this.pia.dpo_status
+          : null
+      ),
       DPOOpinion: new FormControl(this.pia.dpo_opinion),
       DPONames: new FormControl(this.pia.dpos_names)
     });
@@ -43,7 +47,12 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
     // Searched opinions form  init
     this.searchedOpinionsForm = new FormGroup({
-      searchStatus: new FormControl(this.pia.concerned_people_searched_opinion),
+      searchStatus: new FormControl(
+        this.pia.concerned_people_searched_opinion != null &&
+        this.pia.dpos_names
+          ? this.pia.concerned_people_searched_opinion
+          : null
+      ),
       searchContent: new FormControl(this.pia.concerned_people_searched_content)
     });
     if (this.pia.concerned_people_searched_opinion !== undefined) {
