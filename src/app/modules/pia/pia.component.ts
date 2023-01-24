@@ -394,5 +394,6 @@ export class PiaComponent implements OnInit, DoCheck {
 
   newMeasureAdded($event): void {
     this.measures.push($event);
+    this.globalEvaluationService.validate();
   }
 }

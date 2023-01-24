@@ -351,8 +351,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   onAdd(event): void {
     if (event && event.value.length > 0) {
       let list = [];
-      if (this.answer.id) {
-        list = this.answer.data.list;
+      if (this.answer.id && this.answer.data.list) {
+        list = [...list, ...this.answer.data.list];
       }
       if (list.indexOf(event.value) <= 0) {
         list.push(event.value);
@@ -551,7 +551,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @private
    */
   private closeEditor() {
-    console.log('kill editor');
     this.editor = null;
     tinymce.remove(this.editor);
   }

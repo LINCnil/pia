@@ -300,6 +300,7 @@ export class ContentComponent implements OnInit {
     const index = this.measures.findIndex(m => m.id === id);
     if (index !== -1) {
       this.measures.splice(index, 1);
+      this.globalEvaluationService.validate();
     }
   }
 }

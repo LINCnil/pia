@@ -265,11 +265,8 @@
       <button
         class="btn pia-cancelBtn"
         (click)="cancelAskForEvaluation()"
-        *ngIf="
-          pia.is_example !== 1 &&
-          globalEvaluationService.status === 4 &&
-          (editMode.includes('author') || editMode === 'local')
-        "
+        *ngIf="pia.is_example !== 1 && globalEvaluationService.status === 4"
+        [disabled]="!editMode.includes('author') && editMode !== 'local'"
       >
         {{ "pia.sections.status.evaluation.cancel_button" | translate }}
       </button>
@@ -280,9 +277,9 @@
         *ngIf="
           pia.is_example !== 1 &&
           globalEvaluationService.status === 7 &&
-          !(section.id == 4 && item.id == 3) &&
-          (editMode.includes('evaluator') || editMode === 'local')
+          !(section.id == 4 && item.id == 3)
         "
+        [disabled]="!editMode.includes('evaluator') && editMode != 'local'"
       >
         {{ "pia.sections.status.validation.cancel_button" | translate }}
       </button>
