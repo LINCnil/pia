@@ -58,17 +58,25 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       peopleOpinion: new FormControl(this.pia.concerned_people_opinion),
       peopleNames: new FormControl(this.pia.people_names)
     });
+
     if (!this.pia.people_names) {
       this.peopleForm.controls.peopleStatus.disable();
       this.peopleForm.controls.peopleOpinion.disable();
     }
 
-    // OBSERVABLES
+    if (!this.editMode.includes('validator') && this.editMode != 'local') {
+      this.DPOForm.disable();
+      this.searchedOpinionsForm.disable();
+      this.peopleForm.disable();
+    }
 
+    // OBSERVABLES
     this.DPOForm.controls.DPONames.valueChanges.subscribe(data => {
       if (data) {
-        this.DPOForm.controls.DPOStatus.enable();
-        this.DPOForm.controls.DPOOpinion.enable();
+        if (this.editMode.includes('validator') || this.editMode == 'local') {
+          this.DPOForm.controls.DPOStatus.enable();
+          this.DPOForm.controls.DPOOpinion.enable();
+        }
       } else {
         this.DPOForm.controls.DPOStatus.disable();
         this.DPOForm.controls.DPOOpinion.disable();
@@ -89,18 +97,18 @@ export class DPOPeopleOpinionsComponent implements OnInit {
           this.peopleForm.controls.peopleStatus.patchValue(null);
           this.peopleForm.controls.peopleOpinion.patchValue(null);
         }
+
+        // Check user role
+        if (!this.editMode.includes('validator') && this.editMode != 'local') {
+          this.DPOForm.disable();
+          this.searchedOpinionsForm.disable();
+          this.peopleForm.disable();
+        }
       }
     );
 
     // OTHERS RULES
     if (this.pia.status >= 2 || this.pia.is_example === 1) {
-      this.DPOForm.disable();
-      this.searchedOpinionsForm.disable();
-      this.peopleForm.disable();
-    }
-
-    // Check user role
-    if (!this.editMode.includes('validator') && this.editMode != 'local') {
       this.DPOForm.disable();
       this.searchedOpinionsForm.disable();
       this.peopleForm.disable();
