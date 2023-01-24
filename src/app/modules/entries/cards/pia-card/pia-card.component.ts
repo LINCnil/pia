@@ -79,6 +79,16 @@ export class PiaCardComponent implements OnInit, OnChanges {
         // lock tags with users
         if (this.authService.state) {
           this.setUserPiasAsFields(this.pia.user_pias);
+
+          // check current_user rights
+          if (
+            !this.authService.currentUserValue.access_type.includes(
+              'functional'
+            ) &&
+            this.authService.currentUserValue.access_type != 'local'
+          ) {
+            this.piaForm.disable();
+          }
         }
       }
     });
@@ -263,7 +273,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
    * Focus PIA name field.
    */
   piaNameFocusIn(): void {
-    this.piaForm.controls['name'].enable();
+    // this.piaForm.controls['name'].enable();
     this.piaName.nativeElement.focus();
   }
 

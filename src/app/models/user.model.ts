@@ -4,7 +4,7 @@ export class User {
   public email: string;
   public lastname: string;
   public firstname: string;
-  public access_type: Array<string> = [];
+  public access_type: Array<string> | string = [];
   public uuid?: string;
   resource_owner_id?: number;
   user_pias?: Array<any>;
