@@ -13,21 +13,19 @@ export function fundamental_principle_validation() {
     context("Validation for 'Proportionnalité et nécessité'", () => {
       it("should acept evaluation", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 2, 1).then(() => {
-            cy.acceptMultipleEval();
-            cy.closeValidationEvaluationModal();
-          });
+          cy.go_edited_pia(id, 2, 1);
+          cy.acceptMultipleEval();
+          cy.closeValidationEvaluationModal();
         });
       });
 
       it("check accepted btn is blocked", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 2, 1).then(() => {
-            cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
-              "have.attr",
-              "disabled"
-            );
-          });
+          cy.go_edited_pia(id, 2, 1);
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
         });
       });
     });
@@ -35,22 +33,19 @@ export function fundamental_principle_validation() {
     context("Validation for 'Mesures protectrices des droits'", () => {
       it("should acept evaluation", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 2, 2).then(() => {
-            cy.wait(3000);
-            cy.acceptMultipleEval();
-            cy.closeValidationEvaluationModal();
-          });
+          cy.go_edited_pia(id, 2, 2);
+          cy.acceptMultipleEval();
+          cy.closeValidationEvaluationModal();
         });
       });
 
       it("check accepted btn is blocked", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 2, 2).then(() => {
-            cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
-              "have.attr",
-              "disabled"
-            );
-          });
+          cy.go_edited_pia(id, 2, 2);
+          cy.get(".pia-evaluationBlock-buttons:eq(0) .btn-green").should(
+            "have.attr",
+            "disabled"
+          );
         });
       });
     });

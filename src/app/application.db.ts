@@ -387,7 +387,16 @@ export class ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            resolve(event.target.result);
+            // Return object data after update
+
+            try {
+              const evtF = this.objectStore.get(id);
+              evtF.onsuccess = (eventF: any) => {
+                resolve(eventF.target.result);
+              };
+            } catch {
+              resolve(event.target.result);
+            }
           };
         });
       }

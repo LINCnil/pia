@@ -50,26 +50,29 @@
                   <strong>{{ export.pia.name }}</strong>
                 </div>
               </div>
+
               <div>
                 <div>{{ "summary.preview_edition" | translate }} :</div>
-                <div>{{ export.pia.author_name }}</div>
+                <div>
+                  {{ showUserRole(export.pia, "author", "author_name") }}
+                </div>
               </div>
               <div>
                 <div>{{ "summary.preview_evaluation" | translate }} :</div>
-                <div>{{ export.pia.evaluator_name }}</div>
+                <div>
+                  {{ showUserRole(export.pia, "evaluator", "evaluator_name") }}
+                </div>
               </div>
               <div>
                 <div>{{ "summary.preview_validation" | translate }} :</div>
-                <div>{{ export.pia.validator_name }}</div>
+                <div>
+                  {{ showUserRole(export.pia, "validator", "validator_name") }}
+                </div>
               </div>
 
               <div *ngIf="this.authService.state">
                 <div>{{ "summary.preview_guests" | translate }} :</div>
-                <div>
-                  <ng-container *ngFor="let guest of export.pia.guests">
-                    {{ guest.firstname + " " + guest.lastname }},
-                  </ng-container>
-                </div>
+                <div>{{ showUserRole(export.pia, "guest", null) }}</div>
               </div>
             </div>
             <div>

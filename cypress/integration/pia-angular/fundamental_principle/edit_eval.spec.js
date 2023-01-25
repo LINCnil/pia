@@ -15,11 +15,7 @@ export function fundamental_principle_edit_eval() {
 
     context("prepare data", () => {
       it("prepare pia for test", () => {
-        cy.create_new_pia().then(() => {
-          cy.get_current_pia_id(id => {
-            cy.go_edited_pia(id, 2, 1);
-          });
-        });
+        cy.create_new_pia();
       });
     });
 
@@ -28,7 +24,10 @@ export function fundamental_principle_edit_eval() {
        * Complete textareas
        */
       it("create pia and should complete textareas", () => {
-        cy.test_writing_on_textarea();
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 2, 1);
+          cy.test_writing_on_textarea();
+        });
       });
 
       /**
@@ -52,9 +51,8 @@ export function fundamental_principle_edit_eval() {
        */
       it("should complete textareas", () => {
         cy.get_current_pia_id(id => {
-          cy.go_edited_pia(id, 2, 2).then(() => {
-            cy.test_writing_on_textarea();
-          });
+          cy.go_edited_pia(id, 2, 2);
+          cy.test_writing_on_textarea();
         });
       });
 

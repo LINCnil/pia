@@ -17,6 +17,7 @@ export class KnowledgebaseLineComponent implements OnInit {
   @Output() changed = new EventEmitter<any>();
   @Output() duplicated = new EventEmitter<any>();
   @Output() deleted = new EventEmitter<any>();
+  @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
   nbEntries = 0;
 
   constructor(
@@ -46,11 +47,14 @@ export class KnowledgebaseLineComponent implements OnInit {
     this.base[attribute] = text;
     this.knowledgeBaseService
       .update(this.base)
-      .then(() => {
+      .then(response => {
+        this.base = response;
         this.changed.emit(this.base);
       })
       .catch(err => {
-        console.error(err);
+        if (err.statusText === 'Conflict') {
+          this.conflictDetected.emit({ field: attribute, err });
+        }
       });
   }
 

@@ -29,94 +29,97 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // DPO Form init
     this.DPOForm = new FormGroup({
-      DPOStatus: new FormControl(),
-      DPOOpinion: new FormControl(),
-      DPONames: new FormControl()
+      DPOStatus: new FormControl(
+        this.pia.dpo_status != null && this.pia.dpos_names
+          ? this.pia.dpo_status
+          : null
+      ),
+      DPOOpinion: new FormControl(this.pia.dpo_opinion),
+      DPONames: new FormControl(this.pia.dpos_names)
     });
+
+    if (!this.pia.dpos_names) {
+      this.DPOForm.controls.DPOStatus.disable();
+      this.DPOForm.controls.DPOOpinion.disable();
+    }
+
+    // Searched opinions form  init
     this.searchedOpinionsForm = new FormGroup({
-      searchStatus: new FormControl(),
-      searchContent: new FormControl()
+      searchStatus: new FormControl(
+        this.pia.concerned_people_searched_opinion != null &&
+        this.pia.dpos_names
+          ? this.pia.concerned_people_searched_opinion
+          : null
+      ),
+      searchContent: new FormControl(this.pia.concerned_people_searched_content)
     });
+    if (this.pia.concerned_people_searched_opinion !== undefined) {
+      this.displayPeopleOpinions = this.pia.concerned_people_searched_opinion;
+      this.displayPeopleSearchContent = !this.pia
+        .concerned_people_searched_opinion;
+    }
+
+    // peopleForm form  init
     this.peopleForm = new FormGroup({
-      peopleStatus: new FormControl(),
-      peopleOpinion: new FormControl(),
-      peopleNames: new FormControl()
+      peopleStatus: new FormControl(this.pia.concerned_people_status),
+      peopleOpinion: new FormControl(this.pia.concerned_people_opinion),
+      peopleNames: new FormControl(this.pia.people_names)
     });
 
-    if (this.pia.dpos_names && this.pia.dpos_names.length > 0) {
-      this.DPOForm.controls['DPONames'].patchValue(this.pia.dpos_names);
-      this.DPOForm.controls['DPONames'].disable();
-    } else {
-      this.DPOForm.controls['DPOStatus'].disable();
-      this.DPOForm.controls['DPOOpinion'].disable();
-    }
-    if (this.pia.dpo_status !== undefined && this.pia.dpo_status) {
-      this.DPOForm.controls['DPOStatus'].patchValue(this.pia.dpo_status);
-    }
-    if (this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
-      this.DPOForm.controls['DPOOpinion'].patchValue(this.pia.dpo_opinion);
-      this.DPOForm.controls['DPOOpinion'].disable();
+    if (!this.pia.people_names) {
+      this.peopleForm.controls.peopleStatus.disable();
+      this.peopleForm.controls.peopleOpinion.disable();
     }
 
-    // Concerned people opinion searched or unsearched
-    if (
-      this.pia.concerned_people_searched_opinion &&
-      this.pia.concerned_people_searched_opinion !== undefined
-    ) {
-      this.searchedOpinionsForm.controls['searchStatus'].patchValue(
-        this.pia.concerned_people_searched_opinion
-      );
-      if (this.pia.concerned_people_searched_opinion === true) {
-        this.displayPeopleOpinions = true;
-        this.displayPeopleSearchContent = false;
-      } else {
-        this.displayPeopleOpinions = false;
-        this.displayPeopleSearchContent = true;
-      }
-    }
-
-    // Concerned people unsearched field
-    if (
-      this.pia.concerned_people_searched_content &&
-      this.pia.concerned_people_searched_content !== '' &&
-      this.pia.concerned_people_searched_content.length > 0
-    ) {
-      this.searchedOpinionsForm.controls['searchContent'].patchValue(
-        this.pia.concerned_people_searched_content
-      );
-      this.searchedOpinionsForm.controls['searchContent'].disable();
-    }
-
-    // Concerned people searched fields
-    if (this.pia.people_names && this.pia.people_names.length > 0) {
-      this.peopleForm.controls['peopleNames'].patchValue(this.pia.people_names);
-      this.peopleForm.controls['peopleNames'].disable();
-    } else {
-      this.peopleForm.controls['peopleStatus'].disable();
-      this.peopleForm.controls['peopleOpinion'].disable();
-    }
-    if (
-      this.pia.people_names &&
-      this.pia.concerned_people_status !== undefined
-    ) {
-      this.peopleForm.controls['peopleStatus'].patchValue(
-        this.pia.concerned_people_status
-      );
-    }
-    if (
-      this.pia.concerned_people_opinion &&
-      this.pia.concerned_people_opinion != null &&
-      this.pia.concerned_people_opinion.length > 0
-    ) {
-      this.peopleForm.controls['peopleOpinion'].patchValue(
-        this.pia.concerned_people_opinion
-      );
-      this.peopleForm.controls['peopleOpinion'].disable();
-    }
-
-    if (this.pia.status >= 2) {
+    if (!this.editMode.includes('validator') && this.editMode != 'local') {
       this.DPOForm.disable();
+      this.searchedOpinionsForm.disable();
+      this.peopleForm.disable();
+    }
+
+    // OBSERVABLES
+    this.DPOForm.controls.DPONames.valueChanges.subscribe(data => {
+      if (data) {
+        if (this.editMode.includes('validator') || this.editMode == 'local') {
+          this.DPOForm.controls.DPOStatus.enable();
+          this.DPOForm.controls.DPOOpinion.enable();
+        }
+      } else {
+        this.DPOForm.controls.DPOStatus.disable();
+        this.DPOForm.controls.DPOOpinion.disable();
+        this.DPOForm.controls.DPOStatus.patchValue(null);
+        this.DPOForm.controls.DPOOpinion.patchValue(null);
+      }
+    });
+
+    this.searchedOpinionsForm.controls.searchStatus.valueChanges.subscribe(
+      data => {
+        this.displayPeopleOpinions = data;
+        this.displayPeopleSearchContent = !data;
+
+        if (data) {
+          this.searchedOpinionsForm.controls.searchContent.patchValue(null);
+        } else {
+          this.peopleForm.controls.peopleNames.patchValue(null);
+          this.peopleForm.controls.peopleStatus.patchValue(null);
+          this.peopleForm.controls.peopleOpinion.patchValue(null);
+        }
+
+        // Check user role
+        if (!this.editMode.includes('validator') && this.editMode != 'local') {
+          this.DPOForm.disable();
+          this.searchedOpinionsForm.disable();
+          this.peopleForm.disable();
+        }
+      }
+    );
+
+    // OTHERS RULES
+    if (this.pia.status >= 2 || this.pia.is_example === 1) {
+      this.DPOForm.disable();
+      this.searchedOpinionsForm.disable();
       this.peopleForm.disable();
     }
 
@@ -132,56 +135,26 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   }
 
   /**
-   * Focuses dpo name.
-   */
-  dpoNameFocusIn(): any {
-    if (
-      this.pia.status >= 2 ||
-      this.pia.is_example === 1 ||
-      (!this.editMode.includes('evaluator') && this.editMode !== 'local')
-    ) {
-      return false;
-    } else {
-      this.DPOForm.controls['DPONames'].enable();
-      this.elementRef1.nativeElement.focus();
-    }
-  }
-
-  /**
    * Disables DPO fields (status + opinion) and saves data.
    */
   dpoNameFocusOut(): void {
-    if (this.DPOForm.value.DPONames && this.DPOForm.value.DPONames.length > 0) {
-      this.pia.dpos_names = this.DPOForm.value.DPONames;
-      this.DPOForm.enable();
-    } else {
-      this.pia.dpos_names = null;
-      this.pia.dpo_status = null;
-      this.pia.dpo_opinion = null;
-      this.DPOForm.controls['DPONames'].patchValue(null);
-      this.DPOForm.controls['DPOStatus'].patchValue(null);
-      this.DPOForm.controls['DPOOpinion'].patchValue(null);
+    this.pia.dpos_names = this.DPOForm.value.DPONames;
+    this.pia.dpo_status = this.DPOForm.value.DPOStatus
+      ? parseInt(this.DPOForm.value.DPOStatus, 10)
+      : null;
+    let userText = this.DPOForm.controls['DPOOpinion'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
-    this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
-      if (
-        this.DPOForm.value.DPONames &&
-        this.DPOForm.value.DPONames.length > 0
-      ) {
-        this.DPOForm.controls['DPONames'].disable();
-      }
-    });
-  }
+    this.pia.dpo_opinion = userText;
 
-  /**
-   * Enables dpo status radio buttons.
-   */
-  enableDpoStatusRadioButtons(): any {
-    if (this.pia.status >= 2 || this.pia.is_example === 1) {
-      return false;
-    } else {
-      this.DPOForm.controls['DPOStatus'].enable();
-    }
+    this._piaService.update(this.pia).then(dataUpdated => {
+      if (dataUpdated.lock_version) {
+        // Update lock_version
+        this.pia.lock_version = dataUpdated.lock_version;
+      }
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
+    });
   }
 
   /**
@@ -189,21 +162,13 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   dpoStatusFocusOut(): void {
     this.pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
-    this._piaService.update(this.pia).then(() => {
+    this._piaService.update(this.pia).then(dataUpdated => {
+      if (dataUpdated.lock_version) {
+        // Update lock_version
+        this.pia.lock_version = dataUpdated.lock_version;
+      }
       this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
     });
-  }
-
-  /**
-   * Focuses dpo opinion.
-   */
-  dpoOpinionFocusIn(): any {
-    if (this.pia.status >= 2 || this.pia.is_example === 1) {
-      return false;
-    } else {
-      this.DPOForm.controls['DPOOpinion'].enable();
-      document.getElementById('pia-opinions-dpo').focus();
-    }
   }
 
   /**
@@ -215,55 +180,39 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.dpo_opinion = userText;
-    this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
-      if (userText && userText.length > 0) {
-        this.DPOForm.controls['DPOOpinion'].disable();
+    this._piaService.update(this.pia).then(dataUpdated => {
+      if (dataUpdated.lock_version) {
+        // Update lock_version
+        this.pia.lock_version = dataUpdated.lock_version;
       }
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
     });
-  }
-
-  /**
-   * Enables concerned people searched or unsearched radio buttons.
-   */
-  enableConcernedPeopleSearchedOpinionRadioButtons(): any {
-    if (this.pia.status >= 2 || this.pia.is_example === 1) {
-      return false;
-    } else {
-      this.searchedOpinionsForm.controls['searchStatus'].enable();
-    }
   }
 
   /**
    * Updates concerned people searched or unsearched opinion.
    */
   searchedOpinionsFocusOut() {
-    if (this.searchedOpinionsForm.value.searchStatus !== null) {
-      if (this.searchedOpinionsForm.value.searchStatus) {
-        this.pia.concerned_people_searched_opinion = true;
-        this.displayPeopleOpinions = true;
-        this.displayPeopleSearchContent = false;
-      } else {
-        this.pia.concerned_people_searched_opinion = false;
-        this.displayPeopleOpinions = false;
-        this.displayPeopleSearchContent = true;
-      }
-      this._piaService.update(this.pia).then(() => {
-        this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
-      });
+    this.pia.concerned_people_searched_opinion = this.searchedOpinionsForm.value.searchStatus;
+    let userText = this.searchedOpinionsForm.controls['searchContent'].value;
+    if (userText) {
+      userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
-  }
 
-  /**
-   * Focuses concerned people search content.
-   */
-  peopleSearchContentFocusIn() {
-    if (this.pia.status >= 2 || this.pia.is_example === 1) {
-      return false;
-    } else {
-      this.searchedOpinionsForm.controls['searchContent'].enable();
-      document.getElementById('pia-people-search-content').focus();
+    if (!this.pia.concerned_people_searched_opinion) {
+      this.pia.people_names = null;
+      this.pia.concerned_people_status = null;
+      this.pia.concerned_people_opinion = null;
     }
+
+    this.pia.concerned_people_searched_content = userText;
+    this._piaService.update(this.pia).then(dataUpdated => {
+      if (dataUpdated.lock_version) {
+        // Update lock_version
+        this.pia.lock_version = dataUpdated.lock_version;
+      }
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
+    });
   }
 
   /**
@@ -275,24 +224,13 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.concerned_people_searched_content = userText;
-    this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
-      if (userText && userText.length > 0) {
-        this.searchedOpinionsForm.controls['searchContent'].disable();
+    this._piaService.update(this.pia).then(dataUpdated => {
+      if (dataUpdated.lock_version) {
+        // Update lock_version
+        this.pia.lock_version = dataUpdated.lock_version;
       }
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
     });
-  }
-
-  /**
-   * Focuses concerned people name.
-   */
-  concernedPeopleNameFocusIn() {
-    if (this.pia.status >= 2 || this.pia.is_example === 1) {
-      return false;
-    } else {
-      this.peopleForm.controls['peopleNames'].enable();
-      this.elementRef2.nativeElement.focus();
-    }
   }
 
   /**
@@ -309,60 +247,41 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.pia.people_names = null;
       this.pia.concerned_people_status = null;
       this.pia.concerned_people_opinion = null;
-      this.peopleForm.controls['peopleOpinion'].patchValue(null);
-      this.peopleForm.controls['peopleNames'].patchValue(null);
-      this.peopleForm.controls['peopleStatus'].patchValue(null);
-    }
-    this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
-      if (
-        this.peopleForm.value.peopleNames &&
-        this.peopleForm.value.peopleNames.length > 0
-      ) {
-        this.peopleForm.controls['peopleNames'].disable();
-      }
-    });
-  }
 
-  /**
-   * Enables concerned people status radio buttons.
-   */
-  enableConcernedPeopleStatusRadioButtons() {
-    if (this.pia.status >= 2 || this.pia.is_example === 1) {
-      return false;
-    } else {
-      this.peopleForm.controls['peopleStatus'].enable();
+      // TODO: GO to a subscribe method
+      this.peopleForm.controls.peopleOpinion.disable();
+      this.peopleForm.controls.peopleStatus.disable();
+      this.peopleForm.controls.peopleOpinion.patchValue(null);
+      this.peopleForm.controls.peopleStatus.patchValue(null);
     }
+
+    this._piaService.update(this.pia).then((dataUpdated: Pia) => {
+      if (dataUpdated.lock_version) {
+        // Update lock_version
+        this.pia.lock_version = dataUpdated.lock_version;
+      }
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
+    });
   }
 
   /**
    * Updates concerned people status.
    */
   concernedPeopleStatusFocusOut() {
-    if (
-      this.peopleForm.value.peopleStatus &&
-      this.peopleForm.value.peopleStatus >= 0
-    ) {
-      this.pia.concerned_people_status = parseInt(
-        this.peopleForm.value.peopleStatus,
-        10
-      );
-      this._piaService.update(this.pia).then(() => {
-        this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
-      });
-    }
-  }
+    this.pia.concerned_people_status = this.peopleForm.value.peopleStatus
+      ? parseInt(this.peopleForm.value.peopleStatus, 10)
+      : 0;
 
-  /**
-   * Focuses concerned people opinion field.
-   */
-  concernedPeopleOpinionFocusIn() {
-    if (this.pia.status >= 2 || this.pia.is_example === 1) {
-      return false;
-    } else {
-      this.peopleForm.controls['peopleOpinion'].enable();
-      document.getElementById('pia-opinions-people').focus();
-    }
+    this._piaService
+      .update(this.pia)
+      .then(dataUpdated => {
+        if (dataUpdated.lock_version) {
+          // Update lock_version
+          this.pia.lock_version = dataUpdated.lock_version;
+        }
+        this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
+      })
+      .catch(err => {});
   }
 
   /**
@@ -374,18 +293,17 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.concerned_people_opinion = userText;
-    this._piaService.update(this.pia).then(() => {
-      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
-      if (userText && userText.length > 0) {
-        this.peopleForm.controls['peopleOpinion'].disable();
+    this._piaService.update(this.pia).then(dataUpdated => {
+      if (dataUpdated.lock_version) {
+        // Update lock_version
+        this.pia.lock_version = dataUpdated.lock_version;
       }
+      this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
     });
   }
 
   /**
    * Auto textarea resize.
-   * @param {*} event - Any Event.
-   * @param {HTMLElement} [textarea] - Textarea HTML element.
    */
   autoTextareaResize(event: any, textarea?: HTMLElement) {
     if (event) {
@@ -400,29 +318,26 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
   }
 
-  /**
-   * Checks if dpo name is filled to enable other fields.
-   */
-  checkDpoName() {
-    if (!this.DPOForm.controls['DPONames'].value) {
-      this.elementRef1.nativeElement.focus();
-      this.DPOForm.controls['DPOStatus'].disable();
-      this.DPOForm.controls['DPOOpinion'].disable();
-      this.DPOForm.controls['DPOStatus'].patchValue(null);
-      this.DPOForm.controls['DPOOpinion'].patchValue(null);
-    }
-  }
-
-  /**
-   * Checks if concerned people name is filled to enable other fields.
-   */
-  checkConcernedPeopleName() {
-    if (!this.peopleForm.controls['peopleNames'].value) {
-      this.elementRef2.nativeElement.focus();
-      this.peopleForm.controls['peopleStatus'].disable();
-      this.peopleForm.controls['peopleOpinion'].disable();
-      this.peopleForm.controls['peopleStatus'].patchValue(null);
-      this.peopleForm.controls['peopleOpinion'].patchValue(null);
+  changeFocusIfDisable(inputClass) {
+    switch (inputClass) {
+      case 'DPOName':
+        console.log(this.DPOForm.controls.DPONames.value);
+        if (!this.DPOForm.controls.DPONames.value) {
+          let input: HTMLInputElement = document.querySelector(
+            `input.${inputClass}`
+          );
+          input.focus();
+        }
+        break;
+      case 'peopleNames':
+        console.log(this.peopleForm.controls.peopleNames.value);
+        if (!this.peopleForm.controls.peopleNames.value) {
+          let input: HTMLInputElement = document.querySelector(
+            `input.${inputClass}`
+          );
+          input.focus();
+        }
+        break;
     }
   }
 }

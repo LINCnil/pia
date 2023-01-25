@@ -97,29 +97,31 @@ export class AttachmentsService extends ApplicationDb {
   async updateSignedAttachmentsList(piaId): Promise<any> {
     return new Promise((resolve, reject) => {
       this.signedAttachments = [];
-      this.findAllByPia(piaId).then((data: any[]) => {
-        // Store all signed attachments if they are not yet stored
-        data.forEach(a => {
-          if (a.pia_signed && a.pia_signed === 1) {
-            this.signedAttachments.push(a);
+      this.findAllByPia(piaId)
+        .then((data: any[]) => {
+          // Store all signed attachments if they are not yet stored
+          data.forEach(a => {
+            if (a.pia_signed && a.pia_signed === 1) {
+              this.signedAttachments.push(a);
+            }
+          });
+          // If we have some signed attachments :
+          if (this.signedAttachments && this.signedAttachments.length > 0) {
+            this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
+            if (
+              this.signedAttachments[0] &&
+              this.signedAttachments[0].file &&
+              this.signedAttachments[0].file.length > 0
+            ) {
+              // Store the latest signed attachment only if file isn't empty
+              this.attachment_signed = this.signedAttachments[0];
+              // Remove it from the signed attachments array so that we get the oldest
+              this.signedAttachments.splice(0, 1);
+            }
           }
-        });
-        // If we have some signed attachments :
-        if (this.signedAttachments && this.signedAttachments.length > 0) {
-          this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
-          if (
-            this.signedAttachments[0] &&
-            this.signedAttachments[0].file &&
-            this.signedAttachments[0].file.length > 0
-          ) {
-            // Store the latest signed attachment only if file isn't empty
-            this.attachment_signed = this.signedAttachments[0];
-            // Remove it from the signed attachments array so that we get the oldest
-            this.signedAttachments.splice(0, 1);
-          }
-        }
-        resolve(this.signedAttachments);
-      });
+          resolve(this.signedAttachments);
+        })
+        .catch(err => reject(err));
     });
   }
 

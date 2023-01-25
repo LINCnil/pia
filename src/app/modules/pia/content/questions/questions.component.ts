@@ -18,6 +18,9 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { Answer } from 'src/app/models/answer.model';
 import { AnswerService } from 'src/app/services/answer.service';
 import { MeasureService } from 'src/app/services/measures.service';
+import { TranslateService } from '@ngx-translate/core';
+import { DialogService } from 'src/app/services/dialog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questions',
@@ -43,16 +46,20 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   answer: Answer = new Answer();
   measure: Measure = new Measure();
   lastSelectedTag: string;
-  elementId: String;
+  elementId: string;
   editor: any;
+  loading = false;
 
   constructor(
+    private router: Router,
     private el: ElementRef,
     private knowledgeBaseService: KnowledgeBaseService,
     private ngZone: NgZone,
     public globalEvaluationService: GlobalEvaluationService,
     private answerService: AnswerService,
-    private measureService: MeasureService
+    private measureService: MeasureService,
+    private translateService: TranslateService,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -64,6 +71,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       list: new FormControl()
     });
 
+    this.loading = true;
     this.answerService
       .getByReferenceAndPia(this.pia.id, this.question.id)
       .then((answer: Answer) => {
@@ -79,104 +87,110 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             });
             this.questionForm.controls['list'].patchValue(dataList);
           }
-          if (
-            this.el.nativeElement.querySelector('.pia-gaugeBlock-background')
-          ) {
-            this.el.nativeElement
-              .querySelector('.pia-gaugeBlock-background')
-              .classList.add(
-                'pia-gaugeBlock-background-' + this.answer.data.gauge
-              );
-          }
         }
+      })
+      .finally(() => {
+        this.loading = false;
       });
 
     this.measure.pia_id = this.pia.id;
 
     // Fill tags list for Measures
+    this.loading = true;
     this.measureService.pia_id = this.pia.id;
-    this.measureService.findAllByPia(this.pia.id).then((entries: any[]) => {
-      if (entries) {
-        entries.forEach(entry => {
-          if (entry.title) {
-            this.userMeasures.push(entry.title);
-          }
-        });
-      }
-    });
+    this.measureService
+      .findAllByPia(this.pia.id)
+      .then((entries: any[]) => {
+        if (entries) {
+          entries.forEach(entry => {
+            if (entry.title) {
+              this.userMeasures.push(entry.title);
+            }
+          });
+        }
+      })
+      .finally(() => {
+        this.loading = false;
+      });
 
     // Fill tags list for Impacts, Threats and Sources from all risks (1, 2 & 3)
-    this.answerService.findAllByPia(this.pia.id).then((entries: any[]) => {
-      this.allUserAnswersForImpacts = [];
-      this.allUserAnswersForThreats = [];
-      this.allUserAnswersForSources = [];
-      if (entries) {
-        entries.forEach(entry => {
-          if (entry.data.list && entry.data.list.length > 0) {
-            // All user answers for Impacts
-            if (
-              entry.reference_to === 321 ||
-              entry.reference_to === 331 ||
-              entry.reference_to === 341
-            ) {
-              this.allUserAnswersForImpacts.push(entry.data.list);
-            } else if (
-              entry.reference_to === 322 ||
-              entry.reference_to === 332 ||
-              entry.reference_to === 342
-            ) {
-              // All user answers for Threats
-              this.allUserAnswersForThreats.push(entry.data.list);
-            } else if (
-              entry.reference_to === 323 ||
-              entry.reference_to === 333 ||
-              entry.reference_to === 343
-            ) {
-              // All user answers for Sources
-              this.allUserAnswersForSources.push(entry.data.list);
+    this.loading = true;
+    this.answerService
+      .findAllByPia(this.pia.id)
+      .then((entries: any[]) => {
+        this.allUserAnswersForImpacts = [];
+        this.allUserAnswersForThreats = [];
+        this.allUserAnswersForSources = [];
+        if (entries) {
+          entries.forEach(entry => {
+            if (entry.data.list && entry.data.list.length > 0) {
+              // All user answers for Impacts
+              if (
+                entry.reference_to === 321 ||
+                entry.reference_to === 331 ||
+                entry.reference_to === 341
+              ) {
+                this.allUserAnswersForImpacts.push(entry.data.list);
+              } else if (
+                entry.reference_to === 322 ||
+                entry.reference_to === 332 ||
+                entry.reference_to === 342
+              ) {
+                // All user answers for Threats
+                this.allUserAnswersForThreats.push(entry.data.list);
+              } else if (
+                entry.reference_to === 323 ||
+                entry.reference_to === 333 ||
+                entry.reference_to === 343
+              ) {
+                // All user answers for Sources
+                this.allUserAnswersForSources.push(entry.data.list);
+              }
             }
-          }
-        });
-        this.allUserAnswersForImpacts = [].concat.apply(
-          [],
-          this.allUserAnswersForImpacts
-        );
-        this.allUserAnswersForThreats = [].concat.apply(
-          [],
-          this.allUserAnswersForThreats
-        );
-        this.allUserAnswersForSources = [].concat.apply(
-          [],
-          this.allUserAnswersForSources
-        );
+          });
+          this.allUserAnswersForImpacts = [].concat.apply(
+            [],
+            this.allUserAnswersForImpacts
+          );
+          this.allUserAnswersForThreats = [].concat.apply(
+            [],
+            this.allUserAnswersForThreats
+          );
+          this.allUserAnswersForSources = [].concat.apply(
+            [],
+            this.allUserAnswersForSources
+          );
 
-        // Si la question courante concerne les impacts (321, 331, 341)
-        if (
-          this.question.id === 321 ||
-          this.question.id === 331 ||
-          this.question.id === 341
-        ) {
-          this.userAnswersToDisplay = this.allUserAnswersForImpacts;
-        } else if (
-          this.question.id === 322 ||
-          this.question.id === 332 ||
-          this.question.id === 342
-        ) {
-          // Sinon si la question courante concerne les menaces (322, 332, 342)
-          this.userAnswersToDisplay = this.allUserAnswersForThreats;
-        } else if (
-          this.question.id === 323 ||
-          this.question.id === 333 ||
-          this.question.id === 343
-        ) {
-          // Sinon si la question courante concerne les sources (323, 333, 343)
-          this.userAnswersToDisplay = this.allUserAnswersForSources;
+          // Si la question courante concerne les impacts (321, 331, 341)
+          if (
+            this.question.id === 321 ||
+            this.question.id === 331 ||
+            this.question.id === 341
+          ) {
+            this.userAnswersToDisplay = this.allUserAnswersForImpacts;
+          } else if (
+            this.question.id === 322 ||
+            this.question.id === 332 ||
+            this.question.id === 342
+          ) {
+            // Sinon si la question courante concerne les menaces (322, 332, 342)
+            this.userAnswersToDisplay = this.allUserAnswersForThreats;
+          } else if (
+            this.question.id === 323 ||
+            this.question.id === 333 ||
+            this.question.id === 343
+          ) {
+            // Sinon si la question courante concerne les sources (323, 333, 343)
+            this.userAnswersToDisplay = this.allUserAnswersForSources;
+          }
+          this.userAnswersToDisplay = this.userAnswersToDisplay
+            .reduce((a, x) => (a.includes(x) ? a : [...a, x]), [])
+            .sort();
         }
-        this.userAnswersToDisplay = this.userAnswersToDisplay
-          .reduce((a, x) => (a.includes(x) ? a : [...a, x]), [])
-          .sort();
-      }
-    });
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
   ngOnDestroy(): void {
@@ -189,17 +203,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   evaluationChange(evaluation): void {
     this.evaluation = evaluation;
-  }
-
-  /**
-   * Enable the gauge.
-   */
-  enableGauge(): void {
-    if (this.globalEvaluationService.answerEditionEnabled) {
-      this.questionForm.controls['gauge'].enable();
-    } else {
-      this.questionForm.controls['gauge'].disable();
-    }
   }
 
   /**
@@ -217,26 +220,37 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
     const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
+
+    // this.loading = true;
     if (this.answer.id) {
       this.answer.data = {
         text: this.answer.data.text,
         gauge: gaugeValue,
         list: this.answer.data.list
       };
-      this.answerService.update(this.answer).then(() => {
+
+      this.answerService.update(this.answer).then((answer: Answer) => {
+        this.answer = answer;
         this.ngZone.run(() => {
           this.globalEvaluationService.validate();
         });
       });
+      // .finally(() => {
+      //   this.loading = false;
+      // });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: gaugeValue, list: [] };
+
       this.answerService.create(this.answer).then(() => {
         this.ngZone.run(() => {
           this.globalEvaluationService.validate();
         });
       });
+      // .finally(() => {
+      //   this.loading = false;
+      // });
     }
   }
 
@@ -252,7 +266,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Disables question field + shows edit button + save data.
    */
-  questionContentFocusOut(): void {
+  async questionContentFocusOut(): Promise<void> {
     this.answer.pia_id = this.pia.id;
     this.answer.reference_to = this.question.id;
     let userText = this.questionForm.controls['text'].value;
@@ -265,11 +279,24 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         gauge: this.answer.data.gauge,
         list: this.answer.data.list
       };
-      this.answerService.update(this.answer).then(() => {
-        this.ngZone.run(() => {
-          this.globalEvaluationService.validate();
+
+      // this.loading = true;
+      await this.answerService
+        .update(this.answer)
+        .then((answer: Answer) => {
+          this.answer = answer;
+          this.ngZone.run(() => {
+            this.globalEvaluationService.validate();
+          });
+        })
+        .catch(err => {
+          if (err.statusText === 'Conflict') {
+            this.conflictDialog(err);
+          }
         });
-      });
+      // .finally(() => {
+      //   this.loading = false;
+      // });
     } else if (!this.answer.id && userText !== '') {
       if (
         this.questionForm.value.text &&
@@ -282,11 +309,16 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           gauge: gaugeValueForCurrentQuestion,
           list: []
         };
-        this.answerService.create(this.answer).then(() => {
+
+        // this.loading = true;
+        await this.answerService.create(this.answer).then(() => {
           this.ngZone.run(() => {
             this.globalEvaluationService.validate();
           });
         });
+        // .finally(() => {
+        //   this.loading = false;
+        // });
       }
     }
   }
@@ -298,8 +330,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   onAdd(event): void {
     if (event && event.value.length > 0) {
       let list = [];
-      if (this.answer.id) {
-        list = this.answer.data.list;
+      if (this.answer.id && this.answer.data.list) {
+        list = [...list, ...this.answer.data.list];
       }
       if (list.indexOf(event.value) <= 0) {
         list.push(event.value);
@@ -387,22 +419,36 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @param {string[]} list - List of tags.
    */
   private createOrUpdateList(list: string[]): void {
+    this.loading = true;
     if (this.answer.id) {
       this.answer.data = {
         text: this.answer.data.text,
         gauge: this.answer.data.gauge,
         list: list
       };
-      this.answerService.update(this.answer).then(() => {
-        this.globalEvaluationService.validate();
-      });
+
+      this.answerService
+        .update(this.answer)
+        .then((answer: Answer) => {
+          this.answer = answer;
+          this.globalEvaluationService.validate();
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
       this.answer.data = { text: null, gauge: null, list: list };
-      this.answerService.create(this.answer).then(() => {
-        this.globalEvaluationService.validate();
-      });
+
+      this.answerService
+        .create(this.answer)
+        .then(() => {
+          this.globalEvaluationService.validate();
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     }
   }
 
@@ -444,39 +490,132 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor(): void {
+    // unset knowlegebase
     this.knowledgeBaseService.placeholder = this.question.placeholder;
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
-    tinymce.init({
-      branding: false,
-      menubar: false,
-      statusbar: false,
-      plugins: 'autoresize lists',
-      forced_root_block: false,
-      autoresize_bottom_margin: 30,
-      auto_focus: this.elementId,
-      autoresize_min_height: 40,
-      selector: '#' + this.elementId,
-      toolbar:
-        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-      skin: false,
-      setup: editor => {
-        this.editor = editor;
-        editor.on('focusout', () => {
-          this.questionForm.controls['text'].patchValue(editor.getContent());
-          this.questionContentFocusOut();
-          this.closeEditor();
-        });
-      }
-    });
+
+    setTimeout(() => {
+      // init new editor
+      tinymce.init({
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        plugins: 'autoresize lists',
+        forced_root_block: false,
+        autoresize_bottom_margin: 30,
+        auto_focus: this.elementId,
+        autoresize_min_height: 40,
+        selector: '#' + this.elementId,
+        toolbar:
+          'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+        skin: false,
+        setup: editor => {
+          editor.on('init', () => {
+            this.editor = editor;
+          });
+          editor.on('focusout', () => {
+            // Save content
+            this.questionForm.controls['text'].patchValue(editor.getContent());
+            this.questionContentFocusOut().then(() => {
+              this.editor = null;
+              tinymce.remove(this.editor); // Warning: take more time then a new initiation
+              this.knowledgeBaseService.placeholder = null;
+            });
+          });
+        }
+      });
+    }, 100);
   }
 
   /**
-   * Close the editor.
-   * @private
+   * Open a dialog modal for deal with the conflict
+   * @param err
    */
-  private closeEditor() {
-    this.knowledgeBaseService.placeholder = null;
-    tinymce.remove(this.editor);
-    this.editor = null;
+  private conflictDialog(err) {
+    let additional_text: string;
+    const currentUrl = this.router.url;
+
+    // Text
+    additional_text = `
+      ${this.translateService.instant('conflict.initial_content')}: ${
+      err.record.data.text
+    }
+      <br>
+      ${this.translateService.instant('conflict.new_content')}: ${
+      err.params.data.text
+    }
+    `;
+
+    // Open dialog here
+    this.dialogService.confirmThis(
+      {
+        text: this.translateService.instant('conflict.title'),
+        type: 'others',
+        yes: '',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          no_cross_button: true,
+          btn_no: false,
+          additional_text
+        }
+      },
+      () => {
+        return;
+      },
+      () => {
+        return;
+      },
+      [
+        {
+          label: this.translateService.instant('conflict.keep_initial'),
+          callback: () => {
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
+            return;
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.keep_new'),
+          callback: () => {
+            let newAnswerFixed: Answer = { ...err.params };
+            newAnswerFixed.id = err.record.id;
+            newAnswerFixed.lock_version = err.record.lock_version;
+            this.answerService
+              .update(newAnswerFixed)
+              .then(() => {
+                this.router
+                  .navigateByUrl('/', { skipLocationChange: true })
+                  .then(() => {
+                    this.router.navigate([currentUrl]);
+                  });
+                return;
+              })
+              .catch(err => {});
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.merge'),
+          callback: () => {
+            let newAnswerFixed: Answer = { ...err.record };
+            newAnswerFixed.data.text += '\n' + err.params.data.text;
+            this.answerService
+              .update(newAnswerFixed)
+              .then(() => {
+                this.router
+                  .navigateByUrl('/', { skipLocationChange: true })
+                  .then(() => {
+                    this.router.navigate([currentUrl]);
+                  });
+                return;
+              })
+              .catch(err => {});
+          }
+        }
+      ]
+    );
   }
 }

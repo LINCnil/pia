@@ -33,7 +33,10 @@ export function context_edit_eval() {
 
     context("Données, processus et supports", () => {
       it("should complete textareas", () => {
-        cy.test_writing_on_textarea();
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 1, 2);
+          cy.test_writing_on_textarea();
+        });
       });
 
       it("should valid evaluation", () => {

@@ -39,6 +39,14 @@ export class NewPiaComponent implements OnInit {
       });
   }
 
+  ngOnInit(): void {
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        this.piaForm = new FormGroup(this.normalizeForm());
+      }
+    });
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.users && changes.users.currentValue) {
       this.userList = changes.users.currentValue.map(x => {
@@ -53,31 +61,63 @@ export class NewPiaComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.piaForm = new FormGroup({
+  /**
+   * Disable the already selected users in the guests field
+   */
+  get usersForGuests(): Array<any> {
+    const res = [];
+
+    if (this.piaForm) {
+      this.userList.forEach((u: any) => {
+        if (this.piaForm) {
+          let presence = false;
+          for (const role of ['authors', 'evaluators', 'validators']) {
+            if (
+              this.piaForm.controls[role].value.map(x => x.id).includes(u.id)
+            ) {
+              presence = true;
+            }
+          }
+          if (!presence) {
+            res.push(u);
+          }
+        }
+      });
+    }
+
+    return res;
+  }
+
+  normalizeForm(): any {
+    const formFields = {
       name: new FormControl(),
-      author_name: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(1)
-      ]),
-      evaluator_name: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(1)
-      ]),
-      validator_name: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(1)
-      ]),
-      guests: new FormControl(),
       category: new FormControl(),
       structure_id: new FormControl()
-    });
+    };
+    if (this.authService.state) {
+      [
+        { field: 'authors', required: true },
+        { field: 'evaluators', required: true },
+        { field: 'validators', required: true },
+        { field: 'guests', required: false }
+      ].forEach(ob => {
+        formFields[ob.field] = new FormControl(
+          [],
+          ob.required ? [Validators.required, Validators.minLength(1)] : []
+        );
+      });
+    } else {
+      ['author_name', 'evaluator_name', 'validator_name'].forEach(field => {
+        formFields[field] = new FormControl('', Validators.required);
+      });
+    }
+    return formFields;
   }
 
   /**
    * Add user to new Pia Form
    */
-  onAddUser($event: TagModelClass, field: string) {
+  onAddUser($event: TagModelClass, field: string): void {
     // Get tag in form
     const tagIndex = this.piaForm.controls[field].value.findIndex(
       f => f.id === $event.display
@@ -121,18 +161,25 @@ export class NewPiaComponent implements OnInit {
     let data;
     if (this.authService.state) {
       data = {
-        ...this.piaForm.value,
-        guests: this.piaForm.controls.guests.value
-          ? this.piaForm.controls.guests.value.map(x => x.id)
-          : [],
-        validator_name: this.piaForm.controls.validator_name.value.map(
-          x => x.id
-        ),
-        evaluator_name: this.piaForm.controls.evaluator_name.value.map(
-          x => x.id
-        ),
-        author_name: this.piaForm.controls.author_name.value.map(x => x.id)
+        ...this.piaForm.value
       };
+
+      [
+        { field: 'authors', role: 'author', dump_field: 'author_name' },
+        {
+          field: 'evaluators',
+          role: 'evaluator',
+          dump_field: 'evaluator_name'
+        },
+        {
+          field: 'validators',
+          role: 'validator',
+          dump_field: 'validator_name'
+        },
+        { field: 'guests', role: 'guest', dump_field: null }
+      ].forEach(ob => {
+        data[ob.field] = this.piaForm.controls[ob.field].value.map(x => x.id);
+      });
     } else {
       data = { ...this.piaForm.value };
     }

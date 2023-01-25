@@ -18,6 +18,9 @@ import { Measure } from 'src/app/models/measure.model';
 import { AnswerService } from 'src/app/services/answer.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { MeasureService } from 'src/app/services/measures.service';
+import { Pia } from '../../../../models/pia.model';
+import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-measures',
@@ -40,8 +43,11 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   measureForm: FormGroup;
   measureModel: Measure = new Measure();
   editTitle = true;
+  loading = false;
 
   constructor(
+    private router: Router,
+    private translateService: TranslateService,
     public globalEvaluationService: GlobalEvaluationService,
     private dialogService: DialogService,
     private el: ElementRef,
@@ -57,30 +63,36 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       measureContent: new FormControl()
     });
     this.measureModel.pia_id = this.pia.id;
-    this.measuresService.find(this.measure.id).then((entry: Measure) => {
-      this.measureModel = entry;
-      this.knowledgeBaseService.toHide.push(this.measure.title);
-      this.elementId = 'pia-measure-content-' + this.measure.id;
-      if (this.measureModel) {
-        this.measureForm.controls['measureTitle'].patchValue(
-          this.measureModel.title
-        );
-        this.measureForm.controls['measureContent'].patchValue(
-          this.measureModel.content
-        );
-        if (this.measureModel.title) {
-          this.measureForm.controls['measureTitle'].disable();
-          this.editTitle = false;
+    this.loading = true;
+    this.measuresService
+      .find(this.measure.id)
+      .then((entry: Measure) => {
+        this.measureModel = entry;
+        this.knowledgeBaseService.toHide.push(this.measure.title);
+        this.elementId = 'pia-measure-content-' + this.measure.id;
+        if (this.measureModel) {
+          this.measureForm.controls['measureTitle'].patchValue(
+            this.measureModel.title
+          );
+          this.measureForm.controls['measureContent'].patchValue(
+            this.measureModel.content
+          );
+          if (this.measureModel.title) {
+            this.measureForm.controls['measureTitle'].disable();
+            this.editTitle = false;
+          }
         }
-      }
 
-      const measureTitleTextarea = document.getElementById(
-        'pia-measure-title-' + this.measure.id
-      );
-      if (measureTitleTextarea) {
-        this.autoTextareaResize(null, measureTitleTextarea);
-      }
-    });
+        const measureTitleTextarea = document.getElementById(
+          'pia-measure-title-' + this.measure.id
+        );
+        if (measureTitleTextarea) {
+          this.autoTextareaResize(null, measureTitleTextarea);
+        }
+      })
+      .finally(() => {
+        this.loading = false;
+      });
   }
 
   ngOnDestroy(): void {
@@ -144,60 +156,68 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.measureModel.pia_id = this.pia.id;
     const previousTitle = this.measureModel.title;
     this.measureModel.title = userText;
-    this.measuresService.update(this.measureModel).then(() => {
-      if (previousTitle !== this.measureModel.title) {
-        this.knowledgeBaseService.removeItemIfPresent(
-          this.measureModel.title,
-          previousTitle
-        );
-      }
+    this.measuresService
+      .update(this.measureModel)
+      .then((response: Measure) => {
+        this.measureModel.lock_version = response.lock_version;
+        if (previousTitle !== this.measureModel.title) {
+          this.knowledgeBaseService.removeItemIfPresent(
+            this.measureModel.title,
+            previousTitle
+          );
+        }
 
-      // Update tags
-      this.answerService
-        .getByReferenceAndPia(this.pia.id, 324)
-        .then((answer: Answer) => {
-          if (answer && answer.data && answer.data.list) {
-            const index = answer.data.list.indexOf(previousTitle);
-            if (index !== -1) {
-              answer.data.list[index] = this.measureModel.title;
-              this.answerService.update(answer);
+        // Update tags
+        this.answerService
+          .getByReferenceAndPia(this.pia.id, 324)
+          .then((answer: Answer) => {
+            if (answer && answer.data && answer.data.list) {
+              const index = answer.data.list.indexOf(previousTitle);
+              if (index !== -1) {
+                answer.data.list[index] = this.measureModel.title;
+                this.answerService.update(answer);
+              }
             }
-          }
-        });
+          });
 
-      this.answerService
-        .getByReferenceAndPia(this.pia.id, 334)
-        .then((answer: Answer) => {
-          if (answer && answer.data && answer.data.list) {
-            const index = answer.data.list.indexOf(previousTitle);
-            if (index !== -1) {
-              answer.data.list[index] = this.measureModel.title;
-              this.answerService.update(answer);
+        this.answerService
+          .getByReferenceAndPia(this.pia.id, 334)
+          .then((answer: Answer) => {
+            if (answer && answer.data && answer.data.list) {
+              const index = answer.data.list.indexOf(previousTitle);
+              if (index !== -1) {
+                answer.data.list[index] = this.measureModel.title;
+                this.answerService.update(answer);
+              }
             }
-          }
-        });
+          });
 
-      this.answerService
-        .getByReferenceAndPia(this.pia.id, 344)
-        .then((answer: Answer) => {
-          if (answer && answer.data && answer.data.list) {
-            const index = answer.data.list.indexOf(previousTitle);
-            if (index !== -1) {
-              answer.data.list[index] = this.measureModel.title;
-              this.answerService.update(answer);
+        this.answerService
+          .getByReferenceAndPia(this.pia.id, 344)
+          .then((answer: Answer) => {
+            if (answer && answer.data && answer.data.list) {
+              const index = answer.data.list.indexOf(previousTitle);
+              if (index !== -1) {
+                answer.data.list[index] = this.measureModel.title;
+                this.answerService.update(answer);
+              }
             }
-          }
-        });
+          });
 
-      if (
-        this.measureForm.value.measureTitle &&
-        this.measureForm.value.measureTitle.length > 0
-      ) {
-        this.measureForm.controls['measureTitle'].disable();
-      }
+        if (
+          this.measureForm.value.measureTitle &&
+          this.measureForm.value.measureTitle.length > 0
+        ) {
+          this.measureForm.controls['measureTitle'].disable();
+        }
 
-      this.globalEvaluationService.validate();
-    });
+        this.globalEvaluationService.validate();
+      })
+      .catch(err => {
+        if (err.statusText === 'Conflict') {
+          this.conflictDialog('title', err);
+        }
+      });
   }
 
   /**
@@ -223,11 +243,19 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     }
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.content = userText;
-    this.measuresService.update(this.measureModel).then(() => {
-      this.ngZone.run(() => {
-        this.globalEvaluationService.validate();
+    this.measuresService
+      .update(this.measureModel)
+      .then((response: Measure) => {
+        this.measureModel.lock_version = response.lock_version;
+        this.ngZone.run(() => {
+          this.globalEvaluationService.validate();
+        });
+      })
+      .catch(err => {
+        if (err.statusText === 'Conflict') {
+          this.conflictDialog('content', err);
+        }
       });
-    });
   }
 
   /**
@@ -320,29 +348,118 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   loadEditor(): void {
     this.knowledgeBaseService.placeholder = this.measure.placeholder;
-    tinymce.init({
-      branding: false,
-      menubar: false,
-      statusbar: false,
-      plugins: 'autoresize lists',
-      forced_root_block: false,
-      autoresize_bottom_margin: 30,
-      auto_focus: this.elementId,
-      autoresize_min_height: 40,
-      selector: '#' + this.elementId,
-      toolbar:
-        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-      skin: false,
-      setup: editor => {
-        this.editor = editor;
-        editor.on('focusout', () => {
-          this.measureForm.controls['measureContent'].patchValue(
-            editor.getContent()
-          );
-          this.measureContentFocusOut();
-          tinymce.remove(this.editor);
-        });
-      }
-    });
+    setTimeout(() => {
+      tinymce.init({
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        plugins: 'autoresize lists',
+        forced_root_block: false,
+        autoresize_bottom_margin: 30,
+        auto_focus: this.elementId,
+        autoresize_min_height: 40,
+        selector: '#' + this.elementId,
+        toolbar:
+          'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+        skin: false,
+        setup: editor => {
+          this.editor = editor;
+          editor.on('focusout', async () => {
+            this.measureForm.controls['measureContent'].patchValue(
+              editor.getContent()
+            );
+            await this.measureContentFocusOut();
+            tinymce.remove(this.editor);
+          });
+        }
+      });
+    }, 100);
+  }
+
+  /**
+   * Open a dialog modal for deal with the conflict
+   * @param err
+   */
+  conflictDialog(field, error) {
+    let additional_text: string;
+    const currentUrl = this.router.url;
+    // Text
+    additional_text = `
+      ${this.translateService.instant('conflict.pia_field_name')}:
+      ${field}
+      <br>
+      ${this.translateService.instant('conflict.initial_content')}:
+      ${error.record[field]}
+      <br>
+      ${this.translateService.instant('conflict.new_content')}:
+      ${error.params[field]}
+    `;
+
+    // Open dialog here
+    this.dialogService.confirmThis(
+      {
+        text: this.translateService.instant('conflict.title'),
+        type: 'others',
+        yes: '',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          no_cross_button: true,
+          btn_no: false,
+          additional_text
+        }
+      },
+      () => {
+        return;
+      },
+      () => {
+        return;
+      },
+      [
+        {
+          label: this.translateService.instant('conflict.keep_initial'),
+          callback: () => {
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
+            return;
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.keep_new'),
+          callback: () => {
+            let newMeasureFixed: Measure = { ...error.params };
+            newMeasureFixed.id = error.record.id;
+            newMeasureFixed.lock_version = error.record.lock_version;
+            this.measuresService.update(newMeasureFixed).then(() => {
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
+              return;
+            });
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.merge'),
+          callback: () => {
+            let newMeasureFixed: Measure = { ...error.record };
+            let separator = field === 'title' ? ' ' : '\n';
+            newMeasureFixed[field] += separator + error.params[field];
+            this.measuresService.update(newMeasureFixed).then(() => {
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
+              return;
+            });
+          }
+        }
+      ]
+    );
   }
 }

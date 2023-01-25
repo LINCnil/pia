@@ -217,23 +217,25 @@ export class EntriesComponent implements OnInit, OnDestroy {
           });
           break;
         case 'knowledgeBase':
-          await this.knowledgeBaseService.getAll().then((result: any) => {
-            // Parse default Knowledge base json
-            const defaultKnowledgeBase = new KnowledgeBase(
-              0,
-              this.translateService.instant(
-                'knowledge_base.default_knowledge_base'
-              ),
-              'CNIL',
-              'CNIL'
-            );
-            defaultKnowledgeBase.is_example = true;
-            result.push(defaultKnowledgeBase);
-            this.entries = result;
-            this.loading = false;
-            this.sortOrder = localStorage.getItem('knowledgeBaseOrder');
-            this.sortValue = localStorage.getItem('knowledgeBaseValue');
-          });
+          await this.knowledgeBaseService
+            .getAll()
+            .then((result: KnowledgeBase[]) => {
+              // Parse default Knowledge base json
+              const defaultKnowledgeBase = new KnowledgeBase(
+                0,
+                this.translateService.instant(
+                  'knowledge_base.default_knowledge_base'
+                ),
+                'CNIL',
+                'CNIL'
+              );
+              defaultKnowledgeBase.is_example = true;
+              result.push(defaultKnowledgeBase);
+              this.entries = result;
+              this.loading = false;
+              this.sortOrder = localStorage.getItem('knowledgeBaseOrder');
+              this.sortValue = localStorage.getItem('knowledgeBaseValue');
+            });
           break;
         default:
           break;
@@ -479,5 +481,192 @@ export class EntriesComponent implements OnInit, OnDestroy {
     this.userBehavior.complete();
     this.userBehavior = null;
     this.showNewUserForm = false;
+  }
+
+  /**
+   * Open a dialog modal for deal with the conflict
+   * @param err
+   */
+  conflictDialog(error: {
+    field: string;
+    err: { model: string; record: Pia | KnowledgeBase; params: any };
+  }) {
+    const err = error.err;
+    let additional_text: string;
+    let keep_initial: any;
+    let keep_new: any;
+    let merge: any;
+
+    const currentUrl = this.router.url;
+    switch (error.err.model) {
+      case 'pia':
+        // Text
+        additional_text = `
+          ${this.translateService.instant('conflict.title')}: ${error.field}
+          <br>
+          ${this.translateService.instant('conflict.initial_content')}: ${
+          err.record[error.field]
+        }
+          <br>
+          ${this.translateService.instant('conflict.new_content')}: ${
+          err.params[error.field]
+        }
+        `;
+
+        // keep initial action
+        keep_initial = () => {
+          this.router
+            .navigateByUrl('/', { skipLocationChange: true })
+            .then(() => {
+              this.router.navigate([currentUrl]);
+            });
+          return;
+        };
+
+        // keep new action
+        keep_new = () => {
+          let newPiaFixed: Pia = <Pia>{ ...err.record };
+          newPiaFixed[error.field] = err.params[error.field];
+          newPiaFixed.id = err.record.id;
+          newPiaFixed.lock_version = err.record.lock_version;
+          this.piaService
+            .update(newPiaFixed)
+            .then(() => {
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
+              return;
+            })
+            .catch(err => {});
+        };
+
+        // merge
+        merge = () => {
+          let newPiaFixed: Pia = <Pia>{ ...err.record };
+          let separator = error.field === 'name' ? ' ' : ',';
+          newPiaFixed[error.field] += separator + err.params[error.field];
+          this.piaService
+            .update(newPiaFixed)
+            .then(() => {
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
+              return;
+            })
+            .catch(err => {});
+        };
+        break;
+      case 'knowledge_base':
+        // Text
+        additional_text = `
+          ${this.translateService.instant('conflict.title')}: ${error.field}
+          <br>
+          ${this.translateService.instant('conflict.initial_content')}: ${
+          err.record[error.field]
+        }
+          <br>
+          ${this.translateService.instant('conflict.new_content')}: ${
+          err.params[error.field]
+        }
+        `;
+
+        // keep initial action
+        keep_initial = () => {
+          this.router
+            .navigateByUrl('/', { skipLocationChange: true })
+            .then(() => {
+              this.router.navigate([currentUrl]);
+            });
+          return;
+        };
+
+        // keep new action
+        keep_new = () => {
+          let newKnwoledgeBaseFixed: KnowledgeBase = <KnowledgeBase>{
+            ...err.record
+          };
+          newKnwoledgeBaseFixed[error.field] = err.params[error.field];
+          newKnwoledgeBaseFixed.lock_version = err.record.lock_version;
+          this.knowledgeBaseService
+            .update(newKnwoledgeBaseFixed)
+            .then(() => {
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
+              return;
+            })
+            .catch(err => {});
+        };
+
+        // merge
+        merge = () => {
+          let newKnwoledgeBaseFixed: KnowledgeBase = <KnowledgeBase>{
+            ...err.record
+          };
+          let separator = error.field === 'name' ? ' ' : ',';
+          newKnwoledgeBaseFixed[error.field] +=
+            separator + err.params[error.field];
+          this.knowledgeBaseService
+            .update(newKnwoledgeBaseFixed)
+            .then(() => {
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
+              return;
+            })
+            .catch(err => {});
+        };
+        break;
+    }
+
+    // Open dialog here
+    this.dialogService.confirmThis(
+      {
+        text: this.translateService.instant('conflict.title'),
+        type: 'others',
+        yes: '',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          no_cross_button: true,
+          btn_no: false,
+          additional_text
+        }
+      },
+      () => {
+        return;
+      },
+      () => {
+        return;
+      },
+      [
+        {
+          label: this.translateService.instant('conflict.keep_initial'),
+          callback: () => {
+            keep_initial();
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.keep_new'),
+          callback: () => {
+            keep_new();
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.merge'),
+          callback: () => {
+            merge();
+          }
+        }
+      ]
+    );
   }
 }

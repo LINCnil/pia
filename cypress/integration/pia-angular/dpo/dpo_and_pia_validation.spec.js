@@ -32,7 +32,6 @@ describe("Validation", () => {
 
     it("should valid pia", () => {
       cy.validatePia();
-      // cy.closeValidationEvaluationModal();
     });
 
     it("should show report", () => {

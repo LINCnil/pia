@@ -32,21 +32,26 @@ export class EvaluationService extends ApplicationDb {
 
   async update(evaluation: Evaluation): Promise<any> {
     return new Promise((resolve, reject) => {
-      super.find(evaluation.id).then((entry: any) => {
-        entry = {
-          ...entry,
-          ...evaluation
-        };
-        entry.updated_at = new Date();
-        super
-          .update(entry.id, entry, null, this.setFormData(entry))
-          .then(result => {
-            resolve(result);
-          })
-          .catch(err => {
-            reject(err);
-          });
-      });
+      super
+        .find(evaluation.id)
+        .then((entry: any) => {
+          entry = {
+            ...entry,
+            ...evaluation
+          };
+          entry.updated_at = new Date();
+          super
+            .update(entry.id, entry, null, this.setFormData(entry))
+            .then(result => {
+              resolve(result);
+            })
+            .catch(err => {
+              reject(err);
+            });
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
 

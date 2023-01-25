@@ -32,7 +32,7 @@
         ></app-sections>
         <app-attachments [pia]="pia" [editMode]="editMode"></app-attachments>
         <app-revisions
-          *ngIf="pia.is_example == 0 && pia.is_archive == 0"
+          *ngIf="!pia.is_example && !pia.is_archive"
           [pia]="pia"
           [title]="false"
           [currentVersion]="pia.updated_at"

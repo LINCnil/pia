@@ -13,6 +13,7 @@ import { Pia } from 'src/app/models/pia.model';
 import { MeasureService } from 'src/app/services/measures.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-preview',
@@ -198,18 +199,18 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     }
 
     if (
-      this.pia.applied_adjustements &&
-      this.pia.applied_adjustements.length > 0
+      this.pia.applied_adjustments &&
+      this.pia.applied_adjustments.length > 0
     ) {
       el.data.push({
         title: 'summary.modification_made',
-        content: this.pia.applied_adjustements
+        content: this.pia.applied_adjustments
       });
     }
-    if (this.pia.rejected_reason && this.pia.rejected_reason.length > 0) {
+    if (this.pia.rejection_reason && this.pia.rejection_reason.length > 0) {
       el.data.push({
         title: 'summary.rejection_reason',
-        content: this.pia.rejected_reason
+        content: this.pia.rejection_reason
       });
     }
 
@@ -345,5 +346,20 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
           console.log(err);
         });
     });
+  }
+
+  getUsersList(type: string, dump_field: string = null): string {
+    if (this.authService.state) {
+      return this.pia.user_pias
+        .filter(up => up.role === type)
+        .map(x =>
+          x.user.firstname
+            ? x.user.firstname + ' ' + x.user.lastname
+            : x.user.email
+        )
+        .join(',');
+    } else if (dump_field) {
+      return this.pia[dump_field];
+    }
   }
 }

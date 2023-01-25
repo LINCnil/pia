@@ -50,8 +50,8 @@ describe("Entries_table", () => {
       // Redirect into entries
       cy.visit(`/#/entries`);
       cy.get(".pia-filtersBlock-switch").click();
-      cy.wait(3000);
       //Edit Title
+      cy.wait(500);
       cy.get(".pia-list-table tbody tr td:eq(1) div")
         .click()
         .clear()
@@ -81,16 +81,9 @@ describe("Entries_table", () => {
      */
     it("should duplicate pia", () => {
       cy.get(".pia-list-table tbody tr").should("have.length", 1);
-      // cy.get(".pia-list-table tbody tr) td:eq(0) .fa-files-o")
-      //   .click()
-      //   .then(() => {
-      //     cy.get(".pia-list-table tbody tr").should("have.length", 2);
-      //   });
-      cy.get(".app-list-item:eq(0) td:eq(0) a:eq(1)")
-        .click()
-        .then(() => {
-          cy.get(".pia-list-table tbody tr").should("have.length", 2);
-        });
+      cy.get(".pia-list-table tbody tr:eq(0) td:eq(0) .fa-files-o").click();
+      cy.get(".pia-list-table tbody tr:eq(1)");
+      cy.get(".pia-list-table tbody tr").should("have.length", 2);
     });
 
     /**

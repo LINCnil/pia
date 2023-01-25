@@ -157,7 +157,7 @@
     </div>
 
     <!-- NEW ENTRY FORM -->
-    <div class="small-3 medium-3 columns">
+    <div class="small-3 medium-3 columns" *ngIf="!loadingEntry; else entryElse">
       <form
         (ngSubmit)="onSubmit()"
         [formGroup]="entryForm"
@@ -193,7 +193,7 @@
         </div>
         <div>
           <input
-            (focusout)="focusOut()"
+            (focusout)="focusOut('name')"
             formControlName="name"
             type="text"
             placeholder="{{
@@ -205,7 +205,7 @@
         </div>
         <div>
           <textarea
-            (focusout)="focusOut()"
+            (focusout)="focusOut('description')"
             formControlName="description"
             type="text"
             placeholder="{{
@@ -313,6 +313,17 @@
         </div>
       </form>
     </div>
+    <ng-template #entryElse>
+      <div
+        class="small-3 medium-3 columns"
+        style="position:relative; height: 150px;"
+      >
+        <app-loading-overlay
+          [visibility]="true"
+          [childMode]="true"
+        ></app-loading-overlay>
+      </div>
+    </ng-template>
   </div>
 </div>
 

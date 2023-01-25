@@ -11,7 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
-import { FormGroup } from '@angular/forms';
 
 import * as FileSaver from 'file-saver';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -35,16 +34,16 @@ export class PiaLineComponent implements OnInit, OnChanges {
   @Output() duplicated = new EventEmitter<Pia>();
   @Output() archived = new EventEmitter<Pia>();
   @Output() newUserNeeded: EventEmitter<any> = new EventEmitter<any>();
+  @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
   @Input() users: Array<User>;
 
-  piaForm: FormGroup;
   userList: Array<TagModel> = [];
   attachments: any;
 
-  authorField: Array<TagModelClass> = [];
-  validatorField: Array<TagModelClass> = [];
-  evaluatorField: Array<TagModelClass> = [];
-  guestField: Array<TagModelClass> = [];
+  authors: Array<TagModelClass> = [];
+  validators: Array<TagModelClass> = [];
+  evaluators: Array<TagModelClass> = [];
+  guests: Array<TagModelClass> = [];
   addBtnForSpecificInput: {
     display: string;
     pia_id: number;
@@ -62,30 +61,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     if (this.authService.state) {
-      // Add tag to tag inputs
-      this.authorField.push({
-        display: this.pia.author_name,
-        id: this.pia.author_name
-      });
-      this.evaluatorField.push({
-        display: this.pia.evaluator_name,
-        id: this.pia.evaluator_name
-      });
-      this.validatorField.push({
-        display: this.pia.validator_name,
-        id: this.pia.validator_name
-      });
-      if (this.pia.guests.length > 0) {
-        this.pia.guests.forEach((guest: User) => {
-          this.guestField.push({
-            display:
-              guest.firstname && guest.lastname
-                ? guest.firstname + ' ' + guest.lastname
-                : guest.email,
-            id: guest.id
-          });
-        });
-      }
+      this.setUserPiasAsFields(this.pia.user_pias);
     }
 
     this.attachments = [];
@@ -114,44 +90,82 @@ export class PiaLineComponent implements OnInit, OnChanges {
     }
   }
 
-  onTyped($event, pia_id, field) {
+  onTyped($event, pia_id, field): void {
     if ($event != '') {
       this.addBtnForSpecificInput = {
         display: $event,
-        pia_id: pia_id,
-        field: field
+        pia_id,
+        field
       };
     } else {
       this.addBtnForSpecificInput = null;
     }
   }
 
+  /**
+   * Convert user_pias datas into fields for the form
+   */
+  setUserPiasAsFields(user_pias: { user: User; role: String }[]): void {
+    [
+      { field: 'authors', role: 'author', dump_field: 'author_name' },
+      { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
+      { field: 'validators', role: 'validator', dump_field: 'validator_name' },
+      { field: 'guests', role: 'guest', dump_field: null }
+    ].forEach(ob => {
+      // get user_pias with role
+      const filteredUserPias: { user: User; role: String }[] = user_pias.filter(
+        up => up.role == ob.role
+      );
+
+      // convert as tag
+      const tags = filteredUserPias.map(a => {
+        let display =
+          a.user.firstname && a.user.lastname
+            ? a.user.firstname + ' ' + a.user.lastname
+            : a.user.email;
+        return {
+          display,
+          id: a.user.id
+        };
+      });
+
+      // user was deleted but present in the dump_field ?
+      if (ob.dump_field) {
+        const fullnames = this.pia[ob.dump_field].split(',');
+        fullnames.forEach(fullname => {
+          // present in tags ?
+          const exist = tags.find(ac => ac.display == fullname);
+          if (!exist && fullname != '') {
+            // add to tag
+            tags.push({ display: fullname, id: null }); // id = null is for deleted user but dumped
+          }
+        });
+      }
+
+      // save tags
+      this[ob.field] = tags;
+    });
+  }
+
+  /**
+   * Disable the already selected users in the guests field
+   */
   get usersForGuests(): Array<TagModel> {
     let usersForGuests: Array<TagModel> = this.userList;
-    const validator: { user: User; role: string } = this.pia.user_pias.find(
-      u => u.role === 'validator'
-    );
-    const evaluator: { user: User; role: string } = this.pia.user_pias.find(
-      u => u.role === 'evaluator'
-    );
-    const author: { user: User; role: string } = this.pia.user_pias.find(
-      u => u.role === 'author'
-    );
-    if (validator) {
-      usersForGuests = usersForGuests.filter(
-        (x: User) => x.id !== validator.user.id
+    [
+      { field: 'authors', role: 'author', dump_field: 'author_name' },
+      { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
+      { field: 'validators', role: 'validator', dump_field: 'validator_name' }
+    ].forEach(ob => {
+      const users: { user: User; role: string }[] = this.pia.user_pias.filter(
+        u => u.role === ob.role
       );
-    }
-    if (evaluator) {
-      usersForGuests = usersForGuests.filter(
-        (x: User) => x.id !== evaluator.user.id
-      );
-    }
-    if (author) {
-      usersForGuests = usersForGuests.filter(
-        (x: User) => x.id !== author.user.id
-      );
-    }
+      if (users) {
+        usersForGuests = usersForGuests.filter(
+          (x: User) => !users.map(as => as.user.id).includes(x.id)
+        );
+      }
+    });
     return usersForGuests;
   }
 
@@ -201,8 +215,17 @@ export class PiaLineComponent implements OnInit, OnChanges {
   onFocusOut(attribute: string, event: any): void {
     const text = event.target.innerText;
     this.pia[attribute] = text;
-    this.piaService.update(this.pia);
-    this.changed.emit(this.pia);
+    this.piaService
+      .update(this.pia)
+      .then((pia: Pia) => {
+        this.pia = pia;
+        this.changed.emit(this.pia);
+      })
+      .catch(err => {
+        if (err.statusText === 'Conflict') {
+          this.conflictDetected.emit({ field: attribute, err });
+        }
+      });
   }
 
   /**
@@ -250,7 +273,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
    * Add user to new Pia Form
    * Update user on author, evaluator and validator
    */
-  onAddUser($event: TagModelClass, field: string): void {
+  async onAddUser($event: TagModelClass, field: string): Promise<void> {
     // User selected exist ?
     const index = this.users.findIndex(u => u.id === $event.id);
     if (index === -1) {
@@ -268,130 +291,64 @@ export class PiaLineComponent implements OnInit, OnChanges {
 
       // waiting for submitted user form
       observable.subscribe({
-        complete: () => {
+        complete: async () => {
+          console.log(this[field], $event);
           if (userBehavior.value) {
-            // user is created
-            switch (field) {
-              case 'author_name':
-                this.authorField = [
-                  {
-                    display:
-                      userBehavior.value.firstname +
-                      ' ' +
-                      userBehavior.value.lastname,
-                    id: userBehavior.value.id
-                  }
-                ];
-                break;
-              case 'evaluator_name':
-                this.evaluatorField = [
-                  {
-                    display:
-                      userBehavior.value.firstname +
-                      ' ' +
-                      userBehavior.value.lastname,
-                    id: userBehavior.value.id
-                  }
-                ];
-                break;
-              case 'validator_name':
-                this.validatorField = [
-                  {
-                    display:
-                      userBehavior.value.firstname +
-                      ' ' +
-                      userBehavior.value.lastname,
-                    id: userBehavior.value.id
-                  }
-                ];
-                break;
-              case 'guests':
-                this.guestField = [
-                  {
-                    display:
-                      userBehavior.value.firstname +
-                      ' ' +
-                      userBehavior.value.lastname,
-                    id: userBehavior.value.id
-                  }
-                ];
-                break;
-              default:
-                break;
-            }
-            this.pia[field] = [userBehavior.value.id];
-            this.piaService.update(this.pia).then((resp: Pia) => {
-              this.pia = resp;
+            this[field].push({
+              display: `${userBehavior.value.firstname} ${userBehavior.value.lastname}`,
+              id: userBehavior.value.id
             });
+            // user is created
+            await this.savePiaAfterUserAssign(field);
+          } else {
+            // Remove tag, because user form is canceled
           }
         }
       });
     } else {
-      switch (field) {
-        case 'author_name':
-          this.evaluatorField = [$event];
-          this.pia[field] = $event.id;
-          break;
-        case 'evaluator_name':
-          this.evaluatorField = [$event];
-          this.pia[field] = $event.id;
-          break;
-        case 'validator_name':
-          this.validatorField = [$event];
-          this.pia[field] = $event.id;
-          break;
-        case 'guests':
-          this.pia[field].push($event.id);
-          break;
-        default:
-          break;
-      }
+      this[field].push($event);
+      await this.savePiaAfterUserAssign(field);
+    }
+  }
 
-      this.pia['guests'] = this.pia['guests'].map(x =>
-        typeof x === 'object' ? x.id : x
-      );
-      this.piaService.update(this.pia).then((resp: Pia) => {
+  /**
+   * Main method to save users role field
+   */
+  async savePiaAfterUserAssign(field: string): Promise<any> {
+    if (
+      ['authors', 'evaluators', 'validators'].includes(field) &&
+      this[field].length === 0
+    ) {
+      return;
+    }
+    const piaCloned = { ...this.pia };
+    const userAssignValues = this[field].map(x => (x.id ? x.id : x.display));
+    piaCloned[field] = userAssignValues;
+    this.piaService
+      .update(piaCloned)
+      .then((resp: Pia) => {
         this.pia = resp;
-      });
-    }
-  }
-
-  onRemove($event: TagModelClass, field: string) {
-    const guests: Array<User | number> = this.pia[field];
-    const index: number = this.pia[field].findIndex(
-      (x: User | number | string) => {
-        if (typeof x === 'object') {
-          return x.id === $event.id;
+        this.setUserPiasAsFields(resp.user_pias);
+      })
+      .catch(err => {
+        if (err.statusText === 'Conflict') {
+          // AUTO FIX
+          // this.conflictDetected.emit({ field: 'name', err });
+          const piaCloned = err.record;
+          piaCloned[field] = userAssignValues;
+          this.piaService.update(piaCloned).then((resp: Pia) => {
+            this.pia = resp;
+            this.setUserPiasAsFields(resp.user_pias);
+          });
         }
-        return x === $event.id;
-      }
-    );
-    if (index !== -1) {
-      guests.splice(index, 1);
-    }
-
-    this.pia[field] = guests.map(x => (typeof x === 'object' ? x.id : x));
-    this.piaService.update(this.pia);
+      });
   }
 
-  private checkUserInField(field) {
-    return (
-      this.pia.user_pias.findIndex(
-        u => u.user.firstname + ' ' + u.user.lastname === field
-      ) !== -1
-    );
-  }
-
-  checkIfUserExist(field): boolean {
-    switch (field) {
-      case 'author_name':
-        return this.checkUserInField(this.authorField[0].display);
-      case 'evaluator_name':
-        return this.checkUserInField(this.evaluatorField[0].display);
-      case 'validator_name':
-        return this.checkUserInField(this.validatorField[0].display);
-      default:
-        return false;
+  onRemove($event: TagModelClass, field: string): void {
+    const index = this[field].findIndex(t => t == $event);
+    if (index != -1) {
+      this[field].splice(index, 1);
     }
+    this.savePiaAfterUserAssign(field);
   }
 }

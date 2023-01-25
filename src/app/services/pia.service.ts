@@ -90,7 +90,7 @@ export class PiaService extends ApplicationDb {
           resolve(result);
         })
         .catch(error => {
-          reject();
+          reject(error);
         });
     });
   }
@@ -99,7 +99,7 @@ export class PiaService extends ApplicationDb {
    * Get all PIA linked to a specific structure
    * @param structure_id the structure id
    */
-  async getAllWithStructure(structure_id: number): Promise<Pia[]> {
+  getAllWithStructure(structure_id: number): Promise<Pia[]> {
     const items = [];
     return new Promise((resolve, reject) => {
       this.findAll('?structure_id=' + structure_id, {
@@ -111,7 +111,7 @@ export class PiaService extends ApplicationDb {
         })
         .catch(error => {
           console.error('Request failed', error);
-          reject();
+          reject(error);
         });
     });
   }
@@ -120,7 +120,7 @@ export class PiaService extends ApplicationDb {
    * Get the PIA example.
    * @returns {Promise}
    */
-  async getPiaExample(): Promise<any> {
+  getPiaExample(): Promise<Pia> {
     return new Promise((resolve, reject) => {
       super
         .findWithReference('/example', { index: 'index3', value: 1 })
@@ -168,9 +168,13 @@ export class PiaService extends ApplicationDb {
         pia.people_names = null;
         pia.concerned_people_status = null;
         pia.concerned_people_opinion = null;
-        this.update(pia).then(res => {
-          resolve(res);
-        });
+        this.update(pia)
+          .then(res => {
+            resolve(res);
+          })
+          .catch(err => {
+            reject(err);
+          });
       });
     });
   }
@@ -329,7 +333,7 @@ export class PiaService extends ApplicationDb {
    * Cancel all validated evaluations.
    * @returns - Return a new Promise
    */
-  async cancelAllValidatedEvaluation(pia: Pia): Promise<void> {
+  cancelAllValidatedEvaluation(pia: Pia): Promise<void> {
     return new Promise((resolve, reject) => {
       let count = 0;
       this.evaluationService
@@ -360,10 +364,17 @@ export class PiaService extends ApplicationDb {
   /**
    * Allows an user to abandon a treatment (archive a PIA).
    */
-  abandonTreatment(pia: Pia): void {
-    pia.status = 4;
-    this.update(pia).then(() => {
-      this.router.navigate(['/entries']);
+  abandonTreatment(pia: Pia): Promise<Pia> {
+    return new Promise((resolve, reject) => {
+      pia.status = 4;
+      this.update(pia)
+        .then(data => {
+          this.router.navigate(['/entries']);
+          resolve(data);
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
   }
 
@@ -439,7 +450,7 @@ export class PiaService extends ApplicationDb {
         return;
       }
 
-      const pia = new Pia();
+      let pia = new Pia();
       pia.name = '(' + prefix + ') ' + data.pia.name;
       pia.category = data.pia.category;
       pia.dpo_status = data.pia.dpo_status;
@@ -450,35 +461,14 @@ export class PiaService extends ApplicationDb {
         data.pia.concerned_people_searched_opinion;
       pia.concerned_people_searched_content =
         data.pia.concerned_people_searched_content;
-      pia.rejected_reason = data.pia.rejected_reason;
-      pia.applied_adjustements = data.pia.applied_adjustements;
+      pia.rejection_reason = data.pia.rejection_reason;
+      pia.applied_adjustments = data.pia.applied_adjustments;
       pia.created_at = data.pia.created_at;
       pia.dpos_names = data.pia.dpos_names;
       pia.people_names = data.pia.people_names;
-      console.log(this.authService.state, data);
 
-      if (this.authService.state && data.pia.user_pias) {
-        const author = data.pia.user_pias.find(
-          user_pia => user_pia.role === 'author'
-        );
-        const evaluator = data.pia.user_pias.find(
-          user_pia => user_pia.role === 'evaluator'
-        );
-        const validator = data.pia.user_pias.find(
-          user_pia => user_pia.role === 'validator'
-        );
-        console.log(author, evaluator, validator);
-        if (author) {
-          pia.author_name = author.user.id;
-        }
-        if (evaluator) {
-          pia.evaluator_name = evaluator.user.id;
-        }
-        if (validator) {
-          pia.validator_name = validator.user.id;
-        }
-
-        pia.guests = data.pia.guests.map(guest => guest.id).join(',');
+      if (this.authService.state && pia.user_pias) {
+        pia = Pia.formatUsersDatas(pia);
       } else {
         pia.author_name = data.pia.author_name;
         pia.evaluator_name = data.pia.evaluator_name;
@@ -547,13 +537,13 @@ export class PiaService extends ApplicationDb {
     });
   }
 
-  async replacePiaByExport(
+  replacePiaByExport(
     piaExport,
     resetOption,
     updateOption,
     dateExport
   ): Promise<void> {
-    return new Promise(async resolve => {
+    return new Promise(async (resolve, reject) => {
       let pia = new Pia();
       pia = {
         pia,
@@ -569,24 +559,32 @@ export class PiaService extends ApplicationDb {
         pia.structure_sector_name = piaExport.pia.structure_sector_name;
       }
 
-      if (piaExport.pia.guests) {
-        pia.guests = piaExport.pia.guests.map(x => x.id);
-      }
-
       if (updateOption) {
-        this.update(pia, dateExport) // update pia storage
-          .then(async entry => {
-            // DELETE EVERY ANSWERS, MEASURES AND COMMENT
-            await this.destroyData(pia.id);
-            // CREATE NEW ANSWERS, MEASURES AND COMMENT
-            await this.importAnswers(piaExport.answers, pia.id);
-            await this.importMeasures(piaExport, pia.id, false);
-            await this.importComments(piaExport.comments, pia.id);
-            resolve(entry);
-          })
-          .catch(err => {
-            console.log(err);
-          });
+        this.find(pia.id).then((data: Pia) => {
+          // Get lock version
+
+          if (data.lock_version) {
+            pia.lock_version = data.lock_version;
+          }
+
+          if (this.authService.state && pia.user_pias) {
+            pia = Pia.formatUsersDatas(pia);
+          }
+
+          this.update(pia, dateExport) // update pia storage
+            .then(async entry => {
+              // DELETE EVERY ANSWERS, MEASURES AND COMMENT
+              await this.destroyData(pia.id);
+              // CREATE NEW ANSWERS, MEASURES AND COMMENT
+              await this.importAnswers(piaExport.answers, pia.id);
+              await this.importMeasures(piaExport, pia.id, false);
+              await this.importComments(piaExport.comments, pia.id);
+              resolve(entry);
+            })
+            .catch(err => {
+              reject(err);
+            });
+        });
       } else {
         resolve();
       }
@@ -652,7 +650,7 @@ export class PiaService extends ApplicationDb {
    * Make a JSON from the PIA data
    * @param id - The PIA id.
    */
-  async export(id: number): Promise<string> {
+  export(id: number): Promise<string> {
     return new Promise(async (resolve, reject) => {
       this.exportData(id).then(data => {
         const finalData = encode_utf8(JSON.stringify(data));
@@ -803,10 +801,8 @@ export class PiaService extends ApplicationDb {
       this.find(id)
         .then((entry: Pia) => {
           entry.is_archive = 1;
-          this.calculPiaProgress(entry).then(() => {
-            this.update(entry).then(() => {
-              resolve();
-            });
+          this.update(entry).then(() => {
+            resolve();
           });
         })
         .catch(err => {
@@ -817,28 +813,23 @@ export class PiaService extends ApplicationDb {
 
   update(pia: Pia, date = null): Promise<any> {
     return new Promise((resolve, reject) => {
-      super.find(pia.id).then((entry: any) => {
-        entry = {
-          ...entry,
-          ...pia
-        };
-        entry.structure_id = pia.structure_id ? pia.structure_id : '';
-        if (entry.is_archive === undefined || entry.is_archive === null) {
-          entry.is_archive = 0;
-        } else {
-          entry.is_archive = pia.is_archive;
-        }
-        entry.updated_at = date ? date : new Date();
-        super
-          .update(entry.id, entry)
-          .then((result: any) => {
-            resolve(result);
-          })
-          .catch(error => {
-            console.error('Request failed', error);
-            reject();
-          });
-      });
+      if (pia.is_archive === undefined || pia.is_archive === null) {
+        pia.is_archive = 0;
+      }
+      pia.updated_at = date ? date : new Date();
+
+      // if (this.authService.state && pia.user_pias) {
+      //   pia = Pia.formatUsersDatas(pia);
+      // }
+
+      super
+        .update(pia.id, pia)
+        .then((result: any) => {
+          resolve(result);
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
   }
 

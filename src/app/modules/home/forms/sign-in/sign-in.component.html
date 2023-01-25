@@ -10,7 +10,11 @@
         {{ "authentication.saved_password" | translate }}
       </p>
       <p class="msg" *ngIf="msgFromBack">
-        {{ "authentication.errors.sign_in." + msgFromBack | translate }}
+        {{
+          msgFromBack != "incompatibility"
+            ? "authentication.errors.sign_in." + msgFromBack
+            : ("authentication.errors." + msgFromBack | translate)
+        }}
       </p>
       <div [class.is-not-empty]="f.login.value.length > 0">
         <input

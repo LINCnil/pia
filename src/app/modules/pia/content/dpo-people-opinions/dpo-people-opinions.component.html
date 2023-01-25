@@ -8,22 +8,17 @@
       <ng-container
         *ngIf="_sidStatusService.enableDpoValidation; else disableDpoBLock"
       >
-        <form (click)="checkDpoName()" [formGroup]="DPOForm">
+        <form [formGroup]="DPOForm">
           <p>
             <span>
               <ng-container
                 *ngIf="!pia.status || pia.status < 2; else displayNames1"
               >
-                <div style="display:inline-block;" (click)="dpoNameFocusIn()">
+                <div style="display:inline-block;">
                   <input
                     (focusout)="dpoNameFocusOut()"
                     #DpoNames
                     type="text"
-                    [attr.disabled]="
-                      !editMode.includes('evaluation') && editMode !== 'local'
-                        ? 'true'
-                        : null
-                    "
                     class="DPOName"
                     formControlName="DPONames"
                     placeholder="{{
@@ -34,22 +29,16 @@
               </ng-container>
               <ng-template #displayNames1>
                 {{ pia.dpos_names }}
-              </ng-template> </span
-            >{{ "opinions.content" | translate }}
+              </ng-template>
+            </span>
+            {{ "opinions.content" | translate }}
           </p>
           <div class="pia-entryContentBlock-content-DPO-treatment">
-            <div>
+            <div (click)="changeFocusIfDisable('DPOName')">
               <input
                 type="radio"
                 id="treatment-1"
-                [attr.disabled]="
-                  !editMode.includes('evaluation') && editMode !== 'local'
-                    ? 'true'
-                    : null
-                "
-                [attr.dirty]="pia.dpo_status === 1"
-                [checked]="pia.dpo_status === 1"
-                (click)="enableDpoStatusRadioButtons()"
+                (click)="changeFocusIfDisable('DPOName')"
                 (change)="dpoStatusFocusOut()"
                 formControlName="DPOStatus"
                 [value]="1"
@@ -60,18 +49,10 @@
                 <span>{{ "opinions.treatment_ok" | translate }}</span>
               </label>
             </div>
-            <div>
+            <div (click)="changeFocusIfDisable('DPOName')">
               <input
                 type="radio"
                 id="treatment-2"
-                [attr.disabled]="
-                  !editMode.includes('evaluation') && editMode !== 'local'
-                    ? 'true'
-                    : null
-                "
-                [attr.dirty]="pia.dpo_status === 0"
-                [checked]="pia.dpo_status === 0"
-                (click)="enableDpoStatusRadioButtons()"
                 (change)="dpoStatusFocusOut()"
                 formControlName="DPOStatus"
                 [value]="0"
@@ -83,18 +64,10 @@
               </label>
             </div>
           </div>
-          <div
-            (click)="dpoOpinionFocusIn()"
-            class="pia-entryContentBlock-content-DPO-reasons"
-          >
+          <div class="pia-entryContentBlock-content-DPO-reasons">
             <textarea
               (focusout)="dpoOpinionFocusOut()"
               (keyup)="autoTextareaResize($event)"
-              [attr.disabled]="
-                !editMode.includes('evaluator') && editMode !== 'local'
-                  ? 'true'
-                  : null
-              "
               id="pia-opinions-dpo"
               formControlName="DPOOpinion"
               rows="8"
@@ -128,14 +101,6 @@
               <input
                 type="radio"
                 id="concerned-people-choice-searched"
-                [attr.disabled]="
-                  !editMode.includes('evaluator') && editMode !== 'local'
-                    ? 'true'
-                    : null
-                "
-                [attr.dirty]="pia.concerned_people_searched_opinion === true"
-                [checked]="pia.concerned_people_searched_opinion === true"
-                (click)="enableConcernedPeopleSearchedOpinionRadioButtons()"
                 (change)="searchedOpinionsFocusOut()"
                 formControlName="searchStatus"
                 [value]="true"
@@ -150,14 +115,6 @@
               <input
                 type="radio"
                 id="concerned-people-choice-unsearched"
-                [attr.disabled]="
-                  !editMode.includes('evaluator') && editMode !== 'local'
-                    ? 'true'
-                    : null
-                "
-                [attr.dirty]="pia.concerned_people_searched_opinion === false"
-                [checked]="pia.concerned_people_searched_opinion === false"
-                (click)="enableConcernedPeopleSearchedOpinionRadioButtons()"
                 (change)="searchedOpinionsFocusOut()"
                 formControlName="searchStatus"
                 [value]="false"
@@ -172,18 +129,12 @@
             </div>
           </div>
           <div
-            (click)="peopleSearchContentFocusIn()"
             *ngIf="displayPeopleSearchContent"
             class="pia-entryContentBlock-content-DPO-reasons"
           >
             <textarea
               (focusout)="peopleSearchContentFocusOut()"
               (keyup)="autoTextareaResize($event)"
-              [attr.disabled]="
-                !editMode.includes('evaluator') && editMode !== 'local'
-                  ? 'true'
-                  : null
-              "
               id="pia-people-search-content"
               rows="8"
               formControlName="searchContent"
@@ -199,7 +150,6 @@
         <form
           style="margin-top:30px;"
           *ngIf="displayPeopleOpinions"
-          (click)="checkConcernedPeopleName()"
           [formGroup]="peopleForm"
         >
           <p>
@@ -207,14 +157,11 @@
               <ng-container
                 *ngIf="!pia.status || pia.status < 2; else displayNames2"
               >
-                <div
-                  style="display:inline-block;"
-                  (click)="concernedPeopleNameFocusIn()"
-                >
+                <div style="display:inline-block;">
                   <input
                     #PeopleNames
                     type="text"
-                    class="DPOName"
+                    class="peopleNames"
                     (change)="concernedPeopleNameFocusOut()"
                     formControlName="peopleNames"
                     placeholder="{{
@@ -229,12 +176,11 @@
             >{{ "opinions.content" | translate }}
           </p>
           <div class="pia-entryContentBlock-content-people-treatment">
-            <div>
+            <div (click)="changeFocusIfDisable('peopleNames')">
               <input
                 type="radio"
                 id="dpoAvis-1"
                 [checked]="pia.people_names && pia.concerned_people_status == 1"
-                (click)="enableConcernedPeopleStatusRadioButtons()"
                 (change)="concernedPeopleStatusFocusOut()"
                 formControlName="peopleStatus"
                 [value]="1"
@@ -245,12 +191,11 @@
                 <span>{{ "opinions.treatment_ok" | translate }}</span>
               </label>
             </div>
-            <div>
+            <div (click)="changeFocusIfDisable('peopleNames')">
               <input
                 type="radio"
                 id="dpoAvis-2"
                 [checked]="pia.people_names && pia.concerned_people_status == 0"
-                (click)="enableConcernedPeopleStatusRadioButtons()"
                 (change)="concernedPeopleStatusFocusOut()"
                 formControlName="peopleStatus"
                 [value]="0"
@@ -262,10 +207,7 @@
               </label>
             </div>
           </div>
-          <div
-            (click)="concernedPeopleOpinionFocusIn()"
-            class="pia-entryContentBlock-content-people-reasons"
-          >
+          <div class="pia-entryContentBlock-content-people-reasons">
             <textarea
               (focusout)="concernedPeopleopinionFocusOut()"
               (keyup)="autoTextareaResize($event)"

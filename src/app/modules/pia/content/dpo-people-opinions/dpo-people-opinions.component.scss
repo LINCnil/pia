@@ -14,7 +14,7 @@
           background-color: $pia-white;
           border: none;
           &:disabled {
-            cursor: pointer;
+            // cursor: pointer;
           }
         }
         .pia-questionBlock-edit {
@@ -93,6 +93,9 @@
               input:checked + label {
                 background-color: $pia-red;
               }
+              input:disabled + label {
+                cursor: default;
+              }
             }
           }
         }
@@ -113,7 +116,7 @@
             &:disabled {
               background-color: transparent;
               color: $pia-dark-black;
-              cursor: pointer;
+              // cursor: pointer;
             }
           }
         }

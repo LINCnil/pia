@@ -98,24 +98,21 @@
                 <div>
                   <div>
                     <div>{{ "summary.preview_edition" | translate }} :</div>
-                    <div>{{ pia.author_name }}</div>
+                    <div>{{ getUsersList("evaluator", "author_name") }}</div>
                   </div>
+
                   <div>
                     <div>{{ "summary.preview_evaluation" | translate }} :</div>
-                    <div>{{ pia.evaluator_name }}</div>
+                    <div>{{ getUsersList("evaluator", "evaluator_name") }}</div>
                   </div>
                   <div>
                     <div>{{ "summary.preview_validation" | translate }} :</div>
-                    <div>{{ pia.validator_name }}</div>
+                    <div>{{ getUsersList("validator", "validator_name") }}</div>
                   </div>
 
-                  <div *ngIf="this.authService.state">
+                  <div *ngIf="authService.state">
                     <div>{{ "summary.preview_guests" | translate }} :</div>
-                    <div>
-                      <ng-container *ngFor="let guest of pia.guests">
-                        {{ guest.firstname + " " + guest.lastname }},
-                      </ng-container>
-                    </div>
+                    <div>{{ getUsersList("guest") }}</div>
                   </div>
                 </div>
                 <div>
@@ -1322,7 +1319,6 @@
                                       ></span>
                                       <br />
                                     </span>
-
 
                                     <!-- Gauges' values -->
                                     <span

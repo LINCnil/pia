@@ -13,6 +13,7 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { Router } from '@angular/router';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user.model';
 
 function slugify(text) {
   return text
@@ -217,7 +218,9 @@ export class RevisionPreviewComponent implements OnInit {
     const fileTitle = 'pia-' + slugify(this.export.pia.name) + revisionDate;
     let downloadLink = document.createElement('a');
     document.body.appendChild(downloadLink);
+    //@ts-ignore
     if (navigator.msSaveOrOpenBlob) {
+      //@ts-ignore
       window.navigator.msSaveBlob(
         'data:text/json;charset=utf-8,' +
           encodeURIComponent(JSON.stringify(this.revision)),
@@ -281,5 +284,21 @@ export class RevisionPreviewComponent implements OnInit {
       printWindow.print();
       printWindow.close();
     }, 1000);
+  }
+
+  public showUserRole(pia, field: string, dumpField: string) {
+    if (this.authService.state) {
+      const list = pia.user_pias
+        .filter(user_pia => user_pia.role === field)
+        .map(u =>
+          u.user.firstname && u.user.lastname
+            ? u.user.firstname + ' ' + u.user.lastname
+            : u.user.email
+        )
+        .join(',');
+      return list != '' ? list : pia[dumpField];
+    } else {
+      return pia[dumpField];
+    }
   }
 }

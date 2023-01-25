@@ -1,4 +1,5 @@
 <div
+  *ngIf="!loading && measure; else loadingElse"
   class="pia-measureBlock"
   [ngClass]="{ approved: evaluation.status === 2 || evaluation.status === 3 }"
   [attr.data-id]="measure.id"
@@ -11,7 +12,6 @@
         (click)="displayMeasure($event)"
         title="{{ 'misc.display' | translate }}"
       ></button>
-
       <!-- Measure title -->
       <div
         (click)="measureTitleFocusIn()"
@@ -19,6 +19,7 @@
         [ngClass]="{ hide: editTitle }"
         [innerHTML]="measureForm.controls['measureTitle'].value | safeHtml"
       ></div>
+
       <textarea
         maxlength="120"
         [attr.disabled]="
@@ -41,8 +42,7 @@
         class="btn pia-measureBlock-delete"
         *ngIf="
           globalEvaluationService.answerEditionEnabled &&
-          !editMode.includes('author') &&
-          editMode !== 'local'
+          (editMode.includes('author') || editMode == 'local')
         "
         (click)="removeMeasure(measure.id)"
         title="{{ 'measures.remove' | translate }}"
@@ -100,3 +100,11 @@
     [measureId]="measure.id"
   ></app-evaluations>
 </div>
+<ng-template #loadingElse>
+  <div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
+    <app-loading-overlay
+      [visibility]="true"
+      [childMode]="true"
+    ></app-loading-overlay>
+  </div>
+</ng-template>

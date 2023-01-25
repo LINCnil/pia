@@ -1,6 +1,6 @@
 import { Knowledge } from './knowledge.model';
 
-export class KnowledgeBase{
+export class KnowledgeBase {
   public id: number;
   public name: string;
   public author: string;
@@ -8,8 +8,15 @@ export class KnowledgeBase{
   public knowledges: Knowledge[] = [];
   public created_at: Date;
   public is_example = false;
+  public lock_version: number;
 
-  constructor(id = null, name = null, author = null, contributors = null, createdAt = null) {
+  constructor(
+    id = null,
+    name = null,
+    author = null,
+    contributors = null,
+    createdAt = null
+  ) {
     if (id !== null) {
       this.id = id;
     }
@@ -18,5 +25,4 @@ export class KnowledgeBase{
     this.contributors = contributors;
     this.created_at = createdAt;
   }
-
 }

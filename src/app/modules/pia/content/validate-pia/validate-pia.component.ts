@@ -21,6 +21,9 @@ import { Router } from '@angular/router';
 })
 export class ValidatePIAComponent implements OnInit {
   @Input() pia: Pia = null;
+  @Input() editMode:
+    | 'local'
+    | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
   data: { sections: any };
   validateForm: FormGroup;
   attachment: any;
@@ -64,6 +67,11 @@ export class ValidatePIAComponent implements OnInit {
 
     await this.attachmentsService.updateSignedAttachmentsList(this.pia.id);
     this.actionPlanService.listActionPlan();
+
+    // Check user role
+    if (!this.editMode.includes('validator') && this.editMode != 'local') {
+      this.validateForm.disable();
+    }
   }
 
   /**

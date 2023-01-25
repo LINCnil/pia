@@ -113,41 +113,55 @@
     </div>
   </div>
 
-  <ng-container *ngIf="item.is_measure; else appQuestions">
-    <button
-      (click)="onAddNewMeasure()"
-      class="btn btn-white btn-addMeasure"
-      type="button"
-      *ngIf="
-        globalEvaluationService.answerEditionEnabled &&
-        (editMode.includes('author') || editMode === 'local')
-      "
-    >
-      <span class="pia-icons pia-icon-add"></span>
-      {{ "measures.add" | translate }}
-    </button>
-    <app-measures
-      *ngFor="let measure of measures"
-      [editMode]="editMode"
-      [measure]="measure"
-      [pia]="pia"
-      [section]="section"
-      [item]="item"
-      (deleted)="onDeletedMeasure($event)"
-    >
-    </app-measures>
+  <ng-container *ngIf="!loading; else elseTemplate">
+    <ng-container *ngIf="item.is_measure; else appQuestions">
+      <button
+        (click)="onAddNewMeasure()"
+        class="btn btn-white btn-addMeasure"
+        type="button"
+        *ngIf="
+          globalEvaluationService.answerEditionEnabled &&
+          (editMode.includes('author') || editMode === 'local')
+        "
+      >
+        <span class="pia-icons pia-icon-add"></span>
+        {{ "measures.add" | translate }}
+      </button>
+      <app-measures
+        *ngFor="let measure of measures"
+        [editMode]="editMode"
+        [measure]="measure"
+        [pia]="pia"
+        [section]="section"
+        [item]="item"
+        (deleted)="onDeletedMeasure($event)"
+      >
+      </app-measures>
+    </ng-container>
+    <ng-template #appQuestions>
+      <app-questions
+        [editMode]="editMode"
+        *ngFor="let question of questions"
+        [question]="question"
+        [pia]="pia"
+        [section]="section"
+        [item]="item"
+      >
+      </app-questions>
+    </ng-template>
   </ng-container>
-  <ng-template #appQuestions>
-    <app-questions
-      [editMode]="editMode"
-      *ngFor="let question of questions"
-      [question]="question"
-      [pia]="pia"
-      [section]="section"
-      [item]="item"
+  <ng-template #elseTemplate>
+    <div
+      class="pia-sectionBlock-body"
+      style="position:relative; height: 150px;"
     >
-    </app-questions>
+      <app-loading-overlay
+        [visibility]="true"
+        [childMode]="true"
+      ></app-loading-overlay>
+    </div>
   </ng-template>
+
   <app-evaluations
     [editMode]="editMode"
     *ngIf="item.evaluation_mode === 'item'"
@@ -164,11 +178,13 @@
   ></div>
 
   <app-validate-pia
+    [editMode]="editMode"
     [pia]="pia"
     *ngIf="section.id == 4 && item.id == 4"
   ></app-validate-pia>
 
   <app-refuse-pia
+    [editMode]="editMode"
     [pia]="pia"
     *ngIf="section.id == 4 && item.id == 5"
   ></app-refuse-pia>
@@ -206,10 +222,14 @@
             globalEvaluationService.status === 2 ||
             globalEvaluationService.status === 3
         }"
-        [disabled]="globalEvaluationService.status === 1"
+        [disabled]="
+          globalEvaluationService.status === 1 ||
+          !(editMode.includes('author') || editMode === 'local')
+        "
       >
         {{ "pia.footer.ask_evaluation" | translate }}
       </button>
+
       <button
         class="btn btn-green"
         (click)="validateEvaluation()"
@@ -218,10 +238,14 @@
           globalEvaluationService.status === 6
         "
         [ngClass]="{ 'btn-active': globalEvaluationService.status === 6 }"
-        [disabled]="globalEvaluationService.status === 5"
+        [disabled]="
+          globalEvaluationService.status === 5 ||
+          (!editMode.includes('evaluator') && editMode !== 'local')
+        "
       >
         {{ "pia.footer.validate_evaluation" | translate }}
       </button>
+
       <button
         class="btn btn-pending-validation"
         disabled
@@ -241,23 +265,21 @@
       <button
         class="btn pia-cancelBtn"
         (click)="cancelAskForEvaluation()"
-        *ngIf="
-          pia.is_example !== 1 &&
-          globalEvaluationService.status === 4 &&
-          (editMode.includes('author') || editMode === 'local')
-        "
+        *ngIf="pia.is_example !== 1 && globalEvaluationService.status === 4"
+        [disabled]="!editMode.includes('author') && editMode !== 'local'"
       >
         {{ "pia.sections.status.evaluation.cancel_button" | translate }}
       </button>
+
       <button
         class="btn pia-cancelBtn"
         (click)="cancelValidateEvaluation()"
         *ngIf="
           pia.is_example !== 1 &&
           globalEvaluationService.status === 7 &&
-          !(section.id == 4 && item.id == 3) &&
-          (editMode.includes('evaluator') || editMode === 'local')
+          !(section.id == 4 && item.id == 3)
         "
+        [disabled]="!editMode.includes('evaluator') && editMode != 'local'"
       >
         {{ "pia.sections.status.validation.cancel_button" | translate }}
       </button>

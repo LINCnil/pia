@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
@@ -9,7 +9,6 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
-
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 
 function slugify(text): string {
@@ -40,6 +39,7 @@ export class BaseComponent implements OnInit {
   data: any;
   itemsSelected: any = [];
   lockedChoice = false;
+  loadingEntry = false;
 
   filtersCategoriesCorrespondance = {
     'knowledge_base.category.measure_on_data': 'measure.data_processing',
@@ -49,6 +49,7 @@ export class BaseComponent implements OnInit {
   };
 
   constructor(
+    private router: Router,
     public languagesService: LanguagesService,
     private translateService: TranslateService,
     private knowledgesService: KnowledgesService,
@@ -80,7 +81,8 @@ export class BaseComponent implements OnInit {
       this.entryForm = new FormGroup({
         name: new FormControl(),
         category: new FormControl(),
-        description: new FormControl()
+        description: new FormControl(),
+        lock_version: new FormControl()
       });
 
       // get default categories
@@ -110,7 +112,8 @@ export class BaseComponent implements OnInit {
       this.entryForm = new FormGroup({
         name: new FormControl({ disabled: true }),
         category: new FormControl({ disabled: true }),
-        description: new FormControl({ disabled: true })
+        description: new FormControl({ disabled: true }),
+        lock_version: new FormControl({ disabled: true })
       });
     }
   }
@@ -166,7 +169,6 @@ export class BaseComponent implements OnInit {
     entry.slug = slugify(entry.name);
     entry.category = this.entryForm.value.category;
     entry.items = this.itemsSelected.map(x => parseInt(x));
-
     entry.filters = this.checkFilters();
     entry.created_at = new Date();
     entry.updated_at = entry.created_at;
@@ -187,6 +189,7 @@ export class BaseComponent implements OnInit {
    */
   editEntry(id): void {
     if (id) {
+      this.loadingEntry = true;
       this.selectedKnowledgeId = id;
       this.knowledgesService
         .find(id)
@@ -194,17 +197,27 @@ export class BaseComponent implements OnInit {
           this.entryForm.controls['name'].setValue(result.name);
           this.entryForm.controls['category'].setValue(result.category);
           this.entryForm.controls['description'].setValue(result.description);
+          this.entryForm.controls['lock_version'].setValue(result.lock_version);
           this.itemsSelected = [];
           if (result.items) {
             this.itemsSelected = result.items.map(x => x.toString());
           }
           this.checkLockedChoice();
 
+          // Update list
+          const index = this.knowledges.findIndex(e => e.id === result.id);
+          if (index !== -1) {
+            this.knowledges[index] = result;
+          }
+
           this.editMode = 'edit';
           this.showForm = true;
         })
         .catch(err => {
           console.log(err);
+        })
+        .finally(() => {
+          this.loadingEntry = false;
         });
     }
   }
@@ -254,34 +267,65 @@ export class BaseComponent implements OnInit {
   /**
    * One shot update
    */
-  focusOut(): void {
+  focusOut(field?: string): void {
     if (this.selectedKnowledgeId) {
+      const entry = { ...this.entryForm.value };
+      entry.id = this.selectedKnowledgeId;
+      entry.slug = slugify(entry.name);
+      entry.category = this.entryForm.value.category;
+      entry.lock_version = this.entryForm.value.lock_version;
+      entry.items = this.itemsSelected.map(x => parseInt(x));
+      entry.filters = this.checkFilters();
+      entry.knowledge_base_id = this.base.id;
       this.knowledgesService
-        .find(this.selectedKnowledgeId)
-        .then((entry: Knowledge) => {
-          entry.name = this.entryForm.value.name;
-          entry.description = this.entryForm.value.description;
-          entry.slug = slugify(entry.name);
-          entry.category = this.entryForm.value.category;
-          entry.items = this.itemsSelected.map(x => parseInt(x));
-          entry.filters = this.checkFilters();
-          entry.knowledge_base_id = this.base.id;
-          // Update object
-          this.knowledgesService
-            .update(entry)
-            .then(() => {
-              // Update list
-              const index = this.knowledges.findIndex(e => e.id === entry.id);
-              if (index !== -1) {
-                this.knowledges[index] = entry;
-              }
-            })
-            .catch(err => {
-              console.log(err);
-            });
+        .update(entry)
+        .then(response => {
+          this.entryForm.controls.lock_version.setValue(response.lock_version);
+          // Update list
+          const index = this.knowledges.findIndex(e => e.id === entry.id);
+          if (index !== -1) {
+            this.knowledges[index] = response;
+          }
         })
         .catch(err => {
-          console.log(err);
+          if (err.statusText === 'Conflict' && field) {
+            // AUTO FIX checkboxes conflict, here because we have to update form
+            // force entry with the new lock_version
+            if (field === 'checkbox') {
+              entry.name = err.record.name;
+              entry.description = err.record.description;
+              entry.lock_version = err.record.lock_version;
+              this.knowledgesService
+                .update(entry)
+                .then(kbFixed => {
+                  // Update list
+                  const index = this.knowledges.findIndex(
+                    e => e.id === entry.id
+                  );
+                  if (index !== -1) {
+                    this.knowledges[index] = entry;
+                  }
+                  // Update form
+                  this.entryForm.controls.name.setValue(kbFixed.name);
+                  this.entryForm.controls.description.setValue(
+                    kbFixed.description
+                  );
+                  this.entryForm.controls.lock_version.setValue(
+                    kbFixed.lock_version
+                  );
+                  if (kbFixed.items) {
+                    this.itemsSelected = kbFixed.items.map(x => x.toString());
+                  }
+                  this.checkLockedChoice();
+                })
+                .catch(err => {
+                  console.log(err);
+                });
+            } else {
+              // Normal conflict dialog
+              this.conflictDialog(field, err);
+            }
+          }
         });
     }
   }
@@ -302,7 +346,7 @@ export class BaseComponent implements OnInit {
       }
     }
     this.itemsSelected = ar;
-    this.focusOut();
+    this.focusOut('checkbox');
   }
 
   /**
@@ -383,5 +427,92 @@ export class BaseComponent implements OnInit {
    */
   closeNewElementForm(): void {
     this.showForm = false;
+  }
+
+  /**
+   * Open a dialog modal for deal with the conflict
+   * @param err
+   */
+  conflictDialog(field, error) {
+    let additional_text: string;
+    const currentUrl = this.router.url;
+    // Text
+    additional_text = `
+      ${this.translateService.instant('conflict.pia_field_name')}:
+      ${field}
+      <br>
+      ${this.translateService.instant('conflict.initial_content')}:
+      ${error.record[field]}
+      <br>
+      ${this.translateService.instant('conflict.new_content')}:
+      ${error.params[field]}
+    `;
+
+    // Open dialog here
+    this.dialogService.confirmThis(
+      {
+        text: this.translateService.instant('conflict.title'),
+        type: 'others',
+        yes: '',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {
+          no_cross_button: true,
+          btn_no: false,
+          additional_text
+        }
+      },
+      () => {
+        return;
+      },
+      () => {
+        return;
+      },
+      [
+        {
+          label: this.translateService.instant('conflict.keep_initial'),
+          callback: () => {
+            this.router
+              .navigateByUrl('/', { skipLocationChange: true })
+              .then(() => {
+                this.router.navigate([currentUrl]);
+              });
+            return;
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.keep_new'),
+          callback: () => {
+            let newKnowledgeFixed: Knowledge = { ...error.params };
+            newKnowledgeFixed.id = error.record.id;
+            newKnowledgeFixed.lock_version = error.record.lock_version;
+            this.knowledgesService.update(newKnowledgeFixed).then(() => {
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
+              return;
+            });
+          }
+        },
+        {
+          label: this.translateService.instant('conflict.merge'),
+          callback: () => {
+            let newKnowledgeFixed: Knowledge = { ...error.record };
+            let separator = field === 'title' ? ' ' : '\n';
+            newKnowledgeFixed[field] += separator + error.params[field];
+            this.knowledgesService.update(newKnowledgeFixed).then(() => {
+              this.router
+                .navigateByUrl('/', { skipLocationChange: true })
+                .then(() => {
+                  this.router.navigate([currentUrl]);
+                });
+              return;
+            });
+          }
+        }
+      ]
+    );
   }
 }

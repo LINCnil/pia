@@ -22,7 +22,10 @@ export class AuthGuard implements CanActivate {
       return true;
     } else {
       // CLIENT - SERVER MODE
-      if (!this.authService.currentUserValue) {
+      if (
+        !this.authService.currentUserValue ||
+        !this.authService.currentUserValue.access_type
+      ) {
         // NO USER AUTHENTIFIED
         this.router.navigate(['/']);
         return true;
