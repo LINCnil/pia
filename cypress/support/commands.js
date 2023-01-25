@@ -99,7 +99,7 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
     cy.wrap($el)
       .find(`textarea`)
       .first()
-      .click();
+      .click({ force: true });
     cy.wait(500);
   });
   cy.focus_out();
