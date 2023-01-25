@@ -490,49 +490,41 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor(): void {
-    this.closeEditor();
-
     // unset knowlegebase
     this.knowledgeBaseService.placeholder = this.question.placeholder;
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
 
-    // init new editor
-    tinymce.init({
-      branding: false,
-      menubar: false,
-      statusbar: false,
-      plugins: 'autoresize lists',
-      forced_root_block: false,
-      autoresize_bottom_margin: 30,
-      auto_focus: this.elementId,
-      autoresize_min_height: 40,
-      selector: '#' + this.elementId,
-      toolbar:
-        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-      skin: false,
-      setup: editor => {
-        editor.on('focusin', () => {
-          this.editor = editor;
-        });
-        editor.on('focusout', () => {
-          // Save content
-          this.questionForm.controls['text'].patchValue(editor.getContent());
-          this.questionContentFocusOut().then(() => {
-            this.closeEditor();
+    setTimeout(() => {
+      // init new editor
+      tinymce.init({
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        plugins: 'autoresize lists',
+        forced_root_block: false,
+        autoresize_bottom_margin: 30,
+        auto_focus: this.elementId,
+        autoresize_min_height: 40,
+        selector: '#' + this.elementId,
+        toolbar:
+          'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+        skin: false,
+        setup: editor => {
+          editor.on('init', () => {
+            this.editor = editor;
           });
-          this.knowledgeBaseService.placeholder = null;
-        });
-      }
-    });
-  }
-
-  /**
-   * Close the editor.
-   * @private
-   */
-  private closeEditor() {
-    this.editor = null;
-    tinymce.remove(this.editor);
+          editor.on('focusout', () => {
+            // Save content
+            this.questionForm.controls['text'].patchValue(editor.getContent());
+            this.questionContentFocusOut().then(() => {
+              this.editor = null;
+              tinymce.remove(this.editor); // Warning: take more time then a new initiation
+              this.knowledgeBaseService.placeholder = null;
+            });
+          });
+        }
+      });
+    }, 100);
   }
 
   /**

@@ -348,30 +348,32 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   loadEditor(): void {
     this.knowledgeBaseService.placeholder = this.measure.placeholder;
-    tinymce.init({
-      branding: false,
-      menubar: false,
-      statusbar: false,
-      plugins: 'autoresize lists',
-      forced_root_block: false,
-      autoresize_bottom_margin: 30,
-      auto_focus: this.elementId,
-      autoresize_min_height: 40,
-      selector: '#' + this.elementId,
-      toolbar:
-        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-      skin: false,
-      setup: editor => {
-        this.editor = editor;
-        editor.on('focusout', () => {
-          this.measureForm.controls['measureContent'].patchValue(
-            editor.getContent()
-          );
-          this.measureContentFocusOut();
-          tinymce.remove(this.editor);
-        });
-      }
-    });
+    setTimeout(() => {
+      tinymce.init({
+        branding: false,
+        menubar: false,
+        statusbar: false,
+        plugins: 'autoresize lists',
+        forced_root_block: false,
+        autoresize_bottom_margin: 30,
+        auto_focus: this.elementId,
+        autoresize_min_height: 40,
+        selector: '#' + this.elementId,
+        toolbar:
+          'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+        skin: false,
+        setup: editor => {
+          this.editor = editor;
+          editor.on('focusout', async () => {
+            this.measureForm.controls['measureContent'].patchValue(
+              editor.getContent()
+            );
+            await this.measureContentFocusOut();
+            tinymce.remove(this.editor);
+          });
+        }
+      });
+    }, 100);
   }
 
   /**
