@@ -87,15 +87,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             });
             this.questionForm.controls['list'].patchValue(dataList);
           }
-          if (
-            this.el.nativeElement.querySelector('.pia-gaugeBlock-background')
-          ) {
-            this.el.nativeElement
-              .querySelector('.pia-gaugeBlock-background')
-              .classList.add(
-                'pia-gaugeBlock-background-' + this.answer.data.gauge
-              );
-          }
         }
       })
       .finally(() => {
@@ -212,17 +203,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   evaluationChange(evaluation): void {
     this.evaluation = evaluation;
-  }
-
-  /**
-   * Enable the gauge.
-   */
-  enableGauge(): void {
-    if (this.globalEvaluationService.answerEditionEnabled) {
-      this.questionForm.controls['gauge'].enable();
-    } else {
-      this.questionForm.controls['gauge'].disable();
-    }
   }
 
   /**
