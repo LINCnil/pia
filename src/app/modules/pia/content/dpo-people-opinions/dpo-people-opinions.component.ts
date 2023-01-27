@@ -31,11 +31,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   ngOnInit(): void {
     // DPO Form init
     this.DPOForm = new FormGroup({
-      DPOStatus: new FormControl(
-        this.pia.dpo_status != null && this.pia.dpos_names
-          ? this.pia.dpo_status
-          : null
-      ),
+      DPOStatus: new FormControl(this.pia.dpo_status),
       DPOOpinion: new FormControl(this.pia.dpo_opinion),
       DPONames: new FormControl(this.pia.dpos_names)
     });
@@ -47,14 +43,10 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
     // Searched opinions form  init
     this.searchedOpinionsForm = new FormGroup({
-      searchStatus: new FormControl(
-        this.pia.concerned_people_searched_opinion != null &&
-        this.pia.dpos_names
-          ? this.pia.concerned_people_searched_opinion
-          : null
-      ),
+      searchStatus: new FormControl(this.pia.concerned_people_searched_opinion),
       searchContent: new FormControl(this.pia.concerned_people_searched_content)
     });
+
     if (this.pia.concerned_people_searched_opinion !== undefined) {
       this.displayPeopleOpinions = this.pia.concerned_people_searched_opinion;
       this.displayPeopleSearchContent = !this.pia
@@ -109,7 +101,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
         // Check user role
         if (!this.editMode.includes('validator') && this.editMode != 'local') {
-          this.DPOForm.disable();
           this.searchedOpinionsForm.disable();
           this.peopleForm.disable();
         }
