@@ -200,6 +200,7 @@ Cypress.Commands.add("test_add_tags", () => {
   cy.get("[aria-label='Click here to select controls which address the risk.']")
     .type("Measure")
     .then(() => {
+      cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
         .click({ force: true });
@@ -209,6 +210,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
   cy.get("[aria-label='Enter the potential impacts']")
     .type("Tag")
     .then(() => {
+      cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
         .click({ force: true });
@@ -216,6 +218,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
   cy.get("[aria-label='Enter the threats']")
     .type("Tag")
     .then(() => {
+      cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
         .click({ force: true });
@@ -223,6 +226,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
   cy.get("[aria-label='Enter the risk sources']")
     .type("Tag")
     .then(() => {
+      cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
         .click({ force: true });
@@ -230,6 +234,7 @@ Cypress.Commands.add("test_add_tags_next", () => {
   cy.get("[aria-label='Click here to select controls which address the risk.']")
     .type("Measure")
     .then(() => {
+      cy.wait(500);
       cy.get(".ng2-menu-item")
         .first()
         .click({ force: true });
