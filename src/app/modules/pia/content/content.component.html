@@ -213,19 +213,17 @@
         class="btn btn-green"
         (click)="prepareForEvaluation()"
         *ngIf="
-          globalEvaluationService.status === 1 ||
-          globalEvaluationService.status === 2 ||
-          globalEvaluationService.status === 3
+          (globalEvaluationService.status === 1 ||
+            globalEvaluationService.status === 2 ||
+            globalEvaluationService.status === 3) &&
+          (editMode.includes('author') || editMode === 'local')
         "
         [ngClass]="{
           'btn-active':
             globalEvaluationService.status === 2 ||
             globalEvaluationService.status === 3
         }"
-        [disabled]="
-          globalEvaluationService.status === 1 ||
-          !(editMode.includes('author') || editMode === 'local')
-        "
+        [disabled]="globalEvaluationService.status === 1"
       >
         {{ "pia.footer.ask_evaluation" | translate }}
       </button>
@@ -234,14 +232,12 @@
         class="btn btn-green"
         (click)="validateEvaluation()"
         *ngIf="
-          globalEvaluationService.status === 5 ||
-          globalEvaluationService.status === 6
+          (globalEvaluationService.status === 5 ||
+            globalEvaluationService.status === 6) &&
+          (editMode.includes('evaluator') || editMode === 'local')
         "
         [ngClass]="{ 'btn-active': globalEvaluationService.status === 6 }"
-        [disabled]="
-          globalEvaluationService.status === 5 ||
-          (!editMode.includes('evaluator') && editMode !== 'local')
-        "
+        [disabled]="globalEvaluationService.status === 5"
       >
         {{ "pia.footer.validate_evaluation" | translate }}
       </button>
@@ -265,8 +261,11 @@
       <button
         class="btn pia-cancelBtn"
         (click)="cancelAskForEvaluation()"
-        *ngIf="pia.is_example !== 1 && globalEvaluationService.status === 4"
-        [disabled]="!editMode.includes('author') && editMode !== 'local'"
+        *ngIf="
+          pia.is_example !== 1 &&
+          globalEvaluationService.status === 4 &&
+          (editMode.includes('author') || editMode === 'local')
+        "
       >
         {{ "pia.sections.status.evaluation.cancel_button" | translate }}
       </button>
@@ -277,9 +276,9 @@
         *ngIf="
           pia.is_example !== 1 &&
           globalEvaluationService.status === 7 &&
-          !(section.id == 4 && item.id == 3)
+          !(section.id == 4 && item.id == 3) &&
+          (editMode.includes('evaluator') || editMode === 'local')
         "
-        [disabled]="!editMode.includes('evaluator') && editMode != 'local'"
       >
         {{ "pia.sections.status.validation.cancel_button" | translate }}
       </button>

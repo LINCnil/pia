@@ -325,7 +325,10 @@ export class EvaluationsComponent
           const content = this.el.nativeElement.querySelector(
             '.pia-evaluationBlock-content'
           );
-          content.classList.remove('hide');
+
+          if (content) {
+            content.classList.remove('hide');
+          }
         });
       })
       .finally(() => {
@@ -380,7 +383,6 @@ export class EvaluationsComponent
    * Executes actions when losing focus from evaluation comment.
    */
   evaluationCommentFocusOut(): void {
-    console.log('évaluationf focus out');
     this.knowledgeBaseService.placeholder = null;
     this.editorEvaluationComment = false;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
