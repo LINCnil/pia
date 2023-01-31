@@ -7,6 +7,8 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
+import { jsPDF } from 'jspdf';
+import * as html2pdf from 'html2pdf.js';
 
 import { Pia } from 'src/app/models/pia.model';
 declare const require: any;
@@ -97,6 +99,11 @@ export class ExportComponent implements OnInit {
           // download only one element
           const fileTitle = 'pia-' + slugify(this.pia.name);
           switch (this.exportSelected[0]) {
+            case 'pdf':
+              this.generatePdf().then(() => {
+                resolve();
+              });
+              break;
             case 'doc': // Only doc
               this.generateDoc('pia-full-content').then(() => {
                 resolve();
@@ -560,6 +567,41 @@ export class ExportComponent implements OnInit {
         }
       }, 250);
     });
+  }
+
+  async generatePdf() {
+    const content = document.createElement('page');
+    const opt = {
+      margin: [0, 0, 0, 0],
+      filename: `${this.pia.name}.pdf`,
+      pagebreak: { after: '.break-page', avoid: '.break-avoid' }
+    };
+
+    // Header
+    const header = document
+      .querySelector(
+        'header.pia-fullPreviewBlock-header .pia-fullPreviewBlock-header-title'
+      )
+      .cloneNode(true) as HTMLElement;
+
+    if (header) {
+      header.setAttribute('with', '100%');
+      const headerTitle = header.querySelector('h1');
+      if (headerTitle) {
+        headerTitle.innerText = this.pia.name;
+        headerTitle.setAttribute('font-size', '3rem');
+      }
+      content.appendChild(header);
+    }
+
+    // html2pdf
+    html2pdf()
+      .from(content)
+      .set(opt)
+      .toPdf()
+      // .get('pdf').then(function (pdf) {
+      // })
+      .save();
   }
   /****************************** END CREATE EXPORTS *********************************/
 }
