@@ -1130,7 +1130,10 @@
                 ng-class="{'text-success': model.copied, 'text-danger': !model.copied}"
                 ng-copy="events.onCopy($event)"
               >
-                <div *ngFor="let section of data.sections">
+                <div
+                  *ngFor="let section of data.sections"
+                  class="section-preview"
+                >
                   <div
                     class="fadeIn section-{{ section.id }} pagebreak"
                     *ngIf="section.id !== 4"

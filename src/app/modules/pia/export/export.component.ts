@@ -7,7 +7,6 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
-import { jsPDF } from 'jspdf';
 import * as html2pdf from 'html2pdf.js';
 
 import { Pia } from 'src/app/models/pia.model';
@@ -72,14 +71,19 @@ export class ExportComponent implements OnInit {
     }
   }
 
+  /**
+   * open preview view to get all informations
+   */
   async launchDownload(): Promise<void> {
     if (this.editMode) {
       this.downloading.emit(true);
       setTimeout(async () => {
         this.onDownload().then(() => {
-          this.downloading.emit(false);
+          setTimeout(async () => {
+            this.downloading.emit(false);
+          }, 2000);
         });
-      }, 5000);
+      }, 2000);
     } else {
       this.onDownload();
     }
@@ -570,38 +574,61 @@ export class ExportComponent implements OnInit {
   }
 
   async generatePdf() {
-    const content = document.createElement('page');
-    const opt = {
-      margin: [0, 0, 0, 0],
-      filename: `${this.pia.name}.pdf`,
-      pagebreak: { after: '.break-page', avoid: '.break-avoid' }
-    };
+    return new Promise(async (resolve, reject) => {
+      const content = document.createElement('page');
+      const opt = {
+        margin: [10, 10, 10, 10],
+        filename: `${this.pia.name}.pdf`,
+        pagebreak: {
+          after: '.break-page',
+          mode: [
+            // 'avoid-all',
+            'css'
+          ]
+        }
+      };
 
-    // Header
-    const header = document
-      .querySelector(
+      // Header
+      let header = document.querySelector(
         'header.pia-fullPreviewBlock-header .pia-fullPreviewBlock-header-title'
-      )
-      .cloneNode(true) as HTMLElement;
+      );
 
-    if (header) {
-      header.setAttribute('with', '100%');
-      const headerTitle = header.querySelector('h1');
-      if (headerTitle) {
-        headerTitle.innerText = this.pia.name;
-        headerTitle.setAttribute('font-size', '3rem');
+      if (header) {
+        header = header.cloneNode(true) as HTMLElement;
+        header.setAttribute('with', '100%');
+        const headerTitle = header.querySelector('h1');
+        if (headerTitle) {
+          headerTitle.innerText = this.pia.name;
+          headerTitle.setAttribute('font-size', '3rem');
+          headerTitle.setAttribute('margin', '0px');
+        }
+        content.appendChild(header);
       }
-      content.appendChild(header);
-    }
 
-    // html2pdf
-    html2pdf()
-      .from(content)
-      .set(opt)
-      .toPdf()
-      // .get('pdf').then(function (pdf) {
-      // })
-      .save();
+      if (this.editMode) {
+        const sections = document.querySelectorAll('.section-preview');
+        sections.forEach(section => {
+          let el = section;
+          el.setAttribute('opacity', '1');
+          el.classList.add('break-page');
+          content.appendChild(el);
+        });
+      }
+
+      // html2pdf
+      await html2pdf()
+        .from(content)
+        .set(opt)
+        .toPdf()
+        // .get('pdf')
+        .then(pdf => {
+          resolve(pdf);
+        })
+        .catch(err => {
+          reject(err);
+        })
+        .save();
+    });
   }
   /****************************** END CREATE EXPORTS *********************************/
 }

@@ -106,11 +106,13 @@
   </div>
 </section>
 
-<app-loading-overlay [visibility]="download"></app-loading-overlay>
-<app-preview
-  [pia]="pia"
-  [onlyData]="true"
-  *ngIf="download"
-  [editMode]="editMode"
-></app-preview>
+<ng-container *ngIf="pia">
+  <app-loading-overlay [visibility]="download"></app-loading-overlay>
+  <app-preview
+    [pia]="pia"
+    [onlyData]="true"
+    *ngIf="download"
+    [editMode]="editMode"
+  ></app-preview>
+</ng-container>
 <app-dialog></app-dialog>
