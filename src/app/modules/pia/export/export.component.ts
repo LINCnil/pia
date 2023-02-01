@@ -104,7 +104,7 @@ export class ExportComponent implements OnInit {
           const fileTitle = 'pia-' + slugify(this.pia.name);
           switch (this.exportSelected[0]) {
             case 'pdf':
-              this.generatePdf().then(() => {
+              this.generatePdf(true).then(() => {
                 resolve();
               });
               break;
@@ -178,6 +178,14 @@ export class ExportComponent implements OnInit {
 
     // Attach export files
     await this.addAttachmentsToZip(zip).then(async (zip2: any) => {
+      if (exports.includes('pdf')) {
+        this.generatePdf().then(pdf => {
+          zip2.file('pia-' + slugify(this.pia.name) + '.pdf', pdf, {
+            binary: true
+          });
+        });
+      }
+
       if (exports.includes('doc')) {
         // Doc
         const dataDoc = await this.prepareDocFile(element);
@@ -573,17 +581,17 @@ export class ExportComponent implements OnInit {
     });
   }
 
-  async generatePdf() {
+  async generatePdf(autosave = false) {
     return new Promise(async (resolve, reject) => {
       const content = document.createElement('page');
       const opt = {
-        margin: [10, 10, 10, 10],
+        margin: 10,
         filename: `${this.pia.name}.pdf`,
         pagebreak: {
-          after: '.break-page',
+          after: '.pagebreak',
           mode: [
-            // 'avoid-all',
             'css'
+            // 'avoid-all'
           ]
         }
       };
@@ -605,29 +613,78 @@ export class ExportComponent implements OnInit {
         content.appendChild(header);
       }
 
-      if (this.editMode) {
-        const sections = document.querySelectorAll('.section-preview');
-        sections.forEach(section => {
-          let el = section;
-          el.setAttribute('opacity', '1');
-          el.classList.add('break-page');
-          content.appendChild(el);
-        });
+      // SECTION 1, 2, 3
+      const sections = document.querySelectorAll('.section-preview');
+      sections.forEach(section => {
+        let el = section.cloneNode(true) as HTMLElement;
+        el.setAttribute('width', '100%');
+        content.appendChild(el);
+      });
+
+      // DPO
+      let dpo = document.querySelector('.section-dpo');
+      if (dpo) {
+        dpo = dpo.cloneNode(true) as HTMLElement;
+        dpo.setAttribute('width', '100%');
+        content.appendChild(dpo);
       }
 
-      // html2pdf
-      await html2pdf()
-        .from(content)
-        .set(opt)
-        .toPdf()
-        // .get('pdf')
-        .then(pdf => {
-          resolve(pdf);
-        })
-        .catch(err => {
-          reject(err);
-        })
-        .save();
+      // ACTION PLAN
+      let action = document.querySelector('.section-action-plan');
+      if (action) {
+        action = action.cloneNode(true) as HTMLElement;
+        action.setAttribute('width', '100%');
+        content.appendChild(action);
+      }
+
+      // SCHEMA SECTIONS
+      Promise.all([
+        this.getRisksCartographyImg(),
+        this.getRisksOverviewImgForZip()
+      ]).then(values => {
+        //
+        let risks = document.querySelector('.section-risks-cartography');
+        if (risks) {
+          risks = risks.cloneNode(true) as HTMLElement;
+          const img = document.createElement('img');
+          img.src = values[0];
+
+          let shemContCartography = risks.querySelector('#risksCartographyImg');
+          shemContCartography.innerHTML = '';
+          shemContCartography.append(img);
+          risks.setAttribute('width', '100%');
+          content.append(risks);
+        }
+
+        let overview = document.querySelector('.section-overview');
+        if (overview) {
+          overview = overview.cloneNode(true) as HTMLElement;
+          const img = document.querySelector('img');
+          img.src = values[1];
+
+          let shemContRisksOverview = overview.querySelector('.risksOverview');
+          shemContRisksOverview.innerHTML = '';
+          shemContRisksOverview.append(img);
+          overview.setAttribute('width', '100%');
+          content.appendChild(overview);
+        }
+
+        // MAKE PDF !
+        const worker = html2pdf()
+          .from(content)
+          .set(opt)
+          .toPdf()
+          .get('pdf')
+          .outputPdf()
+          .then(pdf => {
+            // This logs the right base64
+            resolve(pdf);
+          });
+
+        if (autosave) {
+          worker.save();
+        }
+      });
     });
   }
   /****************************** END CREATE EXPORTS *********************************/
