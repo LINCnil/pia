@@ -588,11 +588,8 @@ export class ExportComponent implements OnInit {
         margin: 10,
         filename: `${this.pia.name}.pdf`,
         pagebreak: {
-          after: '.pagebreak',
-          mode: [
-            'css'
-            // 'avoid-all'
-          ]
+          before: '.pagebreak',
+          mode: ['css', 'avoid-all']
         }
       };
 
@@ -618,7 +615,9 @@ export class ExportComponent implements OnInit {
       sections.forEach(section => {
         let el = section.cloneNode(true) as HTMLElement;
         el.setAttribute('width', '100%');
-        content.appendChild(el);
+        if (el.querySelector('.pagebreak').hasChildNodes()) {
+          content.appendChild(el);
+        }
       });
 
       // DPO
@@ -668,6 +667,11 @@ export class ExportComponent implements OnInit {
           overview.setAttribute('width', '100%');
           content.appendChild(overview);
         }
+
+        const pagebreaks = content.querySelectorAll('.pagebreak');
+        pagebreaks.forEach(pb => {
+          pb.setAttribute('padding-top', '35px');
+        });
 
         // MAKE PDF !
         const worker = html2pdf()
