@@ -578,13 +578,16 @@ export class ExportComponent implements OnInit {
   async generatePdf(autosave = false) {
     return new Promise(async (resolve, reject) => {
       const content = document.createElement('page');
+      content.style.width = '100%';
+
       const opt = {
         margin: 10,
         filename: `${this.pia.name}.pdf`,
         pagebreak: {
           before: '.pagebreak-before',
           after: '.pagebreak-after',
-          mode: ['css', 'avoid-all']
+          avoid: 'img',
+          mode: ['css', 'legacy']
         }
       };
 
@@ -605,35 +608,51 @@ export class ExportComponent implements OnInit {
         content.appendChild(header);
       }
 
-      // SECTION 1, 2, 3
-      const sections = document.querySelectorAll('.section-preview');
-      sections.forEach(section => {
-        let el = section.cloneNode(true) as HTMLElement;
-        el.setAttribute('width', '100%');
-        content.appendChild(el);
-      });
-
-      // DPO
-      let dpo = document.querySelector('.section-dpo');
-      if (dpo) {
-        dpo = dpo.cloneNode(true) as HTMLElement;
-        dpo.setAttribute('width', '100%');
-        content.appendChild(dpo);
-      }
-
-      // ACTION PLAN
-      let action = document.querySelector('.section-action-plan');
-      if (action) {
-        action = action.cloneNode(true) as HTMLElement;
-        action.setAttribute('width', '100%');
-        content.appendChild(action);
-      }
-
       // SCHEMA SECTIONS
       Promise.all([
         this.getRisksCartographyImg(),
         this.getRisksOverviewImgForZip()
       ]).then(values => {
+        // DPO
+        let dpo = document.querySelector('.section-dpo');
+        if (dpo) {
+          dpo = dpo.cloneNode(true) as HTMLElement;
+          dpo.setAttribute('width', '100%');
+          content.appendChild(dpo);
+        }
+
+        // ACTION PLAN
+        let action = document.querySelector('.section-action-plan');
+        if (action) {
+          action = action.cloneNode(true) as HTMLElement;
+          action.setAttribute('width', '100%');
+          content.appendChild(action);
+        }
+
+        // SECTION 1, 2, 3
+        const sections = document.querySelectorAll('.section-preview');
+        sections.forEach(section => {
+          let el = section.cloneNode(true) as HTMLElement;
+          el.style.background = 'white';
+          el.style.width = '100%';
+          content.appendChild(el);
+        });
+
+        let overview = document.querySelector('.section-overview');
+        if (overview) {
+          overview = overview.cloneNode(true) as HTMLElement;
+          const imgOverview = document.createElement('img');
+          // @ts-ignore
+          imgOverview.src = values[1];
+
+          let shemContRisksOverview = overview.querySelector('.risksOverview');
+          shemContRisksOverview.innerHTML = '';
+          shemContRisksOverview.append(imgOverview);
+          overview.setAttribute('width', '100%');
+          content.appendChild(overview);
+        }
+
+        // RISK CARTO
         let risks = document.querySelector('.section-risks-cartography');
         if (risks) {
           risks = risks.cloneNode(true) as HTMLElement;
@@ -646,25 +665,6 @@ export class ExportComponent implements OnInit {
           risks.setAttribute('width', '100%');
           content.append(risks);
         }
-
-        let overview = document.querySelector('.section-overview');
-        if (overview) {
-          overview = overview.cloneNode(true) as HTMLElement;
-          const imgOverview = document.querySelector('img');
-          // @ts-ignore
-          imgOverview.src = values[1];
-
-          let shemContRisksOverview = overview.querySelector('.risksOverview');
-          shemContRisksOverview.innerHTML = '';
-          shemContRisksOverview.append(imgOverview);
-          overview.setAttribute('width', '100%');
-          content.appendChild(overview);
-        }
-
-        const pagebreaks = content.querySelectorAll('.pagebreak');
-        pagebreaks.forEach(pb => {
-          pb.setAttribute('padding-top', '35px');
-        });
 
         // MAKE PDF !
         const worker = html2pdf()
