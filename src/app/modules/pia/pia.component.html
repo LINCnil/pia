@@ -111,8 +111,8 @@
   <app-preview
     [pia]="pia"
     [onlyData]="true"
-    *ngIf="download"
     [editMode]="editMode"
+    [ngClass]="{ hide: !download }"
   ></app-preview>
 </ng-container>
 <app-dialog></app-dialog>

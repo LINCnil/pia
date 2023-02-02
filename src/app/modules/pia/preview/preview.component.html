@@ -144,7 +144,7 @@
             <div class="small-12 medium-12 columns">
               <div>
                 <!-- VALIDATION - Risks cartography -->
-                <div class="section-risks-cartography  pagebreak">
+                <div class="section-risks-cartography  pagebreak-before">
                   <div class="pia-fullPreviewBlock-headline">
                     <div class="pia-fullPreviewBlock-headline-title">
                       <h1>
@@ -163,7 +163,7 @@
                 </div>
 
                 <!-- VALIDATION - Action plan -->
-                <div class="section-action-plan pagebreak">
+                <div class="section-action-plan pagebreak-before">
                   <div class="pia-fullPreviewBlock-headline">
                     <div class="pia-fullPreviewBlock-headline-title">
                       <h1>
@@ -1102,7 +1102,7 @@
                 </div>
 
                 <!-- VALIDATION - DPO opinions -->
-                <div class="section-dpo pagebreak">
+                <div class="section-dpo pagebreak-before">
                   <div class="pia-fullPreviewBlock-headline">
                     <div class="pia-fullPreviewBlock-headline-title">
                       <h1>
@@ -1170,7 +1170,10 @@
                     class="section-preview section-{{ section.id }}"
                     *ngIf="section.id !== 4"
                   >
-                    <div *ngFor="let item of section.items" class="pagebreak">
+                    <div
+                      *ngFor="let item of section.items"
+                      class="pagebreak-before"
+                    >
                       <div
                         *ngIf="item.evaluation_mode !== ''"
                         style="padding-top: 10px;"
@@ -1544,8 +1547,8 @@
               </div>
 
               <!-- RISKS - Risks overview -->
-              <div class="section-overview">
-                <div class="pia-fullPreviewBlock-headline headline3 pagebreak">
+              <div class="section-overview pagebreak-before">
+                <div class="pia-fullPreviewBlock-headline headline3">
                   <div class="pia-fullPreviewBlock-headline-title">
                     <h1>{{ "summary.action_plan.risks" | translate }}</h1>
                     <h2>{{ "summary.risks_overview_title" | translate }}</h2>

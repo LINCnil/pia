@@ -75,18 +75,12 @@ export class ExportComponent implements OnInit {
    * open preview view to get all informations
    */
   async launchDownload(): Promise<void> {
-    if (this.editMode) {
-      this.downloading.emit(true);
-      setTimeout(async () => {
-        this.onDownload().then(() => {
-          setTimeout(async () => {
-            this.downloading.emit(false);
-          }, 2000);
-        });
-      }, 2000);
-    } else {
-      this.onDownload();
-    }
+    this.downloading.emit(true);
+    setTimeout(async () => {
+      this.onDownload().then(() => {
+        this.downloading.emit(false);
+      });
+    }, 5000);
   }
 
   async onDownload(): Promise<void> {
@@ -588,7 +582,8 @@ export class ExportComponent implements OnInit {
         margin: 10,
         filename: `${this.pia.name}.pdf`,
         pagebreak: {
-          before: '.pagebreak',
+          before: '.pagebreak-before',
+          after: '.pagebreak-after',
           mode: ['css', 'avoid-all']
         }
       };
@@ -615,9 +610,7 @@ export class ExportComponent implements OnInit {
       sections.forEach(section => {
         let el = section.cloneNode(true) as HTMLElement;
         el.setAttribute('width', '100%');
-        if (el.querySelector('.pagebreak').hasChildNodes()) {
-          content.appendChild(el);
-        }
+        content.appendChild(el);
       });
 
       // DPO
@@ -641,16 +634,15 @@ export class ExportComponent implements OnInit {
         this.getRisksCartographyImg(),
         this.getRisksOverviewImgForZip()
       ]).then(values => {
-        //
         let risks = document.querySelector('.section-risks-cartography');
         if (risks) {
           risks = risks.cloneNode(true) as HTMLElement;
-          const img = document.createElement('img');
-          img.src = values[0];
+          const imgRisks = document.createElement('img');
+          imgRisks.src = values[0];
 
           let shemContCartography = risks.querySelector('#risksCartographyImg');
           shemContCartography.innerHTML = '';
-          shemContCartography.append(img);
+          shemContCartography.append(imgRisks);
           risks.setAttribute('width', '100%');
           content.append(risks);
         }
@@ -658,12 +650,13 @@ export class ExportComponent implements OnInit {
         let overview = document.querySelector('.section-overview');
         if (overview) {
           overview = overview.cloneNode(true) as HTMLElement;
-          const img = document.querySelector('img');
-          img.src = values[1];
+          const imgOverview = document.querySelector('img');
+          // @ts-ignore
+          imgOverview.src = values[1];
 
           let shemContRisksOverview = overview.querySelector('.risksOverview');
           shemContRisksOverview.innerHTML = '';
-          shemContRisksOverview.append(img);
+          shemContRisksOverview.append(imgOverview);
           overview.setAttribute('width', '100%');
           content.appendChild(overview);
         }
@@ -683,6 +676,9 @@ export class ExportComponent implements OnInit {
           .then(pdf => {
             // This logs the right base64
             resolve(pdf);
+          })
+          .catch(err => {
+            reject(err);
           });
 
         if (autosave) {
