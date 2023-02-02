@@ -613,6 +613,21 @@ export class ExportComponent implements OnInit {
         this.getRisksCartographyImg(),
         this.getRisksOverviewImgForZip()
       ]).then(values => {
+        // RISK CARTO
+        let risks = document.querySelector('.section-risks-cartography');
+        if (risks) {
+          risks = risks.cloneNode(true) as HTMLElement;
+          const imgRisks = document.createElement('img');
+          imgRisks.src = values[0];
+          imgRisks.style.height = '500px';
+
+          let shemContCartography = risks.querySelector('#risksCartographyImg');
+          shemContCartography.innerHTML = '';
+          shemContCartography.append(imgRisks);
+          risks.setAttribute('width', '100%');
+          content.append(risks);
+        }
+
         // DPO
         let dpo = document.querySelector('.section-dpo');
         if (dpo) {
@@ -652,19 +667,27 @@ export class ExportComponent implements OnInit {
           content.appendChild(overview);
         }
 
-        // RISK CARTO
-        let risks = document.querySelector('.section-risks-cartography');
-        if (risks) {
-          risks = risks.cloneNode(true) as HTMLElement;
-          const imgRisks = document.createElement('img');
-          imgRisks.src = values[0];
+        //
+        const headlines = content.querySelectorAll(
+          '.pia-fullPreviewBlock-headline'
+        );
+        headlines.forEach((h: HTMLElement) => {
+          h.style.boxShadow = 'none';
+          h.style.border = '1px solid #A7A7A7';
+          const htitle = h.querySelector(
+            '.pia-fullPreviewBlock-headline-title'
+          ) as HTMLElement;
+          if (htitle) {
+            htitle.style.background = 'white';
+          }
+        });
 
-          let shemContCartography = risks.querySelector('#risksCartographyImg');
-          shemContCartography.innerHTML = '';
-          shemContCartography.append(imgRisks);
-          risks.setAttribute('width', '100%');
-          content.append(risks);
-        }
+        const pbs = content.querySelectorAll('.pagebreak-before');
+        pbs.forEach((pb: HTMLElement) => {
+          if (pb.children.length < 1) {
+            pb.remove();
+          }
+        });
 
         // MAKE PDF !
         const worker = html2pdf()
