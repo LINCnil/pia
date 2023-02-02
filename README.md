@@ -1,4 +1,4 @@
-# Pia [v.3.0.1](https://github.com/LINCnil/pia/releases/tag/v3.0.1)
+# Pia [v.3.0.3](https://github.com/LINCnil/pia/releases/tag/v3.0.3)
 
 # Le logiciel PIA / The PIA Software
 
@@ -21,21 +21,13 @@ To translate the software, we invite you to visit the [related repository](https
 # Information de développement / Dev information
 
 ![CI](https://github.com/lincnil/pia/workflows/integration-tests/badge.svg?branch=master)
-[![CodeQL](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml/badge.svg?branch=3.0.0)](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
 ## Package Version
 
-@angular-devkit/architect 0.1100.1
-@angular-devkit/build-angular 0.1100.1
-@angular-devkit/core 11.0.1
-@angular-devkit/schematics 11.0.1
-@angular/cli 11.0.1
-@schematics/angular 11.0.1
-@schematics/update 0.1100.1
-rxjs 6.6.3
-typescript 4.0.5
+See the [package.json](https://github.com/LINCnil/pia/blob/master/package.json#L40) file
 
 ## Development server
 
