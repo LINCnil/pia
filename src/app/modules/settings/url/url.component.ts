@@ -36,6 +36,19 @@ export class UrlComponent implements OnInit {
         ? localStorage.getItem('client_secret')
         : ''
     });
+
+    this.settingsForm.valueChanges.subscribe(val => {
+      if (val.client_id.includes(' ') || val.client_secret.includes(' ')) {
+        this.settingsForm.controls.client_id.patchValue(
+          val.client_id.replace(' ', ''),
+          { emitEvent: false }
+        );
+        this.settingsForm.controls.client_secret.patchValue(
+          val.client_secret.replace(' ', ''),
+          { emitEvent: false }
+        );
+      }
+    });
   }
 
   /**
