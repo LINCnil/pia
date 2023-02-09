@@ -7,6 +7,7 @@ import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
+import * as html2pdf from 'html2pdf.js';
 
 import { Pia } from 'src/app/models/pia.model';
 declare const require: any;
@@ -70,17 +71,16 @@ export class ExportComponent implements OnInit {
     }
   }
 
+  /**
+   * open preview view to get all informations
+   */
   async launchDownload(): Promise<void> {
-    if (this.editMode) {
-      this.downloading.emit(true);
-      setTimeout(async () => {
-        this.onDownload().then(() => {
-          this.downloading.emit(false);
-        });
-      }, 5000);
-    } else {
-      this.onDownload();
-    }
+    this.downloading.emit(true);
+    setTimeout(async () => {
+      this.onDownload().then(() => {
+        this.downloading.emit(false);
+      });
+    }, 5000);
   }
 
   async onDownload(): Promise<void> {
@@ -97,6 +97,11 @@ export class ExportComponent implements OnInit {
           // download only one element
           const fileTitle = 'pia-' + slugify(this.pia.name);
           switch (this.exportSelected[0]) {
+            case 'pdf':
+              this.generatePdf(true).then(() => {
+                resolve();
+              });
+              break;
             case 'doc': // Only doc
               this.generateDoc('pia-full-content').then(() => {
                 resolve();
@@ -167,6 +172,14 @@ export class ExportComponent implements OnInit {
 
     // Attach export files
     await this.addAttachmentsToZip(zip).then(async (zip2: any) => {
+      if (exports.includes('pdf')) {
+        this.generatePdf().then(pdf => {
+          zip2.file('pia-' + slugify(this.pia.name) + '.pdf', pdf, {
+            binary: true
+          });
+        });
+      }
+
       if (exports.includes('doc')) {
         // Doc
         const dataDoc = await this.prepareDocFile(element);
@@ -559,6 +572,142 @@ export class ExportComponent implements OnInit {
           });
         }
       }, 250);
+    });
+  }
+
+  async generatePdf(autosave = false) {
+    return new Promise(async (resolve, reject) => {
+      const content = document.createElement('page');
+      content.style.width = '100%';
+
+      const opt = {
+        margin: 10,
+        filename: `${this.pia.name}.pdf`,
+        pagebreak: {
+          before: '.pagebreak-before',
+          after: '.pagebreak-after',
+          avoid: 'img',
+          mode: ['css', 'legacy']
+        }
+      };
+
+      // Header
+      let header = document.querySelector(
+        'header.pia-fullPreviewBlock-header .pia-fullPreviewBlock-header-title'
+      );
+
+      if (header) {
+        header = header.cloneNode(true) as HTMLElement;
+        header.setAttribute('with', '100%');
+        const headerTitle = header.querySelector('h1');
+        if (headerTitle) {
+          headerTitle.innerText = this.pia.name;
+          headerTitle.setAttribute('font-size', '3rem');
+          headerTitle.setAttribute('margin', '0px');
+        }
+        content.appendChild(header);
+      }
+
+      // SCHEMA SECTIONS
+      Promise.all([
+        this.getRisksCartographyImg(),
+        this.getRisksOverviewImgForZip()
+      ]).then(values => {
+        // RISK CARTO
+        let risks = document.querySelector('.section-risks-cartography');
+        if (risks) {
+          risks = risks.cloneNode(true) as HTMLElement;
+          const imgRisks = document.createElement('img');
+          imgRisks.src = values[0];
+          imgRisks.style.height = '500px';
+
+          let shemContCartography = risks.querySelector('#risksCartographyImg');
+          shemContCartography.innerHTML = '';
+          shemContCartography.append(imgRisks);
+          risks.setAttribute('width', '100%');
+          content.append(risks);
+        }
+
+        // DPO
+        let dpo = document.querySelector('.section-dpo');
+        if (dpo) {
+          dpo = dpo.cloneNode(true) as HTMLElement;
+          dpo.setAttribute('width', '100%');
+          content.appendChild(dpo);
+        }
+
+        // ACTION PLAN
+        let action = document.querySelector('.section-action-plan');
+        if (action) {
+          action = action.cloneNode(true) as HTMLElement;
+          action.setAttribute('width', '100%');
+          content.appendChild(action);
+        }
+
+        // SECTION 1, 2, 3
+        const sections = document.querySelectorAll('.section-preview');
+        sections.forEach(section => {
+          let el = section.cloneNode(true) as HTMLElement;
+          el.style.background = 'white';
+          el.style.width = '100%';
+          content.appendChild(el);
+        });
+
+        let overview = document.querySelector('.section-overview');
+        if (overview) {
+          overview = overview.cloneNode(true) as HTMLElement;
+          const imgOverview = document.createElement('img');
+          // @ts-ignore
+          imgOverview.src = values[1];
+
+          let shemContRisksOverview = overview.querySelector('.risksOverview');
+          shemContRisksOverview.innerHTML = '';
+          shemContRisksOverview.append(imgOverview);
+          overview.setAttribute('width', '100%');
+          content.appendChild(overview);
+        }
+
+        //
+        const headlines = content.querySelectorAll(
+          '.pia-fullPreviewBlock-headline'
+        );
+        headlines.forEach((h: HTMLElement) => {
+          h.style.boxShadow = 'none';
+          h.style.border = '1px solid #A7A7A7';
+          const htitle = h.querySelector(
+            '.pia-fullPreviewBlock-headline-title'
+          ) as HTMLElement;
+          if (htitle) {
+            htitle.style.background = 'white';
+          }
+        });
+
+        const pbs = content.querySelectorAll('.pagebreak-before');
+        pbs.forEach((pb: HTMLElement) => {
+          if (pb.children.length < 1) {
+            pb.remove();
+          }
+        });
+
+        // MAKE PDF !
+        const worker = html2pdf()
+          .from(content)
+          .set(opt)
+          .toPdf()
+          .get('pdf')
+          .outputPdf()
+          .then(pdf => {
+            // This logs the right base64
+            resolve(pdf);
+          })
+          .catch(err => {
+            reject(err);
+          });
+
+        if (autosave) {
+          worker.save();
+        }
+      });
     });
   }
   /****************************** END CREATE EXPORTS *********************************/
