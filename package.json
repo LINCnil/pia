@@ -83,7 +83,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1100.7",
-    "@angular/cli": "~11.0.7",
+    "@angular/cli": "~11.2.19",
     "@angular/compiler-cli": "~11.0.9",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
