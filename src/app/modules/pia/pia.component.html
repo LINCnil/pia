@@ -112,7 +112,7 @@
     [pia]="pia"
     [onlyData]="true"
     [editMode]="editMode"
-    [ngClass]="{ hide: false }"
+    [ngClass]="{ hide: !download }"
   ></app-preview>
 </ng-container>
 <app-dialog></app-dialog>

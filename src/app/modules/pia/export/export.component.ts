@@ -617,6 +617,9 @@ export class ExportComponent implements OnInit {
         let risks = document.querySelector('.section-risks-cartography');
         if (risks) {
           risks = risks.cloneNode(true) as HTMLElement;
+          risks.setAttribute('width', '100%');
+          //@ts-ignore
+          risks.style.background = 'white';
           const imgRisks = document.createElement('img');
           imgRisks.src = values[0];
           imgRisks.style.height = '500px';
@@ -624,7 +627,6 @@ export class ExportComponent implements OnInit {
           let shemContCartography = risks.querySelector('#risksCartographyImg');
           shemContCartography.innerHTML = '';
           shemContCartography.append(imgRisks);
-          risks.setAttribute('width', '100%');
           content.append(risks);
         }
 
@@ -640,7 +642,13 @@ export class ExportComponent implements OnInit {
         let action = document.querySelector('.section-action-plan');
         if (action) {
           action = action.cloneNode(true) as HTMLElement;
-          action.setAttribute('width', '100%');
+
+          const imgActionPlan = action.querySelector('#actionPlanOverviewImg');
+          imgActionPlan.setAttribute('width', '100%');
+          //@ts-ignore
+          imgActionPlan.style.background = 'white';
+          //@ts-ignore
+          imgActionPlan.style.boxShadow = 'none';
           content.appendChild(action);
         }
 
@@ -663,7 +671,10 @@ export class ExportComponent implements OnInit {
           let shemContRisksOverview = overview.querySelector('.risksOverview');
           shemContRisksOverview.innerHTML = '';
           shemContRisksOverview.append(imgOverview);
-          overview.setAttribute('width', '100%');
+
+          shemContRisksOverview.setAttribute('width', '100%');
+          //@ts-ignore
+          shemContRisksOverview.style.background = 'white';
           content.appendChild(overview);
         }
 
