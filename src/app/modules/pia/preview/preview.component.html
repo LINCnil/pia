@@ -161,7 +161,10 @@
                       </div>
                       <div class="pia-previewRisksCartographyBlock ">
                         <div class="pia-risksCartographyContainer">
-                          <div [pia]="pia" class="app-risks-cartography"></div>
+                          <div
+                            [pia]="pia"
+                            class="app-risks-cartography pagebreak-after"
+                          ></div>
                         </div>
                       </div>
                     </div>
@@ -188,7 +191,7 @@
                           <!-- VALIDATION - Action plan - Overview graph -->
                           <div class="pia-actionPlanGraphBlockContainer">
                             <div
-                              class="pia-entryContentBlock-content pia-actionPlanGraphBlock"
+                              class="pia-entryContentBlock-content pia-actionPlanGraphBlock pagebreak-after"
                               id="actionPlanOverviewImg"
                             >
                               <h3 class="pia-fullPreviewBlock-subheadline">
@@ -644,9 +647,7 @@
                             >
                               <div class="actionplanbox">
                                 <h3 class="pia-fullPreviewBlock-subheadline">
-                                  {{
-                                    "summary.action_plan.risks" | translate
-                                  }}
+                                  {{ "summary.action_plan.risks" | translate }}
                                   -
                                   {{
                                     actionPlanService.risks["3.2"].short_title
@@ -806,9 +807,7 @@
                             >
                               <div class="actionplanbox">
                                 <h3 class="pia-fullPreviewBlock-subheadline">
-                                  {{
-                                    "summary.action_plan.risks" | translate
-                                  }}
+                                  {{ "summary.action_plan.risks" | translate }}
                                   -
                                   {{
                                     actionPlanService.risks["3.3"].short_title
@@ -968,9 +967,7 @@
                             >
                               <div class="actionplanbox">
                                 <h3 class="pia-fullPreviewBlock-subheadline">
-                                  {{
-                                    "summary.action_plan.risks" | translate
-                                  }}
+                                  {{ "summary.action_plan.risks" | translate }}
                                   -
                                   {{
                                     actionPlanService.risks["3.4"].short_title

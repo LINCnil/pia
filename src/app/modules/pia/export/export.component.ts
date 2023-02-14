@@ -587,7 +587,7 @@ export class ExportComponent implements OnInit {
           before: '.pagebreak-before',
           after: '.pagebreak-after',
           avoid: 'img',
-          mode: ['css', 'legacy']
+          mode: ['css', 'avoid-all']
         }
       };
 
@@ -685,6 +685,7 @@ export class ExportComponent implements OnInit {
         headlines.forEach((h: HTMLElement) => {
           h.style.boxShadow = 'none';
           h.style.border = '1px solid #A7A7A7';
+          h.style.marginTop = '20px';
           const htitle = h.querySelector(
             '.pia-fullPreviewBlock-headline-title'
           ) as HTMLElement;
