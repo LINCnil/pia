@@ -622,7 +622,7 @@ export class ExportComponent implements OnInit {
           risks.style.background = 'white';
           const imgRisks = document.createElement('img');
           imgRisks.src = values[0];
-          imgRisks.style.height = '500px';
+          imgRisks.style.height = '600px';
 
           let shemContCartography = risks.querySelector('#risksCartographyImg');
           shemContCartography.innerHTML = '';
@@ -667,7 +667,7 @@ export class ExportComponent implements OnInit {
           const imgOverview = document.createElement('img');
           // @ts-ignore
           imgOverview.src = values[1];
-
+          imgOverview.style.height = '800px';
           let shemContRisksOverview = overview.querySelector('.risksOverview');
           shemContRisksOverview.innerHTML = '';
           shemContRisksOverview.append(imgOverview);
