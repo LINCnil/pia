@@ -613,6 +613,12 @@ export class ExportComponent implements OnInit {
         this.getRisksCartographyImg(),
         this.getRisksOverviewImgForZip()
       ]).then(values => {
+        // SECTION 1, 2, 3
+        const sections = document
+          .querySelector('.section-data')
+          .cloneNode(true);
+        content.appendChild(sections);
+
         // RISK CARTO
         let risks = document.querySelector('.section-risks-cartography');
         if (risks) {
@@ -652,15 +658,6 @@ export class ExportComponent implements OnInit {
           content.appendChild(action);
         }
 
-        // SECTION 1, 2, 3
-        const sections = document.querySelectorAll('.section-preview');
-        sections.forEach(section => {
-          let el = section.cloneNode(true) as HTMLElement;
-          el.style.background = 'white';
-          el.style.width = '100%';
-          content.appendChild(el);
-        });
-
         let overview = document.querySelector('.section-overview');
         if (overview) {
           overview = overview.cloneNode(true) as HTMLElement;
@@ -683,14 +680,34 @@ export class ExportComponent implements OnInit {
           '.pia-fullPreviewBlock-headline'
         );
         headlines.forEach((h: HTMLElement) => {
+          h.style.display = 'block';
+          h.style.width = '100%';
           h.style.boxShadow = 'none';
           h.style.border = '1px solid #A7A7A7';
-          h.style.marginTop = '20px';
+          h.style.margin = '50px 0px 0px 0px';
+          h.style.padding = '0';
+          // h.style.fontSize = "12px!important"
+          // h.style.lineHeight = "1"
           const htitle = h.querySelector(
             '.pia-fullPreviewBlock-headline-title'
           ) as HTMLElement;
           if (htitle) {
             htitle.style.background = 'white';
+            // htitle.style.border = 'none';
+            htitle.style.margin = '0';
+            htitle.style.padding = '0';
+            htitle.style.lineHeight = '1';
+            let h1 = htitle.querySelector('h1');
+            h1.style.fontSize = '12px!important';
+            h1.style.margin = '0';
+            h1.style.padding = '0';
+            h1.style.lineHeight = '1';
+
+            let h2 = htitle.querySelector('h2');
+            h2.style.fontSize = '12px!important';
+            h2.style.margin = '0';
+            h2.style.padding = '0';
+            h2.style.lineHeight = '1';
           }
         });
 
