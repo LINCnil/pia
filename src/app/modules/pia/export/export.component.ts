@@ -685,7 +685,6 @@ export class ExportComponent implements OnInit {
           h.style.boxShadow = 'none';
           h.style.border = '1px solid #A7A7A7';
           h.style.margin = '50px 0px 0px 0px';
-          h.style.padding = '0';
           // h.style.fontSize = "12px!important"
           // h.style.lineHeight = "1"
           const htitle = h.querySelector(
@@ -696,17 +695,14 @@ export class ExportComponent implements OnInit {
             // htitle.style.border = 'none';
             htitle.style.margin = '0';
             htitle.style.padding = '0';
-            htitle.style.lineHeight = '1';
             let h1 = htitle.querySelector('h1');
             h1.style.fontSize = '12px!important';
             h1.style.margin = '0';
-            h1.style.padding = '0';
             h1.style.lineHeight = '1';
 
             let h2 = htitle.querySelector('h2');
             h2.style.fontSize = '12px!important';
             h2.style.margin = '0';
-            h2.style.padding = '0';
             h2.style.lineHeight = '1';
           }
         });
