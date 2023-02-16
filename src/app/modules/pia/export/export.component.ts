@@ -578,7 +578,7 @@ export class ExportComponent implements OnInit {
   async generatePdf(autosave = false) {
     return new Promise(async (resolve, reject) => {
       const content = document.createElement('page');
-      content.style.width = '100%';
+      content.style.width = '80%';
 
       const opt = {
         margin: 10,
@@ -696,14 +696,10 @@ export class ExportComponent implements OnInit {
             htitle.style.margin = '0';
             htitle.style.padding = '0';
             let h1 = htitle.querySelector('h1');
-            h1.style.fontSize = '12px!important';
             h1.style.margin = '0';
-            h1.style.lineHeight = '1';
 
             let h2 = htitle.querySelector('h2');
-            h2.style.fontSize = '12px!important';
             h2.style.margin = '0';
-            h2.style.lineHeight = '1';
           }
         });
 
