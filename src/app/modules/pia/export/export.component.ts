@@ -2,12 +2,23 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import html2canvas from 'html2canvas';
 import { svgAsPngUri } from 'save-svg-as-png';
+import * as html2pdf from 'html2pdf.js';
+import { jsPDF } from 'jspdf';
+
+// import { SafeHtmlPipe } from '../../../tools';
+
+import { Answer } from 'src/app/models/answer.model';
+import { Evaluation } from 'src/app/models/evaluation.model';
+
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
-import * as html2pdf from 'html2pdf.js';
+import { AuthService } from 'src/app/services/auth.service';
+import { MeasureService } from 'src/app/services/measures.service';
+import { EvaluationService } from 'src/app/services/evaluation.service';
+import { AnswerService } from 'src/app/services/answer.service';
 
 import { Pia } from 'src/app/models/pia.model';
 declare const require: any;
@@ -39,18 +50,26 @@ export class ExportComponent implements OnInit {
   @Output() downloading = new EventEmitter();
   @Input() editMode = false;
 
+  data: { sections: any };
+  allData: object;
+
   constructor(
     private piaService: PiaService,
     private actionPlanService: ActionPlanService,
     private translateService: TranslateService,
     private appDataService: AppDataService,
-    public attachmentsService: AttachmentsService
-  ) {}
+    public attachmentsService: AttachmentsService,
+    private measureService: MeasureService,
+    public authService: AuthService,
+    private answerService: AnswerService,
+    private evaluationService: EvaluationService
+  ) // private SafeHtmlPipe: SafeHtmlPipe
+  {}
 
   ngOnInit(): void {
     this.dataNav = this.appDataService.dataNav;
+    this.getJsonInfo();
 
-    // prepare for export
     this.prepareCsv();
     this.piaService.export(this.pia.id).then((json: any) => {
       this.piaJson = json;
@@ -61,7 +80,6 @@ export class ExportComponent implements OnInit {
     }
   }
 
-  /****************************** DOWNLOAD FILES ************************************/
   onSelectDownload(type: string, isChecked: boolean): void {
     if (isChecked) {
       this.exportSelected.push(type);
@@ -156,9 +174,6 @@ export class ExportComponent implements OnInit {
       }
     });
   }
-  /****************************** END DOWNLOAD FILES *********************************/
-
-  /****************************** CREATE EXPORTS ************************************/
 
   /**
    * Generate a ZIP with the docx + csv + json + all pictures
@@ -219,7 +234,6 @@ export class ExportComponent implements OnInit {
     });
   }
 
-  /****************************** CSV EXPORT ************************************/
   exportCSVFile(headers, items, fileTitle): Blob {
     if (headers) {
       items.unshift(headers);
@@ -337,9 +351,7 @@ export class ExportComponent implements OnInit {
 
     return this.exportCSVFile(headers, csvContentFormatted, fileTitle);
   }
-  /****************************** END CSV EXPORT *********************************/
 
-  /****************************** DOC EXPORT ************************************/
   /**
    *
    * @param element block in the HTML view used to generate the doc
@@ -437,7 +449,6 @@ export class ExportComponent implements OnInit {
       filename: data + '-pia.doc'
     };
   }
-  /****************************** END DOC EXPORT ********************************/
 
   /**
    * Add all active attachments (not the removed ones) to the zip after converting them as blob files
@@ -575,151 +586,720 @@ export class ExportComponent implements OnInit {
     });
   }
 
+  // RESTE A FAIRE :
+  // INTÉGRER LE PDF DANS LE ZIP (SANS QUE ÇA LE DL EN //) ?
+  // AJOUTER LES GRAPHES
+  // PLAN d'action
+  // Page DPO
+  // PURIFY DES TAGS
+
+  /**
+   * Generate a .pdf document for the PIA report.
+   * @param autosave
+   */
   async generatePdf(autosave = false) {
-    return new Promise(async (resolve, reject) => {
-      const content = document.createElement('page');
-      content.style.width = '100%';
+    // this.getRisksCartographyImg(),
+    // this.getRisksOverviewImgForZip()
 
-      const opt = {
-        margin: 10,
-        filename: `${this.pia.name}.pdf`,
-        pagebreak: {
-          before: '.pagebreak-before',
-          after: '.pagebreak-after',
-          avoid: 'img',
-          mode: ['css', 'legacy']
-        }
-      };
+    // Pdf general configuration variables
+    const doc = new jsPDF('portrait', 'pt');
+    const pageHeight = doc.internal.pageSize.height;
+    const pageWidth = doc.internal.pageSize.getWidth();
+    let pageSize = 40;
 
-      // Header
-      let header = document.querySelector(
-        'header.pia-fullPreviewBlock-header .pia-fullPreviewBlock-header-title'
+    // Check current page height
+    function testPdfSize(y) {
+      if (y >= pageHeight - 10) {
+        doc.addPage();
+        y = 20;
+        pageSize = 20;
+      }
+      return y;
+    }
+
+    /**
+     * Insert new content
+     * @param content : content to print
+     * @param x : position on x axis starting from the left of the page
+     * @param y : position on y axis starting from the top of the page
+     * @param fontSize : the font size of the content to print
+     * @param lineSpacing : the spacing between each line of the content (do not confuse with pageSize!)
+     */
+    function writeBoldText(content, x, y, fontSize = 12, lineSpacing = 12) {
+      doc.setFontSize(fontSize);
+      let startY = y;
+      let startX = x;
+      const textMap = doc.splitTextToSize(
+        content,
+        doc.internal.pageSize.width - x - 20
       );
 
-      if (header) {
-        header = header.cloneNode(true) as HTMLElement;
-        header.setAttribute('with', '100%');
-        const headerTitle = header.querySelector('h1');
-        if (headerTitle) {
-          headerTitle.innerText = this.pia.name;
-          headerTitle.setAttribute('font-size', '3rem');
-          headerTitle.setAttribute('margin', '0px');
-        }
-        content.appendChild(header);
-      }
+      textMap.map(text => {
+        startY = testPdfSize(startY);
+        const arrayOfNormalAndBoldText = text.split('**');
+        arrayOfNormalAndBoldText.map((textItems, i) => {
+          doc.setFont(undefined, i % 2 === 0 ? 'normal' : 'bold');
+          doc.text(textItems, startX, startY);
 
-      // SCHEMA SECTIONS
-      Promise.all([
-        this.getRisksCartographyImg(),
-        this.getRisksOverviewImgForZip()
-      ]).then(values => {
-        // RISK CARTO
-        let risks = document.querySelector('.section-risks-cartography');
-        if (risks) {
-          risks = risks.cloneNode(true) as HTMLElement;
-          risks.setAttribute('width', '100%');
-          //@ts-ignore
-          risks.style.background = 'white';
-          const imgRisks = document.createElement('img');
-          imgRisks.src = values[0];
-          imgRisks.style.height = '500px';
-
-          let shemContCartography = risks.querySelector('#risksCartographyImg');
-          shemContCartography.innerHTML = '';
-          shemContCartography.append(imgRisks);
-          content.append(risks);
-        }
-
-        // DPO
-        let dpo = document.querySelector('.section-dpo');
-        if (dpo) {
-          dpo = dpo.cloneNode(true) as HTMLElement;
-          dpo.setAttribute('width', '100%');
-          content.appendChild(dpo);
-        }
-
-        // ACTION PLAN
-        let action = document.querySelector('.section-action-plan');
-        if (action) {
-          action = action.cloneNode(true) as HTMLElement;
-
-          const imgActionPlan = action.querySelector('#actionPlanOverviewImg');
-          imgActionPlan.setAttribute('width', '100%');
-          //@ts-ignore
-          imgActionPlan.style.background = 'white';
-          //@ts-ignore
-          imgActionPlan.style.boxShadow = 'none';
-          content.appendChild(action);
-        }
-
-        // SECTION 1, 2, 3
-        const sections = document.querySelectorAll('.section-preview');
-        sections.forEach(section => {
-          let el = section.cloneNode(true) as HTMLElement;
-          el.style.background = 'white';
-          el.style.width = '100%';
-          content.appendChild(el);
+          startX += doc.getStringUnitWidth(textItems) * fontSize;
         });
+        pageSize += lineSpacing;
+        startY += lineSpacing;
+        startX = x;
+      });
+    }
 
-        let overview = document.querySelector('.section-overview');
-        if (overview) {
-          overview = overview.cloneNode(true) as HTMLElement;
-          const imgOverview = document.createElement('img');
-          // @ts-ignore
-          imgOverview.src = values[1];
+    // Remove HTML tags from a string
+    function purifyString(string) {
+      // <li> ---> "- "
+      // <strong> et </strong> ---> "**" ?
 
-          let shemContRisksOverview = overview.querySelector('.risksOverview');
-          shemContRisksOverview.innerHTML = '';
-          shemContRisksOverview.append(imgOverview);
+      // TODO: il reste encore des <div> </div> <br />, re-vérifier les autres tags aussi !!!
+      const htmlRegex1 = /<div>/g;
+      // const htmlRegex2 = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
 
-          shemContRisksOverview.setAttribute('width', '100%');
-          //@ts-ignore
-          shemContRisksOverview.style.background = 'white';
-          content.appendChild(overview);
-        }
+      string = string.replace(htmlRegex1, '');
+      // string = string.replace(htmlRegex2, '');
+      return string;
+    }
 
-        //
-        const headlines = content.querySelectorAll(
-          '.pia-fullPreviewBlock-headline'
+    // Display questions for a specific section and item
+    function displayQuestions(
+      dataNavSectionId,
+      dataNavItemId,
+      allDataSectionId,
+      allDataItemId,
+      dataNav,
+      allData,
+      translateService
+    ) {
+      for (const question of dataNav['sections'][dataNavSectionId]['items'][
+        dataNavItemId
+      ]['questions']) {
+        // Question title
+        doc.setTextColor('#091c6B');
+        writeBoldText(
+          translateService.instant(question.title),
+          20,
+          testPdfSize(pageSize),
+          12,
+          20
         );
-        headlines.forEach((h: HTMLElement) => {
-          h.style.boxShadow = 'none';
-          h.style.border = '1px solid #A7A7A7';
-          const htitle = h.querySelector(
-            '.pia-fullPreviewBlock-headline-title'
-          ) as HTMLElement;
-          if (htitle) {
-            htitle.style.background = 'white';
-          }
-        });
 
-        const pbs = content.querySelectorAll('.pagebreak-before');
-        pbs.forEach((pb: HTMLElement) => {
-          if (pb.children.length < 1) {
-            pb.remove();
-          }
-        });
+        // Question answer
+        doc.setTextColor('#000');
+        const questionAnswer =
+          allData[allDataSectionId][allDataItemId][question.id].content;
+        // writeBoldText(this.SafeHtmlPipe.transform(questionAnswer), 20, testPdfSize(pageSize), 10, 12);
+        writeBoldText(
+          purifyString(questionAnswer),
+          20,
+          testPdfSize(pageSize),
+          10,
+          12
+        );
 
-        // MAKE PDF !
-        const worker = html2pdf()
-          .from(content)
-          .set(opt)
-          .toPdf()
-          .get('pdf')
-          .outputPdf()
-          .then(pdf => {
-            // This logs the right base64
-            resolve(pdf);
-          })
-          .catch(err => {
-            reject(err);
+        // AJOUTER PURIFY STRING PARTOUT !
+
+        pageSize += 10;
+
+        // Question evaluation (if any)
+        if (allData[allDataSectionId][allDataItemId][question.id].evaluation) {
+          pageSize += 20;
+          doc.setDrawColor('#000');
+          doc.line(20, pageSize - 20, pageWidth - 30, pageSize - 20);
+
+          // Question evaluation value
+          const questionEvaluationTitle = `**${translateService.instant(
+            'evaluations.title'
+          )}** : ${translateService.instant(
+            allData[allDataSectionId][allDataItemId][question.id].evaluation
+              .title
+          )}`;
+          writeBoldText(
+            questionEvaluationTitle,
+            20,
+            testPdfSize(pageSize),
+            10,
+            12
+          );
+          pageSize += 10;
+
+          // Question evaluation action plan comment
+          if (
+            allData[allDataSectionId][allDataItemId][question.id].evaluation
+              .action_plan_comment
+          ) {
+            const questionEvaluationActionPlanComment = `**${translateService.instant(
+              'evaluations.action_plan_comment'
+            )}** : ${
+              allData[allDataSectionId][allDataItemId][question.id].evaluation
+                .action_plan_comment
+            }`;
+            writeBoldText(
+              questionEvaluationActionPlanComment,
+              20,
+              testPdfSize(pageSize),
+              10,
+              12
+            );
+            pageSize += 10;
+          }
+
+          // Question evaluation comment
+          if (
+            allData[allDataSectionId][allDataItemId][question.id].evaluation
+              .evaluation_comment
+          ) {
+            const questionEvaluationComment = `**${translateService.instant(
+              'evaluations.evaluation_comment'
+            )}** : ${
+              allData[allDataSectionId][allDataItemId][question.id].evaluation
+                .evaluation_comment
+            }`;
+            writeBoldText(
+              questionEvaluationComment,
+              20,
+              testPdfSize(pageSize),
+              10,
+              12
+            );
+            pageSize += 10;
+          }
+        }
+
+        pageSize += 20;
+      }
+    }
+
+    // Display measures for a specific section and item
+    function displayMeasures(allData, translateService) {
+      for (const measure of allData[3][1]) {
+        // Measure title
+        doc.setTextColor('#091c6B');
+        writeBoldText(measure.title, 20, testPdfSize(pageSize), 12, 20);
+
+        // Measure content
+        doc.setTextColor('#000');
+        writeBoldText(measure.content, 20, testPdfSize(pageSize), 10, 12);
+        pageSize += 10;
+
+        // Measure evaluation (if any)
+        if (measure.evaluation) {
+          pageSize += 20;
+          doc.setDrawColor('#000');
+          doc.line(20, pageSize - 20, pageWidth - 30, pageSize - 20);
+
+          // Measure evaluation value
+          const measureEvaluationTitle = `**${translateService.instant(
+            'evaluations.title'
+          )}** : ${translateService.instant(measure.evaluation.title)}`;
+          writeBoldText(
+            measureEvaluationTitle,
+            20,
+            testPdfSize(pageSize),
+            10,
+            12
+          );
+          pageSize += 10;
+
+          // Measure evaluation action plan comment
+          if (measure.evaluation.action_plan_comment) {
+            const measureEvaluationActionPlanComment = `**${translateService.instant(
+              'evaluations.action_plan_comment'
+            )}** : ${measure.evaluation.action_plan_comment}`;
+            writeBoldText(
+              measureEvaluationActionPlanComment,
+              20,
+              testPdfSize(pageSize),
+              10,
+              12
+            );
+            pageSize += 10;
+          }
+
+          // Measure evaluation comment
+          if (measure.evaluation.evaluation_comment) {
+            const measureEvaluationComment = `**${translateService.instant(
+              'evaluations.evaluation_comment'
+            )}** : ${measure.evaluation.evaluation_comment}`;
+            writeBoldText(
+              measureEvaluationComment,
+              20,
+              testPdfSize(pageSize),
+              10,
+              12
+            );
+            pageSize += 10;
+          }
+        }
+
+        pageSize += 20;
+      }
+    }
+
+    // Display the global evaluation for a specific item (if any)
+    function displayItemEvaluation(
+      allDataSectionId,
+      allDataItemId,
+      allData,
+      translateService
+    ) {
+      if (allData[allDataSectionId][allDataItemId]['evaluation_item']) {
+        pageSize += 20;
+        doc.setDrawColor('#000');
+        doc.line(20, pageSize - 20, pageWidth - 30, pageSize - 20);
+
+        // Evaluation value
+        const evaluationTitle = `**${translateService.instant(
+          'evaluations.title'
+        )}** : ${translateService.instant(
+          allData[allDataSectionId][allDataItemId]['evaluation_item'].title
+        )}`;
+        writeBoldText(evaluationTitle, 20, testPdfSize(pageSize), 10, 12);
+        pageSize += 10;
+
+        // Evaluation action plan comment
+        if (
+          allData[allDataSectionId][allDataItemId]['evaluation_item']
+            .action_plan_comment
+        ) {
+          const evaluationActionPlanComment = `**${translateService.instant(
+            'evaluations.action_plan_comment'
+          )}** : ${
+            allData[allDataSectionId][allDataItemId]['evaluation_item']
+              .action_plan_comment
+          }`;
+          writeBoldText(
+            evaluationActionPlanComment,
+            20,
+            testPdfSize(pageSize),
+            10,
+            12
+          );
+          pageSize += 10;
+        }
+
+        // Evaluation comment
+        if (
+          allData[allDataSectionId][allDataItemId]['evaluation_item']
+            .evaluation_comment
+        ) {
+          const evaluationComment = `**${translateService.instant(
+            'evaluations.evaluation_comment'
+          )}** : ${
+            allData[allDataSectionId][allDataItemId]['evaluation_item']
+              .evaluation_comment
+          }`;
+          writeBoldText(evaluationComment, 20, testPdfSize(pageSize), 10, 12);
+          pageSize += 10;
+        }
+
+        // Evaluation gauges
+        if (
+          allData[allDataSectionId][allDataItemId]['evaluation_item'].gauges
+        ) {
+          if (
+            allData[allDataSectionId][allDataItemId]['evaluation_item'].gauges
+              .seriousness > 0
+          ) {
+            const evaluationGaugeSeriousness = `**${translateService.instant(
+              'evaluations.gauges.seriousness'
+            )}** : ${translateService.instant(
+              'evaluations.gauges.' +
+                allData[allDataSectionId][allDataItemId]['evaluation_item']
+                  .gauges.seriousness
+            )}`;
+            writeBoldText(
+              evaluationGaugeSeriousness,
+              20,
+              testPdfSize(pageSize),
+              10,
+              12
+            );
+            pageSize += 10;
+          }
+          if (
+            allData[allDataSectionId][allDataItemId]['evaluation_item'].gauges
+              .likelihood > 0
+          ) {
+            const evaluationGaugeLikelihood = `**${translateService.instant(
+              'evaluations.gauges.likelihood'
+            )}** : ${translateService.instant(
+              'evaluations.gauges.' +
+                allData[allDataSectionId][allDataItemId]['evaluation_item']
+                  .gauges.likelihood
+            )}`;
+            writeBoldText(
+              evaluationGaugeLikelihood,
+              20,
+              testPdfSize(pageSize),
+              10,
+              12
+            );
+            pageSize += 10;
+          }
+        }
+      }
+    }
+
+    // Generate the header of a specific section and item
+    function generateHeader(
+      color,
+      dataNav,
+      dataNavSectionId,
+      dataNavItemId,
+      translateService
+    ) {
+      doc.setFillColor(color);
+      doc.rect(20, 20, 74, 50, 'F');
+      doc.setDrawColor('#aaa');
+      doc.rect(20, 20, pageWidth - 40, 50);
+      writeBoldText(
+        translateService.instant(dataNav['sections'][dataNavSectionId].title),
+        105,
+        testPdfSize(pageSize),
+        16,
+        20
+      );
+      writeBoldText(
+        translateService.instant(
+          dataNav['sections'][dataNavSectionId]['items'][dataNavItemId].title
+        ),
+        105,
+        testPdfSize(pageSize),
+        14,
+        40
+      );
+    }
+
+    // MAIN PIA DATA
+    doc.setFillColor('#3c3b3d');
+    doc.rect(20, 20, 74, 50, 'F');
+    doc.setDrawColor('#aaa');
+    doc.rect(20, 20, pageWidth - 40, 50);
+    writeBoldText(
+      this.translateService.instant('summary.preview_subtitle'),
+      105,
+      testPdfSize(pageSize),
+      16,
+      20
+    );
+    writeBoldText(this.pia.name, 105, testPdfSize(pageSize), 14, 40);
+
+    const piaAuthor = `**${this.translateService.instant(
+      'summary.preview_edition'
+    )}** : ${this.getUsersList('author', 'author_name')}`;
+    writeBoldText(piaAuthor, 20, testPdfSize(pageSize), 12, 20);
+    const piaEvaluator = `**${this.translateService.instant(
+      'summary.preview_evaluation'
+    )}** : ${this.getUsersList('evaluator', 'evaluator_name')}`;
+    writeBoldText(piaEvaluator, 20, testPdfSize(pageSize), 12, 20);
+    const piaValidator = `**${this.translateService.instant(
+      'summary.preview_validation'
+    )}** : ${this.getUsersList('validator', 'validator_name')}`;
+    writeBoldText(piaValidator, 20, testPdfSize(pageSize), 12, 20);
+    if (this.authService.state) {
+      const piaGuests = `**${this.translateService.instant(
+        'summary.preview_guests'
+      )}** : ${this.getUsersList('guest')}`;
+      writeBoldText(piaGuests, 20, testPdfSize(pageSize), 12, 20);
+    }
+    const piaStatusAndProgress = `**${this.translateService.instant(
+      'summary.preview_status'
+    )}** : ${this.translateService.instant(
+      this.piaService.getStatusName(this.pia.status)
+    )} (${this.pia.progress}%)`;
+    writeBoldText(piaStatusAndProgress, 20, testPdfSize(pageSize), 12, 20);
+
+    // SECTION 1 - "CONTEXT"
+
+    // SECTION 1 - SUBSECTION 1 - "OVERVIEW"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#3ee095', this.dataNav, 0, 0, this.translateService);
+    displayQuestions(
+      0,
+      0,
+      1,
+      1,
+      this.dataNav,
+      this.allData,
+      this.translateService
+    );
+    displayItemEvaluation(1, 1, this.allData, this.translateService);
+
+    // SECTION 1 - SUBSECTION 2 - "DATA, PROCESSES AND SUPPORTING ASSETS"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#3ee095', this.dataNav, 0, 1, this.translateService);
+    displayQuestions(
+      0,
+      1,
+      1,
+      2,
+      this.dataNav,
+      this.allData,
+      this.translateService
+    );
+    displayItemEvaluation(1, 2, this.allData, this.translateService);
+
+    // SECTION 2 - "FUNDAMENTAL PRINCIPLES"
+
+    // SECTION 2 - SUBSECTION 1 - "PROPORTIONALITY AND NECESSITY"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#091c6b', this.dataNav, 1, 0, this.translateService);
+    displayQuestions(
+      1,
+      0,
+      2,
+      1,
+      this.dataNav,
+      this.allData,
+      this.translateService
+    );
+
+    // SECTION 2 - SUBSECTION 2 - "CONTROLS TO PROTECT THE PERSONAL RIGHTS OF DATA SUBJECTS"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#091c6b', this.dataNav, 1, 1, this.translateService);
+    displayQuestions(
+      1,
+      1,
+      2,
+      2,
+      this.dataNav,
+      this.allData,
+      this.translateService
+    );
+
+    // SECTION 3 - "RISKS"
+
+    // SECTION 3 - SUBSECTION 1 - "PLANNED OR EXISTING MEASURES"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#df4664', this.dataNav, 2, 0, this.translateService);
+    displayMeasures(this.allData, this.translateService);
+
+    // SECTION 3 - SUBSECTION 2 - "ILLEGITIMATE ACCESS TO DATA"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#df4664', this.dataNav, 2, 1, this.translateService);
+    displayQuestions(
+      2,
+      1,
+      3,
+      2,
+      this.dataNav,
+      this.allData,
+      this.translateService
+    );
+    displayItemEvaluation(3, 2, this.allData, this.translateService);
+
+    // SECTION 3 - SUBSECTION 3 - "UNWANTED MODIFICATION OF DATA"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#df4664', this.dataNav, 2, 2, this.translateService);
+    displayQuestions(
+      2,
+      2,
+      3,
+      3,
+      this.dataNav,
+      this.allData,
+      this.translateService
+    );
+    displayItemEvaluation(3, 3, this.allData, this.translateService);
+
+    // SECTION 3 - SUBSECTION 4 - "DATA DISAPPEARENCE"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#df4664', this.dataNav, 2, 3, this.translateService);
+    displayQuestions(
+      2,
+      3,
+      3,
+      4,
+      this.dataNav,
+      this.allData,
+      this.translateService
+    );
+    displayItemEvaluation(3, 4, this.allData, this.translateService);
+
+    // SECTION 3 - SUBSECTION 5 - "RISKS OVERVIEW"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#df4664', this.dataNav, 2, 4, this.translateService);
+    // TODO : graph
+
+    // SECTION 4 - "VALIDATION"
+
+    // SECTION 4 - SUBSECTION 1 - "RISK MAPPING"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#121921', this.dataNav, 3, 0, this.translateService);
+    // TODO : graph
+
+    // SECTION 4 - SUBSECTION 2 - "ACTION PLAN"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#121921', this.dataNav, 3, 1, this.translateService);
+    // TODO : action plan + graph
+
+    // SECTION 4 - SUBSECTION 3 - "DPO AND DATA SUBECTS' OPINIONS"
+    doc.addPage();
+    pageSize = 40;
+    generateHeader('#121921', this.dataNav, 3, 2, this.translateService);
+    // TODO
+
+    // Saving .pdf file
+    doc.save('pia-' + slugify(this.pia.name) + '.pdf');
+  }
+
+  /**
+   * Get information from the JSON file.
+   * @returns {Promise}
+   * @private
+   */
+  private async getJsonInfo(): Promise<void> {
+    this.allData = {};
+    this.piaService.data.sections.forEach(async section => {
+      this.allData[section.id] = {};
+      section.items.forEach(async item => {
+        this.allData[section.id][item.id] = {};
+        const ref = section.id.toString() + '.' + item.id.toString();
+
+        // Measure
+        if (item.is_measure) {
+          this.allData[section.id][item.id] = [];
+          this.measureService.pia_id = this.pia.id;
+          const entries: any = await this.measureService.findAllByPia(
+            this.pia.id
+          );
+          entries.forEach(async measure => {
+            /* Completed measures */
+            if (measure.title !== undefined && measure.content !== undefined) {
+              let evaluation = null;
+              if (item.evaluation_mode === 'question') {
+                evaluation = await this.getEvaluation(
+                  section.id,
+                  item.id,
+                  ref + '.' + measure.id
+                );
+              }
+              this.allData[section.id][item.id].push({
+                title: measure.title,
+                content: measure.content,
+                evaluation
+              });
+            }
           });
-
-        if (autosave) {
-          worker.save();
+        } else if (item.questions) {
+          // Question
+          item.questions.forEach(async question => {
+            this.allData[section.id][item.id][question.id] = {};
+            this.answerService
+              .getByReferenceAndPia(this.pia.id, question.id)
+              .then((answer: Answer) => {
+                /* An answer exists */
+                if (answer && answer.data) {
+                  const content = [];
+                  if (answer.data.gauge && answer.data.gauge > 0) {
+                    content.push(
+                      this.translateService.instant(
+                        this.piaService.getGaugeName(answer.data.gauge)
+                      )
+                    );
+                  }
+                  if (answer.data.text && answer.data.text.length > 0) {
+                    content.push(answer.data.text);
+                  }
+                  if (answer.data.list && answer.data.list.length > 0) {
+                    content.push(answer.data.list.join(', '));
+                  }
+                  if (content.length > 0) {
+                    if (item.evaluation_mode === 'question') {
+                      this.getEvaluation(
+                        section.id,
+                        item.id,
+                        ref + '.' + question.id
+                      ).then(evaluation => {
+                        this.allData[section.id][item.id][
+                          question.id
+                        ].evaluation = evaluation;
+                      });
+                    }
+                    this.allData[section.id][item.id][
+                      question.id
+                    ].content = content.join(', ');
+                  }
+                }
+              });
+          });
+        }
+        if (item.evaluation_mode === 'item') {
+          const evaluation = await this.getEvaluation(section.id, item.id, ref);
+          this.allData[section.id][item.id]['evaluation_item'] = evaluation;
         }
       });
     });
   }
-  /****************************** END CREATE EXPORTS *********************************/
+
+  /**
+   * Get an evaluation by reference.
+   * @private
+   * @param {string} section_id - The section id.
+   * @param {string} item_id - The item id.
+   * @param {string} ref - The reference.
+   * @returns {Promise}
+   */
+  private async getEvaluation(
+    section_id: string,
+    item_id: string,
+    ref: string
+  ): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      let evaluation = null;
+      this.evaluationService
+        .getByReference(this.pia.id, ref)
+        .then((exist: Evaluation) => {
+          if (exist) {
+            evaluation = {
+              title: this.evaluationService.getStatusName(exist.status),
+              action_plan_comment: exist.action_plan_comment,
+              evaluation_comment: exist.evaluation_comment,
+              gauges: {
+                riskName: {
+                  value: this.translateService.instant(
+                    'sections.' + section_id + '.items.' + item_id + '.title'
+                  )
+                },
+                seriousness: exist.gauges ? exist.gauges.x : null,
+                likelihood: exist.gauges ? exist.gauges.y : null
+              }
+            };
+          }
+          resolve(evaluation);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
+  }
+
+  getUsersList(type: string, dump_field: string = null): string {
+    if (this.authService.state) {
+      return this.pia.user_pias
+        .filter(up => up.role === type)
+        .map(x =>
+          x.user.firstname
+            ? x.user.firstname + ' ' + x.user.lastname
+            : x.user.email
+        )
+        .join(',');
+    } else if (dump_field) {
+      return this.pia[dump_field];
+    }
+  }
 }
