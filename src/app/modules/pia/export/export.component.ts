@@ -647,6 +647,12 @@ export class ExportComponent implements OnInit {
         let action = document.querySelector('.section-action-plan');
         if (action) {
           action = action.cloneNode(true) as HTMLElement;
+          const boxes = action.querySelectorAll('.actionplanbox');
+          boxes.forEach(b => {
+            //@ts-ignore
+            b.style.width = '99%';
+          });
+
           const imgActionPlan = action.querySelector('#actionPlanOverviewImg');
           imgActionPlan.setAttribute('width', '100%');
           //@ts-ignore
