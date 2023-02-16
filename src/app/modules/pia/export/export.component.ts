@@ -578,8 +578,7 @@ export class ExportComponent implements OnInit {
   async generatePdf(autosave = false) {
     return new Promise(async (resolve, reject) => {
       const content = document.createElement('page');
-      content.style.width = '80%';
-
+      content.style.width = '99%';
       const opt = {
         margin: 10,
         filename: `${this.pia.name}.pdf`,
@@ -598,7 +597,7 @@ export class ExportComponent implements OnInit {
 
       if (header) {
         header = header.cloneNode(true) as HTMLElement;
-        header.setAttribute('with', '100%');
+        header.setAttribute('with', '95%');
         const headerTitle = header.querySelector('h1');
         if (headerTitle) {
           headerTitle.innerText = this.pia.name;
@@ -648,7 +647,6 @@ export class ExportComponent implements OnInit {
         let action = document.querySelector('.section-action-plan');
         if (action) {
           action = action.cloneNode(true) as HTMLElement;
-
           const imgActionPlan = action.querySelector('#actionPlanOverviewImg');
           imgActionPlan.setAttribute('width', '100%');
           //@ts-ignore
@@ -681,7 +679,7 @@ export class ExportComponent implements OnInit {
         );
         headlines.forEach((h: HTMLElement) => {
           h.style.display = 'block';
-          h.style.width = '100%';
+          h.style.width = '98%';
           h.style.boxShadow = 'none';
           h.style.border = '1px solid #A7A7A7';
           h.style.margin = '50px 0px 0px 0px';
