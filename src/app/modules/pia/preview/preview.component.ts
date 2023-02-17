@@ -330,11 +330,6 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
               action_plan_comment: exist.action_plan_comment,
               evaluation_comment: exist.evaluation_comment,
               gauges: {
-                riskName: {
-                  value: this.translateService.instant(
-                    'sections.' + section_id + '.items.' + item_id + '.title'
-                  )
-                },
                 seriousness: exist.gauges ? exist.gauges.x : null,
                 likelihood: exist.gauges ? exist.gauges.y : null
               }

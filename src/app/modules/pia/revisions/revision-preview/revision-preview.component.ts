@@ -194,11 +194,6 @@ export class RevisionPreviewComponent implements OnInit {
           action_plan_comment: evaluationModel.action_plan_comment,
           evaluation_comment: evaluationModel.evaluation_comment,
           gauges: {
-            riskName: {
-              value: this.translateService.instant(
-                'sections.' + section_id + '.items.' + item_id + '.title'
-              )
-            },
             seriousness: evaluationModel.gauges
               ? evaluationModel.gauges.x
               : null,

@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 import * as FileSaver from 'file-saver';
 import html2canvas from 'html2canvas';
 import { svgAsPngUri } from 'save-svg-as-png';
 import * as html2pdf from 'html2pdf.js';
 import { jsPDF } from 'jspdf';
 
-// import { SafeHtmlPipe } from '../../../tools';
-
 import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
+import { Pia } from 'src/app/models/pia.model';
 
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
@@ -20,8 +20,10 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AnswerService } from 'src/app/services/answer.service';
 
-import { Pia } from 'src/app/models/pia.model';
 declare const require: any;
+
+require('src/assets/fonts/Roboto-Regular-webfont-normal.js');
+require('src/assets/fonts/Roboto-Bold-webfont-bold.js');
 
 function slugify(text): string {
   return text
@@ -63,8 +65,7 @@ export class ExportComponent implements OnInit {
     public authService: AuthService,
     private answerService: AnswerService,
     private evaluationService: EvaluationService
-  ) // private SafeHtmlPipe: SafeHtmlPipe
-  {}
+  ) {}
 
   ngOnInit(): void {
     this.dataNav = this.appDataService.dataNav;
@@ -587,11 +588,28 @@ export class ExportComponent implements OnInit {
   }
 
   // RESTE A FAIRE :
+
   // INTÉGRER LE PDF DANS LE ZIP (SANS QUE ÇA LE DL EN //) ?
-  // AJOUTER LES GRAPHES
-  // PLAN d'action
+
+  // CARTO RISQUES
+  // GRAPHE DU PLAN D'ACTION
+  // VUE ENSEMBLE RISQUES
   // Page DPO
-  // PURIFY DES TAGS
+
+  // RETESTER AVEC PIA VIDE POUR VÉRIFIER L'AFFICHAGE
+
+  // BUG AFFICHAGE LANGUES CHELOUS (GREC, CHINOIS)
+  // SI VRAIMENT PAS POSSIBLE, JUSTE MASQUER LE BOUTON PDF POUR CES LANGUES (+ PRECISER SUR LE README GIT QUE CA MARCHE PAS
+  // CAR CONTRAINTE TECH DE FONT...)
+
+  // /!\ Créer une méthode pour charger une font adaptée en fonction de la langue courante
+  // D'ABORD TESTER AVEC LA FONT CI DESSOUS VIA LA METHODE GENERATEPDFTEST ? (télécharger font sur google, créer le .js
+  // importer le js, charger la font custom grec et tester)
+  // https://fonts.google.com/specimen/GFS+Neohellenic/glyphs
+
+  generatePdfTest() {
+    // Faire un test avec une langue chelou et une autre font utf-8
+  }
 
   /**
    * Generate a .pdf document for the PIA report.
@@ -617,14 +635,7 @@ export class ExportComponent implements OnInit {
       return y;
     }
 
-    /**
-     * Insert new content
-     * @param content : content to print
-     * @param x : position on x axis starting from the left of the page
-     * @param y : position on y axis starting from the top of the page
-     * @param fontSize : the font size of the content to print
-     * @param lineSpacing : the spacing between each line of the content (do not confuse with pageSize!)
-     */
+    // Allow to insert text
     function writeBoldText(content, x, y, fontSize = 12, lineSpacing = 12) {
       doc.setFontSize(fontSize);
       let startY = y;
@@ -633,14 +644,17 @@ export class ExportComponent implements OnInit {
         content,
         doc.internal.pageSize.width - x - 20
       );
-
       textMap.map(text => {
         startY = testPdfSize(startY);
         const arrayOfNormalAndBoldText = text.split('**');
         arrayOfNormalAndBoldText.map((textItems, i) => {
-          doc.setFont(undefined, i % 2 === 0 ? 'normal' : 'bold');
+          // doc.setFont(undefined, i % 2 === 0 ? 'normal' : 'bold');
+          if (i % 2 === 0) {
+            doc.setFont('Roboto-Regular-webfont', 'normal');
+          } else {
+            doc.setFont('Roboto-Bold-webfont', 'bold');
+          }
           doc.text(textItems, startX, startY);
-
           startX += doc.getStringUnitWidth(textItems) * fontSize;
         });
         pageSize += lineSpacing;
@@ -651,15 +665,20 @@ export class ExportComponent implements OnInit {
 
     // Remove HTML tags from a string
     function purifyString(string) {
-      // <li> ---> "- "
-      // <strong> et </strong> ---> "**" ?
-
-      // TODO: il reste encore des <div> </div> <br />, re-vérifier les autres tags aussi !!!
-      const htmlRegex1 = /<div>/g;
-      // const htmlRegex2 = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
-
-      string = string.replace(htmlRegex1, '');
-      // string = string.replace(htmlRegex2, '');
+      const htmlRegexStrong = /<strong>/g;
+      const htmlRegexStrong2 = /<\/strong>/g;
+      string = string.replace(htmlRegexStrong, ' **');
+      string = string.replace(htmlRegexStrong2, '**');
+      const htmlRegexLi = /<li>/g;
+      string = string.replace(htmlRegexLi, '- ');
+      const htmlRegex = /<span class='green-highlight'>/g;
+      string = string.replace(htmlRegex, '');
+      const htmlRegex2 = /<span class='red-highlight'>/g;
+      string = string.replace(htmlRegex2, '');
+      const htmlRegex3 = /<span class='strong'>/g;
+      string = string.replace(htmlRegex3, '');
+      const htmlRegexFinal = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
+      string = string.replace(htmlRegexFinal, '');
       return string;
     }
 
@@ -679,18 +698,17 @@ export class ExportComponent implements OnInit {
         // Question title
         doc.setTextColor('#091c6B');
         writeBoldText(
-          translateService.instant(question.title),
+          purifyString(translateService.instant(question.title)),
           20,
           testPdfSize(pageSize),
           12,
-          20
+          15
         );
 
         // Question answer
         doc.setTextColor('#000');
         const questionAnswer =
           allData[allDataSectionId][allDataItemId][question.id].content;
-        // writeBoldText(this.SafeHtmlPipe.transform(questionAnswer), 20, testPdfSize(pageSize), 10, 12);
         writeBoldText(
           purifyString(questionAnswer),
           20,
@@ -699,15 +717,11 @@ export class ExportComponent implements OnInit {
           12
         );
 
-        // AJOUTER PURIFY STRING PARTOUT !
-
-        pageSize += 10;
-
         // Question evaluation (if any)
         if (allData[allDataSectionId][allDataItemId][question.id].evaluation) {
           pageSize += 20;
-          doc.setDrawColor('#000');
-          doc.line(20, pageSize - 20, pageWidth - 30, pageSize - 20);
+          doc.setDrawColor('#aaa');
+          doc.line(20, pageSize - 20, pageWidth - 20, pageSize - 20);
 
           // Question evaluation value
           const questionEvaluationTitle = `**${translateService.instant(
@@ -717,13 +731,12 @@ export class ExportComponent implements OnInit {
               .title
           )}`;
           writeBoldText(
-            questionEvaluationTitle,
+            purifyString(questionEvaluationTitle),
             20,
             testPdfSize(pageSize),
             10,
             12
           );
-          pageSize += 10;
 
           // Question evaluation action plan comment
           if (
@@ -737,13 +750,12 @@ export class ExportComponent implements OnInit {
                 .action_plan_comment
             }`;
             writeBoldText(
-              questionEvaluationActionPlanComment,
+              purifyString(questionEvaluationActionPlanComment),
               20,
               testPdfSize(pageSize),
               10,
               12
             );
-            pageSize += 10;
           }
 
           // Question evaluation comment
@@ -758,17 +770,16 @@ export class ExportComponent implements OnInit {
                 .evaluation_comment
             }`;
             writeBoldText(
-              questionEvaluationComment,
+              purifyString(questionEvaluationComment),
               20,
               testPdfSize(pageSize),
               10,
               12
             );
-            pageSize += 10;
           }
         }
 
-        pageSize += 20;
+        pageSize += 10;
       }
     }
 
@@ -777,31 +788,41 @@ export class ExportComponent implements OnInit {
       for (const measure of allData[3][1]) {
         // Measure title
         doc.setTextColor('#091c6B');
-        writeBoldText(measure.title, 20, testPdfSize(pageSize), 12, 20);
+        writeBoldText(
+          purifyString(measure.title),
+          20,
+          testPdfSize(pageSize),
+          12,
+          15
+        );
 
         // Measure content
         doc.setTextColor('#000');
-        writeBoldText(measure.content, 20, testPdfSize(pageSize), 10, 12);
-        pageSize += 10;
+        writeBoldText(
+          purifyString(measure.content),
+          20,
+          testPdfSize(pageSize),
+          10,
+          12
+        );
 
         // Measure evaluation (if any)
         if (measure.evaluation) {
           pageSize += 20;
-          doc.setDrawColor('#000');
-          doc.line(20, pageSize - 20, pageWidth - 30, pageSize - 20);
+          doc.setDrawColor('#aaa');
+          doc.line(20, pageSize - 20, pageWidth - 20, pageSize - 20);
 
           // Measure evaluation value
           const measureEvaluationTitle = `**${translateService.instant(
             'evaluations.title'
           )}** : ${translateService.instant(measure.evaluation.title)}`;
           writeBoldText(
-            measureEvaluationTitle,
+            purifyString(measureEvaluationTitle),
             20,
             testPdfSize(pageSize),
             10,
             12
           );
-          pageSize += 10;
 
           // Measure evaluation action plan comment
           if (measure.evaluation.action_plan_comment) {
@@ -809,13 +830,12 @@ export class ExportComponent implements OnInit {
               'evaluations.action_plan_comment'
             )}** : ${measure.evaluation.action_plan_comment}`;
             writeBoldText(
-              measureEvaluationActionPlanComment,
+              purifyString(measureEvaluationActionPlanComment),
               20,
               testPdfSize(pageSize),
               10,
               12
             );
-            pageSize += 10;
           }
 
           // Measure evaluation comment
@@ -824,17 +844,16 @@ export class ExportComponent implements OnInit {
               'evaluations.evaluation_comment'
             )}** : ${measure.evaluation.evaluation_comment}`;
             writeBoldText(
-              measureEvaluationComment,
+              purifyString(measureEvaluationComment),
               20,
               testPdfSize(pageSize),
               10,
               12
             );
-            pageSize += 10;
           }
         }
 
-        pageSize += 20;
+        pageSize += 10;
       }
     }
 
@@ -846,9 +865,9 @@ export class ExportComponent implements OnInit {
       translateService
     ) {
       if (allData[allDataSectionId][allDataItemId]['evaluation_item']) {
-        pageSize += 20;
-        doc.setDrawColor('#000');
-        doc.line(20, pageSize - 20, pageWidth - 30, pageSize - 20);
+        pageSize += 10;
+        doc.setDrawColor('#aaa');
+        doc.line(20, pageSize - 20, pageWidth - 20, pageSize - 20);
 
         // Evaluation value
         const evaluationTitle = `**${translateService.instant(
@@ -856,8 +875,13 @@ export class ExportComponent implements OnInit {
         )}** : ${translateService.instant(
           allData[allDataSectionId][allDataItemId]['evaluation_item'].title
         )}`;
-        writeBoldText(evaluationTitle, 20, testPdfSize(pageSize), 10, 12);
-        pageSize += 10;
+        writeBoldText(
+          purifyString(evaluationTitle),
+          20,
+          testPdfSize(pageSize),
+          10,
+          12
+        );
 
         // Evaluation action plan comment
         if (
@@ -871,13 +895,12 @@ export class ExportComponent implements OnInit {
               .action_plan_comment
           }`;
           writeBoldText(
-            evaluationActionPlanComment,
+            purifyString(evaluationActionPlanComment),
             20,
             testPdfSize(pageSize),
             10,
             12
           );
-          pageSize += 10;
         }
 
         // Evaluation comment
@@ -891,8 +914,13 @@ export class ExportComponent implements OnInit {
             allData[allDataSectionId][allDataItemId]['evaluation_item']
               .evaluation_comment
           }`;
-          writeBoldText(evaluationComment, 20, testPdfSize(pageSize), 10, 12);
-          pageSize += 10;
+          writeBoldText(
+            purifyString(evaluationComment),
+            20,
+            testPdfSize(pageSize),
+            10,
+            12
+          );
         }
 
         // Evaluation gauges
@@ -911,13 +939,12 @@ export class ExportComponent implements OnInit {
                   .gauges.seriousness
             )}`;
             writeBoldText(
-              evaluationGaugeSeriousness,
+              purifyString(evaluationGaugeSeriousness),
               20,
               testPdfSize(pageSize),
               10,
               12
             );
-            pageSize += 10;
           }
           if (
             allData[allDataSectionId][allDataItemId]['evaluation_item'].gauges
@@ -931,15 +958,16 @@ export class ExportComponent implements OnInit {
                   .gauges.likelihood
             )}`;
             writeBoldText(
-              evaluationGaugeLikelihood,
+              purifyString(evaluationGaugeLikelihood),
               20,
               testPdfSize(pageSize),
               10,
               12
             );
-            pageSize += 10;
           }
         }
+
+        pageSize += 10;
       }
     }
 
@@ -956,15 +984,19 @@ export class ExportComponent implements OnInit {
       doc.setDrawColor('#aaa');
       doc.rect(20, 20, pageWidth - 40, 50);
       writeBoldText(
-        translateService.instant(dataNav['sections'][dataNavSectionId].title),
+        purifyString(
+          translateService.instant(dataNav['sections'][dataNavSectionId].title)
+        ),
         105,
         testPdfSize(pageSize),
         16,
         20
       );
       writeBoldText(
-        translateService.instant(
-          dataNav['sections'][dataNavSectionId]['items'][dataNavItemId].title
+        purifyString(
+          translateService.instant(
+            dataNav['sections'][dataNavSectionId]['items'][dataNavItemId].title
+          )
         ),
         105,
         testPdfSize(pageSize),
@@ -1270,11 +1302,6 @@ export class ExportComponent implements OnInit {
               action_plan_comment: exist.action_plan_comment,
               evaluation_comment: exist.evaluation_comment,
               gauges: {
-                riskName: {
-                  value: this.translateService.instant(
-                    'sections.' + section_id + '.items.' + item_id + '.title'
-                  )
-                },
                 seriousness: exist.gauges ? exist.gauges.x : null,
                 likelihood: exist.gauges ? exist.gauges.y : null
               }

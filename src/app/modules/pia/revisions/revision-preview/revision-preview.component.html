@@ -295,9 +295,6 @@
                                     [innerHTML]="
                                       'evaluations.gauges.seriousness'
                                         | translate
-                                          : allData[section.id][item.id][
-                                              question.id
-                                            ].evaluation.gauges.riskName
                                     "
                                   ></span>
                                   {{
@@ -320,9 +317,6 @@
                                     [innerHTML]="
                                       'evaluations.gauges.likelihood'
                                         | translate
-                                          : allData[section.id][item.id][
-                                              question.id
-                                            ].evaluation.gauges.riskName
                                     "
                                   ></span>
                                   {{
@@ -404,11 +398,7 @@
                             >
                               <span
                                 [innerHTML]="
-                                  'evaluations.gauges.seriousness'
-                                    | translate
-                                      : allData[section.id][item.id][
-                                          'evaluation_item'
-                                        ].gauges.riskName
+                                  'evaluations.gauges.seriousness' | translate
                                 "
                               ></span>
                               {{
@@ -429,11 +419,7 @@
                             >
                               <span
                                 [innerHTML]="
-                                  'evaluations.gauges.likelihood'
-                                    | translate
-                                      : allData[section.id][item.id][
-                                          'evaluation_item'
-                                        ].gauges.riskName
+                                  'evaluations.gauges.likelihood' | translate
                                 "
                               ></span>
                               {{
