@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import * as FileSaver from 'file-saver';
 import html2canvas from 'html2canvas';
@@ -59,6 +60,7 @@ export class ExportComponent implements OnInit {
   allData: object;
 
   constructor(
+    private route: ActivatedRoute,
     private piaService: PiaService,
     private actionPlanService: ActionPlanService,
     private translateService: TranslateService,
@@ -72,17 +74,21 @@ export class ExportComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dataNav = this.appDataService.dataNav;
-    this.getJsonInfo();
-    this.prepareCsv();
-    this.piaService.export(this.pia.id).then((json: any) => {
-      this.piaService.calculPiaProgress(this.pia);
-      this.piaJson = json;
-    });
-
-    if (this.pia.is_archive === 1) {
-      this.fromArchives = true;
-    }
+    this.piaService
+      .find(parseInt(this.route.snapshot.params.id))
+      .then((pia: Pia) => {
+        this.pia = pia;
+        this.piaService.calculPiaProgress(this.pia);
+        this.dataNav = this.appDataService.dataNav;
+        this.getJsonInfo();
+        this.prepareCsv();
+        this.piaService.export(this.pia.id).then((json: any) => {
+          this.piaJson = json;
+        });
+        if (this.pia.is_archive === 1) {
+          this.fromArchives = true;
+        }
+      });
   }
 
   onSelectDownload(type: string, isChecked: boolean): void {
@@ -569,14 +575,14 @@ export class ExportComponent implements OnInit {
           '#actionPlanOverviewImg'
         );
         if (actionPlanOverviewImg) {
-          html2canvas(actionPlanOverviewImg as HTMLElement, {
-            scale: 1.4
-          }).then(canvas => {
-            if (canvas) {
-              const img = canvas.toDataURL();
-              resolve(img);
+          html2canvas(actionPlanOverviewImg as HTMLElement, { scale: 4 }).then(
+            canvas => {
+              if (canvas) {
+                const img = canvas.toDataURL();
+                resolve(img);
+              }
             }
-          });
+          );
         }
       }, 0);
     });
@@ -594,7 +600,7 @@ export class ExportComponent implements OnInit {
           '#risksCartographyImg'
         );
         if (risksCartographyImg) {
-          html2canvas(risksCartographyImg as HTMLElement, { scale: 1.4 }).then(
+          html2canvas(risksCartographyImg as HTMLElement, { scale: 4 }).then(
             canvas => {
               if (canvas) {
                 const img = canvas.toDataURL();
@@ -611,7 +617,7 @@ export class ExportComponent implements OnInit {
    * Generate a data format from the risk overview image. It can then be used in the Zip.
    * @async
    */
-  async getRisksOverviewImgForZip(): Promise<void> {
+  async getRisksOverviewImgForZip(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         window.scroll(0, 0);
@@ -707,6 +713,10 @@ export class ExportComponent implements OnInit {
         string = string.replace(htmlRegexStrong2, '**');
         const htmlRegexLi = /<li>/g;
         string = string.replace(htmlRegexLi, '- ');
+        const htmlRegexBr = /<br \/>/g;
+        string = string.replace(htmlRegexBr, '\r\n');
+        const htmlRegexBr2 = /<br>/g;
+        string = string.replace(htmlRegexBr2, '\r\n');
         const htmlRegex = /<span class='green-highlight'>/g;
         string = string.replace(htmlRegex, '');
         const htmlRegex2 = /<span class='red-highlight'>/g;
@@ -1686,10 +1696,22 @@ export class ExportComponent implements OnInit {
       );
       window.scroll(0, 0);
       await this.getRisksOverviewImgForZip().then(data => {
-        doc.addImage(data, 'PNG', 10, 75, 460, 710);
+        doc.addImage(data, 'PNG', 10, 75, 480, 580);
       });
 
       // SECTION 4 - "VALIDATION"
+
+      // POSSIBLE ENHANCEMENTS TO ADD LATER
+      // html2canvas(document.getElementById('testdiv')).then(function(canvas){
+      //     var wid: number;
+      //     var hgt: number;
+      //     var img = canvas.toDataURL("image/png", wid = canvas.width, hgt = canvas.height);
+      //     var hratio = hgt / wid;
+      //     var doc = new jsPDF('p','pt','a4');
+      //     var width = doc.internal.pageSize.width;
+      //     var height = width * hratio;
+      //     doc.addImage(img,'JPEG',20,20, width, height);
+      // });
 
       // SECTION 4 - SUBSECTION 1 - "RISK MAPPING"
       doc.addPage();
@@ -1720,7 +1742,7 @@ export class ExportComponent implements OnInit {
       );
       window.scroll(0, 0);
       await this.getActionPlanOverviewImg().then(data => {
-        doc.addImage(data, 'PNG', 10, 75, 460, 680);
+        doc.addImage(data, 'PNG', 10, 75, 480, 550);
       });
       // Action plan
 
@@ -1880,14 +1902,23 @@ export class ExportComponent implements OnInit {
 
   getUsersList(type: string, dump_field: string = null): string {
     if (this.authService.state) {
-      return this.pia.user_pias
+      const foundUsers = this.pia.user_pias
         .filter(up => up.role === type)
         .map(x =>
           x.user.firstname
             ? x.user.firstname + ' ' + x.user.lastname
             : x.user.email
         )
-        .join(',');
+        .join(', ');
+      if (foundUsers) {
+        return foundUsers;
+      } else {
+        if (dump_field) {
+          return this.pia[dump_field];
+        } else {
+          return ' / ';
+        }
+      }
     } else if (dump_field) {
       return this.pia[dump_field];
     }
