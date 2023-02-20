@@ -1595,8 +1595,10 @@
           [currentVersion]="pia.updated_at"
         >
         </app-revisions>
-        <app-export [pia]="pia"></app-export>
+        <app-export [pia]="pia" (downloading)="download = $event"></app-export>
       </div>
     </aside>
   </div>
 </section>
+
+<app-loading-overlay [visibility]="download"></app-loading-overlay>

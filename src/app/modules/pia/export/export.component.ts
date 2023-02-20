@@ -3,7 +3,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as FileSaver from 'file-saver';
 import html2canvas from 'html2canvas';
 import { svgAsPngUri } from 'save-svg-as-png';
-import * as html2pdf from 'html2pdf.js';
 import { jsPDF } from 'jspdf';
 
 import { Answer } from 'src/app/models/answer.model';
@@ -19,11 +18,15 @@ import { AuthService } from 'src/app/services/auth.service';
 import { MeasureService } from 'src/app/services/measures.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AnswerService } from 'src/app/services/answer.service';
+import { LanguagesService } from 'src/app/services/languages.service';
 
 declare const require: any;
-
 require('src/assets/fonts/Roboto-Regular-webfont-normal.js');
 require('src/assets/fonts/Roboto-Bold-webfont-bold.js');
+require('src/assets/fonts/GFSNeohellenic-Regular-normal.js');
+require('src/assets/fonts/GFSNeohellenic-Bold-bold.js');
+require('src/assets/fonts/Cousine-Regular-normal.js');
+require('src/assets/fonts/Cousine-Bold-bold.js');
 
 function slugify(text): string {
   return text
@@ -64,13 +67,13 @@ export class ExportComponent implements OnInit {
     private measureService: MeasureService,
     public authService: AuthService,
     private answerService: AnswerService,
-    private evaluationService: EvaluationService
+    private evaluationService: EvaluationService,
+    public languagesService: LanguagesService
   ) {}
 
   ngOnInit(): void {
     this.dataNav = this.appDataService.dataNav;
     this.getJsonInfo();
-
     this.prepareCsv();
     this.piaService.export(this.pia.id).then((json: any) => {
       this.piaJson = json;
@@ -94,8 +97,10 @@ export class ExportComponent implements OnInit {
    * open preview view to get all informations
    */
   async launchDownload(): Promise<void> {
+    window.scroll(0, 0);
     this.downloading.emit(true);
     setTimeout(async () => {
+      window.scroll(0, 0);
       this.onDownload().then(() => {
         this.downloading.emit(false);
       });
@@ -103,10 +108,12 @@ export class ExportComponent implements OnInit {
   }
 
   async onDownload(): Promise<void> {
+    window.scroll(0, 0);
     return new Promise((resolve, reject) => {
       if (this.exportSelected) {
         if (this.exportSelected.length > 1) {
           // download by selection
+          window.scroll(0, 0);
           this.generateExportsZip('pia-full-content', this.exportSelected).then(
             () => {
               resolve();
@@ -116,22 +123,33 @@ export class ExportComponent implements OnInit {
           // download only one element
           const fileTitle = 'pia-' + slugify(this.pia.name);
           switch (this.exportSelected[0]) {
+            // .pdf
             case 'pdf':
+              window.scroll(0, 0);
               this.generatePdf(true).then(() => {
                 resolve();
               });
               break;
-            case 'doc': // Only doc
+
+            // .doc
+            case 'doc':
+              window.scroll(0, 0);
               this.generateDoc('pia-full-content').then(() => {
                 resolve();
               });
               break;
-            case 'images': // Only images
+
+            // Images
+            case 'images':
+              window.scroll(0, 0);
               this.downloadAllGraphsAsImages().then(() => {
                 resolve();
               });
               break;
-            case 'json': // Only json
+
+            // .json
+            case 'json':
+              window.scroll(0, 0);
               this.piaService.export(this.pia.id).then((json: any) => {
                 const downloadLink = document.createElement('a');
                 document.body.appendChild(downloadLink);
@@ -147,7 +165,10 @@ export class ExportComponent implements OnInit {
                 resolve();
               });
               break;
-            case 'csv': // Only csv
+
+            // .csv
+            case 'csv':
+              window.scroll(0, 0);
               const csvName =
                 fileTitle +
                 '-' +
@@ -177,40 +198,46 @@ export class ExportComponent implements OnInit {
   }
 
   /**
-   * Generate a ZIP with the docx + csv + json + all pictures
+   * Generate a ZIP with the pdf + doc + csv + json + all pictures
    * @param element block in the HTML view used to generate the docx in the zip
-   * @param exports files to exports array ['doc', 'images', 'csv', 'json']
+   * @param exports files to exports array ['pdf', 'doc', 'images', 'csv', 'json']
    */
   async generateExportsZip(element, exports: Array<string>): Promise<void> {
+    window.scroll(0, 0);
     const zipName = 'pia-' + slugify(this.pia.name) + '.zip';
     const JSZip = require('jszip');
     const zip = new JSZip();
 
     // Attach export files
     await this.addAttachmentsToZip(zip).then(async (zip2: any) => {
+      // .pdf
       if (exports.includes('pdf')) {
-        this.generatePdf().then(pdf => {
-          zip2.file('pia-' + slugify(this.pia.name) + '.pdf', pdf, {
-            binary: true
-          });
+        window.scroll(0, 0);
+        const pdf = await this.generatePdf();
+        const blob = new Blob([pdf], { type: 'application/pdf' });
+        zip.file('pia-' + slugify(this.pia.name) + '.pdf', blob, {
+          binary: true
         });
       }
 
+      // .doc
       if (exports.includes('doc')) {
-        // Doc
+        window.scroll(0, 0);
         const dataDoc = await this.prepareDocFile(element);
         zip2.file('Doc/' + dataDoc.filename, dataDoc.blob);
       }
 
+      // .json
       if (exports.includes('json')) {
-        // Json
+        window.scroll(0, 0);
         zip2.file('pia-' + slugify(this.pia.name) + '.json', this.piaJson, {
           binary: true
         });
       }
 
+      // .csv
       if (exports.includes('csv')) {
-        // Csv
+        window.scroll(0, 0);
         const fileTitle = this.translateService.instant(
           'summary.action_plan.title'
         );
@@ -218,16 +245,16 @@ export class ExportComponent implements OnInit {
         zip2.file('CSV/' + slugify(fileTitle) + '.csv', blob, { binary: true });
       }
 
+      // Images
       if (exports.includes('images')) {
-        // images
+        window.scroll(0, 0);
         await this.addImagesToZip(zip2).then(async (zip3: any) => {
-          // Launch Download
           await zip3.generateAsync({ type: 'blob' }).then(blobContent => {
             FileSaver.saveAs(blobContent, zipName);
           });
         });
       } else {
-        // Launch Download
+        window.scroll(0, 0);
         await zip2.generateAsync({ type: 'blob' }).then(blobContent => {
           FileSaver.saveAs(blobContent, zipName);
         });
@@ -456,12 +483,14 @@ export class ExportComponent implements OnInit {
    * @param zip
    */
   async addAttachmentsToZip(zip): Promise<void> {
+    window.scroll(0, 0);
     return new Promise(async (resolve, reject) => {
       this.attachmentsService
         .findAllByPia(this.pia.id)
         .then((attachments: Array<any>) => {
           attachments.forEach(attachment => {
             if (attachment.file && attachment.file.length > 0) {
+              window.scroll(0, 0);
               const byteCharacters1 = atob(
                 (attachment.file as any).split(',')[1]
               );
@@ -483,6 +512,7 @@ export class ExportComponent implements OnInit {
    * @private
    */
   async downloadAllGraphsAsImages(): Promise<void> {
+    window.scroll(0, 0);
     const JSZip = require('jszip');
     const zip = new JSZip();
     return new Promise((resolve, reject) => {
@@ -500,9 +530,13 @@ export class ExportComponent implements OnInit {
    * @param zip
    */
   async addImagesToZip(zip): Promise<void> {
+    window.scroll(0, 0);
     return new Promise(async (resolve, reject) => {
+      window.scroll(0, 0);
       const actionPlanOverviewImg = await this.getActionPlanOverviewImg();
+      window.scroll(0, 0);
       const risksCartographyImg = await this.getRisksCartographyImg();
+      window.scroll(0, 0);
       const risksOverviewImg = await this.getRisksOverviewImgForZip();
 
       const byteCharacters1 = atob(
@@ -529,6 +563,7 @@ export class ExportComponent implements OnInit {
   async getActionPlanOverviewImg(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
+        window.scroll(0, 0);
         const actionPlanOverviewImg = document.querySelector(
           '#actionPlanOverviewImg'
         );
@@ -553,6 +588,7 @@ export class ExportComponent implements OnInit {
   async getRisksCartographyImg(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
+        window.scroll(0, 0);
         const risksCartographyImg = document.querySelector(
           '#risksCartographyImg'
         );
@@ -577,6 +613,7 @@ export class ExportComponent implements OnInit {
   async getRisksOverviewImgForZip(): Promise<void> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
+        window.scroll(0, 0);
         const mysvg = document.getElementById('risksOverviewSvg');
         if (mysvg) {
           svgAsPngUri(mysvg, {}, uri => {
@@ -588,605 +625,1130 @@ export class ExportComponent implements OnInit {
   }
 
   // RESTE A FAIRE :
-
-  // INTÉGRER LE PDF DANS LE ZIP (SANS QUE ÇA LE DL EN //) ?
-
-  // CARTO RISQUES
-  // GRAPHE DU PLAN D'ACTION
-  // VUE ENSEMBLE RISQUES
-  // Page DPO
-
-  // RETESTER AVEC PIA VIDE POUR VÉRIFIER L'AFFICHAGE
-
-  // BUG AFFICHAGE LANGUES CHELOUS (GREC, CHINOIS)
-  // SI VRAIMENT PAS POSSIBLE, JUSTE MASQUER LE BOUTON PDF POUR CES LANGUES (+ PRECISER SUR LE README GIT QUE CA MARCHE PAS
-  // CAR CONTRAINTE TECH DE FONT...)
-
-  // /!\ Créer une méthode pour charger une font adaptée en fonction de la langue courante
-  // D'ABORD TESTER AVEC LA FONT CI DESSOUS VIA LA METHODE GENERATEPDFTEST ? (télécharger font sur google, créer le .js
-  // importer le js, charger la font custom grec et tester)
-  // https://fonts.google.com/specimen/GFS+Neohellenic/glyphs
-
-  generatePdfTest() {
-    // Faire un test avec une langue chelou et une autre font utf-8
-  }
+  // status progression % buggée du PIA en haut du pdf
 
   /**
    * Generate a .pdf document for the PIA report.
    * @param autosave
    */
-  async generatePdf(autosave = false) {
-    // this.getRisksCartographyImg(),
-    // this.getRisksOverviewImgForZip()
+  async generatePdf(autosave = false): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      // Pdf general configuration variables
+      const doc = new jsPDF('portrait', 'pt');
+      const pageHeight = doc.internal.pageSize.height;
+      const pageWidth = doc.internal.pageSize.getWidth();
+      let pageSize = 40;
 
-    // Pdf general configuration variables
-    const doc = new jsPDF('portrait', 'pt');
-    const pageHeight = doc.internal.pageSize.height;
-    const pageWidth = doc.internal.pageSize.getWidth();
-    let pageSize = 40;
-
-    // Check current page height
-    function testPdfSize(y) {
-      if (y >= pageHeight - 10) {
-        doc.addPage();
-        y = 20;
-        pageSize = 20;
+      // Check current page height
+      function testPdfSize(y) {
+        if (y >= pageHeight - 10) {
+          doc.addPage();
+          y = 20;
+          pageSize = 20;
+        }
+        return y;
       }
-      return y;
-    }
 
-    // Allow to insert text
-    function writeBoldText(content, x, y, fontSize = 12, lineSpacing = 12) {
-      doc.setFontSize(fontSize);
-      let startY = y;
-      let startX = x;
-      const textMap = doc.splitTextToSize(
+      // Allow to insert text
+      function writeBoldText(
         content,
-        doc.internal.pageSize.width - x - 20
-      );
-      textMap.map(text => {
-        startY = testPdfSize(startY);
-        const arrayOfNormalAndBoldText = text.split('**');
-        arrayOfNormalAndBoldText.map((textItems, i) => {
-          // doc.setFont(undefined, i % 2 === 0 ? 'normal' : 'bold');
-          if (i % 2 === 0) {
-            doc.setFont('Roboto-Regular-webfont', 'normal');
-          } else {
-            doc.setFont('Roboto-Bold-webfont', 'bold');
-          }
-          doc.text(textItems, startX, startY);
-          startX += doc.getStringUnitWidth(textItems) * fontSize;
+        x,
+        y,
+        fontSize = 12,
+        lineSpacing = 12,
+        languagesService
+      ) {
+        doc.setFontSize(fontSize);
+        let startY = y;
+        let startX = x;
+        const textMap = doc.splitTextToSize(
+          content,
+          doc.internal.pageSize.width - x - 20
+        );
+        textMap.map(text => {
+          startY = testPdfSize(startY);
+          const arrayOfNormalAndBoldText = text.split('**');
+          arrayOfNormalAndBoldText.map((textItems, i) => {
+            // Note: we might have to do it for arabic language later, if it's integrated
+            if (languagesService.selectedLanguage === 'el') {
+              if (i % 2 === 0) {
+                doc.setFont('GFSNeohellenic-Regular', 'normal');
+              } else {
+                doc.setFont('GFSNeohellenic-Bold', 'bold');
+              }
+            } else if (languagesService.selectedLanguage === 'bg') {
+              if (i % 2 === 0) {
+                doc.setFont('Cousine-Regular', 'normal');
+              } else {
+                doc.setFont('Cousine-Bold', 'bold');
+              }
+            } else {
+              if (i % 2 === 0) {
+                doc.setFont('Roboto-Regular-webfont', 'normal');
+              } else {
+                doc.setFont('Roboto-Bold-webfont', 'bold');
+              }
+            }
+            doc.text(textItems, startX, startY);
+            startX += doc.getStringUnitWidth(textItems) * fontSize;
+          });
+          pageSize += lineSpacing;
+          startY += lineSpacing;
+          startX = x;
         });
-        pageSize += lineSpacing;
-        startY += lineSpacing;
-        startX = x;
-      });
-    }
+      }
 
-    // Remove HTML tags from a string
-    function purifyString(string) {
-      const htmlRegexStrong = /<strong>/g;
-      const htmlRegexStrong2 = /<\/strong>/g;
-      string = string.replace(htmlRegexStrong, ' **');
-      string = string.replace(htmlRegexStrong2, '**');
-      const htmlRegexLi = /<li>/g;
-      string = string.replace(htmlRegexLi, '- ');
-      const htmlRegex = /<span class='green-highlight'>/g;
-      string = string.replace(htmlRegex, '');
-      const htmlRegex2 = /<span class='red-highlight'>/g;
-      string = string.replace(htmlRegex2, '');
-      const htmlRegex3 = /<span class='strong'>/g;
-      string = string.replace(htmlRegex3, '');
-      const htmlRegexFinal = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
-      string = string.replace(htmlRegexFinal, '');
-      return string;
-    }
+      // Remove HTML tags from a string
+      function purifyString(string) {
+        const htmlRegexStrong = /<strong>/g;
+        const htmlRegexStrong2 = /<\/strong>/g;
+        string = string.replace(htmlRegexStrong, ' **');
+        string = string.replace(htmlRegexStrong2, '**');
+        const htmlRegexLi = /<li>/g;
+        string = string.replace(htmlRegexLi, '- ');
+        const htmlRegex = /<span class='green-highlight'>/g;
+        string = string.replace(htmlRegex, '');
+        const htmlRegex2 = /<span class='red-highlight'>/g;
+        string = string.replace(htmlRegex2, '');
+        const htmlRegex3 = /<span class='strong'>/g;
+        string = string.replace(htmlRegex3, '');
+        const htmlRegexFinal = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
+        string = string.replace(htmlRegexFinal, '');
+        return string;
+      }
 
-    // Display questions for a specific section and item
-    function displayQuestions(
-      dataNavSectionId,
-      dataNavItemId,
-      allDataSectionId,
-      allDataItemId,
-      dataNav,
-      allData,
-      translateService
-    ) {
-      for (const question of dataNav['sections'][dataNavSectionId]['items'][
-        dataNavItemId
-      ]['questions']) {
-        // Question title
-        doc.setTextColor('#091c6B');
-        writeBoldText(
-          purifyString(translateService.instant(question.title)),
-          20,
-          testPdfSize(pageSize),
-          12,
-          15
-        );
-
-        // Question answer
-        doc.setTextColor('#000');
-        const questionAnswer =
-          allData[allDataSectionId][allDataItemId][question.id].content;
-        writeBoldText(
-          purifyString(questionAnswer),
-          20,
-          testPdfSize(pageSize),
-          10,
-          12
-        );
-
-        // Question evaluation (if any)
-        if (allData[allDataSectionId][allDataItemId][question.id].evaluation) {
+      // Display DPO data
+      function displayDpoData(
+        translateService,
+        pia,
+        piaService,
+        languagesService
+      ) {
+        if (pia.dpos_names && pia.dpos_names.length > 0) {
           pageSize += 20;
-          doc.setDrawColor('#aaa');
-          doc.line(20, pageSize - 20, pageWidth - 20, pageSize - 20);
-
-          // Question evaluation value
-          const questionEvaluationTitle = `**${translateService.instant(
-            'evaluations.title'
-          )}** : ${translateService.instant(
-            allData[allDataSectionId][allDataItemId][question.id].evaluation
-              .title
-          )}`;
           writeBoldText(
-            purifyString(questionEvaluationTitle),
+            purifyString(`**${translateService.instant('summary.dpo_name')}**`),
             20,
             testPdfSize(pageSize),
-            10,
-            12
+            12,
+            15,
+            languagesService
+          );
+          writeBoldText(
+            purifyString(pia.dpos_names),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+        }
+        if (pia.dpo_status && pia.dpo_status > 0) {
+          pageSize += 20;
+          writeBoldText(
+            purifyString(
+              `**${translateService.instant('summary.dpo_status')}**`
+            ),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+          writeBoldText(
+            purifyString(
+              translateService.instant(
+                piaService.getOpinionsStatus(pia.dpo_status.toString())
+              )
+            ),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+        }
+        if (pia.dpo_opinion && pia.dpo_opinion.length > 0) {
+          pageSize += 20;
+          writeBoldText(
+            purifyString(
+              `**${translateService.instant('summary.dpo_opinion')}**`
+            ),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+          writeBoldText(
+            purifyString(pia.dpo_opinion),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+        }
+
+        // Searched opinion for concerned people
+        if (pia.concerned_people_searched_opinion === true) {
+          pageSize += 20;
+          writeBoldText(
+            purifyString(
+              `**${translateService.instant(
+                'summary.concerned_people_searched_opinion'
+              )}**`
+            ),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+          writeBoldText(
+            purifyString(
+              translateService.instant(
+                piaService.getPeopleSearchStatus(
+                  pia.concerned_people_searched_opinion
+                )
+              )
+            ),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+          if (pia.people_names && pia.people_names.length > 0) {
+            pageSize += 20;
+            writeBoldText(
+              purifyString(
+                `**${translateService.instant(
+                  'summary.concerned_people_name'
+                )}**`
+              ),
+              20,
+              testPdfSize(pageSize),
+              12,
+              15,
+              languagesService
+            );
+            writeBoldText(
+              purifyString(pia.people_names),
+              20,
+              testPdfSize(pageSize),
+              12,
+              15,
+              languagesService
+            );
+          }
+          if (pia.concerned_people_status >= 0) {
+            pageSize += 20;
+            writeBoldText(
+              purifyString(
+                `**${translateService.instant(
+                  'summary.concerned_people_status'
+                )}**`
+              ),
+              20,
+              testPdfSize(pageSize),
+              12,
+              15,
+              languagesService
+            );
+            writeBoldText(
+              purifyString(
+                translateService.instant(
+                  piaService.getOpinionsStatus(
+                    pia.concerned_people_status.toString()
+                  )
+                )
+              ),
+              20,
+              testPdfSize(pageSize),
+              12,
+              15,
+              languagesService
+            );
+          }
+          if (
+            pia.concerned_people_opinion &&
+            pia.concerned_people_opinion.length > 0
+          ) {
+            pageSize += 20;
+            writeBoldText(
+              purifyString(
+                `**${translateService.instant(
+                  'summary.concerned_people_opinion'
+                )}**`
+              ),
+              20,
+              testPdfSize(pageSize),
+              12,
+              15,
+              languagesService
+            );
+            writeBoldText(
+              purifyString(pia.concerned_people_opinion),
+              20,
+              testPdfSize(pageSize),
+              12,
+              15,
+              languagesService
+            );
+          }
+        }
+
+        // Unsearched opinion for concerned people
+        if (pia.concerned_people_searched_opinion === false) {
+          pageSize += 20;
+          writeBoldText(
+            purifyString(
+              `**${translateService.instant(
+                'summary.concerned_people_searched_opinion'
+              )}**`
+            ),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+          writeBoldText(
+            purifyString(
+              translateService.instant(
+                piaService.getPeopleSearchStatus(
+                  pia.concerned_people_searched_opinion
+                )
+              )
+            ),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+          if (
+            pia.concerned_people_searched_content &&
+            pia.concerned_people_searched_content.length > 0
+          ) {
+            pageSize += 20;
+            writeBoldText(
+              purifyString(
+                `**${translateService.instant(
+                  'summary.concerned_people_unsearched_opinion_comment'
+                )}**`
+              ),
+              20,
+              testPdfSize(pageSize),
+              12,
+              15,
+              languagesService
+            );
+            writeBoldText(
+              purifyString(pia.concerned_people_searched_content),
+              20,
+              testPdfSize(pageSize),
+              12,
+              15,
+              languagesService
+            );
+          }
+        }
+
+        if (pia.applied_adjustments && pia.applied_adjustments.length > 0) {
+          pageSize += 20;
+          writeBoldText(
+            purifyString(
+              `**${translateService.instant('summary.modification_made')}**`
+            ),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+          writeBoldText(
+            purifyString(pia.applied_adjustments),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+        }
+        if (pia.rejection_reason && pia.rejection_reason.length > 0) {
+          pageSize += 20;
+          writeBoldText(
+            purifyString(
+              `**${translateService.instant('summary.rejection_reason')}**`
+            ),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+          writeBoldText(
+            purifyString(pia.rejection_reason),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
+          );
+        }
+      }
+
+      // Display questions for a specific section and item
+      function displayQuestions(
+        dataNavSectionId,
+        dataNavItemId,
+        allDataSectionId,
+        allDataItemId,
+        dataNav,
+        allData,
+        translateService,
+        languagesService
+      ) {
+        for (const question of dataNav['sections'][dataNavSectionId]['items'][
+          dataNavItemId
+        ]['questions']) {
+          // Question title
+          doc.setTextColor('#091c6B');
+          writeBoldText(
+            purifyString(translateService.instant(question.title)),
+            20,
+            testPdfSize(pageSize),
+            12,
+            15,
+            languagesService
           );
 
-          // Question evaluation action plan comment
+          // Question answer
+          doc.setTextColor('#000');
+          const questionAnswer =
+            allData[allDataSectionId][allDataItemId][question.id].content;
+          if (questionAnswer) {
+            writeBoldText(
+              purifyString(questionAnswer),
+              20,
+              testPdfSize(pageSize),
+              10,
+              12,
+              languagesService
+            );
+          }
+
+          // Question evaluation (if any)
           if (
             allData[allDataSectionId][allDataItemId][question.id].evaluation
-              .action_plan_comment
           ) {
-            const questionEvaluationActionPlanComment = `**${translateService.instant(
-              'evaluations.action_plan_comment'
-            )}** : ${
+            pageSize += 20;
+            doc.setDrawColor('#aaa');
+            doc.line(20, pageSize - 20, pageWidth - 20, pageSize - 20);
+
+            // Question evaluation value
+            const questionEvaluationTitle = `**${translateService.instant(
+              'evaluations.title'
+            )}** : ${translateService.instant(
+              allData[allDataSectionId][allDataItemId][question.id].evaluation
+                .title
+            )}`;
+            if (questionEvaluationTitle) {
+              writeBoldText(
+                purifyString(questionEvaluationTitle),
+                20,
+                testPdfSize(pageSize),
+                10,
+                12,
+                languagesService
+              );
+            }
+
+            // Question evaluation action plan comment
+            if (
               allData[allDataSectionId][allDataItemId][question.id].evaluation
                 .action_plan_comment
-            }`;
-            writeBoldText(
-              purifyString(questionEvaluationActionPlanComment),
-              20,
-              testPdfSize(pageSize),
-              10,
-              12
-            );
-          }
+            ) {
+              const questionEvaluationActionPlanComment = `**${translateService.instant(
+                'evaluations.action_plan_comment'
+              )}** : ${
+                allData[allDataSectionId][allDataItemId][question.id].evaluation
+                  .action_plan_comment
+              }`;
+              if (questionEvaluationActionPlanComment) {
+                writeBoldText(
+                  purifyString(questionEvaluationActionPlanComment),
+                  20,
+                  testPdfSize(pageSize),
+                  10,
+                  12,
+                  languagesService
+                );
+              }
+            }
 
-          // Question evaluation comment
-          if (
-            allData[allDataSectionId][allDataItemId][question.id].evaluation
-              .evaluation_comment
-          ) {
-            const questionEvaluationComment = `**${translateService.instant(
-              'evaluations.evaluation_comment'
-            )}** : ${
+            // Question evaluation comment
+            if (
               allData[allDataSectionId][allDataItemId][question.id].evaluation
                 .evaluation_comment
-            }`;
-            writeBoldText(
-              purifyString(questionEvaluationComment),
-              20,
-              testPdfSize(pageSize),
-              10,
-              12
-            );
+            ) {
+              const questionEvaluationComment = `**${translateService.instant(
+                'evaluations.evaluation_comment'
+              )}** : ${
+                allData[allDataSectionId][allDataItemId][question.id].evaluation
+                  .evaluation_comment
+              }`;
+              if (questionEvaluationComment) {
+                writeBoldText(
+                  purifyString(questionEvaluationComment),
+                  20,
+                  testPdfSize(pageSize),
+                  10,
+                  12,
+                  languagesService
+                );
+              }
+            }
+          }
+
+          pageSize += 10;
+        }
+      }
+
+      // Display measures for a specific section and item
+      function displayMeasures(allData, translateService, languagesService) {
+        if (allData[3][1] && allData[3][1].length > 0) {
+          for (const measure of allData[3][1]) {
+            // Measure title
+            doc.setTextColor('#091c6B');
+            if (measure.title) {
+              writeBoldText(
+                purifyString(measure.title),
+                20,
+                testPdfSize(pageSize),
+                12,
+                15,
+                languagesService
+              );
+            }
+
+            // Measure content
+            doc.setTextColor('#000');
+            if (measure.content) {
+              writeBoldText(
+                purifyString(measure.content),
+                20,
+                testPdfSize(pageSize),
+                10,
+                12,
+                languagesService
+              );
+            }
+
+            // Measure evaluation (if any)
+            if (measure.evaluation) {
+              pageSize += 20;
+              doc.setDrawColor('#aaa');
+              doc.line(20, pageSize - 20, pageWidth - 20, pageSize - 20);
+
+              // Measure evaluation value
+              const measureEvaluationTitle = `**${translateService.instant(
+                'evaluations.title'
+              )}** : ${translateService.instant(measure.evaluation.title)}`;
+              if (measureEvaluationTitle) {
+                writeBoldText(
+                  purifyString(measureEvaluationTitle),
+                  20,
+                  testPdfSize(pageSize),
+                  10,
+                  12,
+                  languagesService
+                );
+              }
+
+              // Measure evaluation action plan comment
+              if (measure.evaluation.action_plan_comment) {
+                const measureEvaluationActionPlanComment = `**${translateService.instant(
+                  'evaluations.action_plan_comment'
+                )}** : ${measure.evaluation.action_plan_comment}`;
+                if (measureEvaluationActionPlanComment) {
+                  writeBoldText(
+                    purifyString(measureEvaluationActionPlanComment),
+                    20,
+                    testPdfSize(pageSize),
+                    10,
+                    12,
+                    languagesService
+                  );
+                }
+              }
+
+              // Measure evaluation comment
+              if (measure.evaluation.evaluation_comment) {
+                const measureEvaluationComment = `**${translateService.instant(
+                  'evaluations.evaluation_comment'
+                )}** : ${measure.evaluation.evaluation_comment}`;
+                if (measureEvaluationComment) {
+                  writeBoldText(
+                    purifyString(measureEvaluationComment),
+                    20,
+                    testPdfSize(pageSize),
+                    10,
+                    12,
+                    languagesService
+                  );
+                }
+              }
+            }
+
+            pageSize += 10;
           }
         }
-
-        pageSize += 10;
       }
-    }
 
-    // Display measures for a specific section and item
-    function displayMeasures(allData, translateService) {
-      for (const measure of allData[3][1]) {
-        // Measure title
-        doc.setTextColor('#091c6B');
-        writeBoldText(
-          purifyString(measure.title),
-          20,
-          testPdfSize(pageSize),
-          12,
-          15
-        );
-
-        // Measure content
-        doc.setTextColor('#000');
-        writeBoldText(
-          purifyString(measure.content),
-          20,
-          testPdfSize(pageSize),
-          10,
-          12
-        );
-
-        // Measure evaluation (if any)
-        if (measure.evaluation) {
-          pageSize += 20;
+      // Display the global evaluation for a specific item (if any)
+      function displayItemEvaluation(
+        allDataSectionId,
+        allDataItemId,
+        allData,
+        translateService,
+        languagesService
+      ) {
+        if (allData[allDataSectionId][allDataItemId]['evaluation_item']) {
+          pageSize += 10;
           doc.setDrawColor('#aaa');
           doc.line(20, pageSize - 20, pageWidth - 20, pageSize - 20);
 
-          // Measure evaluation value
-          const measureEvaluationTitle = `**${translateService.instant(
+          // Evaluation value
+          const evaluationTitle = `**${translateService.instant(
             'evaluations.title'
-          )}** : ${translateService.instant(measure.evaluation.title)}`;
-          writeBoldText(
-            purifyString(measureEvaluationTitle),
-            20,
-            testPdfSize(pageSize),
-            10,
-            12
-          );
-
-          // Measure evaluation action plan comment
-          if (measure.evaluation.action_plan_comment) {
-            const measureEvaluationActionPlanComment = `**${translateService.instant(
-              'evaluations.action_plan_comment'
-            )}** : ${measure.evaluation.action_plan_comment}`;
+          )}** : ${translateService.instant(
+            allData[allDataSectionId][allDataItemId]['evaluation_item'].title
+          )}`;
+          if (evaluationTitle) {
             writeBoldText(
-              purifyString(measureEvaluationActionPlanComment),
+              purifyString(evaluationTitle),
               20,
               testPdfSize(pageSize),
               10,
-              12
+              12,
+              languagesService
             );
           }
 
-          // Measure evaluation comment
-          if (measure.evaluation.evaluation_comment) {
-            const measureEvaluationComment = `**${translateService.instant(
-              'evaluations.evaluation_comment'
-            )}** : ${measure.evaluation.evaluation_comment}`;
-            writeBoldText(
-              purifyString(measureEvaluationComment),
-              20,
-              testPdfSize(pageSize),
-              10,
-              12
-            );
-          }
-        }
-
-        pageSize += 10;
-      }
-    }
-
-    // Display the global evaluation for a specific item (if any)
-    function displayItemEvaluation(
-      allDataSectionId,
-      allDataItemId,
-      allData,
-      translateService
-    ) {
-      if (allData[allDataSectionId][allDataItemId]['evaluation_item']) {
-        pageSize += 10;
-        doc.setDrawColor('#aaa');
-        doc.line(20, pageSize - 20, pageWidth - 20, pageSize - 20);
-
-        // Evaluation value
-        const evaluationTitle = `**${translateService.instant(
-          'evaluations.title'
-        )}** : ${translateService.instant(
-          allData[allDataSectionId][allDataItemId]['evaluation_item'].title
-        )}`;
-        writeBoldText(
-          purifyString(evaluationTitle),
-          20,
-          testPdfSize(pageSize),
-          10,
-          12
-        );
-
-        // Evaluation action plan comment
-        if (
-          allData[allDataSectionId][allDataItemId]['evaluation_item']
-            .action_plan_comment
-        ) {
-          const evaluationActionPlanComment = `**${translateService.instant(
-            'evaluations.action_plan_comment'
-          )}** : ${
+          // Evaluation action plan comment
+          if (
             allData[allDataSectionId][allDataItemId]['evaluation_item']
               .action_plan_comment
-          }`;
-          writeBoldText(
-            purifyString(evaluationActionPlanComment),
-            20,
-            testPdfSize(pageSize),
-            10,
-            12
-          );
-        }
+          ) {
+            const evaluationActionPlanComment = `**${translateService.instant(
+              'evaluations.action_plan_comment'
+            )}** : ${
+              allData[allDataSectionId][allDataItemId]['evaluation_item']
+                .action_plan_comment
+            }`;
+            if (evaluationActionPlanComment) {
+              writeBoldText(
+                purifyString(evaluationActionPlanComment),
+                20,
+                testPdfSize(pageSize),
+                10,
+                12,
+                languagesService
+              );
+            }
+          }
 
-        // Evaluation comment
-        if (
-          allData[allDataSectionId][allDataItemId]['evaluation_item']
-            .evaluation_comment
-        ) {
-          const evaluationComment = `**${translateService.instant(
-            'evaluations.evaluation_comment'
-          )}** : ${
+          // Evaluation comment
+          if (
             allData[allDataSectionId][allDataItemId]['evaluation_item']
               .evaluation_comment
-          }`;
-          writeBoldText(
-            purifyString(evaluationComment),
-            20,
-            testPdfSize(pageSize),
-            10,
-            12
-          );
-        }
+          ) {
+            const evaluationComment = `**${translateService.instant(
+              'evaluations.evaluation_comment'
+            )}** : ${
+              allData[allDataSectionId][allDataItemId]['evaluation_item']
+                .evaluation_comment
+            }`;
+            if (evaluationComment) {
+              writeBoldText(
+                purifyString(evaluationComment),
+                20,
+                testPdfSize(pageSize),
+                10,
+                12,
+                languagesService
+              );
+            }
+          }
 
-        // Evaluation gauges
-        if (
-          allData[allDataSectionId][allDataItemId]['evaluation_item'].gauges
-        ) {
+          // Evaluation gauges
           if (
             allData[allDataSectionId][allDataItemId]['evaluation_item'].gauges
-              .seriousness > 0
           ) {
-            const evaluationGaugeSeriousness = `**${translateService.instant(
-              'evaluations.gauges.seriousness'
-            )}** : ${translateService.instant(
-              'evaluations.gauges.' +
-                allData[allDataSectionId][allDataItemId]['evaluation_item']
-                  .gauges.seriousness
-            )}`;
-            writeBoldText(
-              purifyString(evaluationGaugeSeriousness),
-              20,
-              testPdfSize(pageSize),
-              10,
-              12
-            );
+            if (
+              allData[allDataSectionId][allDataItemId]['evaluation_item'].gauges
+                .seriousness > 0
+            ) {
+              const evaluationGaugeSeriousness = `**${translateService.instant(
+                'evaluations.gauges.seriousness'
+              )}** : ${translateService.instant(
+                'evaluations.gauges.' +
+                  allData[allDataSectionId][allDataItemId]['evaluation_item']
+                    .gauges.seriousness
+              )}`;
+              if (evaluationGaugeSeriousness) {
+                writeBoldText(
+                  purifyString(evaluationGaugeSeriousness),
+                  20,
+                  testPdfSize(pageSize),
+                  10,
+                  12,
+                  languagesService
+                );
+              }
+            }
+            if (
+              allData[allDataSectionId][allDataItemId]['evaluation_item'].gauges
+                .likelihood > 0
+            ) {
+              const evaluationGaugeLikelihood = `**${translateService.instant(
+                'evaluations.gauges.likelihood'
+              )}** : ${translateService.instant(
+                'evaluations.gauges.' +
+                  allData[allDataSectionId][allDataItemId]['evaluation_item']
+                    .gauges.likelihood
+              )}`;
+              if (evaluationGaugeLikelihood) {
+                writeBoldText(
+                  purifyString(evaluationGaugeLikelihood),
+                  20,
+                  testPdfSize(pageSize),
+                  10,
+                  12,
+                  languagesService
+                );
+              }
+            }
           }
-          if (
-            allData[allDataSectionId][allDataItemId]['evaluation_item'].gauges
-              .likelihood > 0
-          ) {
-            const evaluationGaugeLikelihood = `**${translateService.instant(
-              'evaluations.gauges.likelihood'
-            )}** : ${translateService.instant(
-              'evaluations.gauges.' +
-                allData[allDataSectionId][allDataItemId]['evaluation_item']
-                  .gauges.likelihood
-            )}`;
-            writeBoldText(
-              purifyString(evaluationGaugeLikelihood),
-              20,
-              testPdfSize(pageSize),
-              10,
-              12
-            );
-          }
-        }
 
-        pageSize += 10;
+          pageSize += 10;
+        }
       }
-    }
 
-    // Generate the header of a specific section and item
-    function generateHeader(
-      color,
-      dataNav,
-      dataNavSectionId,
-      dataNavItemId,
-      translateService
-    ) {
-      doc.setFillColor(color);
+      // Generate the header of a specific section and item
+      function generateHeader(
+        color,
+        dataNav,
+        dataNavSectionId,
+        dataNavItemId,
+        translateService,
+        languagesService
+      ) {
+        doc.setFillColor(color);
+        doc.rect(20, 20, 74, 50, 'F');
+        doc.setDrawColor('#aaa');
+        doc.rect(20, 20, pageWidth - 40, 50);
+        writeBoldText(
+          purifyString(
+            translateService.instant(
+              dataNav['sections'][dataNavSectionId].title
+            )
+          ),
+          105,
+          testPdfSize(pageSize),
+          16,
+          20,
+          languagesService
+        );
+        writeBoldText(
+          purifyString(
+            translateService.instant(
+              dataNav['sections'][dataNavSectionId]['items'][dataNavItemId]
+                .title
+            )
+          ),
+          105,
+          testPdfSize(pageSize),
+          14,
+          40,
+          languagesService
+        );
+      }
+
+      // MAIN PIA DATA
+      doc.setFillColor('#3c3b3d');
       doc.rect(20, 20, 74, 50, 'F');
       doc.setDrawColor('#aaa');
       doc.rect(20, 20, pageWidth - 40, 50);
       writeBoldText(
-        purifyString(
-          translateService.instant(dataNav['sections'][dataNavSectionId].title)
-        ),
+        this.translateService.instant('summary.preview_subtitle'),
         105,
         testPdfSize(pageSize),
         16,
-        20
+        20,
+        this.languagesService
       );
       writeBoldText(
-        purifyString(
-          translateService.instant(
-            dataNav['sections'][dataNavSectionId]['items'][dataNavItemId].title
-          )
-        ),
+        this.pia.name,
         105,
         testPdfSize(pageSize),
         14,
-        40
+        40,
+        this.languagesService
       );
-    }
 
-    // MAIN PIA DATA
-    doc.setFillColor('#3c3b3d');
-    doc.rect(20, 20, 74, 50, 'F');
-    doc.setDrawColor('#aaa');
-    doc.rect(20, 20, pageWidth - 40, 50);
-    writeBoldText(
-      this.translateService.instant('summary.preview_subtitle'),
-      105,
-      testPdfSize(pageSize),
-      16,
-      20
-    );
-    writeBoldText(this.pia.name, 105, testPdfSize(pageSize), 14, 40);
+      const piaAuthor = `**${this.translateService.instant(
+        'summary.preview_edition'
+      )}** : ${this.getUsersList('author', 'author_name')}`;
+      writeBoldText(
+        piaAuthor,
+        20,
+        testPdfSize(pageSize),
+        12,
+        20,
+        this.languagesService
+      );
+      const piaEvaluator = `**${this.translateService.instant(
+        'summary.preview_evaluation'
+      )}** : ${this.getUsersList('evaluator', 'evaluator_name')}`;
+      writeBoldText(
+        piaEvaluator,
+        20,
+        testPdfSize(pageSize),
+        12,
+        20,
+        this.languagesService
+      );
+      const piaValidator = `**${this.translateService.instant(
+        'summary.preview_validation'
+      )}** : ${this.getUsersList('validator', 'validator_name')}`;
+      writeBoldText(
+        piaValidator,
+        20,
+        testPdfSize(pageSize),
+        12,
+        20,
+        this.languagesService
+      );
+      if (this.authService.state) {
+        const piaGuests = `**${this.translateService.instant(
+          'summary.preview_guests'
+        )}** : ${this.getUsersList('guest')}`;
+        writeBoldText(
+          piaGuests,
+          20,
+          testPdfSize(pageSize),
+          12,
+          20,
+          this.languagesService
+        );
+      }
+      const piaStatusAndProgress = `**${this.translateService.instant(
+        'summary.preview_status'
+      )}** : ${this.translateService.instant(
+        this.piaService.getStatusName(this.pia.status)
+      )} (${this.pia.progress}%)`;
+      writeBoldText(
+        piaStatusAndProgress,
+        20,
+        testPdfSize(pageSize),
+        12,
+        20,
+        this.languagesService
+      );
 
-    const piaAuthor = `**${this.translateService.instant(
-      'summary.preview_edition'
-    )}** : ${this.getUsersList('author', 'author_name')}`;
-    writeBoldText(piaAuthor, 20, testPdfSize(pageSize), 12, 20);
-    const piaEvaluator = `**${this.translateService.instant(
-      'summary.preview_evaluation'
-    )}** : ${this.getUsersList('evaluator', 'evaluator_name')}`;
-    writeBoldText(piaEvaluator, 20, testPdfSize(pageSize), 12, 20);
-    const piaValidator = `**${this.translateService.instant(
-      'summary.preview_validation'
-    )}** : ${this.getUsersList('validator', 'validator_name')}`;
-    writeBoldText(piaValidator, 20, testPdfSize(pageSize), 12, 20);
-    if (this.authService.state) {
-      const piaGuests = `**${this.translateService.instant(
-        'summary.preview_guests'
-      )}** : ${this.getUsersList('guest')}`;
-      writeBoldText(piaGuests, 20, testPdfSize(pageSize), 12, 20);
-    }
-    const piaStatusAndProgress = `**${this.translateService.instant(
-      'summary.preview_status'
-    )}** : ${this.translateService.instant(
-      this.piaService.getStatusName(this.pia.status)
-    )} (${this.pia.progress}%)`;
-    writeBoldText(piaStatusAndProgress, 20, testPdfSize(pageSize), 12, 20);
+      // SECTION 1 - "CONTEXT"
 
-    // SECTION 1 - "CONTEXT"
+      // SECTION 1 - SUBSECTION 1 - "OVERVIEW"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#3ee095',
+        this.dataNav,
+        0,
+        0,
+        this.translateService,
+        this.languagesService
+      );
+      displayQuestions(
+        0,
+        0,
+        1,
+        1,
+        this.dataNav,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
+      displayItemEvaluation(
+        1,
+        1,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
 
-    // SECTION 1 - SUBSECTION 1 - "OVERVIEW"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#3ee095', this.dataNav, 0, 0, this.translateService);
-    displayQuestions(
-      0,
-      0,
-      1,
-      1,
-      this.dataNav,
-      this.allData,
-      this.translateService
-    );
-    displayItemEvaluation(1, 1, this.allData, this.translateService);
+      // SECTION 1 - SUBSECTION 2 - "DATA, PROCESSES AND SUPPORTING ASSETS"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#3ee095',
+        this.dataNav,
+        0,
+        1,
+        this.translateService,
+        this.languagesService
+      );
+      displayQuestions(
+        0,
+        1,
+        1,
+        2,
+        this.dataNav,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
+      displayItemEvaluation(
+        1,
+        2,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
 
-    // SECTION 1 - SUBSECTION 2 - "DATA, PROCESSES AND SUPPORTING ASSETS"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#3ee095', this.dataNav, 0, 1, this.translateService);
-    displayQuestions(
-      0,
-      1,
-      1,
-      2,
-      this.dataNav,
-      this.allData,
-      this.translateService
-    );
-    displayItemEvaluation(1, 2, this.allData, this.translateService);
+      // SECTION 2 - "FUNDAMENTAL PRINCIPLES"
 
-    // SECTION 2 - "FUNDAMENTAL PRINCIPLES"
+      // SECTION 2 - SUBSECTION 1 - "PROPORTIONALITY AND NECESSITY"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#091c6b',
+        this.dataNav,
+        1,
+        0,
+        this.translateService,
+        this.languagesService
+      );
+      displayQuestions(
+        1,
+        0,
+        2,
+        1,
+        this.dataNav,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
 
-    // SECTION 2 - SUBSECTION 1 - "PROPORTIONALITY AND NECESSITY"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#091c6b', this.dataNav, 1, 0, this.translateService);
-    displayQuestions(
-      1,
-      0,
-      2,
-      1,
-      this.dataNav,
-      this.allData,
-      this.translateService
-    );
+      // SECTION 2 - SUBSECTION 2 - "CONTROLS TO PROTECT THE PERSONAL RIGHTS OF DATA SUBJECTS"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#091c6b',
+        this.dataNav,
+        1,
+        1,
+        this.translateService,
+        this.languagesService
+      );
+      displayQuestions(
+        1,
+        1,
+        2,
+        2,
+        this.dataNav,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
 
-    // SECTION 2 - SUBSECTION 2 - "CONTROLS TO PROTECT THE PERSONAL RIGHTS OF DATA SUBJECTS"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#091c6b', this.dataNav, 1, 1, this.translateService);
-    displayQuestions(
-      1,
-      1,
-      2,
-      2,
-      this.dataNav,
-      this.allData,
-      this.translateService
-    );
+      // SECTION 3 - "RISKS"
 
-    // SECTION 3 - "RISKS"
+      // SECTION 3 - SUBSECTION 1 - "PLANNED OR EXISTING MEASURES"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#df4664',
+        this.dataNav,
+        2,
+        0,
+        this.translateService,
+        this.languagesService
+      );
+      displayMeasures(
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
 
-    // SECTION 3 - SUBSECTION 1 - "PLANNED OR EXISTING MEASURES"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#df4664', this.dataNav, 2, 0, this.translateService);
-    displayMeasures(this.allData, this.translateService);
+      // SECTION 3 - SUBSECTION 2 - "ILLEGITIMATE ACCESS TO DATA"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#df4664',
+        this.dataNav,
+        2,
+        1,
+        this.translateService,
+        this.languagesService
+      );
+      displayQuestions(
+        2,
+        1,
+        3,
+        2,
+        this.dataNav,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
+      displayItemEvaluation(
+        3,
+        2,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
 
-    // SECTION 3 - SUBSECTION 2 - "ILLEGITIMATE ACCESS TO DATA"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#df4664', this.dataNav, 2, 1, this.translateService);
-    displayQuestions(
-      2,
-      1,
-      3,
-      2,
-      this.dataNav,
-      this.allData,
-      this.translateService
-    );
-    displayItemEvaluation(3, 2, this.allData, this.translateService);
+      // SECTION 3 - SUBSECTION 3 - "UNWANTED MODIFICATION OF DATA"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#df4664',
+        this.dataNav,
+        2,
+        2,
+        this.translateService,
+        this.languagesService
+      );
+      displayQuestions(
+        2,
+        2,
+        3,
+        3,
+        this.dataNav,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
+      displayItemEvaluation(
+        3,
+        3,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
 
-    // SECTION 3 - SUBSECTION 3 - "UNWANTED MODIFICATION OF DATA"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#df4664', this.dataNav, 2, 2, this.translateService);
-    displayQuestions(
-      2,
-      2,
-      3,
-      3,
-      this.dataNav,
-      this.allData,
-      this.translateService
-    );
-    displayItemEvaluation(3, 3, this.allData, this.translateService);
+      // SECTION 3 - SUBSECTION 4 - "DATA DISAPPEARENCE"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#df4664',
+        this.dataNav,
+        2,
+        3,
+        this.translateService,
+        this.languagesService
+      );
+      displayQuestions(
+        2,
+        3,
+        3,
+        4,
+        this.dataNav,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
+      displayItemEvaluation(
+        3,
+        4,
+        this.allData,
+        this.translateService,
+        this.languagesService
+      );
 
-    // SECTION 3 - SUBSECTION 4 - "DATA DISAPPEARENCE"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#df4664', this.dataNav, 2, 3, this.translateService);
-    displayQuestions(
-      2,
-      3,
-      3,
-      4,
-      this.dataNav,
-      this.allData,
-      this.translateService
-    );
-    displayItemEvaluation(3, 4, this.allData, this.translateService);
+      // SECTION 3 - SUBSECTION 5 - "RISKS OVERVIEW"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#df4664',
+        this.dataNav,
+        2,
+        4,
+        this.translateService,
+        this.languagesService
+      );
+      window.scroll(0, 0);
+      await this.getRisksOverviewImgForZip().then(data => {
+        doc.addImage(data, 'PNG', 10, 75, 460, 710);
+      });
 
-    // SECTION 3 - SUBSECTION 5 - "RISKS OVERVIEW"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#df4664', this.dataNav, 2, 4, this.translateService);
-    // TODO : graph
+      // SECTION 4 - "VALIDATION"
 
-    // SECTION 4 - "VALIDATION"
+      // SECTION 4 - SUBSECTION 1 - "RISK MAPPING"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#121921',
+        this.dataNav,
+        3,
+        0,
+        this.translateService,
+        this.languagesService
+      );
+      window.scroll(0, 0);
+      await this.getRisksCartographyImg().then(data => {
+        doc.addImage(data, 'PNG', 10, 75, 480, 480);
+      });
 
-    // SECTION 4 - SUBSECTION 1 - "RISK MAPPING"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#121921', this.dataNav, 3, 0, this.translateService);
-    // TODO : graph
+      // SECTION 4 - SUBSECTION 2 - "ACTION PLAN"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#121921',
+        this.dataNav,
+        3,
+        1,
+        this.translateService,
+        this.languagesService
+      );
+      window.scroll(0, 0);
+      await this.getActionPlanOverviewImg().then(data => {
+        doc.addImage(data, 'PNG', 10, 75, 460, 680);
+      });
+      // Action plan
 
-    // SECTION 4 - SUBSECTION 2 - "ACTION PLAN"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#121921', this.dataNav, 3, 1, this.translateService);
-    // TODO : action plan + graph
+      // SECTION 4 - SUBSECTION 3 - "DPO AND DATA SUBECTS' OPINIONS"
+      doc.addPage();
+      pageSize = 40;
+      generateHeader(
+        '#121921',
+        this.dataNav,
+        3,
+        2,
+        this.translateService,
+        this.languagesService
+      );
+      displayDpoData(
+        this.translateService,
+        this.pia,
+        this.piaService,
+        this.languagesService
+      );
 
-    // SECTION 4 - SUBSECTION 3 - "DPO AND DATA SUBECTS' OPINIONS"
-    doc.addPage();
-    pageSize = 40;
-    generateHeader('#121921', this.dataNav, 3, 2, this.translateService);
-    // TODO
+      // Saving .pdf file
+      if (autosave) {
+        doc.save('pia-' + slugify(this.pia.name) + '.pdf');
+      }
 
-    // Saving .pdf file
-    doc.save('pia-' + slugify(this.pia.name) + '.pdf');
+      // This returns the doc that should be converted to base64 (useful for the .zip feature)
+      resolve(doc.output('blob'));
+    });
   }
 
   /**
