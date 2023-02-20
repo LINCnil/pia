@@ -76,6 +76,7 @@ export class ExportComponent implements OnInit {
     this.getJsonInfo();
     this.prepareCsv();
     this.piaService.export(this.pia.id).then((json: any) => {
+      this.piaService.calculPiaProgress(this.pia);
       this.piaJson = json;
     });
 
