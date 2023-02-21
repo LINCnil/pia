@@ -29,7 +29,6 @@ import { EvaluationService } from 'src/app/services/evaluation.service';
 })
 export class EvaluationsComponent
   implements OnInit, AfterViewChecked, OnDestroy, DoCheck {
-  private riskSubscription: Subscription;
   private placeholderSubscription: Subscription;
   evaluationForm: FormGroup;
   @Input() editMode:
@@ -47,7 +46,6 @@ export class EvaluationsComponent
   previousGauges = { x: 0, y: 0 };
   previousReferenceTo: string;
   hasResizedContent = false;
-  riskName: any;
   actionPlanCommentElementId: string;
   evaluationCommentElementId: string;
   editor: any;
@@ -72,23 +70,6 @@ export class EvaluationsComponent
     this.checkEvaluationValidation().finally(() => {
       this.loading = false;
     });
-
-    this.riskName = {
-      value: this.translateService.instant(
-        'sections.3.items.' + this.item.id + '.title'
-      )
-    };
-
-    // Updating translations when changing language (risks' names)
-    this.riskSubscription = this.translateService.onLangChange.subscribe(
-      (event: LangChangeEvent) => {
-        this.riskName = {
-          value: this.translateService.instant(
-            'sections.3.items.' + this.item.id + '.title'
-          )
-        };
-      }
-    );
 
     // Updating translations when changing language (comments' placeholders)
     this.placeholderSubscription = this.translateService.onLangChange.subscribe(
@@ -143,7 +124,6 @@ export class EvaluationsComponent
   }
 
   ngOnDestroy(): void {
-    this.riskSubscription.unsubscribe();
     this.placeholderSubscription.unsubscribe();
     tinymce.remove(this.editor);
     tinymce.remove(this.editorEvaluationComment);
