@@ -36,27 +36,6 @@ export class UrlComponent implements OnInit {
         ? localStorage.getItem('client_secret')
         : ''
     });
-
-    this.settingsForm.valueChanges.subscribe(val => {
-      if (
-        val.client_id.includes(' ') ||
-        val.client_secret.includes(' ') ||
-        val.server_url.includes(' ')
-      ) {
-        this.settingsForm.controls.server_url.patchValue(
-          val.server_url.replace(' ', ''),
-          { emitEvent: false }
-        );
-        this.settingsForm.controls.client_id.patchValue(
-          val.client_id.replace(' ', ''),
-          { emitEvent: false }
-        );
-        this.settingsForm.controls.client_secret.patchValue(
-          val.client_secret.replace(' ', ''),
-          { emitEvent: false }
-        );
-      }
-    });
   }
 
   /**
@@ -171,5 +150,12 @@ export class UrlComponent implements OnInit {
         }
       );
     }
+  }
+
+  purify(field, $event) {
+    this.settingsForm.controls[field].patchValue(
+      $event.target.value.replace(/\s/g, ''),
+      { emitEvent: false }
+    );
   }
 }

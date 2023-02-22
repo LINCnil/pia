@@ -19,42 +19,36 @@ export class AuthService {
 
     this.currentUser = this.currentUserSubject.asObservable();
 
-    // 1 - GET OLD USER, AND PREPARE API WITH TOKEN
-    let token = localStorage.getItem('currentUser')
-      ? JSON.parse(localStorage.getItem('currentUser')).access_token
-      : '';
-
+    // 1 - Get already saved user's informations
+    const currentUserInfo: User = JSON.parse(
+      localStorage.getItem('currentUser')
+    );
+    let token = currentUserInfo ? currentUserInfo.access_token : '';
     this.apiService.defaultConfig.headers.set('Authorization', token);
 
-    // 2 - check token validity
+    // 2 - check if auth exist and if token validity
     this.apiService
       .get('/oauth/token/info')
-      .then((response: any) => {
-        const currentUserInfo = JSON.parse(localStorage.getItem('currentUser'));
-        // TOKEN OK
+      .then(() => {
         this.state = true;
-        if (currentUserInfo.access_token && currentUserInfo.access_type) {
-          // Update user
-          localStorage.setItem(
-            'currentUser',
-            JSON.stringify({
-              ...JSON.parse(localStorage.getItem('currentUser')),
-              ...response
-            })
-          );
+        // 3 - Re introspect user, update user data
+        this.introspect(
+          localStorage.getItem('client_id'),
+          localStorage.getItem('client_secret'),
+          currentUserInfo.access_token.replace('Bearer ', '')
+        )
+          .then((userIntrospectedData: User) => {
+            // Construct user
+            const user: User = { ...userIntrospectedData };
+            user.access_token = currentUserInfo.access_token;
+            localStorage.setItem('currentUser', JSON.stringify(user));
 
-          // set currentUser
-          this.currentUserSubject.next({
-            // Update users infos after /me request
-            ...JSON.parse(localStorage.getItem('currentUser')),
-            ...response
+            this.currentUserSubject.next(user);
+            this.currentUserSubject.complete();
+          })
+          .catch(() => {
+            this.logout();
           });
-
-          // finish
-          this.currentUserSubject.complete();
-        } else {
-          this.logout();
-        }
       })
       .catch(err => {
         // BACK TO HOME
@@ -100,21 +94,22 @@ export class AuthService {
     );
 
     return new Promise((resolve, reject) => {
-      // QUERY
+      // 1 - Token request
       this.apiService
         .post('/oauth/token', formData)
         .then((response: any) => {
           if (response.access_token) {
-            formData.append('token', response.access_token);
-            // Introspect token
-            this.introspect(formData)
+            //2 - Introspect to get user information
+            this.introspect(
+              localStorage.getItem('client_id'),
+              localStorage.getItem('client_secret'),
+              response.access_token
+            )
               .then((userIntrospectedData: User) => {
-                // Construct user
+                // 3 - Save user
                 const user: User = { ...userIntrospectedData };
                 user.access_token = `Bearer ${response.access_token}`;
-
                 localStorage.setItem('currentUser', JSON.stringify(user));
-
                 // Save token in headers for next queries
                 this.apiService.defaultConfig.headers.set(
                   'Authorization',
@@ -141,8 +136,12 @@ export class AuthService {
     });
   }
 
-  introspect(formData: FormData) {
+  introspect(clientId, client_secret, token) {
     return new Promise((resolve, reject) => {
+      const formData = new FormData();
+      formData.append('client_id', clientId);
+      formData.append('client_secret', client_secret);
+      formData.append('token', token);
       this.apiService
         .post('/oauth/introspect', formData)
         .then((userInfos: User) => {
