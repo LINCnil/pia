@@ -17,6 +17,7 @@
             id="server_url"
             formControlName="server_url"
             placeholder="https://"
+            (blur)="purify('server_url', $event)"
           />
           <label for="client_id">Client ID :</label>
           <input
@@ -24,6 +25,7 @@
             id="client_id"
             formControlName="client_id"
             placeholder="Client ID"
+            (blur)="purify('client_id', $event)"
           />
           <label for="client_secret">Client SECRET :</label>
           <input
@@ -31,6 +33,7 @@
             id="client_secret"
             formControlName="client_secret"
             placeholder="Client SECRET"
+            (blur)="purify('client_secret', $event)"
           />
           <button
             type="submit"
