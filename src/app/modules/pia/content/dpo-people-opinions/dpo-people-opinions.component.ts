@@ -65,7 +65,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       this.peopleForm.controls.peopleOpinion.disable();
     }
 
-    if (!this.editMode.includes('validator') && this.editMode != 'local') {
+    if (!this.editMode.includes('evaluator') && this.editMode != 'local') {
       this.DPOForm.disable();
       this.searchedOpinionsForm.disable();
       this.peopleForm.disable();
@@ -74,7 +74,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     // OBSERVABLES
     this.DPOForm.controls.DPONames.valueChanges.subscribe(data => {
       if (data) {
-        if (this.editMode.includes('validator') || this.editMode == 'local') {
+        if (this.editMode.includes('evaluator') || this.editMode == 'local') {
           this.DPOForm.controls.DPOStatus.enable();
           this.DPOForm.controls.DPOOpinion.enable();
         }
@@ -100,7 +100,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         }
 
         // Check user role
-        if (!this.editMode.includes('validator') && this.editMode != 'local') {
+        if (!this.editMode.includes('evaluator') && this.editMode != 'local') {
           this.searchedOpinionsForm.disable();
           this.peopleForm.disable();
         }
