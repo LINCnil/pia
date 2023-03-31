@@ -57,40 +57,16 @@ export class UrlComponent implements OnInit {
         })
         .then((ok: boolean) => {
           if (ok) {
-            localStorage.setItem('server_url', serverUrl);
-            // TODO: Find another securely way
-            localStorage.setItem(
-              'client_id',
-              this.settingsForm.value.client_id
-            );
-            localStorage.setItem(
-              'client_secret',
+            this.checkCredentials(
+              this.settingsForm.value.client_id,
               this.settingsForm.value.client_secret
-            );
-            this.apiService.base = serverUrl;
-            this.authService.state = true;
-            this.dialogService.confirmThis(
-              {
-                text: 'modals.update_server_url_ok.content',
-                type: 'yes',
-                yes: 'modals.back_to_home',
-                no: '',
-                icon: 'pia-icons pia-icon-happy',
-                data: {
-                  no_cross_button: true
-                }
-              },
-              () => {
-                if (this.authService.currentUserValue == null) {
-                  window.location.href = './#/';
-                } else {
-                  window.location.href = './#/entries';
-                }
-              },
-              () => {
-                return;
-              }
-            );
+            )
+              .then(() => {
+                this.success(serverUrl);
+              })
+              .catch(err => {
+                this.errorOnIntrospect();
+              });
           } else {
             this.dialogService.confirmThis(
               {
@@ -162,5 +138,79 @@ export class UrlComponent implements OnInit {
       $event.target.value.replace(/\s/g, ''),
       { emitEvent: false }
     );
+  }
+
+  success(serverUrl) {
+    localStorage.setItem('server_url', serverUrl);
+    // TODO: Find another securely way
+    localStorage.setItem('client_id', this.settingsForm.value.client_id);
+    localStorage.setItem(
+      'client_secret',
+      this.settingsForm.value.client_secret
+    );
+    this.apiService.base = serverUrl;
+    this.authService.state = true;
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.update_server_url_ok.content',
+        type: 'yes',
+        yes: 'modals.back_to_home',
+        no: '',
+        icon: 'pia-icons pia-icon-happy',
+        data: {
+          no_cross_button: true
+        }
+      },
+      () => {
+        if (this.authService.currentUserValue == null) {
+          window.location.href = './#/';
+        } else {
+          window.location.href = './#/entries';
+        }
+      },
+      () => {
+        return;
+      }
+    );
+  }
+
+  errorOnIntrospect() {
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.update_server_url_nok.introspect',
+        type: 'yes',
+        yes: 'modals.back_to_home',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {}
+      },
+      () => {
+        return;
+      },
+      () => {
+        return;
+      }
+    );
+  }
+
+  checkCredentials(clientId, client_secret) {
+    return new Promise((resolve, reject) => {
+      const formData = new FormData();
+      formData.append('client_id', clientId);
+      formData.append('client_secret', client_secret);
+      formData.append('token', '');
+      this.apiService
+        .post('/oauth/introspect', formData)
+        .then((response: any) => {
+          if (!response.error) {
+            resolve(response);
+          } else {
+            reject(response);
+          }
+        })
+        .catch(() => {
+          reject('No introspect route');
+        });
+    });
   }
 }
