@@ -12,6 +12,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class UrlComponent implements OnInit {
   settingsForm: FormGroup;
+  loading = false;
   constructor(
     private fb: FormBuilder,
     private dialogService: DialogService,
@@ -46,6 +47,7 @@ export class UrlComponent implements OnInit {
       this.settingsForm.controls.server_url.value &&
       this.settingsForm.controls.server_url.value != ''
     ) {
+      this.loading = true;
       const serverUrl = this.settingsForm.value.server_url.trim();
       fetch(serverUrl + '/info', {
         mode: 'cors'
@@ -124,6 +126,9 @@ export class UrlComponent implements OnInit {
               return;
             }
           );
+        })
+        .finally(() => {
+          this.loading = false;
         });
     } else {
       /* Logout and reset authService */
