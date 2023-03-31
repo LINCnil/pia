@@ -49,40 +49,27 @@ export class UrlComponent implements OnInit {
     ) {
       this.loading = true;
       const serverUrl = this.settingsForm.value.server_url.trim();
+      const formData = new FormData();
+
+      formData.append('client_id', this.settingsForm.value.client_id);
+      formData.append('client_secret', this.settingsForm.value.client_secret);
+
       fetch(serverUrl + '/info', {
-        mode: 'cors'
+        mode: 'cors',
+        method: 'POST',
+        body: formData
       })
-        .then(response => {
-          return response.ok;
+        .then(async response => {
+          if (response.ok) {
+            const result = await response.json();
+            return result;
+          }
         })
-        .then((ok: boolean) => {
-          if (ok) {
-            this.checkCredentials(
-              this.settingsForm.value.client_id,
-              this.settingsForm.value.client_secret
-            )
-              .then(() => {
-                this.success(serverUrl);
-              })
-              .catch(err => {
-                this.errorOnIntrospect();
-              });
+        .then((response: any) => {
+          if (response.valid) {
+            this.success(serverUrl);
           } else {
-            this.dialogService.confirmThis(
-              {
-                text: 'modals.update_server_url_nok.content',
-                type: 'yes',
-                yes: 'modals.close',
-                no: '',
-                icon: 'pia-icons pia-icon-sad'
-              },
-              () => {
-                return;
-              },
-              () => {
-                return;
-              }
-            );
+            this.errorOnIntrospect();
           }
         })
         .catch(error => {
@@ -191,26 +178,5 @@ export class UrlComponent implements OnInit {
         return;
       }
     );
-  }
-
-  checkCredentials(clientId, client_secret) {
-    return new Promise((resolve, reject) => {
-      const formData = new FormData();
-      formData.append('client_id', clientId);
-      formData.append('client_secret', client_secret);
-      formData.append('token', '');
-      this.apiService
-        .post('/oauth/introspect', formData)
-        .then((response: any) => {
-          if (!response.error) {
-            resolve(response);
-          } else {
-            reject(response);
-          }
-        })
-        .catch(() => {
-          reject('No introspect route');
-        });
-    });
   }
 }
