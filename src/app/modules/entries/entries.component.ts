@@ -168,24 +168,27 @@ export class EntriesComponent implements OnInit, OnDestroy {
     setTimeout(async () => {
       switch (this.type_entries) {
         case 'pia':
-          await this.piaService.getAllActives().then((entries: Array<Pia>) => {
-            this.entries = entries;
+          await this.piaService
+            .getAllActives()
+            .then(async (entries: Array<Pia>) => {
+              this.entries = entries;
 
-            // Remove example from list
-            const index = this.entries.findIndex(p => p.is_example);
-            if (index !== -1) {
-              this.entries.splice(index, 1);
-            }
+              // Remove example from list
+              const index = this.entries.findIndex(p => p.is_example);
+              if (index !== -1) {
+                this.entries.splice(index, 1);
+              }
 
-            this.entries.forEach(entry => {
-              this.piaService.pia_id = entry.id;
-              this.piaService.calculPiaProgress(entry);
+              for (const entry of this.entries) {
+                this.piaService.pia_id = entry.id;
+                await this.piaService.calculPiaProgress(entry);
+              }
+
+              this.loading = false;
+              this.startIntroJs('pia');
+              this.sortOrder = localStorage.getItem('piaOrder');
+              this.sortValue = localStorage.getItem('piaValue');
             });
-            this.loading = false;
-            this.startIntroJs('pia');
-            this.sortOrder = localStorage.getItem('piaOrder');
-            this.sortValue = localStorage.getItem('piaValue');
-          });
           break;
         case 'archive':
           await this.piaService

@@ -139,12 +139,6 @@ export class PiaService extends ApplicationDb {
       pia.progress += 4;
     }
 
-    // this.data.sections.forEach((section: any) => {
-    //   section.items.forEach((item: any) => {
-    //     this.sidStatusService.setSidStatus(pia, section, item);
-    //   });
-    // });
-
     for (const section of this.data.sections) {
       for (const item of section.items) {
         await this.sidStatusService.setSidStatus(pia, section, item);
