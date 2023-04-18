@@ -164,9 +164,8 @@ export class AttachmentsService extends ApplicationDb {
           .then((res: any) => {
             // To refresh signed attachments on validation page
             this.updateSignedAttachmentsList(piaId).then(() => {
-              // ---
-              this.signedAttachments.push({ ...attachment, id: res });
-              resolve({ ...attachment, id: res });
+              this.signedAttachments.push(res);
+              resolve(res);
             });
           })
           .catch(err => {
