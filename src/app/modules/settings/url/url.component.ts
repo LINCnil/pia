@@ -12,6 +12,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class UrlComponent implements OnInit {
   settingsForm: FormGroup;
+  loading = false;
   constructor(
     private fb: FormBuilder,
     private dialogService: DialogService,
@@ -46,65 +47,29 @@ export class UrlComponent implements OnInit {
       this.settingsForm.controls.server_url.value &&
       this.settingsForm.controls.server_url.value != ''
     ) {
+      this.loading = true;
       const serverUrl = this.settingsForm.value.server_url.trim();
+      const formData = new FormData();
+
+      formData.append('client_id', this.settingsForm.value.client_id);
+      formData.append('client_secret', this.settingsForm.value.client_secret);
+
       fetch(serverUrl + '/info', {
-        mode: 'cors'
+        mode: 'cors',
+        method: 'POST',
+        body: formData
       })
-        .then(response => {
-          return response.ok;
+        .then(async response => {
+          if (response.ok) {
+            const result = await response.json();
+            return result;
+          }
         })
-        .then((ok: boolean) => {
-          if (ok) {
-            localStorage.setItem('server_url', serverUrl);
-            // TODO: Find another securely way
-            localStorage.setItem(
-              'client_id',
-              this.settingsForm.value.client_id
-            );
-            localStorage.setItem(
-              'client_secret',
-              this.settingsForm.value.client_secret
-            );
-            this.apiService.base = serverUrl;
-            this.authService.state = true;
-            this.dialogService.confirmThis(
-              {
-                text: 'modals.update_server_url_ok.content',
-                type: 'yes',
-                yes: 'modals.back_to_home',
-                no: '',
-                icon: 'pia-icons pia-icon-happy',
-                data: {
-                  no_cross_button: true
-                }
-              },
-              () => {
-                if (this.authService.currentUserValue == null) {
-                  window.location.href = './#/';
-                } else {
-                  window.location.href = './#/entries';
-                }
-              },
-              () => {
-                return;
-              }
-            );
+        .then((response: any) => {
+          if (response.valid) {
+            this.success(serverUrl);
           } else {
-            this.dialogService.confirmThis(
-              {
-                text: 'modals.update_server_url_nok.content',
-                type: 'yes',
-                yes: 'modals.close',
-                no: '',
-                icon: 'pia-icons pia-icon-sad'
-              },
-              () => {
-                return;
-              },
-              () => {
-                return;
-              }
-            );
+            this.errorOnIntrospect();
           }
         })
         .catch(error => {
@@ -124,6 +89,9 @@ export class UrlComponent implements OnInit {
               return;
             }
           );
+        })
+        .finally(() => {
+          this.loading = false;
         });
     } else {
       /* Logout and reset authService */
@@ -156,6 +124,59 @@ export class UrlComponent implements OnInit {
     this.settingsForm.controls[field].patchValue(
       $event.target.value.replace(/\s/g, ''),
       { emitEvent: false }
+    );
+  }
+
+  success(serverUrl) {
+    localStorage.setItem('server_url', serverUrl);
+    // TODO: Find another securely way
+    localStorage.setItem('client_id', this.settingsForm.value.client_id);
+    localStorage.setItem(
+      'client_secret',
+      this.settingsForm.value.client_secret
+    );
+    this.apiService.base = serverUrl;
+    this.authService.state = true;
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.update_server_url_ok.content',
+        type: 'yes',
+        yes: 'modals.back_to_home',
+        no: '',
+        icon: 'pia-icons pia-icon-happy',
+        data: {
+          no_cross_button: true
+        }
+      },
+      () => {
+        if (this.authService.currentUserValue == null) {
+          window.location.href = './#/';
+        } else {
+          window.location.href = './#/entries';
+        }
+      },
+      () => {
+        return;
+      }
+    );
+  }
+
+  errorOnIntrospect() {
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.update_server_url_nok.introspect',
+        type: 'yes',
+        yes: 'modals.back_to_home',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+        data: {}
+      },
+      () => {
+        return;
+      },
+      () => {
+        return;
+      }
     );
   }
 }

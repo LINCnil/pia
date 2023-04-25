@@ -139,12 +139,6 @@ export class PiaService extends ApplicationDb {
       pia.progress += 4;
     }
 
-    // this.data.sections.forEach((section: any) => {
-    //   section.items.forEach((item: any) => {
-    //     this.sidStatusService.setSidStatus(pia, section, item);
-    //   });
-    // });
-
     for (const section of this.data.sections) {
       for (const item of section.items) {
         await this.sidStatusService.setSidStatus(pia, section, item);
@@ -403,7 +397,7 @@ export class PiaService extends ApplicationDb {
    */
   exportData(id: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      super.find(id).then(async (pia: PiaService) => {
+      super.find(id).then(async (pia: Pia) => {
         this.pia_id = id;
         // SET progress attribute
         await this.calculPiaProgress(pia);
@@ -414,19 +408,23 @@ export class PiaService extends ApplicationDb {
           evaluations: null,
           comments: null
         };
-        this.answerService.findAllByPia(id).then(answers => {
-          data['answers'] = answers;
-          this.measuresService.findAllByPia(id).then(measures => {
-            data['measures'] = measures;
-            this.evaluationService.findAllByPia(id).then(evaluations => {
-              data['evaluations'] = evaluations;
-              this.commentsService.findAllByPia(id).then(comments => {
-                data['comments'] = comments;
-                resolve(data);
-              });
-            });
+
+        Promise.all([
+          this.answerService.findAllByPia(id),
+          this.measuresService.findAllByPia(id),
+          this.evaluationService.findAllByPia(id),
+          this.commentsService.findAllByPia(id)
+        ])
+          .then(values => {
+            data['answers'] = values[0];
+            data['measures'] = values[1];
+            data['evaluations'] = values[2];
+            data['comments'] = values[3];
+            resolve(data);
+          })
+          .catch(error => {
+            console.log(error);
           });
-        });
       });
     });
   }
@@ -467,7 +465,8 @@ export class PiaService extends ApplicationDb {
       pia.dpos_names = data.pia.dpos_names;
       pia.people_names = data.pia.people_names;
 
-      if (this.authService.state && pia.user_pias) {
+      if (this.authService.state && data.pia.user_pias) {
+        pia.user_pias = data.pia.user_pias;
         pia = Pia.formatUsersDatas(pia);
       } else {
         pia.author_name = data.pia.author_name;
