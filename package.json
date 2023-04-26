@@ -47,7 +47,7 @@
     "@angular/platform-browser-dynamic": "~11.0.9",
     "@angular/router": "~11.0.9",
     "@angular/service-worker": "~11.0.9",
-    "@atnos/pia-i18n": "^0.0.14",
+    "@atnos/pia-i18n": "^0.0.15",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@types/intro.js": "^2.4.8",
