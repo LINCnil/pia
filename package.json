@@ -51,7 +51,7 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@types/intro.js": "^2.4.8",
-    "angular2-csv": "git+https://github.com/dauledk/angular2-csv.git",
+    "angular2-csv": "git+https://github.com/alexbjorlig/angular2-csv",
     "core-js": "^3.6.5",
     "cypress": "^6.2.1",
     "cypress-file-upload": "^4.1.1",

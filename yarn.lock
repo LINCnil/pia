@@ -2171,9 +2171,9 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.npmjs.org/alphanum-sort/-/alphanum-sort-1.0.2.tgz"
   integrity sha512-0FcBfdcmaumGPQ0qPn7Q5qTgz/ooXgIyp1rf8ik5bGX8mpE2YHjC0P/eyQvxu1GURYQgq9ozf2mteQ5ZD9YiyQ==
 
-"angular2-csv@git+https://github.com/dauledk/angular2-csv.git":
+"angular2-csv@git+https://github.com/alexbjorlig/angular2-csv":
   version "0.2.9"
-  resolved "git+ssh://git@github.com/dauledk/angular2-csv.git#f28e815410e91a15931471f48c66b83d7f1b9a81"
+  resolved "git+https://github.com/alexbjorlig/angular2-csv#f28e815410e91a15931471f48c66b83d7f1b9a81"
   dependencies:
     tslib "^1.9.0"
 
