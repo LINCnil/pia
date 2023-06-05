@@ -68,6 +68,7 @@ export class UrlComponent implements OnInit {
         .then((response: any) => {
           if (response.valid) {
             this.success(serverUrl);
+            this.authService.state = response.auth;
           } else {
             this.errorOnIntrospect();
           }
