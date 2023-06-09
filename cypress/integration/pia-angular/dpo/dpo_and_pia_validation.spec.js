@@ -36,7 +36,7 @@ describe("Validation", () => {
 
     it("should show report", () => {
       cy.closeValidationEvaluationModal();
-      cy.get("a.btn.pia-previewBlock").click();
+      cy.get(".pia-entryContentBlock-header a.btn.pia-previewBlock").click();
 
       cy.url().should("include", "/preview/" + visit_id);
 
