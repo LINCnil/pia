@@ -42,12 +42,10 @@ describe("Client-Server", () => {
     it("Click on save", () => {
       cy.get(".btn-green").click();
       cy.wait(5000);
-      cy.get("button[type=button]").click();
-
-      cy.url().should("include", "/");
     });
 
-    it("Verify URL", () => {
+    it("Go back home", () => {
+      cy.get(".pia-modalBlock-buttons-choice button[type=button]").click();
       cy.url().should("include", "/");
     });
   });
