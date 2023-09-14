@@ -181,7 +181,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
               for (const entry of this.entries) {
                 this.piaService.pia_id = entry.id;
-                await this.piaService.calculPiaProgress(entry);
+                // await this.piaService.calculPiaProgress(entry);
               }
 
               this.loading = false;

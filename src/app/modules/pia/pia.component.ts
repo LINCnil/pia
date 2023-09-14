@@ -79,9 +79,9 @@ export class PiaComponent implements OnInit, DoCheck {
     if (this.route.snapshot.params.id == 'example') {
       this.piaService
         .getPiaExample()
-        .then((pia: Pia) => {
+        .then(async (pia: Pia) => {
           this.pia = pia;
-          this.setupPage(sectionId, itemId);
+          await this.setupPage(sectionId, itemId);
           this.router.navigate(['pia', pia.id, 'section', 1, 'item', 1]);
         })
         .catch(err => {
@@ -152,8 +152,9 @@ export class PiaComponent implements OnInit, DoCheck {
     }
   }
 
-  setupPage(sectionId, itemId) {
-    this.piaService.calculPiaProgress(this.pia);
+  async setupPage(sectionId, itemId) {
+    await this.piaService.calculPiaProgress(this.pia);
+
     if (!sectionId || !itemId) {
       this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);
     } else {

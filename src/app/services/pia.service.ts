@@ -144,6 +144,7 @@ export class PiaService extends ApplicationDb {
         await this.sidStatusService.setSidStatus(pia, section, item);
       }
     }
+    await this.update(pia);
   }
 
   /**
