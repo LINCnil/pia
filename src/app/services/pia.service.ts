@@ -145,7 +145,6 @@ export class PiaService extends ApplicationDb {
       }
     }
 
-    console.log('calcul progress');
     await this.update(pia);
   }
 

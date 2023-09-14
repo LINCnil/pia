@@ -92,8 +92,6 @@ export class PiaComponent implements OnInit, DoCheck {
         .find(parseInt(this.route.snapshot.params.id))
         .then(async (pia: Pia) => {
           this.pia = pia;
-          this.piaService.pia_id = this.pia.id;
-          await this.piaService.calculPiaProgress(this.pia);
           await this.setupPage(sectionId, itemId);
         })
         .catch(err => {
