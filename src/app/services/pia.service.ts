@@ -144,6 +144,8 @@ export class PiaService extends ApplicationDb {
         await this.sidStatusService.setSidStatus(pia, section, item);
       }
     }
+
+    console.log('calcul progress');
     await this.update(pia);
   }
 

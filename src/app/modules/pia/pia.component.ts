@@ -90,14 +90,21 @@ export class PiaComponent implements OnInit, DoCheck {
     } else {
       this.piaService
         .find(parseInt(this.route.snapshot.params.id))
-        .then((pia: Pia) => {
+        .then(async (pia: Pia) => {
           this.pia = pia;
-          this.setupPage(sectionId, itemId);
+          this.piaService.pia_id = this.pia.id;
+          await this.piaService.calculPiaProgress(this.pia);
+          await this.setupPage(sectionId, itemId);
         })
         .catch(err => {
           console.error(err);
         });
     }
+  }
+
+  // tslint:disable-next-line:use-lifecycle-interface typedef
+  async ngOnDestroy() {
+    await this.piaService.calculPiaProgress(this.pia);
   }
 
   ngDoCheck(): void {
@@ -153,8 +160,6 @@ export class PiaComponent implements OnInit, DoCheck {
   }
 
   async setupPage(sectionId, itemId) {
-    await this.piaService.calculPiaProgress(this.pia);
-
     if (!sectionId || !itemId) {
       this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);
     } else {
