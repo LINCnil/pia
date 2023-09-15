@@ -102,7 +102,8 @@ export class PiaComponent implements OnInit, DoCheck {
 
   // tslint:disable-next-line:use-lifecycle-interface typedef
   async ngOnDestroy() {
-    await this.piaService.calculPiaProgress(this.pia);
+    // TODO: WAIT PROGRESSION SAVED BEFORE CHANGE PAGE
+    await this.piaService.calculPiaProgress(this.pia, true);
   }
 
   ngDoCheck(): void {

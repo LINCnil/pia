@@ -133,7 +133,7 @@ export class PiaService extends ApplicationDb {
     });
   }
 
-  async calculPiaProgress(pia): Promise<void> {
+  async calculPiaProgress(pia, update?: boolean): Promise<void> {
     pia.progress = 0.0;
     if (pia.status > 0) {
       pia.progress += 4;
@@ -145,7 +145,13 @@ export class PiaService extends ApplicationDb {
       }
     }
 
-    await this.update(pia);
+    // Prevent outscale value
+    pia.progress = pia.progress < 100 ? pia.progress : 100;
+
+    // Save ?
+    if (update) {
+      await this.update(pia);
+    }
   }
 
   /**
