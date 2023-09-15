@@ -191,6 +191,7 @@ export class PiaService extends ApplicationDb {
       };
       pia.is_example = 0;
       pia.status = 0;
+      pia.progress = 0;
       pia.created_at = new Date();
       pia.updated_at = new Date();
       const structure_id = piaForm.structure_id;
@@ -531,11 +532,12 @@ export class PiaService extends ApplicationDb {
 
           await this.importAnswers(data.answers, pia.id);
           await this.importMeasures(data, pia.id, is_duplicate);
+
           if (!is_duplicate) {
             await this.importComments(data.comments, pia.id);
           }
 
-          this.calculPiaProgress(pia);
+          await this.calculPiaProgress(pia, true);
           resolve(pia);
         })
         .catch(err => {
