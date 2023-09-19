@@ -179,11 +179,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
                 this.entries.splice(index, 1);
               }
 
-              for (const entry of this.entries) {
-                this.piaService.pia_id = entry.id;
-                await this.piaService.calculPiaProgress(entry);
-              }
-
               this.loading = false;
               this.startIntroJs('pia');
               this.sortOrder = localStorage.getItem('piaOrder');
@@ -195,10 +190,6 @@ export class EntriesComponent implements OnInit, OnDestroy {
             .findAllArchives()
             .then((entries: Array<Pia>) => {
               this.entries = entries;
-              console.log(entries);
-              // this.entries.forEach(entry =>
-              //   this.archiveService.calculPiaProgress(entry)
-              // );
               this.loading = false;
               this.sortOrder = localStorage.getItem('archiveOrder');
               this.sortValue = localStorage.getItem('archiveValue');
