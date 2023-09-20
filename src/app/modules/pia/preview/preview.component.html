@@ -123,7 +123,7 @@
                     </div>
                   </div>
                   <div class="pia-fullPreviewBlock-header-progressBar">
-                    <div>{{ pia.progress }}%</div>
+                    <div>{{ pia.progress < 100 ? pia.progress : 100 }}%</div>
                     <progress max="100" value="{{ pia.progress }}"></progress>
                   </div>
                 </div>
