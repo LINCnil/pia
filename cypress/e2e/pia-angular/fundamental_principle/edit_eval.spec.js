@@ -34,14 +34,11 @@ export function fundamental_principle_edit_eval() {
        * Validate data
        */
       it("should valid evaluation", () => {
-        cy.validateEval();
-      });
-
-      /**
-       * Close Popup
-       */
-      it("should valid modal for evaluation", () => {
-        cy.validateModal();
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 2, 1);
+          cy.validateEval();
+          cy.validateModal();
+        });
       });
     });
 
@@ -60,14 +57,11 @@ export function fundamental_principle_edit_eval() {
        * Validate data
        */
       it("should valid evaluation", () => {
-        cy.validateEval();
-      });
-
-      /**
-       * Close Popup
-       */
-      it("should valid modal for evaluation", () => {
-        cy.validateModal();
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 2, 2);
+          cy.validateEval();
+          cy.validateModal();
+        });
       });
     });
   });

@@ -10,21 +10,18 @@ describe("Entries_table", () => {
   beforeEach(() => {
     // Skip tutorial
     cy.disable_onboarding();
+    cy.visit(`/#/entries`);
+    cy.get(".pia-filtersBlock-switch").click();
   });
 
   /**
    * Table
    */
   context("entries_table", () => {
-    it("change display", () => {
-      cy.init();
-      cy.click_on_start();
-      cy.get(".pia-filtersBlock-switch").click();
-    });
-
-    it("verify if is there a table", () => {
+    it("change display and check if there is a table", () => {
       cy.get("table").should("exist");
     });
+
     /**
      * Create pia
      */
@@ -47,9 +44,6 @@ describe("Entries_table", () => {
      * Edit pia
      */
     it("should edit pia", () => {
-      // Redirect into entries
-      cy.visit(`/#/entries`);
-      cy.get(".pia-filtersBlock-switch").click();
       //Edit Title
       cy.wait(500);
       cy.get(".pia-list-table tbody tr td:eq(1) div")
