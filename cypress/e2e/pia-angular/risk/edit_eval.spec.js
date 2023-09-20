@@ -99,20 +99,22 @@ export function risk_edit_eval() {
             cy.test_add_tags_next();
             cy.test_move_gauges();
             cy.test_writing_on_textarea_gauges();
-          });
-        });
-      });
-
-      //
-      it("should valid evaluation", () => {
-        cy.get_current_pia_id(id => {
-          // change section and item
-          cy.go_edited_pia(id, 3, 3).then(() => {
             cy.validateEval();
             cy.validateModal();
           });
         });
       });
+
+      //
+      // it("should valid evaluation", () => {
+      //   cy.get_current_pia_id(id => {
+      //     // change section and item
+      //     cy.go_edited_pia(id, 3, 3).then(() => {
+      //       cy.validateEval();
+      //       cy.validateModal();
+      //     });
+      //   });
+      // });
     });
 
     context("Disparition de données", () => {
