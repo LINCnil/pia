@@ -20,10 +20,11 @@ export class SignInComponent implements OnInit {
   logIn: UntypedFormGroup;
   @Input() fromSignUp: boolean;
   msgFromBack: string;
+  ssoEnabled: boolean;
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private authService: AuthService
+    public authService: AuthService
   ) {
     // Prepare login form
     this.logIn = this.formBuilder.group({
@@ -61,5 +62,9 @@ export class SignInComponent implements OnInit {
         this.loading = false;
         this.msgFromBack = err.status;
       });
+  }
+
+  loginSSO() {
+    this.authService.loginSSO();
   }
 }
