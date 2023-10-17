@@ -110,6 +110,7 @@
                       *ngIf="
                         authService.state &&
                         authService.currentUserValue !== null &&
+                        authService.currentUserValue.access_type &&
                         authService.currentUserValue.access_type.includes(
                           'technical'
                         )

@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Structure } from 'src/app/models/structure.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AppDataService } from 'src/app/services/app-data.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { MeasureService } from 'src/app/services/measures.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
@@ -36,37 +37,44 @@ export class StructureComponent implements OnInit {
     private actionPlanService: ActionPlanService,
     private globalEvaluationService: GlobalEvaluationService,
     private measureService: MeasureService,
-    private appDataService: AppDataService
-  ) {}
+    private appDataService: AppDataService,
+    private authService: AuthService
+  ) {
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        this.appDataService.entrieMode = 'structure';
 
-  async ngOnInit(): Promise<void> {
-    this.appDataService.entrieMode = 'structure';
+        const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
+        const itemId = parseInt(this.route.snapshot.params.item_id, 10);
 
-    const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
-    const itemId = parseInt(this.route.snapshot.params.item_id, 10);
+        if (parseInt(this.route.snapshot.params.id)) {
+          this.structureService
+            .find(parseInt(this.route.snapshot.params.id))
+            .then((structure: Structure) => {
+              this.initStructure(structure);
+              this.getSectionAndItem(sectionId, itemId);
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        } else {
+          this.structureService.loadExample().then((structure: Structure) => {
+            this.initStructure(structure);
+            this.getSectionAndItem(sectionId, itemId);
+          });
+        }
 
-    if (parseInt(this.route.snapshot.params.id)) {
-      await this.structureService
-        .find(parseInt(this.route.snapshot.params.id))
-        .then((structure: Structure) => {
-          this.initStructure(structure);
-          this.getSectionAndItem(sectionId, itemId);
-        })
-        .catch(err => {
-          console.error(err);
-        });
-    } else {
-      this.structureService.loadExample().then((structure: Structure) => {
-        this.initStructure(structure);
-        this.getSectionAndItem(sectionId, itemId);
-      });
-    }
-
-    // Subscribe to measure service messages
-    this.subscription = this.measureService.behaviorSubject.subscribe(val => {
-      this.measureToRemoveFromTags = val;
+        // Subscribe to measure service messages
+        this.subscription = this.measureService.behaviorSubject.subscribe(
+          val => {
+            this.measureToRemoveFromTags = val;
+          }
+        );
+      }
     });
   }
+
+  async ngOnInit(): Promise<void> {}
 
   initStructure(structure): void {
     this.structure = structure;
