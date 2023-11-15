@@ -6,7 +6,7 @@ jobs:
     container: cypress/browsers:node16.18.0-chrome90-ff88
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Cypress
         uses: cypress-io/github-action@v6
