@@ -18,12 +18,9 @@ describe("Home", () => {
     });
 
     // ->
-    it("click on start", () => {
+    it("click on start and check url", () => {
+      cy.visit("/");
       cy.get(".btn-green").click();
-    });
-
-    // test l'url, verifier que ça soit bien /entries
-    it("verify url", () => {
       cy.url().should("include", "/entries");
     });
   });

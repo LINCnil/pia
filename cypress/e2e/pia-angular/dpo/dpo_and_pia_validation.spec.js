@@ -31,16 +31,24 @@ describe("Validation", () => {
     });
 
     it("should valid pia", () => {
-      cy.validatePia();
+      cy.get_current_pia_id(id => {
+        cy.go_edited_pia(id, 4, 3).then(() => {
+          cy.validatePia();
+          cy.closeValidationEvaluationModal();
+        });
+      });
     });
 
     it("should show report", () => {
-      cy.closeValidationEvaluationModal();
-      cy.get(".pia-entryContentBlock-header a.btn.pia-previewBlock").click();
-
-      cy.url().should("include", "/preview/" + visit_id);
-
-      cy.get(".pia-fullPreviewBlock-data").should("exist");
+      cy.get_current_pia_id(id => {
+        cy.go_edited_pia(id, 4, 3).then(() => {
+          cy.get(
+            ".pia-entryContentBlock-header a.btn.pia-previewBlock"
+          ).click();
+          cy.url().should("include", "/preview/" + 2);
+          cy.get(".pia-fullPreviewBlock-data").should("exist");
+        });
+      });
     });
   });
 });

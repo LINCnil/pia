@@ -13,7 +13,7 @@ describe("Client-Server", () => {
    * Go to Entries page  pia-navigationBlock-withsub pia-navigationBlock-dropdown
    */
   context("Start", () => {
-    it("Go on serveur URL configuration", () => {
+    it("Go on serveur URL configuration and set var and save", () => {
       cy.visit("/");
       cy.get(".pia-navigationBlock-dropdown")
         .eq(0)
@@ -23,28 +23,11 @@ describe("Client-Server", () => {
         .eq(0)
         .click({ force: true });
       cy.wait(500);
-    });
-  });
 
-  context("Write URL ID and SECRET", () => {
-    it("Write URL", () => {
       cy.get("#server_url").type(Cypress.env("URL"));
-    });
-    it("Write ID", () => {
       cy.get("#client_id").type(Cypress.env("ID"));
-    });
-    it("Write SECRET", () => {
       cy.get("#client_secret").type(Cypress.env("SECRET"));
-    });
-  });
-
-  context("Redirection", () => {
-    it("Click on save", () => {
       cy.get(".btn-green").click();
-      cy.wait(5000);
-    });
-
-    it("Go back home", () => {
       cy.get(".pia-modalBlock-buttons-choice button[type=button]").click();
       cy.url().should("include", "/");
     });

@@ -23,11 +23,11 @@ export function context_edit_eval() {
       });
 
       it("should valid evaluation", () => {
-        cy.validateEval();
-      });
-
-      it("should valid modal for evaluation", () => {
-        cy.validateModal();
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 1, 1);
+          cy.validateEval();
+          cy.validateModal();
+        });
       });
     });
 
@@ -40,11 +40,11 @@ export function context_edit_eval() {
       });
 
       it("should valid evaluation", () => {
-        cy.validateEval();
-      });
-
-      it("should valid modal for evaluation", () => {
-        cy.validateModal();
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 1, 2);
+          cy.validateEval();
+          cy.validateModal();
+        });
       });
     });
   });

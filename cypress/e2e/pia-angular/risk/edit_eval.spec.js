@@ -36,8 +36,11 @@ export function risk_edit_eval() {
       });
 
       it("on click on btn.green, go back to section 3, 1", () => {
-        cy.get(".btn-green").click();
-        cy.url().should("include", "section/3/item/1");
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 3, 3);
+          cy.get(".btn-green").click();
+          cy.url().should("include", "section/3/item/1");
+        });
       });
     });
 
@@ -51,16 +54,19 @@ export function risk_edit_eval() {
       });
 
       it("set Measures with + ", () => {
-        cy.test_add_measure();
-        cy.wait(200);
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 3, 1);
+          cy.test_add_measure();
+          cy.wait(200);
+        });
       });
 
       it("should valid evaluation", () => {
-        cy.validateEval();
-      });
-
-      it("should valid modal for evaluation", () => {
-        cy.validateModal();
+        cy.get_current_pia_id(id => {
+          cy.go_edited_pia(id, 3, 1);
+          cy.validateEval();
+          cy.validateModal();
+        });
       });
     });
 
@@ -76,11 +82,12 @@ export function risk_edit_eval() {
       });
 
       it("should valid evaluation", () => {
-        cy.validateEval();
-      });
-
-      it("should valid modal for evaluation", () => {
-        cy.validateModal();
+        cy.get_current_pia_id(id => {
+          // change section and item
+          cy.go_edited_pia(id, 3, 2);
+          cy.validateEval();
+          cy.validateModal();
+        });
       });
     });
 
@@ -92,17 +99,22 @@ export function risk_edit_eval() {
             cy.test_add_tags_next();
             cy.test_move_gauges();
             cy.test_writing_on_textarea_gauges();
+            cy.validateEval();
+            cy.validateModal();
           });
         });
       });
-      //
-      it("should valid evaluation", () => {
-        cy.validateEval();
-      });
 
-      it("should valid modal for evaluation", () => {
-        cy.validateModal();
-      });
+      //
+      // it("should valid evaluation", () => {
+      //   cy.get_current_pia_id(id => {
+      //     // change section and item
+      //     cy.go_edited_pia(id, 3, 3).then(() => {
+      //       cy.validateEval();
+      //       cy.validateModal();
+      //     });
+      //   });
+      // });
     });
 
     context("Disparition de données", () => {
@@ -115,11 +127,14 @@ export function risk_edit_eval() {
           cy.test_writing_on_textarea_gauges();
         });
       });
+
       it("should valid evaluation", () => {
-        cy.validateEval();
-      });
-      it("should valid modal for evaluation", () => {
-        cy.validateModalComplete();
+        cy.get_current_pia_id(id => {
+          // change section and item
+          cy.go_edited_pia(id, 3, 4);
+          cy.validateEval();
+          cy.validateModalComplete();
+        });
       });
     });
   });

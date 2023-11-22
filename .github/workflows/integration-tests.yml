@@ -3,13 +3,15 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.7.0-chrome84
+    container:
+      image: cypress/browsers:node16.18.0-chrome90-ff88
+      options: --user 1001
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Cypress
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           start: yarn start
           browser: chrome
