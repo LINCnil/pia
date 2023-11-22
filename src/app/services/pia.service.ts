@@ -133,7 +133,7 @@ export class PiaService extends ApplicationDb {
     });
   }
 
-  async calculPiaProgress(pia): Promise<void> {
+  async calculPiaProgress(pia, update?: boolean): Promise<void> {
     pia.progress = 0.0;
     if (pia.status > 0) {
       pia.progress += 4;
@@ -143,6 +143,14 @@ export class PiaService extends ApplicationDb {
       for (const item of section.items) {
         await this.sidStatusService.setSidStatus(pia, section, item);
       }
+    }
+
+    // Prevent outscale value
+    pia.progress = pia.progress < 100 ? pia.progress : 100;
+
+    // Save ?
+    if (update) {
+      await this.update(pia);
     }
   }
 
@@ -183,6 +191,7 @@ export class PiaService extends ApplicationDb {
       };
       pia.is_example = 0;
       pia.status = 0;
+      pia.progress = 0;
       pia.created_at = new Date();
       pia.updated_at = new Date();
       const structure_id = piaForm.structure_id;
@@ -523,11 +532,12 @@ export class PiaService extends ApplicationDb {
 
           await this.importAnswers(data.answers, pia.id);
           await this.importMeasures(data, pia.id, is_duplicate);
+
           if (!is_duplicate) {
             await this.importComments(data.comments, pia.id);
           }
 
-          this.calculPiaProgress(pia);
+          await this.calculPiaProgress(pia, true);
           resolve(pia);
         })
         .catch(err => {
