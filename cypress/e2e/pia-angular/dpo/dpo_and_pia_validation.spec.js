@@ -42,6 +42,7 @@ describe("Validation", () => {
     it("should show report", () => {
       cy.get_current_pia_id(id => {
         cy.go_edited_pia(id, 4, 3).then(() => {
+          cy.wait(5000);
           cy.get(
             ".pia-entryContentBlock-header a.btn.pia-previewBlock"
           ).click();
