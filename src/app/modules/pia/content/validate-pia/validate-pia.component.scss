@@ -1,11 +1,11 @@
-@import '~src/assets/stylesheets/variables';
+@import "src/assets/stylesheets/variables";
 .pia-validationBlock {
   .pia-entryContentBlock {
     &-content {
       background-color: #fefefe;
-      box-shadow: 2px 1px 18px 1px rgba(194,194,194,1);
+      box-shadow: 2px 1px 18px 1px rgba(194, 194, 194, 1);
       &-list {
-        padding:  10px 60px 20px  60px;
+        padding: 10px 60px 20px 60px;
         font-size: 1.4rem;
         .blue {
           color: $pia-blue;
@@ -39,7 +39,7 @@
               align-self: center;
             }
           }
-          i{
+          i {
             margin: auto;
             width: 20px;
             height: 20px;
@@ -55,7 +55,7 @@
             border: solid 1px $pia-gray;
           }
           .fa-check {
-            display:none;
+            display: none;
           }
           input:checked + label {
             border: solid $pia-green 1px;
@@ -105,7 +105,8 @@
         margin-top: 10px;
         display: flex;
         justify-content: space-between;
-        button, a {
+        button,
+        a {
           padding: 9px 10px;
           display: block;
           width: 140px;
@@ -138,7 +139,8 @@
         > div {
           font-weight: 500;
           color: $pia-blue;
-          span, a {
+          span,
+          a {
             display: inline-block;
             vertical-align: middle;
           }
@@ -146,9 +148,9 @@
             float: right;
           }
           i {
-          align-self: center;
-          color: $pia-gray;
-          font-size: 16px;
+            align-self: center;
+            color: $pia-gray;
+            font-size: 16px;
           }
           a {
             text-decoration: none;
@@ -182,7 +184,8 @@
         display: flex;
         justify-content: center;
         color: $pia-green;
-        a, button {
+        a,
+        button {
           display: block;
           align-self: center !important;
           padding: 4px;

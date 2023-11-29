@@ -1,8 +1,7 @@
-@import '~src/assets/stylesheets/variables';
+@import "src/assets/stylesheets/variables";
 .pia-exportBlock {
-
   &-title {
-    padding-bottom: 5px;;
+    padding-bottom: 5px;
     margin-bottom: 15px;
     color: $pia-gray;
     border-bottom: 2px solid $pia-gray;
@@ -58,7 +57,7 @@
             margin-top: 4px;
           }
           span {
-            transition: all .3s;
+            transition: all 0.3s;
             margin-left: 27px;
             display: block;
           }
@@ -66,7 +65,7 @@
       }
       button {
         cursor: pointer;
-        margin-top:10px;
+        margin-top: 10px;
         width: 100%;
         padding: 10px 0;
         text-align: center;
@@ -109,14 +108,14 @@
         }
       }
       label::before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         top: 3px;
         width: 16px;
         height: 16px;
         border: 1px solid $pia-gray-dark;
-        transition: all .3s;
+        transition: all 0.3s;
       }
       input:checked + label::before {
         background-color: $pia-green;

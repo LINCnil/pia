@@ -27,7 +27,6 @@ const routes: Routes = [
     SettingsRoutingModule,
     UsersRoutingModule,
     RouterModule.forRoot(routes, {
-      relativeLinkResolution: 'legacy',
       useHash: true
     })
   ],
