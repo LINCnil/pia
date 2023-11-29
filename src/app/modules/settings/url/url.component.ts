@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  Validators
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,10 +15,10 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./url.component.scss']
 })
 export class UrlComponent implements OnInit {
-  settingsForm: FormGroup;
+  settingsForm: UntypedFormGroup;
   loading = false;
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dialogService: DialogService,
     public authService: AuthService,
     public apiService: ApiService

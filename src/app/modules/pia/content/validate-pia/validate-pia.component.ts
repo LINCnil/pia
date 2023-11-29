@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators
 } from '@angular/forms';
 
@@ -25,13 +25,13 @@ export class ValidatePIAComponent implements OnInit {
     | 'local'
     | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
   data: { sections: any };
-  validateForm: FormGroup;
+  validateForm: UntypedFormGroup;
   attachment: any;
   removeAttachmentId = null;
-  removeAttachmentForm: FormGroup;
+  removeAttachmentForm: UntypedFormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     public attachmentsService: AttachmentsService,
     private actionPlanService: ActionPlanService,
@@ -45,11 +45,11 @@ export class ValidatePIAComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.validateForm = new FormGroup({
-      validateStatus1: new FormControl(),
-      validateStatus2: new FormControl(),
-      validateStatus3: new FormControl(),
-      validateStatus4: new FormControl()
+    this.validateForm = new UntypedFormGroup({
+      validateStatus1: new UntypedFormControl(),
+      validateStatus2: new UntypedFormControl(),
+      validateStatus3: new UntypedFormControl(),
+      validateStatus4: new UntypedFormControl()
     });
 
     this.validateForm.controls['validateStatus1'].patchValue(

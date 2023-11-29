@@ -1,5 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -12,12 +16,12 @@ import { TranslateService } from '@ngx-translate/core';
 export class ForgetPasswordComponent implements OnInit {
   @Output() canceled = new EventEmitter<boolean>();
   @Output() validated = new EventEmitter<boolean>();
-  forgetPassword: FormGroup;
+  forgetPassword: UntypedFormGroup;
   loading: boolean = false;
   msgFromBack: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     private translateService: TranslateService
   ) {

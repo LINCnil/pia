@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { PiaService } from 'src/app/services/pia.service';
@@ -17,11 +17,11 @@ export class RefusePIAComponent implements OnInit {
   @Input() editMode:
     | 'local'
     | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
-  rejectionReasonForm: FormGroup;
+  rejectionReasonForm: UntypedFormGroup;
   rejectionState: boolean;
   showRejectionReasonButtons: boolean;
   showResendValidationButton: boolean;
-  modificationsMadeForm: FormGroup;
+  modificationsMadeForm: UntypedFormGroup;
 
   constructor(
     private router: Router,
@@ -32,12 +32,12 @@ export class RefusePIAComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.rejectionReasonForm = new FormGroup({
-      rejectionReason: new FormControl(this.pia.rejection_reason)
+    this.rejectionReasonForm = new UntypedFormGroup({
+      rejectionReason: new UntypedFormControl(this.pia.rejection_reason)
     });
 
-    this.modificationsMadeForm = new FormGroup({
-      modificationsMade: new FormControl(this.pia.applied_adjustments)
+    this.modificationsMadeForm = new UntypedFormGroup({
+      modificationsMade: new UntypedFormControl(this.pia.applied_adjustments)
     });
 
     if (this.pia.rejection_reason) {

@@ -170,7 +170,6 @@
       }
     }
   },
-  "defaultProject": "pia-angular",
   "cli": {
     "analytics": false
   }

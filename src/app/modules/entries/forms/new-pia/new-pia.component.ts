@@ -1,5 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
 import { BehaviorSubject } from 'rxjs';
 import { Pia } from 'src/app/models/pia.model';
@@ -20,7 +24,7 @@ export class NewPiaComponent implements OnInit {
   userList: Array<TagModel>;
   @Output() newUserNeeded: EventEmitter<any> = new EventEmitter<any>();
   @Output() submitted: EventEmitter<any> = new EventEmitter<any>();
-  piaForm: FormGroup;
+  piaForm: UntypedFormGroup;
   structureList: Array<Structure> = [];
 
   constructor(
@@ -42,7 +46,7 @@ export class NewPiaComponent implements OnInit {
   ngOnInit(): void {
     this.authService.currentUser.subscribe({
       complete: () => {
-        this.piaForm = new FormGroup(this.normalizeForm());
+        this.piaForm = new UntypedFormGroup(this.normalizeForm());
       }
     });
   }
@@ -90,9 +94,9 @@ export class NewPiaComponent implements OnInit {
 
   normalizeForm(): any {
     const formFields = {
-      name: new FormControl(),
-      category: new FormControl(),
-      structure_id: new FormControl()
+      name: new UntypedFormControl(),
+      category: new UntypedFormControl(),
+      structure_id: new UntypedFormControl()
     };
     if (this.authService.state) {
       [
@@ -101,14 +105,14 @@ export class NewPiaComponent implements OnInit {
         { field: 'validators', required: true },
         { field: 'guests', required: false }
       ].forEach(ob => {
-        formFields[ob.field] = new FormControl(
+        formFields[ob.field] = new UntypedFormControl(
           [],
           ob.required ? [Validators.required, Validators.minLength(1)] : []
         );
       });
     } else {
       ['author_name', 'evaluator_name', 'validator_name'].forEach(field => {
-        formFields[field] = new FormControl('', Validators.required);
+        formFields[field] = new UntypedFormControl('', Validators.required);
       });
     }
     return formFields;

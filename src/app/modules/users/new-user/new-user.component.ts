@@ -6,7 +6,11 @@ import {
   SimpleChanges,
   OnChanges
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 
 import { UsersService } from 'src/app/services/users.service';
@@ -18,7 +22,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class NewUserComponent implements OnInit, OnChanges {
   @Input() forceUserType = false;
-  public userForm: FormGroup;
+  public userForm: UntypedFormGroup;
   public loading = false;
   @Input() user = null;
   @Output() userAdded: EventEmitter<any> = new EventEmitter<any>();
@@ -26,7 +30,7 @@ export class NewUserComponent implements OnInit, OnChanges {
   msgFromBack: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     public usersService: UsersService
   ) {
     // INIT FORM

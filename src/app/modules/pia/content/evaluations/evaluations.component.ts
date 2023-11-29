@@ -10,7 +10,7 @@ import {
   DoCheck,
   NgZone
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
@@ -30,7 +30,7 @@ import { EvaluationService } from 'src/app/services/evaluation.service';
 export class EvaluationsComponent
   implements OnInit, AfterViewChecked, OnDestroy, DoCheck {
   private placeholderSubscription: Subscription;
-  evaluationForm: FormGroup;
+  evaluationForm: UntypedFormGroup;
   @Input() editMode:
     | 'local'
     | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
@@ -148,11 +148,11 @@ export class EvaluationsComponent
     this.evaluationCommentElementId =
       'pia-evaluation-comment-' + this.reference_to.replace(/\./g, '-');
 
-    this.evaluationForm = new FormGroup({
-      actionPlanComment: new FormControl(),
-      evaluationComment: new FormControl(),
-      gaugeX: new FormControl(),
-      gaugeY: new FormControl()
+    this.evaluationForm = new UntypedFormGroup({
+      actionPlanComment: new UntypedFormControl(),
+      evaluationComment: new UntypedFormControl(),
+      gaugeX: new UntypedFormControl(),
+      gaugeY: new UntypedFormControl()
     });
 
     this.loading = true;

@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Pia } from 'src/app/models/pia.model';
@@ -24,7 +24,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class EntriesComponent implements OnInit, OnDestroy {
   @Input() pia: any;
-  importForm: FormGroup;
+  importForm: UntypedFormGroup;
   sortOrder: string;
   sortValue: string;
   viewStyle: { view: string } = { view: 'card' };
@@ -116,8 +116,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
     }
 
     // INIT IMPORT FORM
-    this.importForm = new FormGroup({
-      import_file: new FormControl('', [])
+    this.importForm = new UntypedFormGroup({
+      import_file: new UntypedFormControl('', [])
     });
   }
 

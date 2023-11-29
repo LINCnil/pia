@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Structure } from 'src/app/models/structure.model';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { StructureService } from 'src/app/services/structure.service';
@@ -11,7 +11,7 @@ import { StructureService } from 'src/app/services/structure.service';
 })
 export class NewStructureComponent implements OnInit {
   @Output() submitted: EventEmitter<any> = new EventEmitter<any>();
-  structureForm: FormGroup;
+  structureForm: UntypedFormGroup;
 
   constructor(
     private appDataService: AppDataService,
@@ -19,9 +19,9 @@ export class NewStructureComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.structureForm = new FormGroup({
-      name: new FormControl(),
-      sector_name: new FormControl()
+    this.structureForm = new UntypedFormGroup({
+      name: new UntypedFormControl(),
+      sector_name: new UntypedFormControl()
     });
   }
 

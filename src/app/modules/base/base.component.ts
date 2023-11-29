@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Knowledge } from 'src/app/models/knowledge.model';
@@ -30,7 +30,7 @@ function slugify(text): string {
 export class BaseComponent implements OnInit {
   base: KnowledgeBase = null;
   knowledges: Knowledge[] | any[] = [];
-  entryForm: FormGroup;
+  entryForm: UntypedFormGroup;
   editMode: 'edit' | 'new';
   showForm = false;
   selectedKnowledgeId: number;
@@ -78,11 +78,11 @@ export class BaseComponent implements OnInit {
         .catch(() => {});
 
       // Init Form
-      this.entryForm = new FormGroup({
-        name: new FormControl(),
-        category: new FormControl(),
-        description: new FormControl(),
-        lock_version: new FormControl()
+      this.entryForm = new UntypedFormGroup({
+        name: new UntypedFormControl(),
+        category: new UntypedFormControl(),
+        description: new UntypedFormControl(),
+        lock_version: new UntypedFormControl()
       });
 
       // get default categories
@@ -109,11 +109,11 @@ export class BaseComponent implements OnInit {
       this.knowledges = piakb;
 
       // Init Form
-      this.entryForm = new FormGroup({
-        name: new FormControl({ disabled: true }),
-        category: new FormControl({ disabled: true }),
-        description: new FormControl({ disabled: true }),
-        lock_version: new FormControl({ disabled: true })
+      this.entryForm = new UntypedFormGroup({
+        name: new UntypedFormControl({ disabled: true }),
+        category: new UntypedFormControl({ disabled: true }),
+        description: new UntypedFormControl({ disabled: true }),
+        lock_version: new UntypedFormControl({ disabled: true })
       });
     }
   }

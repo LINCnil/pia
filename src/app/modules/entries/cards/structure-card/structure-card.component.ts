@@ -6,7 +6,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Structure } from 'src/app/models/structure.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
@@ -24,7 +24,7 @@ export class StructureCardComponent implements OnInit {
   @Output() changed = new EventEmitter<Structure>();
   @Output() duplicated = new EventEmitter<Structure>();
   @Output() deleted = new EventEmitter<Structure>();
-  structureForm: FormGroup;
+  structureForm: UntypedFormGroup;
 
   @ViewChild('structureName')
   structureName: ElementRef;
@@ -39,13 +39,13 @@ export class StructureCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.structureForm = new FormGroup({
-      id: new FormControl(this.structure.id),
-      name: new FormControl({
+    this.structureForm = new UntypedFormGroup({
+      id: new UntypedFormControl(this.structure.id),
+      name: new UntypedFormControl({
         value: this.structure.name,
         disabled: this.structure.is_example
       }),
-      sector_name: new FormControl({
+      sector_name: new UntypedFormControl({
         value: this.structure.sector_name,
         disabled: this.structure.is_example
       })
