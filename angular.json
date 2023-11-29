@@ -128,17 +128,6 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
         "e2e": {
           "builder": "ngx-cypress-builder:cypress",
           "options": {
@@ -176,16 +165,6 @@
             "main": "projects/pia-i18n/src/test.ts",
             "tsConfig": "projects/pia-i18n/tsconfig.spec.json",
             "karmaConfig": "projects/pia-i18n/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/pia-i18n/tsconfig.lib.json",
-              "projects/pia-i18n/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }
