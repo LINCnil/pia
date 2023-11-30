@@ -257,10 +257,10 @@
   resolved "https://registry.npmjs.org/@assemblyscript/loader/-/loader-0.10.1.tgz"
   integrity sha512-H71nDOOL8Y7kWRLqf6Sums+01Q5msqBW2KhDUTemh1tvY04eSkSXrK0uj/4mmY0Xr16/3zyZmsrxN7CKuRbNRg==
 
-"@atnos/pia-i18n@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.npmjs.org/@atnos/pia-i18n/-/pia-i18n-0.0.15.tgz"
-  integrity sha512-XM4exUX6pNyoAs2leImLekPpT3mKFEJNIsr1kJ+2e8+S5a2h3PlegA9SlF4UBouxhOGtIJejVkeUCIp/jqheiQ==
+"@atnos/pia-i18n@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.npmjs.org/@atnos/pia-i18n/-/pia-i18n-0.0.17.tgz"
+  integrity sha512-IgSmXRGN4HRXAlSx3+9DpHiNDnfDKK4Iva/DxR0Wt2gS19Qb3QCYTVYbCFAiOyxdrpwCu+o0lEuccsQwHPJQDQ==
   dependencies:
     tslib "^2.0.0"
 
