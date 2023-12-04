@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "src/assets/stylesheets/variables";
 .pia {
   &-sectionBlock {
     &-header {
@@ -85,7 +85,10 @@
       a {
         width: 81%;
         border-radius: 4px;
-        &:focus, &:hover, &:active, &.active {
+        &:focus,
+        &:hover,
+        &:active,
+        &.active {
           color: #fff !important;
         }
       }
@@ -99,11 +102,16 @@
             max-width: 164px;
           }
           a {
-            &:focus, &:hover, &:active, &.active {
+            &:focus,
+            &:hover,
+            &:active,
+            &.active {
               background-color: $pia-green;
             }
           }
-          .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
+          .fa-pencil-square-o.pia-fa-valid,
+          .fa-cog.pia-fa-valid,
+          .fa-check-square-o {
             color: $pia-green;
           }
         }
@@ -116,11 +124,16 @@
             max-width: 62px;
           }
           a {
-            &:focus, &:hover, &:active, &.active {
+            &:focus,
+            &:hover,
+            &:active,
+            &.active {
               background-color: $pia-blue;
             }
           }
-          .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
+          .fa-pencil-square-o.pia-fa-valid,
+          .fa-cog.pia-fa-valid,
+          .fa-check-square-o {
             color: $pia-blue;
           }
         }
@@ -133,11 +146,16 @@
             max-width: 182px;
           }
           a {
-            &:focus, &:hover, &:active, &.active {
+            &:focus,
+            &:hover,
+            &:active,
+            &.active {
               background-color: $pia-red;
             }
           }
-          .fa-pencil-square-o.pia-fa-valid, .fa-cog.pia-fa-valid, .fa-check-square-o {
+          .fa-pencil-square-o.pia-fa-valid,
+          .fa-cog.pia-fa-valid,
+          .fa-check-square-o {
             color: $pia-red;
           }
         }
@@ -151,11 +169,15 @@
             display: none;
           }
           a {
-            &:focus, &:hover, &:active, &.active {
+            &:focus,
+            &:hover,
+            &:active,
+            &.active {
               background-color: $pia-dark-black;
             }
           }
-          .fa-cog.pia-fa-valid, .fa-check-square-o {
+          .fa-cog.pia-fa-valid,
+          .fa-check-square-o {
             color: $pia-dark-black;
           }
         }
@@ -178,7 +200,9 @@
       text-align: center;
       text-decoration: none;
       &.btn-active {
-        &:focus, &:hover, &:active {
+        &:focus,
+        &:hover,
+        &:active {
           background-color: $pia-gray;
           border-color: $pia-gray;
         }

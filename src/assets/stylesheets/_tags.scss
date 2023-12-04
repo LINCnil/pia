@@ -1,40 +1,40 @@
-@import "~ngx-chips/core/styles/core/_core.scss";
+@import "ngx-chips/core/styles/core/_core.scss";
 
-$foundation-primary: #091C6B;
+$foundation-primary: #091c6b;
 $foundation-primary-dark: darken($foundation-primary, 10%);
 
 // this is the container's theme
 $foundation-theme: (
-    container-border-bottom: 2px solid transparent !important,
+  container-border-bottom: 2px solid transparent !important
 );
 
 // this is the tag's theme
 $foundation-tag-theme: (
-    background: $foundation-primary,
-    background-focused: $foundation-primary-dark,
-    background-active: $foundation-primary-dark,
-    background-hover: $foundation-primary-dark,
-    color: #fff,
-    font-size: 1.5rem,
-    font-weight: 500,
-    color-hover: #fff,
-    border-radius: 0
+  background: $foundation-primary,
+  background-focused: $foundation-primary-dark,
+  background-active: $foundation-primary-dark,
+  background-hover: $foundation-primary-dark,
+  color: #fff,
+  font-size: 1.5rem,
+  font-weight: 500,
+  color-hover: #fff,
+  border-radius: 0
 );
 
 // this is tags edit theme
 $foundation-tag-edit-theme: (
-    background: $foundation-primary,
-    background-focused: $foundation-primary-dark,
-    background-active: $foundation-primary-dark,
-    background-hover: $foundation-primary-dark,
-    color: #fff,
+  background: $foundation-primary,
+  background-focused: $foundation-primary-dark,
+  background-active: $foundation-primary-dark,
+  background-hover: $foundation-primary-dark,
+  color: #fff
 );
 
 // this is the delete icon's theme
 $foundation-icon-theme: (
-    fill: #fff,
-    fill-focus: #eee,
-    transition: all 0.5s
+  fill: #fff,
+  fill-focus: #eee,
+  transition: all 0.5s
 );
 
 .ng2-tag-input.foundation-theme.ng2-tag-input--focused {
@@ -43,15 +43,15 @@ $foundation-icon-theme: (
 
 // apply theme to the tags
 .ng2-tag-input.foundation-theme tag {
-    @include tag-theme($foundation-tag-theme);
+  @include tag-theme($foundation-tag-theme);
 }
 
 // apply theme to the tags in edition
 .ng2-tag-input.foundation-theme .tag--editing {
-    @include tag-theme($foundation-tag-edit-theme);
+  @include tag-theme($foundation-tag-edit-theme);
 }
 
 // apply theme to the delete icon
 .ng2-tag-input.foundation-theme tag delete-icon {
-    @include icon-theme($foundation-icon-theme);
+  @include icon-theme($foundation-icon-theme);
 }

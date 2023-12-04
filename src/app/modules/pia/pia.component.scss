@@ -1,5 +1,5 @@
-@import '~src/assets/stylesheets/variables';
-.pia-rightSidebarBlock{
+@import "src/assets/stylesheets/variables";
+.pia-rightSidebarBlock {
   &-content {
     padding-top: 15px;
     position: sticky;
@@ -28,8 +28,8 @@
           border-bottom: solid 2px $pia-gray;
         }
         &:last-child {
-            font-size: 1.7rem;
-            font-weight: 400;
+          font-size: 1.7rem;
+          font-weight: 400;
         }
       }
     }

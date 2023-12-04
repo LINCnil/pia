@@ -8,7 +8,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
@@ -33,7 +33,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   @Input() item: any;
   @Input() section: any;
   @Output() questionDeleted = new EventEmitter();
-  questionForm: FormGroup;
+  questionForm: UntypedFormGroup;
   lastSelectedTag: string;
   elementId: string;
   editor: any;
@@ -53,11 +53,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
-    this.questionForm = new FormGroup({
-      title: new FormControl(),
-      gauge: new FormControl(0),
-      text: new FormControl(),
-      list: new FormControl()
+    this.questionForm = new UntypedFormGroup({
+      title: new UntypedFormControl(),
+      gauge: new UntypedFormControl(0),
+      text: new UntypedFormControl(),
+      list: new UntypedFormControl()
     });
 
     if (

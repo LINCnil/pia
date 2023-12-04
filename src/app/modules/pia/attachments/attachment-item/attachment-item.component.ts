@@ -8,9 +8,9 @@ import {
   EventEmitter
 } from '@angular/core';
 import {
-  FormBuilder,
+  UntypedFormBuilder,
   FormControl,
-  FormGroup,
+  UntypedFormGroup,
   Validators
 } from '@angular/forms';
 import { Attachment } from 'src/app/models/attachment.model';
@@ -33,10 +33,10 @@ export class AttachmentItemComponent implements OnInit {
   fileUrl: any = null;
 
   showRemoveAttachmentForm = false;
-  removeAttachmentForm: FormGroup;
+  removeAttachmentForm: UntypedFormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private attachmentsService: AttachmentsService,
     private el: ElementRef
   ) {

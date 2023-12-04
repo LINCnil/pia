@@ -1,12 +1,12 @@
 @import "./assets/stylesheets/variables";
 
-@import "~normalize.css/normalize.css";
+@import "normalize.css/normalize.css";
 
 $fa-font-path: "~font-awesome/fonts";
-@import "~font-awesome/scss/font-awesome.scss";
+@import "font-awesome/scss/font-awesome.scss";
 
 // Foundation styles
-@import "~foundation-sites/scss/foundation.scss";
+@import "foundation-sites/scss/foundation.scss";
 @include foundation-global-styles;
 @include foundation-flex-grid;
 @include foundation-flex-classes;

@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "src/assets/stylesheets/variables";
 .pia {
   &-cartographyBlock {
     background-color: #fff;
@@ -14,10 +14,17 @@
         border-bottom: 1px solid $pia-gray;
         // Linear gradient for background (green to red)
         background-color: #d8f9e9;
-        background-image: linear-gradient(to right top, #d8f9e9 0%, #c5f5de 15%, #fee4e8 68%, #fed8de 88%);
+        background-image: linear-gradient(
+          to right top,
+          #d8f9e9 0%,
+          #c5f5de 15%,
+          #fee4e8 68%,
+          #fed8de 88%
+        );
       }
     }
-    &-ordinates, &-abscisses {
+    &-ordinates,
+    &-abscisses {
       font-size: 1rem;
       color: $pia-gray;
     }
@@ -44,12 +51,14 @@
       margin-bottom: 10px;
       padding-left: 28px;
     }
-    &-gravity, &-probability {
+    &-gravity,
+    &-probability {
       font-weight: 500;
       font-size: 1.3rem;
       color: $pia-dark-black;
     }
-    &-probability, &-legend {
+    &-probability,
+    &-legend {
       display: inline-block;
       vertical-align: top;
       padding: 0;

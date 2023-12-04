@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { reject } from 'cypress/types/bluebird';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
@@ -11,15 +11,15 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 })
 export class NewKnowledgebaseComponent implements OnInit {
   @Output() submitted = new EventEmitter();
-  knowledgeBaseForm: FormGroup;
+  knowledgeBaseForm: UntypedFormGroup;
 
   constructor(private knowledgeBaseService: KnowledgeBaseService) {}
 
   ngOnInit(): void {
-    this.knowledgeBaseForm = new FormGroup({
-      name: new FormControl(),
-      author: new FormControl(),
-      contributors: new FormControl()
+    this.knowledgeBaseForm = new UntypedFormGroup({
+      name: new UntypedFormControl(),
+      author: new UntypedFormControl(),
+      contributors: new UntypedFormControl()
     });
   }
 

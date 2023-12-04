@@ -11,13 +11,14 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "ES2022",
     "typeRoots": ["node_modules/@types"],
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
       "@atnos/pia-i18n/*": ["projects/pia-i18n/*", "projects/pia-i18n"],
       "@atnos/pia-i18n": ["dist/pia-i18n/*", "dist/pia-i18n"]
-    }
+    },
+    "useDefineForClassFields": false
   }
 }

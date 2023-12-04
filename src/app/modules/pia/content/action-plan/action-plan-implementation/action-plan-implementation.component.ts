@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { Evaluation } from 'src/app/models/evaluation.model';
@@ -15,7 +15,7 @@ export class ActionPlanImplementationComponent implements OnInit {
   @Input() pia: Pia = null;
   @Input() data: any;
   evaluation: Evaluation;
-  actionPlanForm: FormGroup;
+  actionPlanForm: UntypedFormGroup;
   displayEditButton = false;
 
   @ViewChild('estimatedEvaluationDate', { static: false })
@@ -29,9 +29,9 @@ export class ActionPlanImplementationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.actionPlanForm = new FormGroup({
-      estimatedEvaluationDate: new FormControl(),
-      personInCharge: new FormControl()
+    this.actionPlanForm = new UntypedFormGroup({
+      estimatedEvaluationDate: new UntypedFormControl(),
+      personInCharge: new UntypedFormControl()
     });
     if (this.data.evaluation) {
       this.evaluation = this.data.evaluation;

@@ -9,7 +9,7 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
@@ -25,7 +25,7 @@ import { StructureService } from 'src/app/services/structure.service';
   styleUrls: ['./knowledge-base.component.scss']
 })
 export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
-  searchForm: FormGroup;
+  searchForm: UntypedFormGroup;
   @Input() editMode:
     | 'local'
     | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
@@ -64,8 +64,8 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
       ? localStorage.getItem(knowledgeIdentifier)
       : 0;
 
-    this.searchForm = new FormGroup({
-      q: new FormControl()
+    this.searchForm = new UntypedFormGroup({
+      q: new UntypedFormControl()
     });
 
     window.onscroll = ev => {

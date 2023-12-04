@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "src/assets/stylesheets/variables";
 
 // Action plan graph
 .pia-entryContentBlock {
@@ -35,9 +35,13 @@
       &-measures {
         position: relative;
         &:after {
-          content: '';
+          content: "";
           position: absolute;
-          background: linear-gradient(to top,  rgba(255,255,255,0.6) 0%,rgba(255,255,255,0) 100%);
+          background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0.6) 0%,
+            rgba(255, 255, 255, 0) 100%
+          );
           height: 32px;
           left: 0;
           bottom: 0;
@@ -63,7 +67,7 @@
       }
       .pia-actionPlanGraphBlock-item {
         display: flex;
-        text-align:left;
+        text-align: left;
         justify-content: flex-start;
         margin: auto 10px;
       }

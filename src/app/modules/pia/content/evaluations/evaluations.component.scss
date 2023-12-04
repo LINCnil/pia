@@ -1,4 +1,4 @@
-@import '~src/assets/stylesheets/variables';
+@import "src/assets/stylesheets/variables";
 .pia {
   &-evaluationBlock {
     position: relative;
@@ -43,17 +43,17 @@
       }
       .btn-red {
         &:before {
-          content: '\f00d';
+          content: "\f00d";
         }
       }
       .btn-blue {
         &:before {
-          content: '\f1ce';
+          content: "\f1ce";
         }
       }
       .btn-green {
         &:before {
-          content: '\f00c';
+          content: "\f00c";
         }
       }
     }

@@ -1,9 +1,9 @@
 import { Input } from '@angular/core';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
-  FormGroup,
-  FormBuilder,
-  FormControl,
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
   Validators
 } from '@angular/forms';
 import { CustomValidators } from 'src/app/shared/validators/custom-validators';
@@ -22,11 +22,11 @@ export class PasswordComponent implements OnInit {
   @Output() canceled = new EventEmitter<boolean>();
   @Output() validated = new EventEmitter<boolean>();
   loading: boolean = false;
-  signUp: FormGroup;
+  signUp: UntypedFormGroup;
   msgFromBack: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     private translateService: TranslateService
   ) {
@@ -58,7 +58,7 @@ export class PasswordComponent implements OnInit {
             ])
           ]
         ],
-        confirmPassword: new FormControl('', [Validators.required])
+        confirmPassword: new UntypedFormControl('', [Validators.required])
       },
       {
         // check whether our password and confirm password match

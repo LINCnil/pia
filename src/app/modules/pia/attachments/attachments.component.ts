@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Attachment } from 'src/app/models/attachment.model';
 import { Pia } from 'src/app/models/pia.model';
 import { AttachmentsService } from 'src/app/services/attachments.service';
@@ -15,15 +15,15 @@ export class AttachmentsComponent implements OnInit {
   @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
     'local';
   attachments: Array<Attachment> = [];
-  attachmentForm: FormGroup;
+  attachmentForm: UntypedFormGroup;
   dispplayAttachmentButton = false;
   loading = false;
 
   constructor(public _attachmentsService: AttachmentsService) {}
 
   ngOnInit(): void {
-    this.attachmentForm = new FormGroup({
-      attachment_file: new FormControl('', [])
+    this.attachmentForm = new UntypedFormGroup({
+      attachment_file: new UntypedFormControl('', [])
     });
     this._attachmentsService
       .findAllByPia(this.pia.id)

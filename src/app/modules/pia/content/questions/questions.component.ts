@@ -6,7 +6,7 @@ import {
   OnDestroy,
   NgZone
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
@@ -42,7 +42,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   @Input() section: any;
   @Input() pia: any;
   evaluation: Evaluation = new Evaluation();
-  questionForm: FormGroup;
+  questionForm: UntypedFormGroup;
   answer: Answer = new Answer();
   measure: Measure = new Measure();
   lastSelectedTag: string;
@@ -65,10 +65,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
-    this.questionForm = new FormGroup({
-      gauge: new FormControl(0),
-      text: new FormControl(),
-      list: new FormControl()
+    this.questionForm = new UntypedFormGroup({
+      gauge: new UntypedFormControl(0),
+      text: new UntypedFormControl(),
+      list: new UntypedFormControl()
     });
 
     this.loading = true;

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { Comment } from '../../../../models/comment.model';
 
@@ -13,7 +13,7 @@ import { CommentsService } from 'src/app/services/comments.service';
   styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit {
-  commentsForm: FormGroup;
+  commentsForm: UntypedFormGroup;
   comments: any;
   @Input() editMode:
     | 'local'
@@ -59,8 +59,8 @@ export class CommentsComponent implements OnInit {
         this.comments.reverse();
       });
 
-    this.commentsForm = new FormGroup({
-      description: new FormControl()
+    this.commentsForm = new UntypedFormGroup({
+      description: new UntypedFormControl()
     });
   }
 

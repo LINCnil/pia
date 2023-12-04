@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
-  FormGroup,
-  FormBuilder,
-  FormControl,
+  UntypedFormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
   Validators
 } from '@angular/forms';
 
@@ -21,7 +21,7 @@ export class UuidComponent implements OnInit {
   @Output() validated = new EventEmitter<boolean | User>();
 
   loading: boolean = false;
-  uuidActivation: FormGroup;
+  uuidActivation: UntypedFormGroup;
   uuidRegex = new RegExp(
     /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
   );
@@ -29,13 +29,13 @@ export class UuidComponent implements OnInit {
   msgFromBack: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     private translateService: TranslateService
   ) {
     // Prepare uuid form
     this.uuidActivation = this.formBuilder.group({
-      uuid: new FormControl('', [
+      uuid: new UntypedFormControl('', [
         Validators.required,
         Validators.pattern(this.uuidRegex)
       ])

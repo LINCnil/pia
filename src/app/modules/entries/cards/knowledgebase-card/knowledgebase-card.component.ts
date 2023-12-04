@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { Structure } from 'src/app/models/structure.model';
@@ -15,7 +15,7 @@ import piakb from 'src/assets/files/pia_knowledge-base.json';
   styleUrls: ['./knowledgebase-card.component.scss']
 })
 export class KnowledgebaseCardComponent implements OnInit {
-  knowledgeBaseForm: FormGroup;
+  knowledgeBaseForm: UntypedFormGroup;
   public nbEntries = 0;
   @Input() base: KnowledgeBase;
   @Output() changed = new EventEmitter<Structure>();
@@ -30,20 +30,20 @@ export class KnowledgebaseCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.knowledgeBaseForm = new FormGroup({
-      id: new FormControl(
+    this.knowledgeBaseForm = new UntypedFormGroup({
+      id: new UntypedFormControl(
         { value: this.base.id, disabled: this.base.is_example },
         null
       ),
-      name: new FormControl(
+      name: new UntypedFormControl(
         { value: this.base.name, disabled: this.base.is_example },
         null
       ),
-      author: new FormControl(
+      author: new UntypedFormControl(
         { value: this.base.author, disabled: this.base.is_example },
         null
       ),
-      contributors: new FormControl(
+      contributors: new UntypedFormControl(
         { value: this.base.contributors, disabled: this.base.is_example },
         null
       )

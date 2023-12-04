@@ -8,7 +8,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { Answer } from 'src/app/models/answer.model';
@@ -40,7 +40,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   elementId: string;
   evaluation: Evaluation = new Evaluation();
   displayDeleteButton = true;
-  measureForm: FormGroup;
+  measureForm: UntypedFormGroup;
   measureModel: Measure = new Measure();
   editTitle = true;
   loading = false;
@@ -58,9 +58,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.measureForm = new FormGroup({
-      measureTitle: new FormControl(),
-      measureContent: new FormControl()
+    this.measureForm = new UntypedFormGroup({
+      measureTitle: new UntypedFormControl(),
+      measureContent: new UntypedFormControl()
     });
     this.measureModel.pia_id = this.pia.id;
     this.loading = true;

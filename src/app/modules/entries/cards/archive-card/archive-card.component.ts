@@ -4,7 +4,7 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class ArchiveCardComponent implements OnInit {
   @Input() previousArchivedPia: any;
   @Output() deleted = new EventEmitter<any>();
   attachments: any;
-  piaForm: FormGroup;
+  piaForm: UntypedFormGroup;
 
   constructor(
     public languagesService: LanguagesService,
@@ -29,11 +29,11 @@ export class ArchiveCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.piaForm = new FormGroup({
-      author_name: new FormControl(),
-      evaluator_name: new FormControl(),
-      validator_name: new FormControl(),
-      guests: new FormControl()
+    this.piaForm = new UntypedFormGroup({
+      author_name: new UntypedFormControl(),
+      evaluator_name: new UntypedFormControl(),
+      validator_name: new UntypedFormControl(),
+      guests: new UntypedFormControl()
     });
 
     this.piaForm.controls.author_name.setValue([

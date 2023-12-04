@@ -8,7 +8,11 @@ import {
   OnInit,
   OnChanges
 } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Pia } from 'src/app/models/pia.model';
 import { LanguagesService } from 'src/app/services/languages.service';
@@ -41,7 +45,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   @Output() newUserNeeded = new EventEmitter<any>();
   @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
 
-  piaForm: FormGroup;
+  piaForm: UntypedFormGroup;
   attachments: any;
   userList: Array<TagModel> = [];
   addBtnForSpecificInput: {
@@ -75,7 +79,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.authService.currentUser.subscribe({
       complete: () => {
-        this.piaForm = new FormGroup(this.normalizeForm());
+        this.piaForm = new UntypedFormGroup(this.normalizeForm());
         // lock tags with users
         if (this.authService.state) {
           this.setUserPiasAsFields(this.pia.user_pias);
@@ -121,9 +125,12 @@ export class PiaCardComponent implements OnInit, OnChanges {
 
   normalizeForm(): any {
     const formFields = {
-      id: new FormControl(this.pia.id),
-      name: new FormControl({ value: this.pia.name, disabled: false }),
-      category: new FormControl({ value: this.pia.category, disabled: false })
+      id: new UntypedFormControl(this.pia.id),
+      name: new UntypedFormControl({ value: this.pia.name, disabled: false }),
+      category: new UntypedFormControl({
+        value: this.pia.category,
+        disabled: false
+      })
     };
     if (this.authService.state) {
       [
@@ -132,14 +139,14 @@ export class PiaCardComponent implements OnInit, OnChanges {
         { field: 'validators', required: true },
         { field: 'guests', required: false }
       ].forEach(ob => {
-        formFields[ob.field] = new FormControl(
+        formFields[ob.field] = new UntypedFormControl(
           [],
           ob.required ? [Validators.required, Validators.minLength(1)] : []
         );
       });
     } else {
       ['author_name', 'evaluator_name', 'validator_name'].forEach(field => {
-        formFields[field] = new FormControl(
+        formFields[field] = new UntypedFormControl(
           this.pia[field],
           Validators.required
         );

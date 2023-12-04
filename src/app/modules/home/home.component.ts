@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -18,15 +18,15 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  signUp: FormGroup;
-  logIn: FormGroup;
+  signUp: UntypedFormGroup;
+  logIn: UntypedFormGroup;
   fromValidation: boolean = false;
   stepForm = 'logIn';
   public accountData = null;
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private renderer: Renderer2,
     public translateService: TranslateService,
     public languagesService: LanguagesService,
@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             ])
           ]
         ],
-        confirmPassword: new FormControl('', [Validators.required])
+        confirmPassword: new UntypedFormControl('', [Validators.required])
       },
       {
         // check whether our password and confirm password match

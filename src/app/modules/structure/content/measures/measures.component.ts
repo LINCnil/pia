@@ -7,7 +7,7 @@ import {
   OnDestroy,
   NgZone
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { StructureService } from 'src/app/services/structure.service';
@@ -31,7 +31,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   editor: any;
   elementId: string;
   displayDeleteButton = true;
-  measureForm: FormGroup;
+  measureForm: UntypedFormGroup;
   editTitle = true;
 
   constructor(
@@ -46,9 +46,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.measureForm = new FormGroup({
-      measureTitle: new FormControl(),
-      measureContent: new FormControl()
+    this.measureForm = new UntypedFormGroup({
+      measureTitle: new UntypedFormControl(),
+      measureContent: new UntypedFormControl()
     });
 
     if (this.measure.title && this.measure.title.length > 0) {

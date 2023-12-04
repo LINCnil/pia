@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { PiaService } from 'src/app/services/pia.service';
@@ -15,9 +15,9 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   @Input() editMode:
     | 'local'
     | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
-  DPOForm: FormGroup;
-  searchedOpinionsForm: FormGroup;
-  peopleForm: FormGroup;
+  DPOForm: UntypedFormGroup;
+  searchedOpinionsForm: UntypedFormGroup;
+  peopleForm: UntypedFormGroup;
   displayPeopleOpinions = false;
   displayPeopleSearchContent = false;
   @ViewChild('DpoNames', { static: false }) private elementRef1: ElementRef;
@@ -30,10 +30,10 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
   ngOnInit(): void {
     // DPO Form init
-    this.DPOForm = new FormGroup({
-      DPOStatus: new FormControl(this.pia.dpo_status),
-      DPOOpinion: new FormControl(this.pia.dpo_opinion),
-      DPONames: new FormControl(this.pia.dpos_names)
+    this.DPOForm = new UntypedFormGroup({
+      DPOStatus: new UntypedFormControl(this.pia.dpo_status),
+      DPOOpinion: new UntypedFormControl(this.pia.dpo_opinion),
+      DPONames: new UntypedFormControl(this.pia.dpos_names)
     });
 
     if (!this.pia.dpos_names) {
@@ -42,9 +42,13 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
 
     // Searched opinions form  init
-    this.searchedOpinionsForm = new FormGroup({
-      searchStatus: new FormControl(this.pia.concerned_people_searched_opinion),
-      searchContent: new FormControl(this.pia.concerned_people_searched_content)
+    this.searchedOpinionsForm = new UntypedFormGroup({
+      searchStatus: new UntypedFormControl(
+        this.pia.concerned_people_searched_opinion
+      ),
+      searchContent: new UntypedFormControl(
+        this.pia.concerned_people_searched_content
+      )
     });
 
     if (this.pia.concerned_people_searched_opinion !== undefined) {
@@ -54,10 +58,10 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
 
     // peopleForm form  init
-    this.peopleForm = new FormGroup({
-      peopleStatus: new FormControl(this.pia.concerned_people_status),
-      peopleOpinion: new FormControl(this.pia.concerned_people_opinion),
-      peopleNames: new FormControl(this.pia.people_names)
+    this.peopleForm = new UntypedFormGroup({
+      peopleStatus: new UntypedFormControl(this.pia.concerned_people_status),
+      peopleOpinion: new UntypedFormControl(this.pia.concerned_people_opinion),
+      peopleNames: new UntypedFormControl(this.pia.people_names)
     });
 
     if (!this.pia.people_names) {
