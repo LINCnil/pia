@@ -4,7 +4,7 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node16.18.0-chrome90-ff88
+      image: cypress/browsers:latest
       options: --user 1001
     steps:
       - name: Checkout
