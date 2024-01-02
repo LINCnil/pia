@@ -23,7 +23,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private authService: AuthService
+    public authService: AuthService
   ) {
     // Prepare login form
     this.logIn = this.formBuilder.group({
