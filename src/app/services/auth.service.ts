@@ -176,11 +176,11 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
   }
 
-  async checkUuid(uuid: string): Promise<User> {
+  async checkUuid(uuid: string, reset = false): Promise<User> {
     return new Promise((resolve, reject) => {
       if (this.apiService && this.apiService.base) {
         this.apiService
-          .get('/users/unlock_access/' + uuid)
+          .get(`/users/unlock_access/${uuid}/${reset ? 'reset' : ''}`)
           .then((result: User) => {
             resolve(result);
           })
