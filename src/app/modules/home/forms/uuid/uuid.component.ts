@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/auth.service';
-import { TranslateService } from '@ngx-translate/core';
 import { User } from 'src/app/models/user.model';
 
 @Component({
@@ -30,8 +29,7 @@ export class UuidComponent implements OnInit {
 
   constructor(
     private formBuilder: UntypedFormBuilder,
-    private authService: AuthService,
-    private translateService: TranslateService
+    private authService: AuthService
   ) {
     // Prepare uuid form
     this.uuidActivation = this.formBuilder.group({
@@ -55,7 +53,7 @@ export class UuidComponent implements OnInit {
   ngOnSubmit() {
     this.loading = true;
     this.authService
-      .checkUuid(this.uuidActivation.controls.uuid.value)
+      .checkUuid(this.uuidActivation.controls.uuid.value, this.reset)
       .then((response: User) => {
         this.loading = false;
         const user: User = {
