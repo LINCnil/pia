@@ -19,6 +19,7 @@
       "@atnos/pia-i18n/*": ["projects/pia-i18n/*", "projects/pia-i18n"],
       "@atnos/pia-i18n": ["dist/pia-i18n/*", "dist/pia-i18n"]
     },
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "allowSyntheticDefaultImports": true
   }
 }
