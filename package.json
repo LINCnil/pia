@@ -92,7 +92,7 @@
     "codelyzer": "^6.0.2",
     "commitlint": "^11.0.0",
     "cypress": "^13.2.0",
-    "electron": "^21.1.0",
+    "electron": "^28.2.1",
     "electron-builder": "^23.6.0",
     "husky": "^4.0.10",
     "jasmine-core": "~3.6.0",
