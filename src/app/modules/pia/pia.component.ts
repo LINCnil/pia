@@ -76,28 +76,33 @@ export class PiaComponent implements OnInit, DoCheck {
     this.appDataService.entrieMode = 'pia';
     const sectionId = parseInt(this.route.snapshot.params.section_id, 10);
     const itemId = parseInt(this.route.snapshot.params.item_id, 10);
-    if (this.route.snapshot.params.id == 'example') {
-      this.piaService
-        .getPiaExample()
-        .then(async (pia: Pia) => {
-          this.pia = pia;
-          await this.setupPage(sectionId, itemId);
-          this.router.navigate(['pia', pia.id, 'section', 1, 'item', 1]);
-        })
-        .catch(err => {
-          console.error(err);
-        });
-    } else {
-      this.piaService
-        .find(parseInt(this.route.snapshot.params.id))
-        .then(async (pia: Pia) => {
-          this.pia = pia;
-          await this.setupPage(sectionId, itemId);
-        })
-        .catch(err => {
-          console.error(err);
-        });
-    }
+
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        if (this.route.snapshot.params.id == 'example') {
+          this.piaService
+            .getPiaExample()
+            .then((pia: Pia) => {
+              this.pia = pia;
+              this.setupPage(sectionId, itemId);
+              this.router.navigate(['pia', pia.id, 'section', 1, 'item', 1]);
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        } else {
+          this.piaService
+            .find(parseInt(this.route.snapshot.params.id))
+            .then((pia: Pia) => {
+              this.pia = pia;
+              this.setupPage(sectionId, itemId);
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        }
+      }
+    });
   }
 
   // tslint:disable-next-line:use-lifecycle-interface typedef
@@ -158,6 +163,7 @@ export class PiaComponent implements OnInit, DoCheck {
     }
   }
 
+  // tslint:disable-next-line:typedef
   async setupPage(sectionId, itemId) {
     if (!sectionId || !itemId) {
       this.router.navigate(['pia', this.pia.id, 'section', 1, 'item', 1]);

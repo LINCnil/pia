@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import _ from 'cypress/types/lodash';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { CustomValidators } from 'src/app/shared/validators/custom-validators';
 import { AuthService } from 'src/app/services/auth.service';

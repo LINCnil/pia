@@ -21,7 +21,11 @@ export class UsersComponent implements OnInit {
     private dialogService: DialogService,
     public usersService: UsersService
   ) {
-    this.loadUsers();
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        this.loadUsers();
+      }
+    });
   }
 
   ngOnInit(): void {}

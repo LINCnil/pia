@@ -50,10 +50,14 @@ export class PiaService extends ApplicationDb {
 
     this.data = this.appDataService.dataNav;
 
-    // there isn't pia ? load it
-    this.getPiaExample().then(async examples => {
-      if (!examples) {
-        await this.importData(piaExample, 'EXAMPLE', false, true);
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        // there isn't pia ? load it
+        this.getPiaExample().then(async examples => {
+          if (!examples) {
+            await this.importData(piaExample, 'EXAMPLE', false, true);
+          }
+        });
       }
     });
   }
