@@ -710,6 +710,8 @@ export class ExportComponent implements OnInit {
         const htmlRegexStrong2 = /<\/strong>/g;
         string = string.replace(htmlRegexStrong, ' **');
         string = string.replace(htmlRegexStrong2, '**');
+        const htmlRegexAnd = /&amp;/g;
+        string = string.replace(htmlRegexAnd, '&');
         const htmlRegexLi = /<li>/g;
         string = string.replace(htmlRegexLi, '- ');
         const htmlRegexBr = /<br \/>/g;
