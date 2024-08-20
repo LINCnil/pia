@@ -499,6 +499,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       tinymce.init({
         branding: false,
         menubar: false,
+        entity_encoding: 'raw',
         statusbar: false,
         plugins: 'autoresize lists',
         forced_root_block: false,
@@ -515,7 +516,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           });
           editor.on('focusout', () => {
             // Save content
-            this.questionForm.controls['text'].patchValue(editor.getContent());
+            this.questionForm.controls['text'].patchValue(
+              editor.getContent({ format: 'text' })
+            );
             this.questionContentFocusOut().then(() => {
               this.editor = null;
               tinymce.remove(this.editor); // Warning: take more time then a new initiation

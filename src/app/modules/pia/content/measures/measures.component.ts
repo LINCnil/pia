@@ -352,6 +352,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       tinymce.init({
         branding: false,
         menubar: false,
+        entity_encoding: 'raw',
         statusbar: false,
         plugins: 'autoresize lists',
         forced_root_block: false,
@@ -366,7 +367,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           this.editor = editor;
           editor.on('focusout', async () => {
             this.measureForm.controls['measureContent'].patchValue(
-              editor.getContent()
+              editor.getContent({ format: 'text' })
             );
             await this.measureContentFocusOut();
             tinymce.remove(this.editor);
