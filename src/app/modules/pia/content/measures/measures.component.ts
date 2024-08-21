@@ -367,7 +367,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           this.editor = editor;
           editor.on('focusout', async () => {
             this.measureForm.controls['measureContent'].patchValue(
-              editor.getContent({ format: 'text' })
+              editor.getContent()
             );
             await this.measureContentFocusOut();
             tinymce.remove(this.editor);

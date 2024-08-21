@@ -516,9 +516,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           });
           editor.on('focusout', () => {
             // Save content
-            this.questionForm.controls['text'].patchValue(
-              editor.getContent({ format: 'text' })
-            );
+            this.questionForm.controls['text'].patchValue(editor.getContent());
             this.questionContentFocusOut().then(() => {
               this.editor = null;
               tinymce.remove(this.editor); // Warning: take more time then a new initiation
