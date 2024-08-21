@@ -352,6 +352,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       tinymce.init({
         branding: false,
         menubar: false,
+        entity_encoding: 'raw',
         statusbar: false,
         plugins: 'autoresize lists',
         forced_root_block: false,
