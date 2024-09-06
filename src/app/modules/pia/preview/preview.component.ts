@@ -6,6 +6,7 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -43,6 +44,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
   public download = false;
 
   constructor(
+    private route: ActivatedRoute,
     public authService: AuthService,
     public actionPlanService: ActionPlanService,
     private translateService: TranslateService,
@@ -59,22 +61,29 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     this.content = [];
     this.dataNav = this.appDataService.dataNav;
 
-    this.showPia();
+    this.piaService
+      .find(parseInt(this.route.snapshot.params.id))
+      .then(async (pia: Pia) => {
+        this.pia = pia;
+        this.actionPlanService.data = this.dataNav;
+        this.actionPlanService.pia = this.pia;
+        this.showPia();
 
-    if (this.pia.is_archive === 1) {
-      this.fromArchives = true;
-    }
+        if (this.pia.is_archive === 1) {
+          this.fromArchives = true;
+        }
 
-    // Load PIA's revisions
-    const revision = new Revision();
-    this.revisionService.findAllByPia(this.pia.id).then(resp => {
-      this.revisions = resp;
-    });
+        // Load PIA's revisions
+        const revision = new Revision();
+        this.revisionService.findAllByPia(this.pia.id).then(resp => {
+          this.revisions = resp;
+        });
 
-    if (this.pia.structure_data) {
-      this.appDataService.dataNav = this.pia.structure_data;
-    }
-    this.data = this.appDataService.dataNav;
+        if (this.pia.structure_data) {
+          this.appDataService.dataNav = this.pia.structure_data;
+        }
+        this.data = this.appDataService.dataNav;
+      });
   }
 
   ngAfterViewChecked(): void {
@@ -121,8 +130,6 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
    */
   async showPia(): Promise<void> {
     this.prepareDpoData();
-    this.actionPlanService.data = this.dataNav;
-    this.actionPlanService.pia = this.pia;
     this.actionPlanService.listActionPlan();
     this.getJsonInfo();
   }
