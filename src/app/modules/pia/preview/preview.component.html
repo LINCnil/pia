@@ -1192,14 +1192,17 @@
                 <div *ngFor="let section of data.sections">
                   <div
                     class="section-preview section-{{ section.id }}"
-                    *ngIf="section.id !== 4"
+                    *ngIf="section.id !== 4 && allData[section.id]"
                   >
                     <div
                       *ngFor="let item of section.items"
                       class="pagebreak-before"
                     >
                       <div
-                        *ngIf="item.evaluation_mode !== ''"
+                        *ngIf="
+                          item.evaluation_mode !== '' &&
+                          allData[section.id][item.id]
+                        "
                         style="padding-top: 10px;"
                       >
                         <div
