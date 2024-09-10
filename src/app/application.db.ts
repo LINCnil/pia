@@ -28,6 +28,7 @@ export class ApplicationDb {
     if (window.location.hash && window.location.hash.split('/')[2]) {
       switch (window.location.hash.split('/')[1]) {
         case 'pia':
+        case 'preview':
           this.pia_id = parseInt(window.location.hash.split('/')[2], 10);
           break;
         case 'structures':
@@ -480,6 +481,7 @@ export class ApplicationDb {
           if (evt.url && evt.url.split('/')[2]) {
             switch (evt.url.split('/')[1]) {
               case 'pia':
+              case 'preview':
                 this.pia_id = parseInt(evt.url.split('/')[2], 10);
                 break;
               case 'structures':

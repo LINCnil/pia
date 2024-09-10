@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  AfterViewChecked,
-  Input,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, AfterViewChecked, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
@@ -14,7 +7,6 @@ import { RevisionService } from 'src/app/services/revision.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
-import { Revision } from 'src/app/models/revision.model';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { Pia } from 'src/app/models/pia.model';
@@ -74,7 +66,6 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
         }
 
         // Load PIA's revisions
-        const revision = new Revision();
         this.revisionService.findAllByPia(this.pia.id).then(resp => {
           this.revisions = resp;
         });
@@ -239,23 +230,24 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
    */
   private async getJsonInfo(): Promise<void> {
     this.allData = {};
-    this.piaService.data.sections.forEach(async section => {
+    for await (const section of this.piaService.data.sections) {
       this.allData[section.id] = {};
-      section.items.forEach(async item => {
+      for await (const item of section.items) {
         this.allData[section.id][item.id] = {};
         const ref = section.id.toString() + '.' + item.id.toString();
 
         // Measure
         if (item.is_measure) {
           this.allData[section.id][item.id] = [];
-          this.measureService.pia_id = this.pia.id;
           const entries: any = await this.measureService.findAllByPia(
             this.pia.id
           );
-          entries.forEach(async measure => {
+
+          for await (const measure of entries) {
             /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
               let evaluation = null;
+
               if (item.evaluation_mode === 'question') {
                 evaluation = await this.getEvaluation(
                   section.id,
@@ -263,20 +255,21 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
                   ref + '.' + measure.id
                 );
               }
+
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
                 evaluation
               });
             }
-          });
+          }
         } else if (item.questions) {
           // Question
-          item.questions.forEach(async question => {
+          for await (const question of item.questions) {
             this.allData[section.id][item.id][question.id] = {};
-            this.answerService
+            await this.answerService
               .getByReferenceAndPia(this.pia.id, question.id)
-              .then((answer: Answer) => {
+              .then(async (answer: Answer) => {
                 /* An answer exists */
                 if (answer && answer.data) {
                   const content = [];
@@ -295,7 +288,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
                   }
                   if (content.length > 0) {
                     if (item.evaluation_mode === 'question') {
-                      this.getEvaluation(
+                      await this.getEvaluation(
                         section.id,
                         item.id,
                         ref + '.' + question.id
@@ -311,14 +304,14 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
                   }
                 }
               });
-          });
+          }
         }
         if (item.evaluation_mode === 'item') {
           const evaluation = await this.getEvaluation(section.id, item.id, ref);
           this.allData[section.id][item.id]['evaluation_item'] = evaluation;
         }
-      });
-    });
+      }
+    }
   }
 
   /**

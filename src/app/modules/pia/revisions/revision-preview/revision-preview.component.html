@@ -106,10 +106,15 @@
               <div *ngFor="let section of this.data.sections">
                 <div
                   class="fadeIn section-{{ section.id }} pagebreak"
-                  *ngIf="section.id !== 4"
+                  *ngIf="section.id !== 4 && allData[section.id]"
                 >
                   <div *ngFor="let item of section.items">
-                    <div *ngIf="item.evaluation_mode !== ''">
+                    <div
+                      *ngIf="
+                        item.evaluation_mode !== '' &&
+                        allData[section.id][item.id]
+                      "
+                    >
                       <div
                         [className]="
                           'pia-fullPreviewBlock-headline headline' + section.id
@@ -207,127 +212,135 @@
                         <!-- Questions -->
                         <div *ngIf="item.questions">
                           <div *ngFor="let question of item.questions">
-                            <h3 [innerHTML]="question.title | translate"></h3>
-                            <div
-                              *ngIf="
-                                allData[section.id][item.id][question.id]
-                                  .content &&
-                                allData[section.id][item.id][question.id]
-                                  .content.length > 0
-                              "
-                              [innerHTML]="
-                                allData[section.id][item.id][question.id]
-                                  .content
-                                  | translate
-                                  | safeHtml
-                              "
-                            ></div>
-                            <div
-                              class="evaluationbox"
-                              *ngIf="
-                                allData[section.id][item.id][question.id]
-                                  .evaluation
-                              "
+                            <ng-container
+                              *ngIf="allData[section.id][item.id][question.id]"
                             >
-                              <br />
-                              <p>
-                                <strong class="evaluationValue"
-                                  >{{ "evaluations.title" | translate }} :
-                                  {{
-                                    allData[section.id][item.id][question.id]
-                                      .evaluation.title | translate
-                                  }}</strong
-                                >
+                              <h3 [innerHTML]="question.title | translate"></h3>
+                              <div
+                                *ngIf="
+                                  allData[section.id][item.id][question.id]
+                                    .content &&
+                                  allData[section.id][item.id][question.id]
+                                    .content.length > 0
+                                "
+                                [innerHTML]="
+                                  allData[section.id][item.id][question.id]
+                                    .content
+                                    | translate
+                                    | safeHtml
+                                "
+                              ></div>
+                              <div
+                                class="evaluationbox"
+                                *ngIf="
+                                  allData[section.id][item.id][question.id]
+                                    .evaluation
+                                "
+                              >
                                 <br />
-                                <span
-                                  *ngIf="
-                                    allData[section.id][item.id][question.id]
-                                      .evaluation.action_plan_comment
-                                  "
-                                >
-                                  <strong
-                                    >{{
-                                      "evaluations.action_plan_comment"
-                                        | translate
-                                    }}
-                                    :<br /></strong
-                                  ><span
-                                    [innerHTML]="
+                                <p>
+                                  <strong class="evaluationValue"
+                                    >{{ "evaluations.title" | translate }} :
+                                    {{
+                                      allData[section.id][item.id][question.id]
+                                        .evaluation.title | translate
+                                    }}</strong
+                                  >
+                                  <br />
+                                  <span
+                                    *ngIf="
                                       allData[section.id][item.id][question.id]
                                         .evaluation.action_plan_comment
-                                        | safeHtml
                                     "
-                                  ></span>
-                                  <br />
-                                </span>
-                                <span
-                                  *ngIf="
-                                    allData[section.id][item.id][question.id]
-                                      .evaluation.evaluation_comment
-                                  "
-                                >
-                                  <strong
-                                    >{{
-                                      "evaluations.evaluation_comment"
-                                        | translate
-                                    }}
-                                    :<br /></strong
-                                  ><span
-                                    [innerHTML]="
+                                  >
+                                    <strong
+                                      >{{
+                                        "evaluations.action_plan_comment"
+                                          | translate
+                                      }}
+                                      :<br /></strong
+                                    ><span
+                                      [innerHTML]="
+                                        allData[section.id][item.id][
+                                          question.id
+                                        ].evaluation.action_plan_comment
+                                          | safeHtml
+                                      "
+                                    ></span>
+                                    <br />
+                                  </span>
+                                  <span
+                                    *ngIf="
                                       allData[section.id][item.id][question.id]
                                         .evaluation.evaluation_comment
-                                        | safeHtml
                                     "
-                                  ></span>
-                                  <br />
-                                </span>
+                                  >
+                                    <strong
+                                      >{{
+                                        "evaluations.evaluation_comment"
+                                          | translate
+                                      }}
+                                      :<br /></strong
+                                    ><span
+                                      [innerHTML]="
+                                        allData[section.id][item.id][
+                                          question.id
+                                        ].evaluation.evaluation_comment
+                                          | safeHtml
+                                      "
+                                    ></span>
+                                    <br />
+                                  </span>
 
-                                <!-- Gauges' values -->
-                                <span
-                                  *ngIf="
-                                    allData[section.id][item.id][question.id]
-                                      .evaluation.gauges &&
-                                    allData[section.id][item.id][question.id]
-                                      .evaluation.gauges.seriousness > 0
-                                  "
-                                >
+                                  <!-- Gauges' values -->
                                   <span
-                                    [innerHTML]="
-                                      'evaluations.gauges.seriousness'
-                                        | translate
-                                    "
-                                  ></span>
-                                  {{
-                                    "evaluations.gauges." +
+                                    *ngIf="
                                       allData[section.id][item.id][question.id]
-                                        .evaluation.gauges.seriousness
-                                      | translate
-                                  }}
-                                  <br />
-                                </span>
-                                <span
-                                  *ngIf="
-                                    allData[section.id][item.id][question.id]
-                                      .evaluation.gauges &&
-                                    allData[section.id][item.id][question.id]
-                                      .evaluation.gauges.likelihood > 0
-                                  "
-                                >
+                                        .evaluation.gauges &&
+                                      allData[section.id][item.id][question.id]
+                                        .evaluation.gauges.seriousness > 0
+                                    "
+                                  >
+                                    <span
+                                      [innerHTML]="
+                                        'evaluations.gauges.seriousness'
+                                          | translate
+                                      "
+                                    ></span>
+                                    {{
+                                      "evaluations.gauges." +
+                                        allData[section.id][item.id][
+                                          question.id
+                                        ].evaluation.gauges.seriousness
+                                        | translate
+                                    }}
+                                    <br />
+                                  </span>
                                   <span
-                                    [innerHTML]="
-                                      'evaluations.gauges.likelihood'
-                                        | translate
-                                    "
-                                  ></span>
-                                  {{
-                                    "evaluations.gauges." +
+                                    *ngIf="
                                       allData[section.id][item.id][question.id]
-                                        .evaluation.gauges.likelihood
-                                      | translate
-                                  }}
-                                </span>
-                              </p>
-                            </div>
+                                        .evaluation.gauges &&
+                                      allData[section.id][item.id][question.id]
+                                        .evaluation.gauges.likelihood > 0
+                                    "
+                                  >
+                                    <span
+                                      [innerHTML]="
+                                        'evaluations.gauges.likelihood'
+                                          | translate
+                                      "
+                                    ></span>
+                                    {{
+                                      "evaluations.gauges." +
+                                        allData[section.id][item.id][
+                                          question.id
+                                        ].evaluation.gauges.likelihood
+                                        | translate
+                                    }}
+                                  </span>
+                                </p>
+                              </div>
+                            </ng-container>
                           </div>
                         </div>
 
