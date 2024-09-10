@@ -77,9 +77,9 @@ export class RevisionPreviewComponent implements OnInit {
 
   private async getJsonInfo(): Promise<any> {
     this.allData = {};
-    this.data.sections.forEach(async section => {
+    for await (const section of this.data.sections) {
       this.allData[section.id] = {};
-      section.items.forEach(async item => {
+      for await (const item of section.items) {
         this.allData[section.id][item.id] = {};
         const ref = section.id.toString() + '.' + item.id.toString();
 
@@ -88,7 +88,7 @@ export class RevisionPreviewComponent implements OnInit {
           this.allData[section.id][item.id] = [];
 
           const entries: any = this.export.measures;
-          entries.forEach(async measure => {
+          for await (const measure of entries) {
             /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
               let evaluation = null;
@@ -105,21 +105,20 @@ export class RevisionPreviewComponent implements OnInit {
                 evaluation
               });
             }
-          });
+          }
         } else if (item.questions) {
           // Question
-          item.questions.forEach(async question => {
+          for await (const question of item.questions) {
             this.allData[section.id][item.id][question.id] = {};
 
             // Find answer
             const answerModel = new Answer();
             const answer = this.export.answers.find(
-              a => a.reference_to === question.id
+              a => a.reference_to == question.id
             );
+
             if (answer) {
-              answerModel.data = this.export.answers.find(
-                a => a.reference_to === question.id
-              ).data;
+              answerModel.data = answer.data;
 
               /* An answer exists */
               if (answerModel.data) {
@@ -154,14 +153,14 @@ export class RevisionPreviewComponent implements OnInit {
                 }
               }
             }
-          });
+          }
         }
         if (item.evaluation_mode === 'item') {
           const evaluation = await this.getEvaluation(section.id, item.id, ref);
           this.allData[section.id][item.id]['evaluation_item'] = evaluation;
         }
-      });
-    });
+      }
+    }
   }
 
   private async getEvaluation(
