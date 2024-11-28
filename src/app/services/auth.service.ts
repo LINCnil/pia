@@ -10,60 +10,80 @@ export class AuthService {
     null
   );
   public currentUser: Observable<User>;
-  public state: boolean;
+  public state = false;
+  public ssoEnabled = false;
 
   constructor(private apiService: ApiService, private router: Router) {
+    if (window.location.href.split('sso_token=')[1]) {
+      const ssoToken = window.location.href.split('sso_token=')[1];
+      localStorage.setItem(
+        'currentUser',
+        JSON.stringify({ access_token: 'Bearer ' + ssoToken })
+      );
+      localStorage.setItem('has_logged_by_sso', 'true');
+    }
+
     this.currentUserSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem('currentUser'))
     );
-
     this.currentUser = this.currentUserSubject.asObservable();
 
-    // 1 - Get already saved user's informations
-    const currentUserInfo: User = JSON.parse(
-      localStorage.getItem('currentUser')
-    );
-    let token = currentUserInfo ? currentUserInfo.access_token : '';
-    this.apiService.defaultConfig.headers.set('Authorization', token);
-
-    // 2 - check if auth exist and if token validity
+    // - O => Test / info ->
     this.apiService
-      .get('/oauth/token/info')
-      .then(() => {
-        this.state = true;
-        // 3 - Re introspect user, update user data
-        this.introspect(
-          localStorage.getItem('client_id'),
-          localStorage.getItem('client_secret'),
-          currentUserInfo.access_token.replace('Bearer ', '')
-        )
-          .then((userIntrospectedData: User) => {
-            // Construct user
-            const user: User = { ...userIntrospectedData };
-            user.access_token = currentUserInfo.access_token;
-            localStorage.setItem('currentUser', JSON.stringify(user));
-
-            this.currentUserSubject.next(user);
-            this.currentUserSubject.complete();
-          })
-          .catch(() => {
-            this.logout();
-          });
+      .post('/info', {
+        uuid: localStorage.getItem('client_id'),
+        secret: localStorage.getItem('client_secret')
       })
+      .then(
+        (response: { valid: boolean; auth: boolean; sso_enabled: boolean }) => {
+          this.ssoEnabled = response.sso_enabled;
+          this.state = response.auth; // true = Auth | false = no Auth
+
+          if (this.state) {
+            // 1 - Get already saved user's informations
+            const currentUserInfo: User = JSON.parse(
+              localStorage.getItem('currentUser')
+            );
+
+            const token = currentUserInfo ? currentUserInfo.access_token : '';
+            this.apiService.defaultConfig.headers.set('Authorization', token);
+
+            // 2 - check if auth exist and if token validity
+            this.apiService
+              .get('/oauth/token/info')
+              .then(() => {
+                // 3 - Re introspect user, update user data
+                this.introspect(
+                  localStorage.getItem('client_id'),
+                  localStorage.getItem('client_secret'),
+                  currentUserInfo.access_token.replace('Bearer ', '')
+                )
+                  .then((userIntrospectedData: User) => {
+                    // Construct user
+                    const user: User = { ...userIntrospectedData };
+                    user.access_token = currentUserInfo.access_token;
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    this.currentUserSubject.next(user);
+                    this.currentUserSubject.complete();
+                  })
+                  .catch(() => {
+                    this.logout();
+                  });
+              })
+              .catch(err => {
+                // BACK TO HOME
+                this.clearCurrentUser();
+                this.router.navigate(['/']);
+              });
+          } else {
+            this.clearCurrentUser();
+            this.router.navigate(['/']);
+          }
+        }
+      )
       .catch(err => {
-        // BACK TO HOME
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
-        this.currentUserSubject.complete();
-        // 404 -> no authentication
-        if (err.status == 404) {
-          this.state = false; // Pas d'auth
-        }
-        // 401 -> Authentication raté
-        if (err.status == 401) {
-          this.router.navigate(['/']);
-          this.state = true; // Auth present
-        }
+        this.clearCurrentUser();
+        this.router.navigate(['/']);
       });
   }
 
@@ -72,6 +92,13 @@ export class AuthService {
    */
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
+  }
+
+  clearCurrentUser() {
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('has_logged_by_sso');
+    this.currentUserSubject.next(null);
+    this.currentUserSubject.complete();
   }
 
   /**
@@ -121,16 +148,16 @@ export class AuthService {
                 resolve(response);
               })
               .catch(err => {
-                this.logout();
+                this.clearCurrentUser();
                 reject(err);
               });
           } else {
-            this.logout();
+            this.clearCurrentUser();
             reject('No token');
           }
         })
         .catch((err: Error) => {
-          this.logout();
+          this.clearCurrentUser();
           reject(err);
         });
     });
@@ -161,9 +188,12 @@ export class AuthService {
    *
    */
   logout() {
-    // remove user from local storage and set current user to null
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+    let has_logged_by_sso = localStorage.getItem('has_logged_by_sso');
+    this.clearCurrentUser();
+
+    if (has_logged_by_sso) {
+      window.location.href = this.apiService.base + '/saml/logout/';
+    }
   }
 
   updateAuth(newData) {
@@ -230,5 +260,9 @@ export class AuthService {
           reject(err);
         });
     });
+  }
+
+  loginSSO() {
+    window.location.href = this.apiService.base + '/saml/sso';
   }
 }

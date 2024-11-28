@@ -61,5 +61,12 @@
         </ng-template>
       </button>
     </div>
+    <div *ngIf="authService.ssoEnabled">
+      <br />
+      <hr />
+      <a href="#" (click)="loginSSO()">{{
+        "authentication.sso" | translate
+      }}</a>
+    </div>
   </fieldset>
 </form>
