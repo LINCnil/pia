@@ -28,6 +28,7 @@ describe("Client-Server", () => {
       cy.get("#client_id").type(Cypress.env("ID"));
       cy.get("#client_secret").type(Cypress.env("SECRET"));
       cy.get(".btn-green").click();
+      cy.wait(500);
       cy.get(".pia-modalBlock-buttons-choice button[type=button]").click();
       cy.url().should("include", "/");
     });
