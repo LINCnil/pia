@@ -4,37 +4,39 @@ about: Create a report to help us improve
 title: ""
 labels: ""
 assignees: ""
----**Before submitting an issue, please check the official Wiki to ensure your question isn't already addressed: https://github.com/LINCnil/pia/wiki. Additionally, review existing issues from other users to see if a solution has already been provided.**
+---
+
+**Before submitting an issue, please check the official Wiki to ensure your question isn't already addressed: https://github.com/LINCnil/pia/wiki. Additionally, review existing issues from other users to see if a solution has already been provided.**
 
 **Bug description:**
-_A clear and concise description of what the bug is._
+A clear and concise description of what the bug is.
 
 **Steps to reproduce:**
-_Steps to reproduce the behavior:_
+Steps to reproduce the behavior:
 
-1. _[e.g. Go to '...']_
-2. _[e.g. Click on '...']_
-3. _[e.g. Scroll down to '...']_
-4. _[e.g. See error]_
+1. [e.g. Go to '...']
+2. [e.g. Click on '...']
+3. [e.g. Scroll down to '...']
+4. [e.g. See error]
 5. ...
 
 **Expected behavior:**
-_A clear and concise description of what you expected to happen._
+A clear and concise description of what you expected to happen.
 
 **Screenshots:**
-_If applicable, add screenshots to help explain your problem._
+If applicable, add screenshots to help explain your problem.
 
 **For the executable version (desktop):**
 
-- OS: _[e.g. Mac]_:
-- PIA tool version _[e.g. 3.0.1]_:
+- OS: [e.g. Mac]:
+- PIA tool version [e.g. 3.0.1]:
 
 **For the browser version:**
 
-- OS: _[e.g. Windows]_
-- Browser _[e.g. Chrome, Safari]_:
-- Browser version _[e.g. Edge 11]_:
-- Pia tool version _[e.g. 3.0.1]_:
+- OS: [e.g. Windows]
+- Browser [e.g. Chrome, Safari]:
+- Browser version [e.g. Edge 11]:
+- Pia tool version [e.g. 3.0.1]:
 
 **Additional context:**
-_Add any other context about the problem here._
+Add any other context about the problem here.

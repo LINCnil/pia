@@ -4,37 +4,39 @@ about: Créer un rapport pour nous aider à améliorer l'outil
 title: ""
 labels: ""
 assignees: ""
----**Avant de soumettre une demande, veuillez consulter le Wiki officiel pour vous assurer que votre question n'a pas déjà été traitée : https://github.com/LINCnil/pia/wiki. De plus, examinez les demandes existants d'autres utilisateurs pour voir si une solution n'a pas déjà été apportée.**
+---
+
+**Avant de soumettre une demande, veuillez consulter le Wiki officiel pour vous assurer que votre question n'a pas déjà été traitée : https://github.com/LINCnil/pia/wiki. De plus, examinez les demandes existants d'autres utilisateurs pour voir si une solution n'a pas déjà été apportée.**
 
 **Description du bug :**
-_Donner une description claire et succincte du bug._
+Donner une description claire et succincte du bug.
 
 **Pour reproduire :**
-_Etapes pour reproduire le bug :_
+Etapes pour reproduire le bug :
 
-1. _[e.g. Allez sur '...']_
-2. _[e.g. Cliquez sur '...']_
-3. _[e.g. Défilez vers le bas jusque '...']_
-4. _[e.g. Voir erreur]_
+1. [e.g. Allez sur '...']
+2. [e.g. Cliquez sur '...']
+3. [e.g. Défilez vers le bas jusque '...']
+4. [e.g. Voir erreur]
 5. ...
 
 **Comportement attendu :**
-_Donner une description claire et concise du comportement attendu._
+Donner une description claire et concise du comportement attendu.
 
 **Captures d'écran :**
-_Si pertinent, ajouter des captures d'écran pour expliquer le problème rencontré._
+Si pertinent, ajouter des captures d'écran pour expliquer le problème rencontré.
 
 **Pour la version exécutable (de bureau) :**
 
-- Système d'exploitation _[e.g. Mac]_ :
-- Version de l'outil PIA _[e.g. 3.0.1]_ :
+- Système d'exploitation [e.g. Mac] :
+- Version de l'outil PIA [e.g. 3.0.1] :
 
 **Pour la version navigateur :**
 
-- Système d'exploitation _[e.g. Windows]_ :
-- Navigateur _[e.g. Chrome, Safari]_ :
-- Version du navigateur _[e.g. Edge 11]_ :
-- Version de l'outil PIA _[e.g. 3.0.1]_ :
+- Système d'exploitation [e.g. Windows] :
+- Navigateur [e.g. Chrome, Safari] :
+- Version du navigateur [e.g. Edge 11] :
+- Version de l'outil PIA [e.g. 3.0.1] :
 
 **Éléments additionnels :**
-_Ajouter tout autre élément pertinent concernant le problème ici._
+Ajouter tout autre élément pertinent concernant le problème ici.
