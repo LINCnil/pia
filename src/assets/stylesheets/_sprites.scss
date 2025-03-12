@@ -2,8 +2,8 @@
   &-icons {
     display: inline-block;
     vertical-align: middle;
-    background: url("~src/assets/images/sprites.png") no-repeat center center
-      transparent;
+    background: transparent url("src/assets/images/sprites.png") no-repeat
+      center center;
   }
   &-icon {
     &-accordion-up {

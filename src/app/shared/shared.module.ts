@@ -1,6 +1,9 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi
+} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -47,17 +50,6 @@ import { TranslatePipe } from '@ngx-translate/core';
     KnowledgeBaseItemComponent,
     LoadingOverlayComponent
   ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    PdfJsViewerModule,
-    TranslatePipe
-  ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -77,6 +69,16 @@ import { TranslatePipe } from '@ngx-translate/core';
     LoadingOverlayComponent,
     PdfJsViewerModule
   ],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    PdfJsViewerModule,
+    TranslatePipe
+  ],
   providers: [
     AppDataService,
     KnowledgeBaseService,
@@ -91,7 +93,8 @@ import { TranslatePipe } from '@ngx-translate/core';
     DialogService,
     PdfJsViewerModule,
     AuthService,
-    ApiService
+    ApiService,
+    provideHttpClient(withInterceptorsFromDi())
   ]
 })
 export class SharedModule {

@@ -24,14 +24,12 @@
       &:before {
         content: "";
         position: absolute;
-        background: url("~src/assets/images/sprites.png") no-repeat center
-          center transparent;
         top: -4px;
         left: 50%;
         margin-left: -3.5px;
         width: 7px;
         height: 5px;
-        background-position: -371px -93px;
+        background: transparent url("src/assets/images/sprites.png") no-repeat -371px -93px;
       }
     }
     &:focus,

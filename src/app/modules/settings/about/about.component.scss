@@ -7,8 +7,8 @@
   }
   &-piaLogo {
     padding-left: 260px;
-    background: url("~src/assets/images/pia-auth-logo.png") no-repeat center
-      left transparent;
+    background: transparent url("src/assets/images/pia-auth-logo.png") no-repeat
+      center left;
     height: 123px;
     margin-bottom: 40px;
     &-text {
@@ -31,8 +31,8 @@
   }
   &-cnilLogo {
     padding-left: 180px;
-    background: url("~src/assets/images/cnil-logo.png") no-repeat center left
-      transparent;
+    background: transparent url("src/assets/images/cnil-logo.png") no-repeat
+      center left;
     background-size: 160px;
     text-align: justify;
   }
