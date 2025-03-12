@@ -81,7 +81,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^15.2.11",
+    "@angular-devkit/build-angular": "^19.2.1",
     "@angular/cli": "^15.2.10",
     "@angular/compiler-cli": "^15.2.10",
     "@commitlint/cli": "^11.0.0",
@@ -102,7 +102,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.3",
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "^1.5.4",
-    "ng-packagr": "^15.2.2",
+    "ng-packagr": "^19.2.0",
     "ngx-cypress-builder": "^1.0.2",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.2",
