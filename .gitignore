@@ -59,3 +59,4 @@ electron/private/
 .idea
 .env
 dev-app-update.yml
+cypress.env.json
