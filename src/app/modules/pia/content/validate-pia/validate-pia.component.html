@@ -30,8 +30,8 @@
           />
           <label for="checkbox-1">
             <span class="pia-list-confirm-icon">
-              <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
             </span>
             <span class="pia-list-confirm-desc">{{
               "validation_page.confirmation1" | translate
@@ -51,8 +51,8 @@
           />
           <label for="checkbox-2">
             <span class="pia-list-confirm-icon">
-              <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
             </span>
             <span class="pia-list-confirm-desc">{{
               "validation_page.confirmation2" | translate
@@ -72,8 +72,8 @@
           />
           <label for="checkbox-3">
             <span class="pia-list-confirm-icon">
-              <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
             </span>
             <span class="pia-list-confirm-desc">{{
               "validation_page.confirmation3" | translate
@@ -93,8 +93,8 @@
           />
           <label for="checkbox-4">
             <span class="pia-list-confirm-icon">
-              <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
             </span>
             <span class="pia-list-confirm-desc">{{
               "validation_page.confirmation4" | translate
@@ -150,10 +150,10 @@
           "
         >
           <p>{{ "validation_page.waiting_for_signature" | translate }}</p>
-          <i class="fa fa-cog" aria-hidden="true"></i>
+          <fa-icon [icon]="faCog"></fa-icon>
         </ng-container>
         <ng-template #piaSignedAndValidated>
-          <i class="fa fa fa-check-square-o" aria-hidden="true"></i>
+          <fa-icon [icon]="faCheckSquare"></fa-icon>
           <p>
             {{ "validation_page.validated_pia_with_signature" | translate }}
           </p>

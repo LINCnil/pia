@@ -39,6 +39,7 @@
             type="submit"
             title="{{ 'evaluations.to_correct' | translate }}"
           >
+            <fa-icon [icon]="faXmark"></fa-icon>
             {{ "evaluations.to_correct" | translate }}
           </button>
           <button
@@ -56,6 +57,7 @@
             type="submit"
             title="{{ 'evaluations.improvable' | translate }}"
           >
+            <fa-icon [icon]="faCircleNotch"></fa-icon>
             {{ "evaluations.improvable" | translate }}
           </button>
           <button
@@ -72,6 +74,7 @@
             type="submit"
             title="{{ 'evaluations.acceptable' | translate }}"
           >
+            <fa-icon [icon]="faCheck"></fa-icon>
             {{ "evaluations.acceptable" | translate }}
           </button>
         </div>

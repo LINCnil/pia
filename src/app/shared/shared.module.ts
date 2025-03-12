@@ -35,6 +35,7 @@ import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 import { AuthService } from '../services/auth.service';
 import { ApiService } from '../services/api.service';
 import { TranslatePipe } from '@ngx-translate/core';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { TranslatePipe } from '@ngx-translate/core';
     ReactiveFormsModule,
     RouterModule,
     PdfJsViewerModule,
-    TranslatePipe
+    TranslatePipe,
+    FaIconComponent
   ],
   providers: [
     AppDataService,

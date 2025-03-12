@@ -60,6 +60,7 @@
     "wrong_activation_code": "(errado)",
     "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
     "wrong_email": "Email errado",
+    "sso": "TO TRANSLATE - SSO connection",
     "errors": {
       "sign_in": {
         "400": "Email ou senha errados."
@@ -67,7 +68,7 @@
       "create_account": {
         "uuid": {
           "404": "Código de ativação errado",
-          "403": "Esta conta já foi ativada"
+          "406": "Esta conta já foi ativada"
         },
         "password": {
           "404": "Usuário não encontrado",
@@ -87,7 +88,8 @@
           "406": "A senha não satisfaz os requesitos necessários."
         }
       },
-      "unauthorized": "Você não tem permissão para acessar esse recurso."
+      "unauthorized": "Você não tem permissão para acessar esse recurso.",
+      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -107,10 +109,19 @@
   },
   "comments": {
     "comment": "Comentar",
+    "written_by": "TO TRANSLATE - Written by",
     "comments_count": "comentário(s)",
     "new_comment": "Comentário",
     "placeholder_new_comment": "Deixe um comentário",
     "send": "Enviar"
+  },
+  "conflict": {
+    "keep_initial": "TO TRANSLATE - Keep initial content",
+    "keep_new": "TO TRANSLATE - Update with new content",
+    "initial_content": "TO TRANSLATE - Initial content",
+    "merge": "TO TRANSLATE - Merge both contents",
+    "new_content": "TO TRANSLATE - New content",
+    "title": "TO TRANSLATE - Conflict detected"
   },
   "date": {
     "april": "Abril",
@@ -144,8 +155,8 @@
       "2": "Limitado",
       "3": "Importante",
       "4": "Máximo",
-      "likelihood": "Tendo em conta o plano de ação, como reavalia a <span class='red-highlight'>probabilidade deste risco</span> ({{value}})?",
-      "seriousness": "Tendo em conta o plano de ação, como reavalia a <span class='red-highlight'>gravidade deste risco</span> ({{value}})?"
+      "likelihood": "Tendo em conta o plano de ação, como reavalia a <span class='red-highlight'>probabilidade deste risco</span>?",
+      "seriousness": "Tendo em conta o plano de ação, como reavalia a <span class='red-highlight'>gravidade deste risco</span>?"
     },
     "improvable": "Improvável",
     "placeholder_acceptable": "De acordo com as informações disponíveis, as medidas implementadas são adequadas para atender apropriadamente aos requisitos de proteção dos dados.",
@@ -1070,7 +1081,8 @@
       "unarchive": "Desarquivar PIA"
     },
     "update_server_url_nok": {
-      "content": "Não foi possível conectar-se."
+      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
+      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "O endereço do servidor foi atualizado."
@@ -1557,6 +1569,7 @@
       "complete_download_desc": "Exportar todo o conteúdo do relatório num .zip (.doc e imagens), anexos e o plano de ação em formato .csv.",
       "individual_download": "Descarregar elementos do relatório",
       "individual_download_desc": "Exportar elementos específicos do relatório.",
+      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
       "individual_download_doc": "Textos (.doc)",
       "individual_download_images": "Elementos visuais (.png) incluindo resumo de riscos, mapeamento de riscos e o plano de ação.",
       "individual_download_json": "Arquivo para importar na ferramenta PIA (arquivo .json)",

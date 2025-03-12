@@ -35,9 +35,28 @@
       class="abandonText"
       [innerHTML]="message.data.additional_text | translate"
     ></div>
-    <p *ngIf="message.icon">
-      <i [ngClass]="message.icon" aria-hidden="true"></i>
+    <p *ngIf="message.class; else defaultMessageIcon">
+      <fa-icon
+        *ngIf="message.icon === 'faPenToSquare'"
+        [icon]="faPenToSquare"
+        [ngClass]="message.class"
+      ></fa-icon>
+      <fa-icon
+        *ngIf="message.icon === 'faGear'"
+        [icon]="faGear"
+        [ngClass]="message.class"
+      ></fa-icon>
+      <fa-icon
+        *ngIf="message.icon === 'faXmark'"
+        [icon]="faXmark"
+        [ngClass]="message.class"
+      ></fa-icon>
     </p>
+    <ng-template #defaultMessageIcon>
+      <p>
+        <i [ngClass]="message.icon" aria-hidden="true"></i>
+      </p>
+    </ng-template>
     <div class="pia-modalBlock-buttons-choice">
       <ng-container *ngIf="message.type != 'others'; else othersBtns">
         <button

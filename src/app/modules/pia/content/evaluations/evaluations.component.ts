@@ -21,11 +21,15 @@ import { Evaluation } from 'src/app/models/evaluation.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons/faCircleNotch';
 
 @Component({
   selector: 'app-evaluations',
   templateUrl: './evaluations.component.html',
-  styleUrls: ['./evaluations.component.scss']
+  styleUrls: ['./evaluations.component.scss'],
+  standalone: false
 })
 export class EvaluationsComponent
   implements OnInit, AfterViewChecked, OnDestroy, DoCheck {
@@ -51,6 +55,10 @@ export class EvaluationsComponent
   editor: any;
   editorEvaluationComment: any;
   loading = false;
+
+  protected readonly faCheck = faCheck;
+  protected readonly faXmark = faXmark;
+  protected readonly faCircleNotch = faCircleNotch;
 
   constructor(
     private el: ElementRef,

@@ -12,7 +12,8 @@ import { StructureService } from 'src/app/services/structure.service';
 @Component({
   selector: 'app-structure',
   templateUrl: './structure.component.html',
-  styleUrls: ['./structure.component.scss']
+  styleUrls: ['./structure.component.scss'],
+  standalone: false
 })
 export class StructureComponent implements OnInit {
   structure: Structure = null;

@@ -16,11 +16,13 @@ import {
 import { Attachment } from 'src/app/models/attachment.model';
 
 import { AttachmentsService } from 'src/app/services/attachments.service';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
 
 @Component({
   selector: 'app-attachment-item',
   templateUrl: './attachment-item.component.html',
-  styleUrls: ['./attachment-item.component.scss']
+  styleUrls: ['./attachment-item.component.scss'],
+  standalone: false
 })
 export class AttachmentItemComponent implements OnInit {
   @ViewChild('pdfViewerAutoLoad', { static: false }) pdfViewerAutoLoad;
@@ -34,6 +36,8 @@ export class AttachmentItemComponent implements OnInit {
 
   showRemoveAttachmentForm = false;
   removeAttachmentForm: UntypedFormGroup;
+
+  protected readonly faDownload = faDownload;
 
   constructor(
     private formBuilder: UntypedFormBuilder,

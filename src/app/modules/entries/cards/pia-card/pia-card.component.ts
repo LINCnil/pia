@@ -27,12 +27,18 @@ import { User } from 'src/app/models/user.model';
 import { SimpleChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { TagInputComponent } from 'ngx-chips';
+import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faArchive } from '@fortawesome/free-solid-svg-icons';
+import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
+import JSZip from 'jszip';
 declare const require: any;
 
 @Component({
   selector: 'app-pia-card',
   templateUrl: './pia-card.component.html',
-  styleUrls: ['./pia-card.component.scss']
+  styleUrls: ['./pia-card.component.scss'],
+  standalone: false
 })
 export class PiaCardComponent implements OnInit, OnChanges {
   @Input() users: Array<User>;
@@ -64,6 +70,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
 
   @ViewChild('authorTagInput')
   authorTagInput: TagInputComponent;
+
+  protected readonly faPencil = faPencil;
+  protected readonly faDownload = faDownload;
+  protected readonly faArchive = faArchive;
+  protected readonly faCopy = faCopy;
 
   constructor(
     public piaService: PiaService,
@@ -242,7 +253,6 @@ export class PiaCardComponent implements OnInit, OnChanges {
    */
   async generateZip(): Promise<void> {
     setTimeout(() => {
-      const JSZip = require('jszip');
       const zip = new JSZip();
       /* Attachments */
       this.addAttachmentsToZip(zip).then((zip2: any) => {

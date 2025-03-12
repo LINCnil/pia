@@ -18,11 +18,13 @@ import { Structure } from 'src/app/models/structure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { MeasureService } from 'src/app/services/measures.service';
 import { StructureService } from 'src/app/services/structure.service';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 
 @Component({
   selector: 'app-knowledge-base',
   templateUrl: './knowledge-base.component.html',
-  styleUrls: ['./knowledge-base.component.scss']
+  styleUrls: ['./knowledge-base.component.scss'],
+  standalone: false
 })
 export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
   searchForm: UntypedFormGroup;
@@ -35,6 +37,8 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
   @Output() newMeasureEvent: EventEmitter<any> = new EventEmitter<any>();
   customKnowledgeBases: KnowledgeBase[] = [];
   selectedKnowledBase: any = 0;
+
+  protected readonly faSearch = faSearch;
 
   constructor(
     private route: ActivatedRoute,

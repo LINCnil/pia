@@ -15,6 +15,7 @@ import { ContentComponent } from './content/content.component';
 import { MeasuresComponent } from './content/measures/measures.component';
 import { QuestionsComponent } from './content/questions/questions.component';
 import { TranslatePipe } from '@ngx-translate/core';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,13 @@ import { TranslatePipe } from '@ngx-translate/core';
     MeasuresComponent,
     QuestionsComponent
   ],
-  imports: [SharedModule, CommonModule, StructureRoutingModule, TranslatePipe],
+  imports: [
+    SharedModule,
+    CommonModule,
+    StructureRoutingModule,
+    TranslatePipe,
+    FaIconComponent
+  ],
   providers: [
     PiaService,
     ArchiveService,

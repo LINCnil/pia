@@ -7,7 +7,8 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 @Component({
   selector: 'app-new-knowledgebase',
   templateUrl: './new-knowledgebase.component.html',
-  styleUrls: ['../form.component.scss']
+  styleUrls: ['../form.component.scss'],
+  standalone: false
 })
 export class NewKnowledgebaseComponent implements OnInit {
   @Output() submitted = new EventEmitter();

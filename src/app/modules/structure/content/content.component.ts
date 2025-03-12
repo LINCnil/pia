@@ -8,11 +8,14 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { PaginationService } from 'src/app/services/pagination.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { StructureService } from 'src/app/services/structure.service';
+import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
+import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
+  standalone: false
 })
 export class ContentComponent implements OnInit {
   @Input() structure: any;
@@ -20,8 +23,9 @@ export class ContentComponent implements OnInit {
   @Input() item: any;
   @Input() questions: any;
   @Input() data: any;
-  // subscriptionMeasure: Subscription;
-  // subscriptionQuestion: Subscription;
+
+  protected readonly faSitemap = faSitemap;
+  protected readonly faPlus = faPlus;
 
   constructor(
     private router: Router,

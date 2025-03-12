@@ -9,7 +9,8 @@ import { EvaluationService } from 'src/app/services/evaluation.service';
 @Component({
   selector: 'app-action-plan-implementation',
   templateUrl: './action-plan-implementation.component.html',
-  styleUrls: ['./action-plan-implementation.component.scss']
+  styleUrls: ['./action-plan-implementation.component.scss'],
+  standalone: false
 })
 export class ActionPlanImplementationComponent implements OnInit {
   @Input() pia: Pia = null;

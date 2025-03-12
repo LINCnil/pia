@@ -37,9 +37,16 @@ import { CommentItemComponent } from './content/comments/comment-item/comment-it
 import { CommentsService } from 'src/app/services/comments.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { TranslatePipe } from '@ngx-translate/core';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  imports: [SharedModule, CommonModule, PiaRoutingModule, TranslatePipe],
+  imports: [
+    SharedModule,
+    CommonModule,
+    PiaRoutingModule,
+    TranslatePipe,
+    FaIconComponent
+  ],
   declarations: [
     PiaComponent,
     RevisionsComponent,

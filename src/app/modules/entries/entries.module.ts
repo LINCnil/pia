@@ -26,6 +26,7 @@ import { KnowledgebaseHeadingComponent } from './list/heading/knowledgebase-head
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { UsersModule } from 'src/app/modules/users/users.module';
 import { TranslatePipe } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { TranslatePipe } from '@ngx-translate/core';
     CommonModule,
     EntriesRoutingModule,
     UsersModule,
-    TranslatePipe
+    TranslatePipe,
+    FontAwesomeModule
   ],
   providers: [
     PiaService,

@@ -19,13 +19,20 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
 import { BehaviorSubject } from 'rxjs';
+import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faArchive } from '@fortawesome/free-solid-svg-icons';
+import JSZip from 'jszip';
 declare const require: any;
 
 @Component({
   // tslint:disable-next-line: component-selector
   selector: '[app-pia-line]',
   templateUrl: './pia-line.component.html',
-  styleUrls: ['./pia-line.component.scss']
+  styleUrls: ['./pia-line.component.scss'],
+  standalone: false
 })
 export class PiaLineComponent implements OnInit, OnChanges {
   @Input() pia: Pia;
@@ -48,6 +55,12 @@ export class PiaLineComponent implements OnInit, OnChanges {
     pia_id: number;
     field: string;
   } = null;
+
+  protected readonly faPencil = faPencil;
+  protected readonly faEye = faEye;
+  protected readonly faFile = faFile;
+  protected readonly faDownload = faDownload;
+  protected readonly faArchive = faArchive;
 
   constructor(
     public piaService: PiaService,
@@ -173,7 +186,6 @@ export class PiaLineComponent implements OnInit, OnChanges {
    */
   async generateZip(): Promise<void> {
     setTimeout(() => {
-      const JSZip = require('jszip');
       const zip = new JSZip();
       /* Attachments */
       this.addAttachmentsToZip(zip).then((zip2: any) => {

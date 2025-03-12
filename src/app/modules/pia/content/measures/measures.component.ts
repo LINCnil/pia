@@ -21,11 +21,13 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { Pia } from '../../../../models/pia.model';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
 @Component({
   selector: 'app-measures',
   templateUrl: './measures.component.html',
-  styleUrls: ['./measures.component.scss']
+  styleUrls: ['./measures.component.scss'],
+  standalone: false
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
   @Input() editMode:
@@ -44,6 +46,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   measureModel: Measure = new Measure();
   editTitle = true;
   loading = false;
+
+  protected readonly faTrash = faTrash;
 
   constructor(
     private router: Router,

@@ -67,7 +67,7 @@
       "create_account": {
         "uuid": {
           "404": "TO TRANSLATE - Wrong activation code",
-          "403": "TO TRANSLATE - This account is already activated"
+          "406": "TO TRANSLATE - This account is already activated"
         },
         "password": {
           "404": "TO TRANSLATE - User not found",
@@ -87,7 +87,8 @@
           "406": "TO TRANSLATE - The password does not meet the password policy requirements."
         }
       },
-      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource."
+      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource.",
+      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -107,10 +108,19 @@
   },
   "comments": {
     "comment": "Kommentar",
+    "written_by": "TO TRANSLATE - Written by",
     "comments_count": "Kommentarer (antal)",
     "new_comment": "Kommentarer",
     "placeholder_new_comment": "Skriv en kommentar",
     "send": "Send"
+  },
+  "conflict": {
+    "keep_initial": "TO TRANSLATE - Keep initial content",
+    "keep_new": "TO TRANSLATE - Update with new content",
+    "initial_content": "TO TRANSLATE - Initial content",
+    "merge": "TO TRANSLATE - Merge both contents",
+    "new_content": "TO TRANSLATE - New content",
+    "title": "TO TRANSLATE - Conflict detected"
   },
   "date": {
     "april": "TO TRANSLATE - April",
@@ -144,8 +154,8 @@
       "2": "Betydelig",
       "3": "Alvorlig",
       "4": "Katastrofal",
-      "likelihood": "Under hensyntagen til handlingsplanen, hvordan vurderer du <span class='red-highlight'>sandsynligheden for denne risiko</span> ({{value}})?",
-      "seriousness": "Under hensyntagen til handlingsplanen, hvordan vurderer du<span class='red-highlight'>alvorligheden af denne risiko</span> ({{value}})?"
+      "likelihood": "Under hensyntagen til handlingsplanen, hvordan vurderer du <span class='red-highlight'>sandsynligheden for denne risiko</span>?",
+      "seriousness": "Under hensyntagen til handlingsplanen, hvordan vurderer du<span class='red-highlight'>alvorligheden af denne risiko</span>?"
     },
     "improvable": "Kan forbedres",
     "placeholder_acceptable": "Ifølge de foreliggende oplysninger er de gennemførte foranstaltninger tilstrækkelige til at opfylde kravene til databeskyttelse.",
@@ -1070,7 +1080,8 @@
       "unarchive": "TO TRANSLATE - Unarchive PIA"
     },
     "update_server_url_nok": {
-      "content": "Ingen forbindelse."
+      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
+      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "Serveradressen er blevet opdateret."
@@ -1557,6 +1568,7 @@
       "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
       "individual_download": "TO TRANSLATE - Download elements of the report",
       "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
       "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
       "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
       "individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",

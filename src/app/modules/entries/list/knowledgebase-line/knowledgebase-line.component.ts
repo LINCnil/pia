@@ -5,12 +5,18 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
+import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
 @Component({
   // tslint:disable-next-line: component-selector
   selector: '[app-knowledgebase-line]',
   templateUrl: './knowledgebase-line.component.html',
-  styleUrls: ['./knowledgebase-line.component.scss']
+  styleUrls: ['./knowledgebase-line.component.scss'],
+  standalone: false
 })
 export class KnowledgebaseLineComponent implements OnInit {
   @Input() base: KnowledgeBase;
@@ -19,6 +25,12 @@ export class KnowledgebaseLineComponent implements OnInit {
   @Output() deleted = new EventEmitter<any>();
   @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
   nbEntries = 0;
+
+  protected readonly faPencil = faPencil;
+  protected readonly faEye = faEye;
+  protected readonly faDownload = faDownload;
+  protected readonly faFile = faFile;
+  protected readonly faTrash = faTrash;
 
   constructor(
     private knowledgesService: KnowledgesService,

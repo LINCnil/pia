@@ -60,6 +60,7 @@
     "wrong_activation_code": "TO TRANSLATE - (wrong)",
     "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
     "wrong_email": "TO TRANSLATE - Wrong email",
+    "sso": "TO TRANSLATE - SSO connection",
     "errors": {
       "sign_in": {
         "400": "TO TRANSLATE - Wrong email or password."
@@ -67,7 +68,7 @@
       "create_account": {
         "uuid": {
           "404": "TO TRANSLATE - Wrong activation code",
-          "403": "TO TRANSLATE - This account is already activated"
+          "406": "TO TRANSLATE - This account is already activated"
         },
         "password": {
           "404": "TO TRANSLATE - User not found",
@@ -87,7 +88,8 @@
           "406": "TO TRANSLATE - The password does not meet the password policy requirements."
         }
       },
-      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource."
+      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource.",
+      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -107,10 +109,19 @@
   },
   "comments": {
     "comment": "تعليق",
+    "written_by": "TO TRANSLATE - Written by",
     "comments_count": "التعليق(ات)",
     "new_comment": "القيام بالتعليق",
     "placeholder_new_comment": " الإدلاء بتعليق",
     "send": "الإرسال"
+  },
+  "conflict": {
+    "keep_initial": "TO TRANSLATE - Keep initial content",
+    "keep_new": "TO TRANSLATE - Update with new content",
+    "initial_content": "TO TRANSLATE - Initial content",
+    "merge": "TO TRANSLATE - Merge both contents",
+    "new_content": "TO TRANSLATE - New content",
+    "title": "TO TRANSLATE - Conflict detected"
   },
   "date": {
     "april": "أبريل",
@@ -144,8 +155,8 @@
       "2": "محدودة",
       "3": "مهمة",
       "4": "شديدة",
-      "likelihood": "أخذاً بعين الاعتبار خطة العمل، كيف يمكن إعادة تقييم <span class='red-highlight'>احتمال وقوه هذا الخطر</span> ({{value}})؟",
-      "seriousness": "أخذاً بعين الاعتبار خطة العمل، كيف يمكن إعادة تقييم <span class='red-highlight'>شدة هذا الخطر</span> ({{value}})؟"
+      "likelihood": "أخذاً بعين الاعتبار خطة العمل، كيف يمكن إعادة تقييم <span class='red-highlight'>احتمال وقوه هذا الخطر</span>؟",
+      "seriousness": "أخذاً بعين الاعتبار خطة العمل، كيف يمكن إعادة تقييم <span class='red-highlight'>شدة هذا الخطر</span>؟"
     },
     "improvable": "قابل للتحسين",
     "placeholder_acceptable": "أدلوا بتعليقاتكم من أجل تفسير كيف أن التدابير المفعلة كافية للاستجابة لمتطلبات حماية البيانات.",
@@ -1070,7 +1081,8 @@
       "unarchive": "إزالة تقييم أثر حماية البيانات هذا من الأرشيف"
     },
     "update_server_url_nok": {
-      "content": "الاتصال غير ممكن."
+      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
+      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "تم تحديث عنوان الخادم."
@@ -1551,6 +1563,7 @@
       "complete_download_desc": "في أرشيف (.zip)، قم بتحميل+ محتويات الوصف (النص (.doc) والصور) والمرفقات ذات الصلة وخطة العمل بصيغة (.csv).",
       "individual_download": "التحميل",
       "individual_download_desc": "قم  بتحميل عناصر محددة من التحليل.",
+      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
       "individual_download_doc": "المحتويات النصية (ملف '.doc')",
       "individual_download_images": "عناصر بصرية (ملفات '.png'): نظرة عامة على المخاطر، وخريطة المخاطر، وخطة العمل",
       "individual_download_json": " التحليل الذي يتعين توريده في أداة تقييم أثر حماية البيانات (ملف '.json')",

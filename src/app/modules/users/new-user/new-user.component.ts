@@ -18,7 +18,8 @@ import { UsersService } from 'src/app/services/users.service';
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
-  styleUrls: ['./new-user.component.scss']
+  styleUrls: ['./new-user.component.scss'],
+  standalone: false
 })
 export class NewUserComponent implements OnInit, OnChanges {
   @Input() forceUserType = false;

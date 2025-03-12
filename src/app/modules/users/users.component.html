@@ -8,7 +8,7 @@
     <div class="pia-search-createUser">
       <div class="pia-search">
         <button class="btn btn-green" type="button" (click)="modal = true">
-          <i class="fa fa-folder-open"></i>
+          <fa-icon [icon]="faFolderOpen"></fa-icon>
           {{ "users.new_user_button" | translate }}
         </button>
       </div>
@@ -73,7 +73,7 @@
                     user.id !== authService.currentUserValue.resource_owner_id
                   "
                 >
-                  <i class="fa fa-trash" aria-hidden="true"></i>
+                  <fa-icon [icon]="faTrash"></fa-icon>
                   <span
                     title="{{ 'users.remove' | translate }}"
                     class="pia-tooltip-text"
@@ -81,7 +81,7 @@
                   >
                 </a>
                 <a (click)="onEdit(user.id)" class="btn pia-tooltip">
-                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <fa-icon [icon]="faPencil"></fa-icon>
                   <span
                     title="{{ 'users.update' | translate }}"
                     class="pia-tooltip-text"

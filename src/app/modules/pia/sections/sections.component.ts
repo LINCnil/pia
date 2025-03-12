@@ -2,11 +2,17 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { Pia } from 'src/app/models/pia.model';
+import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons/faCalendarCheck';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
+import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
+import { faSquareCheck } from '@fortawesome/free-solid-svg-icons/faSquareCheck';
+import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
 
 @Component({
   selector: 'app-sections',
   templateUrl: './sections.component.html',
-  styleUrls: ['./sections.component.scss']
+  styleUrls: ['./sections.component.scss'],
+  standalone: false
 })
 export class SectionsComponent implements OnInit {
   @Input() editMode:
@@ -28,6 +34,12 @@ export class SectionsComponent implements OnInit {
   };
   @Input() data: { sections: any };
   loading = false;
+
+  protected readonly faCalendarCheck = faCalendarCheck;
+  protected readonly faPenToSquare = faPenToSquare;
+  protected readonly faGear = faGear;
+  protected readonly faSquareCheck = faSquareCheck;
+  protected readonly faChartLine = faChartLine;
 
   constructor(public sidStatusService: SidStatusService) {}
 

@@ -20,19 +20,18 @@
       }
       &-btn {
         padding-left: 18px;
-        .fa-folder-open,
-        .fa-upload {
+        .ng-fa-icon {
+          line-height: 1;
           font-size: 7rem;
           margin-right: 30px;
         }
         .fa-upload {
           margin-right: 40px;
         }
-        .fa-folder-open,
-        .fa-upload,
+        .ng-fa-icon,
         button {
           display: inline-block;
-          vertical-align: top;
+          vertical-align: middle;
         }
       }
     }
@@ -162,7 +161,7 @@
       border-radius: 20px;
       color: $pia-green;
       padding: 0 10px;
-      .fa-list {
+      .ng-fa-icon {
         font-size: 1.5rem;
       }
       div {
@@ -303,7 +302,7 @@
           margin-right: 12px;
         }
       }
-      .fa {
+      .ng-fa-icon {
         margin-right: 10px;
         font-size: 1.5rem;
       }

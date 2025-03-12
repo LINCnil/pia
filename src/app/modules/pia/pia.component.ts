@@ -17,11 +17,14 @@ import { PaginationService } from 'src/app/services/pagination.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { RevisionService } from 'src/app/services/revision.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
 
 @Component({
   selector: 'app-pia',
   templateUrl: './pia.component.html',
-  styleUrls: ['./pia.component.scss']
+  styleUrls: ['./pia.component.scss'],
+  standalone: false
 })
 export class PiaComponent implements OnInit, DoCheck {
   section: { id: number; title: string; short_help: string; items: any };
@@ -48,6 +51,9 @@ export class PiaComponent implements OnInit, DoCheck {
   public editMode:
     | 'local'
     | Array<'author' | 'evaluator' | 'validator' | 'guest'> = 'local';
+
+  protected readonly faDownload = faDownload;
+  protected readonly faBook = faBook;
 
   constructor(
     private route: ActivatedRoute,
@@ -276,7 +282,8 @@ export class PiaComponent implements OnInit, DoCheck {
               type: 'yes',
               yes: 'modals.declare_measures.declare',
               no: '',
-              icon: 'fa fa-arrow-left icon-blue',
+              icon: 'faArrowLeft',
+              class: 'icon-blue',
               data: {
                 no_cross_button: true
               }
@@ -310,7 +317,8 @@ export class PiaComponent implements OnInit, DoCheck {
             type: 'yes',
             yes: 'modals.action_plan_no_evaluation.review_section',
             no: '',
-            icon: 'fa fa-cog icon-blue',
+            icon: 'faGear',
+            class: 'icon-blue',
             data: {
               btn_yes: 'btn-blue',
               no_cross_button: true
@@ -348,7 +356,8 @@ export class PiaComponent implements OnInit, DoCheck {
             type: 'yes',
             yes: 'modals.action_plan_no_evaluation.review_section',
             no: '',
-            icon: 'fa fa-cog icon-blue',
+            icon: 'faGear',
+            class: 'icon-blue',
             data: {
               btn_yes: 'btn-blue',
               no_cross_button: true

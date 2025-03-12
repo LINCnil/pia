@@ -14,7 +14,8 @@ import { EvaluationService } from 'src/app/services/evaluation.service';
 @Component({
   selector: `.app-risks-cartography`,
   templateUrl: './risks-cartography.component.html',
-  styleUrls: ['./risks-cartography.component.scss']
+  styleUrls: ['./risks-cartography.component.scss'],
+  standalone: false
 })
 export class RisksCartographyComponent implements OnInit, OnDestroy {
   @Input() pia: Pia = null;

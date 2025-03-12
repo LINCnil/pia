@@ -67,7 +67,7 @@
       "create_account": {
         "uuid": {
           "404": "Falscher Aktivierungscode",
-          "403": "Dieses Konto ist bereits aktiviert."
+          "406": "Dieses Konto ist bereits aktiviert."
         },
         "password": {
           "404": "Benutzer nicht gefunden",
@@ -87,7 +87,8 @@
           "406": "Das Kennwort entspricht nicht den Anforderungen der Kennwortrichtlinie."
         }
       },
-      "unauthorized": "Der Zugriff auf diese Ressource ist Ihnen nicht gestattet."
+      "unauthorized": "Der Zugriff auf diese Ressource ist Ihnen nicht gestattet.",
+      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -107,10 +108,19 @@
   },
   "comments": {
     "comment": "Kommentar",
+    "written_by": "TO TRANSLATE - Written by",
     "comments_count": "Kommentar(e)",
     "new_comment": "Kommentieren",
     "placeholder_new_comment": "Hinterlassen Sie einen Kommentar",
     "send": "Senden"
+  },
+  "conflict": {
+    "keep_initial": "TO TRANSLATE - Keep initial content",
+    "keep_new": "TO TRANSLATE - Update with new content",
+    "initial_content": "TO TRANSLATE - Initial content",
+    "merge": "TO TRANSLATE - Merge both contents",
+    "new_content": "TO TRANSLATE - New content",
+    "title": "TO TRANSLATE - Conflict detected"
   },
   "date": {
     "april": "April",
@@ -144,8 +154,8 @@
       "2": "Überschaubar",
       "3": "Substantiell",
       "4": "Groß",
-      "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class = 'red-highlight'> Wahrscheinlichkeit dieses Risikos </span> ({{value}}) erneut?",
-      "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class = 'red-highlight'> Höhe dieses Risikos </span> ({{value}})?"
+      "likelihood": "Unter Berücksichtigung des Aktionsplans, wie bewerten Sie die <span class='red-highlight'> Wahrscheinlichkeit dieses Risikos </span>?",
+      "seriousness": "Wie bewerten Sie unter Berücksichtigung des Aktionsplans die <span class='red-highlight'> Höhe dieses Risikos </span>?"
     },
     "improvable": "verbesserungsfähig",
     "placeholder_acceptable": "Soweit aus den zur Verfügung gestellten Informationen ersichtlich, reichen die durchgeführten Maßnahmen aus, um die Datenschutzanforderungen zu erfüllen.",
@@ -1025,7 +1035,7 @@
       "content": "Der Inhalt der DSFA wurde in die Zwischenablage kopiert."
     },
     "not_enough_measures_to_remove": {
-      "content": "<span class = 'strong'>Warnung, </span><br>Es muss mindestens eine Maßnahme angegeben werden: keine Löschung möglich."
+      "content": "<span class='strong'>Warnung, </span><br>Es muss mindestens eine Maßnahme angegeben werden: keine Löschung möglich."
     },
     "recover_version": {
       "continue": "Fortsetzen",
@@ -1037,12 +1047,12 @@
     },
     "remove_attachment": {
       "comment": "Kommentieren",
-      "content": "<span class = 'strong'> Warnung, </span><br>Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
+      "content": "<span class='strong'> Warnung, </span><br>Sind Sie sicher, dass Sie diesen Anhang entfernen möchten?",
       "keep": "Behalten",
       "remove": "Entfernen"
     },
     "remove_measure": {
-      "content": "<span class = 'strong'>Warnung, </span><br>Sind Sie sicher, dass Sie diese Maßnahme entfernen möchten?",
+      "content": "<span class='strong'>Warnung, </span><br>Sind Sie sicher, dass Sie diese Maßnahme entfernen möchten?",
       "keep": "Behalten Sie<br>diese Maßnahme",
       "remove": "Entfernen Sie<br>diese Maßnahme"
     },
@@ -1060,10 +1070,10 @@
       "remove": "Diese Vorlage löschen"
     },
     "same_comment": {
-      "content": "<span class = 'strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
+      "content": "<span class='strong'>Warnung, </span><br>Bitte geben Sie einen anderen Kommentar als den zuletzt angegebenen ein."
     },
     "signed_pia_validation": {
-      "content": "<span class = 'strong'>Die DSFA wird akzeptiert</span><br>Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht an die zuständige Person anhängen.",
+      "content": "<span class='strong'>Die DSFA wird akzeptiert</span><br>Schließen Sie die Bestätigung der DSFA ab, indem Sie den unterschriebenen Bericht an die zuständige Person anhängen.",
       "download_pia": "Laden Sie die DSFA herunter"
     },
     "simple_pia_validation": {
@@ -1075,7 +1085,8 @@
       "unarchive": "DSFA wiederherstellen"
     },
     "update_server_url_nok": {
-      "content": "Keine Verbindung möglich."
+      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
+      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "Die Serveradresse wurde aktualisiert."
@@ -1562,6 +1573,7 @@
       "complete_download_desc": "Exportieren des gesamten Berichtsinhaltes (DOC und Bilder), Anhänge und den Aktionsplan im CSV-Format, in ein ZIP-Archiv.",
       "individual_download": "Elemente des Berichts herunterladen",
       "individual_download_desc": "Bestimmte Elemente des Berichts exportieren.",
+      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
       "individual_download_doc": "Texte (.doc)",
       "individual_download_images": "Visuelle Elemente (.png), einschließlich der Risikoübersicht, der Risikokartierung und des Aktionsplans.",
       "individual_download_json": "Herunterladen (.json)",

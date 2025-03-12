@@ -16,7 +16,7 @@
         width: 74px;
         background-color: $pia-green;
         position: relative;
-        i {
+        .ng-fa-icon {
           display: block;
           top: 50%;
           left: 50%;
@@ -88,7 +88,7 @@
       &-progress {
         background-color: transparent;
         display: block;
-        top: 60%;
+        top: 64%;
         left: 0;
         right: 0;
         position: absolute;

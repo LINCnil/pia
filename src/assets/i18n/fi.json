@@ -60,6 +60,7 @@
     "wrong_activation_code": "TO TRANSLATE - (wrong)",
     "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
     "wrong_email": "TO TRANSLATE - Wrong email",
+    "sso": "TO TRANSLATE - SSO connection",
     "errors": {
       "sign_in": {
         "400": "TO TRANSLATE - Wrong email or password."
@@ -67,7 +68,7 @@
       "create_account": {
         "uuid": {
           "404": "TO TRANSLATE - Wrong activation code",
-          "403": "TO TRANSLATE - This account is already activated"
+          "406": "TO TRANSLATE - This account is already activated"
         },
         "password": {
           "404": "TO TRANSLATE - User not found",
@@ -87,7 +88,8 @@
           "406": "TO TRANSLATE - The password does not meet the password policy requirements."
         }
       },
-      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource."
+      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource.",
+      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -107,10 +109,19 @@
   },
   "comments": {
     "comment": "Kommentti",
+    "written_by": "TO TRANSLATE - Written by",
     "comments_count": "Kommentit",
     "new_comment": "Kommentti",
     "placeholder_new_comment": "Jätä kommentti",
     "send": "Lähetä"
+  },
+  "conflict": {
+    "keep_initial": "TO TRANSLATE - Keep initial content",
+    "keep_new": "TO TRANSLATE - Update with new content",
+    "initial_content": "TO TRANSLATE - Initial content",
+    "merge": "TO TRANSLATE - Merge both contents",
+    "new_content": "TO TRANSLATE - New content",
+    "title": "TO TRANSLATE - Conflict detected"
   },
   "date": {
     "april": "TO TRANSLATE - April",
@@ -144,8 +155,8 @@
       "2": "Rajattu",
       "3": "Merkittävä",
       "4": "Suurin",
-      "likelihood": "Kuinka arvioisit toimintasuunnitelman valossa <span class='red-highlight'>tämän riskin todennäköisyyden</span> ({{value}})?",
-      "seriousness": "Kuinka arvioisit toimintasuunnitelman valossa <span class='red-highlight'>tämän riskin vakavuuden</span> ({{value}})?"
+      "likelihood": "Kuinka arvioisit toimintasuunnitelman valossa <span class='red-highlight'>tämän riskin todennäköisyyden</span>?",
+      "seriousness": "Kuinka arvioisit toimintasuunnitelman valossa <span class='red-highlight'>tämän riskin vakavuuden</span>?"
     },
     "improvable": "Kehitettävä",
     "placeholder_acceptable": "Käytettävissä olevien tietojen perusteella toimenpiteet ovat riittäviä henkilötietojen asianmukaiseksi suojaamiseksi.",
@@ -1070,7 +1081,8 @@
       "unarchive": "TO TRANSLATE - Unarchive PIA"
     },
     "update_server_url_nok": {
-      "content": "TO BE TRANSLATED - Connection impossible."
+      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
+      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "Palvelimen osoite on päivitetty."
@@ -1557,6 +1569,7 @@
       "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
       "individual_download": "TO TRANSLATE - Download elements of the report",
       "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
       "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
       "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
       "individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",

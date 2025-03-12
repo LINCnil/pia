@@ -1,15 +1,21 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
+import { faCaretUp } from '@fortawesome/free-solid-svg-icons/faCaretUp';
 
 @Component({
   // tslint:disable-next-line: component-selector
   selector: '[app-structure-heading]',
   templateUrl: './structure-heading.component.html',
-  styleUrls: ['./structure-heading.component.scss']
+  styleUrls: ['./structure-heading.component.scss'],
+  standalone: false
 })
 export class StructureHeadingComponent implements OnInit {
   sortOrder: string;
   sortValue: string;
   @Output() sorting = new EventEmitter<any>();
+
+  protected readonly faCaretDown = faCaretDown;
+  protected readonly faCaretUp = faCaretUp;
 
   constructor() {}
 

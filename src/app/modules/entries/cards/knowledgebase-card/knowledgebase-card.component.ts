@@ -8,11 +8,15 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 
 import piakb from 'src/assets/files/pia_knowledge-base.json';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
 @Component({
   selector: 'app-knowledgebase-card',
   templateUrl: './knowledgebase-card.component.html',
-  styleUrls: ['./knowledgebase-card.component.scss']
+  styleUrls: ['./knowledgebase-card.component.scss'],
+  standalone: false
 })
 export class KnowledgebaseCardComponent implements OnInit {
   knowledgeBaseForm: UntypedFormGroup;
@@ -22,6 +26,10 @@ export class KnowledgebaseCardComponent implements OnInit {
   @Output() duplicated = new EventEmitter<Structure>();
   @Output() deleted = new EventEmitter<any>();
   @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
+
+  protected readonly faDownload = faDownload;
+  protected readonly faFile = faFile;
+  protected readonly faTrash = faTrash;
 
   constructor(
     private knowledgesService: KnowledgesService,

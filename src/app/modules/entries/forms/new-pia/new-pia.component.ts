@@ -16,7 +16,8 @@ import { SimpleChanges } from '@angular/core';
 @Component({
   selector: 'app-new-pia',
   templateUrl: './new-pia.component.html',
-  styleUrls: ['../form.component.scss']
+  styleUrls: ['../form.component.scss'],
+  standalone: false
 })
 export class NewPiaComponent implements OnInit {
   @Input() users: Array<User>;

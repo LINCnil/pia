@@ -16,11 +16,16 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
+import { faFilter } from '@fortawesome/free-solid-svg-icons/faFilter';
+import { faList } from '@fortawesome/free-solid-svg-icons/faList';
+import { faUpload } from '@fortawesome/free-solid-svg-icons/faUpload';
+import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
 
 @Component({
   selector: 'app-entries',
   templateUrl: './entries.component.html',
-  styleUrls: ['./entries.component.scss']
+  styleUrls: ['./entries.component.scss'],
+  standalone: false
 })
 export class EntriesComponent implements OnInit, OnDestroy {
   @Input() pia: any;
@@ -43,6 +48,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
   public showModal = false;
 
   public loading = false;
+
+  protected readonly faFilter = faFilter;
+  protected readonly faList = faList;
+  protected readonly faUpload = faUpload;
+  protected readonly faFolderOpen = faFolderOpen;
 
   constructor(
     private router: Router,

@@ -9,7 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['../form.scss', './sign-in.component.scss']
+  styleUrls: ['../form.scss', './sign-in.component.scss'],
+  standalone: false
 })
 export class SignInComponent implements OnInit {
   @Output() canceled = new EventEmitter<boolean>();

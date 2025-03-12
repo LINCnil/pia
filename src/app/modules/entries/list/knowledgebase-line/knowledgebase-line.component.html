@@ -5,7 +5,7 @@
       class="btn pia-tooltip"
       *ngIf="!base.is_example; else elseblock"
     >
-      <i class="fa fa-pencil" aria-hidden="true"></i>
+      <fa-icon [icon]="faPencil"></fa-icon>
       <span
         title="{{ 'homepage.lists.item.tools.edit' | translate }}"
         class="pia-tooltip-text"
@@ -14,7 +14,7 @@
     </a>
     <ng-template #elseblock>
       <a [routerLink]="['/knowledge_bases', base.id]" class="btn pia-tooltip">
-        <i class="fa fa-eye" aria-hidden="true"></i>
+        <fa-icon [icon]="faEye"></fa-icon>
         <span
           title="{{ 'homepage.cards.item.consult_pia' | translate }}"
           class="pia-tooltip-text"
@@ -28,7 +28,7 @@
       class="btn pia-tooltip"
       *ngIf="!base.is_example"
     >
-      <i class="fa fa-download" aria-hidden="true"></i>
+      <fa-icon [icon]="faDownload"></fa-icon>
       <span
         title="{{ 'homepage.lists.item.tools.export' | translate }}"
         class="pia-tooltip-text"
@@ -41,7 +41,7 @@
       class="btn pia-tooltip"
       *ngIf="!base.is_example"
     >
-      <i class="fa fa-files-o" aria-hidden="true"></i>
+      <fa-icon [icon]="faFile"></fa-icon>
       <span
         title="{{ 'homepage.lists.item.tools.duplicate' | translate }}"
         class="pia-tooltip-text"
@@ -54,7 +54,7 @@
       class="btn pia-tooltip"
       *ngIf="!base.is_example"
     >
-      <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <fa-icon [icon]="faTrash"></fa-icon>
       <span
         title="{{ 'homepage.lists.item.tools.remove' | translate }}"
         class="pia-tooltip-text"

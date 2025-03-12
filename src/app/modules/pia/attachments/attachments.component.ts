@@ -7,7 +7,8 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 @Component({
   selector: 'app-attachments',
   templateUrl: './attachments.component.html',
-  styleUrls: ['./attachments.component.scss']
+  styleUrls: ['./attachments.component.scss'],
+  standalone: false
 })
 export class AttachmentsComponent implements OnInit {
   @Input() isPreview: boolean;

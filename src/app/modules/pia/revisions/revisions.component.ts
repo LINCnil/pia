@@ -15,6 +15,10 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { RelativeDate } from './RelativeDate.class';
 import { Pia } from 'src/app/models/pia.model';
+import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
+import { faCircle } from '@fortawesome/free-solid-svg-icons/faCircle';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
 
 function slugify(data): string {
   const a =
@@ -39,7 +43,8 @@ function slugify(data): string {
   selector: 'app-revisions',
   templateUrl: './revisions.component.html',
   styleUrls: ['./revisions.component.scss'],
-  providers: [RevisionService, TranslateService]
+  providers: [RevisionService, TranslateService],
+  standalone: false
 })
 export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() pia: Pia;
@@ -56,6 +61,11 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   public activeRevision: any = null;
 
   public preview = null;
+
+  protected readonly faHistory = faHistory;
+  protected readonly faCircle = faCircle;
+  protected readonly faChevronDown = faChevronDown;
+  protected readonly faChevronUp = faChevronUp;
 
   constructor(
     private translateService: TranslateService,

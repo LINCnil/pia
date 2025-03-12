@@ -10,6 +10,10 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
+import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
+import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
 
 function slugify(text): string {
   return text
@@ -25,7 +29,8 @@ function slugify(text): string {
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
-  styleUrls: ['./base.component.scss']
+  styleUrls: ['./base.component.scss'],
+  standalone: false
 })
 export class BaseComponent implements OnInit {
   base: KnowledgeBase = null;
@@ -47,6 +52,10 @@ export class BaseComponent implements OnInit {
     'knowledge_base.category.organizational_measure': 'measure.governance',
     'knowledge_base.category.definition': 'measure.definition'
   };
+
+  protected readonly faFolderOpen = faFolderOpen;
+  protected readonly faTrash = faTrash;
+  protected readonly faFile = faFile;
 
   constructor(
     private router: Router,
@@ -515,4 +524,6 @@ export class BaseComponent implements OnInit {
       ]
     );
   }
+
+  protected readonly faCopy = faCopy;
 }

@@ -6,11 +6,14 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { faRefresh } from '@fortawesome/free-solid-svg-icons/faRefresh';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
 @Component({
   selector: 'app-archive-card',
   templateUrl: './archive-card.component.html',
-  styleUrls: ['./archive-card.component.scss']
+  styleUrls: ['./archive-card.component.scss'],
+  standalone: false
 })
 export class ArchiveCardComponent implements OnInit {
   @Input() archivedPia: any;
@@ -18,6 +21,9 @@ export class ArchiveCardComponent implements OnInit {
   @Output() deleted = new EventEmitter<any>();
   attachments: any;
   piaForm: UntypedFormGroup;
+
+  protected readonly faRefresh = faRefresh;
+  protected readonly faTrash = faTrash;
 
   constructor(
     public languagesService: LanguagesService,

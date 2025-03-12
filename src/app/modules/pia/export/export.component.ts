@@ -20,6 +20,8 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { LanguagesService } from 'src/app/services/languages.service';
+import JSZip from 'jszip';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
 
 declare const require: any;
 require('src/assets/fonts/Roboto-Regular-webfont-normal.js');
@@ -43,22 +45,10 @@ function slugify(text): string {
 @Component({
   selector: 'app-export',
   templateUrl: './export.component.html',
-  styleUrls: ['./export.component.scss']
+  styleUrls: ['./export.component.scss'],
+  standalone: false
 })
 export class ExportComponent implements OnInit {
-  @Input() pia: Pia = null;
-  csvContent: any;
-  fromArchives = false;
-  dataNav: any;
-  csvOptions = {};
-  exportSelected: Array<any> = [];
-  piaJson: JSON;
-  @Output() downloading = new EventEmitter();
-  @Input() editMode = false;
-
-  data: { sections: any };
-  allData: object;
-
   constructor(
     private route: ActivatedRoute,
     private piaService: PiaService,
@@ -72,6 +62,20 @@ export class ExportComponent implements OnInit {
     private evaluationService: EvaluationService,
     public languagesService: LanguagesService
   ) {}
+  @Input() pia: Pia = null;
+  csvContent: any;
+  fromArchives = false;
+  dataNav: any;
+  csvOptions = {};
+  exportSelected: Array<any> = [];
+  piaJson: JSON;
+  @Output() downloading = new EventEmitter();
+  @Input() editMode = false;
+
+  data: { sections: any };
+  allData: object;
+
+  protected readonly faDownload = faDownload;
 
   ngOnInit(): void {
     this.piaService
@@ -213,7 +217,6 @@ export class ExportComponent implements OnInit {
   async generateExportsZip(element, exports: Array<string>): Promise<void> {
     window.scroll(0, 0);
     const zipName = 'pia-' + slugify(this.pia.name) + '.zip';
-    const JSZip = require('jszip');
     const zip = new JSZip();
 
     // Attach export files
@@ -522,7 +525,6 @@ export class ExportComponent implements OnInit {
    */
   async downloadAllGraphsAsImages(): Promise<void> {
     window.scroll(0, 0);
-    const JSZip = require('jszip');
     const zip = new JSZip();
     return new Promise((resolve, reject) => {
       this.addImagesToZip(zip).then((zip2: any) => {
@@ -1040,8 +1042,11 @@ export class ExportComponent implements OnInit {
           // Question answer
           doc.setTextColor('#000');
           const questionAnswer =
-            allData[allDataSectionId][allDataItemId][question.id].content;
-          if (questionAnswer) {
+            allData[allDataSectionId][allDataItemId][question.id];
+          if (
+            questionAnswer &&
+            allData[allDataSectionId][allDataItemId].content
+          ) {
             writeBoldText(
               purifyString(questionAnswer),
               20,
@@ -1054,6 +1059,7 @@ export class ExportComponent implements OnInit {
 
           // Question evaluation (if any)
           if (
+            allData[allDataSectionId][allDataItemId][question.id] &&
             allData[allDataSectionId][allDataItemId][question.id].evaluation
           ) {
             pageSize += 20;
@@ -1080,6 +1086,7 @@ export class ExportComponent implements OnInit {
 
             // Question evaluation action plan comment
             if (
+              allData[allDataSectionId][allDataItemId][question.id] &&
               allData[allDataSectionId][allDataItemId][question.id].evaluation
                 .action_plan_comment
             ) {
@@ -1103,6 +1110,7 @@ export class ExportComponent implements OnInit {
 
             // Question evaluation comment
             if (
+              allData[allDataSectionId][allDataItemId][question.id] &&
               allData[allDataSectionId][allDataItemId][question.id].evaluation
                 .evaluation_comment
             ) {

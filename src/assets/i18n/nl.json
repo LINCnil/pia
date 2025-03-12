@@ -60,6 +60,7 @@
     "wrong_activation_code": "(verkeerd)",
     "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
     "wrong_email": "Verkeerd e-mailadres",
+    "sso": "TO TRANSLATE - SSO connection",
     "errors": {
       "sign_in": {
         "400": "TO TRANSLATE - Wrong email or password."
@@ -67,7 +68,7 @@
       "create_account": {
         "uuid": {
           "404": "TO TRANSLATE - Wrong activation code",
-          "403": "TO TRANSLATE - This account is already activated"
+          "406": "TO TRANSLATE - This account is already activated"
         },
         "password": {
           "404": "TO TRANSLATE - User not found",
@@ -87,7 +88,8 @@
           "406": "TO TRANSLATE - The password does not meet the password policy requirements."
         }
       },
-      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource."
+      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource.",
+      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -107,10 +109,19 @@
   },
   "comments": {
     "comment": "Commentaar",
+    "written_by": "TO TRANSLATE - Written by",
     "comments_count": "reactie(s)",
     "new_comment": "Commentaar",
     "placeholder_new_comment": "Laat een reactie achter",
     "send": "Verzenden"
+  },
+  "conflict": {
+    "keep_initial": "TO TRANSLATE - Keep initial content",
+    "keep_new": "TO TRANSLATE - Update with new content",
+    "initial_content": "TO TRANSLATE - Initial content",
+    "merge": "TO TRANSLATE - Merge both contents",
+    "new_content": "TO TRANSLATE - New content",
+    "title": "TO TRANSLATE - Conflict detected"
   },
   "date": {
     "april": "april",
@@ -144,8 +155,8 @@
       "2": "Beperkt",
       "3": "Belangrijk",
       "4": "Maximaal",
-      "likelihood": "Rekening houdend met het actieplan, hoe herevalueert u de <span class='red-highlight'>waarschijnlijkheid van dit risico</span> ({{value}})?",
-      "seriousness": "Rekening houdend met het actieplan, hoe herevalueert u de <span class='red-highlight'>ernst van dit risico</span> ({{value}})?"
+      "likelihood": "Rekening houdend met het actieplan, hoe herevalueert u de <span class='red-highlight'>waarschijnlijkheid van dit risico</span>?",
+      "seriousness": "Rekening houdend met het actieplan, hoe herevalueert u de <span class='red-highlight'>ernst van dit risico</span>?"
     },
     "improvable": "Verbeterbaar",
     "placeholder_acceptable": "Volgens de beschikbare informatie zijn de geïmplementeerde maatregelen toereikend om goed te voldoen aan de gegevensbeschermingsvereisten.",
@@ -1070,7 +1081,8 @@
       "unarchive": "Archiveren PIA ongedaan maken"
     },
     "update_server_url_nok": {
-      "content": "Verbinden mislukt."
+      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
+      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "Het serveradres werd geüpdatet."
@@ -1557,6 +1569,7 @@
       "complete_download_desc": "Exporteer in een .zip-archief de volledige inhoud van het verslag (.doc en afbeeldingen), de bijlagen en het actieplan in .csv-formaat.",
       "individual_download": "Alle elementen van het verslag downloaden",
       "individual_download_desc": "Bepaalde elementen van het verslag exporteren.",
+      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
       "individual_download_doc": "Teksten (.doc)",
       "individual_download_images": "Visuele elementen (.png) waaronder het risico-overzicht, de risico-mapping en het actieplan.",
       "individual_download_json": "Rapport om in de PIA tool te importeren (.json)",

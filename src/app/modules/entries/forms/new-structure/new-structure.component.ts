@@ -7,7 +7,8 @@ import { StructureService } from 'src/app/services/structure.service';
 @Component({
   selector: 'app-new-structure',
   templateUrl: './new-structure.component.html',
-  styleUrls: ['../form.component.scss']
+  styleUrls: ['../form.component.scss'],
+  standalone: false
 })
 export class NewStructureComponent implements OnInit {
   @Output() submitted: EventEmitter<any> = new EventEmitter<any>();

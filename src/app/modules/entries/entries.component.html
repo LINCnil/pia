@@ -38,7 +38,7 @@
             *ngIf="viewStyle.view === 'list'"
             (click)="viewOnCard()"
           >
-            <i class="fa fa-list" aria-hidden="true"></i>
+            <fa-icon [icon]="faList"></fa-icon>
             <div>{{ "homepage.filters.card" | translate }}</div>
           </button>
           <button
@@ -47,7 +47,7 @@
             *ngIf="viewStyle.view === 'card'"
             (click)="viewOnList()"
           >
-            <i class="fa fa-list" aria-hidden="true"></i>
+            <fa-icon [icon]="faList"></fa-icon>
             <div>{{ "homepage.filters.list" | translate }}</div>
           </button>
           <ng-container
@@ -73,7 +73,7 @@
                 "
                 (click)="showModal = true"
               >
-                <i class="fa fa-folder-open" aria-hidden="true"></i>
+                <fa-icon [icon]="faFolderOpen"></fa-icon>
                 <ng-container *ngIf="type_entries === 'pia'">{{
                   "homepage.cards.new_pia" | translate
                 }}</ng-container>
@@ -94,7 +94,7 @@
                 "
                 (click)="import()"
               >
-                <i class="fa fa-upload" aria-hidden="true"></i>
+                <fa-icon [icon]="faUpload"></fa-icon>
                 <ng-container *ngIf="type_entries === 'pia'">{{
                   "homepage.cards.import_pia" | translate
                 }}</ng-container>
@@ -142,7 +142,7 @@
             *ngIf="viewStyle.view === 'card'"
           >
             <button class="pia-filtersBlock-filters-btn btn" type="button">
-              <i class="fa fa-filter"></i>
+              <fa-icon [icon]="faFilter"></fa-icon>
               {{ "homepage.filters.sort" | translate }}
               <span
                 class="pia-icons"
@@ -288,7 +288,7 @@
               }}</ng-container>
             </div>
             <div class="pia-newBlock-item-new-btn">
-              <i class="fa fa-folder-open" aria-hidden="true"></i>
+              <fa-icon [icon]="faFolderOpen"></fa-icon>
               <button
                 class="btn"
                 (click)="open()"
@@ -322,7 +322,7 @@
               }}</ng-container>
             </div>
             <div class="pia-newBlock-item-import-btn">
-              <i class="fa fa-upload" aria-hidden="true"></i>
+              <fa-icon [icon]="faUpload"></fa-icon>
               <button
                 class="btn"
                 (click)="import()"

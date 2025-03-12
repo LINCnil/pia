@@ -22,7 +22,8 @@ import { AnswerStructureService } from 'src/app/services/answer-structure.servic
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.scss']
+  styleUrls: ['./questions.component.scss'],
+  standalone: false
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];

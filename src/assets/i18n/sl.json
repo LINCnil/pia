@@ -60,6 +60,7 @@
     "wrong_activation_code": "TO TRANSLATE - (wrong)",
     "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
     "wrong_email": "TO TRANSLATE - Wrong email",
+    "sso": "TO TRANSLATE - SSO connection",
     "errors": {
       "sign_in": {
         "400": "TO TRANSLATE - Wrong email or password."
@@ -67,7 +68,7 @@
       "create_account": {
         "uuid": {
           "404": "TO TRANSLATE - Wrong activation code",
-          "403": "TO TRANSLATE - This account is already activated"
+          "406": "TO TRANSLATE - This account is already activated"
         },
         "password": {
           "404": "TO TRANSLATE - User not found",
@@ -87,7 +88,8 @@
           "406": "TO TRANSLATE - The password does not meet the password policy requirements."
         }
       },
-      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource."
+      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource.",
+      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -107,10 +109,19 @@
   },
   "comments": {
     "comment": "Komentar",
+    "written_by": "TO TRANSLATE - Written by",
     "comments_count": "komentar(a)",
     "new_comment": "Komentar",
     "placeholder_new_comment": "Ostavi komentar",
     "send": "Pošalji"
+  },
+  "conflict": {
+    "keep_initial": "TO TRANSLATE - Keep initial content",
+    "keep_new": "TO TRANSLATE - Update with new content",
+    "initial_content": "TO TRANSLATE - Initial content",
+    "merge": "TO TRANSLATE - Merge both contents",
+    "new_content": "TO TRANSLATE - New content",
+    "title": "TO TRANSLATE - Conflict detected"
   },
   "date": {
     "april": "TO TRANSLATE - April",
@@ -144,8 +155,8 @@
       "2": "Ograničena",
       "3": "Važna",
       "4": "Maksimalna",
-      "likelihood": "Uzimajući u obzir akcijski plan, koju bi novu procjenu dali <span class='red-highlight'> vjerojatnosti ovog rizika</span> ({{value}})?",
-      "seriousness": "Uzimajući u obzir akcijski plan, koju bi novu procjenu dali <span class = 'red-highlight'> ozbiljnosti ovog rizika</span> ({{value}})?"
+      "likelihood": "Uzimajući u obzir akcijski plan, koju bi novu procjenu dali <span class='red-highlight'> vjerojatnosti ovog rizika</span>?",
+      "seriousness": "Uzimajući u obzir akcijski plan, koju bi novu procjenu dali <span class='red-highlight'> ozbiljnosti ovog rizika</span>?"
     },
     "improvable": "Može se poboljšati",
     "placeholder_acceptable": "Prema dostupnim informacijama, primijenjene mjere odgovaraju pravilnom ispunjavanju zahtjeva za zaštitu podataka.",
@@ -1075,7 +1086,8 @@
       "unarchive": "TO TRANSLATE - Unarchive PIA"
     },
     "update_server_url_nok": {
-      "content": "Vezu nije moguće ostvariti."
+      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
+      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "Adresa poslužitelja je ažurirana."
@@ -1427,23 +1439,23 @@
             },
             "2": {
               "placeholder": "Unesite prijetnje +",
-              "title": "Koje su glavne <span class ='green-highlight'> prijetnje </span> koje bi mogle dovesti do rizika?"
+              "title": "Koje su glavne <span class='green-highlight'> prijetnje </span> koje bi mogle dovesti do rizika?"
             },
             "3": {
               "placeholder": "Unesite izvore rizika +",
-              "title": "Koji su izvori <span class ='green-highlight'> rizika </span>"
+              "title": "Koji su izvori <span class='green-highlight'> rizika </span>"
             },
             "4": {
               "placeholder": "Kliknite da biste odabrali kontrole koje odgovaraju na rizik.",
-              "title": "Koja od navedenih <span class = 'green-highlight'> kontrola </span> doprinosi odgovoru na rizik?"
+              "title": "Koja od navedenih <span class='green-highlight'> kontrola </span> doprinosi odgovoru na rizik?"
             },
             "5": {
               "placeholder": "Ovdje opravdajte procijenjenu ozbiljnost rizika.",
-              "title": "Kako procjenjujete <span class ='green-highlight'> ozbiljnost rizika </span>, posebno prema potencijalnim utjecajima i planiranim kontrolama?"
+              "title": "Kako procjenjujete <span class='green-highlight'> ozbiljnost rizika </span>, posebno prema potencijalnim utjecajima i planiranim kontrolama?"
             },
             "6": {
               "placeholder": "Ovdje opravdajte procijenjenu vjerojatnost.",
-              "title": "Kako procjenjujete vjerojatnost rizika <span class ='green-highlight'> </span>, posebno u odnosu na prijetnje, izvore rizika i planirane kontrole?"
+              "title": "Kako procjenjujete vjerojatnost rizika <span class='green-highlight'> </span>, posebno u odnosu na prijetnje, izvore rizika i planirane kontrole?"
             }
           },
           "short_help": "Analizirajte uzroke i posljedice nezakonitog pristupa podacima i procijenite njegovu ozbiljnosti i vjerojatnost.",
@@ -1457,23 +1469,23 @@
             },
             "2": {
               "placeholder": "Unesite prijetnje +",
-              "title": "Koje su glavne <span class ='green-highlight'> prijetnje </span> koje bi mogle dovesti do rizika?"
+              "title": "Koje su glavne <span class='green-highlight'> prijetnje </span> koje bi mogle dovesti do rizika?"
             },
             "3": {
               "placeholder": "Unesite izvore rizika +",
-              "title": "Koji su izvori <span class ='green-highlight'> rizika </span>?"
+              "title": "Koji su izvori <span class='green-highlight'> rizika </span>?"
             },
             "4": {
               "placeholder": "Kliknite ovdje za odabir kontrola koje odgovaraju na rizik.",
-              "title": "Koja od navedenih <span class = 'green-highlight'> kontrola </span> doprinosi odgovoru na rizik?"
+              "title": "Koja od navedenih <span class='green-highlight'> kontrola </span> doprinosi odgovoru na rizik?"
             },
             "5": {
               "placeholder": "Ovdje opravdajte procijenjenu ozbiljnost rizika.",
-              "title": "Kako procjenjujete <span class ='green-highlight'> ozbiljnost rizika </span>, posebno u odnosu na potencijalne utjecaje i planirane kontrole?"
+              "title": "Kako procjenjujete <span class='green-highlight'> ozbiljnost rizika </span>, posebno u odnosu na potencijalne utjecaje i planirane kontrole?"
             },
             "6": {
               "placeholder": "Ovdje opravdajte procijenjenu vjerojatnost.",
-              "title": "Kako procjenjujete <span class ='green-highlight'> vjerojatnost rizika </span>, posebno u odnosu na prijetnje, izvore rizika i planirane kontrole?"
+              "title": "Kako procjenjujete <span class='green-highlight'> vjerojatnost rizika </span>, posebno u odnosu na prijetnje, izvore rizika i planirane kontrole?"
             }
           },
           "short_help": "Analizirajte uzroke i posljedice neželjenih izmjena u podacima i procijenite njihovu ozbiljnost i vjerojatnost.",
@@ -1487,23 +1499,23 @@
             },
             "2": {
               "placeholder": "Unesite prijetnje +",
-              "title": "Koje su glavne <span class ='green-highlight'> prijetnje </span> koje bi mogle dovesti do rizika?"
+              "title": "Koje su glavne <span class='green-highlight'> prijetnje </span> koje bi mogle dovesti do rizika?"
             },
             "3": {
               "placeholder": "Upišite izvore rizika +",
-              "title": "Koji su izvori <span class ='green-highlight'> rizika </span>?"
+              "title": "Koji su izvori <span class='green-highlight'> rizika </span>?"
             },
             "4": {
               "placeholder": "Kliknite ovdje za odabir kontrola koje odgovaraju na rizik.",
-              "title": "Koja od navedenih <span class = 'green-highlight'> kontrola </span> doprinosi odgovoru na rizik?"
+              "title": "Koja od navedenih <span class='green-highlight'> kontrola </span> doprinosi odgovoru na rizik?"
             },
             "5": {
               "placeholder": "Ovdje opravdajte procijenjenu ozbiljnost rizika.",
-              "title": "Kako procjenjujete <span class ='green-highlight'> ozbiljnost rizika </span>, posebno u odnosu na potencijalne utjecaje i planirane kontrole?"
+              "title": "Kako procjenjujete <span class='green-highlight'> ozbiljnost rizika </span>, posebno u odnosu na potencijalne utjecaje i planirane kontrole?"
             },
             "6": {
               "placeholder": "Ovdje opravdajte procijenjenu vjerojatnost.",
-              "title": "Kako procjenjujete <span class ='green-highlight'> vjerojatnost rizika </span>, posebno u odnosu na prijetnje, izvore rizika i planirane kontrole?"
+              "title": "Kako procjenjujete <span class='green-highlight'> vjerojatnost rizika </span>, posebno u odnosu na prijetnje, izvore rizika i planirane kontrole?"
             }
           },
           "short_help": "Analizirajte uzroke i posljedice gubitka podataka i procijenite njegovu ozbiljnost i vjerojatnost.",
@@ -1562,6 +1574,7 @@
       "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
       "individual_download": "TO TRANSLATE - Download elements of the report",
       "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
+      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
       "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
       "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
       "individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",

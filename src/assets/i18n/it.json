@@ -60,6 +60,7 @@
     "wrong_activation_code": "(sbagliato)",
     "wrong_confirmation": "Le password non coincidono",
     "wrong_email": "Email errata",
+    "sso": "TO TRANSLATE - SSO connection",
     "errors": {
       "sign_in": {
         "400": "L'email o la password sono errate."
@@ -67,7 +68,7 @@
       "create_account": {
         "uuid": {
           "404": "Codice di attivazione sbagliato",
-          "403": "Questo account è stato già attivato"
+          "406": "Questo account è stato già attivato"
         },
         "password": {
           "404": "Utente non trovato",
@@ -87,7 +88,8 @@
           "406": "La password non soddisfa i requisiti di sicurezza."
         }
       },
-      "unauthorized": "Non sei autorizzato ad accedere a questa risorsa."
+      "unauthorized": "Non sei autorizzato ad accedere a questa risorsa.",
+      "incompatibility": "La versione del tuo server (pia-back) non è compatibile con la versione della tua applicazione (pia). Si prega di contattare il proprio dipartimento IT."
     }
   },
   "cartography": {
@@ -107,10 +109,19 @@
   },
   "comments": {
     "comment": "Commenta",
+    "written_by": "Scritto da",
     "comments_count": "commenti",
     "new_comment": "Commento",
     "placeholder_new_comment": "Lascia un commento",
     "send": "Invia"
+  },
+  "conflict": {
+    "keep_initial": "Mantieni il contenuto iniziale",
+    "keep_new": "Aggiorna con il nuovo contenuto",
+    "initial_content": "Contenuto iniziale",
+    "merge": "Uniusci (merge) i contenuti",
+    "new_content": "Nuovo contenuto",
+    "title": "Riscontrato conflitto"
   },
   "date": {
     "april": "Aprile",
@@ -144,8 +155,8 @@
       "2": "Limitata",
       "3": "Importante",
       "4": "Massima",
-      "likelihood": "Alla luce del piano d'azione, come valutate la <span class='red-highlight'>probabilità di questo rischio</span> ({{value}})?",
-      "seriousness": "Alla luce del piano d'azione, come valutate la <span class='red-highlight'>gravità di questo rischio</span> ({{value}})?"
+      "likelihood": "Alla luce del piano d'azione, come valutate la <span class='red-highlight'>probabilità di questo rischio</span>?",
+      "seriousness": "Alla luce del piano d'azione, come valutate la <span class='red-highlight'>gravità di questo rischio</span>?"
     },
     "improvable": "Migliorabile",
     "placeholder_acceptable": "Inserite i vostri commenti per spiegare in che modo le misure implementate siano sufficienti a far fronte alle esigenze di protezione dei dati",
@@ -1070,7 +1081,8 @@
       "unarchive": "Togli dall'archivio questa PIA"
     },
     "update_server_url_nok": {
-      "content": "Impossibile connettersi."
+      "content": "Non è possibile connettersi al server: verificare l'URL inserito.",
+      "introspect": "Il Client ID e il Client SECRET non sono stati validati dal server, si prega di verificarli."
     },
     "update_server_url_ok": {
       "content": "L'indirizzo del server è stato aggiornato."
@@ -1557,6 +1569,7 @@
       "complete_download_desc": "Esporta un archivio .zip tutti i report (.doc e immagini), allegati e piano d'azione in formato .csv.",
       "individual_download": "Scarica elementi del report",
       "individual_download_desc": "Esporta elementi specifici del report.",
+      "individual_download_pdf": "Scarica il report PIA (.pdf)",
       "individual_download_doc": "Testi (.doc)",
       "individual_download_images": "Elementi grafici (.png) che includono la panoramica del rischio, la mappatura del rischio e il piano di azione.",
       "individual_download_json": "Report nel formato di file importabile nell'applicazione PIA (per esempio installata nel PC di un collega) (.json file)",

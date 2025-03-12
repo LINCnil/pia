@@ -88,7 +88,6 @@
         justify-content: flex-start;
         align-self: center;
         font-size: 1.3rem;
-        text-transform: uppercase;
         label {
           cursor: pointer;
         }
@@ -119,14 +118,14 @@
             text-decoration: none;
             padding-left: 5px;
           }
-          i {
-            font-size: 1.8rem;
+          .ng-fa-icon {
+            font-size: 1.6rem;
             margin-top: 2px;
-            margin-left: auto;
+            margin-left: 10px;
             margin-right: 10px;
             color: $pia-gray;
           }
-          .fa-check-square-o {
+          .fa-square-check {
             color: $pia-blue;
           }
           label {
@@ -158,9 +157,8 @@
               color: $pia-green;
               border-color: $pia-green;
             }
-            .fa-pencil-square-o.pia-fa-valid,
-            .fa-cog.pia-fa-valid,
-            .fa-check-square-o {
+            .pia-fa-valid,
+            .fa-square-check {
               color: $pia-green;
             }
           }
@@ -170,9 +168,8 @@
               color: $pia-blue;
               border-color: $pia-blue;
             }
-            .fa-pencil-square-o.pia-fa-valid,
-            .fa-cog.pia-fa-valid,
-            .fa-check-square-o {
+            .pia-fa-valid,
+            .fa-square-check {
               color: $pia-blue;
             }
           }
@@ -182,9 +179,8 @@
               color: $pia-red;
               border-color: $pia-red;
             }
-            .fa-pencil-square-o.pia-fa-valid,
-            .fa-cog.pia-fa-valid,
-            .fa-check-square-o {
+            .pia-fa-valid,
+            .fa-square-check {
               color: $pia-red;
             }
           }
@@ -195,8 +191,8 @@
               border-color: $pia-dark-black;
               display: block;
             }
-            .fa-cog.pia-fa-valid,
-            .fa-check-square-o {
+            .pia-fa-valid,
+            .fa-square-check {
               color: $pia-dark-black;
             }
           }
@@ -250,7 +246,6 @@
   }
 }
 
-// TODO: TO BE REFACTORED
 .pia-newBlock {
   > #pia-new-card {
     border: 1px solid $pia-gray;
@@ -270,16 +265,6 @@
       }
       &-btn {
         padding-left: 18px;
-        .fa-folder-open,
-        .fa-upload {
-          font-size: 7rem;
-          margin-right: 30px;
-        }
-        .fa-upload {
-          margin-right: 40px;
-        }
-        .fa-folder-open,
-        .fa-upload,
         button {
           display: inline-block;
           vertical-align: top;
@@ -518,7 +503,7 @@
           margin-right: 12px;
         }
       }
-      .fa {
+      .ng-fa-icon {
         margin-right: 10px;
         font-size: 1.5rem;
       }

@@ -60,6 +60,7 @@
     "wrong_activation_code": "TO TRANSLATE - (wrong)",
     "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
     "wrong_email": "TO TRANSLATE - Wrong email",
+    "sso": "TO TRANSLATE - SSO connection",
     "errors": {
       "sign_in": {
         "400": "TO TRANSLATE - Wrong email or password."
@@ -67,7 +68,7 @@
       "create_account": {
         "uuid": {
           "404": "TO TRANSLATE - Wrong activation code",
-          "403": "TO TRANSLATE - This account is already activated"
+          "406": "TO TRANSLATE - This account is already activated"
         },
         "password": {
           "404": "TO TRANSLATE - User not found",
@@ -87,7 +88,8 @@
           "406": "TO TRANSLATE - The password does not meet the password policy requirements."
         }
       },
-      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource."
+      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource.",
+      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -107,10 +109,19 @@
   },
   "comments": {
     "comment": "Komentarz",
+    "written_by": "TO TRANSLATE - Written by",
     "comments_count": "komentarz(e)",
     "new_comment": "Komentarz",
     "placeholder_new_comment": "Można wpisać komentarz",
     "send": "Wstaw komentarz"
+  },
+  "conflict": {
+    "keep_initial": "TO TRANSLATE - Keep initial content",
+    "keep_new": "TO TRANSLATE - Update with new content",
+    "initial_content": "TO TRANSLATE - Initial content",
+    "merge": "TO TRANSLATE - Merge both contents",
+    "new_content": "TO TRANSLATE - New content",
+    "title": "TO TRANSLATE - Conflict detected"
   },
   "date": {
     "april": "Kwiecień",
@@ -144,8 +155,8 @@
       "2": "Ograniczone",
       "3": "Poważne",
       "4": "Maksymalne",
-      "likelihood": "Biorąc pod uwagę plan działania, jak można ponownie ocenić <span class='red-highlight'>prawdopodobieństwo tego ryzyka</span> ({{value}})?",
-      "seriousness": "Biorąc pod uwagę plan działania, jak można ponownie ocenić <span class='red-highlight'>istotność tego ryzyka</span> ({{value}})?"
+      "likelihood": "Biorąc pod uwagę plan działania, jak można ponownie ocenić <span class='red-highlight'>prawdopodobieństwo tego ryzyka</span>?",
+      "seriousness": "Biorąc pod uwagę plan działania, jak można ponownie ocenić <span class='red-highlight'>istotność tego ryzyka</span>?"
     },
     "improvable": "Do ulepszenia",
     "placeholder_acceptable": "Można wpisać komentarz wyjaśniający, w jakim zakresie wdrożone środki są wystarczające dla spełnienia wymagań dotyczących ochrony danych osobowych.",
@@ -1075,7 +1086,8 @@
       "unarchive": "Niearchiwizuj PIA"
     },
     "update_server_url_nok": {
-      "content": "Połączenie niemożliwe."
+      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
+      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "Adres serwera został zaktualizowany."
@@ -1562,6 +1574,7 @@
       "complete_download_desc": "Eksportuj do archiwum .zip całą zawartość raportu (.doc i zdjęcia), załączniki oraz plan działania w formacie .csv.",
       "individual_download": "Pobierz elementy raportu",
       "individual_download_desc": "Eksportuj określone elementy raportu.",
+      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
       "individual_download_doc": "Tekst (.doc)",
       "individual_download_images": "Elementy graficzne (.png), w tym obraz ryzyka, mapa ryzykathe i plan działania.",
       "individual_download_json": "Raport w formacie do zaimportowania do narzędzia PIA (plik .json)",

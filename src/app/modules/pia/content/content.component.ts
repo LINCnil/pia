@@ -9,11 +9,19 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { PaginationService } from 'src/app/services/pagination.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
+import { faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons/faAngleDoubleLeft';
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons/faAngleDoubleRight';
+import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
+import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons/faCalendarCheck';
+import { faSquareCheck } from '@fortawesome/free-solid-svg-icons/faSquareCheck';
+import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
+  standalone: false
 })
 export class ContentComponent implements OnInit {
   @Input() pia: Pia = null;
@@ -31,6 +39,14 @@ export class ContentComponent implements OnInit {
   userAnswersForSources = [];
 
   loading = false;
+
+  protected readonly faAngleDoubleLeft = faAngleDoubleLeft;
+  protected readonly faAngleDoubleRight = faAngleDoubleRight;
+  protected readonly faChartLine = faChartLine;
+  protected readonly faPenToSquare = faPenToSquare;
+  protected readonly faCalendarCheck = faCalendarCheck;
+  protected readonly faSquareCheck = faSquareCheck;
+  protected readonly faGear = faGear;
 
   constructor(
     private router: Router,
@@ -98,7 +114,8 @@ export class ContentComponent implements OnInit {
               type: 'yes',
               yes: 'modals.continue',
               no: '',
-              icon: 'fa fa-cog icon-gray'
+              icon: 'faGear',
+              class: 'icon-gray'
             },
             () => {
               return;
@@ -115,7 +132,8 @@ export class ContentComponent implements OnInit {
               type: 'yes',
               yes: 'modals.continue',
               no: '',
-              icon: 'fa fa-pencil-square-o icon-green'
+              icon: 'faPenToSquare',
+              class: 'icon-green'
             },
             () => {
               return;
@@ -162,7 +180,8 @@ export class ContentComponent implements OnInit {
               data: {
                 modal_id: 'completed-evaluation'
               },
-              icon: 'fa fa-check icon-gray'
+              icon: 'faCheck',
+              class: 'icon-gray'
             },
             () => {
               return;
@@ -178,7 +197,8 @@ export class ContentComponent implements OnInit {
               type: 'yes',
               yes: 'modals.continue',
               no: '',
-              icon: 'fa fa-pencil-square-o icon-gray'
+              icon: 'faPenToSquare',
+              class: 'icon-gray'
             },
             () => {
               return;
@@ -197,7 +217,8 @@ export class ContentComponent implements OnInit {
               type: 'yes',
               yes: 'modals.continue',
               no: '',
-              icon: 'fa fa-cog icon-green'
+              icon: 'faGear',
+              class: 'icon-green'
             },
             () => {
               return;
@@ -248,7 +269,8 @@ export class ContentComponent implements OnInit {
           type: 'yes',
           yes: 'modals.continue',
           no: '',
-          icon: 'fa fa-pencil-square-o icon-gray'
+          icon: 'faPenToSquare',
+          class: 'icon-gray'
         },
         () => {
           return;
@@ -274,7 +296,8 @@ export class ContentComponent implements OnInit {
             type: 'yes',
             yes: 'modals.continue',
             no: '',
-            icon: 'fa fa-cog icon-gray'
+            icon: 'faGear',
+            class: 'icon-gray'
           },
           () => {
             return;

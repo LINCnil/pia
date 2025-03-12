@@ -14,7 +14,8 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',
-  styleUrls: ['../form.scss', './password.component.scss']
+  styleUrls: ['../form.scss', './password.component.scss'],
+  standalone: false
 })
 export class PasswordComponent implements OnInit {
   @Input() reset = false;

@@ -66,14 +66,14 @@
           margin-top: 9px;
           color: $pia-gray;
         }
-        i {
-          font-size: 1.8rem;
+        .ng-fa-icon {
+          font-size: 1.6rem;
           margin-top: 2px;
-          margin-left: auto;
+          margin-left: 10px;
           margin-right: 10px;
           color: $pia-gray;
         }
-        .fa-check-square-o {
+        .fa-square-check {
           color: $pia-blue;
         }
       }
@@ -109,9 +109,8 @@
               background-color: $pia-green;
             }
           }
-          .fa-pencil-square-o.pia-fa-valid,
-          .fa-cog.pia-fa-valid,
-          .fa-check-square-o {
+          .pia-fa-valid,
+          .fa-square-check {
             color: $pia-green;
           }
         }
@@ -131,9 +130,8 @@
               background-color: $pia-blue;
             }
           }
-          .fa-pencil-square-o.pia-fa-valid,
-          .fa-cog.pia-fa-valid,
-          .fa-check-square-o {
+          .pia-fa-valid,
+          .fa-square-check {
             color: $pia-blue;
           }
         }
@@ -153,9 +151,8 @@
               background-color: $pia-red;
             }
           }
-          .fa-pencil-square-o.pia-fa-valid,
-          .fa-cog.pia-fa-valid,
-          .fa-check-square-o {
+          .pia-fa-valid,
+          .fa-square-check {
             color: $pia-red;
           }
         }
@@ -176,8 +173,8 @@
               background-color: $pia-dark-black;
             }
           }
-          .fa-cog.pia-fa-valid,
-          .fa-check-square-o {
+          .pia-fa-valid,
+          .fa-square-check {
             color: $pia-dark-black;
           }
         }

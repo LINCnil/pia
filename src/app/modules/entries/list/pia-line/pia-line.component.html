@@ -6,7 +6,7 @@
         [routerLink]="['/pia', pia.id, 'section', 1, 'item', 1]"
         class="btn pia-tooltip"
       >
-        <i class="fa fa-pencil" aria-hidden="true"></i>
+        <fa-icon [icon]="faPencil"></fa-icon>
         <span
           title="{{ 'homepage.lists.item.tools.edit' | translate }}"
           class="pia-tooltip-text"
@@ -18,7 +18,7 @@
         [routerLink]="['/preview', pia.id]"
         class="btn pia-tooltip"
       >
-        <i class="fa fa-eye" aria-hidden="true"></i>
+        <fa-icon [icon]="faEye"></fa-icon>
         <span
           title="{{ 'homepage.lists.item.tools.consult' | translate }}"
           class="pia-tooltip-text"
@@ -37,7 +37,7 @@
           (click)="onDuplicate(pia.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-files-o" aria-hidden="true"></i>
+          <fa-icon [icon]="faFile"></fa-icon>
           <span
             title="{{ 'homepage.lists.item.tools.duplicate' | translate }}"
             class="pia-tooltip-text"
@@ -45,7 +45,7 @@
           >
         </a>
         <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
-          <i class="fa fa-download" aria-hidden="true"></i>
+          <fa-icon [icon]="faDownload"></fa-icon>
           <span
             title="{{ 'homepage.lists.item.tools.export' | translate }}"
             class="pia-tooltip-text"
@@ -57,7 +57,7 @@
           (click)="archivePia(pia.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-archive" aria-hidden="true"></i>
+          <fa-icon [icon]="faArchive"></fa-icon>
           <span
             title="{{ 'homepage.lists.item.tools.archive' | translate }}"
             class="pia-tooltip-text"
