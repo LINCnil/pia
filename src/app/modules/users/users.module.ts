@@ -6,11 +6,11 @@ import { UsersRoutingModule } from './users-routing.module';
 import { UsersService } from 'src/app/services/users.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { NewUserComponent } from './new-user/new-user.component';
-import { PiaI18nModule } from '@atnos/pia-i18n';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [UsersComponent, NewUserComponent],
-  imports: [SharedModule, PiaI18nModule, CommonModule, UsersRoutingModule],
+  imports: [SharedModule, CommonModule, UsersRoutingModule, TranslatePipe],
   exports: [NewUserComponent],
   providers: [UsersService, AuthService]
 })

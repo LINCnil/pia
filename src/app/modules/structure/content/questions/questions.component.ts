@@ -9,9 +9,7 @@ import {
   EventEmitter
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
+import { debounceTime, map, filter } from 'rxjs/operators';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { StructureService } from 'src/app/services/structure.service';

@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { BaseComponent } from './base.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BaseRoutingModule } from './base-routing.module';
-import { PiaI18nModule } from '@atnos/pia-i18n';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [BaseComponent],
-  imports: [PiaI18nModule, SharedModule, CommonModule, BaseRoutingModule]
+  imports: [SharedModule, CommonModule, BaseRoutingModule, TranslatePipe]
 })
 export class BaseModule {}

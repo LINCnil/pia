@@ -1,0 +1,1693 @@
+{
+  "about": {
+    "contribute": "Om du vill bidra med översättning av denna mjukvara till ett annat språk eller förbättra redan gjorda översättningar så välkomnar vi dig till <a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">läs där hur det går till </a>.",
+    "description": "Detta verktyg är ursprungligen utvecklat av <a target=\\\"_blank\\\" href=\\\"https://www.cnil.fr\\\">Commission Nationale Informatique et Liberté (CNIL)</a>, den franska datainspektionen, för att hjälpa personuppgiftsansvariga att säkerställa att behandlingar överensstämmer med den allmänna dataskyddsförordningen (DSF, även refererad till som \"GDPR\"). Verktyget är utvecklat av <a href=\\\"https://atnos.com\\\" target=\\\"_blank\\\">ATNOS</a>.<br>Detta verktyg är utvecklat med öppen källkod enligt licenstypen GPLv3. Om du vill bidra till detta projekt så är du välkommen att ladda ner källkoden från Github, modifiera den och dela den i forumet.",
+    "licences": "Bibliotekslicenser:",
+    "title": "Om PIA-verktyget",
+    "translators": "PIA-verktyget är för närvarande tillgängligt på 19 språk. De franska och engelska versionerna är producerade av CNIL. Övriga versioner är resultat av följande individers översättningsarbete:",
+    "translators_name": "<li>Svenska : Per von Bahr, Sopra Steria AB ;</li><ul><ul><li>Croatian : <a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a> ;</li><li>Czech : Jiří Grohmann, Manuel d’Orso ;</li><li>Danish : <a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a> ;</li><li>Dutch : Ruud van Driel, Manuel d’Orso ;</li><li>English : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>Estonian : Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a> ;</li><li>Finnish : <a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a> ;</li><li>French : <a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a> ;</li><li>German : <a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>) ;</li><li>Greek : <a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a> ;</li><li>Hungarian : <a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a> ;</li><li>Italian : Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>) ;</li><li>Lithuanian : Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>) ;</li><li>Norwegian : <a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a> ;</li><li>Polish : <a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>) ;</li><li>Portuguese : <a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a> ;</li><li>Romanian : <a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a> ;</li><li>Spanish : <a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a> .</li></ul>",
+    "version_number": "Versionsnummer"
+  },
+  "action_plan": {
+    "acceptable_measures": "Acceptabla åtgärder",
+    "edit": "Redigera",
+    "improvable_measures": "Förbättringsbara åtgärder",
+    "measures": "Planerade eller befintliga åtgärder",
+    "no_action_plan": "Ingen registrerad åtgärdsplan",
+    "placeholder_person_in_charge": "Ansvarig för utförandet",
+    "principles": "Fundamentala principer",
+    "risk1": "Obehörig åtkomst till personuppgifter",
+    "risk2": "Oönskade förändringar av personuppgifter",
+    "risk3": "Förlust av personuppgifter",
+    "risks": "Risker",
+    "title": "Översikt"
+  },
+  "authentication": {
+    "12_characters": "TO TRANSLATE - 12 characters",
+    "account_recovery": "TO TRANSLATE - Password recovery",
+    "activation_code": "TO TRANSLATE - Activation code",
+    "cancel": "TO TRANSLATE - Cancel",
+    "confirm": "TO TRANSLATE - Confirm",
+    "confirmation": "TO TRANSLATE - Confirmation",
+    "continue": "TO TRANSLATE - Continue",
+    "activate_account": "TO TRANSLATE - activate account",
+    "create_account": "TO TRANSLATE - Sign up",
+    "create_account2": "TO TRANSLATE - Create account",
+    "description": "Denna mjukvara som är producerad av <strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong> är utvecklad för att hjälpa personuppgiftsansvariga att uppfylla och vidmakthålla överensstämmelse med DSF (GDPR) i sin behandling av personuppgifter. Den ger stöd för att utföra en standardiserad konsekvensanalys (PIA/DPIA) med hjälp av en metodik utvecklad av CNIL",
+    "email": "TO TRANSLATE - Email",
+    "email_placeholder": "TO TRANSLATE - Email",
+    "forgotten_password": "TO TRANSLATE - Forgotten ?",
+    "login": "TO TRANSLATE - Login",
+    "lowercase": "TO TRANSLATE - Lowercase",
+    "password": "TO TRANSLATE - Password",
+    "password_security": "TO TRANSLATE - Password security",
+    "recovery_code": "TO TRANSLATE - Reset code",
+    "recovery_code_message": "TO TRANSLATE - An email containing a code has been sent to this email. Please enter the code in the field below.",
+    "recovery_code_not_sent": "TO TRANSLATE - Unreceived code?",
+    "saved_password": "TO TRANSLATE - Your password is saved. You can now sign in.",
+    "sign_in": "TO TRANSLATE - Sign in",
+    "sign_in_button": "TO TRANSLATE - Sign in",
+    "sign_out_button": "TO TRANSLATE - Sign out",
+    "special_character": "TO TRANSLATE - Special character (!@#$%^&*()?...)",
+    "number": "TO TRANSLATE - Number",
+    "start": "Start",
+    "start_app": "Starta konsekvensanalysen (Beta)",
+    "subtitle1": "En plattform för att utföra <br> samt att hantera utförda konsekvensanalyser (PIA - Privacy Impact Assessment)",
+    "subtitle2": "Verktyg och ordlistor",
+    "title": "Konsekvensanalys avseende hanterande av personuppgifter",
+    "transaction_error": "TO TRANSLATE - Unable to process your request.",
+    "uppercase": "TO TRANSLATE - Uppercase",
+    "wrong_activation_code": "TO TRANSLATE - (wrong)",
+    "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
+    "wrong_email": "TO TRANSLATE - Wrong email",
+    "errors": {
+      "sign_in": {
+        "400": "TO TRANSLATE - Wrong email or password."
+      },
+      "create_account": {
+        "uuid": {
+          "404": "TO TRANSLATE - Wrong activation code",
+          "403": "TO TRANSLATE - This account is already activated"
+        },
+        "password": {
+          "404": "TO TRANSLATE - User not found",
+          "406": "TO TRANSLATE - The password does not meet the password policy requirements."
+        }
+      },
+      "account_recovery": {
+        "email": {
+          "404": "TO TRANSLATE - User not found",
+          "423": "TO TRANSLATE - Account locked"
+        },
+        "uuid": {
+          "404": "TO TRANSLATE - Wrong recovery code"
+        },
+        "password": {
+          "404": "TO TRANSLATE - User not found",
+          "406": "TO TRANSLATE - The password does not meet the password policy requirements."
+        }
+      },
+      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource."
+    }
+  },
+  "cartography": {
+    "important": "Viktigt",
+    "legend1": "Planerade eller befintliga åtgärder",
+    "legend2": "Med utförda åtgärder",
+    "legend3": "(O)behörig åtkomst till personuppgifter",
+    "legend4": "(I)cke önskade förändringar av personuppgifter",
+    "legend5": "(F)örlust av personuppgifter",
+    "likelihood_axe": "Sannolikhet för risk",
+    "limited": "Begränsad",
+    "maximal": "Maximal",
+    "negligible": "Obetydlig",
+    "risk1_access": "(O)",
+    "risk2_modification": "(I)",
+    "seriousness_axe": "Riskens allvarlighetsgrad"
+  },
+  "comments": {
+    "comment": "Kommentar",
+    "comments_count": "Kommentarer (antal)",
+    "new_comment": "Kommentera",
+    "placeholder_new_comment": "Skriv en kommentar",
+    "send": "Skicka"
+  },
+  "date": {
+    "april": "TO TRANSLATE - April",
+    "august": "TO TRANSLATE - August",
+    "december": "TO TRANSLATE - December",
+    "earlier-in-this-month": "TO TRANSLATE - Earlier this month",
+    "earlier-in-this-week": "TO TRANSLATE - Earlier this week",
+    "february": "TO TRANSLATE - February",
+    "january": "TO TRANSLATE - January",
+    "july": "TO TRANSLATE - July",
+    "june": "TO TRANSLATE - June",
+    "march": "TO TRANSLATE - March",
+    "may": "TO TRANSLATE - May",
+    "november": "TO TRANSLATE - November",
+    "october": "TO TRANSLATE - October",
+    "september": "TO TRANSLATE - September",
+    "today": "TO TRANSLATE - Today",
+    "yesterday": "TO TRANSLATE - Yesterday"
+  },
+  "errors": {
+    "content": "Om du stöter på andra problem eller om du har förslag på förbättringar, <br> så kan du beskriva och sända dem via detta formulär: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
+    "title": "Finner inte sidan."
+  },
+  "evaluations": {
+    "acceptable": "Godkänd",
+    "action_plan_comment": "Åtgärdsplan / Korrigeringsåtgärder",
+    "evaluation_comment": "Granskningskommentarer",
+    "gauges": {
+      "0": "(Odefinierad)",
+      "1": "Obetydlig",
+      "2": "Begränsad",
+      "3": "Allvarlig",
+      "4": "Maximal",
+      "likelihood": "Med hänsyn tagen till att åtgärdsplanen följts, hur bedömer du <span class = 'red-highlight'>sannolikheten för att den resterande risken inträffar</span> ({{value}}) ?",
+      "seriousness": "Med hänsyn tagen till att åtgärdsplanen följts, hur bedömer du <span class = 'red-highlight'> allvarlighetsgraden för den resterande risken  </span> ({{value}}) ?"
+    },
+    "improvable": "Kan förbättras",
+    "placeholder_acceptable": "Ge en förklarande kommentar kring varför de åtgärder som utförts är tillräckliga för att ge ett tillräckligt skydd av personuppgifterna",
+    "placeholder_improvable1": "Ge en förklarande kommentar kring vilka ytterligare åtgärder som bör utföras för att ge ett tillräckligt skydd av personuppgifterna",
+    "placeholder_improvable2": "Skriv dina kommentarer.",
+    "placeholder_to_correct": "Ge en förklarande kommentar kring varför dessa åtgärder inte ger ett tillräckligt skydd av personuppgifterna. Återsändes till PIA-utföraren för att kompletteras med ytterligare åtgärder.",
+    "status": ["Ofärdigt", "Att korrigera", "Förbättringsbart", "Godkänt"],
+    "title": "Utvärdering",
+    "to_correct": "Att korrigera"
+  },
+  "header": {
+    "archives": "TO TRANSLATE - PIA Archives",
+    "current_pias": "TO TRANSLATE - Current PIAs",
+    "exit_full_screen_mode": "Tryck på F11 för att lämna fullskärmsläge",
+    "help": {
+      "issue_reporting": "TO TRANSLATE - Report an issue",
+      "manual": "TO TRANSLATE - User manual",
+      "pia_example_link": "Konsekvensanalysexempel",
+      "title": "TO TRANSLATE - Help"
+    },
+    "homepage_link": "Hem",
+    "knowledge_base_link": "Kunskapsbas",
+    "languages": {
+      "ar": "العربية",
+      "bg": "български",
+      "cnil_translations": "Traductions fournies par la CNIL",
+      "community_translations": "Traductions fournies par la communauté",
+      "cz": "Česky",
+      "de": "Deutsch",
+      "dk": "Dansk",
+      "dpa_translations": "Traduction révisée par les ADP européenne",
+      "el": "Ελληνικά",
+      "en": "English",
+      "es": "Español",
+      "et": "Eesti keel",
+      "fi": "Suomi",
+      "fr": "Français",
+      "hr": "Hrvatski",
+      "hu": "Magyar",
+      "it": "Italiano",
+      "lt": "Lietuviškai",
+      "lv": "Latviešu valoda",
+      "nl": "Nederlands",
+      "no": "Norsk",
+      "official_translation": "Version originelle",
+      "pl": "Polski",
+      "pt": "Português",
+      "ro": "Română",
+      "sl": "Slovenščina",
+      "sv": "Svenska"
+    },
+    "logo_subtitle": "PIA - Konsekvensanalys",
+    "logo_title": "PIA - Konsekvensanalys",
+    "structures": "PIA - mallar",
+    "tools": {
+      "about": "Om",
+      "accessibility": "Tillgänglighet för funktionsvariationer (skarpa kontrastfärger, anpassning till färgblindhet)",
+      "onboarding": "TO TRANSLATE - Restart tutorial",
+      "settings": "Inställningar",
+      "url_setting": "TO TRANSLATE - Server URL configuration",
+      "users": "TO TRANSLATE - Users"
+    }
+  },
+  "help": {
+    "definition": {
+      "data1": {
+        "content": "Innehåll under pågående bearbetning",
+        "title": "Använd PIA verktyget"
+      },
+      "data2": {
+        "qa1": {
+          "content": "Om du får problem med skärmbilden så starta om programmet. Detta åtgärdar normalt problemet. Allt som skrivits in sparas kontinuerligt så vid denna åtgärd riskerar du inte att förlora det som redan skrivits in i verktyget.",
+          "title": "Jag har problem med att t.ex. symboler eller ikoner inte uppdateras eller att det fattas knappar eller annat i menyer eller andra gränssnitt."
+        },
+        "qa2": {
+          "content": "Detta problem är känt och håller på att åtgärdas. Om du stöter på detta problem rekommenderar vi att du fyller i fältet \"Justification\" med hur allvarligt det varit samt hur ofta det uppstår. Du kommer att kunna justera dina värden när felet är avklarat.",
+          "title": "Jag kan inte editera skalorna för sannolikhet och graden av risk"
+        },
+        "qa3": {
+          "content": "Flera fel har noterats i samband med import av en PIA. Speciellt kopplat till presentationen av sannolikhet och risk där information försvinner. För att avhjälpa detta kan du återgå till det föregående steget i PIAn och sedan stega tillbaka till graferna. Om problemet inte avhjälpts så ladda om bilden.",
+          "title": "Jag har problem kopplat till importen av en PIA"
+        },
+        "qa4": {
+          "content": "Detta är ett fel kopplat till visualiseringen av informationen som lagts i PIAn, men påverkar inte alls den data som matats in. Detta problem kommer snart att vara avhjälpt.",
+          "title": "När jag kopierar in text visas den som understruken eller fet text"
+        },
+        "qa5": {
+          "content": "För att begära en utvärdering krävs att alla fält fyllts i. Var vänlig att kontrollera att detta gjorts. Vad gäller riskbedömningen så måste en teknisk eller organisatorisk åtgärd för att minimera risken angivas.",
+          "title": "Jag kan inte sända en begäran om att utvärdera en sektion"
+        },
+        "qa6": {
+          "content": "Stäng den PIA du arbetar med och öppna den igen. Innehållet kommer då att presenteras på det valda språket.",
+          "title": "När jag byter språk ändras texterna inte till den valda språket"
+        },
+        "qa7": {
+          "content": "För tillfället uppdateras inte ikonerna i navigationsmenyn till vänster efter en nekad PIA. Du måste gå igenom varje avsnitt för att läsa grunder för avslag och anpassa åtgärderna för att kunna begära en förnyad utvärdering. När alla avsnitt kontrollerats och, vid behov, justerats kan du på nytt begära att få PIAn utvärderad.",
+          "title": "PIAn har inte blivit godkänd, men jag vet inte vad nästa steg är"
+        },
+        "title": "Kända problem"
+      },
+      "footer": "Om du stöter på andra problem eller om du har förslag på förbättringar, så kan du beskriva och sända dem via detta formulär: <a target=\"_blank\" href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>."
+    },
+    "title": "Hjälp"
+  },
+  "homepage": {
+    "cards": {
+      "author": "Datainsamlare",
+      "category": "TO TRANSLATE - Category",
+      "creation_status": "Skapa",
+      "date": "Datum",
+      "evaluation": "Utvärdera",
+      "guest": "TO TRANSLATE - Guest(s)",
+      "import_pia": "Importera PIA",
+      "import_structure": "Importera mall",
+      "item": {
+        "consult_pia": "Konsultera",
+        "consult_structure": "TO TRANSLATE - Consult template",
+        "edit_pia": "Redigera",
+        "edit_structure": "Redigera mall",
+        "tools": {
+          "action_plan": "Visa <br> åtgärdsplan",
+          "archive": "TO TRANSLATE - Archive",
+          "duplicate": "Duplicera",
+          "export": "Exportera",
+          "more_options": "Fler val",
+          "pia": "Visa <br>PIAn",
+          "remove": "TO TRANSLATE - Delete",
+          "unarchive": "TO TRANSLATE - Unarchive"
+        },
+        "validate_pia": "TO TRANSLATE - Validate"
+      },
+      "knowledges": {
+        "edit": "TO TRANSLATE - Edit the base",
+        "import": "TO TRANSLATE - Import a base",
+        "new": "TO TRANSLATE - Create a base",
+        "placeholder_author": "TO TRANSLATE - Author",
+        "placeholder_contributors": "TO TRANSLATE - Contributors",
+        "placeholder_entry_number": "TO TRANSLATE - Number of entries",
+        "placeholder_name": "TO TRANSLATE - Base's name"
+      },
+      "knowledges_entry": {
+        "all_sections": "TO TRANSLATE - All sections",
+        "choose_category": "TO TRANSLATE - Choose a category",
+        "contents": "TO TRANSLATE - Contents",
+        "create": "TO TRANSLATE - Create this element",
+        "linked_to": "TO TRANSLATE - Linked to",
+        "new": "TO TRANSLATE - Create an element",
+        "placeholder_category": "TO TRANSLATE - Category",
+        "placeholder_description": "TO TRANSLATE - Your description here...",
+        "placeholder_name": "TO TRANSLATE - Element's name",
+        "placeholder_updated_at": "TO TRANSLATE - Last updated"
+      },
+      "new_pia": "Ny PIA",
+      "new_structure": "Ny mall",
+      "or": "eller",
+      "pia_name": "PIA",
+      "placeholder_author": "Förnamn, efternamn",
+      "placeholder_category": "TO TRANSLATE - Category",
+      "placeholder_evaluation": "Förnamn, efternamn",
+      "placeholder_import_knowledgeBase": "TO TRANSLATE - Import base",
+      "placeholder_import_pia": "Importera PIA",
+      "placeholder_import_structure": "Importera mall",
+      "placeholder_new_knowledgeBase": "TO TRANSLATE - New base",
+      "placeholder_new_pia": "Ny PIA",
+      "placeholder_new_structure": "Ny mall",
+      "placeholder_pia_name": "PIA´s namn",
+      "placeholder_sector_name": "Namn på sektionen",
+      "placeholder_start": "Alla fält måste fyllas i",
+      "placeholder_structure": "Standardmall",
+      "placeholder_structure_name": "Mallnamn",
+      "placeholder_validation": "Förnamn, efternamn",
+      "sector_name": "Tillhörande sektion",
+      "start": "Start",
+      "status": "Status",
+      "structure": "Mall",
+      "structure_name": "Mallnamn",
+      "title_close_creation": "Stäng",
+      "validation": "Validering"
+    },
+    "filters": {
+      "assessor": "Utvärderare",
+      "author": "Datainsamlare",
+      "card": "Kort",
+      "card_rocket_content": "Starta! <br><br>För att börja<br>en PIA, klicka<br> på +",
+      "card_rocket_content_structure": "Starta! <br><br>För att börja<br>en mall, klicka<br> på +",
+      "category": "TO TRANSLATE - Category",
+      "date": "Datum",
+      "import_pia": "Importera PIA",
+      "import_structure": "Importera en mall",
+      "list": "lista",
+      "list_rocket_content": "Starta! För att börja<br>en PIA, klicka på +",
+      "list_rocket_content_structure": "Starta! För att börja<br>en mall, klicka på +",
+      "name": "Namn",
+      "new_pia": "Ny PIA",
+      "new_structure": "Ny mall",
+      "sector_name": "Tillhörande sektion",
+      "sort": "Sortera",
+      "sort_by": "efter",
+      "status": "Status",
+      "validator": "Godkännare"
+    },
+    "lists": {
+      "column_actions": "Alternativ",
+      "column_author": "Datainsamlare",
+      "column_category": "TO TRANSLATE - Category",
+      "column_creation": "Skapad",
+      "column_evaluation": "Utvärdering",
+      "column_pia": "PIA",
+      "column_progression": "Framåtskridande",
+      "column_sector_name": "Tillhörande sektion",
+      "column_status": "Status",
+      "column_structure": "Mall",
+      "column_structure_name": "Mall",
+      "column_updated_at": "Senast öppnad",
+      "column_validation": "Godkännande",
+      "item": {
+        "tools": {
+          "action_plan": "Visa åtgärdsplan",
+          "archive": "TO TRANSLATE - Archive",
+          "consult": "Konsultera",
+          "duplicate": "Duplicera",
+          "edit": "Redigera",
+          "export": "Exportera",
+          "pia": "Via PIA",
+          "remove": "TO TRANSLATE - Delete",
+          "unarchive": "TO TRANSLATE - Unarchive"
+        }
+      }
+    },
+    "search_filter": "TO TRANSLATE - Search",
+    "no_entries": {
+      "pia": "TO TRANSLATE - No PIA created and/or assigned",
+      "archive": "TO TRANSLATE - No PIA archive"
+    }
+  },
+  "knowledge_base": {
+    "add_measure": "Lägg till",
+    "add_measure_hint": "Du kan också lägga till en åtgärd från kunskapsdatabasen",
+    "category": {
+      "definition": "Definition",
+      "example": "Exempel",
+      "general_measure": "Allmän säkerhetsåtgärd för systemet (fysisk)",
+      "measure_on_data": "Logisk säkerhetsåtgärd för personuppgifterna",
+      "method": "Metodik",
+      "organizational_measure": "Organisatorisk åtgärd",
+      "principle": "Princip"
+    },
+    "choose_knowledge_base": "TO TRANSLATE - Choose your knowledge base",
+    "default_knowledge_base": "TO TRANSLATE - CNIL's knowledge base",
+    "filters": {
+      "all": "Alla",
+      "definitions": "Definitioner",
+      "general_measures": "Allmäna säkerhetsåtgärder för systemet (fysisk)",
+      "measures_on_data": "Logiska säkerhetsåtgärder för personuppgifterna",
+      "no_result": "Inga resultat hittades.",
+      "organizational_measures": "Organisatoriska åtgärder",
+      "title": "Filter"
+    },
+    "placeholder_add_measure": "Lägg till denna åtgärd",
+    "placeholder_help": "Inmatningshjälp",
+    "search": "Sök",
+    "slugs": {
+      "PIA_DEF_ACC": {
+        "description": "Den registrerade ska ha rätt att erhålla bekräftelse från den personuppgiftsansvarige att personuppgifter om honom / henne behandlas och få tillgång till sådana personuppgifter samt andra uppgifter som anges i<a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">artikel 15 i Dataskyddsförordningen (GDPR)</a>.",
+        "name": "Rätt till tillgång",
+        "source": "ADSF/GDPR Art. 15, Den registrerades rätt till tillgång "
+      },
+      "PIA_DEF_ANO": {
+        "description": "Syftet med en anonymiseringslösning är att ta bort den identifierande karaktären av personuppgifter. En anonymiseringslösning måste byggas från fall till fall och anpassas till avsedd användning. För att hjälpa till att utvärdera en bra anonymiseringslösning föreslår EDPB i <a target=\"_blank\" href=\"https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_sv.pdf\">G29</a> tre kriterier:<br>- <strong>Särskiljbarhet: </strong>Är det  möjligt att särskilja en person?<br>- <strong>Länkbarhet: </strong>Är det möjligt att kombinera olika uppsättningar data om samma person?<br>- <strong>Inferens (Härledning):</strong> Kan information om en person härledas? <br>Således: <strong>Data för vilken det är omöjligt att särskilja, länka till eller Inferera/härleda till en fysisk person är att ses som anonym</strong> ;<br>Data för vilken <strong>åtminstone ett av de tre kriterierna inte uppfylls </strong>kan endast betraktas som anonym efter en detaljerad riskanalys gällande identifiering är utförd.",
+        "name": "Anonymisering",
+        "source": "https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_sv.pdf"
+      },
+      "PIA_DEF_ARCH": {
+        "description": "Uppgifter som inte längre används dagligen men som ännu inte har nått sin maximala lagringsperiod, till exempel för att de bevaras i händelse av tvister, bör arkiveras.<br><br><strong>Arkiv måste vara säkra </strong>, särskilt om de arkiverade uppgifterna är känslig personlig information eller personlig information som kan ha allvarliga effekter på de registrerade.",
+        "name": "Arkivering",
+        "source": "Datainspektionen"
+      },
+      "PIA_DEF_AUTH": {
+        "description": "Autentisering är en <strong>metod genom vilken användaren styrker sin identitet</strong>, för det finns det flera mekanismer som kategoriseras enligt vilka tekniker de involverar:<br>- Vad man vet, till exempel ett lösenord;<br>- Vad man har, till exempel ett digitalt certifikat;<br>- En egenskap, till exempel ett fingeravtryck eller hur man skriver en handskriven signatur.<br>Dataskyddsförordningen förskriver ett förhandsgodkännande av Datainspektionen vid användning av biometri <br><strong>Autentiseringen av en användare beskrivs som stark när den använder en kombination av minst två av dessa kategorier.</strong>",
+        "name": "Autentisering",
+        "source": "Datainspektionen"
+      },
+      "PIA_DEF_CHIF": {
+        "description": "TO TRANSLATE - Measure making personal data unintelligible to anyone without access authorization (symmetric or asymmetric encryption, use of public algorithms known to be strong, authentication certificate, etc.).",
+        "name": "Kryptering",
+        "source": "https://www.cnil.fr/fr/comprendre-les-grands-principes-de-la-cryptologie-et-du-chiffrement"
+      },
+      "PIA_DEF_CLO": {
+        "description": "En uppsättning metoder för att minska möjligheten att korrelera eller härleda personuppgifter och orsaka brott dataskyddsförordningen.<br>Vi kan till exempel begränsa de specifika personuppgifterna till varje sektion/enhet, separera dem logiskt, etc.",
+        "name": "Segmentering av personuppgifter",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_CONS": {
+        "description": "varje slag av frivillig, specifik, informerad och otvetydig viljeyttring, genom vilken den registrerade, antingen genom ett uttalande eller genom en entydig bekräftande handling, godtar behandling av personuppgifter som rör honom eller henne",
+        "name": "Samtycke",
+        "source": "ADSF/GDPR Art. 4.11"
+      },
+      "PIA_DEF_CTLA": {
+        "description": "Det består i att begränsa riskerna för att obehöriga får tillgång till personuppgifter i digital form.<br>För att göra detta måste du:<br>- <strong>definiera behörighetsprofiler</strong> i system genom att separera uppgifter och ansvarsområden för att begränsa användarnas åtkomst till att vara endast data strikt nödvändigt för att fullgöra sina uppdrag. <br>- <strong>ta bort behörighet för användaråtkomst så snart de inte längre är berättigade till åtkomst till en lokal eller IT-resurs</strong>och<strong>i slutet av deras kontrakt.</strong> <br>- <strong> Genomföra en årlig granskning av rättigheterna</strong> för att identifiera och ta bort oanvända konton och omvärdera rättigheter som beviljas för varje användares funktioner.",
+        "name": "Logisk åtkomstkontroll",
+        "source": "Källa saknas, men ISO 27001 kan användas"
+      },
+      "PIA_DEF_DCP": {
+        "description": "varje upplysning som avser en identifierad eller identifierbar fysisk person (nedan kallad en registrerad), varvid en identifierbar fysisk person är en person som direkt eller indirekt kan identifieras särskilt med hänvisning till en identifierare som ett namn, ett identifikationsnummer, en lokaliseringsuppgift eller online-identi­fikatorer eller en eller flera faktorer som är specifika för den fysiska personens fysiska, fysiologiska, genetiska, psykiska, ekonomiska, kulturella eller sociala identitet",
+        "name": "Personuppgifter ",
+        "source": "ADSF/GDPR Art. 4.1"
+      },
+      "PIA_DEF_DEST": {
+        "description": "en fysisk eller juridisk person, offentlig myndighet, institution eller annat organ till vilket personupp­gifterna utlämnas, vare sig det är en tredje part eller inte; offentliga myndigheter som kan komma att motta personuppgifter inom ramen för ett särskilt uppdrag i enlighet med unionsrätten eller medlemsstaternas nationella rätt ska dock inte betraktas som mottagare; offentliga myndigheters behandling av dessa uppgifter ska vara förenlig med tillämpliga bestämmelser för dataskydd beroende på behandlingens syfte",
+        "name": "Mottagare",
+        "source": "ADSF/GDPR Art. 4.9"
+      },
+      "PIA_DEF_EFF": {
+        "description": "Den registrerade ska ha rätt att av den personuppgiftsansvarige utan onödigt dröjsmål få sina personuppgifter raderade och den personuppgiftsansvarige ska vara skyldig att utan onödigt dröjsmål radera personuppgifter om något av följande gäller: <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">Art. 17 av [ADSF/GDPR]</a>",
+        "name": "Rätt till radering (”rätten att bli bortglömd”)",
+        "source": "ADSF/GDPR Art. 17"
+      },
+      "PIA_DEF_ENJ": {
+        "description": "Dessa är de motiv som leder till genomförandet av behandlingen, de förväntade fördelarna (för organisationen, för de berörda människorna, för samhället i allmänhet ...).",
+        "name": "Skäl för behandling",
+        "source": "<a target=\"_blank\" href=\"https://www.cnil.fr/en/PIA-privacy-impact-assessment-en\"/a>"
+      },
+      "PIA_DEF_EXA": {
+        "description": "Personuppgifter ska vara korrekta och om nödvändigt uppdaterade. Alla rimliga åtgärder måste vidtas för att säkerställa att personuppgifter som är felaktiga i förhållande till de ändamål för vilka de behandlas raderas eller rättas utan dröjsmål (korrekthet)",
+        "name": "Datakvalitet",
+        "source": "ADSF/GDPR Art. 5.1 d)"
+      },
+      "PIA_DEF_GRV": {
+        "description": "Allvarlighetsgraden är storleken på en risk. Det beror i huvudsak på den skadliga karaktären av de potentiella effekterna",
+        "name": "Allvarlighetsgrad",
+        "source": "<a target=\"_blank\" href=\"https://www.cnil.fr/en/PIA-privacy-impact-assessment-en\"/a>"
+      },
+      "PIA_DEF_LIM": {
+        "description": "Den registrerade ska ha rätt att av den personuppgiftsansvarige kräva att behandlingen begränsas om något av följande alternativ är tillämpligt: se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">Art. 18 av [ADSF/GDPR]</a>",
+        "name": "Rätt till begränsning av behandling",
+        "source": "ADSF/GDPR Art. 18"
+      },
+      "PIA_DEF_LOG": {
+        "description": "Enhet för loggning av behandlingar som utförs på datorsystemet för att <strong>identifiera bedräglig åtkomst</strong> eller <strong>missbruk</strong> av personuppgifter eller för att avgöra ursprunget till en incident. Några av de behandlingar som utförs på datorsystem bör registreras. För att göra detta måste ett logg- och incidenthanteringssystem införas. Den måste <strong>registrera relevanta händelser</strong> och <strong>se till att dessa poster inte kan ändras.</strong> I alla fall bör du inte <strong>förvara dessa loggar under en alltför lång tid.</strong>",
+        "name": "Loggning och spårbarhet",
+        "source": "Källa saknas / CNIL"
+      },
+      "PIA_DEF_MEN": {
+        "description": "En situation där en eller flera skeenden negativt kan påverka data i systemen eller dess stödsystem. Hotet kan genomföras med eller utan avsikt av riskkällor och kan orsaka en oönskad händelse.",
+        "name": "Hot",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MENA": {
+        "description": "Hot mot: </strong><br>- <strong>Komponenter</strong>, felaktigt använda, observerade, modifierade eller förlorade (användning av ett lagringsmedia som innehåller känsliga uppgifter för personligt bruk eller för överföring på ett olämpligt sätt, visa en skärm, lägga till övervakningskomponenter osv.)<br>- <strong>Programvara</strong>, används olämpligt, observeras eller ändras (höjning av privilegier, insamling av konfigurationsdata, installation av fjärrskrivbord, etc.)<br>- <strong>Nätverk</strong> Övervakning av nät (avlyssning av nättrafik, etc.)<br>- <strong>Människor</strong>, avlyssnade, manipulerade eller illojala (ofrivilligt avslöjande, som ett resultat av påtryckningar eller genom nätfiske, byte av arbetsgivare, etc.)<br>- <strong>Pappersdokumentation</strong>, illegalt inhämtad eller förlorad (fotokopiering, glömd utskrift, dokument till återvinning, e-poststöld osv.)<br>- <strong>Postgång</strong> illegalt inhämtad information under postgången",
+        "name": "Hot som kan leda till olaglig tillgång till data",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MENI": {
+        "description": "<strong>Hot: </strong><br>- <strong></strong> Utrustning: felaktigt använd, överbelastad, modifierad, försämrad, förlorad (fulla lagringsmedia, DOS-attack, förändring som leder till avbrott, brand, stöld eller förlust, etc.)<br>- <strong></strong> Programvara: felaktigt använd, överbelastad, förändrad, försämrad, förlorad (radering av data, datainmatning, logikfel, ej förnyad licens, etc.)<br>- <strong>Datornätverk</strong> : överbelastat, försämrat, förlorat (obehörig nedladdning, avbruten internetåtkomst, etc.)<br>- <strong>Människor</strong> : överbelastad, försämrad, förlorad (missbruk av kompetens, sjukfrånvaro, avslutad anställning, etc.)<br>- <strong>Pappersdokument</strong> : felaktigt använda, skadade, förlorade (radering, förstörelse, stöld eller förlust, etc.)<br>- <strong>Postgång</strong> : försämrad, ändrad, förlorad (poststrejk, byte av lokaler, förlust av dokument, omorganisation, etc.)",
+        "name": "Hot som kan leda till att data inte är tillgängliga",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MENM": {
+        "description": "<strong>Hot mot: </strong><br>- <strong>Hårdvara</strong> hårdvara som har modifierats (nya icke kompatibla komponenter, avlägsnande av en väsentlig komponent, etc.)<br>- <strong>Programvara</strong> Felaktigt använd eller modifierad (hantering av störningar, olämpliga förändingar, etc.)<br>- <strong>Nätverk</strong> som används felaktigt (avlyssnat , etc.)<br>- <strong>Människor</strong> överarbetade eller manipulerade (okontrollerad arbetsuppgift, störning av arbetsförhållanden, inflytande, etc.)<br>-Pappersdokument som har ändrats (manipulering av dokument, utbyte till förfalskning osv.)<br>- <strong>Postgång</strong> som har manipulerats (utbyte av dokument, skicka motstridiga dokument, etc.)",
+        "name": "Hot som kan leda till en oönskad ändring av personuppgifterna",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MES": {
+        "description": "Välj mellan de tillgängliga i avsnittet \"Befintliga eller planerade åtgärder\", som du kan utföra vid behov.",
+        "name": "Åtgärder",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MIN1": {
+        "description": "När du importerar data kan olika typer av metadata (till exempel EXIF-data som är kopplade till en bildfil) oavsiktligt samlas in.<br>Dessa metadata måste identifieras och tas bort om det inte är nödvändigt för de angivna syftena.",
+        "name": "Filtrering och radering",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MIN2": {
+        "description": "Efter inhämtning av känslig information, som bi-information till allmän information eller som överförts endast för statistiska ändamål, kan dessa konverteras till mindre känslig information eller pseudonymiseras. Till exempel:<br>- om systemet samlar in IP-adressen för att bestämma användarens plats för statistiska ändamål kan IP-adressen trunkeras efter informationen om stad eller stadsdel;<br>- Om systemet tar emot videodata från övervakningskameror där individer kan utskiljas så kan dessa göras suddiga;<br>- Om systemet är del av ett intelligent styrsystem i ett hem kan man välja att aggregera data i stället för att registrera den i realtid.",
+        "name": "Minimering genom förändring",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MIN3": {
+        "description": "Systemet kan säkerställa att:<br>- Användaren kan använda en resurs eller tjänst utan risk för att avslöja sin identitet (anonymiserad data);<br>- Användaren kan använda en resurs eller tjänst utan att avslöja sin identitet, men förblir spårbar och ansvarig för denna användning (pseudonymiserad data);<br>- Användaren kan använda resurser eller tjänster upprepade gånger utan risk att dessa tillfällen kan kopplas samman (ingen ackumulerad data);<br>- Användaren kan använda en resurs eller tjänst utan risk för att andra, särskilt tredje parter, kan se att resursen eller tjänsten används (icke-observerbarhet).<br>Valet av en metod från listan ovan måste bero på de identifierade hoten. För vissa typer av integritetshot är pseudonymisering lämpligare än anonymisering (till exempel om det finns ett behov av spårbarhet). Dessutom kommer vissa integritetshot att hanteras genom en kombination av flera metoder.",
+        "name": "Minskning personuppgifternas särkaraktär",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MIN4": {
+        "description": "Systemet kan struktureras i oberoende delar med separata åtkomstkontrollfunktioner. Uppgifterna kan också distribueras mellan dessa oberoende delsystem och kontrolleras av varje delsystem med hjälp av olika åtkomstkontrollmekanismer. Om ett delsystem äventyras kan därmed negativ påverkan på övergripande data reduceras.",
+        "name": "Minskning av dataackumulering",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MIN5": {
+        "description": "Systemet kan begränsa tillgången till data enligt principen \"behov att veta\". Systemet kan separera känslig information och tillämpa specifika åtkomstkontrollpolicyer.<br>Systemet kan också kryptera känslig information för att skydda konfidentialiteten under överföring och lagring. Tillgång till temporära dolda filer som uppstår under databehandling bör också skyddas.",
+        "name": "Begränsning av åtkomst till data",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MINC": {
+        "description": "Minska allvarligheten av riskerna genom att begränsa insamlingen av personuppgifter till det som är absolut nödvändigt för ett definierat syfte; undvika insamling av onödiga uppgifter, användning av data som inte är relaterade till syftet och som riskerar onödiga konsekvenser för individer.",
+        "name": "Minimera mängden av personuppgifter",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_MIND": {
+        "description": "Minska riskernas allvarlighetsgrad genom att minimera själva personuppgifterna, genom åtgärder för att minska deras känslighet, till exempel filtrering och borttagning av onödiga data, pseudonymisering av data etc.",
+        "name": "Minimering av personuppgifterna",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_OPP": {
+        "description": "Den registrerade ska, av skäl som hänför sig till hans eller hennes specifika situation, ha rätt att när som helst göra invändningar mot behandling av personuppgifter avseende honom eller henne i enlighet med<a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">artikel 21 i [ADSF/GDPR]</a>.",
+        "name": "Rätt att göra invändningar",
+        "source": "ADSF/GDPR Art. 21"
+      },
+      "PIA_DEF_PBDS": {
+        "description": "Åtgärder för att ta hänsyn till skyddet av personuppgifter redan i utformningen av ny behandling (certifiering, erkända uppförandekoder, PIA, Privacu by design eller en intern metod, etc.), inklusive: <br> - Använd riskhanteringsmetoden PIA/DPIA så snart en tjänst eller applikation har utvecklats. <br> - Etablera IT-certifieringar (för processer, produkter, ledningssystem, organisationer, personer, etc.). <br> - Använd beprövade och accepterade uppförandekoder och standarder.",
+        "name": "Projektledning",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_PC": {
+        "description": "Person vars personuppgifter behandlas.",
+        "name": "Den registrerade",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_PORT": {
+        "description": "Den registrerade ska ha rätt att få ut de personuppgifter som rör honom eller henne och som han eller hon har tillhandahållit den personuppgiftsansvarige i ett strukturerat, allmänt använt och maskinläsbart format och ha rätt att överföra dessa uppgifter till en annan personuppgiftsansvarig utan att den personuppgiftsansvarige som tillhandahållits personuppgifterna hindrar detta under de villkor som beskrivs i<a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">Artikel 20 i [ADSF/GDPR]</a>.",
+        "name": "Rätt till dataportabilitet",
+        "source": "ADSF/GDPR Art. 20"
+      },
+      "PIA_DEF_PSEU": {
+        "description": "Behandling av personuppgifter på ett sätt som innebär att personuppgifterna inte längre kan tillskrivas en specifik registrerad utan att kompletterande uppgifter används, under förutsättning att dessa kompletterande uppgifter förvaras separat och är föremål för tekniska och organisatoriska åtgärder som säkerställer att personuppgifterna inte tillskrivs en identifierad eller identifierbar fysisk person.<br>Pseudonymisering reducerar risken för att koppla en uppsättning data till den registrerades ursprungliga identitet; som sådan är <strong>en användbar säkerhetsåtgärd, men inte en metod för anonymisering.</strong>",
+        "name": "Pseudonymisering",
+        "source": "ADSF/GDPR Art. 4.5"
+      },
+      "PIA_DEF_PWD": {
+        "description": "Autentisering med hjälp av hemliga användarnamn och lösenord ett enkelt och billigt sätt att kontrollera åtkomst. Men denna autentiseringsmetod har en låg säkerhetsnivå. <br> Minimikrav vad gäller lösenordets längd och komplexitet beror på de ytterligare åtgärder som genomförs för att göra autentiseringsprocessen mer pålitlig: <br> Om autentisering enbart är baserat på ett lösenord, betyder detta åtminstone användning av ett komplext lösenord med minst 12 tecken som består av stora bokstäver, siffror och specialtecken. Ytterligare åtgärder för att ange ett lösenord (begränsningar av åtkomst, inkludering av annan information, kontakt med helpdesk för inloggning etc.) kan minska kravet på lösenordets längd och komplexitet då de säkerställer en säkerhetsnivå som motsvarar ett lösenord.",
+        "name": "Lösenord",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_RECT": {
+        "description": "Den registrerade ska ha rätt att av den personuppgiftsansvarige utan onödigt dröjsmål få felaktiga personuppgifter som rör honom eller henne rättade. <br>Med beaktande av ändamålet med behandlingen, ska den registrerade ha rätt att komplettera ofullständiga personuppgifter, bland annat genom att tillhandahålla ett kompletterande utlåtande.",
+        "name": "Rätt till rättelse",
+        "source": "ADSF/GDPR Art. 16"
+      },
+      "PIA_DEF_RGPD": {
+        "description": "Förordning om skydd för fysiska personer med avseende på behandling av personuppgifter och om det fria flödet av sådana uppgifter. (<a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">EU 2016-679</a>), antagen den 27 april 2016 av Europeiska unionen. Den träder i kraft den 25/05/2018 och upphäver direktiv 95/46 / EG.",
+        "name": "ADSF (allmän Dataskyddsförordning, GDPR)",
+        "source": "ADSF/GDPR titel"
+      },
+      "PIA_DEF_RT": {
+        "description": "En fysisk eller juridisk person, offentlig myndighet, institution eller annat organ som ensamt eller tillsammans med andra bestämmer ändamålen och medlen för behandlingen av personuppgifter; om ändamålen och medlen för behandlingen bestäms av  unionsrätten eller medlemsstaternas nationella rätt kan  den personuppgiftsansvarige  eller de särskilda kriterierna  för hur denne ska  utses  föreskrivas i unionsrätten eller i medlemsstaternas nationella rätt.<br>För mer information om personuppgiftsansvarigs skyldigheter, se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32016R0679&rid=1\">kap. 4 av [ADSF/GDPR]</a>",
+        "name": "Personuppgiftsansvarig",
+        "source": "ADSF/GDPR Art. 4.7"
+      },
+      "PIA_DEF_SRC": {
+        "description": "Person, intern eller extern för organisationen, som agerar oavsiktligt eller avsiktligt (ex: IT-administratör, användare, extern angripare, konkurrent) eller icke-mänsklig källa (t.ex. vatten, farliga material, datavirus), kan vara en riskkälla.",
+        "name": "Riskkälla",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_ST": {
+        "description": "Personuppgiftsbiträde är en fysisk eller juridisk person, offentlig myndighet, institution eller annat organ som behandlar personuppgifter för den personuppgiftsansvariges räkning <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Artikel 4.8 i ADSF/GDPR</a>. <br>Personuppgiftsbiträdet och personer som utför arbete under den personuppgiftsansvariges eller personuppgiftsbiträdets överinseende, och som får tillgång till personuppgifter, får endast behandla dessa på instruktion från den personuppgift­ sansvarige, såvida han eller hon inte är skyldig att göra det enligt unionsrätten eller medlemsstaternas nationella rätt.\n <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Artikel 29 i ADSF/GDPR</a>.",
+        "name": "Personuppgiftsbiträde",
+        "source": "ADSF/GDPR Art. 4.8 och Art. 29"
+      },
+      "PIA_DEF_SUPT": {
+        "description": "<strong>Hårdvara och lagringsmedia</strong> : datorer, routrar, USB-minnen, hårddiskar...<br><strong></strong> Programvara: operativsystem, meddelandesystem, databaser, affärsprogram...<br><strong></strong> Nätverk: kablar, WiFi, fiberoptik<br><br><strong>Personer</strong> : användare, IT-administratörer, beslutsfattare...<br><strong></strong> Tryckt media: utskrifter, fotokopior, handskrivna dokument...<br><strong>Postgång</strong> : utskick, attesteringsdokument...",
+        "name": "Bearbetningsaktiviteter",
+        "source": "Källa saknas"
+      },
+      "PIA_DEF_VIOL": {
+        "description": "En säkerhetsincident som leder till oavsiktlig eller olaglig förstöring, förlust eller ändring eller till obehörigt röjande av eller obehörig åtkomst till de personuppgifter som överförts, lagrats eller på annat sätt behandlats",
+        "name": "Personuppgiftsincident",
+        "source": "ADSF/GDPR Art. 4.12"
+      },
+      "PIA_DEF_VRA": {
+        "description": "Sannolikheten återspeglar möjligheten att en risk uppstår. Det beror främst på sårbarheten för de dataresurser som används i termer av hot och riskkällor.",
+        "name": "Sannolikhet",
+        "source": "Källa saknas"
+      },
+      "PIA_EX_DC": {
+        "description": "Data från ett Scoringsystem, resultat från tillämpning av scoringpoäng ...",
+        "name": "Scoring"
+      },
+      "PIA_EX_DCPC": {
+        "description": "<strong>Personuppgifter</strong> : civilstånd, ålder, nationalitet, dubbelt medborgarskap, postadress, rättslig förmåga ... <br><strong>Privatliv</strong> : partner, antal barn, bostadsort, typ av bostad, boendetid ... <br><strong>Yrkesliv</strong> : arbetsgivare, typ av anställning, anställningstid, arbetslöshet ... <br><strong>Anslutningsdata</strong> : IP-adress, händelseloggar ...<br><strong>Positionsdata</strong> : förflyttningar, GPS-data, GSM positionering. ..<br><strong>Annat</strong> : telefonnummer, e-postadress ...",
+        "name": "Normala personuppgifter",
+        "source": "Källa saknas"
+      },
+      "PIA_EX_DCPR": {
+        "description": "Ras eller etniskt ursprung, politiska åsikter, religiös eller filosofisk övertygelse eller medlemskap i fackförening och behandling av genetiska uppgifter, biometriska uppgifter för att entydigt identifiera en fysisk person, uppgifter om hälsa eller uppgifter om en fysisk persons sexualliv eller sexuella läggning samt behandling av personuppgifter som rör fällande domar i brottmål och överträdelser eller därmed sammanhängande säkerhetsåtgärder<br>Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art. 9</a> <br> och <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art.10</a> av [ADSF/GDPR]",
+        "name": "Brottshistorik och särskilda kategorier av personuppgifter"
+      },
+      "PIA_EX_DCPS": {
+        "description": "Personnummer, biometriska uppgifter, bankuppgifter ...",
+        "name": "Särskilda kategorier av personuppgifter"
+      },
+      "PIA_EX_HUME": {
+        "description": "Detta kan vara: <br> - en skadlig eller okunnig tredje part som använder sin fysiska närhet för att illegalt få åtkomst till tjänsten.<br> - en angripare, som med specifik kunskap om personen, riktar sig mot en enskild användare för att ta sig in i systemet <br > - en angripare som attackerar ett personuppgiftsbiträde för att få tag på personuppgifter eller skada den personuppgiftsansvariges rykte. <br> - en tredje part som har behörig tillgång, men använder den för andra syften t.ex. utnyttjar information de inte har behörighet till. <br> Motiven kan vara olika: <br> spänning, irritation, ondska, hämnd, spionage, girighet eller att utnyttja personuppgifter för annat syfte.",
+        "name": "Extern mänsklig riskkälla"
+      },
+      "PIA_EX_HUMI": {
+        "description": "Det kan vara: <br> - en illvillig eller försumlig anställd som använder sin åtkomst till systemet, använder sina kunskaper, systemrättigheter och tid eller helt enkelt är försumlig på grund av bristande utbildning och förståelse <br>- en illvillig eller försumlig användare eller någon i dennes omgivning som får tillgång till personuppgifterna. <br> Skälen kan variera: oskicklighet, misstag, försumlighet, hämnd, illvilja, girighet, spionage.",
+        "name": "Intern mänsklig riskkälla"
+      },
+      "PIA_EX_IMPI": {
+        "description": "De registrerade kan få betydande konsekvenser som de bör kunna övervinna, om än med verkliga och allvarliga svårigheter. Till exempel: <br> - fysisk: allvarliga fysiska sjukdomar som orsakar långvarig skada (försämring av hälsan på grund av felaktig vård, eller att man bortsett från kontraindikationer), förlust av fysisk integritet till exempel efter ett övergrepp, en olycka hemma, arbete, etc. . <br> - materiella: felanvändning av pengar som inte kompenseras, missade riktade eller unika erbjudanden eller engångserbjudanden, förlorade möjligheter (bostadslån, förlorad studieplats, missad praktik eller anställning, missat examenstillfälle), bostadsförlust, förlust av anställning osv .; <br> - psykiska: allvarliga psykologiska problem (depression, fobiutveckling), känsla av kränkt privatliv med oåterkallelig skada, utsatt för utpressning, cybermobbning och trakasserier, etc.",
+        "name": "Allvarlig konsekvens"
+      },
+      "PIA_EX_IMPL": {
+        "description": "De registrerade kan uppleva betydande besvär, som de kommer att kunna övervinna trots vissa svårigheter<br>Exempel på effekter:<br>- fysiskt: mindre fysiska besvär (t.ex.: mild sjukdom efter att inte kontraindikationer respekterats), förtal som orsakar fysiska repressalier etc.<br>- materiella: felaktiga betalningar (t.ex. felaktiga böter), nekande av tillgång till administrativa eller kommersiella tjänster, riktad online-annonsering som kränker personens privatliv , etc.<br>- psykiska: mindre men uppenbara psykologiska obehag, känsla av kränkt integritet utan irreparabel skada, hot mot sociala nätverk, etc.",
+        "name": "Begränsad konsekvens"
+      },
+      "PIA_EX_IMPM": {
+        "description": "Den registrerade kan uppleva betydande, till och med oåterkalleliga, konsekvenser som de inte kan hantera<br>Exempel på påverkan:<br>- fysiska: långvarigt eller permanent fysisk skada, permanent försämring av fysisk integritet, död<br>- materiella: ekonomisk risk, oöverkomliga skulder, oförmåga att flytta, förlust av bevis i tvister, förlust av tillgång till vital infrastruktur (vatten, el), etc.<br>- psykiska: långvarigt eller permanent psykiskt lidande, straffrättslig påföljd, kidnappning, förlust av familjeband, hinder att gå till domstol, ändring av civilstatus och / eller förlust av laglig autonomi (vårdnad, omyndigförklarad) etc.",
+        "name": "Maximal konsekvens"
+      },
+      "PIA_EX_IMPN": {
+        "description": "Den registrerade kommer inte att påverkas eller kan uppleva vissa besvär som de kommer att kunna hantera utan svårigheter.<br>Exempel på effekter:<br>- Fysisk: tillfällig stress eller huvudvärk<br>- Materiella: Onödig väntetid eller att man tvingas skriva in samma data igen för att få tillgång till konsumtionsprodukter osv.,<br>- Psykiska: lätt irritation, känsla av intrång i privatlivet utan verklig skada (kommersiell intrång), etc.",
+        "name": "Obetydlig konsekvens"
+      },
+      "PIA_EX_NHUM": {
+        "description": "Det kan vara en incident eller en katastrof som sker i någon av de organisationer som ansvarar för behandlingen (strömavbrott, brand, översvämning etc.)",
+        "name": "Icke-mänsklig riskkälla"
+      },
+      "PIA_EX_VRAI": {
+        "description": "För de valda riskkällorna verkar det vara möjligt att orsaka skada på den berörda personen (till exempel genom stöld av pappersdokument lagrade på kontor för en organisation där dessa kontrolleras av en person i receptionen).",
+        "name": "Betydande sannolikhet"
+      },
+      "PIA_EX_VRAL": {
+        "description": "För de valda riskkällorna verkar det svårt att skada den registrerade (t.ex. stöld av pappersdokument från ett rum vars åtkomst är skyddad med kortläsare).",
+        "name": "Begränsad sannolikhet"
+      },
+      "PIA_EX_VRAM": {
+        "description": "Dessa risker kommer med mycket stor sannolikhet att inträffa och drabba den registrerade (till exempel att pappersdokument lagrade i den offentliga lobbyn blir stulna).",
+        "name": "Maximal sannolikhet"
+      },
+      "PIA_EX_VRAN": {
+        "description": "Det är inte sannolikt att valda riskkällor skulle kunna inträffa och utgöra ett hot mot den registrerade (t.ex.: stöld av pappersmedia lagrat i en lokal vars åtkomst styrs av passerkort och kod).",
+        "name": "Obetydlig sannolikhet"
+      },
+      "PIA_LGL_CONS": {
+        "description": "TO TRANSLATE - Allow data subjects to make a free, specific and informed choice. Determine whether the processing relies on a legal basis other than consent pursuant to Art. 6 of the <a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>",
+        "name": "Inhämtande av samtycke",
+        "source": "Källa saknas"
+      },
+      "PIA_LGL_DATA": {
+        "description": "Definiera och beskriv personuppgifterna i detalj: <br> - vilka personuppgifter som hanteras, vem som hanterar dem och dess lagringsperiod;<br> - en beskrivning av processer och datahantering för hela datalivscykeln (från insamling till radering).",
+        "name": "Personuppgifter som behandlas",
+        "source": "Källa saknas"
+      },
+      "PIA_LGL_DESC": {
+        "description": "Beskriv den berörda behandlingen, syfte och skäl på ett syntetiskt sätt. Identifiera personuppgiftsansvarig och eventuella personuppgiftsbiträden.  Identifiera de eventuella standarder som tillämpas eller planeras tillämpas på behandling , särskilt de godkända uppförandekoderna<br>se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art. 40 i [ADSF/GDPR]</a>) <br>och dataskyddscertifieringar (se <a target=\"_blank\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art. 42 i [ADSF/GDPR]</a>).",
+        "name": "Behandlingsbeskrivning",
+        "source": "Källa saknas"
+      },
+      "PIA_LGL_DEST": {
+        "description": "En fysisk eller juridisk person, offentlig myndighet, institution eller annat organ till vilket personupp­gifterna utlämnas, vare sig det är en tredje part eller inte; offentliga myndigheter som kan komma att motta personuppgifter inom ramen för ett särskilt uppdrag i enlighet med unionsrätten eller medlemsstaternas nationella rätt ska dock inte betraktas som mottagare; offentliga myndigheters behandling av dessa uppgifter ska vara förenlig med tillämpliga bestämmelser för dataskydd beroende på behandlingens syfte. Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art. 4,9 av [ADSF/GDPR]</a>",
+        "name": "Mottagare",
+        "source": "ASDF/GDPR Art. 4.9"
+      },
+      "PIA_LGL_DUR": {
+        "description": "För varje typ av personuppgift måste en lagringsperiod definieras och motiveras av lagkrav och/eller bearbetningskrav. En åtskillnad görs mellan aktivt använda personuppgifter och arkiverade personuppgifter. Tillträde till det senare måste begränsas till en liten krets av behöriga personer. En gallringsmekanism måste implementeras för att arkivera aktiva personuppgifter eller radera arkiverade personuppgifter i slutet av den definierade lagringsperioden. Alla spår av personuppgifterna måste raderas liksom loggar vilka inte heller får lagras på obestämd tid.",
+        "name": "Datalagringsperiod",
+        "source": "Källa saknas"
+      },
+      "PIA_LGL_FIN": {
+        "description": "Personuppgifter ska samlas in för särskilda, uttryckligt angivna och berättigade ändamål och <strong>inte senare behandlas på ett sätt som är oförenligt med dessa ändamål</strong>; <br> Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art. 5.1 b) i [ADSF/GDPR]</a>",
+        "name": "Principer för behandling av personuppgifter",
+        "source": "ADSF/GDPR Art. 5.1 b)"
+      },
+      "PIA_LGL_FOND": {
+        "description": "- Den registrerade har lämnat sitt samtycke till att dennes personuppgifter behandlas för ett eller flera specifika ändamål. <br> - Behandlingen är nödvändig för att fullgöra ett avtal i vilket den registrerade är part eller för att vidta åtgärder på begäran av den registrerade innan ett sådant avtal ingås. <br> - Behandlingen är nödvändig för att fullgöra en rättslig förpliktelse som åvilar den personuppgiftsansvarige. <br> - Behandlingen är nödvändig för att skydda intressen som är av grundläggande betydelse för den registrerade eller för en annan fysisk person. <br> - Behandlingen är nödvändig för att utföra en uppgift av allmänt intresse eller som ett led i den personuppgiftsan­ svariges myndighetsutövning. <br> - Behandlingen är nödvändig för ändamål som rör den personuppgiftsansvariges eller en tredje parts berättigade intressen, om inte den registrerades intressen eller grundläggande rättigheter och friheter väger tyngre och kräver skydd av personuppgifter, särskilt när den registrerade är ett barn. Se<a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art. 6 av [ADSF/GDPR]</a>",
+        "name": "Laglig behandling av personuppgifter",
+        "source": "ADSF/GDPR Art.6"
+      },
+      "PIA_LGL_INFO": {
+        "description": "Se till att den registrerade blir informerad. Se även till att behandlingen inte omfattas av ett legalt undantag och inte omfattas av några speciella villkor.",
+        "name": "Information till den registrerade",
+        "source": "Källa saknas"
+      },
+      "PIA_LGL_MINI": {
+        "description": "Syftet är att minska riskernas allvarlighetsgrad genom att begränsa insamlingen av personuppgifter till det minimum som är nödvändigt för behandlingen. Undvika insamling av onödiga personuppgifter eller användning av personuppgifter som inte är nödvändiga för behandlingen eller riskerar allt för stora konsekvenser för den registrerade.",
+        "name": "Dataminimering",
+        "source": "Källa saknas"
+      },
+      "PIA_LGL_ST": {
+        "description": "Ett biträdesavtal måste tecknas med varje personuppgiftsbiträde som skall innefatta allt som beskrivs i Art. 28 i ADSF/GDPR: varaktighet, omfattning, syfte, behandlingsinstruktioner, godkännandeprocess vid anlitande av ett underbiträde, tillhandahållande av all dokumentation som visar att ADSF/GDPR följs, att alla incidenter blir rapporterade etc.",
+        "name": "Personuppgiftsbiträden",
+        "source": "Källa saknas"
+      },
+      "PIA_LGL_SUPT": {
+        "description": "Aktiviteter och utrustning som stöder behandlingen av personuppgifter. Det kan vara hårdvara, programvara, nätverk, personer, pappersmedia eller överföring av papper.",
+        "name": "Understödjande informationsaktiviteter",
+        "source": "Källa saknas"
+      },
+      "PIA_LGL_TRAN": {
+        "description": "Specificera den geografiska placeringen av lagring och behandling av de olika personuppgifterna. Beroende av vilket land det gäller måste du motivera valet av lagring/behandling utanför Europeiska unionen och ange vilka rättsliga ramverk som säkerställer ett adekvat skydd för de personuppgifter som överförs. <br> Exempelvis.: <br> -till ett EU-land <br> -till ett land som erkänts som adekvat av Europeiska unionen <br> -till ett Amerikanskt företag som är godkänt enligt Privacy Shield- <br>- till tredjeländer eller internationella organisationer <br> i enlighet med <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Artiklarna 44 – 49 i [ADSF/GDPR]</a>",
+        "name": "Överföring av personupplysningar",
+        "source": "https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679 Art. 44-49"
+      },
+      "PIA_METHOD_MES": {
+        "description": "Existerande åtgärder är de som planerades före utvärderarens PIA/konsekvensanalys. De planerade eller korrigerade åtgärderna som utvärderaren rekommenderar kommer att anges i handlingsplanen och möjliggör en andra/justerad bedömning av allvarlighetsgraden och sannolikheten.",
+        "name": "Planerade och existerande åtgärder",
+        "source": "Källa saknas"
+      },
+      "PIA_ORG_AUD": {
+        "description": "Förekomst av rutiner och tillsyn för att ge en övergripande och aktuell uppfattning om dataskyddet och efterlevnaden av ADSF/GDPR (kontrollera att behandlingar överensstämmer med ADSF/GDPR, måluppfyllnad och riskindikatorer, ansvar etc.).",
+        "name": "Rutiner och tillsyn av integritetsskyddande åtgärder",
+        "placeholder": "Beskriv här de processer som säkerställer regelbundna rutiner och tillsyn av personuppgiftsbehandlingen.",
+        "source": "PIA3 p76 - WIKI"
+      },
+      "PIA_ORG_EXT": {
+        "description": "Förekomst av ett förfarande för att minska riskerna som den berättigade åtkomsten till informationen av tredjeparter kan innebära för de registrerade personernas friheter och privatliv (identifiering av tredjeparter, personuppgiftsbiträdesavtal, existerande konventioner, BCR, etc.) .",
+        "name": "Hantering av tredje parter som har tillgång till personuppgifterna.",
+        "placeholder": "Ange här skälen till att tredjepart har fått tillgång till personuppgifter, villkoren och säkerhetsåtgärderna som har genomförts kring dessa åtkomster.",
+        "source": "Källa saknas"
+      },
+      "PIA_ORG_ORG": {
+        "description": "Beskriv den organisation som styr och kontrollerar skyddet för personuppgifter inom organisationen (utnämnande av en DSO, CIO, skapande av en ADSF/GDPR-förvaltningsorganisation, etc.).",
+        "name": "Dataskyddsorganisation",
+        "placeholder": "Beskriv roll- och ansvarsstruktur gällande att hantera integritetsfrågor i din organisation.",
+        "source": "Källa saknas"
+      },
+      "PIA_ORG_PBD": {
+        "description": "Beskriver de metoder som används för att garantera skyddet av personuppgifter i all ny behandling (cerifieringar, standarder, konsekvensanalys för den registrerade eller intern metod, etc.).",
+        "name": "Inbyggd integritet (Privacy by design and default)",
+        "placeholder": "Beskriv här de metoder som används för att garantera personuppgifters integritet i ett nytt projekt.",
+        "source": "Källa saknas"
+      },
+      "PIA_ORG_PERS": {
+        "description": "Befintliga regler om utbildning och <strong> medvetenhet </ strong> för nyanställda i början av sin anställning/funktion och för personer som haft tillgång till personuppgifter när de lämnade organisationen </strong>.",
+        "name": "Aktiviteter för att öka medvetenheten",
+        "placeholder": "Ange här vilka medvetandehöjande aktiviteter kring ADSF/GDPR som genomförts med de anställda.",
+        "source": "Källa saknas"
+      },
+      "PIA_ORG_POL": {
+        "description": "Den personuppgiftsansvarige måste ha en dokumentbas som definierar vilka integritetspolisys och riktlinjer som ska tillämpas inom området \"Dataskydd\" (handlingsplan, regelbunden översyn av integritetspolicy och riktlinjer, etc.).",
+        "name": "Integritetspolicy och riktlinjer",
+        "placeholder": "Beskriv er dokumentation kring integritetspolicys och riktlinjer.",
+        "source": "Källa saknas"
+      },
+      "PIA_ORG_RMGT": {
+        "description": "Befintliga regler och förfaranden för att hantera de risker som organisationens behandling av de registrerades personuppgifter utsätter deras rättigheter och friheter för (identifiering av behandlingsmetoder, bearbetningsdata, driftsresurser, riskbedömning, identifiering av befintliga eller planerade åtgärder etc.).",
+        "name": "Hantera risker",
+        "placeholder": "Beskriv processerna för att hantera de risker som organisationens integritetspolicy och riktlinjer beskriver.",
+        "source": "Källa saknas"
+      },
+      "PIA_ORG_VIOL": {
+        "description": "Förekomsten av en process för att upptäcka och hantera händelser som kan påverka de registrerades friheter och integritet (definition av ansvar, åtgärdsplan, karakterisera kränkningar, etc.).",
+        "name": "Hantera personuppgiftsincidenter och dataöverträdelser",
+        "placeholder": "Beskriv de operativa processer som finns för att upptäcka och hantera dataintrång",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_BKP": {
+        "description": "Förekomst av en säkerhetskopieringsrutin/back-uprutin för att säkerställa tillgänglighet och/eller personuppgifternas integritet, samtidigt som de skyddar deras konfidentialitet (regelbundenhet för säkerhetskopior, kryptering av dataöverföringskanal/nätverk, integritetstest, etc.). ).",
+        "name": "Säkerhetskopiering",
+        "placeholder": "Ange här hur säkerhetskopior/back-uper hanteras och underhålls.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_COMP": {
+        "description": "Åtgärder som vidtas för att minska möjligheten att mjukvaror (operativsystem, affärsapplikationer, kontorsprogram, inställningar etc.) kan utnyttjas för att skada personuppgifter (mjukvaruuppdateringar, fysiskt skydd och åtkomstkontroll, arbete på ett krypterat nätverk, integritetskontroller, loggning, etc.).",
+        "name": "Arbetsstationshantering",
+        "placeholder": "Beskriv här de åtgärder som vidtagits för att minska risken för attacker mot mjukvara som används vid behandlingen.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_CTR": {
+        "description": "Personuppgifter som överförs till eller hanteras av personuppgiftsbiträdet måste omgärdas av tillräckliga garantier. Detta kräver ett personuppgiftsbiträdesavtal. <Strong> Använd bara personuppgiftsbiträden med tillräcklig tillförlitlighet </strong> (särskilt när det gäller expertis, tillförlitlighet och resurser). Personuppgiftsansvarigs säkerhetspolicy och personuppgiftspolicy skall delges personuppgiftsbiträdet. <br> Dokumentera planerade åtgärder (säkerhetsrevisioner, anläggningsbesök, etc.) för att säkerställa att överenskomna åtgärder utförs </strong> i enlighet med personuppgiftsbiträdets utfästelser. Dessa åtgärder inkluderar: <br> - kryptering av data i förhållande till deras känslighet eller, om detta inte är fallet, förekomsten av förfaranden för att säkerställa att personuppgiftsbiträdet inte har tillgång till de uppgifter som de behandlar, <br> - krypteringen av överföringar av data (t.ex.: HTTPS-anslutning, VPN, etc.) <br> - Garantier för nätverksintegritet, spårbarhet (protokoll, revisioner), godkännandehantering, autentisering etc. <strong> Tillhandahållande av ett personuppgiftsbiträdesavtal </ som klargör förhållandet mellan parterna, varaktigheten, syftet med behandlingen och skyldigheter. Se särskilt till att det innehåller bestämmelser som inkluderar: <br> - skyldighet att upprätthålla sekretess för personuppgifter som har anförtrotts. - - minimikrav för användarautentisering <br> - villkoren för återlämnande av personuppgifter och/eller dess gallring / Radera personuppgifter vid kontraktsslut <br> - reglerna för hantering och anmälan av incidenter för personuppgifter. Dessa bör innehålla vilken information som skall lämnas till den personuppgiftsansvarige i händelse av en personuppgiftsincident eller ett personuppgiftsbrott, samt att det sker i omedelbar anslutning till ett intrång. <br> - När du använder en molnleverantör: <br> 1. Tydligt definiera vilka personuppgifter och vilken behandling som ska läggas ut till molnet; <br> 2. Definiera dina egna tekniska och juridiska säkerhetskrav; <br> 3. Genomföra en riskstudie för att identifiera lämpliga säkerhetsåtgärder; <br> 4. Identifiera relevant typ av moln för avsedd bearbetning; <br> 5. Välj en leverantör med tillräckliga garantier; <br> 6. Granska intern säkerhetspolicy; <br> 7. Kontinuerligt övervaka förändringar under drift.",
+        "name": "Personuppgiftsbiträdesavtal",
+        "placeholder": "Beskriv här innehållet i personuppgiftsbiträdesavtalet, i det fall ett biträde används.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_EXP": {
+        "description": "Riktlinjer för att begränsa sannolikheten för risker för utrustning (dokumentation av driftsförfaranden, inventering och uppdatering av programvara och hårdvara, åtgärder mot säkerhetsproblem, redundans av data, begränsning av fysisk tillgång till servrar, etc.).",
+        "name": "Driftssäkerhet",
+        "placeholder": "Beskriv här de metoder som har implementerats för att garantera säkerhetsnivån för den använda programvaran.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_LOG": {
+        "description": "Förekomst av åtgärder som vidtagits för att tidigt kunna upptäcka incidenter rörande personuppgifter och att kunna dokumentera dem för att analysera dem eller för att tillhandahålla bevis i samband med utredningar (arkitektur och loggningsrutiner, efterlevnad av skyldigheter angående skydd av personuppgifter, etc.).",
+        "name": "Spårbarhet",
+        "placeholder": "Beskriv här de åtgärder som vidtagits för att kunna upptäcka incidenter rörande personuppgifter.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_MAIN": {
+        "description": "Förekomst av en policy för fysiskt underhåll av utrustningen, som specificerar om/hur underleverantörer kan användas.<br>Det bör innehålla regler för fjärrskrivbord, om det är godkänt samt specificera metoderna för hantering av kasserat material.",
+        "name": "Underhåll",
+        "placeholder": "Beskriv här hur det fysiska underhållet av utrustningen hanteras.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_MAL": {
+        "description": "Åtgärder för att skydda tillgången till offentliga (Internet) eller okontrollerade (partner) nätverk, samt arbetsstationer och servrar mot skadlig kod som kan påverka säkerheten för personuppgifter.",
+        "name": "Bekämpa skadlig programvara",
+        "placeholder": "Beskriv här skyddsåtgärderna mot skadlig kod vid åtkomst till nätverk med lägre säkerhetsnivå.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_MAT": {
+        "description": "Förekomst av åtgärder som vidtas för att minska möjligheten att utrustningens egenskaper (servrar, fasta arbetsstationer, bärbara datorer, kringutrustning, routrar, accesspunkter, flyttbara media etc.) utnyttjas för att skada personuppgifter (inventering, avdelning, redundans) hårdvara, begränsa åtkomst, etc.).",
+        "name": "Hårdvarusäkerhet",
+        "placeholder": "Beskriv här de metoder och medel som används för att begränsa riskerna för attacker mot utrustningen som används i behandlingen.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_NET": {
+        "description": "Beroende på vilken typ av nätverk som behandlingen utförs på (isolerade, privata eller Internet), måste ansvarig använda adekvata skyddssystem: brandväggar, intrångsdetektering eller andra aktiva eller passiva metoder för att säkerställa nätverkets säkerhet.",
+        "name": "Nätverkssäkerhet",
+        "placeholder": "Ange här i vilken typ av nätverk behandlingen utförs och utrustningen som säkerställer dess integritet.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_PHY": {
+        "description": "Förekomst av en fysisk åtkomstkontroll till lokalerna där behandlingen utförs (zonindelning, övervakade besök, identifierande kläder eller ID-brickor, låsta dörrar etc.).<br>Ange om det finns några inbrottsalarm.",
+        "name": "Fysisk åtkomstkontroll",
+        "placeholder": "Ange här hur fysisk åtkomstkontroll utförs i lokalerna där behandlingen utförs.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_PROT": {
+        "description": "Förekomst av åtgärder för att minska eller undvika risker relaterade till icke-mänskliga källor (klimatfenomen, brand, vattenskador, inre eller yttre olyckor, djur etc.) som kan påverka säkerheten för personuppgifter (förebyggande åtgärder, möjlighet till upptäckt, skydd, etc.).",
+        "name": "Skydd mot icke-mänskliga riskkällor",
+        "placeholder": "Beskriv här de åtgärder som vidtas för att minska eller undvika risker relaterade till icke-mänskliga källor.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_SRC": {
+        "description": "Förekomsten av åtgärder för att förhindra mänskliga eller icke-mänskliga riskkällor för skydd av personuppgifter (farliga produkter, farliga geografiska områden, dataöverföring utanför EU, etc.).",
+        "name": "Undvikande av riskkällor",
+        "placeholder": "Beskriv vilka metoder och medel som används för att undvika riskkällor.",
+        "source": "Källa saknas"
+      },
+      "PIA_SEC_WEB": {
+        "description": "Använda metoder och medel för att minska möjligheten att webbplatsen utnyttjas för att kränka personuppgifter (allmänna säkerhetsrutiner, SSL-kryptering, cookiepolicy, säkerhetsuppdateringar, etc.) .",
+        "name": "Skydd av webbplatsen",
+        "placeholder": "Beskriv här de metoder och medel som används för att skydda webbplatserna.",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_TEC_ANO": {
+        "description": "Beskriv mekanismerna för anonymisering, hur de är utformade och för vilket syfte de implementeras och hur de förhindrar eventuell återidentifiering. Observera skillnaden mellan anonymisering och pseudonymisering",
+        "name": "Anonymisering",
+        "placeholder": "Beskriv här hur anonymisering har implementerats",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_TEC_ARCH": {
+        "description": "Beskriv lagringspolicyn såväl som processerna för att hantera arkiv som innehåller personuppgifter (leverans av data, lagring, åtkomsträttigheter, bortskaffande). Beskriv arkiveringens roll och rättsliga grunder samt säkerhetsåtgärder. Beskriv vid behov reglerna för inlämnande till statsarkiv.",
+        "name": "Arkivering",
+        "placeholder": "Här anges alla arkiverings/back-up metoder som används för bevarande och hantering av elektroniska arkiv som innehåller personuppgifter.",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_TEC_CHIF": {
+        "description": "Implementerade metoder för att <strong>säkerställa konfidentialiteten för</strong>personuppgifter lagrade (i databasen, i filer, i säkerhetskopior osv.) Samt hanteringsmetoder för krypteringsnycklarna (skapande, lagrande, ändringar i händelse av misstankar om kompromettering etc.). <br><br> Detaljbeskriv krypteringen som används för dataöverföring (VPN, TLS, etc.) som ingår i processen.",
+        "name": "Kryptering",
+        "placeholder": "Beskriv här krypteringsmetoder som implementerats för att säkerställa personuppgifternas konfidentialitet och integritet",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_TEC_CLO": {
+        "description": "Genomförande av dataseparering hjälper till att minska risken för att personuppgifter kombineras, vilket minskar risken för obehörig åtkomst till all lagrade personuppgifter",
+        "name": "Dataseparering",
+        "placeholder": "Ange här om en uppdelning av behandlingen i mindre separerade delar är planerad och hur den uppnås.",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_TEC_CTLA": {
+        "description": "Beskriv definitionen och tilldelningen av användarprofiler, dess roller och rättigheter. Var även vänlig att specificera de använda <strong> autentiseringsmetoderna </ strong> i detalj och, om applicerbart, ange  lösenordsregler (minimilängd, obligatorisk struktur, giltighetstid, antal misslyckade inloggningsförsök innan kontot låses, etc.).",
+        "name": "Logisk åtkomstkontroll",
+        "placeholder": "Ange här hur användarprofiler och rättigheter definieras och tilldelas.",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_TEC_LOG": {
+        "description": "Loggning och journalföringspolicy för behandlingar.",
+        "name": "Loggningsförfaranden",
+        "placeholder": "Ange här om behandlingarna är loggade och hur länge dessa loggar sparas.",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_TEC_MINI": {
+        "description": "Personuppgifternas känslighetsgrad kan minskas med följande metoder: filtrering och borttagning, minskning av känslighet genom transformation, minskning av datakaraktär, minskning av datainsamling, begränsning av datatillgång",
+        "name": "Dataminimering",
+        "placeholder": "Ange vilka åtgärder som har vidtagits för att minska riskernas allvarlighetsgrad genom att minimera personuppgifter.",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_TEC_PAP": {
+        "description": "TO TRANSLATE - Where paper documents containing data are used during the processing, indicate here how they are printed, stored, destroyed and exchanged.",
+        "name": "Säkerhet för hantering av  pappersdokument",
+        "placeholder": "Ange här procedurerna och livscykeln för pappersdokument som innehåller personuppgifter.",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_VAL_ACT": {
+        "description": "Handlingsplanen är listan över åtgärder, resurser och ansvar som PIAn föreslog i de tidigare stegen, som måste genomföras för att implementera de identifierade korrigerande åtgärderna. För varje åtgärd är det nödvändigt att namnge en ansvarig person och sätta tidsfrister.",
+        "name": "Handlingsplan",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_VAL_CART": {
+        "description": "Denna graf visar de risker som uppstår vid behandlingen och de återstående riskerna med beaktande av alla korrigerande åtgärder. Det visar att om de kompletterande åtgärderna som beskrivs i handlingsplanen genomförs på ett adekvat sätt kan sannolikheten och / eller allvarlighetsgraden för de återstående riskerna minskas.",
+        "name": "Riskkartläggning",
+        "source": "Svensk källa saknas"
+      },
+      "PIA_VAL_CONC": {
+        "description": "Den personuppgiftsansvarige ska, när det är lämpligt, inhämta synpunkter från de registrerade eller deras företrädare om den avsedda behandlingen, utan att det påverkar skyddet av kommersiella eller allmänna intressen eller behandlingens säkerhet. Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Artikel 35.9 i [ADSF/GDPR]</a><br>Detta yttrande kan inhämtas på olika sätt, beroende på sammanhanget (intern eller extern utredning om syftet med behandlingen, fråga till de registrerades representant eller fackförbund, enkät till personuppgiftsansvariges framtida kund).<br><strong>Om den personuppgiftsansvarige</strong> motsätter sig de registrerade personernas åsikt, måste han <strong>dokumentera skälen till sitt beslut.</strong><br>Om den ansvariga anser att<br> yttrande från de registrerade personerna inte krävs, måste han också <strong>dokumentera motiveringen.</strong>",
+        "name": "De registrerade personernas yttrande",
+        "source": "ADSF/GDPR Art. 35.9"
+      },
+      "PIA_VAL_DPO": {
+        "description": "Den personuppgiftsansvarige ska rådfråga dataskyddsombudet, om ett sådant utsetts, vid genomförande av en konsekvensbedömning avseende dataskydd. Se <a target=\"_blank\" href=\"https://eur-lex.europa.eu/legal-content/SV/TXT/?qid=1573479695804&uri=CELEX:32016R0679\">Art. 35 Art 2. i [ADSF/GDPR]</a><br> <strong>DSO kan motsätta sig att behandlingen genomförs men kan inte hindra den personuppgiftsansvarigs beslut</strong>.",
+        "name": "Ställningstagande av DSO",
+        "source": "ADSF/GDPR Art. 35.2"
+      },
+      "PIA_VAL_RT": {
+        "description": "<strong>Den personuppgiftsansvariga personen beslutar formellt</strong>om de utvalda åtgärderna, de återstående riskerna och om den antagna handlingsplanen är acceptabla med tanke på de tidigare identifierade problemen och de registrerade personernas yttrande. PIAn kan vara:<br>- godkänd;<br>- förbättringsbar (förklara på vilket sätt)<br>- underkänd (således även den planerade behandlingen).<br>Om det behövs, granska och slutför tidigare steg för att godkänna PIAn.<br>Detta beslut påverkar inte på något sätt den bedömning som kan göras av behörig dataskyddsmyndighet (t.ex. Datainspektionen i Sverige) i ett tillsynsförfarande!",
+        "name": "Godkännande av DSO",
+        "source": "Svensk källa saknas"
+      }
+    },
+    "title": "Kunskapsdatabas"
+  },
+  "measures": {
+    "add": "Skapa en åtgärd (eller hämta en föreslagen åtgärd från kunskapsdatabasen)",
+    "default_placeholder": "Beskriv existerande eller planerade åtgärder för att säkerställa skyddet för personuppgifter.",
+    "edit": "Editera åtgärd",
+    "placeholder_title": "Åtgärdens namn",
+    "remove": "Radera åtgärd"
+  },
+  "misc": {
+    "display": "Visa / Dölj"
+  },
+  "modals": {
+    "abandon_pia": {
+      "additional_text": "Arkiveringen hindrar inte möjligheten att <br>återuppta bearbetningen och göra förändringar i PIAn.",
+      "content": "Vill du avsluta bearbetningen?"
+    },
+    "action_plan_no_evaluation": {
+      "content": "Var vänlig starta utvärderingen av analysen för att skapa en åtgärdsplan.",
+      "review_section": "Utvärdera en sektion"
+    },
+    "archive": "Arkivera",
+    "archive_pia": {
+      "archive": "TO TRANSLATE - Archive PIA",
+      "content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+    },
+    "ask_for_evaluation": {
+      "content": "Denna sektion är klar för att utvärderas"
+    },
+    "back_to_edition": {
+      "content": "Denna sektion är återsänd för bearbetning<br>kompletterande information erfordras <br>för att den skall kunna utvärderas"
+    },
+    "back_to_evaluation": {
+      "content": "Avsnittet är sänt för utvärdering,<br>informationen behöver utvärderas igen<br>för att kunna godkännas. "
+    },
+    "back_to_home": "Tillbaka till startsida",
+    "cancel": "Avbryt",
+    "close": "Stäng",
+    "completed_edition": {
+      "content": "Alla delar har behandlats. <br> PIAn skall nu utvärderas."
+    },
+    "completed_evaluation": {
+      "content": "Alla sektioner är nu utvärderade.<br>PIAn är färdig för godkännande."
+    },
+    "continue": "Fortsätt",
+    "declare_measures": {
+      "content": "Innan du kan bedöma riskerna<br>måste du beskriva existerande eller<br>planerade åtgärder.",
+      "declare": "Beskriv existerande eller planerade åtgärder"
+    },
+    "dpo_missing_evaluations": {
+      "comment": "Kommentarer",
+      "content": "Du måste färdigställa utvärderingen för att få tillgång till DSO sidan.",
+      "remove": "Radera",
+      "review_section": "Utvärdera en sektion"
+    },
+    "general_error": {
+      "content": "TO TRANSLATE - All our apologies an error has occurred."
+    },
+    "import_wrong_pia_file": {
+      "content": "Den importerade filen är inte en korrekt PIA-fil"
+    },
+    "import_wrong_structure_file": {
+      "content": "Den importerade filen är inte en korrekt mall-fil"
+    },
+    "knowledge": {
+      "content": "TO TRANSLATE - Are you sure you want to delete this element?",
+      "remove": "TO TRANSLATE - Delete this element"
+    },
+    "knowledges": {
+      "content": "TO TRANSLATE - Are you sure you want to delete this knowledge base?",
+      "remove": "TO TRANSLATE - Delete this knowledge base"
+    },
+    "modal_select_text_pia": {
+      "content": "Innehållet i PIAn är kopierat till urklipp"
+    },
+    "not_enough_measures_to_remove": {
+      "content": "<span class='strong'>Varning,</span><br>Åtminstone en åtgärd måste läggas till: Radering kan inte göras."
+    },
+    "recover_version": {
+      "continue": "Fortsätt",
+      "message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
+      "title": "TO TRANSLATE - Restore a previous version"
+    },
+    "refuse_pia": {
+      "content": "Efter ditt underkännande sänds PIAn<br>tillbaka för utvärdering och för att utföra<br> nödvändiga kompletterande åtgärder."
+    },
+    "remove_attachment": {
+      "comment": "Kommentarer",
+      "content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br> radera bilagan?",
+      "keep": "Behåll",
+      "remove": "Radera"
+    },
+    "remove_measure": {
+      "content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br>radera denna åtgärd?",
+      "keep": "Behåll denna <br>åtgärd",
+      "remove": "Radera denna <br>åtgärd"
+    },
+    "remove_pia": {
+      "content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br>radera denna PIA?",
+      "remove": "Radera denna PIA"
+    },
+    "remove_question": {
+      "content": "Vill du radera frågan?",
+      "keep": "Behåll",
+      "remove": "Radera"
+    },
+    "remove_structure": {
+      "content": "<span class='strong'>Varning,</span><br>Är du säker på att du vill<br>radera denna mall?",
+      "remove": "Radera mallen"
+    },
+    "same_comment": {
+      "content": "<span class='strong'>Varning,</span><br>Skriv en kommentar som skiljer sig från den senast sparade."
+    },
+    "signed_pia_validation": {
+      "content": "För att färdigställa detta godkännande <br>skall en signerad rapport läggas som bilaga.",
+      "download_pia": "Visa rapporten"
+    },
+    "simple_pia_validation": {
+      "content": "Du godkänner PIAn."
+    },
+    "start_evaluation": "Starta utvärderingen",
+    "unarchive_pia": {
+      "content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+      "unarchive": "TO TRANSLATE - Unarchive PIA"
+    },
+    "update_server_url_nok": {
+      "content": "Ingen uppkoppling."
+    },
+    "update_server_url_ok": {
+      "content": "Serveradressen har uppdaterats"
+    },
+    "validate_evaluation": {
+      "content": "Denna sektion är färdig<br>för godkännandeprocessen."
+    },
+    "validate_evaluation_to_correct": {
+      "content": "Tyvärr<br> Flera fält behöver korrigeras.<br>Återgå till bearbetningsläge<br>för att korrigera."
+    },
+    "users": {
+      "delete": {
+        "content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>delete this user ?",
+        "confirm": "TO TRANSLATE - Delete this user",
+        "pia_exist": "TO TRANSLATE - This user is assigned to one or more PIAs, you will need to re-assign users on them."
+      }
+    }
+  },
+  "onboarding": {
+    "dashboard": {
+      "step1": {
+        "description": "TO TRANSLATE - Click on the <strong>+</strong> to create your first PIA.",
+        "title": "TO TRANSLATE - Create a PIA"
+      },
+      "step2": {
+        "description": "TO TRANSLATE - <p><strong>Editors</strong> write the first version of the analysis.</p><p>They are, for example, the project managers associated with the data processing.</p>",
+        "title": "TO TRANSLATE - PIA's roles"
+      },
+      "step3": {
+        "description": "TO TRANSLATE - <p><strong>Reviewers</strong> are involved in a second phase.</p><p>They use their legal or technical expertise to check the quality and compliance of the processing.</p><p>They are, for example, DPO, legal experts, ...</p>",
+        "title": "TO TRANSLATE - PIA's roles"
+      },
+      "step4": {
+        "description": "TO TRANSLATE - <p>The <strong>validator</strong> accepts or rejects the implementation of the processing. He must sign the analysis.</p><p>He is the controller, e.g. the CEO.</p>",
+        "title": "TO TRANSLATE - PIA's roles"
+      },
+      "step5": {
+        "description": "TO TRANSLATE - <p><strong>Templates</strong> are an advanced feature. They are used to create a pre-filled basis for the analysis.</p><p>You can create templates by going to the associated section accessible from the top menu.</p>",
+        "title": "TO TRANSLATE - Templates"
+      }
+    },
+    "entry": {
+      "step1": {
+        "description": "TO TRANSLATE - To move from one part of the analysis to another, use the left navigation menu.",
+        "title": "TO TRANSLATE - Browse"
+      },
+      "step2": {
+        "description": "TO TRANSLATE - This is used to explain the purpose of the processing and how it will be implemented.",
+        "title": "TO TRANSLATE - Context"
+      },
+      "step3": {
+        "description": "TO TRANSLATE - These aim to ensure that the processing complies with the GDPR.",
+        "title": "TO TRANSLATE - Fundamental principles"
+      },
+      "step4": {
+        "description": "TO TRANSLATE - These describe the security measures already planned for the processing operation and make it possible to assess its potential impact on the data subjects.",
+        "title": "TO TRANSLATE - Risks"
+      },
+      "step5": {
+        "description": "TO TRANSLATE - This allows the DPO to express her opinion on the implementation of the processing and the controller to accept or refuse it.",
+        "title": "TO TRANSLATE - Validation"
+      },
+      "step6": {
+        "description": "TO TRANSLATE - <p>It provides contextual assistance in carrying out the analysis and is based on the GDPR, the security guide and the CNIL's PIA guides</p><p>In addition to these contents, you can also create your own knowledge bases to easily access information specific to your organization.</p>",
+        "title": "TO TRANSLATE - The knowledge base"
+      },
+      "step7": {
+        "description": "TO TRANSLATE - At any time during the analysis, you can download the analysis in various formats to share it with your colleagues.",
+        "title": "TO TRANSLATE - Export your PIA"
+      }
+    },
+    "evaluation": {
+      "step1": {
+        "description": "TO TRANSLATE - The evaluation can take an entire section into account, or at the level of each element of a section.",
+        "title": "TO TRANSLATE - Evaluate the PIA"
+      },
+      "step2": {
+        "description": "TO TRANSLATE - <p>This evaluation indicates to the editors that elements are missing in order to make a relevant assessment.</p><p>The assessor must indicate these in the associated <strong>evaluation comment</strong> field. The editor will make the necessary corrections.</p>",
+        "title": "TO TRANSLATE - To correct"
+      },
+      "step3": {
+        "description": "TO TRANSLATE - <p>This assessment indicates the processing elements to be revised. They are detailed in the <strong>action plan / corrective action</strong> field.</p><p>These measures will be automatically added to the action plan part of the analysis. It is necessary to implement them as soon as possible.</p>",
+        "title": "TO TRANSLATE - Improvable"
+      },
+      "step4": {
+        "description": "TO TRANSLATE - This assessment means that this part of the processing can be implemented without modification.",
+        "title": "TO TRANSLATE - Acceptable"
+      },
+      "step5": {
+        "description": "TO TRANSLATE - If the assessment of a section has not yet begun, the request forassessment may be cancelled to make changes to the processing description.",
+        "title": "TO TRANSLATE - Cancel a request"
+      }
+    },
+    "general": {
+      "done": "TO TRANSLATE - Confirm",
+      "next": "TO TRANSLATE - Next",
+      "skip": "TO TRANSLATE - Skip"
+    },
+    "validated": {
+      "step1": {
+        "description": "TO TRANSLATE - A complete and validated analysis can be consulted at any time via a dedicated interface.",
+        "title": "TO TRANSLATE - Consult a validated PIA"
+      },
+      "step2": {
+        "description": "TO TRANSLATE - It is necessary to review regularly an analysis. You can edit or duplicate it at any time to review its content according to the processing evolution.",
+        "title": "TO TRANSLATE - Update a validated PIA"
+      }
+    }
+  },
+  "opinions": {
+    "content": ", överväger att:",
+    "dpo_lock": "Var vänlig och fyll i övriga sektioner innan DSO´s överväganden fylls i.",
+    "dpo_opinion": "DSO´s ståndpunkt",
+    "edit": "Redigera",
+    "people_opinion": "Berörda personers synpunkter",
+    "placeholder_concerned_people_name": "Berörd(a) person(er)s namn",
+    "placeholder_dpo_name": "DSO´s namn",
+    "placeholder_dpo_opinion": "Beskriv grunden för ditt val",
+    "placeholder_people_opinion": "Beskriv hur synpunkterna samlats in och vad analysen gett. Om synpunkter inte inhämtats, beskriv varför så inte skett.",
+    "placeholder_search_content": "Beskriv varför följande person(er)s synpunkt(er) inte har efterfrågats.",
+    "treatment_lock": "Var vänlig fyll i de övriga sektionerna före dess att berörd(a) person(er)s synpunkt(er) inhämtas.",
+    "treatment_nok": "Denna behandling bör inte utföras.",
+    "treatment_ok": "Denna behandling kan genomföras."
+  },
+  "overview-risks": {
+    "important": "Viktig",
+    "limited": "Begränsad",
+    "maximal": "Maximal",
+    "measures": "Åtgärder",
+    "negligible": "Obetydlig",
+    "potential_impacts": "Möjliga konsekvenser",
+    "risk-access_x": "Allvarlighetsgrad",
+    "risk-access_y": "Sannolikhetsgrad",
+    "risk-change_x": "Allvarlighet",
+    "risk-change_y": "Sannolikhet",
+    "risk-disappearance_x": "Allvarlighet",
+    "risk-disappearance_y": "Sannolikhet",
+    "sources": "Källor",
+    "threat": "Hot"
+  },
+  "pia": {
+    "attachments": {
+      "add": "Lägg till",
+      "download": "Ladda ner bilaga",
+      "loading": "TO TRANSLATE - Uploading...",
+      "remove": "Radera",
+      "title": "Bilagor",
+      "no_attachment": "TO TRANSLATE - No attachment available"
+    },
+    "footer": {
+      "ask_evaluation": "Begär en utvärdering",
+      "mandatory_fields": "Alla fält måste fyllas i",
+      "structure_add_question": "Lägg till en fråga",
+      "subsection_validated": "Delsektion utvärderad, väntar på slutligt godkännande",
+      "validate_evaluation": "Godkänn utvärderingen"
+    },
+    "header": {
+      "display_action_plan": "Visa<br>handlingsplan",
+      "edition": "Redigering",
+      "evaluation": "Utvärdering",
+      "preview": "Förhandsvisning"
+    },
+    "sections": {
+      "based_on_structure_name": "Baserad på mallen:",
+      "homepage_link": "Tillbaka till startsidan",
+      "refuse_pia": "Underkänd PIA",
+      "status": {
+        "evaluation": {
+          "cancel": "avbryta begäran om utvärdering.",
+          "cancel_button": "Avbryt begäran om utvärdering",
+          "content": "Utvärderingen av denna sektion har inte påbörjats. Om du vill ändra i innehållet så måste du",
+          "title": "Väntar på utvärdering"
+        },
+        "validation": {
+          "cancel": "avbryta begäran om godkännande.",
+          "cancel_button": "Avbryt begäran om godkännande",
+          "content": "Denna sektion är avslutad och väntar på slutligt godkännande av utvärderingen. Om du vill ändra innehållet i utvärderingen så måste du",
+          "title": "Väntar på godkännande"
+        }
+      },
+      "validate_pia": "TO TRANSLATE - Validate PIA"
+    },
+    "statuses": [
+      "Under behandling",
+      "Underkänd",
+      "Enkelt godkännande (utan signatur)",
+      "Signerat godkännande",
+      "Arkiverad",
+      "Väntar på godkännande"
+    ]
+  },
+  "questions": {
+    "edit": "Redigera frågan",
+    "gauges": [
+      "(Odefinierat)",
+      "Obetydlig",
+      "Begränsad",
+      "Allvarlig",
+      "Maximal"
+    ],
+    "placeholder_title": "Frågetitel (obligatorisk)",
+    "remove": "Radera frågan"
+  },
+  "rejection_page": {
+    "applied_adjustments": "Genomförda ändringar",
+    "applied_adjustments_placeholder": "Beskriv ändringar i PIAn",
+    "button": {
+      "abandon_treatment": "Avbryt behandlingen",
+      "reject_pia": "Underkänn PIAn",
+      "send_for_validation": "Sänd igen för godkännande"
+    },
+    "previous_rejection": "Tidigare underkännande",
+    "rejection_reason": "Grund för underkännande",
+    "rejection_reason_placeholder": "Beskriv skälen för underkännandet av PIAn.",
+    "title": "Godkännandehistorik"
+  },
+  "sections": {
+    "1": {
+      "items": {
+        "1": {
+          "questions": {
+            "1": {
+              "placeholder": "Beskriv behandlingen på ett systematiskt sätt: Dess namn, dess syfte, dess förväntade resultat, i vilken kontext behandlingen utförs, mm.",
+              "title": "Vilken behandling skall utvärderas?"
+            },
+            "2": {
+              "placeholder": "Beskriv de ansvarsförhållanden som kommer att uppstå mellan involverade parter: Personuppgiftsansvarig, biträde, underbiträde och eventuella gemensamt personuppgiftsansvariga.",
+              "title": "Hur är ansvaret för behandlingen fördelat mellan parter?"
+            },
+            "3": {
+              "placeholder": "Lista relevanta standarder som är tillämpliga på behandlingen, särskilt godkända riktlinjer, uppförandekoder och certifieringar.",
+              "title": "Tillämpas någon norm, standard eller certifiering på behandlingen?"
+            }
+          },
+          "short_help": "Denna del låter dig identifiera och presentera utredningens objekt.",
+          "title": "Översikt"
+        },
+        "2": {
+          "questions": {
+            "1": {
+              "placeholder": "Beskriv de uppgifter som samlas in och behandlas genom att ange lagringsperioder, mottagare och vilka personer som har tillgång till dem.",
+              "title": "Vilka personuppgifter behandlas?"
+            },
+            "2": {
+              "placeholder": "Beskriv den personliga informationens livscykel (från insamling till radering genom lagring, bearbetningssteg, arkivering etc.), till exempel med hjälp av ett dataflödesschema (kan läggas till som bilaga) och en beskrivning av varje genomförd process.",
+              "title": "Hur ser livscykeln ut för personuppgifterna (funktionell beskrivning)?"
+            },
+            "3": {
+              "placeholder": "Lista databärarna för din behandling (datorsystem, servrar, programvara, nätverk, personer, papper etc.).",
+              "title": "Vilka är databärarna?"
+            }
+          },
+          "short_help": "Denna sektion låter dig beskriva  behandlingen och dess avgränsningar i detalj.",
+          "title": "Personuppgifter, processer och lagring"
+        }
+      },
+      "short_help": "Det här avsnittet ger dig en bild av den (de) behandling (behandlingar) av personuppgifter som beaktas.",
+      "title": "Kontext"
+    },
+    "2": {
+      "items": {
+        "1": {
+          "questions": {
+            "1": {
+              "placeholder": "Förklara hur syftena med behandlingen är bestämda, uttryckliga och legitima.",
+              "short_title": "Grunder",
+              "title": "Är syftet med behandlingen bestämda, uttryckliga och legitima?"
+            },
+            "2": {
+              "placeholder": "Presentera grunden (erna) för din behandling (t.ex. samtycke, uppfyllande av avtal, legala krav, intresseavvägning etc.).",
+              "short_title": "Legal grund",
+              "title": "På vilken(a) laglig(a) grund(er) baserar du din behandling?"
+            },
+            "3": {
+              "placeholder": "Förklara varför varje insamlad personuppgift är nödvändig för din behandling.",
+              "short_title": "Dataminimering",
+              "title": "Är de insamlade personuppgifterna tillräckliga, relevanta och begränsade till vad som är nödvändigt för de syften som de behandlas för (dataminimering)?"
+            },
+            "4": {
+              "placeholder": "Beskriv planerade åtgärder för att säkerställa kvaliteten på uppgifterna.",
+              "short_title": "Riktighet",
+              "title": "Är den personliga informationen korrekt och hålls uppdaterad?"
+            },
+            "5": {
+              "placeholder": "Förklara hur den avsedda lagringsperioden för varje personuppgift är nödvändig för att uppfylla syftet med din behandling i de fall det inte finns något specificerat lagligt krav för lagringsperioden.",
+              "short_title": "Lagringsperiod",
+              "title": "Vilken är lagringstiden för personuppgifterna?"
+            }
+          },
+          "short_help": "Denna del låter dig visa på vilken laglig grund behandlingen utförs och personuppgifterna behandlas.",
+          "title": "Proportionalitet och nödvändighet"
+        },
+        "2": {
+          "questions": {
+            "1": {
+              "placeholder": "Beskriv vilken information som förväntas tillhandahållas till registrerade personer hur de får tillgång till den.",
+              "short_title": "Information till registrerade",
+              "title": "Hur informeras de registrerade personerna om att behandling av personuppgifter utförs?"
+            },
+            "2": {
+              "placeholder": "Beskriv hur det säkerställs att samtycke inhämtas.",
+              "short_title": "Inhämtning av samtycke",
+              "title": "I förekommande fall, hur erhålls de berörda personernas samtycke?"
+            },
+            "3": {
+              "placeholder": "Beskriv hur den registrerade får tillgång till sina personuppgifter, får registerutdrag och kan utöva sin rättighet till dataportabilitet.",
+              "short_title": "Rätt till tillgång och dataportabilitet",
+              "title": "Hur kan den registrerade utöva sin rätt till tillgång och rätt till portabilitet?"
+            },
+            "4": {
+              "placeholder": "Beskriv hur den registrerade kan rätta eller, om det är relevant, minimera eller radera sina personuppgifter.",
+              "short_title": "Rätt till rättelse och radering",
+              "title": "Hur kan de registrerade utöva sin rätt till rättelse och rätten att raderas (rätten att glömmas)?"
+            },
+            "5": {
+              "placeholder": "Beskriv hur den registrerade kan begära begränsning av behandlingen av sina personuppgifter samt invända mot behandlingen av sina personuppgifter.",
+              "short_title": "Begränsnings- och invändningsrätt",
+              "title": "Hur kan den registrerade utöva sin begränsningsrätt och invändningsrätt?"
+            },
+            "6": {
+              "placeholder": "För varje underleverantör, beskriv omfattningen av dess ansvar och ange referenser till kontrakt, uppförandekoder och certifieringar som anger dess skyldigheter.",
+              "short_title": "Underbiträde",
+              "title": "Är underbiträdenas skyldigheter tydligt definierade och avtalade?"
+            },
+            "7": {
+              "placeholder": "För varje land utanför Europeiska unionen där data lagras eller behandlas, identifiera dem och ange om de av EU erkänns ha en tillräckligt hög skyddsnivå för personuppgifter eller beskriv de klausuler som styr överföringen.",
+              "short_title": "Tredjelandsöverföring",
+              "title": "Om personuppgifter överförs till land utanför EU (\"Tredjeland\"), skyddas uppgifterna då på ett adekvat sätt?"
+            }
+          },
+          "short_help": "Denna sektion låter dig beskriva att du genomför nödvändiga åtgärder för att göra det möjligt för de registrerade personerna att utöva sina rättigheter.",
+          "title": "Åtgärder för att garantera de registrerades rättigheter"
+        }
+      },
+      "short_help": "Denna sektion ger dig möjlighet att bygga ramverk för att uppfylla de krav som DSF (GDPR) stipulerar. ",
+      "title": "Grundläggande principer"
+    },
+    "3": {
+      "items": {
+        "1": {
+          "short_help": "Denna sektion låter dig identifiera och beskriva de åtgärder (befintliga eller planerade) som bidrar till personuppgiftssäkerhet.",
+          "title": "Befintliga eller planerade åtgärder"
+        },
+        "2": {
+          "questions": {
+            "1": {
+              "placeholder": "Ange de potentiella konsekvenserna",
+              "title": "Vilka kan vara de viktigaste <span class='green-highlight'>konsekvenserna för de registrerade personerna</span> om risken inträffar?"
+            },
+            "2": {
+              "placeholder": "Beskriv hoten",
+              "title": "Vilka är de viktigaste <span class='green-highlight'>hoten</span> som kan leda till risken?"
+            },
+            "3": {
+              "placeholder": "Ange riskkällorna",
+              "title": "Vilka är<span class='green-highlight'>källorna</span> för risken?"
+            },
+            "4": {
+              "placeholder": "Klicka här för att välja de åtgärder som hjälper till att undanröja denna risk.",
+              "title": "Vilka är de <span class='green-highlight'>initiala åtgärderna</span>bland de beskrivna som hjälper till att undanröja risken?"
+            },
+            "5": {
+              "placeholder": "Beskriv den bedömda allvarlighetsgraden för risken.",
+              "title": "Hur uppskattar du <span class='green-highlight'>riskens allvarlighetsgrad</span>, särskilt när det gäller potentiella konsekvenser och i förhållande till planerade åtgärder?"
+            },
+            "6": {
+              "placeholder": "Beskriv här den uppskattade sannolikheten.",
+              "title": "Hur uppskattar du <span class='green-highlight'>sannolikheten för risken</span>, särskilt när det gäller hot, riskkällor och i förhållande planerade åtgärder?"
+            }
+          },
+          "short_help": "Analysera orsakerna till och konsekvenserna av olaglig tillgång till data och uppskatta deras allvarlighetsgrad och sannolikhet.",
+          "title": "Otillåten tillgång till data"
+        },
+        "3": {
+          "questions": {
+            "1": {
+              "placeholder": "Beskriv de potentiella konsekvenserna",
+              "title": "Vilka kan vara de viktigaste <span class='green-highlight'>konsekvenserna för de registrerade personerna</span> om risken skulle inträffa?"
+            },
+            "2": {
+              "placeholder": "Beskriv hoten",
+              "title": "Vilka är de viktigaste <span class='green-highlight'>hoten</span> som kan leda till att risken uppstår?"
+            },
+            "3": {
+              "placeholder": "Beskriv riskkällorna",
+              "title": "Vilka är<span class='green-highlight'>källorna</span> till riskerna?"
+            },
+            "4": {
+              "placeholder": "Klicka här för att välja de åtgärder som hjälper till att hantera denna risk.",
+              "title": "Vilka av de beskrivna<span class='green-highlight'>åtgärderna</span>, hjälper till att hantera risken?"
+            },
+            "5": {
+              "placeholder": "Motivera här den uppskattade allvarlighetsgraden.",
+              "title": "Hur uppskattar du <span class='green-highlight'>riskens allvarlighetsgrad</span>, särskilt när det gäller potentiella konsekvenser i förhållande till planerade åtgärder?"
+            },
+            "6": {
+              "placeholder": "Beskriv här den uppskattade sannolikheten.",
+              "title": "Hur uppskattar du <span class='green-highlight'>sannolikheten för risk</span>, särskilt när det gäller hot, riskkällor och i förhållande till planerade åtgärder?"
+            }
+          },
+          "short_help": "Analysera orsakerna till och konsekvenserna av en oönskad ändring av personuppgifter och uppskatta hur allvarliga och sannolika dessa är.",
+          "title": "Oönskad ändring av personuppgifter"
+        },
+        "4": {
+          "questions": {
+            "1": {
+              "placeholder": "Ange de potentiella konsekvenserna",
+              "title": "Vilka kan vara de viktigaste <span class='green-highlight'>konsekvenserna för de registrerade personerna</span> om risken inträffar?"
+            },
+            "2": {
+              "placeholder": "Beskriv hoten",
+              "title": "Vilka är de viktigaste <span class='green-highlight'>hoten</span> som kan leda till att risken inträffar?"
+            },
+            "3": {
+              "placeholder": "Beskriv riskkällorna",
+              "title": "Vilka är <span class='green-highlight'>källorna</span> till risken?"
+            },
+            "4": {
+              "placeholder": "Klicka här för att välja de åtgärder som hjälper till att hantera denna risk.",
+              "title": "Vilka bland de beskrivna<span class='green-highlight'>åtgärderna</span>, hjälper till att hantera risken?"
+            },
+            "5": {
+              "placeholder": "Beskriv här den uppskattade allvarlighetsgraden för risken.",
+              "title": "Hur uppskattar du <span class='green-highlight'>riskens allvarlighetsgrad</span>, särskilt när det gäller potentiella konsekvenser med hänsyn taget till planerade åtgärder?"
+            },
+            "6": {
+              "placeholder": "Beskriv här den uppskattade sannolikheten.",
+              "title": "Hur uppskattar du <span class='green-highlight'>sannolikheten för risk</span>, särskilt när det gäller hot, riskkällor och planerade åtgärder?"
+            }
+          },
+          "short_help": "Analysera orsakerna till och konsekvenserna av förlorade personuppgifter och uppskatta deras allvarlighetsgrad och sannolikhet.",
+          "title": "Förlust av personuppgifter"
+        },
+        "5": {
+          "short_help": "Denna visualisering gör att du kan skapa dig en övergripande bild av vilken verkan åtgärderna har på komponenterna i riskerna som de skall hantera.",
+          "title": "TO TRANSLATE - Risks overview"
+        }
+      },
+      "short_help": "Det här avsnittet låter dig bedöma dataskyddsriskerna med hänsyn till befintliga eller planerade kontroller.",
+      "title": "Risker"
+    },
+    "4": {
+      "items": {
+        "1": {
+          "short_help": "Denna visualisering låter dig jämföra bedömningen av risker före och efter tillämpning av kompletterande åtgärder.",
+          "title": "Riskkartläggning"
+        },
+        "2": {
+          "short_help": "Detaljplanera genomförandet av de kompletterande åtgärder som identifierats under PIA. Handlingsplanen uppdateras automatiskt när kompletteringar görs som en del av PIA-granskningen.",
+          "title": "Handlingsplan"
+        },
+        "3": {
+          "short_help": "Inhämta råd från DPO: Dokumentera den registrerades eller deras representants åsikt.",
+          "title": "DPO och den registrerades åsikter"
+        },
+        "4": {
+          "title": "Godkänn PIA"
+        },
+        "5": {
+          "title": "Underkänn PIA"
+        }
+      },
+      "short_help": "Det här avsnittet låter dig förbereda och formalisera PIA-valideringen.",
+      "title": "Godkännande"
+    }
+  },
+  "settings": {
+    "content": "Vänligen ange adressen (URL) för fjärrservern:",
+    "title": "Inställningar",
+    "update": "Uppdatera URL"
+  },
+  "summary": {
+    "action_plan": {
+      "fundamental_principles": "Fundamentala principer",
+      "implementation_date": "Förväntat genomförandedatum",
+      "implementation_responsible": "Ansvarig för genomförandet",
+      "measures": "Befintliga eller planerade åtgärder",
+      "no_action_plan": "Ingen handlingsplan registrerad.",
+      "risks": "Risker",
+      "title": "Handlingsplan"
+    },
+    "actions": {
+      "complete_download": "Ladda ner den fullständiga rapporten",
+      "complete_download_desc": "Exportera allt rapportinnehåll (.doc och bilder) i ett .zip-arkiv, bilagor och handlingsplanen i ett .csv-format.",
+      "individual_download": "Ladda ner delar av rapporten",
+      "individual_download_desc": "Exportera specifika delar av rapporten.",
+      "individual_download_doc": "Texter (.doc)",
+      "individual_download_images": "Grafiska element (.png) inklusive risköversikt, kartläggning av risker och handlingsplan.",
+      "individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
+      "individual_download_select": "Välj avsnitt som ska exporteras:",
+      "individual_to_download": "TO TRANSLATE - Download",
+      "print": "Skriv ut rapporten",
+      "print_and_download": "Skriva ut och ladda ner"
+    },
+    "attachments": "Bilagor",
+    "concerned_people_name": "Berörda personers namn",
+    "concerned_people_opinion": "Berörda personers åsikter",
+    "concerned_people_searched_opinion": "Inhämta berörda personers åsikt",
+    "concerned_people_status": "Berörda personers status",
+    "concerned_people_unsearched_opinion_comment": "Anledningen till att de berörda personernas åsikt inte begärdes",
+    "content_choice": [
+      "Behandlingen bör inte genomföras",
+      "Behandlingen kan genomföras"
+    ],
+    "creation_date": "Skapandedatum",
+    "csv_action_plan_comment": "Kommentar till handlingsplanen",
+    "csv_evaluation_comment": "Kommentar till utvärderingen",
+    "csv_file_title": "Handlingsplan",
+    "csv_implement_date": "Uppskattat genomförandedatum",
+    "csv_people_in_charge": "Ansvarig för genomförandet",
+    "csv_section": "Avsnitt",
+    "csv_title_object": "Titel",
+    "download_csv": "Handlingsplan (.csv)",
+    "dpo_name": "DSO´s namn",
+    "dpo_opinion": "DSO´s åsikt",
+    "dpo_status": "DSO´s status",
+    "gauges": {
+      "1": "Obetydlig",
+      "2": "Begränsad",
+      "3": "Allvarlig",
+      "4": "Maximal"
+    },
+    "modification_made": "Gjorda ändringar",
+    "people_search_status_nok": "Registrerade personers åsikt har inte tagits i beaktande",
+    "people_search_status_ok": "Registrerade personers åsikt har tagits i beaktande",
+    "pia_assessor": "Utvärderarens namn",
+    "pia_author": "Utförarens namn",
+    "pia_name": "Namn på PIAn",
+    "pia_validator": "Godkännarens namn",
+    "preview_dpo_opinion": "Åsikter från DSO samt representant för de registrerade",
+    "preview_edition": "Redigera",
+    "preview_evaluation": "Utvärdering",
+    "preview_no_data": "Ingen data att visa.",
+    "preview_status": "Status",
+    "preview_subtitle": "Allmän information",
+    "preview_title": "Förhandsvisning",
+    "preview_validation": "Godkännande",
+    "preview_validation_section": "Godkännande",
+    "preview_guests": "TO TRANSLATE - Guests",
+    "previous_page": "Tillbaka till föregående sida",
+    "rejection_reason": "Skäl för underkännande",
+    "revision": {
+      "current_version": "TO TRANSLATE - Current version",
+      "pia_version": "TO TRANSLATE - PIA versions",
+      "restore_version": "TO TRANSLATE - Restore",
+      "revision": "TO TRANSLATE - Versions and revision",
+      "save": "TO TRANSLATE - Create a new version",
+      "show": "TO TRANSLATE - Display the {{length}} versions"
+    },
+    "risks_cartography_title": "Riskkartläggning",
+    "risks_overview_title": "Risköversikt",
+    "title": "PIA-information"
+  },
+  "users": {
+    "add_new_user": "TO TRANSLATE - Add a new user",
+    "cancel": "TO TRANSLATE - Cancel",
+    "choose_profile": "TO TRANSLATE - Choose a profile for this user",
+    "continue": "TO TRANSLATE - Continue",
+    "data": "TO TRANSLATE - Data",
+    "edit_user": "TO TRANSLATE - Edit an user",
+    "email": "TO TRANSLATE - Email",
+    "first_name": "TO TRANSLATE - First name",
+    "functional_admin": "TO TRANSLATE - Functional administrator",
+    "last_name": "TO TRANSLATE - Last name",
+    "new_user_button": "TO TRANSLATE - New user",
+    "profile": "TO TRANSLATE - Profile",
+    "remove": "TO TRANSLATE - Delete",
+    "remove_current_user_error_message": "TO TRANSLATE - You can't delete your own account.",
+    "remove_last_functional_admin_error_message": "TO TRANSLATE - You cannot delete this user because at least one Technical Administrator account must remain.",
+    "remove_user_with_linked_pias_error_message": "TO TRANSLATE - Several PIAs are attached to this user, so you cannot delete him.",
+    "technical_admin": "TO TRANSLATE - Technical administrator",
+    "update": "TO TRANSLATE - Update",
+    "user": "TO TRANSLATE - User",
+    "state": "TO TRANSLATE - Account's state",
+    "errors": {
+      "edit_user": {
+        "406": "TO TRANSLATE - The information provided when creating the account is invalid."
+      }
+    },
+    "delete": {
+      "confirm": "TO TRANSLATE - Remove user",
+      "content": "TO TRANSLATE - Are you sure you want to delete this user?"
+    },
+    "access_locked": {
+      "false": "TO TRANSLATE - Active",
+      "true": "TO TRANSLATE - Waiting for activation"
+    },
+    "role": {
+      "label": "TO TRANSLATE - Role(s)",
+      "author": "TO TRANSLATE - Author",
+      "evaluator": "TO TRANSLATE - Evaluator",
+      "validator": "TO TRANSLATE - Validator",
+      "guest": "TO TRANSLATE - Guest"
+    }
+  },
+  "validation_page": {
+    "add_signed_pia": "Lägg till en signerad version av PIAn",
+    "after_reading": "Efter att ha läst hela PIAn avseende den personuppgiftsbehandling som är kopplad till:",
+    "button": {
+      "rejection": "Underkänn PIA",
+      "signed_validation": "Godkänn PIA <br>(signerad)",
+      "simple_validation": "Godkänn PIA <br>(direkt)"
+    },
+    "confirmation1": "Jag intygar att beskrivningen av behandlingen som dokumenteras i PIA överensstämmer med verkligheten.",
+    "confirmation2": "Jag intygar att jag är medveten om riskerna kopplade till befintliga eller planerade åtgärder.",
+    "confirmation3": "Jag bekräftar de korrigerande åtgärder som anges i handlingsplanen.",
+    "confirmation4": "Jag åtar mig att genomföra de angivna korrigerande åtgärderna så snabbt som möjligt.",
+    "latest_signed_attachment": "Senast signerad bilaga",
+    "mandatory_fields": "Alla rutor måste vara markerade",
+    "remove_attachment": "Ta bort bilaga",
+    "responsible": "Person ansvarig för godkännande av PIA:",
+    "signed_attachments_history": "Historik signerade bilagor",
+    "tools": {
+      "dashboard": "Översikt",
+      "display_pia": "Visa rapport"
+    },
+    "validated_pia_with_signature": "Godkänd",
+    "waiting_for_signature": "Väntar på att PIA-rapporten har undertecknats"
+  }
+}

@@ -10,24 +10,14 @@ import { LanguagesService } from './services/languages.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private http: HttpClient,
-              private knowledgeBaseService: KnowledgeBaseService,
-              private languagesService: LanguagesService,
-              public appDataService: AppDataService) {
-
+  constructor(
+    private http: HttpClient,
+    private knowledgeBaseService: KnowledgeBaseService,
+    private languagesService: LanguagesService,
+    public appDataService: AppDataService
+  ) {
     this.knowledgeBaseService.loadData(this.http);
-
-    // const increaseContrast = this.appDataService.contrastMode;
-
-    // if (increaseContrast) {
-    //   this.renderer.addClass(document.body, 'pia-contrast');
-    // } else {
-    //   this.renderer.removeClass(document.body, 'pia-contrast');
-    // }
-
-    // Languages initialization
     this.languagesService.initLanguages();
     this.languagesService.getOrSetCurrentLanguage();
-
   }
 }

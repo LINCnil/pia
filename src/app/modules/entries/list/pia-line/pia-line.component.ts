@@ -18,7 +18,6 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
-import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
 import { BehaviorSubject } from 'rxjs';
 declare const require: any;
 
@@ -37,13 +36,13 @@ export class PiaLineComponent implements OnInit, OnChanges {
   @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
   @Input() users: Array<User>;
 
-  userList: Array<TagModel> = [];
+  userList: Array<any> = [];
   attachments: any;
 
-  authors: Array<TagModelClass> = [];
-  validators: Array<TagModelClass> = [];
-  evaluators: Array<TagModelClass> = [];
-  guests: Array<TagModelClass> = [];
+  authors: Array<any> = [];
+  validators: Array<any> = [];
+  evaluators: Array<any> = [];
+  guests: Array<any> = [];
   addBtnForSpecificInput: {
     display: string;
     pia_id: number;
@@ -119,7 +118,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
 
       // convert as tag
       const tags = filteredUserPias.map(a => {
-        let display =
+        const display =
           a.user.firstname && a.user.lastname
             ? a.user.firstname + ' ' + a.user.lastname
             : a.user.email;
@@ -150,8 +149,8 @@ export class PiaLineComponent implements OnInit, OnChanges {
   /**
    * Disable the already selected users in the guests field
    */
-  get usersForGuests(): Array<TagModel> {
-    let usersForGuests: Array<TagModel> = this.userList;
+  get usersForGuests(): Array<any> {
+    let usersForGuests: Array<any> = this.userList;
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -273,7 +272,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
    * Add user to new Pia Form
    * Update user on author, evaluator and validator
    */
-  async onAddUser($event: TagModelClass, field: string): Promise<void> {
+  async onAddUser($event: any, field: string): Promise<void> {
     // User selected exist ?
     const index = this.users.findIndex(u => u.id === $event.id);
     if (index === -1) {
@@ -344,7 +343,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
       });
   }
 
-  onRemove($event: TagModelClass, field: string): void {
+  onRemove($event: any, field: string): void {
     const index = this[field].findIndex(t => t == $event);
     if (index != -1) {
       this[field].splice(index, 1);

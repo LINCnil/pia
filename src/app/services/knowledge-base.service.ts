@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
 import { HttpClient } from '@angular/common/http';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
 import { KnowledgesService } from 'src/app/services/knowledges.service';

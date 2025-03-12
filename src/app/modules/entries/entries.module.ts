@@ -25,7 +25,7 @@ import { StructureHeadingComponent } from './list/heading/structure-heading/stru
 import { KnowledgebaseHeadingComponent } from './list/heading/knowledgebase-heading/knowledgebase-heading.component';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { UsersModule } from 'src/app/modules/users/users.module';
-import { PiaI18nModule } from '@atnos/pia-i18n';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -47,10 +47,10 @@ import { PiaI18nModule } from '@atnos/pia-i18n';
   ],
   imports: [
     SharedModule,
-    PiaI18nModule,
     CommonModule,
     EntriesRoutingModule,
-    UsersModule
+    UsersModule,
+    TranslatePipe
   ],
   providers: [
     PiaService,

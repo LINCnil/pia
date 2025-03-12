@@ -4,9 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { PiaI18nModule } from '@atnos/pia-i18n';
-
 import { HeaderComponent } from './components/header/header.component';
 import {
   SafeHtmlPipe,
@@ -34,6 +31,7 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
 import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 import { AuthService } from '../services/auth.service';
 import { ApiService } from '../services/api.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -51,14 +49,14 @@ import { ApiService } from '../services/api.service';
   ],
   imports: [
     CommonModule,
-    PiaI18nModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    PdfJsViewerModule
+    PdfJsViewerModule,
+    TranslatePipe
   ],
   exports: [
     BrowserModule,

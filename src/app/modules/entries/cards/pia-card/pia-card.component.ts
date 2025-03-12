@@ -23,7 +23,6 @@ import * as FileSaver from 'file-saver';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
 import { User } from 'src/app/models/user.model';
 import { SimpleChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
@@ -47,7 +46,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
 
   piaForm: UntypedFormGroup;
   attachments: any;
-  userList: Array<TagModel> = [];
+  userList: Array<any> = [];
   addBtnForSpecificInput: {
     display: string;
     pia_id: number;
@@ -219,8 +218,8 @@ export class PiaCardComponent implements OnInit, OnChanges {
   /**
    * Disable the already selected users in the guests field
    */
-  get usersForGuests(): Array<TagModel> {
-    let usersForGuests: Array<TagModel> = this.userList;
+  get usersForGuests(): Array<any> {
+    let usersForGuests: Array<any> = this.userList;
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -478,7 +477,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
    * Add user to new Pia Form
    * Update user on author, evaluator and validator
    */
-  async onAddUser($event: TagModelClass, field: string): Promise<void> {
+  async onAddUser($event: any, field: string): Promise<void> {
     // User selected exist ?
     const index = this.users.findIndex(u => u.id === $event.id);
 
@@ -553,7 +552,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
       });
   }
 
-  onRemove($event: TagModelClass, field: string): void {
+  onRemove($event: any, field: string): void {
     this.savePiaAfterUserAssign(field);
   }
 }

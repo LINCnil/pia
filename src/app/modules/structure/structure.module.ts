@@ -14,7 +14,8 @@ import { ActionPlanService } from 'src/app/services/action-plan.service';
 import { ContentComponent } from './content/content.component';
 import { MeasuresComponent } from './content/measures/measures.component';
 import { QuestionsComponent } from './content/questions/questions.component';
-import { PiaI18nModule } from '@atnos/pia-i18n';
+import { TranslatePipe } from '@ngx-translate/core';
+
 @NgModule({
   declarations: [
     StructureComponent,
@@ -23,7 +24,7 @@ import { PiaI18nModule } from '@atnos/pia-i18n';
     MeasuresComponent,
     QuestionsComponent
   ],
-  imports: [SharedModule, PiaI18nModule, CommonModule, StructureRoutingModule],
+  imports: [SharedModule, CommonModule, StructureRoutingModule, TranslatePipe],
   providers: [
     PiaService,
     ArchiveService,

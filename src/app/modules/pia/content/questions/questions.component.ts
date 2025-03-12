@@ -7,9 +7,7 @@ import {
   NgZone
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
+import { debounceTime, map, filter } from 'rxjs/operators';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { Evaluation } from 'src/app/models/evaluation.model';
@@ -424,7 +422,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.data = {
         text: this.answer.data.text,
         gauge: this.answer.data.gauge,
-        list: list
+        list
       };
 
       this.answerService
@@ -439,7 +437,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
-      this.answer.data = { text: null, gauge: null, list: list };
+      this.answer.data = { text: null, gauge: null, list };
 
       this.answerService
         .create(this.answer)
@@ -582,7 +580,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.keep_new'),
           callback: () => {
-            let newAnswerFixed: Answer = { ...err.params };
+            const newAnswerFixed: Answer = { ...err.params };
             newAnswerFixed.id = err.record.id;
             newAnswerFixed.lock_version = err.record.lock_version;
             this.answerService
@@ -601,7 +599,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.merge'),
           callback: () => {
-            let newAnswerFixed: Answer = { ...err.record };
+            const newAnswerFixed: Answer = { ...err.record };
             newAnswerFixed.data.text += '\n' + err.params.data.text;
             this.answerService
               .update(newAnswerFixed)

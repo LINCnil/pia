@@ -65,16 +65,6 @@ input {
   }
 }
 
-angular2csv {
-  button {
-    cursor: pointer !important;
-    &:focus,
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
 // Active navigation button styles
 .active {
   background-color: #fff;

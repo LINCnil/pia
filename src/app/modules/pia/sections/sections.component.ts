@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import 'rxjs/add/operator/map';
 
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { Pia } from 'src/app/models/pia.model';
