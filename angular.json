@@ -98,18 +98,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pia-angular:build"
+            "buildTarget": "pia-angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pia-angular:build:production"
+              "buildTarget": "pia-angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pia-angular:build"
+            "buildTarget": "pia-angular:build"
           }
         },
         "test": {
