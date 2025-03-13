@@ -17,8 +17,7 @@ import { PaginationService } from 'src/app/services/pagination.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { RevisionService } from 'src/app/services/revision.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
-import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
+import { faDownload, faBook } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-pia',

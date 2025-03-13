@@ -8,9 +8,11 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { faEarthEurope } from '@fortawesome/free-solid-svg-icons/faEarthEurope';
-import { faList } from '@fortawesome/free-solid-svg-icons/faList';
-import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
+import {
+  faEarthEurope,
+  faList,
+  faUser
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',

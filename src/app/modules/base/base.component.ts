@@ -10,10 +10,12 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
-import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
-import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
-import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
+import {
+  faFolderOpen,
+  faTrash,
+  faFile,
+  faCopy
+} from '@fortawesome/free-solid-svg-icons';
 
 function slugify(text): string {
   return text

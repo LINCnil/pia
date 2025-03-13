@@ -6,7 +6,7 @@ import { Comment } from '../../../../models/comment.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { CommentsService } from 'src/app/services/comments.service';
-import { faComment } from '@fortawesome/free-solid-svg-icons/faComment';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-comments',

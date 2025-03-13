@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
-import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
-import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark';
+import {
+  faPenToSquare,
+  faGear,
+  faXmark
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dialog',

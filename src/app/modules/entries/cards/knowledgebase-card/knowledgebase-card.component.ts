@@ -8,9 +8,7 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 
 import piakb from 'src/assets/files/pia_knowledge-base.json';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
-import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faDownload, faFile, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-knowledgebase-card',

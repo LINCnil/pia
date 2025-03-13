@@ -15,10 +15,12 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { RelativeDate } from './RelativeDate.class';
 import { Pia } from 'src/app/models/pia.model';
-import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
-import { faCircle } from '@fortawesome/free-solid-svg-icons/faCircle';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
+import {
+  faHistory,
+  faCircle,
+  faChevronDown,
+  faChevronUp
+} from '@fortawesome/free-solid-svg-icons';
 
 function slugify(data): string {
   const a =

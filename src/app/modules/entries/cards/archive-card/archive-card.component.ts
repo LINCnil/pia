@@ -6,8 +6,7 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { faRefresh } from '@fortawesome/free-solid-svg-icons/faRefresh';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faRefresh, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-archive-card',

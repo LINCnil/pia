@@ -13,10 +13,12 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { Pia } from 'src/app/models/pia.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { Router } from '@angular/router';
-import { faCircle } from '@fortawesome/free-solid-svg-icons/faCircle';
-import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
-import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
-import { faCheckSquare } from '@fortawesome/free-solid-svg-icons/faCheckSquare';
+import {
+  faCircle,
+  faCheck,
+  faCog,
+  faCheckSquare
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-validate-pia',

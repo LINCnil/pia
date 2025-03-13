@@ -9,13 +9,15 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { PaginationService } from 'src/app/services/pagination.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
-import { faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons/faAngleDoubleLeft';
-import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons/faAngleDoubleRight';
-import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
-import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons/faCalendarCheck';
-import { faSquareCheck } from '@fortawesome/free-solid-svg-icons/faSquareCheck';
-import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
+import {
+  faAngleDoubleLeft,
+  faAngleDoubleRight,
+  faChartLine,
+  faPenToSquare,
+  faCalendarCheck,
+  faSquareCheck,
+  faGear
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-content',

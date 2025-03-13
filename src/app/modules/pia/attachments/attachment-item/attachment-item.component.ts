@@ -16,7 +16,7 @@ import {
 import { Attachment } from 'src/app/models/attachment.model';
 
 import { AttachmentsService } from 'src/app/services/attachments.service';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-attachment-item',

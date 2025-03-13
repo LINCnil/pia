@@ -21,7 +21,7 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { Pia } from '../../../../models/pia.model';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-measures',

@@ -19,11 +19,13 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
 import { BehaviorSubject } from 'rxjs';
-import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
-import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
-import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
-import { faArchive } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPencil,
+  faEye,
+  faFile,
+  faDownload,
+  faArchive
+} from '@fortawesome/free-solid-svg-icons';
 import JSZip from 'jszip';
 declare const require: any;
 

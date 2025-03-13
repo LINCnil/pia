@@ -4,9 +4,7 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
-import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
-import { faRefresh } from '@fortawesome/free-solid-svg-icons/faRefresh';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faEye, faRefresh, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   // tslint:disable-next-line: component-selector

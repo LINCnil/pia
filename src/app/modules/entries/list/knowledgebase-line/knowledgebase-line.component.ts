@@ -5,11 +5,13 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
-import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
-import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
-import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import {
+  faPencil,
+  faEye,
+  faDownload,
+  faFile,
+  faTrash
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   // tslint:disable-next-line: component-selector

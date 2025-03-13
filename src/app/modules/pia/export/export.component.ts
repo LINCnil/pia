@@ -21,7 +21,7 @@ import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import JSZip from 'jszip';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 declare const require: any;
 require('src/assets/fonts/Roboto-Regular-webfont-normal.js');
@@ -212,7 +212,7 @@ export class ExportComponent implements OnInit {
   /**
    * Generate a ZIP with the pdf + doc + csv + json + all pictures
    * @param element block in the HTML view used to generate the docx in the zip
-   * @param exports files to exports array ['pdf', 'doc', 'images', 'csv', 'json']
+   * @param exports files to exports array ['pdf', 'doc', 'images', 'csv', 'json']
    */
   async generateExportsZip(element, exports: Array<string>): Promise<void> {
     window.scroll(0, 0);

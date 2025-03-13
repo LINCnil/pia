@@ -21,9 +21,11 @@ import { Evaluation } from 'src/app/models/evaluation.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
-import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
-import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark';
-import { faCircleNotch } from '@fortawesome/free-solid-svg-icons/faCircleNotch';
+import {
+  faCheck,
+  faXmark,
+  faCircleNotch
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-evaluations',

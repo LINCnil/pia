@@ -4,9 +4,7 @@ import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { Pia } from 'src/app/models/pia.model';
-import { faCircle } from '@fortawesome/free-solid-svg-icons/faCircle';
-import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
-import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
+import { faCircle, faCheck, faClose } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dpo-people-opinions',

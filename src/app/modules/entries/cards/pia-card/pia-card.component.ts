@@ -27,11 +27,14 @@ import { User } from 'src/app/models/user.model';
 import { SimpleChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { TagInputComponent } from 'ngx-chips';
-import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
-import { faArchive } from '@fortawesome/free-solid-svg-icons';
-import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
+
 import JSZip from 'jszip';
+import {
+  faPencil,
+  faDownload,
+  faArchive,
+  faCopy
+} from '@fortawesome/free-solid-svg-icons';
 declare const require: any;
 
 @Component({

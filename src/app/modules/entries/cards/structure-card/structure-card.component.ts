@@ -12,9 +12,7 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
-import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faDownload, faFile, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-structure-card',

@@ -3,10 +3,12 @@ import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { UsersService } from 'src/app/services/users.service';
-import { faRefresh } from '@fortawesome/free-solid-svg-icons/faRefresh';
-import { faFolderOpen } from '@fortawesome/free-solid-svg-icons';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
-import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
+import {
+  faRefresh,
+  faFolderOpen,
+  faTrash,
+  faPencil
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-users',

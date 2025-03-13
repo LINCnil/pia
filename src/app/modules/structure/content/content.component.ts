@@ -8,8 +8,7 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { PaginationService } from 'src/app/services/pagination.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { StructureService } from 'src/app/services/structure.service';
-import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
-import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
+import { faSitemap, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-content',

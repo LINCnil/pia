@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
-import { faCaretUp } from '@fortawesome/free-solid-svg-icons/faCaretUp';
+import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   // tslint:disable-next-line: component-selector

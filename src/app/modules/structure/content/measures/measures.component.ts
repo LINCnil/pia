@@ -16,7 +16,7 @@ import { Structure } from 'src/app/models/structure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-measures',

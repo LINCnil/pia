@@ -14,9 +14,11 @@ import { Router } from '@angular/router';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
-import { faPrint } from '@fortawesome/free-solid-svg-icons/faPrint';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
-import { faRefresh } from '@fortawesome/free-solid-svg-icons/faRefresh';
+import {
+  faPrint,
+  faDownload,
+  faRefresh
+} from '@fortawesome/free-solid-svg-icons';
 
 function slugify(text) {
   return text

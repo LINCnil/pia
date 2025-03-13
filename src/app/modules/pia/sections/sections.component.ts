@@ -2,11 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { Pia } from 'src/app/models/pia.model';
-import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons/faCalendarCheck';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
-import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
-import { faSquareCheck } from '@fortawesome/free-solid-svg-icons/faSquareCheck';
-import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
+import {
+  faCalendarCheck,
+  faPenToSquare,
+  faGear,
+  faSquareCheck,
+  faChartLine
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sections',

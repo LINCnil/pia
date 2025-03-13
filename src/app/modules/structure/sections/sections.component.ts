@@ -3,7 +3,7 @@ import { Structure } from 'src/app/models/structure.model';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { StructureService } from 'src/app/services/structure.service';
-import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
+import { faSitemap } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sections',

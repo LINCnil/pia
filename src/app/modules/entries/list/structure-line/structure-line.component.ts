@@ -4,11 +4,13 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
-import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
-import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
-import { faFile } from '@fortawesome/free-solid-svg-icons/faFile';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import {
+  faEye,
+  faPencil,
+  faDownload,
+  faFile,
+  faTrash
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   // tslint:disable-next-line: component-selector

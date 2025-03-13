@@ -16,10 +16,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
-import { faFilter } from '@fortawesome/free-solid-svg-icons/faFilter';
-import { faList } from '@fortawesome/free-solid-svg-icons/faList';
-import { faUpload } from '@fortawesome/free-solid-svg-icons/faUpload';
-import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
+import {
+  faFilter,
+  faList,
+  faUpload,
+  faFolderOpen
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-entries',

@@ -14,7 +14,7 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
-import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-preview',

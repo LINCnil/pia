@@ -18,7 +18,7 @@ import { Structure } from 'src/app/models/structure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { MeasureService } from 'src/app/services/measures.service';
 import { StructureService } from 'src/app/services/structure.service';
-import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-knowledge-base',
