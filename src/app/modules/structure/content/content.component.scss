@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 // Main PIA content styles
 .pia {
   // Central PIA content Block

@@ -1,7 +1,8 @@
-@import "node_modules/ngx-chips/core/styles/core/_core.scss";
+@use "node_modules/ngx-chips/core/styles/core/_core.scss" as *;
+@use "sass:color";
 
 $foundation-primary: #091c6b;
-$foundation-primary-dark: darken($foundation-primary, 10%);
+$foundation-primary-dark: color.adjust($foundation-primary, $lightness: -10%);
 
 // this is the container's theme
 $foundation-theme: (
