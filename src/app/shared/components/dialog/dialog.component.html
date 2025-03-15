@@ -51,6 +51,11 @@
         [icon]="faXmark"
         [ngClass]="message.class"
       ></fa-icon>
+      <fa-icon
+        *ngIf="message.icon === 'faCheck'"
+        [icon]="faCheck"
+        [ngClass]="message.class"
+      ></fa-icon>
     </p>
     <ng-template #defaultMessageIcon>
       <p>

@@ -4,7 +4,8 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import {
   faPenToSquare,
   faGear,
-  faXmark
+  faXmark,
+  faCheck
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -18,6 +19,7 @@ export class DialogComponent implements OnInit {
   protected readonly faPenToSquare = faPenToSquare;
   protected readonly faGear = faGear;
   protected readonly faXmark = faXmark;
+  protected readonly faCheck = faCheck;
   constructor(
     private dialogService: DialogService,
     public languagesService: LanguagesService

@@ -16,7 +16,8 @@ import {
   faPenToSquare,
   faCalendarCheck,
   faSquareCheck,
-  faGear
+  faGear,
+  faCheck
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -49,6 +50,7 @@ export class ContentComponent implements OnInit {
   protected readonly faCalendarCheck = faCalendarCheck;
   protected readonly faSquareCheck = faSquareCheck;
   protected readonly faGear = faGear;
+  protected readonly faCheck = faCheck;
 
   constructor(
     private router: Router,
