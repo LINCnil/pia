@@ -48,6 +48,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   elementId: string;
   editor: any;
   loading = false;
+  gaugeValue: number = 0;
 
   constructor(
     private router: Router,
@@ -76,9 +77,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       .then((answer: Answer) => {
         if (answer) {
           this.answer = answer;
-          this.questionForm.controls['gauge'].patchValue(
-            this.answer.data.gauge
-          );
+          this.gaugeValue = this.answer.data.gauge;
+          this.questionForm.controls['gauge'].setValue(this.answer.data.gauge, {
+            emitEvent: false
+          });
+          this.questionForm.controls['gauge'].disable({
+            onlySelf: true,
+            emitEvent: false
+          });
           this.questionForm.controls['text'].patchValue(this.answer.data.text);
           if (this.answer.data.list) {
             const dataList = this.answer.data.list.filter(l => {
@@ -218,7 +224,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.remove('pia-gaugeBlock-background-3');
     bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
-    const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
+    const gaugeValue = parseInt(this.questionForm.getRawValue().gauge, 10);
+    this.gaugeValue = gaugeValue;
 
     // this.loading = true;
     if (this.answer.id) {

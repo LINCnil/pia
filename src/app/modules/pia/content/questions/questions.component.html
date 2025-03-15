@@ -43,8 +43,8 @@
         </div>
         <div
           class="pia-gaugeBlock-background {{
-            questionForm.value.gauge
-              ? 'pia-gaugeBlock-background-' + questionForm.value.gauge
+            gaugeValue !== null && gaugeValue !== undefined
+              ? 'pia-gaugeBlock-background-' + gaugeValue
               : ''
           }}"
         ></div>
@@ -62,7 +62,6 @@
             [clearOnBlur]="true"
             [theme]="'foundation-theme'"
             [placeholder]="question.placeholder | translate"
-            [editable]="false"
             [disable]="
               !globalEvaluationService.answerEditionEnabled ||
               (!editMode.includes('author') && editMode !== 'local')
@@ -90,7 +89,6 @@
             [theme]="'foundation-theme'"
             [placeholder]="question.placeholder | translate"
             (focusin)="questionContentFocusIn()"
-            [editable]="true"
             [disable]="
               !globalEvaluationService.answerEditionEnabled ||
               (!editMode.includes('author') && editMode !== 'local')
