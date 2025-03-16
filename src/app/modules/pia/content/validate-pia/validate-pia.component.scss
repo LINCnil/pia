@@ -114,12 +114,10 @@
           font-size: 1.3rem;
           text-decoration: none;
           align-self: center;
-          &:last-of-type {
-            padding-top: 4px;
-          }
+          line-height: 14px;
         }
-        a {
-          line-height: 12px;
+        button {
+          padding-top: 2px;
         }
       }
     }

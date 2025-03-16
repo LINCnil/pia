@@ -18,6 +18,7 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { Structure } from 'src/app/models/structure.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-questions',
@@ -37,6 +38,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   elementId: string;
   editor: any;
   editTitle = true;
+  protected readonly faTrash = faTrash;
 
   constructor(
     private el: ElementRef,

@@ -71,19 +71,6 @@ export class KnowledgebaseCardComponent implements OnInit {
   }
 
   /**
-   * Focuses Structure name field.
-   */
-  knowledgeBaseNameFocusIn(): void {
-    this.knowledgeBaseForm.controls['name'].enable();
-  }
-  knowledgeBaseAuthorFocusIn(): void {
-    this.knowledgeBaseForm.controls['author'].enable();
-  }
-  knowledgeBaseContributorsFocusIn(): void {
-    this.knowledgeBaseForm.controls['contributors'].enable();
-  }
-
-  /**
    * Disables Structure name field and saves data.
    */
   knowledgeBaseFocusOut(): void {

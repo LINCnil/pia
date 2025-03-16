@@ -113,7 +113,7 @@ export class RefusePIAComponent implements OnInit {
               yes: 'modals.continue',
               no: '',
               icon: 'faGear',
-              class: 'icon-red pia-icons',
+              class: 'icon-red',
               data: {
                 modal_id: 'modal-refuse-pia',
                 btn_yes: 'btn-red'
@@ -124,7 +124,6 @@ export class RefusePIAComponent implements OnInit {
                 .resetDpoPage(this.pia.id)
                 .then(dataUpdated => {
                   if (dataUpdated.lock_version) {
-                    // Update lock_version
                     this.pia.lock_version = dataUpdated.lock_version;
                   }
                   this.router.navigate([

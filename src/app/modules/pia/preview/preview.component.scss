@@ -385,15 +385,17 @@
         padding: 12px;
         padding-right: 20px;
         text-decoration: none;
-        i {
-          font-size: 2.1rem;
+        .ng-fa-icon {
+          font-size: 1.8rem;
           border-radius: 50%;
           height: 35px;
           width: 35px;
-          padding-top: 5px;
+          padding-top: 7px;
+
           border: 1px solid $pia-green;
+          display: inline-block;
         }
-        i,
+        .ng-fa-icon,
         div {
           color: $pia-green;
         }
