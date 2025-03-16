@@ -1890,7 +1890,7 @@ export class ExportComponent implements OnInit {
       );
       window.scroll(0, 0);
       await this.getRisksOverviewImgForZip().then(data => {
-        doc.addImage(data, 'PNG', 10, 75, 480, 580);
+        doc.addImage(data, 'PNG', 10, 75, 560, 560);
       });
 
       // SECTION 4 - "VALIDATION"
@@ -1908,7 +1908,7 @@ export class ExportComponent implements OnInit {
       );
       window.scroll(0, 0);
       await this.getRisksCartographyImg().then(data => {
-        doc.addImage(data, 'PNG', 10, 75, 480, 480);
+        doc.addImage(data, 'PNG', 10, 75, 560, 560);
       });
 
       // SECTION 4 - SUBSECTION 2 - "ACTION PLAN"
@@ -1924,7 +1924,7 @@ export class ExportComponent implements OnInit {
       );
       window.scroll(0, 0);
       await this.getActionPlanOverviewImg().then(data => {
-        doc.addImage(data, 'PNG', 10, 75, 480, 550);
+        doc.addImage(data, 'PNG', 10, 75, 560, 560);
       });
       // Action plan
 

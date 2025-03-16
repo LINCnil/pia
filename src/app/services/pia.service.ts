@@ -346,7 +346,7 @@ export class PiaService extends ApplicationDb {
             entries.forEach(element => {
               this.evaluationService.find(element.id).then((entry: any) => {
                 entry.global_status = 0;
-                this.update(entry).then(() => {
+                this.evaluationService.update(entry).then(() => {
                   count++;
                   if (count === entries.length) {
                     resolve();
@@ -826,10 +826,6 @@ export class PiaService extends ApplicationDb {
         pia.is_archive = 0;
       }
       pia.updated_at = date ? date : new Date();
-
-      // if (this.authService.state && pia.user_pias) {
-      //   pia = Pia.formatUsersDatas(pia);
-      // }
 
       super
         .update(pia.id, pia)

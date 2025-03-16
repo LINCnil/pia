@@ -18,6 +18,7 @@ import { Pia } from 'src/app/models/pia.model';
 import {
   faHistory,
   faCircle,
+  faCircleCheck,
   faChevronDown,
   faChevronUp
 } from '@fortawesome/free-solid-svg-icons';
@@ -68,7 +69,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   protected readonly faCircle = faCircle;
   protected readonly faChevronDown = faChevronDown;
   protected readonly faChevronUp = faChevronUp;
-
+  protected readonly faCircleCheck = faCircleCheck;
   constructor(
     private translateService: TranslateService,
     public languagesService: LanguagesService,
@@ -165,8 +166,9 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
       .querySelectorAll('.pia-revisions-box-content-revision-item')
       .forEach(revision => {
         if (revision.classList.contains('revision-active')) {
-          revision.querySelector('.fa').classList.toggle('fa-circle-o');
-          revision.querySelector('.fa').classList.toggle('fa-circle');
+          revision.querySelectorAll('.ng-fa-icon').forEach(icon => {
+            icon.classList.toggle('hide');
+          });
           revision.classList.remove('revision-active');
         }
       });
@@ -178,11 +180,9 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     );
     if (displayRevisionData) {
       /* Update circle design */
-      const circle = displayRevisionData.querySelector('.fa');
-      if (circle) {
-        circle.classList.toggle('fa-circle-o');
-        circle.classList.toggle('fa-circle');
-      }
+      displayRevisionData.querySelectorAll('.ng-fa-icon').forEach(icon => {
+        icon.classList.toggle('hide');
+      });
       /* Display data */
       displayRevisionData.classList.toggle('revision-active');
     }

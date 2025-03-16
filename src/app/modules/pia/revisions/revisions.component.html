@@ -44,7 +44,14 @@
                 previewRevision(revision.id, $event, revision.created_at)
               "
             >
-              <fa-icon [icon]="faCircle"></fa-icon>
+              <fa-icon
+                [icon]="faCircle"
+                class="revision-not-selected "
+              ></fa-icon>
+              <fa-icon
+                [icon]="faCircleCheck"
+                class="revision-selected hide"
+              ></fa-icon>
               {{
                 revision.created_at
                   | date: "short":"":languagesService.selectedLanguage
