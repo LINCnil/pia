@@ -21,10 +21,6 @@ import { EvaluationService } from './evaluation.service';
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 
-function encode_utf8(s): string {
-  return unescape(encodeURIComponent(s));
-}
-
 @Injectable()
 export class PiaService extends ApplicationDb {
   answer: Answer = new Answer();
@@ -662,7 +658,7 @@ export class PiaService extends ApplicationDb {
   export(id: number): Promise<string> {
     return new Promise(async (resolve, reject) => {
       this.exportData(id).then(data => {
-        const finalData = encode_utf8(JSON.stringify(data));
+        const finalData = JSON.stringify(data);
         resolve(finalData);
       });
     });

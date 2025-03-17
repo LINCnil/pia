@@ -280,9 +280,7 @@ export class ExportComponent implements OnInit {
     // Convert Object to JSON
     const jsonObject = JSON.stringify(items);
     const csv = this.convertToCSV(jsonObject);
-    const exportedFilenmae = fileTitle + '.csv' || 'export.csv';
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    return blob;
+    return new Blob(['\ufeff', csv], { type: 'text/csv' });
   }
 
   convertToCSV(objArray): string {
