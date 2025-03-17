@@ -707,28 +707,40 @@ export class ExportComponent implements OnInit {
       }
 
       // Remove HTML tags from a string
-      function purifyString(string) {
+      function purifyString(data) {
+        // Check if data is a string, if not convert it to string or return empty string
+        if (data === null || data === undefined) {
+          return '';
+        }
+        if (typeof data !== 'string') {
+          try {
+            data = String(data);
+          } catch (e) {
+            return '';
+          }
+        }
+
         const htmlRegexStrong = /<strong>/g;
         const htmlRegexStrong2 = /<\/strong>/g;
-        string = string.replace(htmlRegexStrong, ' **');
-        string = string.replace(htmlRegexStrong2, '**');
+        data = data.replace(htmlRegexStrong, ' **');
+        data = data.replace(htmlRegexStrong2, '**');
         const htmlRegexAnd = /&amp;/g;
-        string = string.replace(htmlRegexAnd, '&');
+        data = data.replace(htmlRegexAnd, '&');
         const htmlRegexLi = /<li>/g;
-        string = string.replace(htmlRegexLi, '- ');
+        data = data.replace(htmlRegexLi, '- ');
         const htmlRegexBr = /<br \/>/g;
-        string = string.replace(htmlRegexBr, '\r\n');
+        data = data.replace(htmlRegexBr, '\r\n');
         const htmlRegexBr2 = /<br>/g;
-        string = string.replace(htmlRegexBr2, '\r\n');
+        data = data.replace(htmlRegexBr2, '\r\n');
         const htmlRegex = /<span class='green-highlight'>/g;
-        string = string.replace(htmlRegex, '');
+        data = data.replace(htmlRegex, '');
         const htmlRegex2 = /<span class='red-highlight'>/g;
-        string = string.replace(htmlRegex2, '');
+        data = data.replace(htmlRegex2, '');
         const htmlRegex3 = /<span class='strong'>/g;
-        string = string.replace(htmlRegex3, '');
+        data = data.replace(htmlRegex3, '');
         const htmlRegexFinal = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
-        string = string.replace(htmlRegexFinal, '');
-        return string;
+        data = data.replace(htmlRegexFinal, '');
+        return data;
       }
 
       // Display DPO data
@@ -1043,12 +1055,9 @@ export class ExportComponent implements OnInit {
           doc.setTextColor('#000');
           const questionAnswer =
             allData[allDataSectionId][allDataItemId][question.id];
-          if (
-            questionAnswer &&
-            allData[allDataSectionId][allDataItemId].content
-          ) {
+          if (questionAnswer && questionAnswer.content) {
             writeBoldText(
-              purifyString(questionAnswer),
+              purifyString(questionAnswer.content),
               20,
               testPdfSize(pageSize),
               10,
