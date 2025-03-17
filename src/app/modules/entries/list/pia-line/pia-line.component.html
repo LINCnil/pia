@@ -124,7 +124,12 @@
             }"
           >
             {{ item.display }}
-            <delete-icon (click)="input.removeItem(item, index)"></delete-icon>
+            <delete-icon
+              *ngIf="
+                authService.currentUserValue.access_type.includes('functional')
+              "
+              (click)="input.removeItem(item, index)"
+            ></delete-icon>
           </div>
         </ng-template>
         <tag-input-dropdown
@@ -192,7 +197,12 @@
             }"
           >
             {{ item.display }}
-            <delete-icon (click)="input.removeItem(item, index)"></delete-icon>
+            <delete-icon
+              *ngIf="
+                authService.currentUserValue.access_type.includes('functional')
+              "
+              (click)="input.removeItem(item, index)"
+            ></delete-icon>
           </div>
         </ng-template>
         <tag-input-dropdown
@@ -260,7 +270,12 @@
             }"
           >
             {{ item.display }}
-            <delete-icon (click)="input.removeItem(item, index)"></delete-icon>
+            <delete-icon
+              *ngIf="
+                authService.currentUserValue.access_type.includes('functional')
+              "
+              (click)="input.removeItem(item, index)"
+            ></delete-icon>
           </div>
         </ng-template>
         <tag-input-dropdown
@@ -319,7 +334,12 @@
       <ng-template let-item="item" let-index="index">
         <div [ngClass]="{ 'custom-tag': true }">
           {{ item.display }}
-          <delete-icon (click)="input.removeItem(item, index)"></delete-icon>
+          <delete-icon
+            *ngIf="
+              authService.currentUserValue.access_type.includes('functional')
+            "
+            (click)="input.removeItem(item, index)"
+          ></delete-icon>
         </div>
       </ng-template>
       <tag-input-dropdown

@@ -479,13 +479,17 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     );
     if (event.target.getAttribute('data-status') === 'hide') {
       event.target.removeAttribute('data-status');
-      commentsDisplayer.classList.remove('hide');
+      if (commentsDisplayer) {
+        commentsDisplayer.classList.remove('hide');
+      }
       if (evaluationDisplayer && this.evaluation.status > 0) {
         evaluationDisplayer.classList.remove('hide');
       }
     } else {
       event.target.setAttribute('data-status', 'hide');
-      commentsDisplayer.classList.add('hide');
+      if (commentsDisplayer) {
+        commentsDisplayer.classList.add('hide');
+      }
       if (evaluationDisplayer) {
         evaluationDisplayer.classList.add('hide');
       }
