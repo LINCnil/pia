@@ -295,9 +295,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.globalEvaluationService.validate();
           });
         })
-        .catch(err => {
-          if (err.statusText === 'Conflict') {
-            this.conflictDialog(err);
+        .catch(error => {
+          if (error.statusText === 'Conflict') {
+            this.conflictDialog(error);
           }
         });
       // .finally(() => {
@@ -500,7 +500,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor(): void {
-    // unset knowlegebase
     this.knowledgeBaseService.placeholder = this.question.placeholder;
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
 
@@ -605,7 +604,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
                   });
                 return;
               })
-              .catch(err => {});
+              .catch(error => {});
           }
         },
         {
@@ -623,7 +622,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
                   });
                 return;
               })
-              .catch(err => {});
+              .catch(error => {});
           }
         }
       ]
