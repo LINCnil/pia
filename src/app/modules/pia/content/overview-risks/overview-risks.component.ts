@@ -45,29 +45,29 @@ export class OverviewRisksComponent implements OnInit {
       const dataTags = [
         {
           id: 1,
-          name: this.translateService.instant(
-            'overview-risks.potential_impacts'
-          ),
+          key: 'overview-risks.potential_impacts',
           reference_to: [321, 331, 341]
         },
         {
           id: 2,
-          name: this.translateService.instant('overview-risks.threat'),
+          key: 'overview-risks.threat',
           reference_to: [322, 332, 342]
         },
         {
           id: 3,
-          name: this.translateService.instant('overview-risks.sources'),
+          key: 'overview-risks.sources',
           reference_to: [323, 333, 343]
         },
         {
           id: 4,
-          name: this.translateService.instant('overview-risks.measures'),
+          key: 'overview-risks.measures',
           reference_to: [324, 334, 344]
         }
       ];
       for (const dt of dataTags) {
         const tags = {};
+        const name = await this.translateService.get(dt.key).toPromise();
+
         for (const reference_to of dt.reference_to) {
           await this.answerService
             .getByReferenceAndPia(this.pia.id, reference_to)
@@ -85,7 +85,7 @@ export class OverviewRisksComponent implements OnInit {
         }
         this.data.push({
           id: dt.id,
-          name: dt.name,
+          name,
           tags
         });
       }
