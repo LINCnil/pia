@@ -52,7 +52,7 @@
 
       <!-- Tags list -->
       <div class="pia-questionBlock-content">
-        <ng-container *ngIf="question.is_measure; else tagInput2">
+        <ng-container *ngIf="!isInputDisabled(); else itemsDisplayOnly">
           <tag-input
             *ngIf="question.answer_type == 'list'"
             (onAdd)="onAdd($event)"
@@ -62,44 +62,26 @@
             [clearOnBlur]="true"
             [theme]="'foundation-theme'"
             [placeholder]="question.placeholder | translate"
-            [disable]="
-              !globalEvaluationService.answerEditionEnabled ||
-              (!editMode.includes('author') && editMode !== 'local')
-            "
-            [onlyFromAutocomplete]="true"
+            [disable]="isInputDisabled()"
+            [onlyFromAutocomplete]="question.is_measure"
             (focusin)="questionContentFocusIn()"
             [secondaryPlaceholder]="question.placeholder | translate"
           >
             <tag-input-dropdown
               [showDropdownIfEmpty]="true"
-              [autocompleteItems]="userMeasures"
+              [autocompleteItems]="getAutocompleteItems()"
             ></tag-input-dropdown>
           </tag-input>
         </ng-container>
-        <ng-template #tagInput2>
-          <tag-input
-            *ngIf="question.answer_type == 'list'"
-            (onAdd)="onAdd($event)"
-            (onSelect)="onSelected($event)"
-            (onTagEdited)="onTagEdited($event)"
-            (onRemove)="onRemove($event)"
-            [addOnBlur]="true"
-            [separatorKeyCodes]="[27, 13]"
-            formControlName="list"
-            [theme]="'foundation-theme'"
-            [placeholder]="question.placeholder | translate"
-            (focusin)="questionContentFocusIn()"
-            [disable]="
-              !globalEvaluationService.answerEditionEnabled ||
-              (!editMode.includes('author') && editMode !== 'local')
-            "
-            [secondaryPlaceholder]="question.placeholder | translate"
-          >
-            <tag-input-dropdown
-              [showDropdownIfEmpty]="true"
-              [autocompleteItems]="userAnswersToDisplay"
-            ></tag-input-dropdown>
-          </tag-input>
+        <ng-template #itemsDisplayOnly>
+          <ul class="pia-listBlock">
+            <li
+              *ngFor="let item of questionForm.controls.list.value"
+              class="pia-listItem"
+            >
+              {{ item }}
+            </li>
+          </ul>
         </ng-template>
         <!-- Question answer -->
         <div

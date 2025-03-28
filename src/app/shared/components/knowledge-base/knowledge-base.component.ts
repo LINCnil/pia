@@ -49,14 +49,18 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
     private structureService: StructureService
   ) {
     // Parse default Knowledge base json
-    const defaultKnowledgeBase = new KnowledgeBase(
-      0,
-      this.translateService.instant('knowledge_base.default_knowledge_base'),
-      'CNIL',
-      'CNIL'
-    );
-    defaultKnowledgeBase.is_example = true;
-    this.customKnowledgeBases.push(defaultKnowledgeBase);
+    this.translateService
+      .get('knowledge_base.default_knowledge_base')
+      .subscribe((translation: string) => {
+        const defaultKnowledgeBase = new KnowledgeBase(
+          0,
+          translation,
+          'CNIL',
+          'CNIL'
+        );
+        defaultKnowledgeBase.is_example = true;
+        this.customKnowledgeBases.push(defaultKnowledgeBase);
+      });
   }
 
   ngOnInit(): void {

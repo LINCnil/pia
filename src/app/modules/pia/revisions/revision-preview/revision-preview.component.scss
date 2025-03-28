@@ -416,7 +416,7 @@
         padding: 12px;
         padding-right: 20px;
         text-decoration: none;
-        i {
+        .ng-fa-icon {
           font-size: 2.1rem;
           border-radius: 50%;
           height: 35px;
@@ -424,7 +424,7 @@
           padding-top: 5px;
           border: 1px solid $pia-green;
         }
-        i,
+        .ng-fa-icon,
         div {
           color: $pia-green;
         }

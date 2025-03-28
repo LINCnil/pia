@@ -109,8 +109,16 @@
               background-color: $pia-green;
             }
           }
-          .pia-fa-valid,
-          .fa-square-check {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
+              color: $pia-gray;
+            }
+            .fa-square-check {
+              color: $pia-green;
+            }
+          }
+          .ng-fa-icon.pia-fa-valid {
             color: $pia-green;
           }
         }
@@ -130,8 +138,16 @@
               background-color: $pia-blue;
             }
           }
-          .pia-fa-valid,
-          .fa-square-check {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
+              color: $pia-gray;
+            }
+            .fa-square-check {
+              color: $pia-blue;
+            }
+          }
+          .ng-fa-icon.pia-fa-valid {
             color: $pia-blue;
           }
         }
@@ -151,8 +167,16 @@
               background-color: $pia-red;
             }
           }
-          .pia-fa-valid,
-          .fa-square-check {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
+              color: $pia-gray;
+            }
+            .fa-square-check {
+              color: $pia-red;
+            }
+          }
+          .ng-fa-icon.pia-fa-valid {
             color: $pia-red;
           }
         }
@@ -173,8 +197,16 @@
               background-color: $pia-dark-black;
             }
           }
-          .pia-fa-valid,
-          .fa-square-check {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
+              color: $pia-gray;
+            }
+            .fa-square-check {
+              color: $pia-dark-black;
+            }
+          }
+          .ng-fa-icon.pia-fa-valid {
             color: $pia-dark-black;
           }
         }

@@ -295,9 +295,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.globalEvaluationService.validate();
           });
         })
-        .catch(err => {
-          if (err.statusText === 'Conflict') {
-            this.conflictDialog(err);
+        .catch(error => {
+          if (error.statusText === 'Conflict') {
+            this.conflictDialog(error);
           }
         });
       // .finally(() => {
@@ -500,7 +500,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor(): void {
-    // unset knowlegebase
     this.knowledgeBaseService.placeholder = this.question.placeholder;
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
 
@@ -539,10 +538,27 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Gets the appropriate autocomplete items based on whether the question is a measure
+   * @returns {any[]} The autocomplete items to display
+   */
+  getAutocompleteItems(): any[] {
+    return this.question.is_measure ? this.userMeasures : this.userAnswersToDisplay;
+  }
+
+  /**
+   * Checks if the input field should be disabled.
+   * @returns {boolean} True if the input should be disabled, false otherwise.
+   */
+  isInputDisabled(): boolean {
+    return !this.globalEvaluationService.answerEditionEnabled ||
+      (!this.editMode.includes('author') && this.editMode !== 'local');
+  }
+
+  /**
    * Open a dialog modal for deal with the conflict
    * @param err
    */
-  private conflictDialog(err) {
+  private conflictDialog(err: any): void {
     let additional_text: string;
     const currentUrl = this.router.url;
 
@@ -605,7 +621,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
                   });
                 return;
               })
-              .catch(err => {});
+              .catch(error => {});
           }
         },
         {
@@ -623,7 +639,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
                   });
                 return;
               })
-              .catch(err => {});
+              .catch(error => {});
           }
         }
       ]
