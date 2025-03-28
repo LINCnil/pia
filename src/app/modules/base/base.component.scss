@@ -118,16 +118,6 @@
             text-decoration: none;
             padding-left: 5px;
           }
-          .ng-fa-icon {
-            font-size: 1.6rem;
-            margin-top: 2px;
-            margin-left: 10px;
-            margin-right: 10px;
-            color: $pia-gray;
-          }
-          .fa-square-check {
-            color: $pia-blue;
-          }
           label {
             span {
               cursor: pointer;
@@ -157,20 +147,12 @@
               color: $pia-green;
               border-color: $pia-green;
             }
-            .pia-fa-valid,
-            .fa-square-check {
-              color: $pia-green;
-            }
           }
           /* PRINCIPLES */
           &:nth-child(2) {
             .pia-knowledges_base-form-checkboxes-title {
               color: $pia-blue;
               border-color: $pia-blue;
-            }
-            .pia-fa-valid,
-            .fa-square-check {
-              color: $pia-blue;
             }
           }
           /* RISKS */
@@ -179,10 +161,6 @@
               color: $pia-red;
               border-color: $pia-red;
             }
-            .pia-fa-valid,
-            .fa-square-check {
-              color: $pia-red;
-            }
           }
           /* VALIDATION */
           &:last-child {
@@ -190,10 +168,6 @@
               color: $pia-dark-black;
               border-color: $pia-dark-black;
               display: block;
-            }
-            .pia-fa-valid,
-            .fa-square-check {
-              color: $pia-dark-black;
             }
           }
         }
@@ -544,7 +518,7 @@
           align-self: center;
           padding-left: 13px;
         }
-        i {
+        .ng-fa-icon {
           padding-right: 13px;
           color: $pia-white;
           font-size: 2.5rem;

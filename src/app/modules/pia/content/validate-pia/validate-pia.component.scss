@@ -176,40 +176,6 @@
           }
         }
       }
-      &-validationTools {
-        margin-top: 1rem;
-        box-shadow: 2px 1px 18px 1px #c2c2c2;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        color: $pia-green;
-        a,
-        button {
-          display: block;
-          align-self: center !important;
-          padding: 4px;
-          margin-right: 10px;
-          color: $pia-green;
-          text-decoration: none;
-          width: initial;
-          cursor: pointer;
-        }
-        i {
-          color: $pia-green;
-          display: block;
-          margin-top: 2px;
-          text-align: center;
-          font-size: 2rem;
-          text-decoration: none;
-        }
-        p {
-          display: block;
-          font-size: 1rem;
-          margin-bottom: 0;
-          font-style: normal;
-          color: $pia-green;
-        }
-      }
     }
     &-submitAttachmentButton {
       width: 100%;
