@@ -538,10 +538,27 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Gets the appropriate autocomplete items based on whether the question is a measure
+   * @returns {any[]} The autocomplete items to display
+   */
+  getAutocompleteItems(): any[] {
+    return this.question.is_measure ? this.userMeasures : this.userAnswersToDisplay;
+  }
+
+  /**
+   * Checks if the input field should be disabled.
+   * @returns {boolean} True if the input should be disabled, false otherwise.
+   */
+  isInputDisabled(): boolean {
+    return !this.globalEvaluationService.answerEditionEnabled ||
+      (!this.editMode.includes('author') && this.editMode !== 'local');
+  }
+
+  /**
    * Open a dialog modal for deal with the conflict
    * @param err
    */
-  private conflictDialog(err) {
+  private conflictDialog(err: any): void {
     let additional_text: string;
     const currentUrl = this.router.url;
 
