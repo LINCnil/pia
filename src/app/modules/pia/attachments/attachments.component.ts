@@ -45,9 +45,7 @@ export class AttachmentsComponent implements OnInit {
     if (this.pia.is_example === 1) {
       return false;
     } else {
-      const attachment = <HTMLInputElement>(
-        document.querySelector('[formcontrolname="attachment_file"]')
-      );
+      const attachment = document.querySelector('[formcontrolname="attachment_file"]') as HTMLInputElement;
       attachment.click();
     }
   }
@@ -66,7 +64,7 @@ export class AttachmentsComponent implements OnInit {
   uploadAttachement(event: Event): void {
     this.loading = true;
     this._attachmentsService
-      .upload((<HTMLInputElement>event.target).files[0], this.pia.id)
+      .upload((event.target as HTMLInputElement).files[0], this.pia.id)
       .then((attachment: Attachment) => {
         this.attachments.unshift(attachment);
         this.loading = false;

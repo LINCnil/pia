@@ -102,7 +102,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
             !this.authService.currentUserValue.access_type.includes(
               'functional'
             ) &&
-            this.authService.currentUserValue.access_type != 'local'
+            this.authService.currentUserValue.access_type !== 'local'
           ) {
             this.piaForm.disable();
           }
@@ -134,6 +134,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
         };
       });
     }
+  }
+
+  isInputDisabled(): boolean {
+    return (this.authService.currentUserValue &&
+      !this.authService.currentUserValue.access_type.includes('functional'));
   }
 
   normalizeForm(): any {
@@ -169,7 +174,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   onTyped($event, pia_id, field): void {
-    if ($event != '') {
+    if ($event !== '') {
       this.addBtnForSpecificInput = {
         display: $event,
         pia_id,
@@ -183,7 +188,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   /**
    * Convert user_pias datas into fields for the form
    */
-  setUserPiasAsFields(user_pias: { user: User; role: String }[]) {
+  setUserPiasAsFields(user_pias: { user: User; role: string }[]) {
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -191,13 +196,13 @@ export class PiaCardComponent implements OnInit, OnChanges {
       { field: 'guests', role: 'guest', dump_field: null }
     ].forEach(ob => {
       // get user_pias with role
-      const filteredUserPias: { user: User; role: String }[] = user_pias.filter(
-        up => up.role == ob.role
+      const filteredUserPias: { user: User; role: string }[] = user_pias.filter(
+        up => up.role === ob.role
       );
 
       // convert as tag
       const tags = filteredUserPias.map(a => {
-        let display =
+        const display =
           a.user.firstname && a.user.lastname
             ? a.user.firstname + ' ' + a.user.lastname
             : a.user.email;
@@ -212,8 +217,8 @@ export class PiaCardComponent implements OnInit, OnChanges {
         const fullnames = this.pia[ob.dump_field].split(',');
         fullnames.forEach(fullname => {
           // present in tags ?
-          const exist = tags.find(ac => ac.display == fullname);
-          if (!exist && fullname != '') {
+          const exist = tags.find(ac => ac.display === fullname);
+          if (!exist && fullname !== '') {
             // add to tag
             tags.push({ display: fullname, id: null }); // id = null is for deleted user but dumped
           }
@@ -225,9 +230,9 @@ export class PiaCardComponent implements OnInit, OnChanges {
     });
   }
 
-  get f() {
-    return this.piaForm.controls;
-  }
+  // get f() {
+  //   return this.piaForm.controls;
+  // }
 
   /**
    * Disable the already selected users in the guests field
@@ -518,7 +523,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
           );
           if (userBehavior.value) {
             // user is created
-            let values = this.piaForm.controls[field].value;
+            const values = this.piaForm.controls[field].value;
             values[tagIndex].id = userBehavior.value.id;
             await this.savePiaAfterUserAssign(field);
           } else {
@@ -553,11 +558,9 @@ export class PiaCardComponent implements OnInit, OnChanges {
       })
       .catch(err => {
         if (err.statusText === 'Conflict') {
-          // AUTO FIX
-          // this.conflictDetected.emit({ field: 'name', err });
-          const piaCloned = err.record;
-          piaCloned[field] = userAssignValues;
-          this.piaService.update(piaCloned).then((resp: Pia) => {
+          const pia = err.record;
+          pia[field] = userAssignValues;
+          this.piaService.update(pia).then((resp: Pia) => {
             this.pia = resp;
             this.setUserPiasAsFields(resp.user_pias);
           });

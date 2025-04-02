@@ -10,7 +10,7 @@
         <span
           title="{{ 'homepage.lists.item.tools.edit' | translate }}"
           class="pia-tooltip-text"
-          >{{ "homepage.lists.item.tools.edit" | translate }}</span
+        >{{ "homepage.lists.item.tools.edit" | translate }}</span
         >
       </a>
       <a
@@ -22,7 +22,7 @@
         <span
           title="{{ 'homepage.lists.item.tools.consult' | translate }}"
           class="pia-tooltip-text"
-          >{{ "homepage.lists.item.tools.consult" | translate }}</span
+        >{{ "homepage.lists.item.tools.consult" | translate }}</span
         >
       </a>
       <ng-container
@@ -41,7 +41,7 @@
           <span
             title="{{ 'homepage.lists.item.tools.duplicate' | translate }}"
             class="pia-tooltip-text"
-            >{{ "homepage.lists.item.tools.duplicate" | translate }}</span
+          >{{ "homepage.lists.item.tools.duplicate" | translate }}</span
           >
         </a>
         <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
@@ -49,7 +49,7 @@
           <span
             title="{{ 'homepage.lists.item.tools.export' | translate }}"
             class="pia-tooltip-text"
-            >{{ "homepage.lists.item.tools.export" | translate }}</span
+          >{{ "homepage.lists.item.tools.export" | translate }}</span
           >
         </a>
         <a
@@ -61,7 +61,7 @@
           <span
             title="{{ 'homepage.lists.item.tools.archive' | translate }}"
             class="pia-tooltip-text"
-            >{{ "homepage.lists.item.tools.archive" | translate }}</span
+          >{{ "homepage.lists.item.tools.archive" | translate }}</span
           >
         </a>
       </ng-container>
@@ -87,9 +87,10 @@
   <td class="pia-listsBlock-item">
     <time
       *ngIf="pia.updated_at && pia.updated_at.toString() !== 'Invalid Date'"
-      >{{
+    >{{
         pia.updated_at | date: "shortDate":"":languagesService.selectedLanguage
-      }}</time
+      }}
+    </time
     >
   </td>
   <td class="pia-listsBlock-item">
@@ -150,14 +151,25 @@
             'author_name'
           )
         "
-        *ngIf="
+          *ngIf="
           addBtnForSpecificInput &&
           addBtnForSpecificInput.pia_id === pia.id &&
           addBtnForSpecificInput.field === 'author_name'
         "
-      >
-        +
-      </button>
+        >
+          +
+        </button>
+      </ng-container>
+      <ng-template #itemsDisplayAuthorOnly>
+        <ul class="pia-listBlock">
+          <li
+            *ngFor="let item of authors"
+            class="pia-listItem"
+          >
+            {{ item.display }}
+          </li>
+        </ul>
+      </ng-template>
     </div>
     <ng-template #author_name>
       <div contenteditable (focusout)="onFocusOut('author_name', $event)">
@@ -223,14 +235,25 @@
             'evaluator_name'
           )
         "
-        *ngIf="
+          *ngIf="
           addBtnForSpecificInput &&
           addBtnForSpecificInput.pia_id === pia.id &&
           addBtnForSpecificInput.field === 'evaluator_name'
         "
-      >
-        +
-      </button>
+        >
+          +
+        </button>
+      </ng-container>
+      <ng-template #itemsDisplayEvaluatorOnly>
+        <ul class="pia-listBlock">
+          <li
+            *ngFor="let item of evaluators"
+            class="pia-listItem"
+          >
+            {{ item.display }}
+          </li>
+        </ul>
+      </ng-template>
     </div>
     <ng-template #evaluator_name>
       <div contenteditable (focusout)="onFocusOut('evaluator_name', $event)">
@@ -296,14 +319,25 @@
             'validator_name'
           )
         "
-        *ngIf="
+          *ngIf="
           addBtnForSpecificInput &&
           addBtnForSpecificInput.pia_id === pia.id &&
           addBtnForSpecificInput.field === 'validator_name'
         "
-      >
-        +
-      </button>
+        >
+          +
+        </button>
+      </ng-container>
+      <ng-template #itemsDisplayValidatorOnly>
+        <ul class="pia-listBlock">
+          <li
+            *ngFor="let item of validators"
+            class="pia-listItem"
+          >
+            {{ item.display }}
+          </li>
+        </ul>
+      </ng-template>
     </div>
     <ng-template #validator_name>
       <div contenteditable (focusout)="onFocusOut('validator_name', $event)">
@@ -360,14 +394,25 @@
           'guests'
         )
       "
-      *ngIf="
+        *ngIf="
         addBtnForSpecificInput &&
         addBtnForSpecificInput.pia_id === pia.id &&
         addBtnForSpecificInput.field === 'guests'
       "
-    >
-      +
-    </button>
+      >
+        +
+      </button>
+    </ng-container>
+    <ng-template #itemsDisplayGuestOnly>
+      <ul class="pia-listBlock">
+        <li
+          *ngFor="let item of guests"
+          class="pia-listItem"
+        >
+          {{ item.display }}
+        </li>
+      </ul>
+    </ng-template>
   </td>
   <td class="pia-listsBlock-item">
     <div *ngIf="pia.structure_id">{{ pia.structure_name }}</div>
@@ -375,8 +420,8 @@
   <td class="pia-listsBlock-item progress">
     <div class="pia-cardsBlock-item-status-progressBar">
       <span title="{{ piaService.getStatusName(pia.status) | translate }}">{{
-        piaService.getStatusName(pia.status) | translate
-      }}</span>
+          piaService.getStatusName(pia.status) | translate
+        }}</span>
       <progress max="100" value="{{ pia.progress }}"></progress>
     </div>
   </td>

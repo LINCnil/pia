@@ -19,11 +19,11 @@ export class AuthService {
 
     this.currentUser = this.currentUserSubject.asObservable();
 
-    // 1 - Get already saved user's informations
+    // 1 - Get already saved user's information
     const currentUserInfo: User = JSON.parse(
       localStorage.getItem('currentUser')
     );
-    let token = currentUserInfo ? currentUserInfo.access_token : '';
+    const token = currentUserInfo ? currentUserInfo.access_token : '';
     this.apiService.defaultConfig.headers.set('Authorization', token);
 
     // 2 - check if auth exist and if token validity
