@@ -1,6 +1,6 @@
 <div
   class="pia-attachmentsBlock-item bounceIn"
-  *ngIf="attachment.file && attachment.file.length > 0"
+  *ngIf="attachment.file"
 >
   <a
     href="javascript:;"
@@ -32,15 +32,15 @@
   </button>
 </div>
 <div class="pia-attachmentsBlock-item-preview hide">
-  <img src="" class="hide" />
   <button
     (click)="previewAttachment(false)"
     class="pia-icons pia-icon-close-big"
     title="{{ 'modals.close' | translate }}"
   ></button>
-  <div style="width:80%; height:100%; margin:auto;" *ngIf="fileUrl">
+  <img *ngIf="imgSrc" [src]="imgSrc">
+  <div style="width:80%; height:100%; margin:auto;" *ngIf="pdfSrc">
     <ng2-pdfjs-viewer
-      [pdfSrc]="fileUrl"
+      [pdfSrc]="pdfSrc"
       [openFile]="false"
       [viewBookmark]="false"
     >

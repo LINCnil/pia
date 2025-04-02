@@ -20,7 +20,6 @@ export class AttachmentsService extends ApplicationDb {
    * List all attachments.
    */
   async findAllByPia(pia_id) {
-    const items = [];
     if (pia_id) {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
@@ -128,77 +127,103 @@ export class AttachmentsService extends ApplicationDb {
   /**
    * Upload a new attachment.
    * @param attachment_file - The attachment file.
+   * @param piaId - Id of the PIA
    */
-  upload(attachment_file: any, piaId): Promise<Attachment> {
+  async upload(attachment_file: any, piaId: number): Promise<Attachment> {
+    const attachment = await this.handleFileFromInput(attachment_file);
+    attachment.pia_id = piaId;
+    attachment.pia_signed = this.pia_signed ? this.pia_signed : 0;
+    attachment.comment = '';
+
     return new Promise((resolve, reject) => {
-      const file = new Blob([attachment_file]);
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = () => {
-        const attachment = new Attachment();
-        attachment.file = reader.result;
-
-        const ext = attachment_file.name.split('.')[
-          attachment_file.name.split('.').length - 1
-        ];
-
-        attachment.name = attachment_file.name
-          .toString()
-          .trim()
-          .toLowerCase()
-          .replace(/\.[^/.]+$/, '')
-          .replace(/\s+/g, '-')
-          .replace(/[^\w\-]+/g, '')
-          .replace(/\-\-+/g, '-')
-          .replace(/^-+/, '')
-          .replace(/-+$/, '');
-
-        attachment.name += ext ? '.' + ext : '';
-
-        attachment.mime_type = attachment_file.type;
-        attachment.pia_id = piaId;
-        attachment.pia_signed = this.pia_signed ? this.pia_signed : 0;
-        attachment.comment = '';
-        super
-          .create(attachment, 'attachment')
-          .then((res: any) => {
-            // To refresh signed attachments on validation page
-            this.updateSignedAttachmentsList(piaId).then(() => {
-              this.signedAttachments.push(res);
-              resolve(res);
-            });
-          })
-          .catch(err => {
-            reject(err);
+      super
+        .create(attachment, 'attachment')
+        .then((res: any) => {
+          // To refresh signed attachments on validation page
+          this.updateSignedAttachmentsList(piaId).then(() => {
+            this.signedAttachments.push(res);
+            resolve(res);
           });
-      };
+        })
+        .catch(err => {
+          reject(err);
+        });
     });
+  }
+
+  private handleFileFromInput(attachment_file: any): Promise<Attachment> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const attachment = new Attachment();
+        attachment.name = this.formatFileName(attachment_file.name);
+        attachment.mime_type = attachment_file.type;
+        attachment.file = attachment_file;
+        resolve(attachment);
+      };
+      reader.onerror = (event) => {
+        reject(event.target.error);
+      };
+      reader.readAsArrayBuffer(attachment_file);
+    });
+  }
+
+  private formatFileName(fileName: string): string {
+    const ext = fileName.split('.')[fileName.split('.').length - 1];
+
+    const formattedName = fileName
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/\.[^/.]+$/, '')
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
+
+    return formattedName + (ext ? '.' + ext : '');
   }
 
   /**
    * Download an attachment by id.
-   * @param {number} id - Id of the attachment.
+   * @param id - Id of the attachment.
    */
   downloadAttachment(id: number): void {
     super.find(id).then((entry: any) => {
-      fetch(entry.file, {
-        mode: 'cors'
-      })
-        .then(res => res.blob())
-        .then(blob => {
-          const a = <any>document.createElement('a');
-          a.href = window.URL.createObjectURL(blob);
-          a.download = entry.name;
-          const event = new MouseEvent('click', {
-            view: window
-          });
-          a.dispatchEvent(event);
+      // If entry.file is a URL (string starting with http or /)
+      if (typeof entry.file === 'string' && entry.file.startsWith('http')) {
+        // Direct download from URL
+        const a = document.createElement('a') as any;
+        a.href = entry.file;
+        a.download = entry.name;
+        a.target = '_blank'; // Open in new tab if browser doesn't download automatically
+        const event = new MouseEvent('click', {
+          view: window
         });
+        a.dispatchEvent(event);
+      } else {
+        // Fallback for base64 data (for backward compatibility)
+        fetch(entry.file, {
+          mode: 'cors'
+        })
+          .then(res => res.blob())
+          .then(blob => {
+            const a = document.createElement('a') as any;
+            a.href = window.URL.createObjectURL(blob);
+            a.download = entry.name;
+            const event = new MouseEvent('click', {
+              view: window
+            });
+            a.dispatchEvent(event);
+          });
+      }
     });
   }
 
   /**
    * Allows an user to remove a PIA.
+   * @param attachmentId - Id of the attachment to remove.
    * @param comment - Comment to justify deletion.
    */
   removeAttachment(attachmentId: number, comment: string): Promise<void> {
