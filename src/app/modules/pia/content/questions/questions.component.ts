@@ -48,7 +48,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   elementId: string;
   editor: any;
   loading = false;
-  gaugeValue: number = 0;
+  gaugeValue = 0;
 
   constructor(
     private router: Router,
