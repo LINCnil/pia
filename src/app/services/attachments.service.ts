@@ -193,15 +193,7 @@ export class AttachmentsService extends ApplicationDb {
     super.find(id).then((entry: any) => {
       // If entry.file is a URL (string starting with http or /)
       if (typeof entry.file === 'string' && entry.file.startsWith('http')) {
-        // Direct download from URL
-        const a = document.createElement('a') as any;
-        a.href = entry.file;
-        a.download = entry.name;
-        a.target = '_blank'; // Open in new tab if browser doesn't download automatically
-        const event = new MouseEvent('click', {
-          view: window
-        });
-        a.dispatchEvent(event);
+        this.downloadFile(entry.file, entry.name);
       } else {
         // Fallback for base64 data (for backward compatibility)
         fetch(entry.file, {
@@ -209,16 +201,18 @@ export class AttachmentsService extends ApplicationDb {
         })
           .then(res => res.blob())
           .then(blob => {
-            const a = document.createElement('a') as any;
-            a.href = window.URL.createObjectURL(blob);
-            a.download = entry.name;
-            const event = new MouseEvent('click', {
-              view: window
-            });
-            a.dispatchEvent(event);
+            this.downloadFile(window.URL.createObjectURL(blob), entry.name);
           });
       }
     });
+  }
+
+  private downloadFile(url: string, filename: string) {
+    const a = document.createElement('a') as HTMLElement;
+    a.setAttribute('href', url);
+    a.setAttribute('target', '_blank');
+    a.setAttribute('download', filename);
+    a.click();
   }
 
   /**
