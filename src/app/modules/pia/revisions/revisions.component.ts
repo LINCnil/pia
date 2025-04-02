@@ -70,6 +70,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   protected readonly faChevronDown = faChevronDown;
   protected readonly faChevronUp = faChevronUp;
   protected readonly faCircleCheck = faCircleCheck;
+
   constructor(
     private translateService: TranslateService,
     public languagesService: LanguagesService,

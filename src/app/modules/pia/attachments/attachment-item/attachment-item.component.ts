@@ -78,16 +78,23 @@ export class AttachmentItemComponent implements OnInit {
       );
       elPreview.classList.add('hide');
       if (show) {
-        if (!this.attachment.mime_type.endsWith('pdf') && !this.attachment.mime_type.startsWith('image')) {
+        if (
+          !this.attachment.mime_type.endsWith('pdf') &&
+          !this.attachment.mime_type.startsWith('image')
+        ) {
           return this.downloadAttachment();
         }
 
-        const isFileUrl = typeof this.attachment.file === 'string' &&
-          (this.attachment.file.startsWith('http') || this.attachment.file.startsWith('/'));
+        const isFileUrl =
+          typeof this.attachment.file === 'string' &&
+          (this.attachment.file.startsWith('http') ||
+            this.attachment.file.startsWith('/'));
 
         let localUrl: string;
         if (!isFileUrl) {
-          const blob = new Blob([this.attachment.file], { type: this.attachment.mime_type });
+          const blob = new Blob([this.attachment.file], {
+            type: this.attachment.mime_type
+          });
           localUrl = URL.createObjectURL(blob);
         }
 

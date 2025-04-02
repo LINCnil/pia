@@ -137,8 +137,10 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   isInputDisabled(): boolean {
-    return (this.authService.currentUserValue &&
-      !this.authService.currentUserValue.access_type.includes('functional'));
+    return (
+      this.authService.currentUserValue &&
+      !this.authService.currentUserValue.access_type.includes('functional')
+    );
   }
 
   normalizeForm(): any {
