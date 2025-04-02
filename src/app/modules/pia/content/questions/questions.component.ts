@@ -194,6 +194,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    // @ts-ignore
     tinymce.remove(this.editor);
   }
 
@@ -495,7 +496,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
 
     setTimeout(() => {
-      // init new editor
+      // @ts-ignore
       tinymce.init({
         branding: false,
         menubar: false,
@@ -519,6 +520,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.questionForm.controls['text'].patchValue(editor.getContent());
             this.questionContentFocusOut().then(() => {
               this.editor = null;
+              // @ts-ignore
               tinymce.remove(this.editor); // Warning: take more time then a new initiation
               this.knowledgeBaseService.placeholder = null;
             });
