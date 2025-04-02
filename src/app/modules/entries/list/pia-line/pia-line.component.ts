@@ -105,7 +105,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
   }
 
   onTyped($event, pia_id, field): void {
-    if ($event != '') {
+    if ($event !== '') {
       this.addBtnForSpecificInput = {
         display: $event,
         pia_id,
@@ -117,14 +117,16 @@ export class PiaLineComponent implements OnInit, OnChanges {
   }
 
   isInputDisabled(): boolean {
-    return (this.authService.currentUserValue &&
-      !this.authService.currentUserValue.access_type.includes('functional'));
+    return (
+      this.authService.currentUserValue &&
+      !this.authService.currentUserValue.access_type.includes('functional')
+    );
   }
 
   /**
    * Convert user_pias datas into fields for the form
    */
-  setUserPiasAsFields(user_pias: { user: User; role: String }[]): void {
+  setUserPiasAsFields(user_pias: { user: User; role: string }[]): void {
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -132,8 +134,8 @@ export class PiaLineComponent implements OnInit, OnChanges {
       { field: 'guests', role: 'guest', dump_field: null }
     ].forEach(ob => {
       // get user_pias with role
-      const filteredUserPias: { user: User; role: String }[] = user_pias.filter(
-        up => up.role == ob.role
+      const filteredUserPias: { user: User; role: string }[] = user_pias.filter(
+        up => up.role === ob.role
       );
 
       // convert as tag
@@ -153,8 +155,8 @@ export class PiaLineComponent implements OnInit, OnChanges {
         const fullnames = this.pia[ob.dump_field].split(',');
         fullnames.forEach(fullname => {
           // present in tags ?
-          const exist = tags.find(ac => ac.display == fullname);
-          if (!exist && fullname != '') {
+          const exist = tags.find(ac => ac.display === fullname);
+          if (!exist && fullname !== '') {
             // add to tag
             tags.push({ display: fullname, id: null }); // id = null is for deleted user but dumped
           }
@@ -217,25 +219,28 @@ export class PiaLineComponent implements OnInit, OnChanges {
       this.attachments.forEach(attachment => {
         const folderName = this.translateService.instant('summary.attachments');
 
-        const isFileUrl = typeof attachment.file === 'string' &&
-          (attachment.file.startsWith('http') || attachment.file.startsWith('/'));
+        const isFileUrl =
+          typeof attachment.file === 'string' &&
+          (attachment.file.startsWith('http') ||
+            attachment.file.startsWith('/'));
 
         let localUrl: string;
         if (!isFileUrl) {
-          const blob = new Blob([attachment.file], { type: attachment.mime_type });
+          const blob = new Blob([attachment.file], {
+            type: attachment.mime_type
+          });
           localUrl = URL.createObjectURL(blob);
         } else {
           localUrl = attachment.file;
         }
 
-        fetch(localUrl)       // 1) fetch the url
-          .then(response => {                       // 2) filter on 200 OK
-            if (response.status === 200 || response.status === 0) {
-              zip.file(folderName + '/' + attachment.name, response.blob(), {
-                binary: true
-              });
-            }
-          });
+        fetch(localUrl).then(response => {
+          if (response.status === 200 || response.status === 0) {
+            zip.file(folderName + '/' + attachment.name, response.blob(), {
+              binary: true
+            });
+          }
+        });
       });
       resolve(zip);
     });
@@ -368,9 +373,9 @@ export class PiaLineComponent implements OnInit, OnChanges {
         if (err.statusText === 'Conflict') {
           // AUTO FIX
           // this.conflictDetected.emit({ field: 'name', err });
-          const piaCloned = err.record;
-          piaCloned[field] = userAssignValues;
-          this.piaService.update(piaCloned).then((resp: Pia) => {
+          const pia = err.record;
+          pia[field] = userAssignValues;
+          this.piaService.update(pia).then((resp: Pia) => {
             this.pia = resp;
             this.setUserPiasAsFields(resp.user_pias);
           });
@@ -379,8 +384,8 @@ export class PiaLineComponent implements OnInit, OnChanges {
   }
 
   onRemove($event: any, field: string): void {
-    const index = this[field].findIndex(t => t == $event);
-    if (index != -1) {
+    const index = this[field].findIndex(t => t === $event);
+    if (index !== -1) {
       this[field].splice(index, 1);
     }
     this.savePiaAfterUserAssign(field);

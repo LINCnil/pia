@@ -190,7 +190,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   /**
    * Convert user_pias datas into fields for the form
    */
-  setUserPiasAsFields(user_pias: { user: User; role: string }[]) {
+  setUserPiasAsFields(user_pias: { user: User; role: string }[]): void {
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -285,10 +285,29 @@ export class PiaCardComponent implements OnInit, OnChanges {
   async addAttachmentsToZip(zip): Promise<any> {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
-        const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
         const folderName = this.translateService.instant('summary.attachments');
-        zip.file(folderName + '/' + attachment.name, byteCharacters1, {
-          binary: true
+
+        const isFileUrl =
+          typeof attachment.file === 'string' &&
+          (attachment.file.startsWith('http') ||
+            attachment.file.startsWith('/'));
+
+        let localUrl: string;
+        if (!isFileUrl) {
+          const blob = new Blob([attachment.file], {
+            type: attachment.mime_type
+          });
+          localUrl = URL.createObjectURL(blob);
+        } else {
+          localUrl = attachment.file;
+        }
+
+        fetch(localUrl).then(response => {
+          if (response.status === 200 || response.status === 0) {
+            zip.file(folderName + '/' + attachment.name, response.blob(), {
+              binary: true
+            });
+          }
         });
       });
       resolve(zip);
