@@ -116,14 +116,14 @@ export class AttachmentsService extends ApplicationDb {
   private handleFileFromInput(attachment_file: any): Promise<Attachment> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.onload = (event) => {
+      reader.onload = event => {
         const attachment = new Attachment();
         attachment.name = this.formatFileName(attachment_file.name);
         attachment.mime_type = attachment_file.type;
         attachment.file = attachment_file;
         resolve(attachment);
       };
-      reader.onerror = (event) => {
+      reader.onerror = event => {
         reject(event.target.error);
       };
       reader.readAsArrayBuffer(attachment_file);
@@ -153,19 +153,16 @@ export class AttachmentsService extends ApplicationDb {
    */
   downloadAttachment(id: number): void {
     super.find(id).then((entry: any) => {
-      // If entry.file is a URL (string starting with http or /)
+      let localUrl = null;
       if (typeof entry.file === 'string' && entry.file.startsWith('http')) {
-        this.downloadFile(entry.file, entry.name);
+        localUrl = entry.file;
       } else {
-        // Fallback for base64 data (for backward compatibility)
-        fetch(entry.file, {
-          mode: 'cors'
-        })
-          .then(res => res.blob())
-          .then(blob => {
-            this.downloadFile(window.URL.createObjectURL(blob), entry.name);
-          });
+        const blob = new Blob([entry.file], {
+          type: entry.file.type
+        });
+        localUrl = URL.createObjectURL(blob);
       }
+      this.downloadFile(localUrl, entry.name);
     });
   }
 
