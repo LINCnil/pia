@@ -336,7 +336,6 @@ export class ApplicationDb {
             reject(Error(event));
           };
           evt.onsuccess = (event: any) => {
-            // TODO: return the entire object
             resolve({ ...data, id: event.target.result });
           };
         });
