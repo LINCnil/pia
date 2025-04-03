@@ -135,50 +135,38 @@ export class ExportComponent implements OnInit {
           const fileTitle = 'pia-' + slugify(this.pia.name);
           const navigator: any = window.navigator;
           switch (this.exportSelected[0]) {
-            // .pdf
             case 'pdf':
               window.scroll(0, 0);
               this.generatePdf(true).then(() => {
                 resolve();
               });
               break;
-
-            // .doc
             case 'doc':
               window.scroll(0, 0);
               this.generateDoc('pia-full-content').then(() => {
                 resolve();
               });
               break;
-
-            // Images
             case 'images':
               window.scroll(0, 0);
               this.downloadAllGraphsAsImages().then(() => {
                 resolve();
               });
               break;
-
-            // .json
             case 'json':
               window.scroll(0, 0);
               this.piaService.export(this.pia.id).then((json: any) => {
-                const downloadLink = document.createElement('a');
-                document.body.appendChild(downloadLink);
-                if (navigator.msSaveOrOpenBlob) {
-                  navigator.msSaveBlob(json, fileTitle + '.json');
-                } else {
-                  const blob = new Blob([json], { type: 'text/plain' });
-                  downloadLink.href = URL.createObjectURL(blob);
-                  downloadLink.download = fileTitle + '.json';
-                  downloadLink.click();
-                  downloadLink.remove();
-                }
+                const downloadJson = document.createElement('a');
+                document.body.appendChild(downloadJson);
+                downloadJson.href = URL.createObjectURL(
+                  new Blob([json], { type: 'text/plain' })
+                );
+                downloadJson.download = fileTitle + '.json';
+                downloadJson.click();
+                downloadJson.remove();
                 resolve();
               });
               break;
-
-            // .csv
             case 'csv':
               window.scroll(0, 0);
               const csvName =
@@ -189,15 +177,16 @@ export class ExportComponent implements OnInit {
                 ) +
                 '.csv';
               const blob = this.csvToBlob(csvName);
-              const downloadLink = document.createElement('a');
-              document.body.appendChild(downloadLink);
+              const downloadCsv = document.createElement('a');
+              document.body.appendChild(downloadCsv);
 
               if (navigator.msSaveOrOpenBlob) {
                 navigator.msSaveBlob(blob, csvName);
               } else {
-                downloadLink.href = URL.createObjectURL(blob);
-                downloadLink.download = csvName;
-                downloadLink.click();
+                downloadCsv.href = URL.createObjectURL(blob);
+                downloadCsv.download = csvName;
+                downloadCsv.click();
+                downloadCsv.remove();
               }
               resolve();
               break;
@@ -241,8 +230,11 @@ export class ExportComponent implements OnInit {
       // .json
       if (exports.includes('json')) {
         window.scroll(0, 0);
-        zip2.file('pia-' + slugify(this.pia.name) + '.json', this.piaJson, {
-          binary: true
+        await this.piaService.export(this.pia.id).then((json: any) => {
+          const blob = new Blob([json], { type: 'text/plain' });
+          zip2.file('pia-' + slugify(this.pia.name) + '.json', blob, {
+            binary: true
+          });
         });
       }
 
