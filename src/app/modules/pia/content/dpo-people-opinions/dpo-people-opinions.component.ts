@@ -322,7 +322,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   changeFocusIfDisable(inputClass) {
     switch (inputClass) {
       case 'DPOName':
-        console.log(this.DPOForm.controls.DPONames.value);
         if (!this.DPOForm.controls.DPONames.value) {
           let input: HTMLInputElement = document.querySelector(
             `input.${inputClass}`
@@ -331,7 +330,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         }
         break;
       case 'peopleNames':
-        console.log(this.peopleForm.controls.peopleNames.value);
         if (!this.peopleForm.controls.peopleNames.value) {
           let input: HTMLInputElement = document.querySelector(
             `input.${inputClass}`

@@ -8,7 +8,7 @@ import { ApiService } from './api.service';
 export class AttachmentsService extends ApplicationDb {
   signedAttachments: any[] = [];
   attachment_signed: any;
-  pia_signed;
+  pia_signed = 0;
 
   constructor(private router: Router, protected apiService: ApiService) {
     super(201708291502, 'attachment');
@@ -94,7 +94,7 @@ export class AttachmentsService extends ApplicationDb {
   async upload(attachment_file: any, piaId: number): Promise<Attachment> {
     const attachment = await this.handleFileFromInput(attachment_file);
     attachment.pia_id = piaId;
-    attachment.pia_signed = this.pia_signed ? this.pia_signed : 0;
+    attachment.pia_signed = this.pia_signed == 1 ? 1 : 0;
     attachment.comment = '';
 
     return new Promise((resolve, reject) => {
@@ -175,7 +175,7 @@ export class AttachmentsService extends ApplicationDb {
   }
 
   /**
-   * Allows an user to remove a PIA.
+   * Allows an user to remove an attachment.
    * @param attachmentId - Id of the attachment to remove.
    * @param comment - Comment to justify deletion.
    */
@@ -232,8 +232,6 @@ export class AttachmentsService extends ApplicationDb {
         // Remove it from the signed attachments array so that we get the oldest
         this.signedAttachments.splice(0, 1);
       }
-    } else {
-      this.signedAttachments = data;
     }
     return this.signedAttachments;
   }

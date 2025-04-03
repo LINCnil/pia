@@ -193,7 +193,6 @@ export class ApplicationDb {
             reject(error);
           });
       } else {
-        // console.log(this.getServerUrl(), 'indexdb');
         this.getObjectStore().then(() => {
           let evt;
           let index1;

@@ -331,7 +331,6 @@ export class PiaLineComponent implements OnInit, OnChanges {
       // waiting for submitted user form
       observable.subscribe({
         complete: async () => {
-          console.log(this[field], $event);
           if (userBehavior.value) {
             this[field].push({
               display: `${userBehavior.value.firstname} ${userBehavior.value.lastname}`,
