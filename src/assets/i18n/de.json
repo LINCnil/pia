@@ -88,7 +88,7 @@
         }
       },
       "unauthorized": "Der Zugriff auf diese Ressource ist Ihnen nicht gestattet.",
-      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
+      "incompatibility": "Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -108,19 +108,19 @@
   },
   "comments": {
     "comment": "Kommentar",
-    "written_by": "TO TRANSLATE - Written by",
+    "written_by": "Written by",
     "comments_count": "Kommentar(e)",
     "new_comment": "Kommentieren",
     "placeholder_new_comment": "Hinterlassen Sie einen Kommentar",
     "send": "Senden"
   },
   "conflict": {
-    "keep_initial": "TO TRANSLATE - Keep initial content",
-    "keep_new": "TO TRANSLATE - Update with new content",
-    "initial_content": "TO TRANSLATE - Initial content",
-    "merge": "TO TRANSLATE - Merge both contents",
-    "new_content": "TO TRANSLATE - New content",
-    "title": "TO TRANSLATE - Conflict detected"
+    "keep_initial": "Keep initial content",
+    "keep_new": "Update with new content",
+    "initial_content": "Initial content",
+    "merge": "Merge both contents",
+    "new_content": "New content",
+    "title": "Conflict detected"
   },
   "date": {
     "april": "April",
@@ -1085,8 +1085,8 @@
       "unarchive": "DSFA wiederherstellen"
     },
     "update_server_url_nok": {
-      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
-      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
+      "content": "The connection with the server is not possible: please check the filled URL.",
+      "introspect": "The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "Die Serveradresse wurde aktualisiert."
@@ -1573,7 +1573,7 @@
       "complete_download_desc": "Exportieren des gesamten Berichtsinhaltes (DOC und Bilder), Anhänge und den Aktionsplan im CSV-Format, in ein ZIP-Archiv.",
       "individual_download": "Elemente des Berichts herunterladen",
       "individual_download_desc": "Bestimmte Elemente des Berichts exportieren.",
-      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
+      "individual_download_pdf": "PIA report (.pdf)",
       "individual_download_doc": "Texte (.doc)",
       "individual_download_images": "Visuelle Elemente (.png), einschließlich der Risikoübersicht, der Risikokartierung und des Aktionsplans.",
       "individual_download_json": "Herunterladen (.json)",

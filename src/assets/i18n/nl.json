@@ -30,7 +30,7 @@
     "confirm": "Bevestigen",
     "confirmation": "Bevestiging",
     "continue": "Verdergaan",
-    "activate_account": "TO TRANSLATE - activate account",
+    "activate_account": "activate account",
     "create_account": "Registreren",
     "create_account2": "Account aanmaken",
     "description": "De PIA-software van de <strong> Franse autoriteit voor gegevensbescherming (CNIL) </strong> is bedoeld als ondersteuningsmiddel voor de verwerkingsverantwoordelijken bij de implementatie van de verplichtingen van de AVG. De software begeleidt de uitvoering van een gegevensbeschermingseffectbeoordeling en wil het gebruik van de door de CNIL ontwikkelde PIA-richtlijnen vergemakkelijken.",
@@ -47,9 +47,9 @@
     "saved_password": "Je wachtwoord werd opgeslagen. Je kunt nu aanmelden.",
     "sign_in": "Aanmelden",
     "sign_in_button": "Aanmelden",
-    "sign_out_button": "TO TRANSLATE - Sign out",
+    "sign_out_button": "Sign out",
     "special_character": "Speciaal teken",
-    "number": "TO TRANSLATE - Number",
+    "number": "Number",
     "start": "Beginnen",
     "start_app": "De PIA-software openen (Beta)",
     "subtitle1": "Een platform om uw PIA's te maken en te beheren",
@@ -58,38 +58,38 @@
     "transaction_error": "Kan uw verzoek niet verwerken.",
     "uppercase": "Hoofdletter",
     "wrong_activation_code": "(verkeerd)",
-    "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
+    "wrong_confirmation": "Passwords are not the same",
     "wrong_email": "Verkeerd e-mailadres",
-    "sso": "TO TRANSLATE - SSO connection",
+    "sso": "SSO connection",
     "errors": {
       "sign_in": {
-        "400": "TO TRANSLATE - Wrong email or password."
+        "400": "Wrong email or password."
       },
       "create_account": {
         "uuid": {
-          "404": "TO TRANSLATE - Wrong activation code",
-          "406": "TO TRANSLATE - This account is already activated"
+          "404": "Wrong activation code",
+          "406": "This account is already activated"
         },
         "password": {
-          "404": "TO TRANSLATE - User not found",
-          "406": "TO TRANSLATE - The password does not meet the password policy requirements."
+          "404": "User not found",
+          "406": "The password does not meet the password policy requirements."
         }
       },
       "account_recovery": {
         "email": {
-          "404": "TO TRANSLATE - User not found",
-          "423": "TO TRANSLATE - Account locked"
+          "404": "User not found",
+          "423": "Account locked"
         },
         "uuid": {
-          "404": "TO TRANSLATE - Wrong recovery code"
+          "404": "Wrong recovery code"
         },
         "password": {
-          "404": "TO TRANSLATE - User not found",
-          "406": "TO TRANSLATE - The password does not meet the password policy requirements."
+          "404": "User not found",
+          "406": "The password does not meet the password policy requirements."
         }
       },
-      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource.",
-      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
+      "unauthorized": "You are not allowed to access this ressource.",
+      "incompatibility": "Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -109,19 +109,19 @@
   },
   "comments": {
     "comment": "Commentaar",
-    "written_by": "TO TRANSLATE - Written by",
+    "written_by": "Written by",
     "comments_count": "reactie(s)",
     "new_comment": "Commentaar",
     "placeholder_new_comment": "Laat een reactie achter",
     "send": "Verzenden"
   },
   "conflict": {
-    "keep_initial": "TO TRANSLATE - Keep initial content",
-    "keep_new": "TO TRANSLATE - Update with new content",
-    "initial_content": "TO TRANSLATE - Initial content",
-    "merge": "TO TRANSLATE - Merge both contents",
-    "new_content": "TO TRANSLATE - New content",
-    "title": "TO TRANSLATE - Conflict detected"
+    "keep_initial": "Keep initial content",
+    "keep_new": "Update with new content",
+    "initial_content": "Initial content",
+    "merge": "Merge both contents",
+    "new_content": "New content",
+    "title": "Conflict detected"
   },
   "date": {
     "april": "april",
@@ -388,8 +388,8 @@
     },
     "search_filter": "Zoeken",
     "no_entries": {
-      "pia": "TO TRANSLATE - No PIA created and/or assigned",
-      "archive": "TO TRANSLATE - No PIA archive"
+      "pia": "No PIA created and/or assigned",
+      "archive": "No PIA archive"
     }
   },
   "knowledge_base": {
@@ -1081,8 +1081,8 @@
       "unarchive": "Archiveren PIA ongedaan maken"
     },
     "update_server_url_nok": {
-      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
-      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
+      "content": "The connection with the server is not possible: please check the filled URL.",
+      "introspect": "The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "Het serveradres werd geüpdatet."
@@ -1095,9 +1095,9 @@
     },
     "users": {
       "delete": {
-        "content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>delete this user ?",
-        "confirm": "TO TRANSLATE - Delete this user",
-        "pia_exist": "TO TRANSLATE - This user is assigned to one or more PIAs, you will need to re-assign users on them."
+        "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>delete this user ?",
+        "confirm": "Delete this user",
+        "pia_exist": "This user is assigned to one or more PIAs, you will need to re-assign users on them."
       }
     }
   },
@@ -1177,9 +1177,9 @@
       }
     },
     "general": {
-      "done": "TO TRANSLATE - Confirm",
-      "next": "TO TRANSLATE - Next",
-      "skip": "TO TRANSLATE - Skip"
+      "done": "Confirm",
+      "next": "Next",
+      "skip": "Skip"
     },
     "validated": {
       "step1": {
@@ -1227,10 +1227,10 @@
     "attachments": {
       "add": "Toevoegen",
       "download": "Bijlage downloaden",
-      "loading": "TO TRANSLATE - Uploading...",
+      "loading": "Uploading...",
       "remove": "Verwijderen",
       "title": "Bijlagen",
-      "no_attachment": "TO TRANSLATE - No attachment available"
+      "no_attachment": "No attachment available"
     },
     "footer": {
       "ask_evaluation": "Vraag een beoordeling",
@@ -1569,7 +1569,7 @@
       "complete_download_desc": "Exporteer in een .zip-archief de volledige inhoud van het verslag (.doc en afbeeldingen), de bijlagen en het actieplan in .csv-formaat.",
       "individual_download": "Alle elementen van het verslag downloaden",
       "individual_download_desc": "Bepaalde elementen van het verslag exporteren.",
-      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
+      "individual_download_pdf": "PIA report (.pdf)",
       "individual_download_doc": "Teksten (.doc)",
       "individual_download_images": "Visuele elementen (.png) waaronder het risico-overzicht, de risico-mapping en het actieplan.",
       "individual_download_json": "Rapport om in de PIA tool te importeren (.json)",
@@ -1622,7 +1622,7 @@
     "preview_title": "Preview",
     "preview_validation": "Valideren",
     "preview_validation_section": "Validatie",
-    "preview_guests": "TO TRANSLATE - Guests",
+    "preview_guests": "Guests",
     "previous_page": "Terug naar de vorige pagina",
     "rejection_reason": "Reden van verwerping",
     "revision": {
@@ -1657,10 +1657,10 @@
     "technical_admin": "Technisch beheerder",
     "update": "Updaten",
     "user": "Gebruiker",
-    "state": "TO TRANSLATE - Account's state",
+    "state": "Account's state",
     "errors": {
       "edit_user": {
-        "406": "TO TRANSLATE - The information provided when creating the account is invalid."
+        "406": "The information provided when creating the account is invalid."
       }
     },
     "delete": {
@@ -1668,15 +1668,15 @@
       "content": "Ben je zeker dat je deze gebruiker wilt verwijderen?"
     },
     "access_locked": {
-      "false": "TO TRANSLATE - Active",
-      "true": "TO TRANSLATE - Waiting for activation"
+      "false": "Active",
+      "true": "Waiting for activation"
     },
     "role": {
-      "label": "TO TRANSLATE - Role(s)",
-      "author": "TO TRANSLATE - Author",
-      "evaluator": "TO TRANSLATE - Evaluator",
-      "validator": "TO TRANSLATE - Validator",
-      "guest": "TO TRANSLATE - Guest"
+      "label": "Role(s)",
+      "author": "Author",
+      "evaluator": "Evaluator",
+      "validator": "Validator",
+      "guest": "Guest"
     }
   },
   "validation_page": {

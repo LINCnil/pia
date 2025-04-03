@@ -30,7 +30,7 @@
     "confirm": "Confirmar",
     "confirmation": "Confirmação",
     "continue": "Continuar",
-    "activate_account": "TO TRANSLATE - activate account",
+    "activate_account": "activate account",
     "create_account": "Criar conta",
     "create_account2": "Criar conta",
     "description": "Este software da <strong>Comissão Nacional da Informática e das Liberdades (CNIL)</strong> pretende guiar os responsáveis pelo tratamento na construção e demonstração da conformidade para com o RGPD. Através da metodologia desenvolvida pela CNIL, esta ferramenta ajuda na avaliação de risco dos dados pessoais da organização.",
@@ -49,7 +49,7 @@
     "sign_in_button": "Login",
     "sign_out_button": "Sair",
     "special_character": "Caracter especial",
-    "number": "TO TRANSLATE - Number",
+    "number": "Number",
     "start": "Início",
     "start_app": "Acessar ao software PIA (Beta)",
     "subtitle1": "Uma plataforma para criar <br> e gerir as análises de PIA",
@@ -58,9 +58,9 @@
     "transaction_error": "Não foi possível processar seu pedido.",
     "uppercase": "Letras maiúsculas",
     "wrong_activation_code": "(errado)",
-    "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
+    "wrong_confirmation": "Passwords are not the same",
     "wrong_email": "Email errado",
-    "sso": "TO TRANSLATE - SSO connection",
+    "sso": "SSO connection",
     "errors": {
       "sign_in": {
         "400": "Email ou senha errados."
@@ -89,7 +89,7 @@
         }
       },
       "unauthorized": "Você não tem permissão para acessar esse recurso.",
-      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
+      "incompatibility": "Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -109,19 +109,19 @@
   },
   "comments": {
     "comment": "Comentar",
-    "written_by": "TO TRANSLATE - Written by",
+    "written_by": "Written by",
     "comments_count": "comentário(s)",
     "new_comment": "Comentário",
     "placeholder_new_comment": "Deixe um comentário",
     "send": "Enviar"
   },
   "conflict": {
-    "keep_initial": "TO TRANSLATE - Keep initial content",
-    "keep_new": "TO TRANSLATE - Update with new content",
-    "initial_content": "TO TRANSLATE - Initial content",
-    "merge": "TO TRANSLATE - Merge both contents",
-    "new_content": "TO TRANSLATE - New content",
-    "title": "TO TRANSLATE - Conflict detected"
+    "keep_initial": "Keep initial content",
+    "keep_new": "Update with new content",
+    "initial_content": "Initial content",
+    "merge": "Merge both contents",
+    "new_content": "New content",
+    "title": "Conflict detected"
   },
   "date": {
     "april": "Abril",
@@ -284,7 +284,7 @@
           "more_options": "Mais opções",
           "pia": "Exibir análise <br>PIA",
           "remove": "Deletar",
-          "unarchive": "Desarquivar TO TRANSLATE - Unarchive"
+          "unarchive": "Desarquivar Unarchive"
         },
         "validate_pia": "Validar"
       },
@@ -1081,8 +1081,8 @@
       "unarchive": "Desarquivar PIA"
     },
     "update_server_url_nok": {
-      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
-      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
+      "content": "The connection with the server is not possible: please check the filled URL.",
+      "introspect": "The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "O endereço do servidor foi atualizado."
@@ -1095,9 +1095,9 @@
     },
     "users": {
       "delete": {
-        "content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>delete this user ?",
-        "confirm": "TO TRANSLATE - Delete this user",
-        "pia_exist": "TO TRANSLATE - This user is assigned to one or more PIAs, you will need to re-assign users on them."
+        "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>delete this user ?",
+        "confirm": "Delete this user",
+        "pia_exist": "This user is assigned to one or more PIAs, you will need to re-assign users on them."
       }
     }
   },
@@ -1569,7 +1569,7 @@
       "complete_download_desc": "Exportar todo o conteúdo do relatório num .zip (.doc e imagens), anexos e o plano de ação em formato .csv.",
       "individual_download": "Descarregar elementos do relatório",
       "individual_download_desc": "Exportar elementos específicos do relatório.",
-      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
+      "individual_download_pdf": "PIA report (.pdf)",
       "individual_download_doc": "Textos (.doc)",
       "individual_download_images": "Elementos visuais (.png) incluindo resumo de riscos, mapeamento de riscos e o plano de ação.",
       "individual_download_json": "Arquivo para importar na ferramenta PIA (arquivo .json)",
@@ -1622,7 +1622,7 @@
     "preview_title": "Pré-visualizar",
     "preview_validation": "Validação",
     "preview_validation_section": "Validação",
-    "preview_guests": "TO TRANSLATE - Guests",
+    "preview_guests": "Guests",
     "previous_page": "Voltar para a página anterior",
     "rejection_reason": "Motivo da rejeição",
     "revision": {
@@ -1657,7 +1657,7 @@
     "technical_admin": "Administrador técnico",
     "update": "Atualizar",
     "user": "Usuário",
-    "state": "TO TRANSLATE - Account's state",
+    "state": "Account's state",
     "errors": {
       "edit_user": {
         "406": "A informação provida na criação na conta é inválida."
@@ -1668,15 +1668,15 @@
       "content": "Tem certeza que deseja deletar este usuário?"
     },
     "access_locked": {
-      "false": "TO TRANSLATE - Active",
-      "true": "TO TRANSLATE - Waiting for activation"
+      "false": "Active",
+      "true": "Waiting for activation"
     },
     "role": {
-      "label": "TO TRANSLATE - Role(s)",
-      "author": "TO TRANSLATE - Author",
-      "evaluator": "TO TRANSLATE - Evaluator",
-      "validator": "TO TRANSLATE - Validator",
-      "guest": "TO TRANSLATE - Guest"
+      "label": "Role(s)",
+      "author": "Author",
+      "evaluator": "Evaluator",
+      "validator": "Validator",
+      "guest": "Guest"
     }
   },
   "validation_page": {

@@ -23,73 +23,73 @@
     "title": "Přehled"
   },
   "authentication": {
-    "12_characters": "TO TRANSLATE - 12 characters",
-    "account_recovery": "TO TRANSLATE - Password recovery",
-    "activation_code": "TO TRANSLATE - Activation code",
-    "cancel": "TO TRANSLATE - Cancel",
-    "confirm": "TO TRANSLATE - Confirm",
-    "confirmation": "TO TRANSLATE - Confirmation",
-    "continue": "TO TRANSLATE - Continue",
-    "activate_account": "TO TRANSLATE - activate account",
-    "create_account": "TO TRANSLATE - Sign up",
-    "create_account2": "TO TRANSLATE - Create account",
+    "12_characters": "12 characters",
+    "account_recovery": "Password recovery",
+    "activation_code": "Activation code",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "confirmation": "Confirmation",
+    "continue": "Continue",
+    "activate_account": "activate account",
+    "create_account": "Sign up",
+    "create_account2": "Create account",
     "description": "Tento software od <strong>Francouzského Úřadu pro Ochranu Údajů (CNIL)</strong> je určen k tomu, aby vedl Správce údajů při vytváření a prokazování shody s GDPR. Pomáhá správně provádět hodnocení dopadu ochrany údajů usnadněním používání metody PIA vyvinuté CNIL.",
-    "email": "TO TRANSLATE - Email",
-    "email_placeholder": "TO TRANSLATE - Email",
-    "forgotten_password": "TO TRANSLATE - Forgotten ?",
-    "login": "TO TRANSLATE - Login",
-    "lowercase": "TO TRANSLATE - Lowercase",
-    "password": "TO TRANSLATE - Password",
-    "password_security": "TO TRANSLATE - Password security",
-    "recovery_code": "TO TRANSLATE - Reset code",
-    "recovery_code_message": "TO TRANSLATE - An email containing a code has been sent to this email. Please enter the code in the field below.",
-    "recovery_code_not_sent": "TO TRANSLATE - Unreceived code?",
-    "saved_password": "TO TRANSLATE - Your password is saved. You can now sign in.",
-    "sign_in": "TO TRANSLATE - Sign in",
-    "sign_in_button": "TO TRANSLATE - Sign in",
-    "sign_out_button": "TO TRANSLATE - Sign out",
-    "special_character": "TO TRANSLATE - Special character (!@#$%^&*()?...)",
-    "number": "TO TRANSLATE - Number",
+    "email": "Email",
+    "email_placeholder": "Email",
+    "forgotten_password": "Forgotten ?",
+    "login": "Login",
+    "lowercase": "Lowercase",
+    "password": "Password",
+    "password_security": "Password security",
+    "recovery_code": "Reset code",
+    "recovery_code_message": "An email containing a code has been sent to this email. Please enter the code in the field below.",
+    "recovery_code_not_sent": "Unreceived code?",
+    "saved_password": "Your password is saved. You can now sign in.",
+    "sign_in": "Sign in",
+    "sign_in_button": "Sign in",
+    "sign_out_button": "Sign out",
+    "special_character": "Special character (!@#$%^&*()?...)",
+    "number": "Number",
     "start": "Start",
     "start_app": "Přístup k softwaru PIA (Beta)",
     "subtitle1": "Platforma pro vytváření a správu vašich PIA",
     "subtitle2": "Přístupové nástroje a glosáře",
     "title": "Posouzení dopadů na soukromí",
-    "transaction_error": "TO TRANSLATE - Unable to process your request.",
-    "uppercase": "TO TRANSLATE - Uppercase",
-    "wrong_activation_code": "TO TRANSLATE - (wrong)",
-    "wrong_confirmation": "TO TRANSLATE - Passwords are not the same",
-    "wrong_email": "TO TRANSLATE - Wrong email",
-    "sso": "TO TRANSLATE - SSO connection",
+    "transaction_error": "Unable to process your request.",
+    "uppercase": "Uppercase",
+    "wrong_activation_code": "(wrong)",
+    "wrong_confirmation": "Passwords are not the same",
+    "wrong_email": "Wrong email",
+    "sso": "SSO connection",
     "errors": {
       "sign_in": {
-        "400": "TO TRANSLATE - Wrong email or password."
+        "400": "Wrong email or password."
       },
       "create_account": {
         "uuid": {
-          "404": "TO TRANSLATE - Wrong activation code",
-          "406": "TO TRANSLATE - This account is already activated"
+          "404": "Wrong activation code",
+          "406": "This account is already activated"
         },
         "password": {
-          "404": "TO TRANSLATE - User not found",
-          "406": "TO TRANSLATE - The password does not meet the password policy requirements."
+          "404": "User not found",
+          "406": "The password does not meet the password policy requirements."
         }
       },
       "account_recovery": {
         "email": {
-          "404": "TO TRANSLATE - User not found",
-          "423": "TO TRANSLATE - Account locked"
+          "404": "User not found",
+          "423": "Account locked"
         },
         "uuid": {
-          "404": "TO TRANSLATE - Wrong recovery code"
+          "404": "Wrong recovery code"
         },
         "password": {
-          "404": "TO TRANSLATE - User not found",
-          "406": "TO TRANSLATE - The password does not meet the password policy requirements."
+          "404": "User not found",
+          "406": "The password does not meet the password policy requirements."
         }
       },
-      "unauthorized": "TO TRANSLATE - You are not allowed to access this ressource.",
-      "incompatibility": "TO TRANSLATE - Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
+      "unauthorized": "You are not allowed to access this ressource.",
+      "incompatibility": "Version incompatibility between your server (pia-back) and your application (pia). Please contact your IT department."
     }
   },
   "cartography": {
@@ -109,37 +109,37 @@
   },
   "comments": {
     "comment": "Komentář",
-    "written_by": "TO TRANSLATE - Written by",
+    "written_by": "Written by",
     "comments_count": "komentář(e)",
     "new_comment": "Komentář",
     "placeholder_new_comment": "Zanechat komentář",
     "send": "Send"
   },
   "conflict": {
-    "keep_initial": "TO TRANSLATE - Keep initial content",
-    "keep_new": "TO TRANSLATE - Update with new content",
-    "initial_content": "TO TRANSLATE - Initial content",
-    "merge": "TO TRANSLATE - Merge both contents",
-    "new_content": "TO TRANSLATE - New content",
-    "title": "TO TRANSLATE - Conflict detected"
+    "keep_initial": "Keep initial content",
+    "keep_new": "Update with new content",
+    "initial_content": "Initial content",
+    "merge": "Merge both contents",
+    "new_content": "New content",
+    "title": "Conflict detected"
   },
   "date": {
-    "april": "TO TRANSLATE - April",
-    "august": "TO TRANSLATE - August",
-    "december": "TO TRANSLATE - December",
-    "earlier-in-this-month": "TO TRANSLATE - Earlier this month",
-    "earlier-in-this-week": "TO TRANSLATE - Earlier this week",
-    "february": "TO TRANSLATE - February",
-    "january": "TO TRANSLATE - January",
-    "july": "TO TRANSLATE - July",
-    "june": "TO TRANSLATE - June",
-    "march": "TO TRANSLATE - March",
-    "may": "TO TRANSLATE - May",
-    "november": "TO TRANSLATE - November",
-    "october": "TO TRANSLATE - October",
-    "september": "TO TRANSLATE - September",
-    "today": "TO TRANSLATE - Today",
-    "yesterday": "TO TRANSLATE - Yesterday"
+    "april": "April",
+    "august": "August",
+    "december": "December",
+    "earlier-in-this-month": "Earlier this month",
+    "earlier-in-this-week": "Earlier this week",
+    "february": "February",
+    "january": "January",
+    "july": "July",
+    "june": "June",
+    "march": "March",
+    "may": "May",
+    "november": "November",
+    "october": "October",
+    "september": "September",
+    "today": "Today",
+    "yesterday": "Yesterday"
   },
   "errors": {
     "content": "If you encounter other problems or if you have suggestions for improvement,<br>you can send them back via this form: <a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
@@ -161,23 +161,23 @@
     "improvable": "Vylepšitelné",
     "placeholder_acceptable": "TO BE TRANSLATED - According to the available information, the measures implemented are adequate to properly meet the requirements for protecting the data.",
     "placeholder_improvable1": "TO BE TRANSLATED - According to the available information, additional measures are to be implemented in order to improve the data protection of the processing.",
-    "placeholder_improvable2": "TO TRANSLATE - Enter your comments.",
+    "placeholder_improvable2": "Enter your comments.",
     "placeholder_to_correct": "TO BE TRANSLATED - The information provided are not sufficient to properly evaluate them. Send back to the editor to improve the original submission.",
     "status": ["Čeká", "Opravit", "Vylepšit", "Přijato"],
     "title": "Hodnocení",
     "to_correct": "Opravit"
   },
   "header": {
-    "archives": "TO TRANSLATE - PIA Archives",
-    "current_pias": "TO TRANSLATE - Current PIAs",
-    "exit_full_screen_mode": "TO TRANSLATE - Press F11 to exit full screen mode.",
+    "archives": "PIA Archives",
+    "current_pias": "Current PIAs",
+    "exit_full_screen_mode": "Press F11 to exit full screen mode.",
     "help": {
-      "issue_reporting": "TO TRANSLATE - Report an issue",
-      "manual": "TO TRANSLATE - User manual",
+      "issue_reporting": "Report an issue",
+      "manual": "User manual",
       "pia_example_link": "PIA příklad",
       "title": "Nápověda"
     },
-    "homepage_link": "TO TRANSLATE - My PIAs",
+    "homepage_link": "My PIAs",
     "knowledge_base_link": "Znalostní báze",
     "languages": {
       "ar": "العربية",
@@ -210,14 +210,14 @@
     },
     "logo_subtitle": "privacy impact assessment",
     "logo_title": "Posouzení dopadů na soukromí",
-    "structures": "TO TRANSLATE - PIA templates",
+    "structures": "PIA templates",
     "tools": {
       "about": "O nás",
       "accessibility": "Dostupnost pro zrakově postižené (barvy s vysokým kontrastem, daltonismem)",
-      "onboarding": "TO TRANSLATE - Restart tutorial",
-      "settings": "TO TRANSLATE - Settings",
-      "url_setting": "TO TRANSLATE - Server URL configuration",
-      "users": "TO TRANSLATE - Users"
+      "onboarding": "Restart tutorial",
+      "settings": "Settings",
+      "url_setting": "Server URL configuration",
+      "users": "Users"
     }
   },
   "help": {
@@ -264,89 +264,89 @@
   "homepage": {
     "cards": {
       "author": "Upravil",
-      "category": "TO TRANSLATE - Category",
+      "category": "Category",
       "creation_status": "Vytvořeno",
       "date": "Datum",
       "evaluation": "Posouzení",
-      "guest": "TO TRANSLATE - Guest(s)",
+      "guest": "Guest(s)",
       "import_pia": "Importovat PIA",
-      "import_structure": "TO TRANSLATE - Import template",
+      "import_structure": "Import template",
       "item": {
-        "consult_pia": "TO TRANSLATE - Consult",
-        "consult_structure": "TO TRANSLATE - Consult template",
+        "consult_pia": "Consult",
+        "consult_structure": "Consult template",
         "edit_pia": "Upravit",
-        "edit_structure": "TO TRANSLATE - Edit template",
+        "edit_structure": "Edit template",
         "tools": {
           "action_plan": "Zobrazit<br>akční plán",
-          "archive": "TO TRANSLATE - Archive",
+          "archive": "Archive",
           "duplicate": "Duplikovat",
           "export": "Exportovat",
           "more_options": "Více voleb",
           "pia": "Zobrazit<br>PIA",
-          "remove": "TO TRANSLATE - Delete",
-          "unarchive": "TO TRANSLATE - Unarchive"
+          "remove": "Delete",
+          "unarchive": "Unarchive"
         },
-        "validate_pia": "TO TRANSLATE - Validate"
+        "validate_pia": "Validate"
       },
       "knowledges": {
-        "edit": "TO TRANSLATE - Edit the base",
-        "import": "TO TRANSLATE - Import a base",
-        "new": "TO TRANSLATE - Create a base",
-        "placeholder_author": "TO TRANSLATE - Author",
-        "placeholder_contributors": "TO TRANSLATE - Contributors",
-        "placeholder_entry_number": "TO TRANSLATE - Number of entries",
-        "placeholder_name": "TO TRANSLATE - Base's name"
+        "edit": "Edit the base",
+        "import": "Import a base",
+        "new": "Create a base",
+        "placeholder_author": "Author",
+        "placeholder_contributors": "Contributors",
+        "placeholder_entry_number": "Number of entries",
+        "placeholder_name": "Base's name"
       },
       "knowledges_entry": {
-        "all_sections": "TO TRANSLATE - All sections",
-        "choose_category": "TO TRANSLATE - Choose a category",
-        "contents": "TO TRANSLATE - Contents",
-        "create": "TO TRANSLATE - Create this element",
-        "linked_to": "TO TRANSLATE - Linked to",
-        "new": "TO TRANSLATE - Create an element",
-        "placeholder_category": "TO TRANSLATE - Category",
-        "placeholder_description": "TO TRANSLATE - Your description here...",
-        "placeholder_name": "TO TRANSLATE - Element's name",
-        "placeholder_updated_at": "TO TRANSLATE - Last updated"
+        "all_sections": "All sections",
+        "choose_category": "Choose a category",
+        "contents": "Contents",
+        "create": "Create this element",
+        "linked_to": "Linked to",
+        "new": "Create an element",
+        "placeholder_category": "Category",
+        "placeholder_description": "Your description here...",
+        "placeholder_name": "Element's name",
+        "placeholder_updated_at": "Last updated"
       },
       "new_pia": "Nová PIA",
-      "new_structure": "TO TRANSLATE - New template",
+      "new_structure": "New template",
       "or": "nebo",
       "pia_name": "PIA",
       "placeholder_author": "Křestní jméno, Příjmení",
-      "placeholder_category": "TO TRANSLATE - Category",
+      "placeholder_category": "Category",
       "placeholder_evaluation": "Křestní jméno, Příjmení",
-      "placeholder_import_knowledgeBase": "TO TRANSLATE - Import base",
+      "placeholder_import_knowledgeBase": "Import base",
       "placeholder_import_pia": "Importovat PIA",
-      "placeholder_import_structure": "TO TRANSLATE - Import template",
-      "placeholder_new_knowledgeBase": "TO TRANSLATE - New base",
+      "placeholder_import_structure": "Import template",
+      "placeholder_new_knowledgeBase": "New base",
       "placeholder_new_pia": "Nová PIA",
-      "placeholder_new_structure": "TO TRANSLATE - New template",
+      "placeholder_new_structure": "New template",
       "placeholder_pia_name": "PIA název",
-      "placeholder_sector_name": "TO TRANSLATE - Associated sector's name",
+      "placeholder_sector_name": "Associated sector's name",
       "placeholder_start": "Všechna pole musí být vyplněna",
-      "placeholder_structure": "TO TRANSLATE - Default template",
-      "placeholder_structure_name": "TO TRANSLATE - Template's title",
+      "placeholder_structure": "Default template",
+      "placeholder_structure_name": "Template's title",
       "placeholder_validation": "Křestní jméno, Příjmení",
       "sector_name": "TO BE TRANSLATED - Secteur associé",
       "start": "Start",
       "status": "Stav",
-      "structure": "TO TRANSLATE - Template",
-      "structure_name": "TO TRANSLATE - Template's name",
+      "structure": "Template",
+      "structure_name": "Template's name",
       "title_close_creation": "Zavřít",
       "validation": "Validation"
     },
     "filters": {
       "assessor": "Posuzovatel",
       "author": "Autora",
-      "card": "TO TRANSLATE - Card view",
+      "card": "Card view",
       "card_rocket_content": "Začínáme! <br><br>Chcete-li iniciovat PIA,<br> klikněte na Nová PIA",
       "card_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous !<br><br>Pour commencer<br>un modèle, cliquez<br> sur le +",
-      "category": "TO TRANSLATE - Category",
+      "category": "Category",
       "date": "Datumu",
       "import_pia": "Importovat PIA",
       "import_structure": "TO BE TRANSLATED - Importer modèle",
-      "list": "TO TRANSLATE - List view",
+      "list": "List view",
       "list_rocket_content": "Začínáme! Chcete-li zahájit PIA, klikněte na tlačítko +",
       "list_rocket_content_structure": "TO BE TRANSLATED - Lancez-vous ! Pour commencer<br>un modèle, cliquez sur le +",
       "name": "Názvu",
@@ -361,35 +361,35 @@
     "lists": {
       "column_actions": "Akce",
       "column_author": "Úpravy",
-      "column_category": "TO TRANSLATE - Category",
+      "column_category": "Category",
       "column_creation": "Vytvořeno",
       "column_evaluation": "Posouzení",
       "column_pia": "PIA",
       "column_progression": "Postup",
-      "column_sector_name": "TO TRANSLATE - Associated sector",
+      "column_sector_name": "Associated sector",
       "column_status": "Stav",
-      "column_structure": "TO TRANSLATE - Template",
-      "column_structure_name": "TO TRANSLATE - Template",
+      "column_structure": "Template",
+      "column_structure_name": "Template",
       "column_updated_at": "Naposledy otevřeno",
       "column_validation": "Validace",
       "item": {
         "tools": {
           "action_plan": "Zobrazit akční plán",
-          "archive": "TO TRANSLATE - Archive",
+          "archive": "Archive",
           "consult": "TO BE TRANSLATED - Consult",
           "duplicate": "Duplikovat",
           "edit": "Upravit",
           "export": "Exportovat",
           "pia": "Zobrazit PIA",
-          "remove": "TO TRANSLATE - Delete",
-          "unarchive": "TO TRANSLATE - Unarchive"
+          "remove": "Delete",
+          "unarchive": "Unarchive"
         }
       }
     },
-    "search_filter": "TO TRANSLATE - Search",
+    "search_filter": "Search",
     "no_entries": {
-      "pia": "TO TRANSLATE - No PIA created and/or assigned",
-      "archive": "TO TRANSLATE - No PIA archive"
+      "pia": "No PIA created and/or assigned",
+      "archive": "No PIA archive"
     }
   },
   "knowledge_base": {
@@ -400,12 +400,12 @@
       "example": "Příklad",
       "general_measure": "Fyzická bezpečnostní kontrola",
       "measure_on_data": "Logická bezpečnostní kontrola",
-      "method": "TO TRANSLATE - Methodology",
+      "method": "Methodology",
       "organizational_measure": "Organizační kontrola",
       "principle": "Zásada"
     },
-    "choose_knowledge_base": "TO TRANSLATE - Choose your knowledge base",
-    "default_knowledge_base": "TO TRANSLATE - CNIL's knowledge base",
+    "choose_knowledge_base": "Choose your knowledge base",
+    "default_knowledge_base": "CNIL's knowledge base",
     "filters": {
       "all": "Vše",
       "definitions": "Definice",
@@ -978,8 +978,8 @@
     },
     "archive": "Archivovat",
     "archive_pia": {
-      "archive": "TO TRANSLATE - Archive PIA",
-      "content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
+      "archive": "Archive PIA",
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>archive this PIA ?"
     },
     "ask_for_evaluation": {
       "content": "TO BE TRANSLATED - This section is ready to be reviewed."
@@ -1011,7 +1011,7 @@
       "review_section": "TO BE TRANSLATED - Review a section"
     },
     "general_error": {
-      "content": "TO TRANSLATE - All our apologies an error has occurred."
+      "content": "All our apologies an error has occurred."
     },
     "import_wrong_pia_file": {
       "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type PIA"
@@ -1020,12 +1020,12 @@
       "content": "TO BE TRANSLATED - Le fichier importé ne correspond pas à un fichier de type Modèle"
     },
     "knowledge": {
-      "content": "TO TRANSLATE - Are you sure you want to delete this element?",
-      "remove": "TO TRANSLATE - Delete this element"
+      "content": "Are you sure you want to delete this element?",
+      "remove": "Delete this element"
     },
     "knowledges": {
-      "content": "TO TRANSLATE - Are you sure you want to delete this knowledge base?",
-      "remove": "TO TRANSLATE - Delete this knowledge base"
+      "content": "Are you sure you want to delete this knowledge base?",
+      "remove": "Delete this knowledge base"
     },
     "modal_select_text_pia": {
       "content": "TO BE TRANSLATED - The content of the PIA has been copied to clipboard."
@@ -1035,8 +1035,8 @@
     },
     "recover_version": {
       "continue": "Pokračovat",
-      "message": "TO TRANSLATE - By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
-      "title": "TO TRANSLATE - Restore a previous version"
+      "message": "By continuing, you will restore this report version: {{date}}.<br><br>The current version will be saved.",
+      "title": "Restore a previous version"
     },
     "refuse_pia": {
       "content": "TO BE TRANSLATED - As you have rejected the PIA, it is sent back for review to make the required changes."
@@ -1053,7 +1053,7 @@
       "remove": "Odebrat toto <br>opatření"
     },
     "remove_pia": {
-      "content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>remove permanently this PIA?",
       "remove": "Odstranit tuto PIA"
     },
     "remove_question": {
@@ -1077,12 +1077,12 @@
     },
     "start_evaluation": "TO BE TRANSLATED - Start review",
     "unarchive_pia": {
-      "content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
-      "unarchive": "TO TRANSLATE - Unarchive PIA"
+      "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>unarchive this PIA ?",
+      "unarchive": "Unarchive PIA"
     },
     "update_server_url_nok": {
-      "content": "TO TRANSLATE - The connection with the server is not possible: please check the filled URL.",
-      "introspect": "TO TRANSLATE - The Client ID and Client SECRET have not been validated by the server, please check them."
+      "content": "The connection with the server is not possible: please check the filled URL.",
+      "introspect": "The Client ID and Client SECRET have not been validated by the server, please check them."
     },
     "update_server_url_ok": {
       "content": "TO BE TRANSLATED - The server address has been updated."
@@ -1095,100 +1095,100 @@
     },
     "users": {
       "delete": {
-        "content": "TO TRANSLATE - <span class='strong'>Warning,</span><br>Are you sure you want to<br>delete this user ?",
-        "confirm": "TO TRANSLATE - Delete this user",
-        "pia_exist": "TO TRANSLATE - This user is assigned to one or more PIAs, you will need to re-assign users on them."
+        "content": "<span class='strong'>Warning,</span><br>Are you sure you want to<br>delete this user ?",
+        "confirm": "Delete this user",
+        "pia_exist": "This user is assigned to one or more PIAs, you will need to re-assign users on them."
       }
     }
   },
   "onboarding": {
     "dashboard": {
       "step1": {
-        "description": "TO TRANSLATE - Click on the <strong>+</strong> to create your first PIA.",
-        "title": "TO TRANSLATE - Create a PIA"
+        "description": "Click on the <strong>+</strong> to create your first PIA.",
+        "title": "Create a PIA"
       },
       "step2": {
-        "description": "TO TRANSLATE - <p><strong>Editors</strong> write the first version of the analysis.</p><p>They are, for example, the project managers associated with the data processing.</p>",
-        "title": "TO TRANSLATE - PIA's roles"
+        "description": "<p><strong>Editors</strong> write the first version of the analysis.</p><p>They are, for example, the project managers associated with the data processing.</p>",
+        "title": "PIA's roles"
       },
       "step3": {
-        "description": "TO TRANSLATE - <p><strong>Reviewers</strong> are involved in a second phase.</p><p>They use their legal or technical expertise to check the quality and compliance of the processing.</p><p>They are, for example, DPO, legal experts, ...</p>",
-        "title": "TO TRANSLATE - PIA's roles"
+        "description": "<p><strong>Reviewers</strong> are involved in a second phase.</p><p>They use their legal or technical expertise to check the quality and compliance of the processing.</p><p>They are, for example, DPO, legal experts, ...</p>",
+        "title": "PIA's roles"
       },
       "step4": {
-        "description": "TO TRANSLATE - <p>The <strong>validator</strong> accepts or rejects the implementation of the processing. He must sign the analysis.</p><p>He is the controller, e.g. the CEO.</p>",
-        "title": "TO TRANSLATE - PIA's roles"
+        "description": "<p>The <strong>validator</strong> accepts or rejects the implementation of the processing. He must sign the analysis.</p><p>He is the controller, e.g. the CEO.</p>",
+        "title": "PIA's roles"
       },
       "step5": {
-        "description": "TO TRANSLATE - <p><strong>Templates</strong> are an advanced feature. They are used to create a pre-filled basis for the analysis.</p><p>You can create templates by going to the associated section accessible from the top menu.</p>",
-        "title": "TO TRANSLATE - Templates"
+        "description": "<p><strong>Templates</strong> are an advanced feature. They are used to create a pre-filled basis for the analysis.</p><p>You can create templates by going to the associated section accessible from the top menu.</p>",
+        "title": "Templates"
       }
     },
     "entry": {
       "step1": {
-        "description": "TO TRANSLATE - To move from one part of the analysis to another, use the left navigation menu.",
-        "title": "TO TRANSLATE - Browse"
+        "description": "To move from one part of the analysis to another, use the left navigation menu.",
+        "title": "Browse"
       },
       "step2": {
-        "description": "TO TRANSLATE - This is used to explain the purpose of the processing and how it will be implemented.",
-        "title": "TO TRANSLATE - Context"
+        "description": "This is used to explain the purpose of the processing and how it will be implemented.",
+        "title": "Context"
       },
       "step3": {
-        "description": "TO TRANSLATE - These aim to ensure that the processing complies with the GDPR.",
-        "title": "TO TRANSLATE - Fundamental principles"
+        "description": "These aim to ensure that the processing complies with the GDPR.",
+        "title": "Fundamental principles"
       },
       "step4": {
-        "description": "TO TRANSLATE - These describe the security measures already planned for the processing operation and make it possible to assess its potential impact on the data subjects.",
-        "title": "TO TRANSLATE - Risks"
+        "description": "These describe the security measures already planned for the processing operation and make it possible to assess its potential impact on the data subjects.",
+        "title": "Risks"
       },
       "step5": {
-        "description": "TO TRANSLATE - This allows the DPO to express her opinion on the implementation of the processing and the controller to accept or refuse it.",
-        "title": "TO TRANSLATE - Validation"
+        "description": "This allows the DPO to express her opinion on the implementation of the processing and the controller to accept or refuse it.",
+        "title": "Validation"
       },
       "step6": {
-        "description": "TO TRANSLATE - <p>It provides contextual assistance in carrying out the analysis and is based on the GDPR, the security guide and the CNIL's PIA guides</p><p>In addition to these contents, you can also create your own knowledge bases to easily access information specific to your organization.</p>",
-        "title": "TO TRANSLATE - The knowledge base"
+        "description": "<p>It provides contextual assistance in carrying out the analysis and is based on the GDPR, the security guide and the CNIL's PIA guides</p><p>In addition to these contents, you can also create your own knowledge bases to easily access information specific to your organization.</p>",
+        "title": "The knowledge base"
       },
       "step7": {
-        "description": "TO TRANSLATE - At any time during the analysis, you can download the analysis in various formats to share it with your colleagues.",
-        "title": "TO TRANSLATE - Export your PIA"
+        "description": "At any time during the analysis, you can download the analysis in various formats to share it with your colleagues.",
+        "title": "Export your PIA"
       }
     },
     "evaluation": {
       "step1": {
-        "description": "TO TRANSLATE - The evaluation can take an entire section into account, or at the level of each element of a section.",
-        "title": "TO TRANSLATE - Evaluate the PIA"
+        "description": "The evaluation can take an entire section into account, or at the level of each element of a section.",
+        "title": "Evaluate the PIA"
       },
       "step2": {
-        "description": "TO TRANSLATE - <p>This evaluation indicates to the editors that elements are missing in order to make a relevant assessment.</p><p>The assessor must indicate these in the associated <strong>evaluation comment</strong> field. The editor will make the necessary corrections.</p>",
-        "title": "TO TRANSLATE - To correct"
+        "description": "<p>This evaluation indicates to the editors that elements are missing in order to make a relevant assessment.</p><p>The assessor must indicate these in the associated <strong>evaluation comment</strong> field. The editor will make the necessary corrections.</p>",
+        "title": "To correct"
       },
       "step3": {
-        "description": "TO TRANSLATE - <p>This assessment indicates the processing elements to be revised. They are detailed in the <strong>action plan / corrective action</strong> field.</p><p>These measures will be automatically added to the action plan part of the analysis. It is necessary to implement them as soon as possible.</p>",
-        "title": "TO TRANSLATE - Improvable"
+        "description": "<p>This assessment indicates the processing elements to be revised. They are detailed in the <strong>action plan / corrective action</strong> field.</p><p>These measures will be automatically added to the action plan part of the analysis. It is necessary to implement them as soon as possible.</p>",
+        "title": "Improvable"
       },
       "step4": {
-        "description": "TO TRANSLATE - This assessment means that this part of the processing can be implemented without modification.",
-        "title": "TO TRANSLATE - Acceptable"
+        "description": "This assessment means that this part of the processing can be implemented without modification.",
+        "title": "Acceptable"
       },
       "step5": {
-        "description": "TO TRANSLATE - If the assessment of a section has not yet begun, the request forassessment may be cancelled to make changes to the processing description.",
-        "title": "TO TRANSLATE - Cancel a request"
+        "description": "If the assessment of a section has not yet begun, the request forassessment may be cancelled to make changes to the processing description.",
+        "title": "Cancel a request"
       }
     },
     "general": {
-      "done": "TO TRANSLATE - Confirm",
-      "next": "TO TRANSLATE - Next",
-      "skip": "TO TRANSLATE - Skip"
+      "done": "Confirm",
+      "next": "Next",
+      "skip": "Skip"
     },
     "validated": {
       "step1": {
-        "description": "TO TRANSLATE - A complete and validated analysis can be consulted at any time via a dedicated interface.",
-        "title": "TO TRANSLATE - Consult a validated PIA"
+        "description": "A complete and validated analysis can be consulted at any time via a dedicated interface.",
+        "title": "Consult a validated PIA"
       },
       "step2": {
-        "description": "TO TRANSLATE - It is necessary to review regularly an analysis. You can edit or duplicate it at any time to review its content according to the processing evolution.",
-        "title": "TO TRANSLATE - Update a validated PIA"
+        "description": "It is necessary to review regularly an analysis. You can edit or duplicate it at any time to review its content according to the processing evolution.",
+        "title": "Update a validated PIA"
       }
     }
   },
@@ -1226,11 +1226,11 @@
   "pia": {
     "attachments": {
       "add": "Přidat",
-      "download": "TO TRANSLATE - Download the attachment",
-      "loading": "TO TRANSLATE - Uploading...",
+      "download": "Download the attachment",
+      "loading": "Uploading...",
       "remove": "Odebrat",
       "title": "Přílohy",
-      "no_attachment": "TO TRANSLATE - No attachment available"
+      "no_attachment": "No attachment available"
     },
     "footer": {
       "ask_evaluation": "Požádat o kontrolu",
@@ -1565,18 +1565,18 @@
       "title": "Akční plán"
     },
     "actions": {
-      "complete_download": "TO TRANSLATE - Download the full report",
-      "complete_download_desc": "TO TRANSLATE - Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
-      "individual_download": "TO TRANSLATE - Download elements of the report",
-      "individual_download_desc": "TO TRANSLATE - Export specific elements of the report.",
-      "individual_download_pdf": "TO TRANSLATE - PIA report (.pdf)",
-      "individual_download_doc": "TO TRANSLATE - Texts (.doc)",
-      "individual_download_images": "TO TRANSLATE - Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
-      "individual_download_json": "TO TRANSLATE - Report to import into the PIA tool (.json file)",
-      "individual_download_select": "TO TRANSLATE - Select elements to export:",
-      "individual_to_download": "TO TRANSLATE - Download",
-      "print": "TO TRANSLATE - Print the report",
-      "print_and_download": "TO TRANSLATE - Print and download"
+      "complete_download": "Download the full report",
+      "complete_download_desc": "Export in a .zip archive all the report content (.doc and pictures), attachments and the action plan in a .csv format.",
+      "individual_download": "Download elements of the report",
+      "individual_download_desc": "Export specific elements of the report.",
+      "individual_download_pdf": "PIA report (.pdf)",
+      "individual_download_doc": "Texts (.doc)",
+      "individual_download_images": "Visual elements (.png) including the risk overview, the risk mapping and the action plan.",
+      "individual_download_json": "Report to import into the PIA tool (.json file)",
+      "individual_download_select": "Select elements to export:",
+      "individual_to_download": "Download",
+      "print": "Print the report",
+      "print_and_download": "Print and download"
     },
     "attachments": "Přílohy",
     "concerned_people_name": "Jména dotčených osob",
@@ -1596,7 +1596,7 @@
     "csv_people_in_charge": "TO BE TRANSLATED - Person in charge",
     "csv_section": "TO BE TRANSLATED - Section",
     "csv_title_object": "TO BE TRANSLATED - Title",
-    "download_csv": "TO TRANSLATE - Action plan (.csv)",
+    "download_csv": "Action plan (.csv)",
     "dpo_name": "Jméno DPO Poběřence osobních údajů",
     "dpo_opinion": "Stanovisko DPO Poběřence osobních údajů",
     "dpo_status": "Stav DPO Poběřence osobních údajů",
@@ -1613,70 +1613,70 @@
     "pia_author": "Jméno Autora",
     "pia_name": "PIA",
     "pia_validator": "Jméno Validátora",
-    "preview_dpo_opinion": "TO TRANSLATE - DPO and data subjects opinion",
-    "preview_edition": "TO TRANSLATE - Editing",
-    "preview_evaluation": "TO TRANSLATE - Evaluation",
-    "preview_no_data": "TO TRANSLATE - No data to display.",
-    "preview_status": "TO TRANSLATE - Status",
-    "preview_subtitle": "TO TRANSLATE - General information",
-    "preview_title": "TO TRANSLATE - Preview",
-    "preview_validation": "TO TRANSLATE - Validation",
-    "preview_validation_section": "TO TRANSLATE - Validation",
-    "preview_guests": "TO TRANSLATE - Guests",
+    "preview_dpo_opinion": "DPO and data subjects opinion",
+    "preview_edition": "Editing",
+    "preview_evaluation": "Evaluation",
+    "preview_no_data": "No data to display.",
+    "preview_status": "Status",
+    "preview_subtitle": "General information",
+    "preview_title": "Preview",
+    "preview_validation": "Validation",
+    "preview_validation_section": "Validation",
+    "preview_guests": "Guests",
     "previous_page": "Zpět na předchozí stránku",
     "rejection_reason": "Důvod odmítnutí",
     "revision": {
-      "current_version": "TO TRANSLATE - Current version",
-      "pia_version": "TO TRANSLATE - PIA versions",
-      "restore_version": "TO TRANSLATE - Restore",
-      "revision": "TO TRANSLATE - Versions and revision",
-      "save": "TO TRANSLATE - Create a new version",
-      "show": "TO TRANSLATE - Display the {{length}} versions"
+      "current_version": "Current version",
+      "pia_version": "PIA versions",
+      "restore_version": "Restore",
+      "revision": "Versions and revision",
+      "save": "Create a new version",
+      "show": "Display the {{length}} versions"
     },
     "risks_cartography_title": "TO BE TRANSLATED - Risk mapping",
     "risks_overview_title": "TO BE TRANSLATED - Risks overview",
     "title": "Informace PIA"
   },
   "users": {
-    "add_new_user": "TO TRANSLATE - Add a new user",
-    "cancel": "TO TRANSLATE - Cancel",
-    "choose_profile": "TO TRANSLATE - Choose a profile for this user",
-    "continue": "TO TRANSLATE - Continue",
-    "data": "TO TRANSLATE - Data",
-    "edit_user": "TO TRANSLATE - Edit an user",
-    "email": "TO TRANSLATE - Email",
-    "first_name": "TO TRANSLATE - First name",
-    "functional_admin": "TO TRANSLATE - Functional administrator",
-    "last_name": "TO TRANSLATE - Last name",
-    "new_user_button": "TO TRANSLATE - New user",
-    "profile": "TO TRANSLATE - Profile",
-    "remove": "TO TRANSLATE - Delete",
-    "remove_current_user_error_message": "TO TRANSLATE - You can't delete your own account.",
-    "remove_last_functional_admin_error_message": "TO TRANSLATE - You cannot delete this user because at least one Technical Administrator account must remain.",
-    "remove_user_with_linked_pias_error_message": "TO TRANSLATE - Several PIAs are attached to this user, so you cannot delete him.",
-    "technical_admin": "TO TRANSLATE - Technical administrator",
-    "update": "TO TRANSLATE - Update",
-    "user": "TO TRANSLATE - User",
-    "state": "TO TRANSLATE - Account's state",
+    "add_new_user": "Add a new user",
+    "cancel": "Cancel",
+    "choose_profile": "Choose a profile for this user",
+    "continue": "Continue",
+    "data": "Data",
+    "edit_user": "Edit an user",
+    "email": "Email",
+    "first_name": "First name",
+    "functional_admin": "Functional administrator",
+    "last_name": "Last name",
+    "new_user_button": "New user",
+    "profile": "Profile",
+    "remove": "Delete",
+    "remove_current_user_error_message": "You can't delete your own account.",
+    "remove_last_functional_admin_error_message": "You cannot delete this user because at least one Technical Administrator account must remain.",
+    "remove_user_with_linked_pias_error_message": "Several PIAs are attached to this user, so you cannot delete him.",
+    "technical_admin": "Technical administrator",
+    "update": "Update",
+    "user": "User",
+    "state": "Account's state",
     "errors": {
       "edit_user": {
-        "406": "TO TRANSLATE - The information provided when creating the account is invalid."
+        "406": "The information provided when creating the account is invalid."
       }
     },
     "delete": {
-      "confirm": "TO TRANSLATE - Remove user",
-      "content": "TO TRANSLATE - Are you sure you want to delete this user?"
+      "confirm": "Remove user",
+      "content": "Are you sure you want to delete this user?"
     },
     "access_locked": {
-      "false": "TO TRANSLATE - Active",
-      "true": "TO TRANSLATE - Waiting for activation"
+      "false": "Active",
+      "true": "Waiting for activation"
     },
     "role": {
-      "label": "TO TRANSLATE - Role(s)",
-      "author": "TO TRANSLATE - Author",
-      "evaluator": "TO TRANSLATE - Evaluator",
-      "validator": "TO TRANSLATE - Validator",
-      "guest": "TO TRANSLATE - Guest"
+      "label": "Role(s)",
+      "author": "Author",
+      "evaluator": "Evaluator",
+      "validator": "Validator",
+      "guest": "Guest"
     }
   },
   "validation_page": {
