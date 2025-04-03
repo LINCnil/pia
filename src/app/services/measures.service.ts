@@ -25,6 +25,7 @@ export class MeasureService extends ApplicationDb {
   }
 
   async create(measure: Measure): Promise<any> {
+    this.pia_id = measure.pia_id;
     measure.created_at = new Date();
     return new Promise((resolve, reject) => {
       super

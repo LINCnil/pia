@@ -12,8 +12,8 @@ export class AnswerService extends ApplicationDb {
     super.prepareServerUrl(this.router);
   }
 
-  // TODO: Move Methods from model here
   async create(answer: Answer): Promise<Answer> {
+    this.pia_id = answer.pia_id;
     const data = {
       ...answer,
       created_at: new Date()

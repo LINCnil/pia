@@ -20,6 +20,7 @@ export class NewStructureComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.appDataService.resetDataNav();
     this.structureForm = new UntypedFormGroup({
       name: new UntypedFormControl(),
       sector_name: new UntypedFormControl()
