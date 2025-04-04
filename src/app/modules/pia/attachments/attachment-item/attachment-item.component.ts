@@ -99,9 +99,9 @@ export class AttachmentItemComponent implements OnInit {
         }
 
         if (this.attachment.mime_type.endsWith('pdf')) {
-          this.pdfSrc = isFileUrl ? this.attachment.file : localUrl;
+          this.pdfSrc = isFileUrl ? encodeURIComponent(this.attachment.file) : localUrl;
         } else if (this.attachment.mime_type.startsWith('image')) {
-          this.imgSrc = isFileUrl ? this.attachment.file : localUrl;
+          this.imgSrc = isFileUrl ? encodeURIComponent(this.attachment.file) : localUrl;
         }
 
         elPreview.classList.remove('hide');
