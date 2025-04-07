@@ -94,7 +94,7 @@ export class AttachmentsService extends ApplicationDb {
   async upload(attachment_file: any, piaId: number): Promise<Attachment> {
     const attachment = await this.handleFileFromInput(attachment_file);
     attachment.pia_id = piaId;
-    attachment.pia_signed = this.pia_signed == 1 ? 1 : 0;
+    attachment.pia_signed = this.pia_signed ? this.pia_signed : 0;
     attachment.comment = '';
 
     return new Promise((resolve, reject) => {
@@ -229,8 +229,6 @@ export class AttachmentsService extends ApplicationDb {
       ) {
         // Store the latest signed attachment only if file isn't empty
         this.attachment_signed = this.signedAttachments[0];
-        // Remove it from the signed attachments array so that we get the oldest
-        this.signedAttachments.splice(0, 1);
       }
     }
     return this.signedAttachments;
