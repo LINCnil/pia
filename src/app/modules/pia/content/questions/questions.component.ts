@@ -31,7 +31,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   allUserAnswersForImpacts = [];
   allUserAnswersForThreats = [];
   allUserAnswersForSources = [];
-  allUserAnswersToDisplay = [];
   userAnswersToDisplay = [];
   @Input() editMode:
     | 'local'
@@ -544,7 +543,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @returns {any[]} The autocomplete items to display
    */
   getAutocompleteItems(): any[] {
-    return this.question.is_measure ? this.userMeasures : this.userAnswersToDisplay;
+    return this.question.is_measure
+      ? this.userMeasures
+      : this.userAnswersToDisplay;
   }
 
   /**
@@ -552,8 +553,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @returns {boolean} True if the input should be disabled, false otherwise.
    */
   isInputDisabled(): boolean {
-    return !this.globalEvaluationService.answerEditionEnabled ||
-      (!this.editMode.includes('author') && this.editMode !== 'local');
+    return (
+      !this.globalEvaluationService.answerEditionEnabled ||
+      (!this.editMode.includes('author') && this.editMode !== 'local')
+    );
   }
 
   /**

@@ -72,7 +72,12 @@ export class OverviewRisksComponent implements OnInit {
           await this.answerService
             .getByReferenceAndPia(this.pia.id, reference_to)
             .then((result: Answer) => {
-              if (result && result.data && result.data.list.length > 0) {
+              if (
+                result &&
+                result.data &&
+                result.data.list &&
+                result.data.list.length > 0
+              ) {
                 const list = result.data.list;
                 for (const l of list) {
                   if (!tags[l]) {
