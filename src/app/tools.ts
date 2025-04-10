@@ -30,8 +30,13 @@ export class Nl2brPipe implements PipeTransform {
 })
 export class FormatTheDate implements PipeTransform {
   transform(value: any, locale: string) {
-    if (value instanceof Date && !isNaN(value.getTime())) {
-      return formatDate(value, 'shortDate', locale);
+    if (value == null || value === '') {
+      return '';
+    }
+
+    const date = new Date(value);
+    if (date && date.toString() !== 'Invalid Date') {
+      return formatDate(date, 'shortDate', locale);
     } else {
       return '';
     }

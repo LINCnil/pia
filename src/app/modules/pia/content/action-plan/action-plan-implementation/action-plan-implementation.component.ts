@@ -36,7 +36,7 @@ export class ActionPlanImplementationComponent implements OnInit {
     });
     if (this.data.evaluation) {
       this.evaluation = this.data.evaluation;
-      const date = this.evaluation.estimated_implementation_date;
+      const date = new Date(this.evaluation.estimated_implementation_date);
       if (date && date.toString() !== 'Invalid Date') {
         const month = (date.getMonth() + 1).toString();
         const finalMonth = (month.length === 1 ? '0' : '') + month;

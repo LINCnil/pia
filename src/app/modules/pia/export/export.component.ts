@@ -337,44 +337,26 @@ export class ExportComponent implements OnInit {
     };
 
     const csvContentFormatted = [];
-    this.csvContent.forEach(item => {
-      const itemData = {};
-      if (item.title) {
-        itemData['title'] = `"${item.title}"`;
-      }
-      if (item.blank) {
-        itemData['blank'] = `"${item.blank}"`;
-      }
-      if (item.short_title) {
-        itemData['short_title'] = `"${item.short_title}"`;
-      }
-      if (item.action_plan_comment) {
-        itemData[
-          'action_plan_comment'
-        ] = `"${item.action_plan_comment}"`
-          .replace(/,/g, '')
-          .replace(/\n/g, ' ');
-      }
-      if (item.evaluation_comment) {
-        itemData['evaluation_comment'] = `"${item.evaluation_comment}"`
-          .replace(/,/g, '')
-          .replace(/\n/g, ' ');
-      }
-      if (item.evaluation_date) {
-        itemData['evaluation_date'] = `"${item.evaluation_date}"`;
-      }
-      if (item.evaluation_charge) {
-        itemData['evaluation_charge'] = `"${item.evaluation_charge}"`;
-      }
 
+    this.csvContent.forEach(item => {
       csvContentFormatted.push({
-        title: itemData['title'],
-        blank: itemData['blank'],
-        short_title: itemData['short_title'],
-        action_plan_comment: itemData['action_plan_comment'],
-        evaluation_comment: itemData['evaluation_comment'],
-        evaluation_date: itemData['evaluation_date'],
-        evaluation_charge: itemData['evaluation_charge']
+        title: item.title ? `"${item.title}"` : '',
+        blank: item.blank ? `"${item.blank}"` : '',
+        short_title: item.short_title ? `"${item.short_title}"` : '',
+        action_plan_comment: item.action_plan_comment
+          ? `"${item.action_plan_comment}"`
+              .replace(/,/g, '')
+              .replace(/\n/g, ' ')
+          : '',
+        evaluation_comment: item.evaluation_comment
+          ? `"${item.evaluation_comment}"`.replace(/,/g, '').replace(/\n/g, ' ')
+          : '',
+        evaluation_date: item.evaluation_date
+          ? `"${item.evaluation_date}"`
+          : '',
+        evaluation_charge: item.evaluation_charge
+          ? `"${item.evaluation_charge}"`
+          : ''
       });
     });
 
