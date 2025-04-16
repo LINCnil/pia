@@ -53,9 +53,6 @@ src/environments/environment.prod.ts
 /documentation
 projects/*
 
-# electron
-electron/releases/
-electron/private/
 .idea
 .env
 dev-app-update.yml
