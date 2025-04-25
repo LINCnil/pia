@@ -123,7 +123,7 @@ export class ExportComponent implements OnInit {
     return new Promise((resolve, reject) => {
       if (this.exportSelected) {
         if (this.exportSelected.length > 1) {
-          // download by selection
+          // Multiple files export (.zip)
           window.scroll(0, 0);
           this.generateExportsZip('pia-full-content', this.exportSelected).then(
             () => {
@@ -131,7 +131,7 @@ export class ExportComponent implements OnInit {
             }
           );
         } else {
-          // download only one element
+          // Single file export
           const fileTitle = 'pia-' + slugify(this.pia.name);
           const navigator: any = window.navigator;
           switch (this.exportSelected[0]) {
@@ -224,7 +224,7 @@ export class ExportComponent implements OnInit {
       if (exports.includes('doc')) {
         window.scroll(0, 0);
         const dataDoc = await this.prepareDocFile(element);
-        zip2.file('Doc/' + dataDoc.filename, dataDoc.blob);
+        zip2.file('Doc/' + dataDoc.filename, dataDoc.blob, { type: 'string' });
       }
 
       // .json
@@ -233,7 +233,7 @@ export class ExportComponent implements OnInit {
         await this.piaService.export(this.pia.id).then((json: any) => {
           const blob = new Blob([json], { type: 'text/plain' });
           zip2.file('pia-' + slugify(this.pia.name) + '.json', blob, {
-            binary: true
+            type: 'string'
           });
         });
       }
@@ -245,7 +245,9 @@ export class ExportComponent implements OnInit {
           'summary.action_plan.title'
         );
         const blob = this.csvToBlob(fileTitle);
-        zip2.file('CSV/' + slugify(fileTitle) + '.csv', blob, { binary: true });
+        zip2.file('CSV/' + slugify(fileTitle) + '.csv', blob, {
+          type: 'string'
+        });
       }
 
       // Images

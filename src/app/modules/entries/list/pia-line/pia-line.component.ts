@@ -200,11 +200,18 @@ export class PiaLineComponent implements OnInit, OnChanges {
       this.addAttachmentsToZip(zip).then((zip2: any) => {
         /* JSON */
         this.piaService.export(this.pia.id).then((data: any) => {
-          zip2.file('pia.json', data, { binary: true });
-          /* Save as .zip */
-          zip2.generateAsync({ type: 'blob' }).then(blobContent => {
-            FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
-          });
+          zip2.file('pia.json', data, { type: 'string' });
+          zip2
+            .generateAsync({
+              type: 'blob',
+              compression: 'DEFLATE',
+              compressionOptions: { level: 9 },
+              mimeType: 'application/zip',
+              encoding: 'utf8'
+            })
+            .then(blobContent => {
+              FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+            });
         });
       });
     }, 500);

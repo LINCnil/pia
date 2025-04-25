@@ -110,12 +110,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
       }
     });
 
-    // GET ATTACHMENTS INFOS
     this.attachments = [];
     this.attachmentsService.pia_id = this.pia.id;
     this.attachmentsService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(element => {
-        if (element['file'] && element['file'].length) {
+        if (element['file']) {
           this.attachments.push(element);
         }
       });
@@ -231,10 +230,6 @@ export class PiaCardComponent implements OnInit, OnChanges {
       this.piaForm.controls[ob.field].setValue(tags);
     });
   }
-
-  // get f() {
-  //   return this.piaForm.controls;
-  // }
 
   /**
    * Disable the already selected users in the guests field
