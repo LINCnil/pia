@@ -671,7 +671,7 @@ export class PiaService extends ApplicationDb {
   async import(file: any): Promise<any> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.readAsText(file);
+      reader.readAsText(file, 'UTF-8');
       reader.onload = (event: any) => {
         try {
           const jsonFile = JSON.parse(event.target.result);
