@@ -85,7 +85,6 @@ export class AnswerService extends ApplicationDb {
 
   async getByReferenceAndPia(pia_id: number, reference_to: any): Promise<any> {
     return new Promise((resolve, reject) => {
-      // TODO: CHECK THIS FOR INDEX DB
       super
         .findWithReference('?reference_to=' + reference_to, {
           index: 'index1',
@@ -117,8 +116,8 @@ export class AnswerService extends ApplicationDb {
   }
 
   async getGaugeByPia(pia_id: number): Promise<any> {
-    const items = [];
     return new Promise((resolve, reject) => {
+      this.pia_id = pia_id;
       super
         .findAll(null, { index: 'index2', value: pia_id })
         .then((result: any) => {

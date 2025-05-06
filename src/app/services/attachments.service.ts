@@ -23,6 +23,7 @@ export class AttachmentsService extends ApplicationDb {
     if (pia_id) {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
+        this.pia_id = pia_id;
         super
           .findAll(null, { index: 'index1', value: pia_id })
           .then((result: any) => {

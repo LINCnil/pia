@@ -59,7 +59,6 @@ export class PiaService extends ApplicationDb {
    * @returns {Promise} - Return new Promise
    */
   async getAllActives(): Promise<any> {
-    const items = [];
     return new Promise((resolve, reject) => {
       this.findAll().then((entries: any) => {
         resolve(
@@ -76,7 +75,6 @@ export class PiaService extends ApplicationDb {
    * @param structure_id the structure id
    */
   async findAllArchives(): Promise<any> {
-    const items = [];
     return new Promise((resolve, reject) => {
       this.findAll('?is_archive=true', {
         index: 'index5',
@@ -96,7 +94,6 @@ export class PiaService extends ApplicationDb {
    * @param structure_id the structure id
    */
   getAllWithStructure(structure_id: number): Promise<Pia[]> {
-    const items = [];
     return new Promise((resolve, reject) => {
       this.findAll('?structure_id=' + structure_id, {
         index: 'index4',
