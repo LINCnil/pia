@@ -12,13 +12,11 @@ The PIA software is a free tool published by the [CNIL](https://www.cnil.fr/en/o
 
 The latest version of the tool can be downloaded in the [Release](https://github.com/LINCnil/pia/releases) section of this repository.
 
-## Traduire le logiciel PIA / Translating the PIA Software
-
-Pour traduire le logiciel, nous vous invitons à vous rendre dans le [dépôt dédié](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n) dans lequel les étapes de traduction sont décrites.
+## Translating the PIA Software
 
 To translate the software, we invite you to visit the [related repository](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n) where the translation steps are described.
 
-# Information de développement / Dev information
+# Development information
 
 ![CI](https://github.com/lincnil/pia/workflows/integration-tests/badge.svg?branch=master)
 [![CodeQL](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml)
