@@ -9,9 +9,7 @@ import {
   EventEmitter
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
+import { debounceTime, map, filter } from 'rxjs/operators';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { StructureService } from 'src/app/services/structure.service';
@@ -20,11 +18,13 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { Structure } from 'src/app/models/structure.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.scss']
+  styleUrls: ['./questions.component.scss'],
+  standalone: false
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
@@ -38,6 +38,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   elementId: string;
   editor: any;
   editTitle = true;
+  protected readonly faTrash = faTrash;
 
   constructor(
     private el: ElementRef,

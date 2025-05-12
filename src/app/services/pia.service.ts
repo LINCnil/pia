@@ -21,10 +21,6 @@ import { EvaluationService } from './evaluation.service';
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 
-function encode_utf8(s): string {
-  return unescape(encodeURIComponent(s));
-}
-
 @Injectable()
 export class PiaService extends ApplicationDb {
   answer: Answer = new Answer();
@@ -63,7 +59,6 @@ export class PiaService extends ApplicationDb {
    * @returns {Promise} - Return new Promise
    */
   async getAllActives(): Promise<any> {
-    const items = [];
     return new Promise((resolve, reject) => {
       this.findAll().then((entries: any) => {
         resolve(
@@ -80,7 +75,6 @@ export class PiaService extends ApplicationDb {
    * @param structure_id the structure id
    */
   async findAllArchives(): Promise<any> {
-    const items = [];
     return new Promise((resolve, reject) => {
       this.findAll('?is_archive=true', {
         index: 'index5',
@@ -100,7 +94,6 @@ export class PiaService extends ApplicationDb {
    * @param structure_id the structure id
    */
   getAllWithStructure(structure_id: number): Promise<Pia[]> {
-    const items = [];
     return new Promise((resolve, reject) => {
       this.findAll('?structure_id=' + structure_id, {
         index: 'index4',
@@ -346,7 +339,7 @@ export class PiaService extends ApplicationDb {
             entries.forEach(element => {
               this.evaluationService.find(element.id).then((entry: any) => {
                 entry.global_status = 0;
-                this.update(entry).then(() => {
+                this.evaluationService.update(entry).then(() => {
                   count++;
                   if (count === entries.length) {
                     resolve();
@@ -662,7 +655,7 @@ export class PiaService extends ApplicationDb {
   export(id: number): Promise<string> {
     return new Promise(async (resolve, reject) => {
       this.exportData(id).then(data => {
-        const finalData = encode_utf8(JSON.stringify(data));
+        const finalData = JSON.stringify(data);
         resolve(finalData);
       });
     });
@@ -675,7 +668,7 @@ export class PiaService extends ApplicationDb {
   async import(file: any): Promise<any> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.readAsText(file);
+      reader.readAsText(file, 'UTF-8');
       reader.onload = (event: any) => {
         try {
           const jsonFile = JSON.parse(event.target.result);
@@ -826,10 +819,6 @@ export class PiaService extends ApplicationDb {
         pia.is_archive = 0;
       }
       pia.updated_at = date ? date : new Date();
-
-      // if (this.authService.state && pia.user_pias) {
-      //   pia = Pia.formatUsersDatas(pia);
-      // }
 
       super
         .update(pia.id, pia)

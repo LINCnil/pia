@@ -8,12 +8,18 @@ import { LanguagesService } from 'src/app/services/languages.service';
 import { IntrojsService } from 'src/app/services/introjs.service';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { AuthService } from 'src/app/services/auth.service';
+import {
+  faEarthEurope,
+  faList,
+  faUser
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   providers: [{ provide: Window, useValue: window }],
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  standalone: false
 })
 export class HeaderComponent implements OnInit {
   public increaseContrast: string;
@@ -23,6 +29,8 @@ export class HeaderComponent implements OnInit {
   isStructureHeader: boolean;
   isArchiveHeader: boolean;
   userRole: boolean;
+
+  protected readonly faEarthEurope = faEarthEurope;
 
   constructor(
     private window: Window,
@@ -101,4 +109,7 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['pia', 'example', 'section', 1, 'item', 1]);
     });
   }
+
+  protected readonly faList = faList;
+  protected readonly faUser = faUser;
 }

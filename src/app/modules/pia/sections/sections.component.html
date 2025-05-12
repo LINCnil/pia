@@ -56,26 +56,69 @@
             >
               {{ dataItem.title | translate }}</a
             >
-            <i
-              class="fa"
+            <span
               *ngIf="
-                sidStatusService.sidStatusIcon[
-                  sidStatusService.itemStatus[
-                    dataSection.id + '.' + dataItem.id
-                  ]
-                ];
-                else defaultIcon
-              "
-              [ngClass]="
                 sidStatusService.sidStatusIcon[
                   sidStatusService.itemStatus[
                     dataSection.id + '.' + dataItem.id
                   ]
                 ]
               "
-              aria-hidden="true"
-            ></i>
-            <ng-template #defaultIcon> </ng-template>
+            >
+              <fa-icon
+                *ngIf="
+                  sidStatusService.sidStatusIcon[
+                    sidStatusService.itemStatus[
+                      dataSection.id + '.' + dataItem.id
+                    ]
+                  ] == 'faPenToSquare'
+                "
+                [icon]="faPenToSquare"
+              ></fa-icon>
+              <fa-icon
+                *ngIf="
+                  sidStatusService.sidStatusIcon[
+                    sidStatusService.itemStatus[
+                      dataSection.id + '.' + dataItem.id
+                    ]
+                  ] == 'faPenToSquare,pia-fa-valid'
+                "
+                class="pia-fa-valid"
+                [icon]="faPenToSquare"
+              ></fa-icon>
+              <fa-icon
+                *ngIf="
+                  sidStatusService.sidStatusIcon[
+                    sidStatusService.itemStatus[
+                      dataSection.id + '.' + dataItem.id
+                    ]
+                  ] == 'faGear'
+                "
+                [icon]="faGear"
+              ></fa-icon>
+              <fa-icon
+                *ngIf="
+                  sidStatusService.sidStatusIcon[
+                    sidStatusService.itemStatus[
+                      dataSection.id + '.' + dataItem.id
+                    ]
+                  ] == 'faGear,pia-fa-valid'
+                "
+                class="pia-fa-valid"
+                [icon]="faGear"
+              ></fa-icon>
+              <fa-icon
+                *ngIf="
+                  sidStatusService.sidStatusIcon[
+                    sidStatusService.itemStatus[
+                      dataSection.id + '.' + dataItem.id
+                    ]
+                  ] == 'faSquareCheck'
+                "
+                class="pia-fa-valid"
+                [icon]="faSquareCheck"
+              ></fa-icon>
+            </span>
           </li>
         </ng-container>
       </ul>

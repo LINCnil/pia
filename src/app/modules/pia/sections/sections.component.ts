@@ -1,13 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
-import 'rxjs/add/operator/map';
 
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { Pia } from 'src/app/models/pia.model';
+import {
+  faCalendarCheck,
+  faPenToSquare,
+  faGear,
+  faSquareCheck,
+  faChartLine
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sections',
   templateUrl: './sections.component.html',
-  styleUrls: ['./sections.component.scss']
+  styleUrls: ['./sections.component.scss'],
+  standalone: false
 })
 export class SectionsComponent implements OnInit {
   @Input() editMode:
@@ -29,6 +36,12 @@ export class SectionsComponent implements OnInit {
   };
   @Input() data: { sections: any };
   loading = false;
+
+  protected readonly faCalendarCheck = faCalendarCheck;
+  protected readonly faPenToSquare = faPenToSquare;
+  protected readonly faGear = faGear;
+  protected readonly faSquareCheck = faSquareCheck;
+  protected readonly faChartLine = faChartLine;
 
   constructor(public sidStatusService: SidStatusService) {}
 

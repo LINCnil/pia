@@ -75,7 +75,9 @@ describe("Entries_table", () => {
      */
     it("should duplicate pia", () => {
       // cy.get(".pia-list-table tbody tr").should("have.length", 1);
-      cy.get(".pia-list-table tbody tr:eq(0) td:eq(0) .fa-files-o").click();
+      cy.get(
+        ".pia-list-table tbody tr:eq(0) td:eq(0) .ng-fa-icon:eq(1)"
+      ).click();
       cy.get(".pia-list-table tbody tr:eq(1)");
       cy.get(".pia-list-table tbody tr").should("have.length", 2);
     });
@@ -84,7 +86,9 @@ describe("Entries_table", () => {
      * Export pia
      */
     it("should export pia", () => {
-      cy.get(".pia-list-table tbody tr:eq(0) td:eq(0) .fa-download").click();
+      cy.get(
+        ".pia-list-table tbody tr:eq(0) td:eq(0) .ng-fa-icon:eq(2)"
+      ).click();
     });
   });
 });

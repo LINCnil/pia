@@ -12,7 +12,8 @@ import { User } from 'src/app/models/user.model';
 @Component({
   selector: 'app-uuid',
   templateUrl: './uuid.component.html',
-  styleUrls: ['../form.scss', './uuid.component.scss']
+  styleUrls: ['../form.scss', './uuid.component.scss'],
+  standalone: false
 })
 export class UuidComponent implements OnInit {
   @Input() reset = false;

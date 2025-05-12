@@ -7,7 +7,7 @@
           (click)="export(base.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-download" aria-hidden="true"></i>
+          <fa-icon [icon]="faDownload"></fa-icon>
           <span
             title="{{ 'homepage.cards.item.tools.export' | translate }}"
             class="pia-tooltip-text"
@@ -21,7 +21,7 @@
           (click)="duplicate(base.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-files-o" aria-hidden="true"></i>
+          <fa-icon [icon]="faFile"></fa-icon>
           <span
             title="{{ 'homepage.cards.item.tools.duplicate' | translate }}"
             class="pia-tooltip-text"
@@ -35,7 +35,7 @@
           (click)="remove(base.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <fa-icon [icon]="faTrash"></fa-icon>
           <span
             title="{{ 'homepage.cards.item.tools.remove' | translate }}"
             class="pia-tooltip-text"
@@ -48,7 +48,7 @@
 
     <form class="pia-cardsBlock-item-form" [formGroup]="knowledgeBaseForm">
       <input type="hidden" formControlName="id" />
-      <div (click)="knowledgeBaseNameFocusIn()" style="margin-top:20px;">
+      <div style="margin-top:20px;">
         <label for="knowledgebase-edit-{{ base.id }}-name">{{
           "homepage.cards.knowledges.placeholder_name" | translate
         }}</label>
@@ -64,7 +64,7 @@
         />
       </div>
 
-      <div (click)="knowledgeBaseAuthorFocusIn()">
+      <div>
         <label for="knowledgebase-edit-{{ base.id }}-author-name">{{
           "homepage.cards.knowledges.placeholder_author" | translate
         }}</label>
@@ -80,7 +80,7 @@
         />
       </div>
 
-      <div (click)="knowledgeBaseContributorsFocusIn()">
+      <div>
         <label for="knowledgebase-edit-{{ base.id }}-contributor-names">{{
           "homepage.cards.knowledges.placeholder_contributors" | translate
         }}</label>

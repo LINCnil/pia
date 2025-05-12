@@ -31,7 +31,7 @@
                 itemsSelected = []
               "
             >
-              <i class="fa fa-folder-open" aria-hidden="true"></i
+              <fa-icon [icon]="faFolderOpen"></fa-icon
               >{{ "homepage.cards.knowledges_entry.new" | translate }}
             </button>
           </div>
@@ -73,7 +73,7 @@
         </thead>
         <tbody *ngIf="knowledges && knowledges.length > 0">
           <tr
-            *ngFor="let item of knowledges"
+            *ngFor="let item of knowledges; trackBy: trackByKnowledgeId"
             [ngClass]="{ noElementsDisplaying: showForm }"
           >
             <td class="pia-listsBlock-item" *ngIf="!base.is_example">
@@ -82,7 +82,7 @@
                 (click)="duplicate(item.id)"
                 class="btn pia-tooltip"
               >
-                <i class="fa fa-files-o" aria-hidden="true"></i>
+                <fa-icon [icon]="faCopy"></fa-icon>
                 <span
                   title="{{
                     'homepage.cards.item.tools.duplicate' | translate
@@ -93,7 +93,7 @@
                 </span>
               </a>
               <a (click)="delete(item.id)" class="btn pia-tooltip">
-                <i class="fa fa-trash" aria-hidden="true"></i>
+                <fa-icon [icon]="faTrash"></fa-icon>
                 <span
                   title="{{ 'homepage.cards.item.tools.remove' | translate }}"
                   class="pia-tooltip-text"

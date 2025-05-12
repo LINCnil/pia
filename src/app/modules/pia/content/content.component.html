@@ -4,28 +4,71 @@
 >
   <header autoscroll="true" class="pia-entryContentBlock-header">
     <div>
-      <i
-        class="fa"
+      <span
         *ngIf="
           sidStatusService.sidStatusIcon[
             sidStatusService.itemStatus[section.id + '.' + item.id]
           ];
           else specialIcon
         "
-        [ngClass]="
-          sidStatusService.sidStatusIcon[
-            sidStatusService.itemStatus[section.id + '.' + item.id]
-          ]
-        "
-        aria-hidden="true"
-      ></i>
-      <i
-        class="fa"
-        #specialIcon
-        *ngIf="sidStatusService.specialIcon[section.id + '.' + item.id]"
-        [ngClass]="sidStatusService.specialIcon[section.id + '.' + item.id]"
-        aria-hidden="true"
-      ></i>
+      >
+        <fa-icon
+          *ngIf="
+            sidStatusService.sidStatusIcon[
+              sidStatusService.itemStatus[section.id + '.' + item.id]
+            ] == 'faPenToSquare'
+          "
+          [icon]="faPenToSquare"
+        ></fa-icon>
+        <fa-icon
+          *ngIf="
+            sidStatusService.sidStatusIcon[
+              sidStatusService.itemStatus[section.id + '.' + item.id]
+            ] == 'faPenToSquare,pia-fa-valid'
+          "
+          [icon]="faPenToSquare"
+        ></fa-icon>
+        <fa-icon
+          *ngIf="
+            sidStatusService.sidStatusIcon[
+              sidStatusService.itemStatus[section.id + '.' + item.id]
+            ] == 'faGear'
+          "
+          [icon]="faGear"
+        ></fa-icon>
+        <fa-icon
+          *ngIf="
+            sidStatusService.sidStatusIcon[
+              sidStatusService.itemStatus[section.id + '.' + item.id]
+            ] == 'faGear,pia-fa-valid'
+          "
+          [icon]="faGear"
+        ></fa-icon>
+        <fa-icon
+          *ngIf="
+            sidStatusService.sidStatusIcon[
+              sidStatusService.itemStatus[section.id + '.' + item.id]
+            ] == 'faSquareCheck'
+          "
+          [icon]="faSquareCheck"
+        ></fa-icon>
+      </span>
+      <ng-template #specialIcon>
+        <fa-icon
+          *ngIf="
+            sidStatusService.specialIcon[section.id + '.' + item.id] ==
+            'faChartLine'
+          "
+          [icon]="faChartLine"
+        ></fa-icon>
+        <fa-icon
+          *ngIf="
+            sidStatusService.specialIcon[section.id + '.' + item.id] ==
+            'faCalendarCheck'
+          "
+          [icon]="faCalendarCheck"
+        ></fa-icon>
+      </ng-template>
       <div class="pia-entryContentBlock-header-progress">
         <div
           *ngIf="sidStatusService.itemStatus[section.id + '.' + item.id] <= 4"
@@ -250,7 +293,7 @@
           !(section.id == 4 && item.id == 3)
         "
       >
-        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+        <fa-icon [icon]="faSquareCheck"></fa-icon>
         {{ "pia.footer.subsection_validated" | translate }}
       </button>
 
@@ -292,7 +335,7 @@
           paginationService.previousLink[0]
         }}/item/{{ paginationService.previousLink[1] }}"
       >
-        <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+        <fa-icon [icon]="faAngleDoubleLeft"></fa-icon>
         {{ paginationService.previousLink[2] | translate }} </a
       ><a
         [ngClass]="{ mask: paginationService.hasNextLink === false }"
@@ -302,7 +345,7 @@
         }}/item/{{ paginationService.nextLink[1] }}"
       >
         {{ paginationService.nextLink[2] | translate }}
-        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
       </a>
     </div>
   </footer>

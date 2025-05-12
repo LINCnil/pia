@@ -16,11 +16,13 @@ import { Structure } from 'src/app/models/structure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AnswerStructureService } from 'src/app/services/answer-structure.service';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-measures',
   templateUrl: './measures.component.html',
-  styleUrls: ['./measures.component.scss']
+  styleUrls: ['./measures.component.scss'],
+  standalone: false
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
   @Input() id: number;
@@ -33,6 +35,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   displayDeleteButton = true;
   measureForm: UntypedFormGroup;
   editTitle = true;
+
+  protected readonly faTrash = faTrash;
 
   constructor(
     public globalEvaluationService: GlobalEvaluationService,

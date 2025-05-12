@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 
 // New PIA
 .pia-newBlock {
@@ -7,7 +7,7 @@
     padding-right: 0;
   }
   &-item {
-    background: url("~src/assets/images/pia-bg.png") repeat center center;
+    background: url("src/assets/images/pia-bg.png") repeat center center;
     padding: 70px 40px;
     font-size: 1.9rem;
     color: $pia-green;
@@ -20,19 +20,18 @@
       }
       &-btn {
         padding-left: 18px;
-        .fa-folder-open,
-        .fa-upload {
+        .ng-fa-icon {
+          line-height: 1;
           font-size: 7rem;
           margin-right: 30px;
         }
         .fa-upload {
           margin-right: 40px;
         }
-        .fa-folder-open,
-        .fa-upload,
+        .ng-fa-icon,
         button {
           display: inline-block;
-          vertical-align: top;
+          vertical-align: middle;
         }
       }
     }
@@ -162,7 +161,7 @@
       border-radius: 20px;
       color: $pia-green;
       padding: 0 10px;
-      .fa-list {
+      .ng-fa-icon {
         font-size: 1.5rem;
       }
       div {
@@ -303,7 +302,7 @@
           margin-right: 12px;
         }
       }
-      .fa {
+      .ng-fa-icon {
         margin-right: 10px;
         font-size: 1.5rem;
       }
@@ -413,7 +412,7 @@
       border: 1px solid $pia-red;
       &:hover {
         background: $pia-red;
-        i,
+        .ng-fa-icon,
         div {
           color: #fff;
         }

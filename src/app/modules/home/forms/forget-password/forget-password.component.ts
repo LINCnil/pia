@@ -11,7 +11,8 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
-  styleUrls: ['../form.scss', './forget-password.component.scss']
+  styleUrls: ['../form.scss', './forget-password.component.scss'],
+  standalone: false
 })
 export class ForgetPasswordComponent implements OnInit {
   @Output() canceled = new EventEmitter<boolean>();

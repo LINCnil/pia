@@ -18,15 +18,23 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
-import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
 import { BehaviorSubject } from 'rxjs';
+import {
+  faPencil,
+  faEye,
+  faFile,
+  faDownload,
+  faArchive
+} from '@fortawesome/free-solid-svg-icons';
+import JSZip from 'jszip';
 declare const require: any;
 
 @Component({
   // tslint:disable-next-line: component-selector
   selector: '[app-pia-line]',
   templateUrl: './pia-line.component.html',
-  styleUrls: ['./pia-line.component.scss']
+  styleUrls: ['./pia-line.component.scss'],
+  standalone: false
 })
 export class PiaLineComponent implements OnInit, OnChanges {
   @Input() pia: Pia;
@@ -37,18 +45,24 @@ export class PiaLineComponent implements OnInit, OnChanges {
   @Output() conflictDetected = new EventEmitter<{ field: string; err: any }>();
   @Input() users: Array<User>;
 
-  userList: Array<TagModel> = [];
+  userList: Array<any> = [];
   attachments: any;
 
-  authors: Array<TagModelClass> = [];
-  validators: Array<TagModelClass> = [];
-  evaluators: Array<TagModelClass> = [];
-  guests: Array<TagModelClass> = [];
+  authors: Array<any> = [];
+  validators: Array<any> = [];
+  evaluators: Array<any> = [];
+  guests: Array<any> = [];
   addBtnForSpecificInput: {
     display: string;
     pia_id: number;
     field: string;
   } = null;
+
+  protected readonly faPencil = faPencil;
+  protected readonly faEye = faEye;
+  protected readonly faFile = faFile;
+  protected readonly faDownload = faDownload;
+  protected readonly faArchive = faArchive;
 
   constructor(
     public piaService: PiaService,
@@ -68,7 +82,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
     this.attachmentsService.pia_id = this.pia.id;
     this.attachmentsService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(element => {
-        if (element['file'] && element['file'].length) {
+        if (element['file']) {
           this.attachments.push(element);
         }
       });
@@ -91,7 +105,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
   }
 
   onTyped($event, pia_id, field): void {
-    if ($event != '') {
+    if ($event !== '') {
       this.addBtnForSpecificInput = {
         display: $event,
         pia_id,
@@ -102,10 +116,17 @@ export class PiaLineComponent implements OnInit, OnChanges {
     }
   }
 
+  isInputDisabled(): boolean {
+    return (
+      this.authService.currentUserValue &&
+      !this.authService.currentUserValue.access_type.includes('functional')
+    );
+  }
+
   /**
    * Convert user_pias datas into fields for the form
    */
-  setUserPiasAsFields(user_pias: { user: User; role: String }[]): void {
+  setUserPiasAsFields(user_pias: { user: User; role: string }[]): void {
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -113,13 +134,13 @@ export class PiaLineComponent implements OnInit, OnChanges {
       { field: 'guests', role: 'guest', dump_field: null }
     ].forEach(ob => {
       // get user_pias with role
-      const filteredUserPias: { user: User; role: String }[] = user_pias.filter(
-        up => up.role == ob.role
+      const filteredUserPias: { user: User; role: string }[] = user_pias.filter(
+        up => up.role === ob.role
       );
 
       // convert as tag
       const tags = filteredUserPias.map(a => {
-        let display =
+        const display =
           a.user.firstname && a.user.lastname
             ? a.user.firstname + ' ' + a.user.lastname
             : a.user.email;
@@ -134,8 +155,8 @@ export class PiaLineComponent implements OnInit, OnChanges {
         const fullnames = this.pia[ob.dump_field].split(',');
         fullnames.forEach(fullname => {
           // present in tags ?
-          const exist = tags.find(ac => ac.display == fullname);
-          if (!exist && fullname != '') {
+          const exist = tags.find(ac => ac.display === fullname);
+          if (!exist && fullname !== '') {
             // add to tag
             tags.push({ display: fullname, id: null }); // id = null is for deleted user but dumped
           }
@@ -150,8 +171,8 @@ export class PiaLineComponent implements OnInit, OnChanges {
   /**
    * Disable the already selected users in the guests field
    */
-  get usersForGuests(): Array<TagModel> {
-    let usersForGuests: Array<TagModel> = this.userList;
+  get usersForGuests(): Array<any> {
+    let usersForGuests: Array<any> = this.userList;
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -174,17 +195,23 @@ export class PiaLineComponent implements OnInit, OnChanges {
    */
   async generateZip(): Promise<void> {
     setTimeout(() => {
-      const JSZip = require('jszip');
       const zip = new JSZip();
       /* Attachments */
       this.addAttachmentsToZip(zip).then((zip2: any) => {
         /* JSON */
         this.piaService.export(this.pia.id).then((data: any) => {
-          zip2.file('pia.json', data, { binary: true });
-          /* Save as .zip */
-          zip2.generateAsync({ type: 'blob' }).then(blobContent => {
-            FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
-          });
+          zip2.file('pia.json', data, { type: 'string' });
+          zip2
+            .generateAsync({
+              type: 'blob',
+              compression: 'DEFLATE',
+              compressionOptions: { level: 9 },
+              mimeType: 'application/zip',
+              encoding: 'utf8'
+            })
+            .then(blobContent => {
+              FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+            });
         });
       });
     }, 500);
@@ -197,10 +224,29 @@ export class PiaLineComponent implements OnInit, OnChanges {
   async addAttachmentsToZip(zip): Promise<any> {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
-        const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
         const folderName = this.translateService.instant('summary.attachments');
-        zip.file(folderName + '/' + attachment.name, byteCharacters1, {
-          binary: true
+
+        const isFileUrl =
+          typeof attachment.file === 'string' &&
+          (attachment.file.startsWith('http') ||
+            attachment.file.startsWith('/'));
+
+        let localUrl: string;
+        if (!isFileUrl) {
+          const blob = new Blob([attachment.file], {
+            type: attachment.mime_type
+          });
+          localUrl = URL.createObjectURL(blob);
+        } else {
+          localUrl = attachment.file;
+        }
+
+        fetch(localUrl).then(response => {
+          if (response.status === 200 || response.status === 0) {
+            zip.file(folderName + '/' + attachment.name, response.blob(), {
+              binary: true
+            });
+          }
         });
       });
       resolve(zip);
@@ -273,7 +319,7 @@ export class PiaLineComponent implements OnInit, OnChanges {
    * Add user to new Pia Form
    * Update user on author, evaluator and validator
    */
-  async onAddUser($event: TagModelClass, field: string): Promise<void> {
+  async onAddUser($event: any, field: string): Promise<void> {
     // User selected exist ?
     const index = this.users.findIndex(u => u.id === $event.id);
     if (index === -1) {
@@ -292,7 +338,6 @@ export class PiaLineComponent implements OnInit, OnChanges {
       // waiting for submitted user form
       observable.subscribe({
         complete: async () => {
-          console.log(this[field], $event);
           if (userBehavior.value) {
             this[field].push({
               display: `${userBehavior.value.firstname} ${userBehavior.value.lastname}`,
@@ -334,9 +379,9 @@ export class PiaLineComponent implements OnInit, OnChanges {
         if (err.statusText === 'Conflict') {
           // AUTO FIX
           // this.conflictDetected.emit({ field: 'name', err });
-          const piaCloned = err.record;
-          piaCloned[field] = userAssignValues;
-          this.piaService.update(piaCloned).then((resp: Pia) => {
+          const pia = err.record;
+          pia[field] = userAssignValues;
+          this.piaService.update(pia).then((resp: Pia) => {
             this.pia = resp;
             this.setUserPiasAsFields(resp.user_pias);
           });
@@ -344,9 +389,9 @@ export class PiaLineComponent implements OnInit, OnChanges {
       });
   }
 
-  onRemove($event: TagModelClass, field: string): void {
-    const index = this[field].findIndex(t => t == $event);
-    if (index != -1) {
+  onRemove($event: any, field: string): void {
+    const index = this[field].findIndex(t => t === $event);
+    if (index !== -1) {
       this[field].splice(index, 1);
     }
     this.savePiaAfterUserAssign(field);

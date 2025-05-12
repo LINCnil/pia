@@ -30,8 +30,8 @@
           />
           <label for="checkbox-1">
             <span class="pia-list-confirm-icon">
-              <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
             </span>
             <span class="pia-list-confirm-desc">{{
               "validation_page.confirmation1" | translate
@@ -51,8 +51,8 @@
           />
           <label for="checkbox-2">
             <span class="pia-list-confirm-icon">
-              <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
             </span>
             <span class="pia-list-confirm-desc">{{
               "validation_page.confirmation2" | translate
@@ -72,8 +72,8 @@
           />
           <label for="checkbox-3">
             <span class="pia-list-confirm-icon">
-              <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
             </span>
             <span class="pia-list-confirm-desc">{{
               "validation_page.confirmation3" | translate
@@ -93,8 +93,8 @@
           />
           <label for="checkbox-4">
             <span class="pia-list-confirm-icon">
-              <i class="fa fa-circle" aria-hidden="true"></i>
-              <i class="fa fa-check" aria-hidden="true"></i>
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
             </span>
             <span class="pia-list-confirm-desc">{{
               "validation_page.confirmation4" | translate
@@ -145,15 +145,18 @@
       >
         <ng-container
           *ngIf="
-            !attachmentsService.attachment_signed;
+            !(
+              attachmentsService.signedAttachments &&
+              attachmentsService.signedAttachments.length > 0
+            );
             else piaSignedAndValidated
           "
         >
           <p>{{ "validation_page.waiting_for_signature" | translate }}</p>
-          <i class="fa fa-cog" aria-hidden="true"></i>
+          <fa-icon [icon]="faCog"></fa-icon>
         </ng-container>
         <ng-template #piaSignedAndValidated>
-          <i class="fa fa fa-check-square-o" aria-hidden="true"></i>
+          <fa-icon [icon]="faCheckSquare"></fa-icon>
           <p>
             {{ "validation_page.validated_pia_with_signature" | translate }}
           </p>
@@ -182,29 +185,30 @@
       class="pia-entryContentBlock-footer-validationAttachments"
       *ngIf="
         pia.status === 3 &&
-        (attachmentsService.attachment_signed ||
-          (attachmentsService.signedAttachments &&
-            attachmentsService.signedAttachments.length > 0))
+        attachmentsService.signedAttachments &&
+        attachmentsService.signedAttachments.length > 0
       "
     >
       <!-- Last signed attachment -->
-      <div *ngIf="attachmentsService.attachment_signed">
+      <div>
         <h2>{{ "validation_page.latest_signed_attachment" | translate }}</h2>
         <div>
           <span class="pia-icons pia-icon-file-pdf-blue"></span>
           <a
             href="javascript:;"
             (click)="
-              downloadAttachment(attachmentsService.attachment_signed.id)
+              downloadAttachment(attachmentsService.signedAttachments[0].id)
             "
           >
-            {{ attachmentsService.attachment_signed.name }}
+            {{ attachmentsService.signedAttachments[0].name }}
           </a>
           <button
             *ngIf="pia.status !== 4"
             type="button"
             class="btn"
-            (click)="removeAttachment(attachmentsService.attachment_signed.id)"
+            (click)="
+              removeAttachment(attachmentsService.signedAttachments[0].id)
+            "
             title="{{ 'validation_page.remove_attachment' | translate }}"
           >
             <span class="pia-icons pia-icon-close"></span>
@@ -216,14 +220,14 @@
       <div
         *ngIf="
           attachmentsService.signedAttachments &&
-          attachmentsService.signedAttachments.length > 0
+          attachmentsService.signedAttachments.length > 1
         "
         class="pia-entryContentBlock-footer-validationAttachments-history"
       >
         <h2>{{ "validation_page.signed_attachments_history" | translate }}</h2>
         <div
           *ngFor="
-            let signed_attachment of attachmentsService.signedAttachments;
+            let signed_attachment of attachmentsService.signedAttachments | slice:1;;
             let i = index
           "
         >
@@ -235,11 +239,12 @@
               signed_attachment.file && signed_attachment.file.length > 0;
               else signedAttachmentName
             "
-            >{{ signed_attachment.name }}</a
+          >
+            {{ signed_attachment.name }}</a
           >
           <ng-template #signedAttachmentName>
             <span
-              ><del>{{ signed_attachment.name }}</del></span
+              ><del> {{ signed_attachment.name }}</del></span
             >
           </ng-template>
           <div

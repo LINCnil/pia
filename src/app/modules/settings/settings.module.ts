@@ -5,10 +5,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { UrlComponent } from './url/url.component';
 import { HelpComponent } from './help/help.component';
-import { PiaI18nModule } from '@atnos/pia-i18n';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [AboutComponent, UrlComponent, HelpComponent],
-  imports: [PiaI18nModule, SharedModule, CommonModule, SettingsRoutingModule]
+  imports: [SharedModule, CommonModule, SettingsRoutingModule, TranslatePipe]
 })
 export class SettingsModule {}

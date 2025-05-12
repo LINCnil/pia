@@ -91,7 +91,6 @@ export class EvaluationService extends ApplicationDb {
   }
 
   async findAllByPia(pia_id: number) {
-    const items = [];
     return new Promise((resolve, reject) => {
       this.pia_id = pia_id;
       super
@@ -102,50 +101,6 @@ export class EvaluationService extends ApplicationDb {
         .catch(error => {
           console.error('Request failed', error);
           reject();
-        });
-    });
-  }
-
-  async existByReference(pia_id: number, reference_to: any) {
-    return new Promise((resolve, reject) => {
-      super
-        .findWithReference('?reference_to=' + reference_to, {
-          index: 'index1',
-          value: [pia_id, reference_to]
-        })
-        .then((result: any) => {
-          if (result && result.length > 0) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
-
-  async globalStatusByReference(
-    pia_id: number,
-    reference_to: any,
-    global_status: number
-  ) {
-    return new Promise((resolve, reject) => {
-      super
-        .findWithReference('?reference_to=' + reference_to, {
-          index: 'index1',
-          value: [pia_id, reference_to]
-        })
-        .then((result: any) => {
-          if (result) {
-            resolve(result.global_status === global_status);
-          } else {
-            resolve(false);
-          }
-        })
-        .catch(error => {
-          reject(error);
         });
     });
   }

@@ -12,7 +12,8 @@ import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-url',
   templateUrl: './url.component.html',
-  styleUrls: ['./url.component.scss']
+  styleUrls: ['./url.component.scss'],
+  standalone: false
 })
 export class UrlComponent implements OnInit {
   settingsForm: UntypedFormGroup;

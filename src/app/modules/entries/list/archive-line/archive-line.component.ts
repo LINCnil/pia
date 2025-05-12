@@ -4,17 +4,23 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
+import { faEye, faRefresh, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   // tslint:disable-next-line: component-selector
   selector: '[app-archive-line]',
   templateUrl: './archive-line.component.html',
-  styleUrls: ['./archive-line.component.scss']
+  styleUrls: ['./archive-line.component.scss'],
+  standalone: false
 })
 export class ArchiveLineComponent implements OnInit {
   @Input() archivedPia: any;
   @Output() deleted = new EventEmitter<any>();
   attachments: any;
+
+  protected readonly faEye = faEye;
+  protected readonly faRefresh = faRefresh;
+  protected readonly faTrash = faTrash;
 
   constructor(
     public piaService: PiaService,

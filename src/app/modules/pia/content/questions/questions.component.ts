@@ -7,9 +7,7 @@ import {
   NgZone
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
+import { debounceTime, map, filter } from 'rxjs/operators';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { Evaluation } from 'src/app/models/evaluation.model';
@@ -25,14 +23,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.scss']
+  styleUrls: ['./questions.component.scss'],
+  standalone: false
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
   allUserAnswersForImpacts = [];
   allUserAnswersForThreats = [];
   allUserAnswersForSources = [];
-  allUserAnswersToDisplay = [];
   userAnswersToDisplay = [];
   @Input() editMode:
     | 'local'
@@ -49,6 +47,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   elementId: string;
   editor: any;
   loading = false;
+  gaugeValue = 0;
 
   constructor(
     private router: Router,
@@ -77,9 +76,14 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       .then((answer: Answer) => {
         if (answer) {
           this.answer = answer;
-          this.questionForm.controls['gauge'].patchValue(
-            this.answer.data.gauge
-          );
+          this.gaugeValue = this.answer.data.gauge;
+          this.questionForm.controls['gauge'].setValue(this.answer.data.gauge, {
+            emitEvent: false
+          });
+          this.questionForm.controls['gauge'].disable({
+            onlySelf: true,
+            emitEvent: false
+          });
           this.questionForm.controls['text'].patchValue(this.answer.data.text);
           if (this.answer.data.list) {
             const dataList = this.answer.data.list.filter(l => {
@@ -194,6 +198,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    // @ts-ignore
     tinymce.remove(this.editor);
   }
 
@@ -219,7 +224,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     bgElement.classList.remove('pia-gaugeBlock-background-3');
     bgElement.classList.remove('pia-gaugeBlock-background-4');
     bgElement.classList.add('pia-gaugeBlock-background-' + value);
-    const gaugeValue = parseInt(this.questionForm.value.gauge, 10);
+    const gaugeValue = parseInt(this.questionForm.getRawValue().gauge, 10);
+    this.gaugeValue = gaugeValue;
 
     // this.loading = true;
     if (this.answer.id) {
@@ -289,9 +295,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.globalEvaluationService.validate();
           });
         })
-        .catch(err => {
-          if (err.statusText === 'Conflict') {
-            this.conflictDialog(err);
+        .catch(error => {
+          if (error.statusText === 'Conflict') {
+            this.conflictDialog(error);
           }
         });
       // .finally(() => {
@@ -424,7 +430,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.data = {
         text: this.answer.data.text,
         gauge: this.answer.data.gauge,
-        list: list
+        list
       };
 
       this.answerService
@@ -439,7 +445,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     } else {
       this.answer.pia_id = this.pia.id;
       this.answer.reference_to = this.question.id;
-      this.answer.data = { text: null, gauge: null, list: list };
+      this.answer.data = { text: null, gauge: null, list };
 
       this.answerService
         .create(this.answer)
@@ -473,13 +479,17 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     );
     if (event.target.getAttribute('data-status') === 'hide') {
       event.target.removeAttribute('data-status');
-      commentsDisplayer.classList.remove('hide');
+      if (commentsDisplayer) {
+        commentsDisplayer.classList.remove('hide');
+      }
       if (evaluationDisplayer && this.evaluation.status > 0) {
         evaluationDisplayer.classList.remove('hide');
       }
     } else {
       event.target.setAttribute('data-status', 'hide');
-      commentsDisplayer.classList.add('hide');
+      if (commentsDisplayer) {
+        commentsDisplayer.classList.add('hide');
+      }
       if (evaluationDisplayer) {
         evaluationDisplayer.classList.add('hide');
       }
@@ -490,12 +500,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor(): void {
-    // unset knowlegebase
     this.knowledgeBaseService.placeholder = this.question.placeholder;
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
 
     setTimeout(() => {
-      // init new editor
+      // @ts-ignore
       tinymce.init({
         branding: false,
         menubar: false,
@@ -519,6 +528,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.questionForm.controls['text'].patchValue(editor.getContent());
             this.questionContentFocusOut().then(() => {
               this.editor = null;
+              // @ts-ignore
               tinymce.remove(this.editor); // Warning: take more time then a new initiation
               this.knowledgeBaseService.placeholder = null;
             });
@@ -529,10 +539,31 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Gets the appropriate autocomplete items based on whether the question is a measure
+   * @returns {any[]} The autocomplete items to display
+   */
+  getAutocompleteItems(): any[] {
+    return this.question.is_measure
+      ? this.userMeasures
+      : this.userAnswersToDisplay;
+  }
+
+  /**
+   * Checks if the input field should be disabled.
+   * @returns {boolean} True if the input should be disabled, false otherwise.
+   */
+  isInputDisabled(): boolean {
+    return (
+      !this.globalEvaluationService.answerEditionEnabled ||
+      (!this.editMode.includes('author') && this.editMode !== 'local')
+    );
+  }
+
+  /**
    * Open a dialog modal for deal with the conflict
    * @param err
    */
-  private conflictDialog(err) {
+  private conflictDialog(err: any): void {
     let additional_text: string;
     const currentUrl = this.router.url;
 
@@ -582,7 +613,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.keep_new'),
           callback: () => {
-            let newAnswerFixed: Answer = { ...err.params };
+            const newAnswerFixed: Answer = { ...err.params };
             newAnswerFixed.id = err.record.id;
             newAnswerFixed.lock_version = err.record.lock_version;
             this.answerService
@@ -595,13 +626,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
                   });
                 return;
               })
-              .catch(err => {});
+              .catch(error => {});
           }
         },
         {
           label: this.translateService.instant('conflict.merge'),
           callback: () => {
-            let newAnswerFixed: Answer = { ...err.record };
+            const newAnswerFixed: Answer = { ...err.record };
             newAnswerFixed.data.text += '\n' + err.params.data.text;
             this.answerService
               .update(newAnswerFixed)
@@ -613,7 +644,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
                   });
                 return;
               })
-              .catch(err => {});
+              .catch(error => {});
           }
         }
       ]

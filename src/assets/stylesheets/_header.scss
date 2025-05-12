@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .pia {
   &-navigationBlock {
     position: relative;
@@ -297,9 +299,9 @@
           min-width: 60px;
           padding: 3px 14px !important;
         }
-        .fa-globe {
-          font-size: 1.8rem;
-          margin-top: 2px;
+        .ng-fa-icon {
+          font-size: 1.6rem;
+          vertical-align: middle;
         }
         > ul {
           min-width: 200px;

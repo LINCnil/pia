@@ -3,11 +3,18 @@ import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { UsersService } from 'src/app/services/users.service';
+import {
+  faRefresh,
+  faFolderOpen,
+  faTrash,
+  faPencil
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: ['./users.component.scss'],
+  standalone: false
 })
 export class UsersComponent implements OnInit {
   public loading = false;
@@ -15,6 +22,11 @@ export class UsersComponent implements OnInit {
   public users: Array<User> = [];
 
   public userToEdit: User;
+
+  protected readonly faRefresh = faRefresh;
+  protected readonly faFolderOpen = faFolderOpen;
+  protected readonly faTrash = faTrash;
+  protected readonly faPencil = faPencil;
 
   constructor(
     public authService: AuthService,
@@ -90,7 +102,8 @@ export class UsersComponent implements OnInit {
             type: 'yes',
             yes: 'modals.continue',
             no: '',
-            icon: 'fa fa-cog icon-red',
+            icon: 'faGear',
+            class: 'icon-red',
             data: {
               btn_yes: 'btn-blue',
               no_cross_button: true

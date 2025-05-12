@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 // Main PIA content styles
 .pia {
   // Central PIA content Block
@@ -16,12 +16,12 @@
         width: 74px;
         background-color: $pia-green;
         position: relative;
-        i {
+        .ng-fa-icon {
           display: block;
           top: 50%;
           left: 50%;
           margin-top: -17px;
-          margin-left: -15px;
+          margin-left: -17px;
           position: absolute;
           font-size: 34px;
           color: #fff;

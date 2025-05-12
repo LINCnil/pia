@@ -10,6 +10,12 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { KnowledgesService } from 'src/app/services/knowledges.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import piakb from 'src/assets/files/pia_knowledge-base.json';
+import {
+  faFolderOpen,
+  faTrash,
+  faFile,
+  faCopy
+} from '@fortawesome/free-solid-svg-icons';
 
 function slugify(text): string {
   return text
@@ -25,7 +31,8 @@ function slugify(text): string {
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
-  styleUrls: ['./base.component.scss']
+  styleUrls: ['./base.component.scss'],
+  standalone: false
 })
 export class BaseComponent implements OnInit {
   base: KnowledgeBase = null;
@@ -47,6 +54,10 @@ export class BaseComponent implements OnInit {
     'knowledge_base.category.organizational_measure': 'measure.governance',
     'knowledge_base.category.definition': 'measure.definition'
   };
+
+  protected readonly faFolderOpen = faFolderOpen;
+  protected readonly faTrash = faTrash;
+  protected readonly faFile = faFile;
 
   constructor(
     private router: Router,
@@ -271,6 +282,7 @@ export class BaseComponent implements OnInit {
     if (this.selectedKnowledgeId) {
       const entry = { ...this.entryForm.value };
       entry.id = this.selectedKnowledgeId;
+      entry.updated_at = new Date();
       entry.slug = slugify(entry.name);
       entry.category = this.entryForm.value.category;
       entry.lock_version = this.entryForm.value.lock_version;
@@ -333,93 +345,85 @@ export class BaseComponent implements OnInit {
   /**
    * Record every change on each item checkbox.
    */
-  onCheckboxChange(e): void {
-    const ar = this.itemsSelected;
-    if (e.target.checked) {
-      ar.push(e.target.value);
-    } else {
-      const index = ar.findIndex(
-        item => item.toString() == e.target.value.toString()
-      );
-      if (index !== -1) {
-        ar.splice(index, 1);
-      }
-    }
-    this.itemsSelected = ar;
+  onCheckboxChange(event: Event): void {
+    const checkboxValue = (event.target as HTMLInputElement).value;
+    const isChecked = (event.target as HTMLInputElement).checked;
+
+    // Update itemsSelected immutably
+    this.itemsSelected = isChecked
+      ? [...this.itemsSelected, checkboxValue]
+      : this.itemsSelected.filter(item => item !== checkboxValue);
     this.focusOut('checkbox');
   }
 
   /**
    * Check all items when the section checkbox is clicked.
    */
-  globalCheckingElementInDataSection(dataSection, e): void {
-    const checkboxStatus = e.target.checked;
-    const checkboxes = e.target.parentNode.parentNode
-      .querySelector('.pia-knowledges_base-form-checkboxes-list')
-      .querySelectorAll('[type="checkbox"]');
-    if (checkboxes) {
-      checkboxes.forEach((checkboxElement: HTMLInputElement) => {
-        if (checkboxStatus && !checkboxElement.checked) {
-          checkboxElement.click();
-        } else if (!checkboxStatus && checkboxElement.checked) {
-          checkboxElement.click();
-        }
-      });
-    }
+  globalCheckingElementInDataSection(dataSection: any, event: Event): void {
+    const checkboxStatus = (event.target as HTMLInputElement).checked;
+
+    // Update itemsSelected immutably
+    const updatedItemsSelected = [...this.itemsSelected];
+
+    dataSection.items.forEach(item => {
+      const itemId = `${dataSection.id}${item.id}`;
+      const index = updatedItemsSelected.indexOf(itemId);
+
+      if (checkboxStatus && index === -1) {
+        updatedItemsSelected.push(itemId);
+      } else if (!checkboxStatus && index !== -1) {
+        updatedItemsSelected.splice(index, 1);
+      }
+    });
+
+    this.itemsSelected = updatedItemsSelected;
+    this.focusOut('checkbox');
   }
 
   /**
    * Check all sections when the "all sections" checkbox is clicked.
    */
-  globalCheckingAllElementInDataSection(e): void {
-    const checkboxStatus = e.target.checked;
-    const checkboxesTitle = e.target.parentNode.parentNode.querySelectorAll(
-      '.pia-knowledges_base-form-checkboxes-title'
-    );
-    if (checkboxesTitle) {
-      checkboxesTitle.forEach(el => {
-        const checkboxElement = el.querySelector('[type="checkbox"]');
-        if (checkboxElement) {
-          if (checkboxStatus && !checkboxElement.checked) {
-            checkboxElement.click();
-          } else if (!checkboxStatus && checkboxElement.checked) {
-            checkboxElement.click();
-          }
+  globalCheckingAllElementInDataSection(event: Event): void {
+    const checkboxStatus = (event.target as HTMLInputElement).checked;
+
+    // Update itemsSelected immutably
+    const updatedItemsSelected = [];
+
+    this.data.sections.forEach(section => {
+      section.items.forEach(item => {
+        const itemId = `${section.id}${item.id}`;
+        if (checkboxStatus) {
+          updatedItemsSelected.push(itemId);
         }
       });
-    }
+    });
+
+    this.itemsSelected = checkboxStatus ? updatedItemsSelected : [];
+    this.focusOut('checkbox');
+  }
+
+  trackByKnowledgeId(index: number, item: Knowledge): number {
+    return item.id; // Use the unique ID of the knowledge item
   }
 
   /**
    * Checked the parent checkbox attribute
    */
-  sectionCheckedVerification(dataSection): boolean {
-    let checked = true;
-    dataSection.items.forEach(item => {
-      if (!this.itemsSelected.includes(`${dataSection.id}${item.id}`)) {
-        if (!this.lockedChoice && `${dataSection.id}${item.id}` === '31') {
-          return;
-        }
-        checked = false;
-      }
-    });
-    return checked;
+  sectionCheckedVerification(dataSection: any): boolean {
+    return dataSection.items.every(item =>
+      this.itemsSelected.includes(`${dataSection.id}${item.id}`)
+    );
   }
 
   /**
    * Verify every checkboxes to check or uncheck the "all section" checkbox.
    */
-  allSectionCheckedVerification(sections): void {
-    let allChecked = true;
-    sections.forEach(section => {
-      if (!this.sectionCheckedVerification(section)) {
-        allChecked = false;
-      }
-    });
-    const checkboxAllSections = document.getElementById(
-      'select_all_sections'
-    ) as HTMLInputElement;
-    checkboxAllSections.checked = allChecked;
+  allSectionCheckedVerification(sections: any[]): boolean {
+    return sections.every(section =>
+      section.items.every(item =>
+        this.itemsSelected.includes(`${section.id}${item.id}`)
+      )
+    );
   }
 
   /**
@@ -515,4 +519,6 @@ export class BaseComponent implements OnInit {
       ]
     );
   }
+
+  protected readonly faCopy = faCopy;
 }

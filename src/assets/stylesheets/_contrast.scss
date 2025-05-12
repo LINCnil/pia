@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 /* CONTRAST CHANGES */
 main.pia-contrast {
   /* buttons */
@@ -432,18 +434,6 @@ main.pia-contrast {
           }
         }
       }
-      // footer for validation page
-      &-validationTools {
-        > a,
-        button {
-          i {
-            color: $pia-green-dark !important;
-          }
-          p {
-            color: $pia-gray-dark !important;
-          }
-        }
-      }
       &-nav {
         a {
           color: $pia-green-dark !important;
@@ -494,9 +484,6 @@ main.pia-contrast {
     }
     &-body {
       > div {
-        i.pia-fa-valid {
-          color: $pia-green-dark !important;
-        }
         &:first-child {
           .pia-sectionBlock-title {
             color: $pia-green-dark !important;
@@ -510,23 +497,36 @@ main.pia-contrast {
               background-color: $pia-green-dark !important;
             }
           }
-          i {
-            &.fa-pencil-square-o.pia-fa-valid,
-            &.fa-cog.pia-fa-valid,
-            &.fa-check-square-o {
-              color: $pia-green-dark !important;
-            }
-            &.fa-cog,
-            &.fa-pencil-square-o {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
               color: $pia-gray-dark;
+            }
+            &.pia-fa-valid {
+              .fa-pen-to-square,
+              .fa-gear {
+                color: $pia-green-dark;
+              }
+            }
+            .fa-square-check {
+              color: $pia-green-dark;
             }
           }
         }
         &:nth-child(2) {
-          i {
-            &.fa-cog,
-            &.fa-pencil-square-o {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
               color: $pia-gray-dark;
+            }
+            &.pia-fa-valid {
+              .fa-pen-to-square,
+              .fa-gear {
+                color: $pia-blue;
+              }
+            }
+            .fa-square-check {
+              color: $pia-blue;
             }
           }
         }
@@ -543,22 +543,36 @@ main.pia-contrast {
               background-color: $pia-red-dark !important;
             }
           }
-          i {
-            &.fa-pencil-square-o.pia-fa-valid,
-            &.fa-cog.pia-fa-valid,
-            &.fa-check-square-o {
-              color: $pia-red-dark !important;
-            }
-            &.fa-cog,
-            &.fa-pencil-square-o {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
               color: $pia-gray-dark;
+            }
+            &.pia-fa-valid {
+              .fa-pen-to-square,
+              .fa-gear {
+                color: $pia-red-dark;
+              }
+            }
+            .fa-square-check {
+              color: $pia-red-dark;
             }
           }
         }
         &:nth-child(4) {
-          i {
-            &.fa-pencil-square-o {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
               color: $pia-gray-dark;
+            }
+            &.pia-fa-valid {
+              .fa-pen-to-square,
+              .fa-gear {
+                color: $pia-dark-black;
+              }
+            }
+            .fa-square-check {
+              color: $pia-dark-black;
             }
           }
         }
@@ -586,7 +600,7 @@ main.pia-contrast {
       border-bottom-color: $pia-gray-dark;
     }
     &-searchForm {
-      i {
+      .ng-fa-icon {
         color: $pia-gray-dark !important;
       }
     }
@@ -967,10 +981,10 @@ main.pia-contrast {
   .pia-fullPreviewBlock {
     &-header {
       .pia-previewBlock {
-        i {
+        .ng-fa-icon {
           border: 1px solid $pia-green-dark !important;
         }
-        i,
+        .ng-fa-icon,
         div {
           color: $pia-green-dark !important;
         }

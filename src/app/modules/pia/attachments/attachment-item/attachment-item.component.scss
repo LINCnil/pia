@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 .pia {
   &-attachmentsBlock {
     &-item {
@@ -32,7 +32,7 @@
         font-weight: 500;
         font-size: 1.15rem;
         color: $pia-blue;
-        .fa {
+        .ng-fa-icon {
           font-size: 1.45rem;
         }
       }

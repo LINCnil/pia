@@ -4,7 +4,6 @@ import {
   UntypedFormGroup,
   Validators
 } from '@angular/forms';
-import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
 import { BehaviorSubject } from 'rxjs';
 import { Pia } from 'src/app/models/pia.model';
 import { Structure } from 'src/app/models/structure.model';
@@ -17,11 +16,12 @@ import { SimpleChanges } from '@angular/core';
 @Component({
   selector: 'app-new-pia',
   templateUrl: './new-pia.component.html',
-  styleUrls: ['../form.component.scss']
+  styleUrls: ['../form.component.scss'],
+  standalone: false
 })
 export class NewPiaComponent implements OnInit {
   @Input() users: Array<User>;
-  userList: Array<TagModel>;
+  userList: Array<any>;
   @Output() newUserNeeded: EventEmitter<any> = new EventEmitter<any>();
   @Output() submitted: EventEmitter<any> = new EventEmitter<any>();
   piaForm: UntypedFormGroup;
@@ -121,7 +121,7 @@ export class NewPiaComponent implements OnInit {
   /**
    * Add user to new Pia Form
    */
-  onAddUser($event: TagModelClass, field: string): void {
+  onAddUser($event: any, field: string): void {
     // Get tag in form
     const tagIndex = this.piaForm.controls[field].value.findIndex(
       f => f.id === $event.display

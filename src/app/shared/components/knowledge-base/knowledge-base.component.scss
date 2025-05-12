@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 .pia {
   &-knowledgeBaseBlock {
     &-none {
@@ -44,7 +44,7 @@
         border: none;
         padding-right: 42px;
       }
-      i {
+      .ng-fa-icon {
         font-size: 1.7rem;
         color: $pia-gray;
       }
