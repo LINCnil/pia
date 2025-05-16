@@ -125,7 +125,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
    */
   async showPia(): Promise<void> {
     this.prepareDpoData();
-    this.actionPlanService.listActionPlan();
+    // this.actionPlanService.listActionPlan();
     this.getJsonInfo();
   }
 
