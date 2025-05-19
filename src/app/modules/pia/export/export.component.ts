@@ -20,6 +20,8 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AnswerService } from 'src/app/services/answer.service';
 import { LanguagesService } from 'src/app/services/languages.service';
+import JSZip from 'jszip';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 declare const require: any;
 require('src/assets/fonts/Roboto-Regular-webfont-normal.js');
@@ -43,22 +45,10 @@ function slugify(text): string {
 @Component({
   selector: 'app-export',
   templateUrl: './export.component.html',
-  styleUrls: ['./export.component.scss']
+  styleUrls: ['./export.component.scss'],
+  standalone: false
 })
 export class ExportComponent implements OnInit {
-  @Input() pia: Pia = null;
-  csvContent: any;
-  fromArchives = false;
-  dataNav: any;
-  csvOptions = {};
-  exportSelected: Array<any> = [];
-  piaJson: JSON;
-  @Output() downloading = new EventEmitter();
-  @Input() editMode = false;
-
-  data: { sections: any };
-  allData: object;
-
   constructor(
     private route: ActivatedRoute,
     private piaService: PiaService,
@@ -72,6 +62,20 @@ export class ExportComponent implements OnInit {
     private evaluationService: EvaluationService,
     public languagesService: LanguagesService
   ) {}
+  @Input() pia: Pia = null;
+  csvContent: any;
+  fromArchives = false;
+  dataNav: any;
+  csvOptions = {};
+  exportSelected: Array<any> = [];
+  piaJson: JSON;
+  @Output() downloading = new EventEmitter();
+  @Input() editMode = false;
+
+  data: { sections: any };
+  allData: object;
+
+  protected readonly faDownload = faDownload;
 
   ngOnInit(): void {
     this.piaService
@@ -119,7 +123,7 @@ export class ExportComponent implements OnInit {
     return new Promise((resolve, reject) => {
       if (this.exportSelected) {
         if (this.exportSelected.length > 1) {
-          // download by selection
+          // Multiple files export (.zip)
           window.scroll(0, 0);
           this.generateExportsZip('pia-full-content', this.exportSelected).then(
             () => {
@@ -127,54 +131,42 @@ export class ExportComponent implements OnInit {
             }
           );
         } else {
-          // download only one element
+          // Single file export
           const fileTitle = 'pia-' + slugify(this.pia.name);
           const navigator: any = window.navigator;
           switch (this.exportSelected[0]) {
-            // .pdf
             case 'pdf':
               window.scroll(0, 0);
               this.generatePdf(true).then(() => {
                 resolve();
               });
               break;
-
-            // .doc
             case 'doc':
               window.scroll(0, 0);
               this.generateDoc('pia-full-content').then(() => {
                 resolve();
               });
               break;
-
-            // Images
             case 'images':
               window.scroll(0, 0);
               this.downloadAllGraphsAsImages().then(() => {
                 resolve();
               });
               break;
-
-            // .json
             case 'json':
               window.scroll(0, 0);
               this.piaService.export(this.pia.id).then((json: any) => {
-                const downloadLink = document.createElement('a');
-                document.body.appendChild(downloadLink);
-                if (navigator.msSaveOrOpenBlob) {
-                  navigator.msSaveBlob(json, fileTitle + '.json');
-                } else {
-                  const blob = new Blob([json], { type: 'text/plain' });
-                  downloadLink.href = URL.createObjectURL(blob);
-                  downloadLink.download = fileTitle + '.json';
-                  downloadLink.click();
-                  downloadLink.remove();
-                }
+                const downloadJson = document.createElement('a');
+                document.body.appendChild(downloadJson);
+                downloadJson.href = URL.createObjectURL(
+                  new Blob([json], { type: 'text/plain' })
+                );
+                downloadJson.download = fileTitle + '.json';
+                downloadJson.click();
+                downloadJson.remove();
                 resolve();
               });
               break;
-
-            // .csv
             case 'csv':
               window.scroll(0, 0);
               const csvName =
@@ -185,15 +177,16 @@ export class ExportComponent implements OnInit {
                 ) +
                 '.csv';
               const blob = this.csvToBlob(csvName);
-              const downloadLink = document.createElement('a');
-              document.body.appendChild(downloadLink);
+              const downloadCsv = document.createElement('a');
+              document.body.appendChild(downloadCsv);
 
               if (navigator.msSaveOrOpenBlob) {
                 navigator.msSaveBlob(blob, csvName);
               } else {
-                downloadLink.href = URL.createObjectURL(blob);
-                downloadLink.download = csvName;
-                downloadLink.click();
+                downloadCsv.href = URL.createObjectURL(blob);
+                downloadCsv.download = csvName;
+                downloadCsv.click();
+                downloadCsv.remove();
               }
               resolve();
               break;
@@ -208,12 +201,11 @@ export class ExportComponent implements OnInit {
   /**
    * Generate a ZIP with the pdf + doc + csv + json + all pictures
    * @param element block in the HTML view used to generate the docx in the zip
-   * @param exports files to exports array ['pdf', 'doc', 'images', 'csv', 'json']
+   * @param exports files to exports array ['pdf', 'doc', 'images', 'csv', 'json']
    */
   async generateExportsZip(element, exports: Array<string>): Promise<void> {
     window.scroll(0, 0);
     const zipName = 'pia-' + slugify(this.pia.name) + '.zip';
-    const JSZip = require('jszip');
     const zip = new JSZip();
 
     // Attach export files
@@ -232,14 +224,17 @@ export class ExportComponent implements OnInit {
       if (exports.includes('doc')) {
         window.scroll(0, 0);
         const dataDoc = await this.prepareDocFile(element);
-        zip2.file('Doc/' + dataDoc.filename, dataDoc.blob);
+        zip2.file('Doc/' + dataDoc.filename, dataDoc.blob, { type: 'string' });
       }
 
       // .json
       if (exports.includes('json')) {
         window.scroll(0, 0);
-        zip2.file('pia-' + slugify(this.pia.name) + '.json', this.piaJson, {
-          binary: true
+        await this.piaService.export(this.pia.id).then((json: any) => {
+          const blob = new Blob([json], { type: 'text/plain' });
+          zip2.file('pia-' + slugify(this.pia.name) + '.json', blob, {
+            type: 'string'
+          });
         });
       }
 
@@ -250,7 +245,9 @@ export class ExportComponent implements OnInit {
           'summary.action_plan.title'
         );
         const blob = this.csvToBlob(fileTitle);
-        zip2.file('CSV/' + slugify(fileTitle) + '.csv', blob, { binary: true });
+        zip2.file('CSV/' + slugify(fileTitle) + '.csv', blob, {
+          type: 'string'
+        });
       }
 
       // Images
@@ -277,9 +274,7 @@ export class ExportComponent implements OnInit {
     // Convert Object to JSON
     const jsonObject = JSON.stringify(items);
     const csv = this.convertToCSV(jsonObject);
-    const exportedFilenmae = fileTitle + '.csv' || 'export.csv';
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    return blob;
+    return new Blob(['\ufeff', csv], { type: 'text/csv' });
   }
 
   convertToCSV(objArray): string {
@@ -344,44 +339,26 @@ export class ExportComponent implements OnInit {
     };
 
     const csvContentFormatted = [];
-    this.csvContent.forEach(item => {
-      const itemData = {};
-      if (item.title) {
-        itemData['title'] = `"${item.title}"`;
-      }
-      if (item.blank) {
-        itemData['blank'] = `"${item.blank}"`;
-      }
-      if (item.short_title) {
-        itemData['short_title'] = `"${item.short_title}"`;
-      }
-      if (item.action_plan_comment) {
-        itemData[
-          'action_plan_comment'
-        ] = `"${item.action_plan_comment}"`
-          .replace(/,/g, '')
-          .replace(/\n/g, ' ');
-      }
-      if (item.evaluation_comment) {
-        itemData['evaluation_comment'] = `"${item.evaluation_comment}"`
-          .replace(/,/g, '')
-          .replace(/\n/g, ' ');
-      }
-      if (item.evaluation_date) {
-        itemData['evaluation_date'] = `"${item.evaluation_date}"`;
-      }
-      if (item.evaluation_charge) {
-        itemData['evaluation_charge'] = `"${item.evaluation_charge}"`;
-      }
 
+    this.csvContent.forEach(item => {
       csvContentFormatted.push({
-        title: itemData['title'],
-        blank: itemData['blank'],
-        short_title: itemData['short_title'],
-        action_plan_comment: itemData['action_plan_comment'],
-        evaluation_comment: itemData['evaluation_comment'],
-        evaluation_date: itemData['evaluation_date'],
-        evaluation_charge: itemData['evaluation_charge']
+        title: item.title ? `"${item.title}"` : '',
+        blank: item.blank ? `"${item.blank}"` : '',
+        short_title: item.short_title ? `"${item.short_title}"` : '',
+        action_plan_comment: item.action_plan_comment
+          ? `"${item.action_plan_comment}"`
+              .replace(/,/g, '')
+              .replace(/\n/g, ' ')
+          : '',
+        evaluation_comment: item.evaluation_comment
+          ? `"${item.evaluation_comment}"`.replace(/,/g, '').replace(/\n/g, ' ')
+          : '',
+        evaluation_date: item.evaluation_date
+          ? `"${item.evaluation_date}"`
+          : '',
+        evaluation_charge: item.evaluation_charge
+          ? `"${item.evaluation_charge}"`
+          : ''
       });
     });
 
@@ -522,7 +499,6 @@ export class ExportComponent implements OnInit {
    */
   async downloadAllGraphsAsImages(): Promise<void> {
     window.scroll(0, 0);
-    const JSZip = require('jszip');
     const zip = new JSZip();
     return new Promise((resolve, reject) => {
       this.addImagesToZip(zip).then((zip2: any) => {
@@ -705,28 +681,40 @@ export class ExportComponent implements OnInit {
       }
 
       // Remove HTML tags from a string
-      function purifyString(string) {
+      function purifyString(data) {
+        // Check if data is a string, if not convert it to string or return empty string
+        if (data === null || data === undefined) {
+          return '';
+        }
+        if (typeof data !== 'string') {
+          try {
+            data = String(data);
+          } catch (e) {
+            return '';
+          }
+        }
+
         const htmlRegexStrong = /<strong>/g;
         const htmlRegexStrong2 = /<\/strong>/g;
-        string = string.replace(htmlRegexStrong, ' **');
-        string = string.replace(htmlRegexStrong2, '**');
+        data = data.replace(htmlRegexStrong, ' **');
+        data = data.replace(htmlRegexStrong2, '**');
         const htmlRegexAnd = /&amp;/g;
-        string = string.replace(htmlRegexAnd, '&');
+        data = data.replace(htmlRegexAnd, '&');
         const htmlRegexLi = /<li>/g;
-        string = string.replace(htmlRegexLi, '- ');
+        data = data.replace(htmlRegexLi, '- ');
         const htmlRegexBr = /<br \/>/g;
-        string = string.replace(htmlRegexBr, '\r\n');
+        data = data.replace(htmlRegexBr, '\r\n');
         const htmlRegexBr2 = /<br>/g;
-        string = string.replace(htmlRegexBr2, '\r\n');
+        data = data.replace(htmlRegexBr2, '\r\n');
         const htmlRegex = /<span class='green-highlight'>/g;
-        string = string.replace(htmlRegex, '');
+        data = data.replace(htmlRegex, '');
         const htmlRegex2 = /<span class='red-highlight'>/g;
-        string = string.replace(htmlRegex2, '');
+        data = data.replace(htmlRegex2, '');
         const htmlRegex3 = /<span class='strong'>/g;
-        string = string.replace(htmlRegex3, '');
+        data = data.replace(htmlRegex3, '');
         const htmlRegexFinal = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
-        string = string.replace(htmlRegexFinal, '');
-        return string;
+        data = data.replace(htmlRegexFinal, '');
+        return data;
       }
 
       // Display DPO data
@@ -1040,10 +1028,10 @@ export class ExportComponent implements OnInit {
           // Question answer
           doc.setTextColor('#000');
           const questionAnswer =
-            allData[allDataSectionId][allDataItemId][question.id].content;
-          if (questionAnswer) {
+            allData[allDataSectionId][allDataItemId][question.id];
+          if (questionAnswer && questionAnswer.content) {
             writeBoldText(
-              purifyString(questionAnswer),
+              purifyString(questionAnswer.content),
               20,
               testPdfSize(pageSize),
               10,
@@ -1054,6 +1042,7 @@ export class ExportComponent implements OnInit {
 
           // Question evaluation (if any)
           if (
+            allData[allDataSectionId][allDataItemId][question.id] &&
             allData[allDataSectionId][allDataItemId][question.id].evaluation
           ) {
             pageSize += 20;
@@ -1080,6 +1069,7 @@ export class ExportComponent implements OnInit {
 
             // Question evaluation action plan comment
             if (
+              allData[allDataSectionId][allDataItemId][question.id] &&
               allData[allDataSectionId][allDataItemId][question.id].evaluation
                 .action_plan_comment
             ) {
@@ -1103,6 +1093,7 @@ export class ExportComponent implements OnInit {
 
             // Question evaluation comment
             if (
+              allData[allDataSectionId][allDataItemId][question.id] &&
               allData[allDataSectionId][allDataItemId][question.id].evaluation
                 .evaluation_comment
             ) {
@@ -1882,7 +1873,7 @@ export class ExportComponent implements OnInit {
       );
       window.scroll(0, 0);
       await this.getRisksOverviewImgForZip().then(data => {
-        doc.addImage(data, 'PNG', 10, 75, 480, 580);
+        doc.addImage(data, 'PNG', 10, 75, 560, 560);
       });
 
       // SECTION 4 - "VALIDATION"
@@ -1900,7 +1891,7 @@ export class ExportComponent implements OnInit {
       );
       window.scroll(0, 0);
       await this.getRisksCartographyImg().then(data => {
-        doc.addImage(data, 'PNG', 10, 75, 480, 480);
+        doc.addImage(data, 'PNG', 10, 75, 560, 560);
       });
 
       // SECTION 4 - SUBSECTION 2 - "ACTION PLAN"
@@ -1916,7 +1907,7 @@ export class ExportComponent implements OnInit {
       );
       window.scroll(0, 0);
       await this.getActionPlanOverviewImg().then(data => {
-        doc.addImage(data, 'PNG', 10, 75, 480, 550);
+        doc.addImage(data, 'PNG', 10, 75, 560, 560);
       });
       // Action plan
 

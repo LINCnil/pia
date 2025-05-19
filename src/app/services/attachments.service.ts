@@ -8,7 +8,7 @@ import { ApiService } from './api.service';
 export class AttachmentsService extends ApplicationDb {
   signedAttachments: any[] = [];
   attachment_signed: any;
-  pia_signed;
+  pia_signed = 0;
 
   constructor(private router: Router, protected apiService: ApiService) {
     super(201708291502, 'attachment');
@@ -19,11 +19,11 @@ export class AttachmentsService extends ApplicationDb {
   /**
    * List all attachments.
    */
-  async findAllByPia(pia_id) {
-    const items = [];
+  async findAllByPia(pia_id: number): Promise<Attachment[]> {
     if (pia_id) {
       await this.getObjectStore();
       return new Promise((resolve, reject) => {
+        this.pia_id = pia_id;
         super
           .findAll(null, { index: 'index1', value: pia_id })
           .then((result: any) => {
@@ -55,7 +55,7 @@ export class AttachmentsService extends ApplicationDb {
     });
   }
 
-  async remove(comment: string, attachmentId): Promise<void> {
+  async remove(comment: string, attachmentId: number): Promise<void> {
     return new Promise((resolve, reject) => {
       this.find(attachmentId).then((entry: any) => {
         entry.file = null;
@@ -74,52 +74,14 @@ export class AttachmentsService extends ApplicationDb {
     });
   }
 
-  async findAll(): Promise<any> {
-    const items = [];
-    if (this.pia_id) {
-      await this.getObjectStore();
-      return new Promise((resolve, reject) => {
-        super
-          .findAll(null, { index: 'index1', value: this.pia_id })
-          .then(function(result: any) {
-            resolve(result);
-          })
-          .catch(function(error) {
-            reject(error);
-          });
-      });
-    }
-  }
-
   /**
    * Update all signed attachment.
    */
-  async updateSignedAttachmentsList(piaId): Promise<any> {
+  async updateSignedAttachmentsList(piaId: number): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.signedAttachments = [];
       this.findAllByPia(piaId)
         .then((data: any[]) => {
-          // Store all signed attachments if they are not yet stored
-          data.forEach(a => {
-            if (a.pia_signed && a.pia_signed === 1) {
-              this.signedAttachments.push(a);
-            }
-          });
-          // If we have some signed attachments :
-          if (this.signedAttachments && this.signedAttachments.length > 0) {
-            this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
-            if (
-              this.signedAttachments[0] &&
-              this.signedAttachments[0].file &&
-              this.signedAttachments[0].file.length > 0
-            ) {
-              // Store the latest signed attachment only if file isn't empty
-              this.attachment_signed = this.signedAttachments[0];
-              // Remove it from the signed attachments array so that we get the oldest
-              this.signedAttachments.splice(0, 1);
-            }
-          }
-          resolve(this.signedAttachments);
+          resolve(this.processSignedAttachments(data));
         })
         .catch(err => reject(err));
     });
@@ -128,77 +90,94 @@ export class AttachmentsService extends ApplicationDb {
   /**
    * Upload a new attachment.
    * @param attachment_file - The attachment file.
+   * @param piaId - Id of the PIA
    */
-  upload(attachment_file: any, piaId): Promise<Attachment> {
+  async upload(attachment_file: any, piaId: number): Promise<Attachment> {
+    const attachment = await this.handleFileFromInput(attachment_file);
+    attachment.pia_id = piaId;
+    attachment.pia_signed = this.pia_signed ? this.pia_signed : 0;
+    attachment.comment = '';
+
     return new Promise((resolve, reject) => {
-      const file = new Blob([attachment_file]);
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = () => {
-        const attachment = new Attachment();
-        attachment.file = reader.result;
-
-        const ext = attachment_file.name.split('.')[
-          attachment_file.name.split('.').length - 1
-        ];
-
-        attachment.name = attachment_file.name
-          .toString()
-          .trim()
-          .toLowerCase()
-          .replace(/\.[^/.]+$/, '')
-          .replace(/\s+/g, '-')
-          .replace(/[^\w\-]+/g, '')
-          .replace(/\-\-+/g, '-')
-          .replace(/^-+/, '')
-          .replace(/-+$/, '');
-
-        attachment.name += ext ? '.' + ext : '';
-
-        attachment.mime_type = attachment_file.type;
-        attachment.pia_id = piaId;
-        attachment.pia_signed = this.pia_signed ? this.pia_signed : 0;
-        attachment.comment = '';
-        super
-          .create(attachment, 'attachment')
-          .then((res: any) => {
-            // To refresh signed attachments on validation page
-            this.updateSignedAttachmentsList(piaId).then(() => {
-              this.signedAttachments.push(res);
-              resolve(res);
-            });
-          })
-          .catch(err => {
-            reject(err);
+      super
+        .create(attachment, 'attachment')
+        .then((res: any) => {
+          // To refresh signed attachments on validation page
+          this.updateSignedAttachmentsList(piaId).then(() => {
+            this.signedAttachments.push(res);
+            resolve(res);
           });
-      };
-    });
-  }
-
-  /**
-   * Download an attachment by id.
-   * @param {number} id - Id of the attachment.
-   */
-  downloadAttachment(id: number): void {
-    super.find(id).then((entry: any) => {
-      fetch(entry.file, {
-        mode: 'cors'
-      })
-        .then(res => res.blob())
-        .then(blob => {
-          const a = <any>document.createElement('a');
-          a.href = window.URL.createObjectURL(blob);
-          a.download = entry.name;
-          const event = new MouseEvent('click', {
-            view: window
-          });
-          a.dispatchEvent(event);
+        })
+        .catch(err => {
+          reject(err);
         });
     });
   }
 
+  private handleFileFromInput(attachment_file: any): Promise<Attachment> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = event => {
+        const attachment = new Attachment();
+        attachment.name = this.formatFileName(attachment_file.name);
+        attachment.mime_type = attachment_file.type;
+        attachment.file = attachment_file;
+        resolve(attachment);
+      };
+      reader.onerror = event => {
+        reject(event.target.error);
+      };
+      reader.readAsArrayBuffer(attachment_file);
+    });
+  }
+
+  private formatFileName(fileName: string): string {
+    const ext = fileName.split('.')[fileName.split('.').length - 1];
+
+    const formattedName = fileName
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/\.[^/.]+$/, '')
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
+
+    return formattedName + (ext ? '.' + ext : '');
+  }
+
   /**
-   * Allows an user to remove a PIA.
+   * Download an attachment by id.
+   * @param id - Id of the attachment.
+   */
+  downloadAttachment(id: number): void {
+    super.find(id).then((entry: any) => {
+      let localUrl = null;
+      if (typeof entry.file === 'string' && entry.file.startsWith('http')) {
+        localUrl = entry.file;
+      } else {
+        const blob = new Blob([entry.file], {
+          type: entry.file.type
+        });
+        localUrl = URL.createObjectURL(blob);
+      }
+      this.downloadFile(localUrl, entry.name);
+    });
+  }
+
+  private downloadFile(url: string, filename: string) {
+    const a = document.createElement('a') as HTMLElement;
+    a.setAttribute('href', url);
+    a.setAttribute('target', '_blank');
+    a.setAttribute('download', filename);
+    a.click();
+  }
+
+  /**
+   * Allows an user to remove an attachment.
+   * @param attachmentId - Id of the attachment to remove.
    * @param comment - Comment to justify deletion.
    */
   removeAttachment(attachmentId: number, comment: string): Promise<void> {
@@ -225,5 +204,34 @@ export class AttachmentsService extends ApplicationDb {
         reject();
       }
     });
+  }
+
+  /**
+   * Process signed attachments from data.
+   * @param data - The attachment data to process.
+   * @returns The processed signed attachments.
+   */
+  private processSignedAttachments(data: any[]): any[] {
+    this.signedAttachments = [];
+    // Store all signed attachments if they are not yet stored
+    data.forEach(a => {
+      if (Boolean(a.pia_signed) || a.pia_signed === 1) {
+        this.signedAttachments.push(a);
+      }
+    });
+
+    // If we have some signed attachments :
+    if (this.signedAttachments && this.signedAttachments.length > 0) {
+      this.signedAttachments.reverse(); // Reverse array (latest signed attachment at first)
+      if (
+        this.signedAttachments[0] &&
+        this.signedAttachments[0].file &&
+        this.signedAttachments[0].file.length > 0
+      ) {
+        // Store the latest signed attachment only if file isn't empty
+        this.attachment_signed = this.signedAttachments[0];
+      }
+    }
+    return this.signedAttachments;
   }
 }

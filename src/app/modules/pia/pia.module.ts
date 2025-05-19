@@ -36,10 +36,17 @@ import { ExampleComponent } from './example/example.component';
 import { CommentItemComponent } from './content/comments/comment-item/comment-item.component';
 import { CommentsService } from 'src/app/services/comments.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
-import { PiaI18nModule } from '@atnos/pia-i18n';
+import { TranslatePipe } from '@ngx-translate/core';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  imports: [SharedModule, PiaI18nModule, CommonModule, PiaRoutingModule],
+  imports: [
+    SharedModule,
+    CommonModule,
+    PiaRoutingModule,
+    TranslatePipe,
+    FaIconComponent
+  ],
   declarations: [
     PiaComponent,
     RevisionsComponent,

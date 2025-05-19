@@ -136,7 +136,6 @@ export class GlobalEvaluationService {
               });
           });
       } else if (this.answersOrMeasures.length > 0) {
-        console.log('test 2');
         let count = 0;
         let toFix = false;
 
@@ -162,7 +161,6 @@ export class GlobalEvaluationService {
                     count++;
                     if (count === this.answersOrMeasures.length) {
                       await this.validate();
-                      // resolve(toFix);
                     }
                   })
                   .catch(err => {
@@ -170,7 +168,6 @@ export class GlobalEvaluationService {
                   });
               } else {
                 await this.validate();
-                // resolve(false);
               }
             });
         }

@@ -30,7 +30,6 @@ export class CommentsService extends ApplicationDb {
   }
 
   async findAllByPia(pia_id: number): Promise<Array<Comment>> {
-    const items = [];
     return new Promise((resolve, reject) => {
       this.pia_id = pia_id;
       super
@@ -44,9 +43,9 @@ export class CommentsService extends ApplicationDb {
     });
   }
 
-  async findAllByReference(piaId, referenceTo): Promise<any> {
-    const items = [];
+  async findAllByReference(piaId: number, referenceTo: any): Promise<any> {
     return new Promise((resolve, reject) => {
+      this.pia_id = piaId;
       this.findAll('?reference_to=' + referenceTo, {
         index: 'index1',
         value: [piaId, referenceTo]

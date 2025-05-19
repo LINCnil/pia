@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 .pia-validationBlock {
   .pia-entryContentBlock {
     &-content {
@@ -39,7 +39,7 @@
               align-self: center;
             }
           }
-          i {
+          .ng-fa-icon {
             margin: auto;
             width: 20px;
             height: 20px;
@@ -95,7 +95,7 @@
           font-style: normal;
           padding-left: 10px;
         }
-        i {
+        .ng-fa-icon {
           padding-left: 10px;
           align-self: center;
           font-size: 1.7rem;
@@ -114,12 +114,11 @@
           font-size: 1.3rem;
           text-decoration: none;
           align-self: center;
-          &:last-of-type {
-            padding-top: 4px;
-          }
+          line-height: 14px;
         }
+        button,
         a {
-          line-height: 12px;
+          padding-top: 2px;
         }
       }
     }
@@ -175,40 +174,6 @@
               font-size: 1.2rem;
             }
           }
-        }
-      }
-      &-validationTools {
-        margin-top: 1rem;
-        box-shadow: 2px 1px 18px 1px #c2c2c2;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        color: $pia-green;
-        a,
-        button {
-          display: block;
-          align-self: center !important;
-          padding: 4px;
-          margin-right: 10px;
-          color: $pia-green;
-          text-decoration: none;
-          width: initial;
-          cursor: pointer;
-        }
-        i {
-          color: $pia-green;
-          display: block;
-          margin-top: 2px;
-          text-align: center;
-          font-size: 2rem;
-          text-decoration: none;
-        }
-        p {
-          display: block;
-          font-size: 1rem;
-          margin-bottom: 0;
-          font-style: normal;
-          color: $pia-green;
         }
       }
     }

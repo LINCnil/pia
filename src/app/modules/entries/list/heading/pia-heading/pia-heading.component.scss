@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 tr {
   display: table-row;
 }
@@ -13,23 +13,25 @@ th {
     cursor: pointer;
     justify-content: space-between;
     position: relative;
-    span {
+    span:first-child {
       align-self: center;
       padding-left: 13px;
     }
-    i {
+    .ng-fa-icon {
       padding-right: 13px;
       color: $pia-white;
       font-size: 2.5rem;
       align-self: center;
       position: absolute;
-      right: 0px;
+      right: 0;
+      top: 0;
+      bottom: 0;
       &.deactivate {
         color: gray;
       }
     }
   }
-  span {
+  span:first-child {
     border-left: solid 1px $pia-white;
     &:last-child {
       padding-left: 13px;

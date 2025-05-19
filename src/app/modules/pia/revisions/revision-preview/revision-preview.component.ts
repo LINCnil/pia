@@ -14,6 +14,11 @@ import { Router } from '@angular/router';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
+import {
+  faPrint,
+  faDownload,
+  faRefresh
+} from '@fortawesome/free-solid-svg-icons';
 
 function slugify(text) {
   return text
@@ -36,7 +41,8 @@ function slugify(text) {
     RevisionService,
     TranslateService,
     DatePipe
-  ]
+  ],
+  standalone: false
 })
 export class RevisionPreviewComponent implements OnInit {
   @Input() revision: Revision;
@@ -48,6 +54,10 @@ export class RevisionPreviewComponent implements OnInit {
   pia: Pia;
   allData: any;
   data: any;
+
+  protected readonly faPrint = faPrint;
+  protected readonly faDownload = faDownload;
+  protected readonly faRefresh = faRefresh;
 
   constructor(
     public authService: AuthService,

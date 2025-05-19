@@ -23,17 +23,25 @@ import * as FileSaver from 'file-saver';
 import { DialogService } from 'src/app/services/dialog.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { TagModel, TagModelClass } from 'ngx-chips/core/accessor';
 import { User } from 'src/app/models/user.model';
 import { SimpleChanges } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { TagInputComponent } from 'ngx-chips';
+
+import JSZip from 'jszip';
+import {
+  faPencil,
+  faDownload,
+  faArchive,
+  faCopy
+} from '@fortawesome/free-solid-svg-icons';
 declare const require: any;
 
 @Component({
   selector: 'app-pia-card',
   templateUrl: './pia-card.component.html',
-  styleUrls: ['./pia-card.component.scss']
+  styleUrls: ['./pia-card.component.scss'],
+  standalone: false
 })
 export class PiaCardComponent implements OnInit, OnChanges {
   @Input() users: Array<User>;
@@ -47,7 +55,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
 
   piaForm: UntypedFormGroup;
   attachments: any;
-  userList: Array<TagModel> = [];
+  userList: Array<any> = [];
   addBtnForSpecificInput: {
     display: string;
     pia_id: number;
@@ -65,6 +73,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
 
   @ViewChild('authorTagInput')
   authorTagInput: TagInputComponent;
+
+  protected readonly faPencil = faPencil;
+  protected readonly faDownload = faDownload;
+  protected readonly faArchive = faArchive;
+  protected readonly faCopy = faCopy;
 
   constructor(
     public piaService: PiaService,
@@ -89,7 +102,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
             !this.authService.currentUserValue.access_type.includes(
               'functional'
             ) &&
-            this.authService.currentUserValue.access_type != 'local'
+            this.authService.currentUserValue.access_type !== 'local'
           ) {
             this.piaForm.disable();
           }
@@ -97,12 +110,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
       }
     });
 
-    // GET ATTACHMENTS INFOS
     this.attachments = [];
     this.attachmentsService.pia_id = this.pia.id;
     this.attachmentsService.findAllByPia(this.pia.id).then((entries: any) => {
       entries.forEach(element => {
-        if (element['file'] && element['file'].length) {
+        if (element['file']) {
           this.attachments.push(element);
         }
       });
@@ -121,6 +133,13 @@ export class PiaCardComponent implements OnInit, OnChanges {
         };
       });
     }
+  }
+
+  isInputDisabled(): boolean {
+    return (
+      this.authService.currentUserValue &&
+      !this.authService.currentUserValue.access_type.includes('functional')
+    );
   }
 
   normalizeForm(): any {
@@ -156,7 +175,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   }
 
   onTyped($event, pia_id, field): void {
-    if ($event != '') {
+    if ($event !== '') {
       this.addBtnForSpecificInput = {
         display: $event,
         pia_id,
@@ -170,7 +189,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
   /**
    * Convert user_pias datas into fields for the form
    */
-  setUserPiasAsFields(user_pias: { user: User; role: String }[]) {
+  setUserPiasAsFields(user_pias: { user: User; role: string }[]): void {
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -178,13 +197,13 @@ export class PiaCardComponent implements OnInit, OnChanges {
       { field: 'guests', role: 'guest', dump_field: null }
     ].forEach(ob => {
       // get user_pias with role
-      const filteredUserPias: { user: User; role: String }[] = user_pias.filter(
-        up => up.role == ob.role
+      const filteredUserPias: { user: User; role: string }[] = user_pias.filter(
+        up => up.role === ob.role
       );
 
       // convert as tag
       const tags = filteredUserPias.map(a => {
-        let display =
+        const display =
           a.user.firstname && a.user.lastname
             ? a.user.firstname + ' ' + a.user.lastname
             : a.user.email;
@@ -199,8 +218,8 @@ export class PiaCardComponent implements OnInit, OnChanges {
         const fullnames = this.pia[ob.dump_field].split(',');
         fullnames.forEach(fullname => {
           // present in tags ?
-          const exist = tags.find(ac => ac.display == fullname);
-          if (!exist && fullname != '') {
+          const exist = tags.find(ac => ac.display === fullname);
+          if (!exist && fullname !== '') {
             // add to tag
             tags.push({ display: fullname, id: null }); // id = null is for deleted user but dumped
           }
@@ -212,15 +231,11 @@ export class PiaCardComponent implements OnInit, OnChanges {
     });
   }
 
-  get f() {
-    return this.piaForm.controls;
-  }
-
   /**
    * Disable the already selected users in the guests field
    */
-  get usersForGuests(): Array<TagModel> {
-    let usersForGuests: Array<TagModel> = this.userList;
+  get usersForGuests(): Array<any> {
+    let usersForGuests: Array<any> = this.userList;
     [
       { field: 'authors', role: 'author', dump_field: 'author_name' },
       { field: 'evaluators', role: 'evaluator', dump_field: 'evaluator_name' },
@@ -243,17 +258,23 @@ export class PiaCardComponent implements OnInit, OnChanges {
    */
   async generateZip(): Promise<void> {
     setTimeout(() => {
-      const JSZip = require('jszip');
       const zip = new JSZip();
       /* Attachments */
       this.addAttachmentsToZip(zip).then((zip2: any) => {
         /* JSON */
         this.piaService.export(this.pia.id).then((data: any) => {
-          zip2.file('pia.json', data, { binary: true });
-          /* Save as .zip */
-          zip2.generateAsync({ type: 'blob' }).then(blobContent => {
-            FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
-          });
+          zip2.file('pia.json', data, { type: 'string' });
+          zip2
+            .generateAsync({
+              type: 'blob',
+              compression: 'DEFLATE',
+              compressionOptions: { level: 9 },
+              mimeType: 'application/zip',
+              encoding: 'utf8'
+            })
+            .then(blobContent => {
+              FileSaver.saveAs(blobContent, 'pia-' + this.pia.name + '.zip');
+            });
         });
       });
     }, 500);
@@ -266,10 +287,29 @@ export class PiaCardComponent implements OnInit, OnChanges {
   async addAttachmentsToZip(zip): Promise<any> {
     return new Promise(async (resolve, reject) => {
       this.attachments.forEach(attachment => {
-        const byteCharacters1 = atob((attachment.file as any).split(',')[1]);
         const folderName = this.translateService.instant('summary.attachments');
-        zip.file(folderName + '/' + attachment.name, byteCharacters1, {
-          binary: true
+
+        const isFileUrl =
+          typeof attachment.file === 'string' &&
+          (attachment.file.startsWith('http') ||
+            attachment.file.startsWith('/'));
+
+        let localUrl: string;
+        if (!isFileUrl) {
+          const blob = new Blob([attachment.file], {
+            type: attachment.mime_type
+          });
+          localUrl = URL.createObjectURL(blob);
+        } else {
+          localUrl = attachment.file;
+        }
+
+        fetch(localUrl).then(response => {
+          if (response.status === 200 || response.status === 0) {
+            zip.file(folderName + '/' + attachment.name, response.blob(), {
+              binary: true
+            });
+          }
         });
       });
       resolve(zip);
@@ -478,7 +518,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
    * Add user to new Pia Form
    * Update user on author, evaluator and validator
    */
-  async onAddUser($event: TagModelClass, field: string): Promise<void> {
+  async onAddUser($event: any, field: string): Promise<void> {
     // User selected exist ?
     const index = this.users.findIndex(u => u.id === $event.id);
 
@@ -506,7 +546,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
           );
           if (userBehavior.value) {
             // user is created
-            let values = this.piaForm.controls[field].value;
+            const values = this.piaForm.controls[field].value;
             values[tagIndex].id = userBehavior.value.id;
             await this.savePiaAfterUserAssign(field);
           } else {
@@ -541,11 +581,9 @@ export class PiaCardComponent implements OnInit, OnChanges {
       })
       .catch(err => {
         if (err.statusText === 'Conflict') {
-          // AUTO FIX
-          // this.conflictDetected.emit({ field: 'name', err });
-          const piaCloned = err.record;
-          piaCloned[field] = userAssignValues;
-          this.piaService.update(piaCloned).then((resp: Pia) => {
+          const pia = err.record;
+          pia[field] = userAssignValues;
+          this.piaService.update(pia).then((resp: Pia) => {
             this.pia = resp;
             this.setUserPiasAsFields(resp.user_pias);
           });
@@ -553,7 +591,7 @@ export class PiaCardComponent implements OnInit, OnChanges {
       });
   }
 
-  onRemove($event: TagModelClass, field: string): void {
+  onRemove($event: any, field: string): void {
     this.savePiaAfterUserAssign(field);
   }
 }

@@ -18,11 +18,13 @@ import { Structure } from 'src/app/models/structure.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 import { MeasureService } from 'src/app/services/measures.service';
 import { StructureService } from 'src/app/services/structure.service';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-knowledge-base',
   templateUrl: './knowledge-base.component.html',
-  styleUrls: ['./knowledge-base.component.scss']
+  styleUrls: ['./knowledge-base.component.scss'],
+  standalone: false
 })
 export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
   searchForm: UntypedFormGroup;
@@ -36,6 +38,8 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
   customKnowledgeBases: KnowledgeBase[] = [];
   selectedKnowledBase: any = 0;
 
+  protected readonly faSearch = faSearch;
+
   constructor(
     private route: ActivatedRoute,
     private measureService: MeasureService,
@@ -45,14 +49,18 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
     private structureService: StructureService
   ) {
     // Parse default Knowledge base json
-    const defaultKnowledgeBase = new KnowledgeBase(
-      0,
-      this.translateService.instant('knowledge_base.default_knowledge_base'),
-      'CNIL',
-      'CNIL'
-    );
-    defaultKnowledgeBase.is_example = true;
-    this.customKnowledgeBases.push(defaultKnowledgeBase);
+    this.translateService
+      .get('knowledge_base.default_knowledge_base')
+      .subscribe((translation: string) => {
+        const defaultKnowledgeBase = new KnowledgeBase(
+          0,
+          translation,
+          'CNIL',
+          'CNIL'
+        );
+        defaultKnowledgeBase.is_example = true;
+        this.customKnowledgeBases.push(defaultKnowledgeBase);
+      });
   }
 
   ngOnInit(): void {

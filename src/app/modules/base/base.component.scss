@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 .pia-knowledges_base {
   &-form,
   &-displayData {
@@ -88,7 +88,6 @@
         justify-content: flex-start;
         align-self: center;
         font-size: 1.3rem;
-        text-transform: uppercase;
         label {
           cursor: pointer;
         }
@@ -119,16 +118,6 @@
             text-decoration: none;
             padding-left: 5px;
           }
-          i {
-            font-size: 1.8rem;
-            margin-top: 2px;
-            margin-left: auto;
-            margin-right: 10px;
-            color: $pia-gray;
-          }
-          .fa-check-square-o {
-            color: $pia-blue;
-          }
           label {
             span {
               cursor: pointer;
@@ -158,22 +147,12 @@
               color: $pia-green;
               border-color: $pia-green;
             }
-            .fa-pencil-square-o.pia-fa-valid,
-            .fa-cog.pia-fa-valid,
-            .fa-check-square-o {
-              color: $pia-green;
-            }
           }
           /* PRINCIPLES */
           &:nth-child(2) {
             .pia-knowledges_base-form-checkboxes-title {
               color: $pia-blue;
               border-color: $pia-blue;
-            }
-            .fa-pencil-square-o.pia-fa-valid,
-            .fa-cog.pia-fa-valid,
-            .fa-check-square-o {
-              color: $pia-blue;
             }
           }
           /* RISKS */
@@ -182,11 +161,6 @@
               color: $pia-red;
               border-color: $pia-red;
             }
-            .fa-pencil-square-o.pia-fa-valid,
-            .fa-cog.pia-fa-valid,
-            .fa-check-square-o {
-              color: $pia-red;
-            }
           }
           /* VALIDATION */
           &:last-child {
@@ -194,10 +168,6 @@
               color: $pia-dark-black;
               border-color: $pia-dark-black;
               display: block;
-            }
-            .fa-cog.pia-fa-valid,
-            .fa-check-square-o {
-              color: $pia-dark-black;
             }
           }
         }
@@ -250,14 +220,13 @@
   }
 }
 
-// TODO: TO BE REFACTORED
 .pia-newBlock {
   > #pia-new-card {
     border: 1px solid $pia-gray;
     padding-right: 0;
   }
   &-item {
-    background: url("~src/assets/images/pia-bg.png") repeat center center;
+    background: url("src/assets/images/pia-bg.png") repeat center center;
     padding: 70px 40px;
     font-size: 1.9rem;
     color: $pia-red;
@@ -270,16 +239,6 @@
       }
       &-btn {
         padding-left: 18px;
-        .fa-folder-open,
-        .fa-upload {
-          font-size: 7rem;
-          margin-right: 30px;
-        }
-        .fa-upload {
-          margin-right: 40px;
-        }
-        .fa-folder-open,
-        .fa-upload,
         button {
           display: inline-block;
           vertical-align: top;
@@ -518,7 +477,7 @@
           margin-right: 12px;
         }
       }
-      .fa {
+      .ng-fa-icon {
         margin-right: 10px;
         font-size: 1.5rem;
       }
@@ -559,7 +518,7 @@
           align-self: center;
           padding-left: 13px;
         }
-        i {
+        .ng-fa-icon {
           padding-right: 13px;
           color: $pia-white;
           font-size: 2.5rem;

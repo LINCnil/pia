@@ -16,11 +16,14 @@
     "dpo_opinion": "L’analyse menée montre qu’avec la mise en place des plans d’actions préconisés, la protection de la vie privée des personnes est garantie de manière acceptable.",
     "concerned_people_opinion": "Le panel de clients interrogé lors de l'étude de marché est majoritairement intéressé par le produit et accepte ses modalités d'utilisation.",
     "concerned_people_status": 1,
-    "rejected_reason": "Rapport incomplet",
+    "rejection_reason": "Rapport incomplet",
+    "applied_adjustments": "",
     "updated_at": "2018-02-21T13:21:08.054Z",
     "dpos_names": "Michael Thomas (DPO)",
     "people_names": "Les clients potentiels",
-    "concerned_people_searched_opinion": true
+    "concerned_people_searched_opinion": true,
+    "concerned_people_searched_content": "",
+    "category": ""
   },
   "answers": [
     {

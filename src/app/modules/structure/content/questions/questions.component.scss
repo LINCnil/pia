@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 .pia {
   &-questionBlock {
     position: relative;
@@ -26,7 +26,7 @@
       position: absolute;
       top: 48px;
       right: 15px;
-      font-size: 1.9rem;
+      font-size: 1.6rem;
     }
     &-title {
       position: relative;

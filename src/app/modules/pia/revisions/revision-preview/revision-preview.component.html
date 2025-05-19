@@ -10,13 +10,13 @@
       <div class="pia-fullPreviewBlock-actions hide-for-print">
         <div>
           <button type="button" (click)="printRevision('printRevision')">
-            <i aria-hidden="true" class="fa fa-print"></i>
+            <fa-icon [icon]="faPrint"></fa-icon>
             <div>{{ "summary.actions.print" | translate }}</div>
           </button>
         </div>
         <div>
           <button type="button" (click)="exportJson()">
-            <i aria-hidden="true" class="fa fa-download"></i>
+            <fa-icon [icon]="faDownload"></fa-icon>
             <div>{{ "homepage.cards.item.tools.export" | translate }}</div>
           </button>
         </div>
@@ -27,7 +27,7 @@
           "
         >
           <button type="button" (click)="restoreRevision()">
-            <i aria-hidden="true" class="fa fa-refresh"></i>
+            <fa-icon [icon]="faRefresh"></fa-icon>
             <div>{{ "summary.revision.restore_version" | translate }}</div>
           </button>
         </div>

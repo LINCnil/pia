@@ -14,11 +14,13 @@ import { MeasureService } from 'src/app/services/measures.service';
 import { EvaluationService } from 'src/app/services/evaluation.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-preview',
   templateUrl: './preview.component.html',
-  styleUrls: ['./preview.component.scss']
+  styleUrls: ['./preview.component.scss'],
+  standalone: false
 })
 export class PreviewComponent implements OnInit, AfterViewChecked {
   public activeElement: string;
@@ -34,6 +36,8 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
   @Input() editMode: 'local' | 'author' | 'evaluator' | 'validator' | 'guest' =
     'local';
   public download = false;
+
+  protected readonly faPencil = faPencil;
 
   constructor(
     private route: ActivatedRoute,

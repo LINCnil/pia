@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 .pia {
   &-modalBlock {
     opacity: 0;
@@ -74,7 +74,7 @@
       }
     }
 
-    .fa {
+    .ng-fa-icon {
       font-size: 4.5rem;
       margin-bottom: 12px;
     }
@@ -86,7 +86,7 @@
       }
       .pia-modalBlock-content {
         width: 274px;
-        height: 450px;
+        height: 506px;
         margin-left: -137px;
         padding: 10px;
         border: solid 1px $pia-green;
@@ -149,7 +149,7 @@
   p {
     color: $pia-red;
   }
-  .fa.fa-cog {
+  .ng-fa-icon {
     font-size: 9rem;
     margin-top: 6px;
   }

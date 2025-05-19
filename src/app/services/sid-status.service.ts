@@ -11,7 +11,7 @@ export class SidStatusService {
   sidStatusIcon: any;
   itemStatus: any;
   structureStatus: any;
-  defaultIcon = 'fa-pencil-square-o';
+  defaultIcon = 'faPenToSquare';
   enablePiaValidation: boolean;
   piaIsRefused: boolean;
   enableDpoValidation: boolean;
@@ -22,20 +22,20 @@ export class SidStatusService {
     private apiService: ApiService
   ) {
     this.specialIcon = {
-      '3.5': 'fa-line-chart',
-      '4.1': 'fa-line-chart',
-      '4.2': 'fa-calendar-check-o'
+      '3.5': 'faChartLine',
+      '4.1': 'faChartLine',
+      '4.2': 'faCalendarCheck'
     };
     this.sidStatusIcon = {
-      0: 'fa-pencil-square-o',
-      1: 'fa-pencil-square-o',
-      2: 'fa-pencil-square-o',
-      3: 'fa-pencil-square-o',
-      4: ['fa-pencil-square-o', 'pia-fa-valid'],
-      5: 'fa-cog',
-      6: 'fa-cog',
-      7: ['fa-cog', 'pia-fa-valid'],
-      8: 'fa-check-square-o'
+      0: 'faPenToSquare',
+      1: 'faPenToSquare',
+      2: 'faPenToSquare',
+      3: 'faPenToSquare',
+      4: ['faPenToSquare', 'pia-fa-valid'],
+      5: 'faGear',
+      6: 'faGear',
+      7: ['faGear', 'pia-fa-valid'],
+      8: 'faSquareCheck'
     };
     this.itemStatus = {};
     this.structureStatus = {};

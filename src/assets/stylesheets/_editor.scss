@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "sass:color";
+
 .mce-tinymce.mce-container.mce-panel {
   border: none;
   margin-bottom: 30px;
@@ -34,7 +37,7 @@
       margin-left: -16px;
     }
     i {
-      color: $white;
+      color: #fff;
     }
   }
 }

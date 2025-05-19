@@ -7,7 +7,7 @@
           (click)="export(structure.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-download" aria-hidden="true"></i>
+          <fa-icon [icon]="faDownload"></fa-icon>
           <span
             title="{{ 'homepage.cards.item.tools.export' | translate }}"
             class="pia-tooltip-text"
@@ -19,7 +19,7 @@
           (click)="duplicate(structure.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-files-o" aria-hidden="true"></i>
+          <fa-icon [icon]="faFile"></fa-icon>
           <span
             title="{{ 'homepage.cards.item.tools.duplicate' | translate }}"
             class="pia-tooltip-text"
@@ -32,7 +32,7 @@
           (click)="remove(structure.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <fa-icon [icon]="faTrash"></fa-icon>
           <span
             title="{{ 'homepage.cards.item.tools.remove' | translate }}"
             class="pia-tooltip-text"

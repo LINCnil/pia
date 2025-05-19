@@ -13,11 +13,18 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
 import { Pia } from 'src/app/models/pia.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { Router } from '@angular/router';
+import {
+  faCircle,
+  faCheck,
+  faCog,
+  faCheckSquare
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-validate-pia',
   templateUrl: './validate-pia.component.html',
-  styleUrls: ['./validate-pia.component.scss']
+  styleUrls: ['./validate-pia.component.scss'],
+  standalone: false
 })
 export class ValidatePIAComponent implements OnInit {
   @Input() pia: Pia = null;
@@ -29,6 +36,11 @@ export class ValidatePIAComponent implements OnInit {
   attachment: any;
   removeAttachmentId = null;
   removeAttachmentForm: UntypedFormGroup;
+
+  protected readonly faCircle = faCircle;
+  protected readonly faCheck = faCheck;
+  protected readonly faCog = faCog;
+  protected readonly faCheckSquare = faCheckSquare;
 
   constructor(
     private formBuilder: UntypedFormBuilder,
@@ -139,7 +151,8 @@ export class ValidatePIAComponent implements OnInit {
           type: 'yes',
           yes: 'modals.back_to_home',
           no: '',
-          icon: 'fa fa-check icon-green',
+          icon: 'faCheck',
+          class: 'icon-green',
           data: {
             modal_id: 'validate-evaluation'
           }
@@ -166,7 +179,8 @@ export class ValidatePIAComponent implements OnInit {
           type: 'yes',
           yes: 'modals.close',
           no: '',
-          icon: 'fa fa-check icon-green'
+          icon: 'faCheck',
+          class: 'icon-green'
         },
         () => {
           return;

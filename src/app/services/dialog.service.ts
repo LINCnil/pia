@@ -44,8 +44,8 @@ export class DialogService {
     this.subject.next({
       type: 'confirm',
       ...message,
-      yesFn(): any {
-        that.subject.next(); // This will close the modal
+      yesFn(value: any): any {
+        that.subject.next(value); // This will close the modal
         yesFn();
         header.classList.remove('blur');
         container.classList.remove('blur');
@@ -53,8 +53,8 @@ export class DialogService {
           specialRevisionModal.classList.toggle('noBackground');
         }
       },
-      noFn(): any {
-        that.subject.next();
+      noFn(value: any): any {
+        that.subject.next(value);
         noFn();
         header.classList.remove('blur');
         container.classList.remove('blur');

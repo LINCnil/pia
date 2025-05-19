@@ -1,11 +1,12 @@
 <div class="pia-revisions hide-for-print">
   <div class="pia-revisions-title" *ngIf="title">
-    <i class="fa fa-history"></i> {{ "summary.revision.revision" | translate }}
+    <fa-icon [icon]="faHistory"></fa-icon>
+    {{ "summary.revision.revision" | translate }}
   </div>
   <div class="pia-revisions-box" *ngIf="revisions">
     <h4>{{ "summary.revision.pia_version" | translate }}</h4>
     <p>
-      <i class="fa fa-circle"></i>
+      <fa-icon [icon]="faCircle"></fa-icon>
       {{ currentVersion | date: "short":"":languagesService.selectedLanguage }}
       - {{ "summary.revision.current_version" | translate }}
     </p>
@@ -18,9 +19,9 @@
       <span>{{
         "summary.revision.show" | translate: { length: revisions.length }
       }}</span>
-      <i class="fa fa-chevron-down" *ngIf="!opened; else close"></i>
+      <fa-icon [icon]="faChevronDown" *ngIf="!opened; else close"></fa-icon>
       <ng-template #close>
-        <i class="fa fa-chevron-up"></i>
+        <fa-icon [icon]="faChevronUp"></fa-icon>
       </ng-template>
     </a>
     <div
@@ -43,7 +44,14 @@
                 previewRevision(revision.id, $event, revision.created_at)
               "
             >
-              <i class="fa fa-circle-o"></i>
+              <fa-icon
+                [icon]="faCircle"
+                class="revision-not-selected "
+              ></fa-icon>
+              <fa-icon
+                [icon]="faCircleCheck"
+                class="revision-selected hide"
+              ></fa-icon>
               {{
                 revision.created_at
                   | date: "short":"":languagesService.selectedLanguage

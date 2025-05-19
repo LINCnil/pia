@@ -15,7 +15,8 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
 @Component({
   selector: 'app-knowledge-base-item',
   templateUrl: './knowledge-base-item.component.html',
-  styleUrls: ['./knowledge-base-item.component.scss']
+  styleUrls: ['./knowledge-base-item.component.scss'],
+  standalone: false
 })
 export class KnowledgeBaseItemComponent implements OnInit {
   @Input() editMode:

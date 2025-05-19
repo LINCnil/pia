@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import * as introJs from 'intro.js/intro.js';
+import introJs from 'intro.js/intro.js';
 
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';

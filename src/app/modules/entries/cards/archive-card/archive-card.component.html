@@ -27,7 +27,7 @@
           (click)="unarchive(archivedPia.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-refresh" aria-hidden="true"></i>
+          <fa-icon [icon]="faRefresh"></fa-icon>
           <span
             title="{{ 'homepage.cards.item.tools.unarchive' | translate }}"
             class="pia-tooltip-text"
@@ -39,7 +39,7 @@
           (click)="remove(archivedPia.id)"
           class="btn pia-tooltip"
         >
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <fa-icon [icon]="faTrash"></fa-icon>
           <span
             title="{{ 'homepage.cards.item.tools.remove' | translate }}"
             class="pia-tooltip-text"

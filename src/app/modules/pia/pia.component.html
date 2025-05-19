@@ -1,7 +1,7 @@
 <section class="container pia-mainContainerBlock" *ngIf="pia && data">
   <div class="row">
     <div
-      *ngIf="pia.is_example === 1"
+      *ngIf="pia.is_example === 1; else breadcrumb"
       class="pia-breadcrumb hide-for-print small-12 medium-12 columns"
     >
       <strong
@@ -9,16 +9,15 @@
         {{ "header.help.pia_example_link" | translate }}</strong
       >
     </div>
-    <div
-      *ngIf="pia.is_example === 0"
-      class="pia-breadcrumb hide-for-print small-12 medium-12 columns"
-    >
-      <a [routerLink]="['/entries']"
-        >{{ "header.homepage_link" | translate }} >
-        {{ "header.current_pias" | translate }}</a
-      >
-      <strong> > {{ pia.name }}</strong>
-    </div>
+    <ng-template #breadcrumb>
+      <div class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+        <a [routerLink]="['/entries']"
+          >{{ "header.homepage_link" | translate }} >
+          {{ "header.current_pias" | translate }}</a
+        >
+        <strong> > {{ pia.name }}</strong>
+      </div>
+    </ng-template>
     <!-- Left sidebar (sections) -->
     <nav class="hide-for-print small-12 medium-3 columns">
       <aside class="pia-leftSidebarBlock">
@@ -64,18 +63,16 @@
         <div class="pia-rightSidebarBlock-content-header">
           <h1>
             <span>
-              <i
+              <fa-icon
                 [ngClass]="{ active: sideView === 'knowledge' }"
-                class="fa fa-book"
-                aria-hidden="true"
+                [icon]="faBook"
                 (click)="sideView = 'knowledge'"
-              ></i>
-              <i
+              ></fa-icon>
+              <fa-icon
                 [ngClass]="{ active: sideView === 'export' }"
-                class="fa fa-download"
-                aria-hidden="true"
+                [icon]="faDownload"
                 (click)="sideView = 'export'"
-              ></i>
+              ></fa-icon>
             </span>
             <span *ngIf="sideView === 'knowledge'">{{
               "knowledge_base.title" | translate

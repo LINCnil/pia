@@ -6,11 +6,13 @@ import { Comment } from '../../../../models/comment.model';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { CommentsService } from 'src/app/services/comments.service';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss']
+  styleUrls: ['./comments.component.scss'],
+  standalone: false
 })
 export class CommentsComponent implements OnInit {
   commentsForm: UntypedFormGroup;
@@ -27,6 +29,8 @@ export class CommentsComponent implements OnInit {
   questionDate: Date;
   newCommentDisplayer: boolean;
   displayCommentValidateBtn: boolean;
+
+  protected readonly faComment = faComment;
 
   constructor(
     private el: ElementRef,

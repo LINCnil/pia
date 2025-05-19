@@ -1,9 +1,12 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 .pia-ValidationRefuse {
   .pia-entryContentBlock {
     &-content {
       &-subject {
         margin: 10px 0;
+        background-color: #fefefe;
+        padding: 15px 10px 40px 10px;
+        box-shadow: 2px 1px 18px 1px rgba(194, 194, 194, 1);
         &-title {
           padding: 0 10px;
           display: flex;
@@ -17,9 +20,6 @@
             color: $pia-gray;
           }
         }
-        background-color: #fefefe;
-        padding: 15px 10px 40px 10px;
-        box-shadow: 2px 1px 18px 1px rgba(194, 194, 194, 1);
         h3 {
           font-size: 1.8rem;
           font-weight: normal;

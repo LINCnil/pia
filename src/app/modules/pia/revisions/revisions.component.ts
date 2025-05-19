@@ -15,6 +15,13 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { RelativeDate } from './RelativeDate.class';
 import { Pia } from 'src/app/models/pia.model';
+import {
+  faHistory,
+  faCircle,
+  faCircleCheck,
+  faChevronDown,
+  faChevronUp
+} from '@fortawesome/free-solid-svg-icons';
 
 function slugify(data): string {
   const a =
@@ -39,7 +46,8 @@ function slugify(data): string {
   selector: 'app-revisions',
   templateUrl: './revisions.component.html',
   styleUrls: ['./revisions.component.scss'],
-  providers: [RevisionService, TranslateService]
+  providers: [RevisionService, TranslateService],
+  standalone: false
 })
 export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() pia: Pia;
@@ -56,6 +64,12 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   public activeRevision: any = null;
 
   public preview = null;
+
+  protected readonly faHistory = faHistory;
+  protected readonly faCircle = faCircle;
+  protected readonly faChevronDown = faChevronDown;
+  protected readonly faChevronUp = faChevronUp;
+  protected readonly faCircleCheck = faCircleCheck;
 
   constructor(
     private translateService: TranslateService,
@@ -153,8 +167,9 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
       .querySelectorAll('.pia-revisions-box-content-revision-item')
       .forEach(revision => {
         if (revision.classList.contains('revision-active')) {
-          revision.querySelector('.fa').classList.toggle('fa-circle-o');
-          revision.querySelector('.fa').classList.toggle('fa-circle');
+          revision.querySelectorAll('.ng-fa-icon').forEach(icon => {
+            icon.classList.toggle('hide');
+          });
           revision.classList.remove('revision-active');
         }
       });
@@ -166,11 +181,9 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     );
     if (displayRevisionData) {
       /* Update circle design */
-      const circle = displayRevisionData.querySelector('.fa');
-      if (circle) {
-        circle.classList.toggle('fa-circle-o');
-        circle.classList.toggle('fa-circle');
-      }
+      displayRevisionData.querySelectorAll('.ng-fa-icon').forEach(icon => {
+        icon.classList.toggle('hide');
+      });
       /* Display data */
       displayRevisionData.classList.toggle('revision-active');
     }

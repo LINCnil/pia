@@ -4,11 +4,13 @@ import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { Pia } from 'src/app/models/pia.model';
+import { faCircle, faCheck, faClose } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dpo-people-opinions',
   templateUrl: './dpo-people-opinions.component.html',
-  styleUrls: ['./dpo-people-opinions.component.scss']
+  styleUrls: ['./dpo-people-opinions.component.scss'],
+  standalone: false
 })
 export class DPOPeopleOpinionsComponent implements OnInit {
   @Input() pia: Pia;
@@ -22,6 +24,10 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   displayPeopleSearchContent = false;
   @ViewChild('DpoNames', { static: false }) private elementRef1: ElementRef;
   @ViewChild('PeopleNames', { static: false }) private elementRef2: ElementRef;
+
+  protected readonly faCircle = faCircle;
+  protected readonly faCheck = faCheck;
+  protected readonly faClose = faClose;
 
   constructor(
     public _sidStatusService: SidStatusService,
@@ -316,7 +322,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
   changeFocusIfDisable(inputClass) {
     switch (inputClass) {
       case 'DPOName':
-        console.log(this.DPOForm.controls.DPONames.value);
         if (!this.DPOForm.controls.DPONames.value) {
           let input: HTMLInputElement = document.querySelector(
             `input.${inputClass}`
@@ -325,7 +330,6 @@ export class DPOPeopleOpinionsComponent implements OnInit {
         }
         break;
       case 'peopleNames':
-        console.log(this.peopleForm.controls.peopleNames.value);
         if (!this.peopleForm.controls.peopleNames.value) {
           let input: HTMLInputElement = document.querySelector(
             `input.${inputClass}`

@@ -10,7 +10,8 @@ import { DialogService } from 'src/app/services/dialog.service';
 @Component({
   selector: 'app-refuse-pia',
   templateUrl: './refuse-pia.component.html',
-  styleUrls: ['./refuse-pia.component.scss']
+  styleUrls: ['./refuse-pia.component.scss'],
+  standalone: false
 })
 export class RefusePIAComponent implements OnInit {
   @Input() pia: Pia;
@@ -76,7 +77,8 @@ export class RefusePIAComponent implements OnInit {
         type: 'confirm',
         yes: 'modals.archive',
         no: 'modals.cancel',
-        icon: 'fa fa-times icon-red',
+        icon: 'faXmark',
+        class: 'icon-red',
         data: {
           additional_text: 'modals.abandon_pia.additional_text',
           btn_yes: 'btn-red'
@@ -110,7 +112,8 @@ export class RefusePIAComponent implements OnInit {
               type: 'yes',
               yes: 'modals.continue',
               no: '',
-              icon: 'pia-icons fa fa-cog icon-red',
+              icon: 'faGear',
+              class: 'icon-red',
               data: {
                 modal_id: 'modal-refuse-pia',
                 btn_yes: 'btn-red'
@@ -121,7 +124,6 @@ export class RefusePIAComponent implements OnInit {
                 .resetDpoPage(this.pia.id)
                 .then(dataUpdated => {
                   if (dataUpdated.lock_version) {
-                    // Update lock_version
                     this.pia.lock_version = dataUpdated.lock_version;
                   }
                   this.router.navigate([

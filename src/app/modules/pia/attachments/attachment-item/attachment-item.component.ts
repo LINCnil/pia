@@ -16,11 +16,13 @@ import {
 import { Attachment } from 'src/app/models/attachment.model';
 
 import { AttachmentsService } from 'src/app/services/attachments.service';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-attachment-item',
   templateUrl: './attachment-item.component.html',
-  styleUrls: ['./attachment-item.component.scss']
+  styleUrls: ['./attachment-item.component.scss'],
+  standalone: false
 })
 export class AttachmentItemComponent implements OnInit {
   @ViewChild('pdfViewerAutoLoad', { static: false }) pdfViewerAutoLoad;
@@ -30,10 +32,13 @@ export class AttachmentItemComponent implements OnInit {
   @Input() attachment: Attachment;
   @Input() pia: any;
   @Output() deleted = new EventEmitter();
-  fileUrl: any = null;
+  pdfSrc: string = null;
+  imgSrc: string = null;
 
   showRemoveAttachmentForm = false;
   removeAttachmentForm: UntypedFormGroup;
+
+  protected readonly faDownload = faDownload;
 
   constructor(
     private formBuilder: UntypedFormBuilder,
@@ -71,36 +76,37 @@ export class AttachmentItemComponent implements OnInit {
       const elPreview = this.el.nativeElement.querySelector(
         '.pia-attachmentsBlock-item-preview'
       );
-      const embed = elPreview.querySelector('#iframe');
-      const img = elPreview.querySelector('img');
-
       elPreview.classList.add('hide');
-      img.classList.add('hide');
-
       if (show) {
-        if (this.attachment.mime_type.endsWith('pdf')) {
-          const data = this.attachment.file.split(';base64,')[1];
-          const base64str = data;
-
-          const binary = atob(base64str.replace(/\s/g, ''));
-          const len = binary.length;
-          const buffer = new ArrayBuffer(len);
-          const view = new Uint8Array(buffer);
-          for (let i = 0; i < len; i++) {
-            view[i] = binary.charCodeAt(i);
-          }
-
-          const blob = new Blob([view], { type: 'application/pdf' });
-          this.fileUrl = URL.createObjectURL(blob);
-
-          elPreview.classList.remove('hide');
-        } else if (this.attachment.mime_type.startsWith('image')) {
-          img.setAttribute('src', this.attachment.file);
-          img.classList.remove('hide');
-          elPreview.classList.remove('hide');
-        } else {
-          this.downloadAttachment();
+        if (
+          !this.attachment.mime_type.endsWith('pdf') &&
+          !this.attachment.mime_type.startsWith('image')
+        ) {
+          return this.downloadAttachment();
         }
+
+        const isFileUrl =
+          typeof this.attachment.file === 'string' &&
+          (this.attachment.file.startsWith('http') ||
+            this.attachment.file.startsWith('/'));
+
+        let localUrl: string;
+        if (!isFileUrl) {
+          const blob = new Blob([this.attachment.file], {
+            type: this.attachment.mime_type
+          });
+          localUrl = URL.createObjectURL(blob);
+        }
+
+        if (this.attachment.mime_type.endsWith('pdf')) {
+          this.pdfSrc = isFileUrl
+            ? encodeURIComponent(this.attachment.file)
+            : localUrl;
+        } else if (this.attachment.mime_type.startsWith('image')) {
+          this.imgSrc = isFileUrl ? this.attachment.file : localUrl;
+        }
+
+        elPreview.classList.remove('hide');
       }
     }
   }

@@ -7,7 +7,8 @@ import { PiaService } from 'src/app/services/pia.service';
 @Component({
   selector: 'app-example',
   templateUrl: './example.component.html',
-  styleUrls: ['./example.component.scss']
+  styleUrls: ['./example.component.scss'],
+  standalone: false
 })
 export class ExampleComponent implements OnInit {
   public pia = null;

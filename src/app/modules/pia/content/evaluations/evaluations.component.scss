@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 .pia {
   &-evaluationBlock {
     position: relative;
@@ -34,26 +34,10 @@
         text-overflow: ellipsis;
         width: 100%;
         max-width: 154px;
-        &:before {
-          font-family: FontAwesome;
+        .ng-fa-icon {
           margin-right: 5px;
           font-size: 1.85rem;
           vertical-align: -2px;
-        }
-      }
-      .btn-red {
-        &:before {
-          content: "\f00d";
-        }
-      }
-      .btn-blue {
-        &:before {
-          content: "\f1ce";
-        }
-      }
-      .btn-green {
-        &:before {
-          content: "\f00c";
         }
       }
     }

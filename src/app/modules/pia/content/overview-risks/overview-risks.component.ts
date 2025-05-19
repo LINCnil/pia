@@ -11,7 +11,8 @@ import { Pia } from 'src/app/models/pia.model';
   // tslint:disable-next-line: component-selector
   selector: `.app-overview-risks`,
   templateUrl: './overview-risks.component.html',
-  styleUrls: ['./overview-risks.component.scss']
+  styleUrls: ['./overview-risks.component.scss'],
+  standalone: false
 })
 export class OverviewRisksComponent implements OnInit {
   @Input() pia: Pia = null;
@@ -44,34 +45,39 @@ export class OverviewRisksComponent implements OnInit {
       const dataTags = [
         {
           id: 1,
-          name: this.translateService.instant(
-            'overview-risks.potential_impacts'
-          ),
+          key: 'overview-risks.potential_impacts',
           reference_to: [321, 331, 341]
         },
         {
           id: 2,
-          name: this.translateService.instant('overview-risks.threat'),
+          key: 'overview-risks.threat',
           reference_to: [322, 332, 342]
         },
         {
           id: 3,
-          name: this.translateService.instant('overview-risks.sources'),
+          key: 'overview-risks.sources',
           reference_to: [323, 333, 343]
         },
         {
           id: 4,
-          name: this.translateService.instant('overview-risks.measures'),
+          key: 'overview-risks.measures',
           reference_to: [324, 334, 344]
         }
       ];
       for (const dt of dataTags) {
         const tags = {};
+        const name = await this.translateService.get(dt.key).toPromise();
+
         for (const reference_to of dt.reference_to) {
           await this.answerService
             .getByReferenceAndPia(this.pia.id, reference_to)
             .then((result: Answer) => {
-              if (result && result.data && result.data.list.length > 0) {
+              if (
+                result &&
+                result.data &&
+                result.data.list &&
+                result.data.list.length > 0
+              ) {
                 const list = result.data.list;
                 for (const l of list) {
                   if (!tags[l]) {
@@ -84,7 +90,7 @@ export class OverviewRisksComponent implements OnInit {
         }
         this.data.push({
           id: dt.id,
-          name: dt.name,
+          name,
           tags
         });
       }
@@ -98,8 +104,9 @@ export class OverviewRisksComponent implements OnInit {
    * @private
    */
   private async initSvg(): Promise<void> {
+    const svgBlock = document.getElementById('risksOverviewSvg');
     const dataNav = this.appDataService.dataNav;
-    this.svg = d3.select('svg');
+    this.svg = d3.select('#risksOverviewSvg');
     this.svg.attr('viewBox', '0 0 590 800');
     let y = 20;
     for (const a of this.data) {
@@ -143,7 +150,7 @@ export class OverviewRisksComponent implements OnInit {
             .attr('data-id', a.id)
             .attr('data-to_links', links)
             .attr('class', 'rect_action')
-            .on('click', function() {
+            .on('click', () => {
               let ids = new Array<string>();
               const id = a.id;
               const elements2: any = document.querySelectorAll(
@@ -189,7 +196,7 @@ export class OverviewRisksComponent implements OnInit {
                 elements5.forEach(el3 => {
                   ids.push(el3.dataset.to_links.split(','));
                 });
-                ids = ids.reduce(function(aa, bb) {
+                ids = ids.reduce((aa, bb) => {
                   return aa.concat(bb);
                 }, []);
                 const uniqLinks = Array.from(new Set(ids));
@@ -233,18 +240,18 @@ export class OverviewRisksComponent implements OnInit {
           const id = section.id.toString() + item.id.toString();
           const x = 380;
           const g = this.svg.append('g').attr('data-right', id);
-          g.on('click', function() {
+          g.on('click', event => {
             const previousId = parseInt(
               localStorage.getItem('d3PreviousIdClicked2'),
               10
             );
-            const elements8: any = document.querySelectorAll('[data-right]');
-            const elements9: any = document.querySelectorAll('[data-rect-id]');
-            const elements10: any = document.querySelectorAll('path');
-            const elements11: any = document.querySelectorAll(
+            const elements8: any = svgBlock.querySelectorAll('[data-right]');
+            const elements9: any = svgBlock.querySelectorAll('[data-rect-id]');
+            const elements10: any = svgBlock.querySelectorAll('path');
+            const elements11: any = svgBlock.querySelectorAll(
               'path[data-id$="' + id + '"]'
             );
-            const elements12: any = document.querySelectorAll(
+            const elements12: any = svgBlock.querySelectorAll(
               'rect[data-links*="' + id + '"]'
             );
             if (
@@ -268,7 +275,7 @@ export class OverviewRisksComponent implements OnInit {
               elements8.forEach(el3 => {
                 el3.classList.add('right_c');
               });
-              d3.select(this).attr('class', '');
+              event.target.parentNode.classList.remove('right_c');
               elements9.forEach(el3 => {
                 el3.classList.remove('rect_1');
                 el3.classList.add('rect_2');

@@ -1,32 +1,29 @@
-@import "./assets/stylesheets/variables";
-
-@import "normalize.css/normalize.css";
-
-$fa-font-path: "~font-awesome/fonts";
-@import "font-awesome/scss/font-awesome.scss";
-
+@use "./assets/stylesheets/variables" as *;
+@use "normalize.css/normalize.css";
 // Foundation styles
-@import "foundation-sites/scss/foundation.scss";
-@include foundation-global-styles;
-@include foundation-flex-grid;
-@include foundation-flex-classes;
-
+@use "foundation-sites/scss/foundation.scss" as foundation;
 // Common styles
-@import "./assets/stylesheets/fonts";
-@import "./assets/stylesheets/sprites";
-@import "./assets/stylesheets/btn";
-@import "./assets/stylesheets/tooltip";
-@import "./assets/stylesheets/card";
-@import "./assets/stylesheets/animations";
-@import "./assets/stylesheets/tags";
-@import "./assets/stylesheets/gauges";
-@import "./assets/stylesheets/action-plan";
-@import "./assets/stylesheets/breadcrumb";
-@import "./assets/stylesheets/editor";
-@import "./assets/stylesheets/print";
-@import "./assets/stylesheets/header";
-@import "./assets/stylesheets/onboarding";
-@import "./assets/stylesheets/contrast";
+@use "./assets/stylesheets/icons";
+@use "./assets/stylesheets/fonts";
+@use "./assets/stylesheets/sprites";
+@use "./assets/stylesheets/btn";
+@use "./assets/stylesheets/tooltip";
+@use "./assets/stylesheets/card";
+@use "./assets/stylesheets/animations";
+@use "./assets/stylesheets/tags";
+@use "./assets/stylesheets/gauges";
+@use "./assets/stylesheets/action-plan";
+@use "./assets/stylesheets/breadcrumb";
+@use "./assets/stylesheets/editor";
+@use "./assets/stylesheets/print";
+@use "./assets/stylesheets/header";
+@use "./assets/stylesheets/onboarding";
+@use "./assets/stylesheets/contrast";
+
+// Foundation includes
+@include foundation.foundation-global-styles;
+@include foundation.foundation-flex-grid;
+@include foundation.foundation-flex-classes;
 
 @-moz-document url-prefix() {
   .pia-gaugeBlock-user-choice {
@@ -54,6 +51,9 @@ body {
     background-size: cover;
   }
 }
+.row {
+  max-width: inherit;
+}
 .container {
   max-width: 1180px;
   margin: 0 auto;
@@ -62,16 +62,6 @@ body {
 input {
   &:disabled {
     background-color: #fff !important;
-  }
-}
-
-angular2csv {
-  button {
-    cursor: pointer !important;
-    &:focus,
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 

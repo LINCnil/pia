@@ -25,8 +25,8 @@ export class RevisionService extends ApplicationDb {
    * @param piaId - The PIA id
    */
   async findAllByPia(piaId: number): Promise<any> {
-    const items = [];
     return new Promise((resolve, reject) => {
+      this.pia_id = piaId;
       super
         .findAll(null, { index: 'index1', value: piaId })
         .then((result: any) => {

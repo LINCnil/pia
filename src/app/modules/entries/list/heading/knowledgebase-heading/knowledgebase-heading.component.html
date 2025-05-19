@@ -2,14 +2,19 @@
 <th>
   <a (click)="sortBy('name')">
     <span>{{ "homepage.cards.knowledges.placeholder_name" | translate }}</span>
-    <i
-      class="fa"
-      [ngClass]="[
-        sortValue === 'name'
-          ? 'fa-caret-' + sortOrder
-          : 'fa-caret-down deactivate'
-      ]"
-    ></i>
+    <span
+      *ngIf="sortValue === 'name' && sortOrder == 'up'; else defaultNameOrder"
+    >
+      <fa-icon [icon]="faCaretUp"></fa-icon>
+    </span>
+    <ng-template #defaultNameOrder>
+      <span>
+        <fa-icon
+          [icon]="faCaretDown"
+          [ngClass]="sortValue === 'name' ? '' : 'deactivate'"
+        ></fa-icon>
+      </span>
+    </ng-template>
   </a>
 </th>
 <th>
@@ -17,14 +22,22 @@
     <span>{{
       "homepage.cards.knowledges.placeholder_author" | translate
     }}</span>
-    <i
-      class="fa"
-      [ngClass]="[
-        sortValue === 'author'
-          ? 'fa-caret-' + sortOrder
-          : 'fa-caret-down deactivate'
-      ]"
-    ></i>
+    <span
+      *ngIf="
+        sortValue === 'author' && sortOrder == 'up';
+        else defaultAuthorOrder
+      "
+    >
+      <fa-icon [icon]="faCaretUp"></fa-icon>
+    </span>
+    <ng-template #defaultAuthorOrder>
+      <span>
+        <fa-icon
+          [icon]="faCaretDown"
+          [ngClass]="sortValue === 'author' ? '' : 'deactivate'"
+        ></fa-icon>
+      </span>
+    </ng-template>
   </a>
 </th>
 <th>
@@ -32,14 +45,22 @@
     <span>{{
       "homepage.cards.knowledges.placeholder_contributors" | translate
     }}</span>
-    <i
-      class="fa"
-      [ngClass]="[
-        sortValue === 'contributors'
-          ? 'fa-caret-' + sortOrder
-          : 'fa-caret-down deactivate'
-      ]"
-    ></i>
+    <span
+      *ngIf="
+        sortValue === 'contributors' && sortOrder == 'up';
+        else defaultContributorsOrder
+      "
+    >
+      <fa-icon [icon]="faCaretUp"></fa-icon>
+    </span>
+    <ng-template #defaultContributorsOrder>
+      <span>
+        <fa-icon
+          [icon]="faCaretDown"
+          [ngClass]="sortValue === 'contributors' ? '' : 'deactivate'"
+        ></fa-icon>
+      </span>
+    </ng-template>
   </a>
 </th>
 <th>
@@ -47,13 +68,21 @@
     <span>{{
       "homepage.cards.knowledges.placeholder_entry_number" | translate
     }}</span>
-    <i
-      class="fa"
-      [ngClass]="[
-        sortValue === 'knowledges'
-          ? 'fa-caret-' + sortOrder
-          : 'fa-caret-down deactivate'
-      ]"
-    ></i>
+    <span
+      *ngIf="
+        sortValue === 'knowledges' && sortOrder == 'up';
+        else defaultKnowledgesOrder
+      "
+    >
+      <fa-icon [icon]="faCaretUp"></fa-icon>
+    </span>
+    <ng-template #defaultKnowledgesOrder>
+      <span>
+        <fa-icon
+          [icon]="faCaretDown"
+          [ngClass]="sortValue === 'knowledges' ? '' : 'deactivate'"
+        ></fa-icon>
+      </span>
+    </ng-template>
   </a>
 </th>

@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .pia-cardsBlock {
   width: 276px;
   display: inline-block;
@@ -307,7 +309,7 @@
     a,
     button {
       color: $pia-green;
-      .fa {
+      .ng-fa-icon {
         margin: 0 3px;
       }
     }
@@ -316,5 +318,18 @@
       vertical-align: top;
       position: relative;
     }
+  }
+}
+.pia-listBlock {
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    list-style: none;
+    background-color: #091c6b;
+    padding: 1rem;
+    color: #fff;
+    margin: 0.2rem;
+    font-size: 1.5rem;
   }
 }

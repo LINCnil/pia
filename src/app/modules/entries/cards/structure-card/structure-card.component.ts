@@ -12,11 +12,13 @@ import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import { PiaService } from 'src/app/services/pia.service';
 import { StructureService } from 'src/app/services/structure.service';
+import { faDownload, faFile, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-structure-card',
   templateUrl: './structure-card.component.html',
-  styleUrls: ['./structure-card.component.scss']
+  styleUrls: ['./structure-card.component.scss'],
+  standalone: false
 })
 export class StructureCardComponent implements OnInit {
   @Input() structure: any;
@@ -30,6 +32,10 @@ export class StructureCardComponent implements OnInit {
   structureName: ElementRef;
   @ViewChild('structureSectorName')
   private structureSectorName: ElementRef;
+
+  protected readonly faDownload = faDownload;
+  protected readonly faFile = faFile;
+  protected readonly faTrash = faTrash;
 
   constructor(
     private piaService: PiaService,

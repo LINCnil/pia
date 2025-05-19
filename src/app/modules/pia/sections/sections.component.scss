@@ -1,4 +1,4 @@
-@import "src/assets/stylesheets/variables";
+@use "src/assets/stylesheets/variables" as *;
 .pia {
   &-sectionBlock {
     &-header {
@@ -66,14 +66,14 @@
           margin-top: 9px;
           color: $pia-gray;
         }
-        i {
-          font-size: 1.8rem;
+        .ng-fa-icon {
+          font-size: 1.6rem;
           margin-top: 2px;
-          margin-left: auto;
+          margin-left: 10px;
           margin-right: 10px;
           color: $pia-gray;
         }
-        .fa-check-square-o {
+        .fa-square-check {
           color: $pia-blue;
         }
       }
@@ -109,9 +109,16 @@
               background-color: $pia-green;
             }
           }
-          .fa-pencil-square-o.pia-fa-valid,
-          .fa-cog.pia-fa-valid,
-          .fa-check-square-o {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
+              color: $pia-gray;
+            }
+            .fa-square-check {
+              color: $pia-green;
+            }
+          }
+          .ng-fa-icon.pia-fa-valid {
             color: $pia-green;
           }
         }
@@ -131,9 +138,16 @@
               background-color: $pia-blue;
             }
           }
-          .fa-pencil-square-o.pia-fa-valid,
-          .fa-cog.pia-fa-valid,
-          .fa-check-square-o {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
+              color: $pia-gray;
+            }
+            .fa-square-check {
+              color: $pia-blue;
+            }
+          }
+          .ng-fa-icon.pia-fa-valid {
             color: $pia-blue;
           }
         }
@@ -153,9 +167,16 @@
               background-color: $pia-red;
             }
           }
-          .fa-pencil-square-o.pia-fa-valid,
-          .fa-cog.pia-fa-valid,
-          .fa-check-square-o {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
+              color: $pia-gray;
+            }
+            .fa-square-check {
+              color: $pia-red;
+            }
+          }
+          .ng-fa-icon.pia-fa-valid {
             color: $pia-red;
           }
         }
@@ -176,8 +197,16 @@
               background-color: $pia-dark-black;
             }
           }
-          .fa-cog.pia-fa-valid,
-          .fa-check-square-o {
+          .ng-fa-icon {
+            .fa-pen-to-square,
+            .fa-gear {
+              color: $pia-gray;
+            }
+            .fa-square-check {
+              color: $pia-dark-black;
+            }
+          }
+          .ng-fa-icon.pia-fa-valid {
             color: $pia-dark-black;
           }
         }

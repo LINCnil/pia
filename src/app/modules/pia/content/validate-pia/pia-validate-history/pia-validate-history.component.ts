@@ -8,7 +8,8 @@ import { Pia } from 'src/app/models/pia.model';
   selector: 'app-pia-validate-history',
   templateUrl: './pia-validate-history.component.html',
   styleUrls: ['./pia-validate-history.component.scss'],
-  providers: [PiaService]
+  providers: [PiaService],
+  standalone: false
 })
 export class PiaValidateHistoryComponent implements OnInit {
   @Input() pia: Pia = null;
