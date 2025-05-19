@@ -10,7 +10,7 @@
         <span
           title="{{ 'homepage.lists.item.tools.edit' | translate }}"
           class="pia-tooltip-text"
-        >{{ "homepage.lists.item.tools.edit" | translate }}</span
+          >{{ "homepage.lists.item.tools.edit" | translate }}</span
         >
       </a>
       <a
@@ -22,7 +22,7 @@
         <span
           title="{{ 'homepage.lists.item.tools.consult' | translate }}"
           class="pia-tooltip-text"
-        >{{ "homepage.lists.item.tools.consult" | translate }}</span
+          >{{ "homepage.lists.item.tools.consult" | translate }}</span
         >
       </a>
       <ng-container
@@ -41,7 +41,7 @@
           <span
             title="{{ 'homepage.lists.item.tools.duplicate' | translate }}"
             class="pia-tooltip-text"
-          >{{ "homepage.lists.item.tools.duplicate" | translate }}</span
+            >{{ "homepage.lists.item.tools.duplicate" | translate }}</span
           >
         </a>
         <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
@@ -49,7 +49,7 @@
           <span
             title="{{ 'homepage.lists.item.tools.export' | translate }}"
             class="pia-tooltip-text"
-          >{{ "homepage.lists.item.tools.export" | translate }}</span
+            >{{ "homepage.lists.item.tools.export" | translate }}</span
           >
         </a>
         <a
@@ -61,7 +61,7 @@
           <span
             title="{{ 'homepage.lists.item.tools.archive' | translate }}"
             class="pia-tooltip-text"
-          >{{ "homepage.lists.item.tools.archive" | translate }}</span
+            >{{ "homepage.lists.item.tools.archive" | translate }}</span
           >
         </a>
       </ng-container>
@@ -85,13 +85,11 @@
     </div>
   </td>
   <td class="pia-listsBlock-item">
-    <time
-      *ngIf="pia.updated_at && pia.updated_at.toString() !== 'Invalid Date'"
-    >{{
+    <time *ngIf="pia.updated_at && pia.updated_at.toString() !== 'Invalid Date'"
+      >{{
         pia.updated_at | date: "shortDate":"":languagesService.selectedLanguage
       }}
-    </time
-    >
+    </time>
   </td>
   <td class="pia-listsBlock-item">
     <div
@@ -112,21 +110,23 @@
           [clearOnBlur]="true"
           [placeholder]="'homepage.cards.placeholder_validation' | translate"
           [secondaryPlaceholder]="
-          'homepage.cards.placeholder_validation' | translate
-        "
+            'homepage.cards.placeholder_validation' | translate
+          "
         >
           <ng-template let-item="item" let-index="index">
             <div
               [ngClass]="{
-              'custom-tag': true,
-              'user-not-found': item.id == null
-            }"
+                'custom-tag': true,
+                'user-not-found': item.id == null
+              }"
             >
               {{ item.display }}
               <delete-icon
                 *ngIf="
-                authService.currentUserValue.access_type.includes('functional')
-              "
+                  authService.currentUserValue.access_type.includes(
+                    'functional'
+                  )
+                "
                 (click)="input.removeItem(item, index)"
               ></delete-icon>
             </div>
@@ -141,29 +141,26 @@
         <button
           class="btn btn-add-user"
           (click)="
-          onAddUser(
-            {
-              display: addBtnForSpecificInput.display,
-              id: addBtnForSpecificInput.display
-            },
-            'author_name'
-          )
-        "
+            onAddUser(
+              {
+                display: addBtnForSpecificInput.display,
+                id: addBtnForSpecificInput.display
+              },
+              'author_name'
+            )
+          "
           *ngIf="
-          addBtnForSpecificInput &&
-          addBtnForSpecificInput.pia_id === pia.id &&
-          addBtnForSpecificInput.field === 'author_name'
-        "
+            addBtnForSpecificInput &&
+            addBtnForSpecificInput.pia_id === pia.id &&
+            addBtnForSpecificInput.field === 'author_name'
+          "
         >
           +
         </button>
       </ng-container>
       <ng-template #itemsDisplayAuthorOnly>
         <ul class="pia-listBlock">
-          <li
-            *ngFor="let item of authors"
-            class="pia-listItem"
-          >
+          <li *ngFor="let item of authors" class="pia-listItem">
             {{ item.display }}
           </li>
         </ul>
@@ -194,21 +191,23 @@
           [clearOnBlur]="true"
           [placeholder]="'homepage.cards.placeholder_validation' | translate"
           [secondaryPlaceholder]="
-          'homepage.cards.placeholder_validation' | translate
-        "
+            'homepage.cards.placeholder_validation' | translate
+          "
         >
           <ng-template let-item="item" let-index="index">
             <div
               [ngClass]="{
-              'custom-tag': true,
-              'user-not-found': item.id == null
-            }"
+                'custom-tag': true,
+                'user-not-found': item.id == null
+              }"
             >
               {{ item.display }}
               <delete-icon
                 *ngIf="
-                authService.currentUserValue.access_type.includes('functional')
-              "
+                  authService.currentUserValue.access_type.includes(
+                    'functional'
+                  )
+                "
                 (click)="input.removeItem(item, index)"
               ></delete-icon>
             </div>
@@ -223,29 +222,26 @@
         <button
           class="btn btn-add-user"
           (click)="
-          onAddUser(
-            {
-              display: addBtnForSpecificInput.display,
-              id: addBtnForSpecificInput.display
-            },
-            'evaluator_name'
-          )
-        "
+            onAddUser(
+              {
+                display: addBtnForSpecificInput.display,
+                id: addBtnForSpecificInput.display
+              },
+              'evaluator_name'
+            )
+          "
           *ngIf="
-          addBtnForSpecificInput &&
-          addBtnForSpecificInput.pia_id === pia.id &&
-          addBtnForSpecificInput.field === 'evaluator_name'
-        "
+            addBtnForSpecificInput &&
+            addBtnForSpecificInput.pia_id === pia.id &&
+            addBtnForSpecificInput.field === 'evaluator_name'
+          "
         >
           +
         </button>
       </ng-container>
       <ng-template #itemsDisplayEvaluatorOnly>
         <ul class="pia-listBlock">
-          <li
-            *ngFor="let item of evaluators"
-            class="pia-listItem"
-          >
+          <li *ngFor="let item of evaluators" class="pia-listItem">
             {{ item.display }}
           </li>
         </ul>
@@ -276,21 +272,23 @@
           [clearOnBlur]="true"
           [placeholder]="'homepage.cards.placeholder_validation' | translate"
           [secondaryPlaceholder]="
-          'homepage.cards.placeholder_validation' | translate
-        "
+            'homepage.cards.placeholder_validation' | translate
+          "
         >
           <ng-template let-item="item" let-index="index">
             <div
               [ngClass]="{
-              'custom-tag': true,
-              'user-not-found': item.id == null
-            }"
+                'custom-tag': true,
+                'user-not-found': item.id == null
+              }"
             >
               {{ item.display }}
               <delete-icon
                 *ngIf="
-                authService.currentUserValue.access_type.includes('functional')
-              "
+                  authService.currentUserValue.access_type.includes(
+                    'functional'
+                  )
+                "
                 (click)="input.removeItem(item, index)"
               ></delete-icon>
             </div>
@@ -305,29 +303,26 @@
         <button
           class="btn btn-add-user"
           (click)="
-          onAddUser(
-            {
-              display: addBtnForSpecificInput.display,
-              id: addBtnForSpecificInput.display
-            },
-            'validator_name'
-          )
-        "
+            onAddUser(
+              {
+                display: addBtnForSpecificInput.display,
+                id: addBtnForSpecificInput.display
+              },
+              'validator_name'
+            )
+          "
           *ngIf="
-          addBtnForSpecificInput &&
-          addBtnForSpecificInput.pia_id === pia.id &&
-          addBtnForSpecificInput.field === 'validator_name'
-        "
+            addBtnForSpecificInput &&
+            addBtnForSpecificInput.pia_id === pia.id &&
+            addBtnForSpecificInput.field === 'validator_name'
+          "
         >
           +
         </button>
       </ng-container>
       <ng-template #itemsDisplayValidatorOnly>
         <ul class="pia-listBlock">
-          <li
-            *ngFor="let item of validators"
-            class="pia-listItem"
-          >
+          <li *ngFor="let item of validators" class="pia-listItem">
             {{ item.display }}
           </li>
         </ul>
@@ -354,16 +349,16 @@
         [clearOnBlur]="true"
         [placeholder]="'homepage.cards.placeholder_validation' | translate"
         [secondaryPlaceholder]="
-        'homepage.cards.placeholder_validation' | translate
-      "
+          'homepage.cards.placeholder_validation' | translate
+        "
       >
         <ng-template let-item="item" let-index="index">
           <div [ngClass]="{ 'custom-tag': true }">
             {{ item.display }}
             <delete-icon
               *ngIf="
-              authService.currentUserValue.access_type.includes('functional')
-            "
+                authService.currentUserValue.access_type.includes('functional')
+              "
               (click)="input.removeItem(item, index)"
             ></delete-icon>
           </div>
@@ -378,29 +373,26 @@
       <button
         class="btn btn-add-user"
         (click)="
-        onAddUser(
-          {
-            display: addBtnForSpecificInput.display,
-            id: addBtnForSpecificInput.display
-          },
-          'guests'
-        )
-      "
+          onAddUser(
+            {
+              display: addBtnForSpecificInput.display,
+              id: addBtnForSpecificInput.display
+            },
+            'guests'
+          )
+        "
         *ngIf="
-        addBtnForSpecificInput &&
-        addBtnForSpecificInput.pia_id === pia.id &&
-        addBtnForSpecificInput.field === 'guests'
-      "
+          addBtnForSpecificInput &&
+          addBtnForSpecificInput.pia_id === pia.id &&
+          addBtnForSpecificInput.field === 'guests'
+        "
       >
         +
       </button>
     </ng-container>
     <ng-template #itemsDisplayGuestOnly>
       <ul class="pia-listBlock">
-        <li
-          *ngFor="let item of guests"
-          class="pia-listItem"
-        >
+        <li *ngFor="let item of guests" class="pia-listItem">
           {{ item.display }}
         </li>
       </ul>
@@ -412,8 +404,8 @@
   <td class="pia-listsBlock-item progress">
     <div class="pia-cardsBlock-item-status-progressBar">
       <span title="{{ piaService.getStatusName(pia.status) | translate }}">{{
-          piaService.getStatusName(pia.status) | translate
-        }}</span>
+        piaService.getStatusName(pia.status) | translate
+      }}</span>
       <progress max="100" value="{{ pia.progress }}"></progress>
     </div>
   </td>

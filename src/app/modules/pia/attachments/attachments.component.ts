@@ -45,7 +45,9 @@ export class AttachmentsComponent implements OnInit {
     if (this.pia.is_example === 1) {
       return false;
     } else {
-      const attachment = document.querySelector('[formcontrolname="attachment_file"]') as HTMLInputElement;
+      const attachment = document.querySelector(
+        '[formcontrolname="attachment_file"]'
+      ) as HTMLInputElement;
       attachment.click();
     }
   }
