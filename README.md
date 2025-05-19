@@ -57,7 +57,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### Mac:
 
-You must set the ENV variables `APPLEID` and `APPLEPIAPASSWORD` inside a `.env` file at the root of the project.
+You must set the ENV variables `APPLE_ID`, `APPLE_APP_SPECIFIC_PASSWORD` and `APPLE_TEAM_ID` inside a `.env` file at the root of the project.
 
 ```
 yarn electron:mac
