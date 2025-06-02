@@ -10,8 +10,8 @@
 >
   <div class="pia-cardsBlock-header-title" *ngIf="pia.id !== null">
     <span *ngIf="!previousPia || previousPia.status !== pia.status">{{
-        piaService.getStatusName(pia.status) | translate
-      }}</span>
+      piaService.getStatusName(pia.status) | translate
+    }}</span>
   </div>
   <div class="pia-cardsBlock-item pia-doingBlock-item">
     <div
@@ -44,7 +44,7 @@
           <span
             title="{{ 'homepage.cards.item.edit_pia' | translate }}"
             class="pia-tooltip-text"
-          >{{ "homepage.cards.item.edit_pia" | translate }}</span
+            >{{ "homepage.cards.item.edit_pia" | translate }}</span
           >
         </a>
         <a
@@ -56,7 +56,7 @@
           <span
             title="{{ 'homepage.cards.item.tools.duplicate' | translate }}"
             class="pia-tooltip-text"
-          >{{ "homepage.cards.item.tools.duplicate" | translate }}</span
+            >{{ "homepage.cards.item.tools.duplicate" | translate }}</span
           >
         </a>
         <a href="javascript:;" (click)="generateZip()" class="btn pia-tooltip">
@@ -64,7 +64,7 @@
           <span
             title="{{ 'homepage.cards.item.tools.export' | translate }}"
             class="pia-tooltip-text"
-          >{{ "homepage.cards.item.tools.export" | translate }}</span
+            >{{ "homepage.cards.item.tools.export" | translate }}</span
           >
         </a>
         <a
@@ -76,7 +76,7 @@
           <span
             title="{{ 'homepage.cards.item.tools.archive' | translate }}"
             class="pia-tooltip-text"
-          >{{ "homepage.cards.item.tools.archive" | translate }}</span
+            >{{ "homepage.cards.item.tools.archive" | translate }}</span
           >
         </a>
       </div>
@@ -87,11 +87,11 @@
       *ngIf="piaForm"
       [formGroup]="piaForm"
     >
-      <input type="hidden" formControlName="id"/>
+      <input type="hidden" formControlName="id" />
       <div (click)="piaNameFocusIn()" style="margin-top:20px;">
         <label for="pia-edit-{{ pia.id }}-name">{{
-            "homepage.cards.pia_name" | translate
-          }}</label>
+          "homepage.cards.pia_name" | translate
+        }}</label>
         <input
           type="text"
           #piaName
@@ -103,7 +103,9 @@
         />
       </div>
       <div>
-        <label for="pia-edit-{{ pia.id }}-author-name">{{ "homepage.cards.author" | translate }}</label>
+        <label for="pia-edit-{{ pia.id }}-author-name">{{
+          "homepage.cards.author" | translate
+        }}</label>
 
         <div
           class="tag-input-container"
@@ -125,23 +127,23 @@
               [clearOnBlur]="true"
               [placeholder]="'homepage.cards.placeholder_author' | translate"
               [secondaryPlaceholder]="
-              'homepage.cards.placeholder_author' | translate
-            "
+                'homepage.cards.placeholder_author' | translate
+              "
             >
               <ng-template let-item="item" let-index="index">
                 <div
                   [ngClass]="{
-                  'custom-tag': true,
-                  'user-not-found': item.id == null
-                }"
+                    'custom-tag': true,
+                    'user-not-found': item.id == null
+                  }"
                 >
                   {{ item.display }}
                   <delete-icon
                     *ngIf="
-                    authService.currentUserValue.access_type.includes(
-                      'functional'
-                    )
-                  "
+                      authService.currentUserValue.access_type.includes(
+                        'functional'
+                      )
+                    "
                     (click)="input.removeItem(item, index)"
                   ></delete-icon>
                 </div>
@@ -157,19 +159,19 @@
               type="button"
               class="btn btn-add-user"
               (click)="
-              onAddUserWithIcon(
-                {
-                  display: addBtnForSpecificInput.display,
-                  id: addBtnForSpecificInput.display
-                },
-                'authors'
-              )
-            "
+                onAddUserWithIcon(
+                  {
+                    display: addBtnForSpecificInput.display,
+                    id: addBtnForSpecificInput.display
+                  },
+                  'authors'
+                )
+              "
               *ngIf="
-              addBtnForSpecificInput &&
-              addBtnForSpecificInput.pia_id === pia.id &&
-              addBtnForSpecificInput.field === 'authors'
-            "
+                addBtnForSpecificInput &&
+                addBtnForSpecificInput.pia_id === pia.id &&
+                addBtnForSpecificInput.field === 'authors'
+              "
             >
               +
             </button>
@@ -202,12 +204,16 @@
         </ng-template>
       </div>
       <div>
-        <label for="pia-edit-{{ pia.id }}-evaluator-name">{{ "homepage.cards.evaluation" | translate }}</label>
+        <label for="pia-edit-{{ pia.id }}-evaluator-name">{{
+          "homepage.cards.evaluation" | translate
+        }}</label>
         <div
           class="tag-input-container"
           *ngIf="authService.state; else elseEvaluatorBlock"
         >
-          <ng-container *ngIf="!isInputDisabled(); else itemsDisplayEvaluatorOnly">
+          <ng-container
+            *ngIf="!isInputDisabled(); else itemsDisplayEvaluatorOnly"
+          >
             <tag-input
               #input
               id="pia-edit-{{ pia.id }}-evaluator-name"
@@ -220,25 +226,27 @@
               [theme]="'foundation-theme'"
               [editable]="false"
               [clearOnBlur]="true"
-              [placeholder]="'homepage.cards.placeholder_evaluation' | translate"
+              [placeholder]="
+                'homepage.cards.placeholder_evaluation' | translate
+              "
               [secondaryPlaceholder]="
-              'homepage.cards.placeholder_evaluation' | translate
-            "
+                'homepage.cards.placeholder_evaluation' | translate
+              "
             >
               <ng-template let-item="item" let-index="index">
                 <div
                   [ngClass]="{
-                  'custom-tag': true,
-                  'user-not-found': item.id == null
-                }"
+                    'custom-tag': true,
+                    'user-not-found': item.id == null
+                  }"
                 >
                   {{ item.display }}
                   <delete-icon
                     *ngIf="
-                    authService.currentUserValue.access_type.includes(
-                      'functional'
-                    )
-                  "
+                      authService.currentUserValue.access_type.includes(
+                        'functional'
+                      )
+                    "
                     (click)="input.removeItem(item, index)"
                   ></delete-icon>
                 </div>
@@ -254,19 +262,19 @@
               type="button"
               class="btn btn-add-user"
               (click)="
-              onAddUserWithIcon(
-                {
-                  display: addBtnForSpecificInput.display,
-                  id: addBtnForSpecificInput.display
-                },
-                'evaluators'
-              )
-            "
+                onAddUserWithIcon(
+                  {
+                    display: addBtnForSpecificInput.display,
+                    id: addBtnForSpecificInput.display
+                  },
+                  'evaluators'
+                )
+              "
               *ngIf="
-              addBtnForSpecificInput &&
-              addBtnForSpecificInput.pia_id === pia.id &&
-              addBtnForSpecificInput.field === 'evaluators'
-            "
+                addBtnForSpecificInput &&
+                addBtnForSpecificInput.pia_id === pia.id &&
+                addBtnForSpecificInput.field === 'evaluators'
+              "
             >
               +
             </button>
@@ -300,13 +308,15 @@
       </div>
       <div>
         <label for="pia-edit-{{ pia.id }}-validator-name">{{
-            "homepage.cards.validation" | translate
-          }}</label>
+          "homepage.cards.validation" | translate
+        }}</label>
         <div
           class="tag-input-container"
           *ngIf="authService.state; else elseValidatorBlock"
         >
-          <ng-container *ngIf="!isInputDisabled(); else itemsDisplayValidatorOnly">
+          <ng-container
+            *ngIf="!isInputDisabled(); else itemsDisplayValidatorOnly"
+          >
             <tag-input
               #input
               id="pia-edit-{{ pia.id }}-validators"
@@ -319,25 +329,27 @@
               [theme]="'foundation-theme'"
               [editable]="false"
               [clearOnBlur]="true"
-              [placeholder]="'homepage.cards.placeholder_validation' | translate"
+              [placeholder]="
+                'homepage.cards.placeholder_validation' | translate
+              "
               [secondaryPlaceholder]="
-              'homepage.cards.placeholder_validation' | translate
-            "
+                'homepage.cards.placeholder_validation' | translate
+              "
             >
               <ng-template let-item="item" let-index="index">
                 <div
                   [ngClass]="{
-                  'custom-tag': true,
-                  'user-not-found': item.id == null
-                }"
+                    'custom-tag': true,
+                    'user-not-found': item.id == null
+                  }"
                 >
                   {{ item.display }}
                   <delete-icon
                     *ngIf="
-                    authService.currentUserValue.access_type.includes(
-                      'functional'
-                    )
-                  "
+                      authService.currentUserValue.access_type.includes(
+                        'functional'
+                      )
+                    "
                     (click)="input.removeItem(item, index)"
                   ></delete-icon>
                 </div>
@@ -353,19 +365,19 @@
               type="button"
               class="btn btn-add-user"
               (click)="
-              onAddUserWithIcon(
-                {
-                  display: addBtnForSpecificInput.display,
-                  id: addBtnForSpecificInput.display
-                },
-                'validator_name'
-              )
-            "
+                onAddUserWithIcon(
+                  {
+                    display: addBtnForSpecificInput.display,
+                    id: addBtnForSpecificInput.display
+                  },
+                  'validator_name'
+                )
+              "
               *ngIf="
-              addBtnForSpecificInput &&
-              addBtnForSpecificInput.pia_id === pia.id &&
-              addBtnForSpecificInput.field === 'validator_name'
-            "
+                addBtnForSpecificInput &&
+                addBtnForSpecificInput.pia_id === pia.id &&
+                addBtnForSpecificInput.field === 'validator_name'
+              "
             >
               +
             </button>
@@ -399,7 +411,9 @@
       </div>
 
       <div class="tag-input-container" *ngIf="authService.state">
-        <label for="pia-edit-{{ pia.id }}-guest-name">{{ "homepage.cards.guest" | translate }}</label>
+        <label for="pia-edit-{{ pia.id }}-guest-name">{{
+          "homepage.cards.guest" | translate
+        }}</label>
         <ng-container *ngIf="!isInputDisabled(); else itemsDisplayGuestOnly">
           <tag-input
             #input
@@ -416,18 +430,18 @@
             [clearOnBlur]="true"
             [placeholder]="'homepage.cards.placeholder_validation' | translate"
             [secondaryPlaceholder]="
-            'homepage.cards.placeholder_validation' | translate
-          "
+              'homepage.cards.placeholder_validation' | translate
+            "
           >
             <ng-template let-item="item" let-index="index">
               <div [ngClass]="{ 'custom-tag': true }">
                 {{ item.display }}
                 <delete-icon
                   *ngIf="
-                  authService.currentUserValue.access_type.includes(
-                    'functional'
-                  )
-                "
+                    authService.currentUserValue.access_type.includes(
+                      'functional'
+                    )
+                  "
                   (click)="input.removeItem(item, index)"
                 ></delete-icon>
               </div>
@@ -443,19 +457,19 @@
             type="button"
             class="btn btn-add-user"
             (click)="
-            onAddUserWithIcon(
-              {
-                display: addBtnForSpecificInput.display,
-                id: addBtnForSpecificInput.display
-              },
-              'guests'
-            )
-          "
+              onAddUserWithIcon(
+                {
+                  display: addBtnForSpecificInput.display,
+                  id: addBtnForSpecificInput.display
+                },
+                'guests'
+              )
+            "
             *ngIf="
-            addBtnForSpecificInput &&
-            addBtnForSpecificInput.pia_id === pia.id &&
-            addBtnForSpecificInput.field === 'guests'
-          "
+              addBtnForSpecificInput &&
+              addBtnForSpecificInput.pia_id === pia.id &&
+              addBtnForSpecificInput.field === 'guests'
+            "
           >
             +
           </button>
@@ -474,8 +488,8 @@
 
       <div (click)="piaCategoryFocusIn()">
         <label for="pia-edit-{{ pia.id }}-category">{{
-            "homepage.cards.category" | translate
-          }}</label>
+          "homepage.cards.category" | translate
+        }}</label>
         <input
           type="text"
           #piaCategory
@@ -491,7 +505,8 @@
       </div>
       <div class="pia-cardsBlock-item-date">
         <div>{{ "homepage.cards.date" | translate }}</div>
-        <time>{{
+        <time
+          >{{
             pia.created_at
               | date: "shortDate":"":languagesService.selectedLanguage
           }}
@@ -529,7 +544,7 @@
             title="{{ 'homepage.cards.item.edit_pia' | translate }}"
             class="btn btn-green"
             [class.disabled]="piaForm.invalid"
-          >{{ "homepage.cards.item.validate_pia" | translate }}
+            >{{ "homepage.cards.item.validate_pia" | translate }}
           </a>
           <ng-template #editBlock>
             <a
@@ -537,7 +552,7 @@
               title="{{ 'homepage.cards.item.edit_pia' | translate }}"
               class="btn btn-green"
               [class.disabled]="piaForm.invalid"
-            >{{ "homepage.cards.item.edit_pia" | translate }}</a
+              >{{ "homepage.cards.item.edit_pia" | translate }}</a
             >
           </ng-template>
         </div>
@@ -550,7 +565,7 @@
             title="{{ 'homepage.cards.item.consult_pia' | translate }}"
             class="btn btn-green"
             [class.disabled]="piaForm.invalid"
-          >{{ "homepage.cards.item.consult_pia" | translate }}</a
+            >{{ "homepage.cards.item.consult_pia" | translate }}</a
           >
         </div>
       </div>
