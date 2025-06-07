@@ -61,6 +61,7 @@
     "d3": "^7.8.5",
     "dotenv": "^8.2.0",
     "electron-squirrel-startup": "^1.0.1",
+    "electron-updater": "^6.6.2",
     "file-saver": "^2.0.5",
     "foundation-sites": "^6.6.3",
     "html2canvas": "1.0.0",

@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu } = require("electron/main");
+const { setupAutoUpdater } = require("./updater");
 const path = require("path");
 
 const createWindow = () => {
@@ -23,7 +24,10 @@ const createWindow = () => {
   );
 };
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  createWindow();
+  setupAutoUpdater();
+});
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
