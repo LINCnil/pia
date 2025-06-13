@@ -1,72 +1,110 @@
-const { dialog, BrowserWindow } = require("electron");
+const { BrowserWindow } = require("electron/main");
 const { autoUpdater } = require("electron-updater");
-
+const { dialog } = require("electron");
 const path = require("path");
-const url = require("url");
 
-autoUpdater.logger = require("electron-log");
-autoUpdater.logger.transports.file.level = "info";
+let progressWindow = null;
 
-autoUpdater.autoDownload = false;
+function createProgressWindow() {
+  // Create a new window for the progress bar
+  progressWindow = new BrowserWindow({
+    width: 400,
+    height: 150,
+    useContentSize: true,
+    resizable: false,
+    minimizable: false,
+    maximizable: false,
+    fullscreenable: false,
+    title: "Downloading Update",
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    }
+  });
 
-exports.check = () => {
-  autoUpdater.checkForUpdates();
+  // Load progress bar HTML file
+  progressWindow.loadFile(path.join(__dirname, "progress.html"));
+  progressWindow.setMenuBarVisibility(false);
+  progressWindow.on("closed", () => {
+    progressWindow = null;
+  });
 
-  autoUpdater.on("update-available", () => {
+  return progressWindow;
+}
+
+function setupAutoUpdater() {
+  // Configure autoUpdater - disable automatic download and install
+  autoUpdater.autoDownload = false;
+  autoUpdater.autoInstallOnAppQuit = false;
+
+  // Update events
+  autoUpdater.on("checking-for-update", () => {
+    console.log("Checking for updates...");
+  });
+
+  autoUpdater.on("update-available", info => {
+    console.log("Update available:", info);
     dialog
       .showMessageBox({
         type: "info",
         title: "Update Available",
-        message:
-          "A new version of PIA is available. Do you want to update now?",
-        buttons: ["Update", "No"]
+        message: `Version ${info.version} is available. Would you like to download it?`,
+        buttons: ["Download", "Cancel"]
       })
       .then(result => {
-        console.log(result.response);
-        if (result.response !== 0) return;
-
-        autoUpdater.downloadUpdate();
-        let progressWin = new BrowserWindow({
-          width: 350,
-          height: 35,
-          useContentSize: true,
-          autoHideMenuBar: true,
-          maximizable: false,
-          fullscreen: false,
-          fullscreenable: false,
-          resizable: false
-        });
-
-        progressWin.loadURL(
-          url.format({
-            pathname: path.join(__dirname, "renderer", "progress.html"),
-            protocol: "file:",
-            slashes: true
-          })
-        );
-
-        progressWin.on("closed", () => {
-          progressWin = null;
-        });
-        autoUpdater.on("update-downloaded", () => {
-          if (progressWin) progressWin.close();
-          dialog
-            .showMessageBox({
-              type: "info",
-              title: "Update ready",
-              message: "A new version of PIA is ready. Quit and install now?",
-              buttons: ["Yes", "Later"]
-            })
-            .then(result => {
-              if (result.response === 0) autoUpdater.quitAndInstall();
-            })
-            .catch(err => {
-              console.log(err);
-            });
-        });
-      })
-      .catch(err => {
-        console.log(err);
+        if (result.response === 0) {
+          autoUpdater.downloadUpdate();
+        }
       });
   });
+
+  autoUpdater.on("update-not-available", () => {
+    console.log("No updates available");
+  });
+
+  autoUpdater.on("download-progress", progress => {
+    console.log(`Download progress: ${progress.percent.toFixed(2)}%`);
+    if (!progressWindow) {
+      createProgressWindow();
+    }
+
+    if (progressWindow) {
+      progressWindow.webContents.send("download-progress", {
+        percent: progress.percent.toFixed(2)
+      });
+    }
+  });
+
+  autoUpdater.on("update-downloaded", info => {
+    console.log("Update downloaded", info);
+    if (progressWindow) {
+      progressWindow.close();
+      progressWindow = null;
+    }
+    dialog
+      .showMessageBox({
+        type: "info",
+        title: "Update Ready",
+        message: "Update downloaded. Would you like to install it now?",
+        buttons: ["Install Now", "Later"]
+      })
+      .then(result => {
+        if (result.response === 0) autoUpdater.quitAndInstall();
+      });
+  });
+
+  autoUpdater.on("error", err => {
+    console.error("AutoUpdater error:", err);
+    if (progressWindow) {
+      progressWindow.close();
+      progressWindow = null;
+    }
+  });
+
+  // Check for updates
+  autoUpdater.checkForUpdates();
+}
+
+module.exports = {
+  setupAutoUpdater
 };
