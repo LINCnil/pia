@@ -14,7 +14,7 @@ The latest version of the tool can be downloaded in the [Release](https://github
 
 ## Translating the PIA Software
 
-To translate the software, we invite you to visit the [related repository](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n) where the translation steps are described.
+To translate the software, we invite you to make your changes [here](https://github.com/LINCnil/pia/tree/master/src/assets/i18n) where the translation steps are described.
 
 # Development information
 
