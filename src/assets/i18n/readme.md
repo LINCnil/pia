@@ -7,7 +7,7 @@ To do so, you will need to login to your Github account or create one if needed.
 
 #### Open en.json
 
-In the [language folder (i18n)](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n "Language folder") open the english version ([en.json](https://github.com/LINCnil/pia-i18n/blob/main/src/lib/assets/i18n/en.json "en.json")).
+In the [language folder (i18n)](https://github.com/LINCnil/pia/tree/master/src/assets/i18n "Language folder") open the english version ([en.json](https://github.com/LINCnil/pia/blob/master/src/assets/i18n/en.json "en.json")).
 <br><br>
 
 #### Select and copy the file content
@@ -17,7 +17,7 @@ Select the text of the whole document and copy it (`ctrl + C` on Window, `cmd + 
 
 #### Create a new file
 
-Go back to the [language folder (i18n)](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n "Language folder") and click on "Create new file".
+Go back to the [language folder (i18n)](https://github.com/LINCnil/pia/tree/master/src/assets/i18n "Language folder") and click on "Create new file".
 <br><br>
 
 #### Name the new file
@@ -46,7 +46,7 @@ Whenever you want, even if the translation is not finished as you'll be able to 
 
 #### Editing a file
 
-Click on the translation file you're interested in contributing to available in the [language folder (i18n)](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n "Language folder"). Then click on the pen icon.
+Click on the translation file you're interested in contributing to available in the [language folder (i18n)](https://github.com/LINCnil/pia/tree/master/src/assets/i18n "Language folder"). Then click on the pen icon.
 <br><br>
 
 #### Editing the fields
