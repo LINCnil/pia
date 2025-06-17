@@ -1,7 +1,4 @@
-<div
-  class="pia-attachmentsBlock-item bounceIn"
-  *ngIf="attachment.file"
->
+<div class="pia-attachmentsBlock-item bounceIn" *ngIf="attachment.file">
   <a
     href="javascript:;"
     (click)="downloadAttachment()"
@@ -37,7 +34,7 @@
     class="pia-icons pia-icon-close-big"
     title="{{ 'modals.close' | translate }}"
   ></button>
-  <img *ngIf="imgSrc" [src]="imgSrc">
+  <img *ngIf="imgSrc" [src]="imgSrc" />
   <div style="width:80%; height:100%; margin:auto;" *ngIf="pdfSrc">
     <ng2-pdfjs-viewer
       [pdfSrc]="pdfSrc"

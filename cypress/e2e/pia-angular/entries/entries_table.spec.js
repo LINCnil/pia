@@ -11,7 +11,7 @@ describe("Entries_table", () => {
     // Skip tutorial
     cy.disable_onboarding();
     cy.visit(`/#/entries`);
-    cy.get(".pia-filtersBlock-switch").click();
+    // cy.get(".pia-filtersBlock-switch").click({force: true});
   });
 
   /**
@@ -19,6 +19,7 @@ describe("Entries_table", () => {
    */
   context("entries_table", () => {
     it("change display and check if there is a table", () => {
+      cy.get(".pia-filtersBlock-switch").click({ force: true });
       cy.get("table").should("exist");
     });
 
