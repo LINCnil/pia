@@ -11447,10 +11447,10 @@ tiny-typed-emitter@^2.1.0:
   resolved "https://registry.yarnpkg.com/tiny-typed-emitter/-/tiny-typed-emitter-2.1.0.tgz#b3b027fdd389ff81a152c8e847ee2f5be9fad7b5"
   integrity sha512-qVtvMxeXbVej0cQWKqVSSAHmKZEHAvxdF8HEUBFWts8h+xEo5m/lEiPakuyZ3BnCBjOD8i24kzNOiOLLgsSxhA==
 
-tinymce@^4.9.11:
-  version "4.9.11"
-  resolved "https://registry.npmjs.org/tinymce/-/tinymce-4.9.11.tgz"
-  integrity sha512-nkSLsax+VY5DBRjMFnHFqPwTnlLEGHCco82FwJF2JNH6W+5/ClvNC1P4uhD5lXPDNiDykSHR0XJdEh7w/ICHzA==
+tinymce@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-8.0.2.tgz#babaaa40c154d0832b41332f25f3485b5887a6f2"
+  integrity sha512-Gkvn5mRcZCAK1EKP7hnk3VBzwqPbqpZU2AN0T08BMtvmY9Sg0C0ZqmMghJCQ3vgo+LWA38pDOPiaM8EW7BZEow==
 
 tmp-promise@^3.0.2:
   version "3.0.3"
