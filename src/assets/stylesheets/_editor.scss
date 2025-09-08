@@ -1,56 +1,55 @@
 @use "variables" as *;
 @use "sass:color";
 
-.mce-tinymce.mce-container.mce-panel {
-  border: none;
-  margin-bottom: 30px;
-  > div {
-    border-bottom: 2px solid $pia-green;
-  }
-}
-
-.mce-top-part.mce-container.mce-stack-layout-item.mce-first {
-  position: absolute;
-  height: 100%;
-  .mce-container.mce-flow-layout-item.mce-first.mce-last.mce-btn-group {
-    position: absolute;
-    bottom: 0;
-    left: 66px;
-    background-color: $pia-green;
-    .mce-widget,
-    .mce-btn {
-      background-color: $pia-green;
-    }
-  }
-  .mce-flow-layout {
-    background-color: $pia-green !important;
-    position: absolute;
-    bottom: -32px;
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: 32px;
-      left: 242px;
-      border-left: 16px solid transparent;
-      border-right: 16px solid transparent;
-      border-bottom: 16px solid $pia-green;
-      margin-left: -16px;
-    }
-    i {
-      color: #fff;
-    }
-  }
-}
-
-.mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last {
+.tox-tinymce {
+  border-radius: 0 !important;
   border: none !important;
-  iframe {
-    background-color: #eee !important;
-  }
 }
 
-app-editor {
-  width: 90%;
-  border-bottom: $pia-green solid 0.3rem;
-  margin: auto;
+.tox:not(.tox-tinymce-inline) .tox-editor-header {
+  padding: 0 !important;
+}
+
+.tox .tox-edit-area::before {
+  border: none !important;
+}
+
+.tox {
+  .tox-editor-container {
+    margin-bottom: 39px;
+    iframe {
+      background-color: #eee !important;
+    }
+    .tox-editor-header {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border-top: 3px solid $pia-green;
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 40px;
+        left: 242px;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-bottom: 16px solid $pia-green;
+        margin-left: -16px;
+      }
+      .tox-toolbar-overlord {
+        .tox-toolbar__primary {
+          justify-content: center;
+          .tox-toolbar__group {
+            background-color: $pia-green !important;
+          }
+          .tox-tbtn {
+            background-color: transparent;
+            svg {
+              fill: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
 }

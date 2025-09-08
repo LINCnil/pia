@@ -472,6 +472,9 @@ export class EvaluationsComponent
       elementId = this.evaluationCommentElementId;
     }
     tinymce.init({
+      license_key: 'gpl',
+      base_url: '/tinymce',
+      suffix: '.min',
       branding: false,
       menubar: false,
       statusbar: false,
@@ -483,7 +486,7 @@ export class EvaluationsComponent
       selector: '#' + elementId,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-      skin: false,
+      placeholder: '',
       setup: editor => {
         if (field === 'actionPlanComment') {
           this.editor = editor;
