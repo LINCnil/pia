@@ -23,12 +23,6 @@
         <input
           type="range"
           (change)="checkGaugeChanges($event)"
-          [attr.disabled]="
-            (!editMode.includes('author') && editMode !== 'local') ||
-            !globalEvaluationService.answerEditionEnabled
-              ? 'true'
-              : null
-          "
           formControlName="gauge"
           min="0"
           max="4"

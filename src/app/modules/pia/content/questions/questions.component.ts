@@ -80,10 +80,17 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           this.questionForm.controls['gauge'].setValue(this.answer.data.gauge, {
             emitEvent: false
           });
-          this.questionForm.controls['gauge'].disable({
-            onlySelf: true,
-            emitEvent: false
-          });
+          if (this.isInputDisabled()) {
+            this.questionForm.controls['gauge'].disable({
+              onlySelf: true,
+              emitEvent: false
+            });
+          } else {
+            this.questionForm.controls['gauge'].enable({
+              onlySelf: true,
+              emitEvent: false
+            });
+          }
           this.questionForm.controls['text'].patchValue(this.answer.data.text);
           if (this.answer.data.list) {
             const dataList = this.answer.data.list.filter(l => {
