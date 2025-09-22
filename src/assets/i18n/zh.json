@@ -60,7 +60,7 @@
     "wrong_activation_code": "（错误）",
     "wrong_confirmation": "密码不一致",
     "wrong_email": "错误的电子邮件",
-    "sso": "SSO连接",
+    "sso": "SSO 连接",
     "errors": {
       "sign_in": {
         "400": "错误的电子邮件或密码。"
@@ -89,7 +89,7 @@
         }
       },
       "unauthorized": "您无权访问此资源。",
-      "incompatibility": "您的服务器（pia-back）和应用程序（pia）之间存在版本不兼容。请联系您的IT部门。"
+      "incompatibility": "您的服务器（pia-back）和应用程序（pia）之间存在版本不兼容。请联系您的 IT 部门。"
     }
   },
   "cartography": {
@@ -168,21 +168,21 @@
     "to_correct": "需修正"
   },
   "header": {
-    "archives": "PIA档案",
-    "current_pias": "当前PIA",
+    "archives": "PIA 档案",
+    "current_pias": "当前 PIA",
     "exit_full_screen_mode": "按F11退出全屏模式。",
     "help": {
       "issue_reporting": "报告问题",
       "manual": "用户手册",
-      "pia_example_link": "PIA示例",
+      "pia_example_link": "PIA 示例",
       "title": "帮助"
     },
-    "homepage_link": "我的PIA",
+    "homepage_link": "我的 PIA",
     "knowledge_base_link": "知识库",
     "languages": {
       "ar": "阿拉伯语",
       "bg": "保加利亚语",
-      "cnil_translations": "CNIL提供的翻译",
+      "cnil_translations": "CNIL 提供的翻译",
       "community_translations": "社区提供的翻译",
       "cz": "捷克语",
       "de": "德语",
@@ -211,13 +211,13 @@
     },
     "logo_subtitle": "",
     "logo_title": "隐私影响评估",
-    "structures": "PIA模板",
+    "structures": "PIA 模板",
     "tools": {
       "about": "关于",
       "accessibility": "视障辅助功能（高对比度色彩，色盲模式）",
       "onboarding": "重新启动教程",
       "settings": "设置",
-      "url_setting": "服务器URL配置",
+      "url_setting": "服务器 URL 配置",
       "users": "用户"
     }
   },
@@ -225,7 +225,7 @@
     "definition": {
       "data1": {
         "content": "内容正在编写中",
-        "title": "使用PIA工具"
+        "title": "使用 PIA 工具"
       },
       "data2": {
         "qa1": {
@@ -237,8 +237,8 @@
           "title": "我无法编辑用于评估风险严重性和可能性的量表"
         },
         "qa3": {
-          "content": "导入PIA时观察到多个错误，特别是用于评估风险严重性和可能性的级别量表可能会消失。在这种情况下，请参考上述问题。此外，导入PIA后，它可能不会显示在仪表板上。这是一个显示问题，您只需刷新页面即可。",
-          "title": "我在导入PIA时遇到问题"
+          "content": "导入PIA时观察到多个错误，特别是用于评估风险严重性和可能性的级别量表可能会消失。在这种情况下，请参考上述问题。此外，导入 PIA 后，它可能不会显示在仪表板上。这是一个显示问题，您只需刷新页面即可。",
+          "title": "我在导入 PIA 时遇到问题"
         },
         "qa4": {
           "content": "这只是一个显示错误，对您在字段中输入的文本没有影响。此视觉问题将很快修复。",
@@ -253,8 +253,8 @@
           "title": "切换语言时，文本没有翻译"
         },
         "qa7": {
-          "content": "目前，在拒绝PIA后，导航菜单图标不会刷新。您必须检查每个部分，并根据拒绝PIA的原因更改信息和/或评估。所有部分都审查完毕后，您应该能够再次请求PIA验证。",
-          "title": "我已拒绝验证PIA，但现在不知道该怎么办"
+          "content": "目前，在拒绝 PIA 后，导航菜单图标不会刷新。您必须检查每个部分，并根据拒绝 PIA 的原因更改信息和/或评估。所有部分都审查完毕后，您应该能够再次请求 PIA 验证。",
+          "title": "我已拒绝验证 PIA，但现在不知道该怎么办"
         },
         "title": "已知问题"
       },
@@ -270,7 +270,7 @@
       "date": "日期",
       "evaluation": "审核者",
       "guest": "访客",
-      "import_pia": "导入PIA",
+      "import_pia": "导入 PIA",
       "import_structure": "导入模板",
       "item": {
         "consult_pia": "查阅",
@@ -310,7 +310,7 @@
         "placeholder_name": "元素名称",
         "placeholder_updated_at": "最后更新"
       },
-      "new_pia": "新建PIA",
+      "new_pia": "新建 PIA",
       "new_structure": "新建模板",
       "or": "或",
       "pia_name": "PIA",
@@ -318,12 +318,12 @@
       "placeholder_category": "类别",
       "placeholder_evaluation": "名, 姓",
       "placeholder_import_knowledgeBase": "导入知识库",
-      "placeholder_import_pia": "导入PIA",
+      "placeholder_import_pia": "导入 PIA",
       "placeholder_import_structure": "导入模板",
       "placeholder_new_knowledgeBase": "新建知识库",
-      "placeholder_new_pia": "新建PIA",
+      "placeholder_new_pia": "新建 PIA",
       "placeholder_new_structure": "新建模板",
-      "placeholder_pia_name": "PIA标题",
+      "placeholder_pia_name": "PIA 标题",
       "placeholder_sector_name": "关联部门名称",
       "placeholder_start": "所有字段必须填写",
       "placeholder_structure": "默认模板",
@@ -341,17 +341,17 @@
       "assessor": "审核者",
       "author": "作者",
       "card": "卡片视图",
-      "card_rocket_content": "开始吧！<br>要启动一个PIA，<br>点击+",
+      "card_rocket_content": "开始吧！<br>要启动一个 PIA，<br>点击+",
       "card_rocket_content_structure": "开始吧！要启动<br>一个模板，点击+",
       "category": "类别",
       "date": "日期",
       "import_pia": "导入PIA",
       "import_structure": "导入模板",
       "list": "列表视图",
-      "list_rocket_content": "开始吧！<br>要启动一个PIA，点击+",
+      "list_rocket_content": "开始吧！<br>要启动一个 PIA，点击+",
       "list_rocket_content_structure": "开始吧！要启动<br>一个模板，点击+",
       "name": "名称",
-      "new_pia": "新建PIA",
+      "new_pia": "新建 PIA",
       "new_structure": "新建模板",
       "sector_name": "关联部门",
       "sort": "排序",
@@ -381,7 +381,7 @@
           "duplicate": "复制",
           "edit": "编辑",
           "export": "导出",
-          "pia": "显示PIA",
+          "pia": "显示 PIA",
           "remove": "删除",
           "unarchive": "取消归档"
         }
@@ -389,8 +389,8 @@
     },
     "search_filter": "搜索",
     "no_entries": {
-      "pia": "未创建和/或分配任何PIA",
-      "archive": "无PIA档案"
+      "pia": "未创建和/或分配任何 PIA",
+      "archive": "无 PIA 档案"
     }
   },
   "knowledge_base": {
@@ -1526,7 +1526,7 @@
           "title": "风险图谱"
         },
         "2": {
-          "short_help": "详细规划在PIA期间识别的额外控制措施的实施。当评估PIA中包含的不同要素时，行动计划会自动更新。",
+          "short_help": "详细规划在 PIA 期间识别的额外控制措施的实施。当评估PIA中包含的不同要素时，行动计划会自动更新。",
           "title": "行动计划"
         },
         "3": {
@@ -1564,10 +1564,10 @@
       "complete_download_desc": "将所有报告内容（.doc和图片）、附件以及行动计划的.csv格式导出到一个.zip压缩包中。",
       "individual_download": "下载报告元素",
       "individual_download_desc": "导出报告的特定元素。",
-      "individual_download_pdf": "PIA报告 (.pdf)",
+      "individual_download_pdf": "PIA 报告 (.pdf)",
       "individual_download_doc": "文本 (.doc)",
       "individual_download_images": "视觉元素 (.png)，包括风险概览、风险图谱和行动计划。",
-      "individual_download_json": "用于导入PIA工具的报告 (.json文件)",
+      "individual_download_json": "用于导入 PIA 工具的报告 (.json文件)",
       "individual_download_select": "选择要导出的元素：",
       "individual_to_download": "下载",
       "print": "打印报告",
@@ -1619,7 +1619,7 @@
     "rejection_reason": "拒绝原因",
     "revision": {
       "current_version": "当前版本",
-      "pia_version": "PIA版本",
+      "pia_version": "PIA 版本",
       "restore_version": "恢复",
       "revision": "版本与修订",
       "save": "创建新版本",
@@ -1627,7 +1627,7 @@
     },
     "risks_cartography_title": "风险图谱",
     "risks_overview_title": "风险概览",
-    "title": "PIA信息"
+    "title": "PIA 信息"
   },
   "users": {
     "add_new_user": "添加新用户",
