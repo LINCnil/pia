@@ -1,0 +1,1698 @@
+{
+  "about": {
+    "contribute": "如果您希望为软件的其他语言翻译做出贡献或改进现有翻译，我们建议您<a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">阅读描述后续步骤的页面</a>。",
+    "description": "此工具最初由法国数据保护机构<a target=\"_blank\" href=\"https://www.cnil.fr\">国家信息与自由委员会（CNIL）</a>设计，旨在帮助数据处理者符合GDPR的规定。它由<a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>开发。<br>此软件是免费且开源的。如果您希望参与此项目，欢迎从Github下载源代码，进行修改并与社区分享。",
+    "licences": "库许可证：",
+    "title": "关于PIA工具",
+    "translators": "PIA软件目前提供二十种语言版本。法语和英语版本由CNIL提供。其他版本来自以下个人的贡献：",
+    "translators_name": "<ul><li>保加利亚语：<a target=\"_blank\" href=\"https://github.com/AlexanderTonev\">Aleksandar Tonev</a>；</li><li>克罗地亚语：<a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a>；</li><li>捷克语：Jiří Grohmann, Manuel d’Orso；</li><li>丹麦语：<a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a>；</li><li>荷兰语：Ruud van Driel, Manuel d’Orso；</li><li>英语：<a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>；</li><li>爱沙尼亚语：Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a>；</li><li>芬兰语：<a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>；</li><li>法语：<a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>；</li><li>德语：<a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>)；</li><li>希腊语：<a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a>；</li><li>匈牙利语：<a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>；</li><li>意大利语：Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>)；</li><li>立陶宛语：Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>)；</li><li>挪威语：<a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>；</li><li>波兰语：<a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>)；</li><li>葡萄牙语：<a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a>；</li><li>罗马尼亚语：<a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a>；</li><li>西班牙语：<a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a>。</li></ul>",
+    "version_number": "版本号"
+  },
+  "action_plan": {
+    "acceptable_measures": "可接受的措施",
+    "edit": "编辑",
+    "improvable_measures": "可改进的措施",
+    "measures": "计划中或现有的措施",
+    "no_action_plan": "未记录任何行动计划。",
+    "placeholder_person_in_charge": "实施负责人",
+    "principles": "基本原则",
+    "risk1": "非法访问数据",
+    "risk2": "非预期的数据修改",
+    "risk3": "数据消失",
+    "risks": "风险",
+    "title": "概览"
+  },
+  "authentication": {
+    "12_characters": "12个字符",
+    "account_recovery": "密码恢复",
+    "activation_code": "激活码",
+    "cancel": "取消",
+    "confirm": "确认",
+    "confirmation": "确认",
+    "continue": "继续",
+    "activate_account": "激活账户",
+    "create_account": "注册",
+    "create_account2": "创建账户",
+    "description": "此由<strong>法国数据保护机构（CNIL）</strong>开发的软件旨在指导数据控制者建立并证明其符合GDPR。它通过促进使用CNIL开发的PIA方法，帮助正确执行数据保护影响评估。",
+    "email": "电子邮件",
+    "email_placeholder": "电子邮件",
+    "forgotten_password": "忘记密码？",
+    "login": "登录",
+    "lowercase": "小写字母",
+    "password": "密码",
+    "password_security": "密码安全性",
+    "recovery_code": "重置代码",
+    "recovery_code_message": "一封包含代码的电子邮件已发送到此邮箱。请在下方字段中输入该代码。",
+    "recovery_code_not_sent": "未收到代码？",
+    "saved_password": "您的密码已保存。您现在可以登录了。",
+    "sign_in": "登录",
+    "sign_in_button": "登录",
+    "sign_out_button": "退出登录",
+    "special_character": "特殊字符 (!@#$%^&*()?...)",
+    "number": "数字",
+    "start": "开始",
+    "start_app": "访问PIA软件（测试版）",
+    "subtitle1": "一个用于创建<br>和管理您的PIA的平台",
+    "subtitle2": "访问工具和术语表",
+    "title": "隐私影响评估",
+    "transaction_error": "无法处理您的请求。",
+    "uppercase": "大写字母",
+    "wrong_activation_code": "（错误）",
+    "wrong_confirmation": "密码不一致",
+    "wrong_email": "错误的电子邮件",
+    "sso": "SSO连接",
+    "errors": {
+      "sign_in": {
+        "400": "错误的电子邮件或密码。"
+      },
+      "create_account": {
+        "uuid": {
+          "404": "错误的激活码",
+          "406": "此账户已激活"
+        },
+        "password": {
+          "404": "用户未找到",
+          "406": "密码不符合密码策略要求。"
+        }
+      },
+      "account_recovery": {
+        "email": {
+          "404": "用户未找到",
+          "423": "账户已锁定"
+        },
+        "uuid": {
+          "404": "错误的恢复代码"
+        },
+        "password": {
+          "404": "用户未找到",
+          "406": "密码不符合密码策略要求。"
+        }
+      },
+      "unauthorized": "您无权访问此资源。",
+      "incompatibility": "您的服务器（pia-back）和应用程序（pia）之间存在版本不兼容。请联系您的IT部门。"
+    }
+  },
+  "cartography": {
+    "important": "重要",
+    "legend1": "计划中或现有的措施",
+    "legend2": "已实施纠正措施",
+    "legend3": "非法访问数据",
+    "legend4": "非预期的数据修改",
+    "legend5": "数据消失",
+    "likelihood_axe": "风险可能性",
+    "limited": "有限",
+    "maximal": "最大",
+    "negligible": "可忽略",
+    "risk1_access": "非法",
+    "risk2_modification": "非预期修改",
+    "seriousness_axe": "风险严重性"
+  },
+  "comments": {
+    "comment": "评论",
+    "written_by": "撰写者",
+    "comments_count": "条评论",
+    "new_comment": "评论",
+    "placeholder_new_comment": "留下评论",
+    "send": "发送"
+  },
+  "conflict": {
+    "keep_initial": "保留初始内容",
+    "keep_new": "更新为新内容",
+    "initial_content": "初始内容",
+    "merge": "合并两者内容",
+    "new_content": "新内容",
+    "title": "检测到冲突"
+  },
+  "date": {
+    "april": "四月",
+    "august": "八月",
+    "december": "十二月",
+    "earlier-in-this-month": "本月早些时候",
+    "earlier-in-this-week": "本周早些时候",
+    "february": "二月",
+    "january": "一月",
+    "july": "七月",
+    "june": "六月",
+    "march": "三月",
+    "may": "五月",
+    "november": "十一月",
+    "october": "十月",
+    "september": "九月",
+    "today": "今天",
+    "yesterday": "昨天"
+  },
+  "errors": {
+    "content": "如果您遇到其他问题或有改进建议，<br>您可以通过此表单反馈：<a href=\"https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia\" target=\"_blank\">https://www.cnil.fr/fr/webform/vos-retours-sur-loutil-pia</a>",
+    "title": "页面未找到。"
+  },
+  "evaluations": {
+    "acceptable": "可接受",
+    "action_plan_comment": "行动计划 / 纠正措施",
+    "evaluation_comment": "评估评论",
+    "gauges": {
+      "0": "（未定义）",
+      "1": "可忽略",
+      "2": "有限",
+      "3": "重要",
+      "4": "最大",
+      "likelihood": "考虑到行动计划，您如何重新评估<span class='red-highlight'>此风险的可能性</span>？",
+      "seriousness": "考虑到行动计划，您如何重新评估<span class='red-highlight'>此风险的严重性</span>？"
+    },
+    "improvable": "可改进",
+    "placeholder_acceptable": "根据现有信息，已实施的措施足以适当满足数据保护的要求。",
+    "placeholder_improvable1": "根据现有信息，需要实施额外措施以改进数据处理的数据保护。",
+    "placeholder_improvable2": "输入您的评论。",
+    "placeholder_to_correct": "提供的信息不足以进行适当评估。退回给编辑者以改进原始提交。",
+    "status": ["待处理", "需修正", "可改进", "可接受"],
+    "title": "评估",
+    "to_correct": "需修正"
+  },
+  "header": {
+    "archives": "PIA档案",
+    "current_pias": "当前PIA",
+    "exit_full_screen_mode": "按F11退出全屏模式。",
+    "help": {
+      "issue_reporting": "报告问题",
+      "manual": "用户手册",
+      "pia_example_link": "PIA示例",
+      "title": "帮助"
+    },
+    "homepage_link": "我的PIA",
+    "knowledge_base_link": "知识库",
+    "languages": {
+      "ar": "阿拉伯语",
+      "bg": "保加利亚语",
+      "cnil_translations": "CNIL提供的翻译",
+      "community_translations": "社区提供的翻译",
+      "cz": "捷克语",
+      "de": "德语",
+      "dk": "丹麦语",
+      "dpa_translations": "经欧洲数据保护机构修订的翻译",
+      "el": "希腊语",
+      "en": "英语",
+      "es": "西班牙语",
+      "et": "爱沙尼亚语",
+      "fi": "芬兰语",
+      "fr": "法语",
+      "hr": "克罗地亚语",
+      "hu": "匈牙利语",
+      "it": "意大利语",
+      "lt": "立陶宛语",
+      "lv": "拉脱维亚语",
+      "nl": "荷兰语",
+      "no": "挪威语",
+      "official_translation": "原始版本",
+      "pl": "波兰语",
+      "pt": "葡萄牙语",
+      "ro": "罗马尼亚语",
+      "sl": "斯洛文尼亚语",
+      "sv": "瑞典语",
+      "zh": "简体中文"
+    },
+    "logo_subtitle": "",
+    "logo_title": "隐私影响评估",
+    "structures": "PIA模板",
+    "tools": {
+      "about": "关于",
+      "accessibility": "视障辅助功能（高对比度色彩，色盲模式）",
+      "onboarding": "重新启动教程",
+      "settings": "设置",
+      "url_setting": "服务器URL配置",
+      "users": "用户"
+    }
+  },
+  "help": {
+    "definition": {
+      "data1": {
+        "content": "内容正在编写中",
+        "title": "使用PIA工具"
+      },
+      "data2": {
+        "qa1": {
+          "content": "遇到这些显示问题时，关闭应用程序并重新加载。这通常可以解决问题。您不会丢失已输入的信息；它们会在您输入时自动保存。",
+          "title": "我遇到显示问题，例如图标卡在一种状态或界面元素缺失"
+        },
+        "qa2": {
+          "content": "此已知问题正在修复中。如果您遇到此问题，我们建议您填写预估严重程度和/或可能性的理由字段。一旦错误修复，您将能够编辑量表。",
+          "title": "我无法编辑用于评估风险严重性和可能性的量表"
+        },
+        "qa3": {
+          "content": "导入PIA时观察到多个错误，特别是用于评估风险严重性和可能性的级别量表可能会消失。在这种情况下，请参考上述问题。此外，导入PIA后，它可能不会显示在仪表板上。这是一个显示问题，您只需刷新页面即可。",
+          "title": "我在导入PIA时遇到问题"
+        },
+        "qa4": {
+          "content": "这只是一个显示错误，对您在字段中输入的文本没有影响。此视觉问题将很快修复。",
+          "title": "当我复制/粘贴文本时，文本被高亮显示。"
+        },
+        "qa5": {
+          "content": "为了评估某个部分，必须填写所有字段。请检查是否满足此条件。在编辑风险时，您必须至少有一个减轻风险的技术或组织措施，才能请求评估该风险。",
+          "title": "我无法评估某个部分"
+        },
+        "qa6": {
+          "content": "请关闭您正在编辑的PIA并重新打开它。内容随后应以您选择的语言显示。",
+          "title": "切换语言时，文本没有翻译"
+        },
+        "qa7": {
+          "content": "目前，在拒绝PIA后，导航菜单图标不会刷新。您必须检查每个部分，并根据拒绝PIA的原因更改信息和/或评估。所有部分都审查完毕后，您应该能够再次请求PIA验证。",
+          "title": "我已拒绝验证PIA，但现在不知道该怎么办"
+        },
+        "title": "已知问题"
+      },
+      "footer": "如果您有任何其他问题或改进建议，可以访问我们的<a target=\"_blank\" href=\"https://github.com/LINCnil/pia\">Github仓库</a>并提交问题或拉取请求。"
+    },
+    "title": "帮助"
+  },
+  "homepage": {
+    "cards": {
+      "author": "编辑者",
+      "category": "类别",
+      "creation_status": "创建状态",
+      "date": "日期",
+      "evaluation": "审核者",
+      "guest": "访客",
+      "import_pia": "导入PIA",
+      "import_structure": "导入模板",
+      "item": {
+        "consult_pia": "查阅",
+        "consult_structure": "查阅模板",
+        "edit_pia": "编辑",
+        "edit_structure": "编辑模板",
+        "tools": {
+          "action_plan": "显示<br>行动计划",
+          "archive": "归档",
+          "duplicate": "复制",
+          "export": "导出",
+          "more_options": "更多选项",
+          "pia": "显示<br>PIA",
+          "remove": "删除",
+          "unarchive": "取消归档"
+        },
+        "validate_pia": "验证"
+      },
+      "knowledges": {
+        "edit": "编辑知识库",
+        "import": "导入知识库",
+        "new": "创建知识库",
+        "placeholder_author": "作者",
+        "placeholder_contributors": "贡献者",
+        "placeholder_entry_number": "条目数量",
+        "placeholder_name": "知识库名称"
+      },
+      "knowledges_entry": {
+        "all_sections": "所有部分",
+        "choose_category": "选择一个类别",
+        "contents": "内容",
+        "create": "创建此元素",
+        "linked_to": "关联至",
+        "new": "创建一个元素",
+        "placeholder_category": "类别",
+        "placeholder_description": "在此输入您的描述...",
+        "placeholder_name": "元素名称",
+        "placeholder_updated_at": "最后更新"
+      },
+      "new_pia": "新建PIA",
+      "new_structure": "新建模板",
+      "or": "或",
+      "pia_name": "PIA",
+      "placeholder_author": "名, 姓",
+      "placeholder_category": "类别",
+      "placeholder_evaluation": "名, 姓",
+      "placeholder_import_knowledgeBase": "导入知识库",
+      "placeholder_import_pia": "导入PIA",
+      "placeholder_import_structure": "导入模板",
+      "placeholder_new_knowledgeBase": "新建知识库",
+      "placeholder_new_pia": "新建PIA",
+      "placeholder_new_structure": "新建模板",
+      "placeholder_pia_name": "PIA标题",
+      "placeholder_sector_name": "关联部门名称",
+      "placeholder_start": "所有字段必须填写",
+      "placeholder_structure": "默认模板",
+      "placeholder_structure_name": "模板标题",
+      "placeholder_validation": "名, 姓",
+      "sector_name": "部门",
+      "start": "开始",
+      "status": "状态",
+      "structure": "模板",
+      "structure_name": "模板名称",
+      "title_close_creation": "关闭",
+      "validation": "验证者"
+    },
+    "filters": {
+      "assessor": "审核者",
+      "author": "作者",
+      "card": "卡片视图",
+      "card_rocket_content": "开始吧！<br>要启动一个PIA，<br>点击+",
+      "card_rocket_content_structure": "开始吧！要启动<br>一个模板，点击+",
+      "category": "类别",
+      "date": "日期",
+      "import_pia": "导入PIA",
+      "import_structure": "导入模板",
+      "list": "列表视图",
+      "list_rocket_content": "开始吧！<br>要启动一个PIA，点击+",
+      "list_rocket_content_structure": "开始吧！要启动<br>一个模板，点击+",
+      "name": "名称",
+      "new_pia": "新建PIA",
+      "new_structure": "新建模板",
+      "sector_name": "关联部门",
+      "sort": "排序",
+      "sort_by": "按",
+      "status": "状态",
+      "validator": "验证者"
+    },
+    "lists": {
+      "column_actions": "操作",
+      "column_author": "编辑者",
+      "column_category": "类别",
+      "column_creation": "创建时间",
+      "column_evaluation": "审核者",
+      "column_pia": "PIA",
+      "column_progression": "进度",
+      "column_sector_name": "关联部门",
+      "column_status": "状态",
+      "column_structure": "模板",
+      "column_structure_name": "模板",
+      "column_updated_at": "最后打开",
+      "column_validation": "验证者",
+      "item": {
+        "tools": {
+          "action_plan": "显示行动计划",
+          "archive": "归档",
+          "consult": "查阅",
+          "duplicate": "复制",
+          "edit": "编辑",
+          "export": "导出",
+          "pia": "显示PIA",
+          "remove": "删除",
+          "unarchive": "取消归档"
+        }
+      }
+    },
+    "search_filter": "搜索",
+    "no_entries": {
+      "pia": "未创建和/或分配任何PIA",
+      "archive": "无PIA档案"
+    }
+  },
+  "knowledge_base": {
+    "add_measure": "添加",
+    "add_measure_hint": "您也可以从知识库添加一项措施。",
+    "category": {
+      "definition": "定义",
+      "example": "示例",
+      "general_measure": "物理安全控制",
+      "measure_on_data": "逻辑安全控制",
+      "method": "方法论",
+      "organizational_measure": "组织控制",
+      "principle": "原则"
+    },
+    "choose_knowledge_base": "选择您的知识库",
+    "default_knowledge_base": "CNIL 知识库",
+    "filters": {
+      "all": "全部",
+      "definitions": "定义",
+      "general_measures": "物理安全控制",
+      "measures_on_data": "逻辑安全控制",
+      "no_result": "未找到结果。",
+      "organizational_measures": "组织控制",
+      "title": "筛选器"
+    },
+    "placeholder_add_measure": "添加此措施",
+    "placeholder_help": "输入辅助",
+    "search": "搜索",
+    "slugs": {
+      "PIA_DEF_ACC": {
+        "description": "数据主体应有权从控制者处获得关于其个人数据是否正在被处理的确认，以及在处理的情况下，有权访问其个人数据及<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第15条</a>所述信息。",
+        "name": "访问权",
+        "source": "GDPR 第15条"
+      },
+      "PIA_DEF_ANO": {
+        "description": "从个人数据中移除识别特征的过程。关于评估匿名化过程稳健性的指南，请参阅<a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29指南</a>。",
+        "name": "匿名化",
+        "source": "Mesures_US 和 G29 指南 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
+      "PIA_DEF_ARCH": {
+        "description": "保存和管理包含个人数据的电子档案的程序，旨在整个必要期间内确保其价值（特别是其法律价值）（传输、存储、迁移、可访问性、清除、归档策略、保密性保护等）。",
+        "name": "归档",
+        "source": "Mesures_USE 归档"
+      },
+      "PIA_DEF_AUTH": {
+        "description": "每个合法访问个人数据的人员（员工、缔约方和其他第三方）应通过唯一标识符进行识别。选择适合上下文、风险水平和预期稳健性的身份验证方法来开启会话。建议：如果风险不高，可以使用密码；但是，如果风险较高，请使用一次性密码令牌但更改默认激活密码，或者当部分密码通过短信发送时，使用带PIN码的卡、电子证书或任何其他形式的强身份验证。",
+        "name": "身份验证",
+        "source": "Mesures_US 逻辑访问控制"
+      },
+      "PIA_DEF_CHIF": {
+        "description": "使个人数据对任何未经授权访问的人员来说不可理解的措施（对称或非对称加密、使用已知强大的公共算法、身份验证证书等）。",
+        "name": "加密",
+        "source": "Mesures_US 加密"
+      },
+      "PIA_DEF_CLO": {
+        "description": "减少个人数据可能被关联以及所有个人数据可能发生泄露的可能性的数据组织方法。例如，通过识别仅对每个业务流程有用的个人数据并在逻辑上将其分离。",
+        "name": "数据分区",
+        "source": "PIA3 p19 - WIKI"
+      },
+      "PIA_DEF_CONS": {
+        "description": "数据主体通过声明或明确的肯定行动，表示同意处理与其相关的个人数据的任何自由给予、具体、知情和明确的指示。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.10条</a>",
+        "name": "同意",
+        "source": "GDPR 第4.10条"
+      },
+      "PIA_DEF_CTLA": {
+        "description": "为限制未经授权人员以电子方式访问个人数据的风险而实施的手段，其中包括：<br>- 通过分离任务和职责范围（最好以集中方式）<strong>管理用户配置文件</strong>，以将个人数据的访问权限仅限于授权用户，并应用需知和最小权限原则；<br>- 当员工、缔约方和其他第三方<strong>不再被授权访问场所或资源</strong>或其<strong>雇佣合同终止</strong>时，<strong>撤销其权限</strong>。",
+        "name": "逻辑访问控制",
+        "source": "PIA3 p43 - WIKI"
+      },
+      "PIA_DEF_DCP": {
+        "description": "任何与已识别或可识别的自然人（“数据主体”）相关的信息；可识别的自然人是指可以直接或间接被识别的自然人，特别是通过参考标识符，如姓名、身份证号码、位置数据、在线标识符或该自然人的物理、生理、遗传、心理、经济、文化或社会身份的一个或多个特定因素。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.1条</a>",
+        "name": "个人数据",
+        "source": "GDPR 第4.1条"
+      },
+      "PIA_DEF_DEST": {
+        "description": "个人数据被披露给的自然人或法人、公共机构、机构或其他团体，无论是否为第三方。但是，根据欧盟或成员国法律，在特定调查框架内可能接收个人数据的公共机构不应被视为接收者；这些公共机构对这些数据的处理应遵守适用于处理目的的数据保护规则。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.9条</a>",
+        "name": "接收者",
+        "source": "GDPR 第4.9条"
+      },
+      "PIA_DEF_EFF": {
+        "description": "数据主体应有权从控制者处获得关于其个人数据的删除，且不得无故拖延，控制者有义务在无不当延迟的情况下删除个人数据，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第17条</a>",
+        "name": "删除权（被遗忘权）",
+        "source": "GDPR 第17条"
+      },
+      "PIA_DEF_ENJ": {
+        "description": "预期收益（对组织、数据主体、整个社会等）。",
+        "name": "利害关系",
+        "source": "PIA1 p4 脚注8"
+      },
+      "PIA_DEF_EXA": {
+        "description": "个人数据应准确，并在必要时保持最新；必须采取一切合理步骤，确保就处理目的而言不准确的个人数据被立即删除或纠正（“准确性”）。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第5.1 d)条</a>",
+        "name": "数据质量",
+        "source": "GDPR 第5.1 d)条"
+      },
+      "PIA_DEF_GRV": {
+        "description": "严重性代表风险的大小。它主要取决于潜在影响的损害性质。",
+        "name": "严重性",
+        "source": "PIA1 第6页"
+      },
+      "PIA_DEF_LIM": {
+        "description": "数据主体应有权从控制者处获得处理限制，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第18条</a>",
+        "name": "限制处理权",
+        "source": "GDPR 第18条"
+      },
+      "PIA_DEF_LOG": {
+        "description": "建立日志记录架构，以便及早发现涉及个人数据的事件，并拥有可用于分析这些事件或在调查中提供证据的信息。",
+        "name": "监控",
+        "source": "Mesures_US 监控"
+      },
+      "PIA_DEF_MEN": {
+        "description": "包含对数据支持资产进行一个或多个单独操作的过程。它被风险源有意或无意地利用，并可能导致 feared event（担忧事件）。",
+        "name": "威胁",
+        "source": "PIA1 p12 - WIKI"
+      },
+      "PIA_DEF_MENA": {
+        "description": "关于以下方面的威胁：<br>- <strong>硬件</strong>，使用不当、被观察、被更改、丢失（将敏感硬件用于个人目的、在火车上未经他人知晓观察其屏幕、通过基于硬件的键盘记录器进行跟踪等）<br>- <strong>软件</strong>，使用不当、被观察、被更改（权限提升、配置数据收集、恶意代码感染等）<br>- <strong>计算机通道</strong>被观察（拦截以太网流量等）<br>- <strong>人员</strong>，被观察、被操纵、丢失（无意中泄露信息、社会工程学、任务变更）<br>- <strong>纸质文件</strong>被观察、丢失（阅读、邮件盗窃等）<br>- <strong>纸质传输通道</strong>被观察（阅读流通中的签名簿等）",
+        "name": "可能导致非法访问的威胁",
+        "source": "PIAF 互联对象 p44 和 45"
+      },
+      "PIA_DEF_MENI": {
+        "description": "<strong>关于以下方面的威胁：</strong><br>- <strong>硬件</strong>：使用不当、过载、被更改、损坏、丢失（存储单元已满、处理能力过载、添加不兼容硬件导致故障、火灾、资产被盗或丢失等）<br>- <strong>软件</strong>：使用不当、过载、被更改、损坏、丢失（数据擦除、数据库大小超出、逻辑炸弹、用于访问数据的软件许可证未续订等）<br>- <strong>计算机通道</strong>：过载、被更改、丢失（未经授权的下载、互联网连接丢失等）<br>- <strong>人员</strong>：过载、受损、丢失（技能使用不当、疾病、退休等）<br>- <strong>纸质文件</strong>：使用不当、损坏、丢失（擦除、归档文件老化、文件被盗或丢失等）<br>- <strong>纸质传输通道</strong>：过载、损坏、被更改、丢失（邮件递送因罢工停止、办公室或场所重新分配、文件递送公司丢失、纸质传输通道重组等）",
+        "name": "可能导致个人数据消失的威胁",
+        "source": "PIAF 互联对象 p44 和 45, WIKI"
+      },
+      "PIA_DEF_MENM": {
+        "description": "<strong>关于以下方面的威胁：</strong><br>- <strong>硬件</strong>被更改（添加不兼容硬件导致故障、移除基本组件等）<br>- <strong>软件</strong>使用不当或被更改（数据库中数据的不必要修改、操作员错误修改数据等）<br>- <strong>计算机通道</strong>使用不当（重新发送拦截的数据等）<br>- <strong>人员</strong>过载或被操纵（将员工分配到超出其能力的任务、压力或工作条件的负面变化、影响等）<br>- 被更改的纸质文件（更改文件中的数字、用伪造品替换原件等）<br>- <strong>纸质传输通道</strong>被更改（从一个签名簿更改为另一个、发送多个冲突文件等）",
+        "name": "可能导致非预期个人数据修改的威胁",
+        "source": "PIAF 互联对象 p43 和 44, WIKI"
+      },
+      "PIA_DEF_MES": {
+        "description": "从“计划中或现有措施”部分可用的措施中选择，您可以根据需要补充。",
+        "name": "措施",
+        "source": "无"
+      },
+      "PIA_DEF_MIN1": {
+        "description": "导入数据时，可能会无意中收集不同类型的元数据（例如，附加图像文件附带的EXIF数据）。<br>必须识别此类元数据，如果它们对于指定目的不必要，则予以消除。",
+        "name": "过滤和移除",
+        "source": "PIAF 互联对象 p42 - WIKI"
+      },
+      "PIA_DEF_MIN2": {
+        "description": "一旦接收到敏感数据，作为一般信息的一部分或仅用于统计目的传输，可以将其转换为敏感性较低的形式或进行假名化。例如：<br>- 如果系统收集IP地址以确定用户位置用于统计目的，则一旦推断出城市或地区，就可以删除IP地址<br>- 如果系统接收来自监控摄像头的视频数据，它可以识别场景中站立或移动的人并对其进行模糊处理<br>- 如果系统是智能电表，它可以在一定时期内聚合能源使用情况，而不实时记录",
+        "name": "通过转换降低敏感性",
+        "source": "PIAF 互联对象 p42 - WIKI"
+      },
+      "PIA_DEF_MIN3": {
+        "description": "系统可以确保：<br>- 用户可以使用资源或服务而无需冒泄露其身份的风险（匿名数据）<br>- 用户可以使用资源或服务而无需冒泄露其身份的风险，但仍可被识别并对此使用负责（假名数据）<br>- 用户可以多次使用资源或服务而无需冒这些不同使用被关联在一起的风险（数据无法关联）<br>- 用户可以使用资源或服务而无需冒他人（特别是第三方）能够观察到该资源或服务正在被使用的风险（不可观察性）<br>必须根据已识别的威胁从上述列表中选择一种方法。对于某些类型的隐私威胁，假名化将比匿名化更合适（例如，如果需要可追溯性）。此外，一些隐私威胁将使用组合方法来解决。",
+        "name": "降低数据的识别性质",
+        "source": "PIAF 互联对象 p42 - WIKI"
+      },
+      "PIA_DEF_MIN4": {
+        "description": "系统可以组织成具有独立访问控制功能的独立部分。数据也可以在这些独立子系统之间划分，并由每个子系统使用不同的访问控制机制控制。如果一个子系统被攻破，则可以减少对所有数据的影响。",
+        "name": "减少数据积累",
+        "source": "PIAF 互联对象 p42 - WIKI"
+      },
+      "PIA_DEF_MIN5": {
+        "description": "系统可以根据“需知”原则限制数据访问。系统可以分离敏感数据并应用特定的访问控制策略。系统还可以加密敏感数据，以在传输和存储期间保护其机密性。还必须保护对数据处理过程中产生的临时cookie的访问。",
+        "name": "限制数据访问",
+        "source": "PIAF 互联对象 p42 - WIKI"
+      },
+      "PIA_DEF_MINC": {
+        "description": "通过将个人数据的数量限制在严格实现既定目的所需的范围内来降低风险的严重性，否则不应收集数据。",
+        "name": "最小化个人数据量",
+        "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
+      },
+      "PIA_DEF_MIND": {
+        "description": "通过最小化数据本身来降低风险的严重性，采取旨在降低其敏感性的措施，例如过滤和移除不必要的数据、假名化数据等。",
+        "name": "数据本身的最小化",
+        "source": "PIA3 p64"
+      },
+      "PIA_DEF_OPP": {
+        "description": "数据主体有权根据与其特定情况相关的理由，随时反对处理与其相关的个人数据，依据<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第21条</a>",
+        "name": "反对权",
+        "source": "GDPR 第21条"
+      },
+      "PIA_DEF_PBDS": {
+        "description": "为在所有新的处理操作中整合个人数据保护而采取的措施（可信名称、指南、CNIL风险管理方法或其他内部方法）。",
+        "name": "项目管理",
+        "source": "Mesures_US"
+      },
+      "PIA_DEF_PC": {
+        "description": "处理所涵盖的数据相关的人员。",
+        "name": "数据主体",
+        "source": "PIA1 p9"
+      },
+      "PIA_DEF_PORT": {
+        "description": "数据主体应有权以结构化、常用和机器可读的格式接收其已提供给控制者的个人数据，并有权将这些数据无障碍地传输给另一个控制者，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第20条</a>",
+        "name": "数据可携权",
+        "source": "GDPR 第20条"
+      },
+      "PIA_DEF_PSEU": {
+        "description": "以无法在未使用额外信息的情况下将个人数据归属于特定数据主体的方式处理个人数据，但前提是该额外信息单独保存，并受到技术和组织措施的保护，以确保个人数据不归属于已识别或可识别的自然人。<br>假名化降低了数据集与数据主体原始身份的可链接性；因此，它是一种有用的安全措施，但不是匿名化方法。",
+        "name": "假名化",
+        "source": "GDPR 第4.5条 和 G29指南 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+      },
+      "PIA_DEF_PWD": {
+        "description": "密码应由至少八个字符组成；如果担心可能已泄露，则必须更新，并且可能定期（每六个月或每年一次）更新；必须包含四种字符类型（大写字母、小写字母、数字和特殊字符）中的至少三种；更改密码时，不得重复使用最近五个密码；不应将同一密码用于不同的访问；密码不应与个人相关信息（包括姓名或出生日期）相关。定义最大尝试次数，超过该次数将发出警告并（暂时或手动解除前）阻止身份验证。",
+        "name": "密码",
+        "source": "Mesure_US"
+      },
+      "PIA_DEF_RECT": {
+        "description": "数据主体应有权从控制者处获得关于其不准确个人数据的纠正，且不得无故拖延。考虑到处理的目的，数据主体有权补全不完整的个人数据，包括通过提供补充声明的方式。",
+        "name": "纠正权",
+        "source": "GDPR 第16条"
+      },
+      "PIA_DEF_RGPD": {
+        "description": "关于在个人数据处理方面保护自然人以及此类数据自由流动的条例，并废除指令95/46/EC。",
+        "name": "GDPR（通用数据保护条例）",
+        "source": "GDPR 标题"
+      },
+      "PIA_DEF_RT": {
+        "description": "单独或与他人共同确定个人数据处理目的和方式的自然人或法人、公共机构、机构或其他团体；如果此类处理的目的和方式由欧盟或成员国法律确定，则控制者或其提名的具体标准可由欧盟或成员国法律规定。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.7条</a>",
+        "name": "控制者",
+        "source": "GDPR 第4.7条"
+      },
+      "PIA_DEF_SRC": {
+        "description": "可能引发风险的人或非人来源。此来源可能意外或故意行动。",
+        "name": "风险来源",
+        "source": "PIA1 p11 - WIKI"
+      },
+      "PIA_DEF_ST": {
+        "description": "代表控制者处理个人数据的自然人或法人、公共机构、机构或其他团体，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.8条</a>。<br>处理者以及任何在控制者或处理者授权下行动且有权访问个人数据的人员，除非欧盟或成员国法律要求，否则不得处理这些数据，除非根据控制者的指示，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第29条</a>。",
+        "name": "处理者",
+        "source": "GDPR 第4.8条 和 第29条"
+      },
+      "PIA_DEF_SUPT": {
+        "description": "个人数据所依赖的资产。这可能是硬件、软件、网络、人员、纸质或纸质传输通道。",
+        "name": "支持资产",
+        "source": "PIA1 p10"
+      },
+      "PIA_DEF_VIOL": {
+        "description": "导致传输、存储或以其他方式处理的个人数据被意外或非法破坏、丢失、更改、未经授权披露或访问的安全漏洞。",
+        "name": "个人数据泄露",
+        "source": "GDPR 第4.12条"
+      },
+      "PIA_DEF_VRA": {
+        "description": "可能性表示风险发生的可能性。它主要取决于支持资产在受到威胁时的脆弱性水平以及风险来源利用这些脆弱性的能力水平。",
+        "name": "可能性",
+        "source": "PIA1 第6页"
+      },
+      "PIA_EX_DC": {
+        "description": "评分系统的数据，应用评分的结果....",
+        "name": "计算数据"
+      },
+      "PIA_EX_DCPC": {
+        "description": "<strong>身份数据</strong>：公民身份、身份、年龄等。<br><strong>个人生活</strong>：生活习惯、婚姻状况等。<br><strong>职业生活</strong>：简历、教育和职业培训、奖项等。<br><strong>连接数据</strong>：IP地址、事件日志等。<br><strong>位置数据</strong>：旅行、GPS数据、GSM数据等。<br><strong>其他</strong>：电话号码、电子邮件地址等。",
+        "name": "常见个人数据",
+        "source": "PIA2 旧版本 - WIKI"
+      },
+      "PIA_EX_DCPR": {
+        "description": "哲学、政治、宗教和工会观点、性生活、健康数据、种族或民族出身、有关健康或性生活数据、犯罪、定罪、安全措施，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第9条和第10条</a>。",
+        "name": "定罪和敏感个人数据"
+      },
+      "PIA_EX_DCPS": {
+        "description": "社会保险号（NIR）、生物识别数据、银行数据",
+        "name": "被视为敏感的个人数据"
+      },
+      "PIA_EX_HUME": {
+        "description": "可能是：<br>- 恶意或天真的邻居，通过物理接近，侵入设备数据；<br>- 利用其对用户的了解以及有关用户的部分信息来针对用户的黑客；<br>- 利用其对可能损害其形象公司的了解来针对其中一家公司的黑客；<br>- 授权第三方公司利用其特权访问非法访问信息。",
+        "name": "外部人为来源"
+      },
+      "PIA_EX_HUMI": {
+        "description": "可能是：<br>- 疏忽或恶意的员工，接近系统，技能、特权可用时间可能很高，可能缺乏培训和意识<br>- 疏忽或恶意的用户，有权访问服务的家庭成员或朋友。<br>可能的动机多种多样，包括：笨拙、错误、疏忽、恶意、报复、间谍活动",
+        "name": "内部人为来源"
+      },
+      "PIA_EX_IMPI": {
+        "description": "数据主体可能遇到重大后果，尽管存在真实且严重的困难，他们应该能够克服。例如：<br>- 身体：严重的身体不适导致长期伤害（因不当护理或忽视禁忌症导致健康恶化），例如在遭受袭击、家庭、工作等事故后身体完整性受损<br>- 物质：挪用资金未获补偿，针对性的、独特的且非重复性的，机会丧失（住房贷款、学习、实习或就业被拒、考试禁令），失去住房、失去工作等；<br>- 道德：严重的心理不适（抑郁、恐惧症发展），隐私被侵犯感并造成不可逆转的损害，遭受勒索、网络欺凌和骚扰等。",
+        "name": "重大影响"
+      },
+      "PIA_EX_IMPL": {
+        "description": "数据主体可能遇到重大不便，尽管有些困难，但他们将能够克服。例如：<br>- 身体：轻微的身体不适（因忽视禁忌症导致的轻微疾病），诽谤导致身体或心理报复等；<br>- 物质：意外支付（错误罚款），被拒绝访问行政或商业服务，收到可能损害数据主体声誉的不请自来的定向邮件等；<br>- 道德：轻微但客观的心理不适，隐私被侵犯感但无不可逆转的损害，社交网络上的恐吓等。",
+        "name": "有限影响"
+      },
+      "PIA_EX_IMPM": {
+        "description": "数据主体可能遇到重大甚至不可逆转的后果，他们可能无法克服。例如：<br>- 身体：长期或永久性身体不适，身体完整性永久受损，死亡；<br>- 物质：财务风险、巨额债务、无法工作、无法搬迁、诉讼中证据丢失、无法访问关键基础设施（水、电）等<br>- 道德：长期或永久性心理不适、刑事处罚、绑架、家庭关系丧失、无法起诉、行政身份改变和/或法律自主权丧失（监护）等。",
+        "name": "最大影响"
+      },
+      "PIA_EX_IMPN": {
+        "description": "数据主体要么不受影响，要么可能遇到一些不便，但他们将毫无问题地克服。例如：<br>- 身体：短暂头痛；<br>- 物质：重复手续或等待手续完成的时间损失，收到不请自来的邮件（例如：垃圾邮件），网站上发布的数据被用于定向广告等；<br>- 道德：仅仅是烦恼，隐私被侵犯感但无真实或客观损害（商业入侵）等。",
+        "name": "可忽略影响"
+      },
+      "PIA_EX_NHUM": {
+        "description": "组织之一发生的事件或损害（停电、火灾、洪水等）",
+        "name": "非人为来源"
+      },
+      "PIA_EX_VRAI": {
+        "description": "选定的风险来源似乎有可能通过利用支持资产的属性来实现威胁（例如：盗窃存储在办公室的纸质文件，而进入办公室需要先在接待处登记）。",
+        "name": "显著可能性"
+      },
+      "PIA_EX_VRAL": {
+        "description": "选定的风险来源似乎难以通过利用支持资产的属性来实现威胁（例如：盗窃存储在受门禁读卡器保护的房间内的纸质文件）。",
+        "name": "有限可能性"
+      },
+      "PIA_EX_VRAM": {
+        "description": "选定的风险来源似乎极其容易通过利用支持资产的属性来实现威胁（例如：盗窃存储在大堂公共区域的纸质文件）。",
+        "name": "最大可能性"
+      },
+      "PIA_EX_VRAN": {
+        "description": "选定的风险来源似乎不可能通过利用支持资产的属性来实现威胁（例如：盗窃存储在受门禁读卡器和访问代码保护的房间内的纸质文件）。",
+        "name": "可忽略可能性"
+      },
+      "PIA_LGL_CONS": {
+        "description": "允许数据主体做出自由、具体和知情的选择。确定处理是否依赖于<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>第6条规定的同意以外的法律依据。",
+        "name": "同意",
+        "source": "PIA3 p11 - WIKI"
+      },
+      "PIA_LGL_DATA": {
+        "description": "详细定义和描述范围：<br>- 所涉及的个人数据、其接收者和存储期限<br>- 整个个人数据生命周期（从收集到删除）的过程和个人数据支持资产的描述。",
+        "name": "数据和流程",
+        "source": "PIA1 p6"
+      },
+      "PIA_LGL_DESC": {
+        "description": "简要概述所考虑的处理、其性质、范围、背景、目的和利害关系。识别数据控制者和任何处理者。列出适用于该处理的必要或必须遵守的标准参考，尤其是经批准的行为准则（参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第40条</a>）和有关数据保护的认证（参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第42条</a>）。",
+        "name": "处理描述",
+        "source": "PIA1 p4"
+      },
+      "PIA_LGL_DEST": {
+        "description": "个人数据被披露给的自然人或法人、公共机构、机构或其他团体，无论是否为第三方。但是，根据欧盟或成员国法律，在特定调查框架内可能接收个人数据的公共机构不应被视为接收者；这些公共机构对这些数据的处理应遵守适用于处理目的的数据保护规则。参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.9条</a>",
+        "name": "接收者",
+        "source": "GDPR 第4.9条"
+      },
+      "PIA_LGL_DUR": {
+        "description": "必须为每种数据类型定义存储期限，并根据法律要求和/或处理需求进行证明。因此，区分普通数据和归档数据，对归档数据的访问将仅限于相关利益相关者。必须实施清除机制，以便在存储期限结束时归档普通数据或清除归档数据。功能跟踪以及可能无法无限期存储的技术日志也必须被清除。",
+        "name": "存储期限",
+        "source": "PIAF 互联对象 p12"
+      },
+      "PIA_LGL_FIN": {
+        "description": "个人数据应为特定、明确和合法的目的而收集，并且<strong>不得以与这些目的不相符的方式进行进一步处理。</strong><br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第5.1 b)条</a>",
+        "name": "个人数据处理原则",
+        "source": "GDPR 第5.1 b)条"
+      },
+      "PIA_LGL_FOND": {
+        "description": "- 数据主体已同意为一个或多个特定目的处理其个人数据<br>- 处理对于履行数据主体作为一方的合同或应数据主体要求在签订合同前采取措施是必要的<br>- 处理对于遵守控制者所承担的法律义务是必要的<br>- 处理对于保护数据主体或另一个自然人的重大利益是必要的<br>- 处理对于执行符合公共利益的任务或行使赋予控制者的官方权力是必要的<br>- 处理对于控制者或第三方追求的合法利益目的是必要的，除非此类利益被需要保护个人数据的数据主体的利益或基本权利和自由所覆盖，特别是当数据主体是儿童时<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第6条</a>",
+        "name": "合法性证明",
+        "source": "PIA2 p4"
+      },
+      "PIA_LGL_INFO": {
+        "description": "确保数据主体被告知。确认该处理不适用例外情况且不受特定条件限制。",
+        "name": "告知数据主体",
+        "source": "PIA3 p8 - WIKI"
+      },
+      "PIA_LGL_MINI": {
+        "description": "通过最小化将处理的个人数据数量来降低风险的严重性非常重要，通过将此类数据限制在严格处理目的所需的范围内（否则不应收集）。然后，也有可能通过旨在降低其敏感性的控制来最小化数据本身。",
+        "name": "数据最小化",
+        "source": "PIAF 互联对象 p10 - WIKI"
+      },
+      "PIA_LGL_ST": {
+        "description": "必须与每个处理者签订处理合同，规定[GDPR]第28条规定的所有方面：期限、范围、目的、书面处理指令、在聘用处理者时的事先授权、提供证明符合[GDPR]的任何文件、及时通知任何数据泄露等。",
+        "name": "分包",
+        "source": "PIA2 p10"
+      },
+      "PIA_LGL_SUPT": {
+        "description": "个人数据所依赖的资产。注意：这可能是硬件、软件、网络、人员、纸质或纸质传输通道。",
+        "name": "支持资产",
+        "source": "PIA1 p10"
+      },
+      "PIA_LGL_TRAN": {
+        "description": "根据相关国家/地区，您必须证明选择远程托管的合理性，并指出为确保接受跨境传输的数据得到充分保护而实施的法律监督安排。即：<br>- 欧盟<br>- 被欧盟认可提供充分保护的国家<br>- 转移到美国并加入隐私盾的公司<br>- 其他国家<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第44至49条</a>",
+        "name": "传输",
+        "source": "PIAF 互联对象 p18"
+      },
+      "PIA_METHOD_MES": {
+        "description": "计划控制是那些在评估者进行任何分析之前最初实施的控制。评估者建议的纠正措施将在行动计划中说明，并将允许对风险的严重性和可能性进行第二次评估。",
+        "name": "计划控制和纠正控制",
+        "source": ""
+      },
+      "PIA_ORG_AUD": {
+        "description": "存在获取能够管理和控制其内部持有的个人数据保护的组织所需的政策和流程。",
+        "name": "监督",
+        "placeholder": "在此说明是否对隐私控制的有效性和适当性进行监控。",
+        "source": "PIA3 p76 - WIKI"
+      },
+      "PIA_ORG_EXT": {
+        "description": "存在降低第三方合法访问个人数据可能对数据主体公民自由和隐私构成的风险的政策和流程。",
+        "name": "与第三方的关系",
+        "placeholder": "在此说明，对于需要访问数据的处理者，就此类访问执行的安全控制和安排。",
+        "source": "PIA3 p48 - WIKI"
+      },
+      "PIA_ORG_ORG": {
+        "description": "说明是否有人负责执行隐私法律法规。说明是否存在负责指导和跟进有关隐私保护行动的监督委员会（或同等机构）。",
+        "name": "组织",
+        "placeholder": "说明是否定义了数据保护的角色和职责。",
+        "source": "PIAF 互联对象 p24 - WIKI"
+      },
+      "PIA_ORG_PBD": {
+        "description": "存在旨在将所有新处理操作中的个人数据保护纳入考虑的政策。",
+        "name": "在项目中整合隐私保护",
+        "placeholder": "在此描述隐私保护如何整合到项目中",
+        "source": "PIA3 p79 - WIKI"
+      },
+      "PIA_ORG_PERS": {
+        "description": "存在一项政策，描述针对新录用人员进行的意识提升控制，以及在能够访问数据的人员离职时进行何种控制。",
+        "name": "人员管理",
+        "placeholder": "在此指出针对员工进行了哪些意识提升控制。",
+        "source": "PIAF Connected Objects p24"
+      },
+      "PIA_ORG_POL": {
+        "description": "在构成数据保护政策的文件库中，并以适合每种内容类型（风险、需遵循的关键原则、目标、需应用的规则等）和每个沟通对象（用户、IT部门、决策者等）的形式，阐述与数据保护相关的重要方面。",
+        "name": "政策",
+        "placeholder": "在此描述阐述数据保护目标和规则的文献基础。",
+        "source": "PIA3 p78 - WIKI"
+      },
+      "PIA_ORG_RMGT": {
+        "description": "描述控制组织执行的处理操作对数据保护和数据主体隐私构成的风险的过程的政策（建立风险图谱等）。",
+        "name": "管理隐私风险",
+        "placeholder": "在此描述控制组织执行的处理操作对数据保护和数据主体隐私构成的风险的过程。",
+        "source": "PIA3 p77 - WIKI"
+      },
+      "PIA_ORG_VIOL": {
+        "description": "存在一个可检测和处理可能影响数据主体公民自由和隐私的事件的运营组织。",
+        "name": "管理个人数据违规",
+        "placeholder": "在此指出IT事件是否遵循有文档记录且经过测试的管理程序。",
+        "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
+      },
+      "PIA_SEC_BKP": {
+        "description": "为确保个人数据的可用性和/或完整性而实施的政策和手段，同时保持其机密性。",
+        "name": "备份",
+        "placeholder": "在此描述备份的管理方式。阐明它们是否存储在安全的地方。",
+        "source": "PIAF Connected Objects p23 & PIA3 p27  - WIKI"
+      },
+      "PIA_SEC_COMP": {
+        "description": "在工作站上实施的控制（自动锁定、定期更新、配置、物理安全等），以减少利用软件特性（操作系统、业务应用程序等）对个人数据产生不利影响的可能性。",
+        "name": "管理工作站",
+        "placeholder": "在此描述在工作站上实施的控制",
+        "source": "PIAF Connected Objects p22 - WIKI"
+      },
+      "PIA_SEC_CTR": {
+        "description": "<strong>仅使用能够提供充分保证（特别是在专业知识、可靠性和资源方面）的分包商</strong>。要求服务提供商在与其签订合同前传达其信息系统安全政策。<br>采取并记录用于<strong>确保分包商在数据保护方面提供的保证有效性</strong>的手段（安全审计、安装访问等）。这些保证包括：<br>- 根据数据敏感性对数据进行加密，或者至少存在保证服务公司无法访问数据的程序；<br>- 数据传输加密（例如：HTTPS类型连接、VPN等）；<br>- 在网络保护、可追溯性（日志、审计）、访问权限管理、身份验证等方面的保证。<br><strong>与分包商签订合同</strong>，定义处理的主题、期限和目的，以及各方的义务。确保合同尤其包含以下条款：<br>- 其在<strong>受托个人数据保密性</strong>方面的义务；<br>- <strong>用户身份验证的最低标准</strong>；<br>- <strong>合同结束时数据归还和/或销毁的条件</strong>；<br>- <strong>事件管理和通知规则。</strong> 应包括在发现安全漏洞或安全事件时通知数据控制者，如果是关于个人数据的事件，则应尽快通知。",
+        "name": "处理合同",
+        "placeholder": "在此描述针对处理者（主机、维护公司、管理员、专业服务提供商等）的具体措施",
+        "source": "Mesures_US Procurement: identified and governed by a contract"
+      },
+      "PIA_SEC_EXP": {
+        "description": "为减少对支持个人数据的资产造成风险的可能性和影响而实施的政策。",
+        "name": "运营安全",
+        "placeholder": "在此描述软件更新（操作系统、应用程序等）和安全补丁纠正控制的执行方式。",
+        "source": "PIAF Connected Objects p22 - WIKI"
+      },
+      "PIA_SEC_LOG": {
+        "description": "监控入侵检测系统和入侵防御系统，以实时分析网络（有线网络、Wi-Fi、无线电波、光纤等）流量并检测任何暗示网络攻击场景的可疑活动。",
+        "name": "监控网络活动",
+        "placeholder": "在此指出用于检测涉及个人数据的事件的手段和控制措施",
+        "source": "PIA3 p67 - WIKI"
+      },
+      "PIA_SEC_MAIN": {
+        "description": "描述硬件物理维护管理方式的政策，说明是否外包。<br> 指出是否授权远程应用维护，以及依据何种安排。具体说明故障设备是否以特定方式管理。",
+        "name": "维护",
+        "placeholder": "在此描述硬件物理维护的管理方式",
+        "source": "PIAF Connected Objects p23"
+      },
+      "PIA_SEC_MAL": {
+        "description": "在工作站和服务器上实施的控制，以在访问安全性较低的网络时保护它们免受恶意软件的侵害。",
+        "name": "打击恶意软件",
+        "placeholder": "在此描述为降低访问安全性较低网络时的风险而实施的控制。",
+        "source": "PIAF Connected Objects p22 - WIKI"
+      },
+      "PIA_SEC_MAT": {
+        "description": "在此指出涉及服务器和工作站物理安全性的控制（安全存储、安全锁缆、防窥滤片、报废前安全擦除等）。",
+        "name": "硬件安全",
+        "placeholder": "在此指出涉及服务器和工作站物理安全性的控制",
+        "source": "PIAF Connected Objects p23 - WIKI"
+      },
+      "PIA_SEC_NET": {
+        "description": "根据执行处理的网络类型（隔离网络、私有网络或互联网）。具体说明由哪种防火墙系统、入侵检测系统或其他主动或被动设备负责确保网络安全。",
+        "name": "网络安全",
+        "placeholder": "在此指出执行处理的网络的安全控制",
+        "source": "PIAF Connected Objects p23"
+      },
+      "PIA_SEC_PHY": {
+        "description": "确保物理安全的政策（分区、访客陪同、佩戴通行证、门禁上锁等）。指出是否设有入侵报警程序。",
+        "name": "物理访问控制",
+        "placeholder": "在此指出关于容纳处理的场所如何进行物理访问控制。",
+        "source": "PIAF Connected Objects p23"
+      },
+      "PIA_SEC_PROT": {
+        "description": "描述火灾预防、检测和扑救手段的政策。如适用，指出防水损的手段。同时说明电源监控和备用手段。",
+        "name": "防范非人为风险源",
+        "placeholder": "在此指出避免或限制非人为风险源的手段。",
+        "source": "PIAF Connected Objects p23 - WIKI"
+      },
+      "PIA_SEC_SRC": {
+        "description": "关于选址区域的文档，该区域不应受环境灾害影响（洪水区、靠近化工厂、地震或火山带等）。具体说明是否在同一区域储存危险品。",
+        "name": "避免风险源",
+        "placeholder": "在此指出选址区域是否受环境灾害影响",
+        "source": "PIAF Connected Objects p23 - WIKI"
+      },
+      "PIA_SEC_WEB": {
+        "description": "实施ANSSI（法国国家信息系统安全局）的网站安全建议。",
+        "name": "网站安全",
+        "placeholder": "在此指出为保护网站而实施的控制。",
+        "source": "PIAF Connected Objects p22 - WIKI"
+      },
+      "PIA_TEC_ANO": {
+        "description": "在此指出是否实施了匿名化机制，是哪些机制以及出于什么目的。<br>请记住清楚区分匿名数据和假名数据。",
+        "name": "匿名化",
+        "placeholder": "在此指出已实施的匿名化机制",
+        "source": "PIAF Connected Objects p21"
+      },
+      "PIA_TEC_ARCH": {
+        "description": "如适用，在此描述您负责的档案管理过程（移交、存储、查阅等）。具体说明归档角色（来源办公室、移交机构等）和归档政策。说明数据是否可能属于公共档案范围。",
+        "name": "归档",
+        "placeholder": "在此指出是否为存储数据的完整性监控实施了机制，是哪些机制以及出于什么目的。",
+        "source": "PIAF Connected Objects p22 - WIKI"
+      },
+      "PIA_TEC_CHIF": {
+        "description": "为<strong>确保存储数据</strong>（在数据库中、在平面文件中、备份中等）的<strong>机密性</strong>而实施的手段，以及管理加密密钥的程序（创建、存储、在怀疑数据泄露情况下的更改等）。<br> 描述处理中实施的数据流加密手段（VPN、TLS等）。",
+        "name": "加密",
+        "placeholder": "在此描述为确保数据机密性而实施的手段",
+        "source": "PIAF Connected Objects p21"
+      },
+      "PIA_TEC_CLO": {
+        "description": "实施数据分区有助于减少个人数据被关联以及所有个人数据发生泄露的可能性。",
+        "name": "数据分区",
+        "placeholder": "在此指出是否计划进行处理分区，以及如何执行。",
+        "source": "PIAF Connected Objects p21"
+      },
+      "PIA_TEC_CTLA": {
+        "description": "定义和分配用户配置文件的方法。具体说明实施的<strong>身份验证</strong>手段。如适用，具体说明适用于密码的规则（最小长度、必需字符、有效期限、账户锁定前的失败尝试次数等）。",
+        "name": "逻辑访问控制",
+        "placeholder": "在此指出用户配置文件如何定义和分配。",
+        "source": "PIAF Connected Objects p21"
+      },
+      "PIA_TEC_LOG": {
+        "description": "定义可追溯性和日志管理的政策。",
+        "name": "可追溯性（日志记录）",
+        "placeholder": "在此指出是否记录事件以及这些痕迹存储多长时间。",
+        "source": "PIAF Connected Objects p22"
+      },
+      "PIA_TEC_MINI": {
+        "description": "可以使用以下方法：过滤和移除、通过转换降低敏感性、降低数据的可识别性、减少数据积累、限制数据访问",
+        "name": "最小化个人数据量",
+        "placeholder": "在此指出为通过限制个人数据量来降低风险严重性而实施的手段",
+        "source": "PIAF Connected Objects p40"
+      },
+      "PIA_TEC_PAP": {
+        "description": "如果在处理过程中使用包含数据的纸质文档，请在此指出它们如何打印、存储、销毁和交换。",
+        "name": "纸质文档安全",
+        "placeholder": "在此指出是否为纸质文档的完整性监控实施了机制，是哪些机制以及出于什么目的。",
+        "source": "PIAF Connected Objects p22"
+      },
+      "PIA_VAL_ACT": {
+        "description": "评估者在先前步骤中建议的纠正控制，制定行动计划，为每项行动列出其负责人、频率、难度、成本和进度。",
+        "name": "行动计划",
+        "source": "无"
+      },
+      "PIA_VAL_CART": {
+        "description": "说明良好安全实践的图表，根据其在先前步骤中的评估为每一项分配一个符合性值。",
+        "name": "风险图谱",
+        "source": "PIAF Connected Objects p34"
+      },
+      "PIA_VAL_CONC": {
+        "description": "在适当情况下，控制者应寻求数据主体或其代表对预期处理的意见，且不影响商业或公共利益或处理操作安全的保护。参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>第35.9条<br>可根据具体情况通过多种方式收集这些意见（关于处理方法和目的的内部或外部研究、向员工代表或工会提出的问题、对数据处理器未来客户的调查）。<strong>如果数据控制者决定违背数据主体的意见</strong>，他必须记录<strong>此决定的理由</strong>。如果数据控制者认为<strong>收集数据主体的意见不相关，他也必须记录其理由</strong>。",
+        "name": "数据主体的意见",
+        "source": "GDPR Art. 35.9 and PIAF Connected Objects p38"
+      },
+      "PIA_VAL_DPO": {
+        "description": "控制者在进行数据保护影响评估时，应寻求数据保护官（如已指定）的建议。参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>第35.2条<br> <strong>此意见可能反对正在实施的处理，但这并不限制数据控制者的决定</strong>。",
+        "name": "DPO的意见",
+        "source": "GDPR Art. 35.2 and PIAF Connected Objects p37"
+      },
+      "PIA_VAL_RT": {
+        "description": "根据先前识别的利害关系和利益相关者的意见，决定所选控制措施、剩余风险和行动计划是否可以接受，并附上理由。通过这种方式，PIA可能：<br>- 获得验证<br>- 以改进为条件（说明以何种方式）<br>- 被拒绝（连同所考虑的处理）。如有必要，重复前面的步骤，以便PIA能够获得验证。此决定不影响可能由数据保护机构（在法国为CNIL）进行的合规性评估，例如作为初步手续或检查的一部分。",
+        "name": "正式验证",
+        "source": "PIAF Connected Objects p40"
+      }
+    },
+    "title": "知识库"
+  },
+  "measures": {
+    "add": "添加空措施（否则，使用知识库）",
+    "default_placeholder": "描述为确保数据安全而存在的或计划采取的措施。",
+    "edit": "编辑措施",
+    "placeholder_title": "措施标题",
+    "remove": "删除措施"
+  },
+  "misc": {
+    "display": "显示 / 隐藏"
+  },
+  "modals": {
+    "abandon_pia": {
+      "additional_text": "归档不是最终操作，如果需要，PIA 可以恢复。",
+      "content": "您是否要放弃此处理？"
+    },
+    "action_plan_no_evaluation": {
+      "content": "您需要开始审阅分析以创建行动计划。",
+      "review_section": "审阅一个部分"
+    },
+    "archive": "归档",
+    "archive_pia": {
+      "archive": "归档 PIA",
+      "content": "<span class='strong'>警告，</span><br>您确定要<br>归档此 PIA 吗？"
+    },
+    "ask_for_evaluation": {
+      "content": "此部分已准备好接受审阅。"
+    },
+    "back_to_edition": {
+      "content": "此部分已退回编辑。<br>必须更正多个字段<br>以便进行正常审阅。"
+    },
+    "back_to_evaluation": {
+      "content": "此部分已退回审阅。<br>必须审阅多个字段<br>以便进行正常验证。"
+    },
+    "back_to_home": "返回主页",
+    "cancel": "取消",
+    "close": "关闭",
+    "completed_edition": {
+      "content": "PIA 已完全编辑完毕，需要接受审阅。"
+    },
+    "completed_evaluation": {
+      "content": "PIA 已完全审阅完毕，可以验证。"
+    },
+    "continue": "继续",
+    "declare_measures": {
+      "content": "在评估风险之前，<br>您必须报告<br>已存在或计划采取的措施。",
+      "declare": "声明已存在或计划采取的措施"
+    },
+    "dpo_missing_evaluations": {
+      "comment": "评论",
+      "content": "您需要完成分析的审阅才能访问 DPO 页面。",
+      "remove": "移除",
+      "review_section": "审阅一个部分"
+    },
+    "general_error": {
+      "content": "非常抱歉，发生了错误。"
+    },
+    "import_wrong_pia_file": {
+      "content": "导入的文件不是 PIA 报告文件。"
+    },
+    "import_wrong_structure_file": {
+      "content": "导入的文件不是 PIA 模板文件。"
+    },
+    "knowledge": {
+      "content": "您确定要删除此元素吗？",
+      "remove": "删除此元素"
+    },
+    "knowledges": {
+      "content": "您确定要删除此知识库吗？",
+      "remove": "删除此知识库"
+    },
+    "modal_select_text_pia": {
+      "content": "PIA 的内容已复制到剪贴板。"
+    },
+    "not_enough_measures_to_remove": {
+      "content": "<span class='strong'>警告，</span><br>必须至少填写一项措施：无法删除。"
+    },
+    "recover_version": {
+      "continue": "继续",
+      "message": "继续操作将恢复此报告版本：{{date}}。<br><br>当前版本将被保存。",
+      "title": "恢复先前版本"
+    },
+    "refuse_pia": {
+      "content": "由于您已拒绝该 PIA，它已被退回审阅以进行必要的更改。"
+    },
+    "remove_attachment": {
+      "comment": "评论",
+      "content": "<span class='strong'>警告，</span><br>您确定要<br>移除此附件吗？",
+      "keep": "保留",
+      "remove": "移除"
+    },
+    "remove_measure": {
+      "content": "<span class='strong'>警告，</span><br>您确定要<br>移除此措施吗？",
+      "keep": "保留此<br>措施",
+      "remove": "移除此<br>措施"
+    },
+    "remove_pia": {
+      "content": "<span class='strong'>警告，</span><br>您确定要<br>永久移除此 PIA 吗？",
+      "remove": "移除此 PIA"
+    },
+    "remove_question": {
+      "content": "您确定要删除此问题吗？",
+      "keep": "取消",
+      "remove": "删除"
+    },
+    "remove_structure": {
+      "content": "<span class='strong'>警告，</span><br>您确定要<br>删除此模板吗？",
+      "remove": "删除模板"
+    },
+    "same_comment": {
+      "content": "<span class='strong'>警告，</span><br>请输入与上次记录不同的评论。"
+    },
+    "signed_pia_validation": {
+      "content": "要批准 PIA，请附上已签名的报告。",
+      "download_pia": "下载报告"
+    },
+    "simple_pia_validation": {
+      "content": "您已批准该 PIA。"
+    },
+    "start_evaluation": "开始审阅",
+    "unarchive_pia": {
+      "content": "<span class='strong'>警告，</span><br>您确定要<br>取消归档此 PIA 吗？",
+      "unarchive": "取消归档 PIA"
+    },
+    "update_server_url_nok": {
+      "content": "无法与服务器建立连接：请检查所填写的 URL。",
+      "introspect": "服务器未验证客户端 ID 和客户端密钥，请检查它们。"
+    },
+    "update_server_url_ok": {
+      "content": "服务器地址已更新。"
+    },
+    "validate_evaluation": {
+      "content": "此部分已准备好验证 PIA。"
+    },
+    "validate_evaluation_to_correct": {
+      "content": "抱歉，<br>必须更正多个字段。<br>返回编辑模式<br>进行更正。"
+    },
+    "users": {
+      "delete": {
+        "content": "<span class='strong'>警告，</span><br>您确定要<br>删除此用户吗？",
+        "confirm": "删除此用户",
+        "pia_exist": "此用户被分配到一个或多个 PIA，您需要在这些 PIA 上重新分配用户。"
+      }
+    }
+  },
+  "onboarding": {
+    "dashboard": {
+      "step1": {
+        "description": "点击 <strong>+</strong> 创建您的第一个 PIA。",
+        "title": "创建 PIA"
+      },
+      "step2": {
+        "description": "<p><strong>编辑者</strong> 撰写分析的第一个版本。</p><p>例如，他们是与数据处理相关的项目经理。</p>",
+        "title": "PIA 的角色"
+      },
+      "step3": {
+        "description": "<p><strong>审阅者</strong> 在第二阶段参与。</p><p>他们运用其法律或技术专长检查处理的质量和合规性。</p><p>例如，他们是 DPO、法律专家等。</p>",
+        "title": "PIA 的角色"
+      },
+      "step4": {
+        "description": "<p><strong>验证者</strong> 接受或拒绝处理的实施。他必须签署分析报告。</p><p>他是控制者，例如首席执行官。</p>",
+        "title": "PIA 的角色"
+      },
+      "step5": {
+        "description": "<p><strong>模板</strong> 是一项高级功能。用于为分析创建预填充的基础。</p><p>您可以通过顶部菜单访问相关部分来创建模板。</p>",
+        "title": "模板"
+      }
+    },
+    "entry": {
+      "step1": {
+        "description": "要在分析的各个部分之间切换，请使用左侧导航菜单。",
+        "title": "浏览"
+      },
+      "step2": {
+        "description": "用于解释处理的目的及其将如何实施。",
+        "title": "上下文"
+      },
+      "step3": {
+        "description": "这些旨在确保处理符合 GDPR。",
+        "title": "基本原则"
+      },
+      "step4": {
+        "description": "这些描述了为处理操作已计划的安全措施，并允许评估其对数据主体的潜在影响。",
+        "title": "风险"
+      },
+      "step5": {
+        "description": "这允许 DPO 就处理的实施发表意见，并允许控制者接受或拒绝它。",
+        "title": "验证"
+      },
+      "step6": {
+        "description": "<p>它在执行分析时提供上下文帮助，并基于 GDPR、安全指南和 CNIL 的 PIA 指南</p><p>除了这些内容，您还可以创建自己的知识库，以便轻松访问特定于您组织的信息。</p>",
+        "title": "知识库"
+      },
+      "step7": {
+        "description": "在分析过程中的任何时候，您都可以下载各种格式的分析报告，与同事分享。",
+        "title": "导出您的 PIA"
+      }
+    },
+    "evaluation": {
+      "step1": {
+        "description": "评估可以针对整个部分，也可以针对某个部分的每个元素。",
+        "title": "评估 PIA"
+      },
+      "step2": {
+        "description": "<p>此评估向编辑者指出缺少某些元素，无法做出相关评估。</p><p>评估者必须在相关的<strong>评估评论</strong>字段中指出这些元素。编辑者将进行必要的更正。</p>",
+        "title": "需修正"
+      },
+      "step3": {
+        "description": "<p>此评估指出了需要修订的处理元素。它们在<strong>行动计划 / 纠正措施</strong>字段中详细说明。</p><p>这些措施将自动添加到分析报告的行动计划部分。需要尽快实施它们。</p>",
+        "title": "可改进"
+      },
+      "step4": {
+        "description": "此评估意味着处理的这一部分可以在不做修改的情况下实施。",
+        "title": "可接受"
+      },
+      "step5": {
+        "description": "如果某个部分的评估尚未开始，可以取消评估请求，以便对处理描述进行更改。",
+        "title": "取消请求"
+      }
+    },
+    "general": {
+      "done": "确认",
+      "next": "下一步",
+      "skip": "跳过"
+    },
+    "validated": {
+      "step1": {
+        "description": "可以通过专用界面随时查阅完整且已验证的分析报告。",
+        "title": "查阅已验证的 PIA"
+      },
+      "step2": {
+        "description": "需要定期审查分析报告。您可以根据处理的演变随时编辑或复制它以审查其内容。",
+        "title": "更新已验证的 PIA"
+      }
+    }
+  },
+  "opinions": {
+    "content": "，认为：",
+    "dpo_lock": "请先完成其他部分，然后才能填写 DPO 意见。",
+    "dpo_opinion": "DPO 意见",
+    "edit": "编辑",
+    "people_opinion": "相关人员的意见",
+    "placeholder_concerned_people_name": "相关人员姓名",
+    "placeholder_dpo_name": "DPO 姓名",
+    "placeholder_dpo_opinion": "说明您选择的原因。",
+    "placeholder_people_opinion": "描述意见是如何收集的以及分析结果是什么。如果未征求意见，请说明原因。",
+    "placeholder_search_content": "说明未征求相关人员意见的原因。",
+    "treatment_lock": "请先完成其他部分，然后才能填写相关人员的意见。",
+    "treatment_nok": "不应使用该处理。",
+    "treatment_ok": "可以实施该处理。"
+  },
+  "overview-risks": {
+    "important": "重要",
+    "limited": "有限",
+    "maximal": "重大",
+    "measures": "措施",
+    "negligible": "可忽略",
+    "potential_impacts": "潜在影响",
+    "risk-access_x": "严重性",
+    "risk-access_y": "可能性",
+    "risk-change_x": "严重性",
+    "risk-change_y": "可能性",
+    "risk-disappearance_x": "严重性",
+    "risk-disappearance_y": "可能性",
+    "sources": "来源",
+    "threat": "威胁"
+  },
+  "pia": {
+    "attachments": {
+      "add": "添加",
+      "download": "下载附件",
+      "loading": "上传中...",
+      "remove": "移除",
+      "title": "附件",
+      "no_attachment": "无可用附件"
+    },
+    "footer": {
+      "ask_evaluation": "请求审阅",
+      "mandatory_fields": "所有字段必须填写",
+      "structure_add_question": "添加问题",
+      "subsection_validated": "子部分已审阅，等待最终验证",
+      "validate_evaluation": "验证审阅"
+    },
+    "header": {
+      "display_action_plan": "显示<br>行动计划",
+      "edition": "编辑",
+      "evaluation": "审阅",
+      "preview": "预览"
+    },
+    "sections": {
+      "based_on_structure_name": "基于模板：",
+      "homepage_link": "返回仪表板",
+      "refuse_pia": "已拒绝的 PIA",
+      "status": {
+        "evaluation": {
+          "cancel": "取消审阅请求。",
+          "cancel_button": "取消审阅请求",
+          "content": "此部分尚未审阅。如果您希望编辑提交审阅的内容，您必须 ",
+          "title": "等待审阅。"
+        },
+        "validation": {
+          "cancel": "取消验证请求。",
+          "cancel_button": "取消验证请求",
+          "content": "此部分已审阅完毕，正在等待整体 PIA 验证。如果您希望更改审阅结果，您必须 ",
+          "title": "等待验证。"
+        }
+      },
+      "validate_pia": "验证 PIA"
+    },
+    "statuses": [
+      "进行中",
+      "已拒绝",
+      "简单验证",
+      "签名验证",
+      "已归档",
+      "等待验证"
+    ]
+  },
+  "questions": {
+    "edit": "编辑问题",
+    "gauges": ["（未定义）", "可忽略", "有限", "重要", "重大"],
+    "placeholder_title": "问题标题（必填）",
+    "remove": "删除问题"
+  },
+  "rejection_page": {
+    "applied_adjustments": "已应用的调整",
+    "applied_adjustments_placeholder": "描述对 PIA 所做的更改。",
+    "button": {
+      "abandon_treatment": "放弃处理",
+      "reject_pia": "拒绝 PIA",
+      "send_for_validation": "重新发送以供批准"
+    },
+    "previous_rejection": "先前的拒绝",
+    "rejection_reason": "拒绝原因",
+    "rejection_reason_placeholder": "描述拒绝 PIA 的原因。",
+    "title": "验证历史"
+  },
+  "sections": {
+    "1": {
+      "items": {
+        "1": {
+          "questions": {
+            "1": {
+              "placeholder": "简要概述处理活动：其名称、目的、利害关系、使用背景等。",
+              "title": "所考虑的处理活动是什么？"
+            },
+            "2": {
+              "placeholder": "描述利益相关者的责任：数据控制者、可能的数据处理者和联合控制者。",
+              "title": "与处理活动相关的责任有哪些？"
+            },
+            "3": {
+              "placeholder": "列出适用于该处理活动的相关标准，特别是经批准的行为准则和数据保护认证。",
+              "title": "是否有适用于该处理活动的标准？"
+            }
+          },
+          "short_help": "本部分用于识别和介绍评估对象。",
+          "title": "概述"
+        },
+        "2": {
+          "questions": {
+            "1": {
+              "placeholder": "列出收集和处理的数据。为每个数据定义存储期限、接收方和有权访问的人员。",
+              "title": "处理哪些数据？"
+            },
+            "2": {
+              "placeholder": "介绍并描述产品的一般工作原理（从数据收集到数据销毁，不同的处理阶段、存储等），例如使用数据流图（作为附件添加）和对所执行流程的详细描述。",
+              "title": "数据和流程的生命周期是如何运作的？"
+            },
+            "3": {
+              "placeholder": "列出数据支撑资产（操作系统、业务应用程序、数据库管理系统、办公套件、协议、配置等）。",
+              "title": "数据支撑资产有哪些？"
+            }
+          },
+          "short_help": "本部分用于详细定义和描述处理活动的范围。",
+          "title": "数据、流程及支撑资产"
+        }
+      },
+      "short_help": "本部分让您清晰了解所涉及的个人数据处理活动。",
+      "title": "背景"
+    },
+    "2": {
+      "items": {
+        "1": {
+          "questions": {
+            "1": {
+              "placeholder": "解释处理目的为何是具体、明确和合法的。",
+              "short_title": "目的",
+              "title": "处理目的是否具体、明确和合法？"
+            },
+            "2": {
+              "placeholder": "描述您处理活动的法律依据是什么（例如：同意、履行合同、遵守法定义务、保护重大利益等）。",
+              "short_title": "法律依据",
+              "title": "使处理活动合法的法律依据是什么？"
+            },
+            "3": {
+              "placeholder": "解释为何收集的每一项数据对您的处理目的而言是必要的。",
+              "short_title": "充分性数据",
+              "title": "收集的数据是否就处理目的而言是充分、相关且限于必要的（'数据最小化'）？"
+            },
+            "4": {
+              "placeholder": "描述为确保数据质量所采取的措施。",
+              "short_title": "数据准确性",
+              "title": "数据是否准确并保持更新？"
+            },
+            "5": {
+              "placeholder": "解释存储期限为何符合法律要求和/或处理需求。",
+              "short_title": "存储期限",
+              "title": "数据的存储期限是多久？"
+            }
+          },
+          "short_help": "本部分用于证明您的处理活动及所处理数据的合法性。",
+          "title": "相称性与必要性"
+        },
+        "2": {
+          "questions": {
+            "1": {
+              "placeholder": "描述向数据主体提供了哪些信息以及提供信息的方式。",
+              "short_title": "数据主体知情权",
+              "title": "数据主体如何获知处理活动？"
+            },
+            "2": {
+              "placeholder": "描述旨在确保已获得用户同意的控制措施。",
+              "short_title": "获取同意",
+              "title": "如适用，如何获取数据主体的同意？"
+            },
+            "3": {
+              "placeholder": "描述旨在使数据主体能够访问、接收和传输其数据的控制措施。",
+              "short_title": "访问权和数据可携权",
+              "title": "数据主体如何行使其访问权和数据可携权？"
+            },
+            "4": {
+              "placeholder": "描述旨在使数据主体能够更正和删除其数据的控制措施。",
+              "short_title": "更正权和删除权（被遗忘权）",
+              "title": "数据主体如何行使其更正权和删除权？"
+            },
+            "5": {
+              "placeholder": "描述旨在使数据主体能够限制和反对处理其数据的控制措施。",
+              "short_title": "限制处理权和反对权",
+              "title": "数据主体如何行使其限制处理权和反对权？"
+            },
+            "6": {
+              "placeholder": "对于每个处理者，描述其责任（期限、范围、目的、书面处理指令、事先授权），并提供确定其任务和义务的合同、行为准则和认证。",
+              "short_title": "分包",
+              "title": "处理者的义务是否通过合同明确界定和规范？"
+            },
+            "7": {
+              "placeholder": "对于存储或处理数据所在的每个欧盟以外国家，列出其名称，并说明其是否被认可提供足够水平的数据保护，或描述有关传输的条款。",
+              "short_title": "数据传输",
+              "title": "在向欧盟以外传输数据的情况下，数据是否得到充分保护？"
+            }
+          },
+          "short_help": "本部分用于证明您正在实施必要措施，以使相关个人能够行使其权利。",
+          "title": "保护数据主体个人权利的控制措施"
+        }
+      },
+      "short_help": "本部分用于构建隐私原则的合规框架。",
+      "title": "基本原则"
+    },
+    "3": {
+      "items": {
+        "1": {
+          "short_help": "本部分用于识别有助于数据安全的控制措施（现有或计划的）。",
+          "title": "计划或现有措施"
+        },
+        "2": {
+          "questions": {
+            "1": {
+              "placeholder": "输入潜在影响",
+              "title": "如果风险发生，对数据主体的主要<span class='green-highlight'>影响</span>可能是什么？"
+            },
+            "2": {
+              "placeholder": "输入威胁",
+              "title": "可能导致该风险的主要<span class='green-highlight'>威胁</span>是什么？"
+            },
+            "3": {
+              "placeholder": "输入风险来源",
+              "title": "风险<span class='green-highlight'>来源</span>是什么？"
+            },
+            "4": {
+              "placeholder": "点击此处选择应对该风险的控制措施。",
+              "title": "哪些已识别的<span class='green-highlight'>计划控制措施</span>有助于应对该风险？"
+            },
+            "5": {
+              "placeholder": "在此说明风险评估严重程度的理由。",
+              "title": "您如何评估<span class='green-highlight'>风险严重程度</span>，特别是根据潜在影响和计划控制措施？"
+            },
+            "6": {
+              "placeholder": "在此说明评估可能性的理由。",
+              "title": "您如何评估<span class='green-highlight'>风险可能性</span>，特别是考虑到威胁、风险来源和计划控制措施？"
+            }
+          },
+          "short_help": "分析非法访问数据的原因和后果，并评估其严重程度和可能性。",
+          "title": "非法访问数据"
+        },
+        "3": {
+          "questions": {
+            "1": {
+              "placeholder": "输入潜在影响",
+              "title": "如果风险发生，对数据主体的主要<span class='green-highlight'>影响</span>可能是什么？"
+            },
+            "2": {
+              "placeholder": "输入威胁",
+              "title": "可能导致该风险的主要<span class='green-highlight'>威胁</span>是什么？"
+            },
+            "3": {
+              "placeholder": "输入风险来源",
+              "title": "风险<span class='green-highlight'>来源</span>是什么？"
+            },
+            "4": {
+              "placeholder": "点击此处选择应对该风险的控制措施。",
+              "title": "哪些已识别的<span class='green-highlight'>控制措施</span>有助于应对该风险？"
+            },
+            "5": {
+              "placeholder": "在此说明风险评估严重程度的理由。",
+              "title": "您如何评估<span class='green-highlight'>风险严重程度</span>，特别是根据潜在影响和控制措施？"
+            },
+            "6": {
+              "placeholder": "在此说明评估可能性的理由。",
+              "title": "您如何评估<span class='green-highlight'>风险可能性</span>，特别是考虑到威胁、风险来源和控制措施？"
+            }
+          },
+          "short_help": "分析数据发生非预期变更的原因和后果，并评估其严重性和可能性。",
+          "title": "非预期数据修改"
+        },
+        "4": {
+          "questions": {
+            "1": {
+              "placeholder": "输入潜在影响",
+              "title": "如果风险发生，对数据主体的主要<span class='green-highlight'>影响</span>可能是什么？"
+            },
+            "2": {
+              "placeholder": "输入威胁",
+              "title": "可能导致该风险的主要<span class='green-highlight'>威胁</span>是什么？"
+            },
+            "3": {
+              "placeholder": "输入风险来源",
+              "title": "风险<span class='green-highlight'>来源</span>是什么？"
+            },
+            "4": {
+              "placeholder": "点击此处选择应对该风险的控制措施。",
+              "title": "哪些已识别的<span class='green-highlight'>控制措施</span>有助于应对该风险？"
+            },
+            "5": {
+              "placeholder": "在此说明风险评估严重程度的理由。",
+              "title": "您如何评估<span class='green-highlight'>风险严重程度</span>，特别是根据潜在影响和控制措施？"
+            },
+            "6": {
+              "placeholder": "在此说明评估可能性的理由。",
+              "title": "您如何评估<span class='green-highlight'>风险可能性</span>，特别是考虑到威胁、风险来源和控制措施？"
+            }
+          },
+          "short_help": "分析数据丢失的原因和后果，并评估其严重性和可能性。",
+          "title": "数据消失"
+        },
+        "5": {
+          "short_help": "此可视化让您能够全局、综合地查看控制措施对其所应对风险的效果。",
+          "title": "风险概览"
+        }
+      },
+      "short_help": "本部分用于评估隐私风险，同时考虑现有或计划中的控制措施。",
+      "title": "风险"
+    },
+    "4": {
+      "items": {
+        "1": {
+          "short_help": "此可视化让您能够比较风险在应用补充控制措施前后的相对位置。",
+          "title": "风险图谱"
+        },
+        "2": {
+          "short_help": "详细规划在PIA期间识别的额外控制措施的实施。当评估PIA中包含的不同要素时，行动计划会自动更新。",
+          "title": "行动计划"
+        },
+        "3": {
+          "short_help": "呈报负责数据保护和隐私问题的人员（如有数据保护官）的意见。呈报数据主体或其代表的观点。",
+          "title": "DPO 及数据主体意见"
+        },
+        "4": {
+          "title": "验证 PIA"
+        },
+        "5": {
+          "title": "已拒绝的 PIA"
+        }
+      },
+      "short_help": "本部分用于准备和正式完成 PIA 验证。",
+      "title": "验证"
+    }
+  },
+  "settings": {
+    "content": "请提供远程服务器的地址（URL）：",
+    "title": "设置",
+    "update": "更新URL"
+  },
+  "summary": {
+    "action_plan": {
+      "fundamental_principles": "基本原则",
+      "implementation_date": "预计实施日期",
+      "implementation_responsible": "实施负责人",
+      "measures": "现有或计划措施",
+      "no_action_plan": "无行动计划记录。",
+      "risks": "风险",
+      "title": "行动计划"
+    },
+    "actions": {
+      "complete_download": "下载完整报告",
+      "complete_download_desc": "将所有报告内容（.doc和图片）、附件以及行动计划的.csv格式导出到一个.zip压缩包中。",
+      "individual_download": "下载报告元素",
+      "individual_download_desc": "导出报告的特定元素。",
+      "individual_download_pdf": "PIA报告 (.pdf)",
+      "individual_download_doc": "文本 (.doc)",
+      "individual_download_images": "视觉元素 (.png)，包括风险概览、风险图谱和行动计划。",
+      "individual_download_json": "用于导入PIA工具的报告 (.json文件)",
+      "individual_download_select": "选择要导出的元素：",
+      "individual_to_download": "下载",
+      "print": "打印报告",
+      "print_and_download": "打印并下载"
+    },
+    "attachments": "附件",
+    "concerned_people_name": "相关人员意见",
+    "concerned_people_opinion": "相关人员意见",
+    "concerned_people_searched_opinion": "征询相关人员意见",
+    "concerned_people_status": "相关人员状态",
+    "concerned_people_unsearched_opinion_comment": "未征询相关人员意见的原因",
+    "content_choice": ["不应使用该处理活动。", "可以实施该处理活动。"],
+    "creation_date": "创建日期",
+    "csv_action_plan_comment": "行动计划评论",
+    "csv_evaluation_comment": "评估评论",
+    "csv_file_title": "行动计划",
+    "csv_implement_date": "预计实施日期",
+    "csv_people_in_charge": "负责人",
+    "csv_section": "部分",
+    "csv_title_object": "标题",
+    "download_csv": "行动计划 (.csv)",
+    "dpo_name": "DPO姓名",
+    "dpo_opinion": "DPO 意见",
+    "dpo_status": "DPO 状态",
+    "gauges": {
+      "1": "可忽略",
+      "2": "有限",
+      "3": "重大",
+      "4": "极其严重"
+    },
+    "modification_made": "已进行的修改",
+    "people_search_status_nok": "未征询相关人员意见。",
+    "people_search_status_ok": "已征询相关人员意见。",
+    "pia_assessor": "评估人姓名",
+    "pia_author": "作者姓名",
+    "pia_name": "PIA",
+    "pia_validator": "验证人姓名",
+    "preview_dpo_opinion": "DPO及数据主体意见",
+    "preview_edition": "编辑",
+    "preview_evaluation": "评估",
+    "preview_no_data": "无数据可显示。",
+    "preview_status": "状态",
+    "preview_subtitle": "一般信息",
+    "preview_title": "预览",
+    "preview_validation": "验证",
+    "preview_validation_section": "验证",
+    "preview_guests": "访客",
+    "previous_page": "返回上一页",
+    "rejection_reason": "拒绝原因",
+    "revision": {
+      "current_version": "当前版本",
+      "pia_version": "PIA版本",
+      "restore_version": "恢复",
+      "revision": "版本与修订",
+      "save": "创建新版本",
+      "show": "显示 {{length}} 个版本"
+    },
+    "risks_cartography_title": "风险图谱",
+    "risks_overview_title": "风险概览",
+    "title": "PIA信息"
+  },
+  "users": {
+    "add_new_user": "添加新用户",
+    "cancel": "取消",
+    "choose_profile": "为此用户选择配置文件",
+    "continue": "继续",
+    "data": "数据",
+    "edit_user": "编辑用户",
+    "email": "电子邮件",
+    "first_name": "名字",
+    "functional_admin": "功能管理员",
+    "last_name": "姓氏",
+    "new_user_button": "新用户",
+    "profile": "配置文件",
+    "remove": "删除",
+    "remove_current_user_error_message": "您不能删除自己的账户。",
+    "remove_last_functional_admin_error_message": "您不能删除此用户，因为必须至少保留一个功能管理员账户。",
+    "remove_user_with_linked_pias_error_message": "多个 PIA 与此用户关联，因此无法删除。",
+    "technical_admin": "技术管理员",
+    "update": "更新",
+    "user": "用户",
+    "state": "账户状态",
+    "errors": {
+      "edit_user": {
+        "406": "创建账户时提供的信息无效。"
+      }
+    },
+    "delete": {
+      "confirm": "删除用户",
+      "content": "您确定要删除此用户吗？"
+    },
+    "access_locked": {
+      "false": "活跃",
+      "true": "等待激活"
+    },
+    "role": {
+      "label": "角色",
+      "author": "作者",
+      "evaluator": "评估者",
+      "validator": "验证者",
+      "guest": "访客"
+    }
+  },
+  "validation_page": {
+    "add_signed_pia": "添加已签署的 PIA",
+    "after_reading": "在阅读完与以下内容相关的数据处理的完整 PIA 后：",
+    "button": {
+      "rejection": "拒绝PIA",
+      "signed_validation": "批准 PIA <br>（已签署）",
+      "simple_validation": "批准 PIA <br>（直接批准）"
+    },
+    "confirmation1": "我证明 PIA 中描述的处理活动背景与实际情况一致。",
+    "confirmation2": "我证明我已了解取决于现有或计划措施的风险。",
+    "confirmation3": "我认可行动计划中指出的纠正措施。",
+    "confirmation4": "我承诺尽快实施所指出的纠正措施。",
+    "latest_signed_attachment": "最新签署的附件",
+    "mandatory_fields": "所有复选框必须勾选",
+    "remove_attachment": "移除附件",
+    "responsible": "负责验证 PIA 的人员：",
+    "signed_attachments_history": "签署附件历史记录",
+    "tools": {
+      "dashboard": "仪表板",
+      "display_pia": "显示报告"
+    },
+    "validated_pia_with_signature": "已批准",
+    "waiting_for_signature": "等待签署的 PIA"
+  }
+}
