@@ -1,10 +1,10 @@
 {
   "about": {
     "contribute": "如果您希望为软件的其他语言翻译做出贡献或改进现有翻译，我们建议您<a href=\"https://github.com/LINCnil/pia/tree/master/src/assets/i18n\" target=\"_blank\">阅读描述后续步骤的页面</a>。",
-    "description": "此工具最初由法国数据保护机构<a target=\"_blank\" href=\"https://www.cnil.fr\">国家信息与自由委员会（CNIL）</a>设计，旨在帮助数据处理者符合GDPR的规定。它由<a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>开发。<br>此软件是免费且开源的。如果您希望参与此项目，欢迎从Github下载源代码，进行修改并与社区分享。",
+    "description": "此工具最初由法国数据保护机构<a target=\"_blank\" href=\"https://www.cnil.fr\">国家信息与自由委员会（CNIL）</a>设计，旨在帮助数据处理者符合 GDPR 的规定。它由<a href=\"https://atnos.com\" target=\"_blank\">ATNOS</a>开发。<br>此软件是免费且开源的。如果您希望参与此项目，欢迎从 Github 下载源代码，进行修改并与社区分享。",
     "licences": "库许可证：",
-    "title": "关于PIA工具",
-    "translators": "PIA软件目前提供二十种语言版本。法语和英语版本由CNIL提供。其他版本来自以下个人的贡献：",
+    "title": "关于 PIA 工具",
+    "translators": "PIA 软件目前提供二十种语言版本。法语和英语版本由 CNIL 提供。其他版本来自以下个人的贡献：",
     "translators_name": "<ul><li>保加利亚语：<a target=\"_blank\" href=\"https://github.com/AlexanderTonev\">Aleksandar Tonev</a>；</li><li>克罗地亚语：<a target=\"_blank\" href=\"https://github.com/B2KapitalBA\">B2KapitalBA</a>；</li><li>捷克语：Jiří Grohmann, Manuel d’Orso；</li><li>丹麦语：<a target=\"_blank\" href=\"https://github.com/moolsen\">Michael Drews Olsen</a>；</li><li>荷兰语：Ruud van Driel, Manuel d’Orso；</li><li>英语：<a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>；</li><li>爱沙尼亚语：Eva Arumets, Lauri Bender, Rebeka Dronia, Kärol Kibena, Simon Suuban, <a target=\"_blank\" href=\"https://kochpartners.ee/en/people/urmas-kukk/\">Urmas Kukk, <a target=\"_blank\" href=\"https://github.com/PrivacyAssessment1\">PrivacyAssessment1</a>；</li><li>芬兰语：<a target=\"_blank\" href=\"https://tietosuoja.fi/etusivu\">Tietosuojavaltuutetun toimisto</a>；</li><li>法语：<a target=\"_blank\" href=\"https://www.cnil.fr\">CNIL</a>；</li><li>德语：<a target=\"_blank\" href=\"https://github.com/kosmas58\">Kosmas Schütz</a> , Corina Scheiter (<a target=\"_blank\" href=\"https://www.datenschutz-bayern.de/\">BayLfD</a>)；</li><li>希腊语：<a target=\"_blank\" href=\"https://tzellis.gr\">Dimitris Tzellis</a>；</li><li>匈牙利语：<a target=\"_blank\" href=\"https://naih.hu/\">Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</a>；</li><li>意大利语：Manuel d’Orso, Gianluca Markos, Antonio Caselli (<a target=\"_blank\" href=\"http://gpdp.it\">Garante per la Protezione dei Dai Personali (GPDP)</a>)；</li><li>立陶宛语：Paulius Galubickas (<a target=\"_blank\" href=\"http://galubickas.lt\">Law firm Galubickas</a>)；</li><li>挪威语：<a target=\"_blank\" href=\"https://www.datatilsynet.no\">Datatilsynet</a>；</li><li>波兰语：<a target=\"_blank\" href=\"https://github.com/JoannaKar\">Joanna Karczewska</a> , Michal Mazur (<a target=\"_blank\" href=\"https://giodo.gov.pl\">Generalny Inspektor Ochrony Danych Osobowych (GIODO)</a>)；</li><li>葡萄牙语：<a target=\"_blank\" href=\"https://github.com/bagois\">Barbara Gois</a>；</li><li>罗马尼亚语：<a target=\"_blank\" href=\"https://github.com/webmyday\">webmyday</a>；</li><li>西班牙语：<a target=\"_blank\" href=\"https://github.com/ylachgar\">ylachgar</a>。</li></ul>",
     "version_number": "版本号"
   },
@@ -23,7 +23,7 @@
     "title": "概览"
   },
   "authentication": {
-    "12_characters": "12个字符",
+    "12_characters": "12 个字符",
     "account_recovery": "密码恢复",
     "activation_code": "激活码",
     "cancel": "取消",
@@ -33,7 +33,7 @@
     "activate_account": "激活账户",
     "create_account": "注册",
     "create_account2": "创建账户",
-    "description": "此由<strong>法国数据保护机构（CNIL）</strong>开发的软件旨在指导数据控制者建立并证明其符合GDPR。它通过促进使用CNIL开发的PIA方法，帮助正确执行数据保护影响评估。",
+    "description": "此工具<strong>法国数据保护机构国家信息与自由委员会（CNIL）</strong>设计，旨在指导数据控制者和数据处理者遵守 GDPR 的相关规定。通过使用 CNIL 开发的 PIA 方法，帮助企业正确执行数据保护影响评估。",
     "email": "电子邮件",
     "email_placeholder": "电子邮件",
     "forgotten_password": "忘记密码？",
@@ -51,8 +51,8 @@
     "special_character": "特殊字符 (!@#$%^&*()?...)",
     "number": "数字",
     "start": "开始",
-    "start_app": "访问PIA软件（测试版）",
-    "subtitle1": "一个用于创建<br>和管理您的PIA的平台",
+    "start_app": "访问 PIA 软件（测试版）",
+    "subtitle1": "一个用于创建<br>和管理您的 PIA 的平台",
     "subtitle2": "访问工具和术语表",
     "title": "隐私影响评估",
     "transaction_error": "无法处理您的请求。",
@@ -170,7 +170,7 @@
   "header": {
     "archives": "PIA 档案",
     "current_pias": "当前 PIA",
-    "exit_full_screen_mode": "按F11退出全屏模式。",
+    "exit_full_screen_mode": "按 F11 退出全屏模式。",
     "help": {
       "issue_reporting": "报告问题",
       "manual": "用户手册",
@@ -233,11 +233,11 @@
           "title": "我遇到显示问题，例如图标卡在一种状态或界面元素缺失"
         },
         "qa2": {
-          "content": "此已知问题正在修复中。如果您遇到此问题，我们建议您填写预估严重程度和/或可能性的理由字段。一旦错误修复，您将能够编辑量表。",
+          "content": "该已知问题目前正在修复中。若您遇到此问题，建议您在严重程度和/或发生可能性的评估字段中填写相关说明。待该问题修复后，您将能够重新编辑相关指标。",
           "title": "我无法编辑用于评估风险严重性和可能性的量表"
         },
         "qa3": {
-          "content": "导入PIA时观察到多个错误，特别是用于评估风险严重性和可能性的级别量表可能会消失。在这种情况下，请参考上述问题。此外，导入 PIA 后，它可能不会显示在仪表板上。这是一个显示问题，您只需刷新页面即可。",
+          "content": "导入 PIA 时观察到多个错误，特别是用于评估风险严重成都和可能性的指标可能会消失。在这种情况下，请参考上述问题。此外，导入 PIA 后，它可能不会显示在仪表板上。这是一个显示问题，您只需刷新页面即可。",
           "title": "我在导入 PIA 时遇到问题"
         },
         "qa4": {
@@ -249,7 +249,7 @@
           "title": "我无法评估某个部分"
         },
         "qa6": {
-          "content": "请关闭您正在编辑的PIA并重新打开它。内容随后应以您选择的语言显示。",
+          "content": "请关闭您正在编辑的 PIA 并重新打开它。内容随后应以您选择的语言显示。",
           "title": "切换语言时，文本没有翻译"
         },
         "qa7": {
@@ -258,7 +258,7 @@
         },
         "title": "已知问题"
       },
-      "footer": "如果您有任何其他问题或改进建议，可以访问我们的<a target=\"_blank\" href=\"https://github.com/LINCnil/pia\">Github仓库</a>并提交问题或拉取请求。"
+      "footer": "如果您有任何其他问题或改进建议，可以访问我们的<a target=\"_blank\" href=\"https://github.com/LINCnil/pia\">Github 仓库</a>并提交问题或拉取请求。"
     },
     "title": "帮助"
   },
@@ -345,7 +345,7 @@
       "card_rocket_content_structure": "开始吧！要启动<br>一个模板，点击+",
       "category": "类别",
       "date": "日期",
-      "import_pia": "导入PIA",
+      "import_pia": "导入 PIA",
       "import_structure": "导入模板",
       "list": "列表视图",
       "list_rocket_content": "开始吧！<br>要启动一个 PIA，点击+",
@@ -421,12 +421,12 @@
     "search": "搜索",
     "slugs": {
       "PIA_DEF_ACC": {
-        "description": "数据主体应有权从控制者处获得关于其个人数据是否正在被处理的确认，以及在处理的情况下，有权访问其个人数据及<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第15条</a>所述信息。",
+        "description": "数据主体应有权从数据控制者处获得关于其个人数据是否正在被处理，以及在处理的情况下，有权访问其个人数据及<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 15 条</a>所述信息。",
         "name": "访问权",
-        "source": "GDPR 第15条"
+        "source": "GDPR 第 15 条"
       },
       "PIA_DEF_ANO": {
-        "description": "从个人数据中移除识别特征的过程。关于评估匿名化过程稳健性的指南，请参阅<a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29指南</a>。",
+        "description": "从个人数据中移除识别特征的过程。关于评估匿名化过程稳健性的指南，请参阅<a target=\"_blank\" href=\"http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf\">WP29 指南</a>。",
         "name": "匿名化",
         "source": "Mesures_US 和 G29 指南 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
@@ -436,12 +436,12 @@
         "source": "Mesures_USE 归档"
       },
       "PIA_DEF_AUTH": {
-        "description": "每个合法访问个人数据的人员（员工、缔约方和其他第三方）应通过唯一标识符进行识别。选择适合上下文、风险水平和预期稳健性的身份验证方法来开启会话。建议：如果风险不高，可以使用密码；但是，如果风险较高，请使用一次性密码令牌但更改默认激活密码，或者当部分密码通过短信发送时，使用带PIN码的卡、电子证书或任何其他形式的强身份验证。",
+        "description": "每个合法访问个人数据的人员（员工、缔约方和其他第三方）应通过唯一标识符进行识别。选择适合上下文、风险水平和预期稳健的身份验证方法来开启会话。建议：如果风险不高，可以使用密码；但是，如果风险较高，请使用一次性密码令牌但更改默认激活密码，或者当部分密码通过短信发送时，使用带 PIN 码的卡、电子证书或任何其他形式的强身份验证。",
         "name": "身份验证",
         "source": "Mesures_US 逻辑访问控制"
       },
       "PIA_DEF_CHIF": {
-        "description": "使个人数据对任何未经授权访问的人员来说不可理解的措施（对称或非对称加密、使用已知强大的公共算法、身份验证证书等）。",
+        "description": "使未经授权人员无法读取个人数据的措施（包括对称/非对称加密、使用公认强效的公开算法、认证证书等）。",
         "name": "加密",
         "source": "Mesures_US 加密"
       },
@@ -451,9 +451,9 @@
         "source": "PIA3 p19 - WIKI"
       },
       "PIA_DEF_CONS": {
-        "description": "数据主体通过声明或明确的肯定行动，表示同意处理与其相关的个人数据的任何自由给予、具体、知情和明确的指示。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.10条</a>",
+        "description": "数据主体通过声明或明确的肯定行动，表示同意处理与其相关的个人数据的任何自由给予、具体、知情和明确的指示。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 4.10 条</a>",
         "name": "同意",
-        "source": "GDPR 第4.10条"
+        "source": "GDPR 第 4.10 条"
       },
       "PIA_DEF_CTLA": {
         "description": "为限制未经授权人员以电子方式访问个人数据的风险而实施的手段，其中包括：<br>- 通过分离任务和职责范围（最好以集中方式）<strong>管理用户配置文件</strong>，以将个人数据的访问权限仅限于授权用户，并应用需知和最小权限原则；<br>- 当员工、缔约方和其他第三方<strong>不再被授权访问场所或资源</strong>或其<strong>雇佣合同终止</strong>时，<strong>撤销其权限</strong>。",
@@ -461,39 +461,39 @@
         "source": "PIA3 p43 - WIKI"
       },
       "PIA_DEF_DCP": {
-        "description": "任何与已识别或可识别的自然人（“数据主体”）相关的信息；可识别的自然人是指可以直接或间接被识别的自然人，特别是通过参考标识符，如姓名、身份证号码、位置数据、在线标识符或该自然人的物理、生理、遗传、心理、经济、文化或社会身份的一个或多个特定因素。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.1条</a>",
+        "description": "任何与已识别或可识别的自然人（“数据主体”）相关的信息；可识别的自然人是指可以直接或间接被识别的自然人，特别是通过参考标识符，如姓名、身份证号码、位置数据、在线标识符或该自然人的物理、生理、遗传、心理、经济、文化或社会身份的一个或多个特定因素。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 4.1 条</a>",
         "name": "个人数据",
-        "source": "GDPR 第4.1条"
+        "source": "GDPR 第 4.1 条"
       },
       "PIA_DEF_DEST": {
-        "description": "个人数据被披露给的自然人或法人、公共机构、机构或其他团体，无论是否为第三方。但是，根据欧盟或成员国法律，在特定调查框架内可能接收个人数据的公共机构不应被视为接收者；这些公共机构对这些数据的处理应遵守适用于处理目的的数据保护规则。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.9条</a>",
+        "description": "个人数据被披露给的自然人或法人、公共机构、机构或其他团体，无论是否为第三方。但是，根据欧盟或成员国法律，在特定调查框架内可能接收个人数据的公共机构不应被视为接收者；这些公共机构对这些数据的处理应遵守适用于处理目的的数据保护规则。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 4.9 条</a>",
         "name": "接收者",
-        "source": "GDPR 第4.9条"
+        "source": "GDPR 第 4.9 条"
       },
       "PIA_DEF_EFF": {
-        "description": "数据主体应有权从控制者处获得关于其个人数据的删除，且不得无故拖延，控制者有义务在无不当延迟的情况下删除个人数据，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第17条</a>",
+        "description": "数据主体应有权从控制者处获得关于其个人数据的删除，且不得无故拖延，控制者有义务在无不当延迟的情况下删除个人数据，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 17 条</a>",
         "name": "删除权（被遗忘权）",
-        "source": "GDPR 第17条"
+        "source": "GDPR 第 17 条"
       },
       "PIA_DEF_ENJ": {
         "description": "预期收益（对组织、数据主体、整个社会等）。",
         "name": "利害关系",
-        "source": "PIA1 p4 脚注8"
+        "source": "PIA1 p4 脚注 8"
       },
       "PIA_DEF_EXA": {
-        "description": "个人数据应准确，并在必要时保持最新；必须采取一切合理步骤，确保就处理目的而言不准确的个人数据被立即删除或纠正（“准确性”）。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第5.1 d)条</a>",
+        "description": "个人数据应准确，并在必要时保持最新；必须采取一切合理步骤，确保就处理目的而言不准确的个人数据被立即删除或纠正（“准确性”）。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 5.1 d)条</a>",
         "name": "数据质量",
-        "source": "GDPR 第5.1 d)条"
+        "source": "GDPR 第 5.1 d)条"
       },
       "PIA_DEF_GRV": {
-        "description": "严重性代表风险的大小。它主要取决于潜在影响的损害性质。",
+        "description": "严重性代表风险的程度，主要取决于潜在影响的危害性质。",
         "name": "严重性",
-        "source": "PIA1 第6页"
+        "source": "PIA1 第 6页"
       },
       "PIA_DEF_LIM": {
-        "description": "数据主体应有权从控制者处获得处理限制，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第18条</a>",
+        "description": "数据主体有权从数据控制者那里获得处理限制，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 18 条</a>",
         "name": "限制处理权",
-        "source": "GDPR 第18条"
+        "source": "GDPR 第 18 条"
       },
       "PIA_DEF_LOG": {
         "description": "建立日志记录架构，以便及早发现涉及个人数据的事件，并拥有可用于分析这些事件或在调查中提供证据的信息。",
@@ -526,32 +526,32 @@
         "source": "无"
       },
       "PIA_DEF_MIN1": {
-        "description": "导入数据时，可能会无意中收集不同类型的元数据（例如，附加图像文件附带的EXIF数据）。<br>必须识别此类元数据，如果它们对于指定目的不必要，则予以消除。",
+        "description": "导入数据时，可能会无意中收集不同类型的元数据（例如，图像文件附件，附带的 EXIF 数据）。<br>必须识别此类元数据，如果它们对于指定目的不必要，则予以移除。",
         "name": "过滤和移除",
         "source": "PIAF 互联对象 p42 - WIKI"
       },
       "PIA_DEF_MIN2": {
-        "description": "一旦接收到敏感数据，作为一般信息的一部分或仅用于统计目的传输，可以将其转换为敏感性较低的形式或进行假名化。例如：<br>- 如果系统收集IP地址以确定用户位置用于统计目的，则一旦推断出城市或地区，就可以删除IP地址<br>- 如果系统接收来自监控摄像头的视频数据，它可以识别场景中站立或移动的人并对其进行模糊处理<br>- 如果系统是智能电表，它可以在一定时期内聚合能源使用情况，而不实时记录",
+        "description": "一旦接收到敏感数据，作为一般信息的一部分或仅用于统计目的传输，可以将其转换为敏感性较低的形式或进行假名化。例如：<br>- 如果系统收集 IP 地址以确定用户位置用于统计目的，则一旦推断出城市或地区，就可以删除 IP 地址<br>- 如果系统接收来自监控摄像头的视频数据，它可以识别场景中站立或移动的人并对其进行模糊处理<br>- 如果系统是智能电表，它可以在一定时期内聚合能源使用情况，而不实时记录",
         "name": "通过转换降低敏感性",
         "source": "PIAF 互联对象 p42 - WIKI"
       },
       "PIA_DEF_MIN3": {
-        "description": "系统可以确保：<br>- 用户可以使用资源或服务而无需冒泄露其身份的风险（匿名数据）<br>- 用户可以使用资源或服务而无需冒泄露其身份的风险，但仍可被识别并对此使用负责（假名数据）<br>- 用户可以多次使用资源或服务而无需冒这些不同使用被关联在一起的风险（数据无法关联）<br>- 用户可以使用资源或服务而无需冒他人（特别是第三方）能够观察到该资源或服务正在被使用的风险（不可观察性）<br>必须根据已识别的威胁从上述列表中选择一种方法。对于某些类型的隐私威胁，假名化将比匿名化更合适（例如，如果需要可追溯性）。此外，一些隐私威胁将使用组合方法来解决。",
+        "description": "系统可以确保：<br>- 用户使用资源或服务时，无需承担身份泄露风险（匿名数据）<br>- 用户使用资源或服务时，无需承担身份泄露风险，但可被识别并对使用行为负责（假名数据）<br>- 用户多次使用资源或服务时，无需承担不同使用行为被关联的风险（数据不可关联）<br>- 用户使用资源或服务时，无需承担他人（尤其是第三方）察觉使用行为的风险（不可观测性）<br>上述方法的选择需基于已识别的隐私威胁类型。‌ 对于某些隐私威胁，假名化可能比匿名化更适用（例如存在追溯需求时）。此外，部分隐私威胁需通过组合方法应对。",
         "name": "降低数据的识别性质",
         "source": "PIAF 互联对象 p42 - WIKI"
       },
       "PIA_DEF_MIN4": {
-        "description": "系统可以组织成具有独立访问控制功能的独立部分。数据也可以在这些独立子系统之间划分，并由每个子系统使用不同的访问控制机制控制。如果一个子系统被攻破，则可以减少对所有数据的影响。",
+        "description": "该系统可划分为独立模块，各模块具备独立的访问控制功能。数据也可分散存储于这些独立子系统中，并通过不同访问控制机制由各子系统分别管理。如此一来，即使某一子系统被攻破，其对全部数据的影响也能得到有效限制。",
         "name": "减少数据积累",
         "source": "PIAF 互联对象 p42 - WIKI"
       },
       "PIA_DEF_MIN5": {
-        "description": "系统可以根据“需知”原则限制数据访问。系统可以分离敏感数据并应用特定的访问控制策略。系统还可以加密敏感数据，以在传输和存储期间保护其机密性。还必须保护对数据处理过程中产生的临时cookie的访问。",
+        "description": "系统可以根据“按需所知”原则限制数据访问。系统可以分离敏感数据并应用特定的访问控制策略。系统还可以加密敏感数据，以在传输和存储期间保护其机密性。还必须保护对数据处理过程中产生的临时 cookie 的访问。",
         "name": "限制数据访问",
         "source": "PIAF 互联对象 p42 - WIKI"
       },
       "PIA_DEF_MINC": {
-        "description": "通过将个人数据的数量限制在严格实现既定目的所需的范围内来降低风险的严重性，否则不应收集数据。",
+        "description": "通过将个人数据严格限制在实现特定目的所必需的最小范围内，从而降低风险严重性；若非必要，则不得收集相关数据。",
         "name": "最小化个人数据量",
         "source": "WIKI Minimisation_des_données_:_adéquates,_pertinentes_et_limitées"
       },
@@ -561,12 +561,12 @@
         "source": "PIA3 p64"
       },
       "PIA_DEF_OPP": {
-        "description": "数据主体有权根据与其特定情况相关的理由，随时反对处理与其相关的个人数据，依据<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第21条</a>",
+        "description": "数据主体有权根据与其特定情况相关的理由，随时反对处理与其相关的个人数据，依据<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 21 条</a>",
         "name": "反对权",
-        "source": "GDPR 第21条"
+        "source": "GDPR 第 21 条"
       },
       "PIA_DEF_PBDS": {
-        "description": "为在所有新的处理操作中整合个人数据保护而采取的措施（可信名称、指南、CNIL风险管理方法或其他内部方法）。",
+        "description": "为所有新数据处理操作（包括可信名称、指导文件、CNIL风险管理方法或其他内部方法）整合个人数据保护措施。",
         "name": "项目管理",
         "source": "Mesures_US"
       },
@@ -576,34 +576,34 @@
         "source": "PIA1 p9"
       },
       "PIA_DEF_PORT": {
-        "description": "数据主体应有权以结构化、常用和机器可读的格式接收其已提供给控制者的个人数据，并有权将这些数据无障碍地传输给另一个控制者，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第20条</a>",
+        "description": "数据主体应有权以结构化、常用和机器可读的格式接收其已提供给控制者的个人数据，并有权将这些数据无障碍地传输给另一个控制者，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 20 条</a>",
         "name": "数据可携权",
-        "source": "GDPR 第20条"
+        "source": "GDPR 第 20 条"
       },
       "PIA_DEF_PSEU": {
-        "description": "以无法在未使用额外信息的情况下将个人数据归属于特定数据主体的方式处理个人数据，但前提是该额外信息单独保存，并受到技术和组织措施的保护，以确保个人数据不归属于已识别或可识别的自然人。<br>假名化降低了数据集与数据主体原始身份的可链接性；因此，它是一种有用的安全措施，但不是匿名化方法。",
+        "description": "以无法将个人数据关联到特定数据主体的方式处理个人数据，但需满足以下条件：此类附加信息被单独存储，并采取技术和组织措施确保个人数据无法被关联至已识别或可识别的自然人。<br>假名化（Pseudonymisation）降低了数据集与数据主体原始身份的可关联性，因此是一种有效的安全措施，但并非匿名化方法。",
         "name": "假名化",
-        "source": "GDPR 第4.5条 和 G29指南 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
+        "source": "GDPR 第 4.5 条 和 G29 指南 p22 http://ec.europa.eu/justice/data-protection/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf"
       },
       "PIA_DEF_PWD": {
-        "description": "密码应由至少八个字符组成；如果担心可能已泄露，则必须更新，并且可能定期（每六个月或每年一次）更新；必须包含四种字符类型（大写字母、小写字母、数字和特殊字符）中的至少三种；更改密码时，不得重复使用最近五个密码；不应将同一密码用于不同的访问；密码不应与个人相关信息（包括姓名或出生日期）相关。定义最大尝试次数，超过该次数将发出警告并（暂时或手动解除前）阻止身份验证。",
+        "description": "密码应由至少八个字符组成；如果担心密码泄露，应该定期更新（每六个月或每年一次）更新；必须包含四种字符类型（大写字母、小写字母、数字和特殊字符）中的至少三种；更改密码时，不得重复使用最近修改过的五个密码；不应将同一密码用于不同的访问；密码不应与个人相关信息（包括姓名或出生日期）相关。定义最大尝试次数，超过该次数将发出警告并（暂时或手动解除前）阻止身份验证。",
         "name": "密码",
         "source": "Mesure_US"
       },
       "PIA_DEF_RECT": {
-        "description": "数据主体应有权从控制者处获得关于其不准确个人数据的纠正，且不得无故拖延。考虑到处理的目的，数据主体有权补全不完整的个人数据，包括通过提供补充声明的方式。",
+        "description": "数据主体应有权从数据控制者处获得关于其不准确个人数据的纠正，且不得无故拖延。考虑到处理的目的，数据主体有权补全不完整的个人数据，包括通过提供补充声明的方式。",
         "name": "纠正权",
-        "source": "GDPR 第16条"
+        "source": "GDPR 第 16 条"
       },
       "PIA_DEF_RGPD": {
-        "description": "关于在个人数据处理方面保护自然人以及此类数据自由流动的条例，并废除指令95/46/EC。",
+        "description": "关于在个人数据处理方面保护自然人以及此类数据自由流动的条例，并废除指令 95/46/EC。",
         "name": "GDPR（通用数据保护条例）",
         "source": "GDPR 标题"
       },
       "PIA_DEF_RT": {
-        "description": "单独或与他人共同确定个人数据处理目的和方式的自然人或法人、公共机构、机构或其他团体；如果此类处理的目的和方式由欧盟或成员国法律确定，则控制者或其提名的具体标准可由欧盟或成员国法律规定。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.7条</a>",
+        "description": "单独或与他人共同确定个人数据处理目的和方式的自然人或法人、公共机构、机构或其他团体；如果此类处理的目的和方式由欧盟或成员国法律确定，则控制者或其提名的具体标准可由欧盟或成员国法律规定。<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 4.7 条</a>",
         "name": "控制者",
-        "source": "GDPR 第4.7条"
+        "source": "GDPR 第 4.7 条"
       },
       "PIA_DEF_SRC": {
         "description": "可能引发风险的人或非人来源。此来源可能意外或故意行动。",
@@ -611,9 +611,9 @@
         "source": "PIA1 p11 - WIKI"
       },
       "PIA_DEF_ST": {
-        "description": "代表控制者处理个人数据的自然人或法人、公共机构、机构或其他团体，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.8条</a>。<br>处理者以及任何在控制者或处理者授权下行动且有权访问个人数据的人员，除非欧盟或成员国法律要求，否则不得处理这些数据，除非根据控制者的指示，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第29条</a>。",
+        "description": "代表控制者处理个人数据的自然人或法人、公共机构、机构或其他团体，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 4.8 条</a>。<br>处理者以及任何在控制者或处理者授权下行动且有权访问个人数据的人员，除非欧盟或成员国法律要求，否则不得处理这些数据，除非根据控制者的指示，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 29 条</a>。",
         "name": "处理者",
-        "source": "GDPR 第4.8条 和 第29条"
+        "source": "GDPR 第 4.8 条 和 第 29 条"
       },
       "PIA_DEF_SUPT": {
         "description": "个人数据所依赖的资产。这可能是硬件、软件、网络、人员、纸质或纸质传输通道。",
@@ -623,24 +623,24 @@
       "PIA_DEF_VIOL": {
         "description": "导致传输、存储或以其他方式处理的个人数据被意外或非法破坏、丢失、更改、未经授权披露或访问的安全漏洞。",
         "name": "个人数据泄露",
-        "source": "GDPR 第4.12条"
+        "source": "GDPR 第 4.12 条"
       },
       "PIA_DEF_VRA": {
-        "description": "可能性表示风险发生的可能性。它主要取决于支持资产在受到威胁时的脆弱性水平以及风险来源利用这些脆弱性的能力水平。",
+        "description": "可能性表示风险发生的可能性。它主要取决于支持资产在受到威胁时的脆弱性水平以及攻击者利用这些脆弱性的能力水平。",
         "name": "可能性",
-        "source": "PIA1 第6页"
+        "source": "PIA1 第 6页"
       },
       "PIA_EX_DC": {
         "description": "评分系统的数据，应用评分的结果....",
         "name": "计算数据"
       },
       "PIA_EX_DCPC": {
-        "description": "<strong>身份数据</strong>：公民身份、身份、年龄等。<br><strong>个人生活</strong>：生活习惯、婚姻状况等。<br><strong>职业生活</strong>：简历、教育和职业培训、奖项等。<br><strong>连接数据</strong>：IP地址、事件日志等。<br><strong>位置数据</strong>：旅行、GPS数据、GSM数据等。<br><strong>其他</strong>：电话号码、电子邮件地址等。",
+        "description": "<strong>身份数据</strong>：公民身份、身份、年龄等。<br><strong>个人生活</strong>：生活习惯、婚姻状况等。<br><strong>职业生活</strong>：简历、教育和职业培训、奖项等。<br><strong>连接数据</strong>：IP 地址、事件日志等。<br><strong>位置数据</strong>：旅行、GPS 数据、GSM 数据等。<br><strong>其他</strong>：电话号码、电子邮件地址等。",
         "name": "常见个人数据",
         "source": "PIA2 旧版本 - WIKI"
       },
       "PIA_EX_DCPR": {
-        "description": "哲学、政治、宗教和工会观点、性生活、健康数据、种族或民族出身、有关健康或性生活数据、犯罪、定罪、安全措施，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第9条和第10条</a>。",
+        "description": "哲学、政治、宗教和工会观点、性生活、健康数据、种族或民族出身、有关健康或性生活数据、犯罪记录、刑事定罪、安全措施，参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 9条和第 10 条</a>。",
         "name": "定罪和敏感个人数据"
       },
       "PIA_EX_DCPS": {
@@ -692,7 +692,7 @@
         "name": "可忽略可能性"
       },
       "PIA_LGL_CONS": {
-        "description": "允许数据主体做出自由、具体和知情的选择。确定处理是否依赖于<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>第6条规定的同意以外的法律依据。",
+        "description": "允许数据主体做出自由、具体和知情的选择。确定处理是否依赖于<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>第 6条规定的同意以外的法律依据。",
         "name": "同意",
         "source": "PIA3 p11 - WIKI"
       },
@@ -702,14 +702,14 @@
         "source": "PIA1 p6"
       },
       "PIA_LGL_DESC": {
-        "description": "简要概述所考虑的处理、其性质、范围、背景、目的和利害关系。识别数据控制者和任何处理者。列出适用于该处理的必要或必须遵守的标准参考，尤其是经批准的行为准则（参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第40条</a>）和有关数据保护的认证（参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第42条</a>）。",
+        "description": "简要概述所考虑的处理、其性质、范围、背景、目的和利害关系。识别数据控制者和任何处理者。列出适用于该处理的必要或必须遵守的标准参考，尤其是经批准的行为准则（参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 40 条</a>）和有关数据保护的认证（参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 42 条</a>）。",
         "name": "处理描述",
         "source": "PIA1 p4"
       },
       "PIA_LGL_DEST": {
-        "description": "个人数据被披露给的自然人或法人、公共机构、机构或其他团体，无论是否为第三方。但是，根据欧盟或成员国法律，在特定调查框架内可能接收个人数据的公共机构不应被视为接收者；这些公共机构对这些数据的处理应遵守适用于处理目的的数据保护规则。参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第4.9条</a>",
+        "description": "个人数据被披露给的自然人或法人、公共机构、机构或其他团体，无论是否为第三方。但是，根据欧盟或成员国法律，在特定调查框架内可能接收个人数据的公共机构不应被视为接收者；这些公共机构对这些数据的处理应遵守适用于处理目的的数据保护规则。参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 4.9 条</a>",
         "name": "接收者",
-        "source": "GDPR 第4.9条"
+        "source": "GDPR 第 4.9 条"
       },
       "PIA_LGL_DUR": {
         "description": "必须为每种数据类型定义存储期限，并根据法律要求和/或处理需求进行证明。因此，区分普通数据和归档数据，对归档数据的访问将仅限于相关利益相关者。必须实施清除机制，以便在存储期限结束时归档普通数据或清除归档数据。功能跟踪以及可能无法无限期存储的技术日志也必须被清除。",
@@ -717,12 +717,12 @@
         "source": "PIAF 互联对象 p12"
       },
       "PIA_LGL_FIN": {
-        "description": "个人数据应为特定、明确和合法的目的而收集，并且<strong>不得以与这些目的不相符的方式进行进一步处理。</strong><br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第5.1 b)条</a>",
+        "description": "个人数据应为特定、明确和合法的目的而收集，并且<strong>不得以与这些目的不相符的方式进行进一步处理。</strong><br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 5.1 b)条</a>",
         "name": "个人数据处理原则",
-        "source": "GDPR 第5.1 b)条"
+        "source": "GDPR 第 5.1 b)条"
       },
       "PIA_LGL_FOND": {
-        "description": "- 数据主体已同意为一个或多个特定目的处理其个人数据<br>- 处理对于履行数据主体作为一方的合同或应数据主体要求在签订合同前采取措施是必要的<br>- 处理对于遵守控制者所承担的法律义务是必要的<br>- 处理对于保护数据主体或另一个自然人的重大利益是必要的<br>- 处理对于执行符合公共利益的任务或行使赋予控制者的官方权力是必要的<br>- 处理对于控制者或第三方追求的合法利益目的是必要的，除非此类利益被需要保护个人数据的数据主体的利益或基本权利和自由所覆盖，特别是当数据主体是儿童时<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第6条</a>",
+        "description": "- 数据主体已同意为一个或多个特定目的处理其个人数据<br>- 处理对于履行数据主体作为一方的合同或应数据主体要求在签订合同前采取措施是必要的<br>- 处理对于遵守控制者所承担的法律义务是必要的<br>- 处理对于保护数据主体或另一个自然人的重大利益是必要的<br>- 处理对于执行符合公共利益的任务或行使赋予控制者的官方权力是必要的<br>- 处理对于控制者或第三方追求的合法利益目的是必要的，除非此类利益被需要保护个人数据的数据主体的利益或基本权利和自由所覆盖，特别是当数据主体是儿童时<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 6条</a>",
         "name": "合法性证明",
         "source": "PIA2 p4"
       },
@@ -732,12 +732,12 @@
         "source": "PIA3 p8 - WIKI"
       },
       "PIA_LGL_MINI": {
-        "description": "通过最小化将处理的个人数据数量来降低风险的严重性非常重要，通过将此类数据限制在严格处理目的所需的范围内（否则不应收集）。然后，也有可能通过旨在降低其敏感性的控制来最小化数据本身。",
+        "description": "通过将待处理的个人数据数量降至最低，并严格限制此类数据仅用于处理目的所必需的范围（若非必要则不应收集），可有效降低风险严重程度。此外，还可通过旨在降低数据敏感性的控制措施，进一步实现数据最小化。",
         "name": "数据最小化",
         "source": "PIAF 互联对象 p10 - WIKI"
       },
       "PIA_LGL_ST": {
-        "description": "必须与每个处理者签订处理合同，规定[GDPR]第28条规定的所有方面：期限、范围、目的、书面处理指令、在聘用处理者时的事先授权、提供证明符合[GDPR]的任何文件、及时通知任何数据泄露等。",
+        "description": "必须与每个数据处理者签订处理合同，规定[GDPR]第 28 条规定的所有方面：期限、范围、目的、书面处理指令、在聘用处理者时的事先授权、提供证明符合[GDPR]的任何文件、及时通知任何数据泄露等。",
         "name": "分包",
         "source": "PIA2 p10"
       },
@@ -747,7 +747,7 @@
         "source": "PIA1 p10"
       },
       "PIA_LGL_TRAN": {
-        "description": "根据相关国家/地区，您必须证明选择远程托管的合理性，并指出为确保接受跨境传输的数据得到充分保护而实施的法律监督安排。即：<br>- 欧盟<br>- 被欧盟认可提供充分保护的国家<br>- 转移到美国并加入隐私盾的公司<br>- 其他国家<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第44至49条</a>",
+        "description": "根据相关国家/地区，您必须证明选择远程托管的合理性，并指出为确保接受跨境传输的数据得到充分保护而实施的法律监督安排。即：<br>- 欧盟<br>- 被欧盟认可提供充分保护的国家<br>- 转移到美国并加入隐私盾的公司<br>- 其他国家<br>参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR] 第 44 至49 条</a>",
         "name": "传输",
         "source": "PIAF 互联对象 p18"
       },
@@ -787,7 +787,7 @@
         "source": "PIAF Connected Objects p24"
       },
       "PIA_ORG_POL": {
-        "description": "在构成数据保护政策的文件库中，并以适合每种内容类型（风险、需遵循的关键原则、目标、需应用的规则等）和每个沟通对象（用户、IT部门、决策者等）的形式，阐述与数据保护相关的重要方面。",
+        "description": "在构成数据保护政策的文件库中，并以适合每种内容类型（风险、需遵循的关键原则、目标、需应用的规则等）和每个沟通对象（用户、IT 部门、决策者等）的形式，阐述与数据保护相关的重要方面。",
         "name": "政策",
         "placeholder": "在此描述阐述数据保护目标和规则的文献基础。",
         "source": "PIA3 p78 - WIKI"
@@ -801,7 +801,7 @@
       "PIA_ORG_VIOL": {
         "description": "存在一个可检测和处理可能影响数据主体公民自由和隐私的事件的运营组织。",
         "name": "管理个人数据违规",
-        "placeholder": "在此指出IT事件是否遵循有文档记录且经过测试的管理程序。",
+        "placeholder": "在此指出 IT 事件是否遵循有文档记录且经过测试的管理程序。",
         "source": "PIAF Connected Objects p24 and PIA3 p36 - WIKI"
       },
       "PIA_SEC_BKP": {
@@ -817,7 +817,7 @@
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_SEC_CTR": {
-        "description": "<strong>仅使用能够提供充分保证（特别是在专业知识、可靠性和资源方面）的分包商</strong>。要求服务提供商在与其签订合同前传达其信息系统安全政策。<br>采取并记录用于<strong>确保分包商在数据保护方面提供的保证有效性</strong>的手段（安全审计、安装访问等）。这些保证包括：<br>- 根据数据敏感性对数据进行加密，或者至少存在保证服务公司无法访问数据的程序；<br>- 数据传输加密（例如：HTTPS类型连接、VPN等）；<br>- 在网络保护、可追溯性（日志、审计）、访问权限管理、身份验证等方面的保证。<br><strong>与分包商签订合同</strong>，定义处理的主题、期限和目的，以及各方的义务。确保合同尤其包含以下条款：<br>- 其在<strong>受托个人数据保密性</strong>方面的义务；<br>- <strong>用户身份验证的最低标准</strong>；<br>- <strong>合同结束时数据归还和/或销毁的条件</strong>；<br>- <strong>事件管理和通知规则。</strong> 应包括在发现安全漏洞或安全事件时通知数据控制者，如果是关于个人数据的事件，则应尽快通知。",
+        "description": "<strong>仅使用能够提供充分保证（特别是在专业知识、可靠性和资源方面）的分包商</strong>。要求服务提供商在与其签订合同前传达其信息系统安全政策。<br>采取并记录用于<strong>确保分包商在数据保护方面提供的保证有效性</strong>的手段（安全审计、安装访问等）。这些保证包括：<br>- 根据数据敏感性对数据进行加密，或者至少存在保证服务公司无法访问数据的程序；<br>- 数据传输加密（例如：HTTPS 类型连接、VPN 等）；<br>- 在网络保护、可追溯性（日志、审计）、访问权限管理、身份验证等方面的保证。<br><strong>与分包商签订合同</strong>，定义处理的主题、期限和目的，以及各方的义务。确保合同尤其包含以下条款：<br>- 其在<strong>受托个人数据保密性</strong>方面的义务；<br>- <strong>用户身份验证的最低标准</strong>；<br>- <strong>合同结束时数据归还和/或销毁的条件</strong>；<br>- <strong>事件管理和通知规则。</strong> 应包括在发现安全漏洞或安全事件时通知数据控制者，如果是关于个人数据的事件，则应尽快通知。",
         "name": "处理合同",
         "placeholder": "在此描述针对处理者（主机、维护公司、管理员、专业服务提供商等）的具体措施",
         "source": "Mesures_US Procurement: identified and governed by a contract"
@@ -877,7 +877,7 @@
         "source": "PIAF Connected Objects p23 - WIKI"
       },
       "PIA_SEC_WEB": {
-        "description": "实施ANSSI（法国国家信息系统安全局）的网站安全建议。",
+        "description": "实施 ANSSI（法国国家信息系统安全局）的网站安全建议。",
         "name": "网站安全",
         "placeholder": "在此指出为保护网站而实施的控制。",
         "source": "PIAF Connected Objects p22 - WIKI"
@@ -895,7 +895,7 @@
         "source": "PIAF Connected Objects p22 - WIKI"
       },
       "PIA_TEC_CHIF": {
-        "description": "为<strong>确保存储数据</strong>（在数据库中、在平面文件中、备份中等）的<strong>机密性</strong>而实施的手段，以及管理加密密钥的程序（创建、存储、在怀疑数据泄露情况下的更改等）。<br> 描述处理中实施的数据流加密手段（VPN、TLS等）。",
+        "description": "为<strong>确保存储数据</strong>（在数据库中、在平面文件中、备份中等）的<strong>机密性</strong>而实施的手段，以及管理加密密钥的程序（创建、存储、在怀疑数据泄露情况下的更改等）。<br> 描述处理中实施的数据流加密手段（VPN、TLS 等）。",
         "name": "加密",
         "placeholder": "在此描述为确保数据机密性而实施的手段",
         "source": "PIAF Connected Objects p21"
@@ -941,17 +941,17 @@
         "source": "PIAF Connected Objects p34"
       },
       "PIA_VAL_CONC": {
-        "description": "在适当情况下，控制者应寻求数据主体或其代表对预期处理的意见，且不影响商业或公共利益或处理操作安全的保护。参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>第35.9条<br>可根据具体情况通过多种方式收集这些意见（关于处理方法和目的的内部或外部研究、向员工代表或工会提出的问题、对数据处理器未来客户的调查）。<strong>如果数据控制者决定违背数据主体的意见</strong>，他必须记录<strong>此决定的理由</strong>。如果数据控制者认为<strong>收集数据主体的意见不相关，他也必须记录其理由</strong>。",
+        "description": "在适当情况下，控制者应征求数据主体或其代表对拟处理事项的意见，但不得损害商业或公共利益，亦不得影响处理操作的安全性。参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>第 35.9 条<br>可根据具体情况通过多种方式收集这些意见（关于处理方法和目的的内部或外部研究、向员工代表或工会提出的问题、对数据处理器未来客户的调查）。<strong>如果数据控制者决定违背数据主体的意见</strong>，他必须记录<strong>此决定的理由</strong>。如果数据控制者认为<strong>收集数据主体的意见不相关，他也必须记录其理由</strong>。",
         "name": "数据主体的意见",
         "source": "GDPR Art. 35.9 and PIAF Connected Objects p38"
       },
       "PIA_VAL_DPO": {
-        "description": "控制者在进行数据保护影响评估时，应寻求数据保护官（如已指定）的建议。参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>第35.2条<br> <strong>此意见可能反对正在实施的处理，但这并不限制数据控制者的决定</strong>。",
-        "name": "DPO的意见",
+        "description": "数据控制者在进行数据保护影响评估时，应寻求数据保护官（如已指定）的建议。参见<a target=\"_blank\" href=\"http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN\">[GDPR]</a>第 35.2 条<br> <strong>此意见可能反对正在实施的处理，但这并不限制数据控制者的决定</strong>。",
+        "name": "DPO 的意见",
         "source": "GDPR Art. 35.2 and PIAF Connected Objects p37"
       },
       "PIA_VAL_RT": {
-        "description": "根据先前识别的利害关系和利益相关者的意见，决定所选控制措施、剩余风险和行动计划是否可以接受，并附上理由。通过这种方式，PIA可能：<br>- 获得验证<br>- 以改进为条件（说明以何种方式）<br>- 被拒绝（连同所考虑的处理）。如有必要，重复前面的步骤，以便PIA能够获得验证。此决定不影响可能由数据保护机构（在法国为CNIL）进行的合规性评估，例如作为初步手续或检查的一部分。",
+        "description": "根据先前识别的利害关系和利益相关者的意见，决定所选控制措施、剩余风险和行动计划是否可以接受，并附上理由。通过这种方式，PIA 可能：<br>- 获得验证<br>- 以改进为条件（说明以何种方式）<br>- 被拒绝（连同所考虑的处理）。如有必要，重复前面的步骤，以便 PIA 能够获得验证。此决定不影响可能由数据保护机构（在法国为 CNIL）进行的合规性评估，例如作为初步手续或检查的一部分。",
         "name": "正式验证",
         "source": "PIAF Connected Objects p40"
       }
@@ -1522,11 +1522,11 @@
     "4": {
       "items": {
         "1": {
-          "short_help": "此可视化让您能够比较风险在应用补充控制措施前后的相对位置。",
+          "short_help": "此可视化功能可帮助您比较在应用补充控制措施前后，各风险之间的定位差异。",
           "title": "风险图谱"
         },
         "2": {
-          "short_help": "详细规划在 PIA 期间识别的额外控制措施的实施。当评估PIA中包含的不同要素时，行动计划会自动更新。",
+          "short_help": "详细规划在 PIA 期间识别的额外控制措施的实施。当评估 PIA 中包含的不同要素时，行动计划会自动更新。",
           "title": "行动计划"
         },
         "3": {
@@ -1547,7 +1547,7 @@
   "settings": {
     "content": "请提供远程服务器的地址（URL）：",
     "title": "设置",
-    "update": "更新URL"
+    "update": "更新 URL"
   },
   "summary": {
     "action_plan": {
@@ -1561,13 +1561,13 @@
     },
     "actions": {
       "complete_download": "下载完整报告",
-      "complete_download_desc": "将所有报告内容（.doc和图片）、附件以及行动计划的.csv格式导出到一个.zip压缩包中。",
+      "complete_download_desc": "将所有报告内容（.doc 和图片）、附件以及行动计划的.csv 格式导出到一个.zip 压缩包中。",
       "individual_download": "下载报告元素",
       "individual_download_desc": "导出报告的特定元素。",
       "individual_download_pdf": "PIA 报告 (.pdf)",
       "individual_download_doc": "文本 (.doc)",
       "individual_download_images": "视觉元素 (.png)，包括风险概览、风险图谱和行动计划。",
-      "individual_download_json": "用于导入 PIA 工具的报告 (.json文件)",
+      "individual_download_json": "用于导入 PIA 工具的报告 (.json 文件)",
       "individual_download_select": "选择要导出的元素：",
       "individual_to_download": "下载",
       "print": "打印报告",
@@ -1589,7 +1589,7 @@
     "csv_section": "部分",
     "csv_title_object": "标题",
     "download_csv": "行动计划 (.csv)",
-    "dpo_name": "DPO姓名",
+    "dpo_name": "DPO 姓名",
     "dpo_opinion": "DPO 意见",
     "dpo_status": "DPO 状态",
     "gauges": {
@@ -1605,7 +1605,7 @@
     "pia_author": "作者姓名",
     "pia_name": "PIA",
     "pia_validator": "验证人姓名",
-    "preview_dpo_opinion": "DPO及数据主体意见",
+    "preview_dpo_opinion": "DPO 及数据主体意见",
     "preview_edition": "编辑",
     "preview_evaluation": "评估",
     "preview_no_data": "无数据可显示。",
@@ -1675,7 +1675,7 @@
     "add_signed_pia": "添加已签署的 PIA",
     "after_reading": "在阅读完与以下内容相关的数据处理的完整 PIA 后：",
     "button": {
-      "rejection": "拒绝PIA",
+      "rejection": "拒绝 PIA",
       "signed_validation": "批准 PIA <br>（已签署）",
       "simple_validation": "批准 PIA <br>（直接批准）"
     },
