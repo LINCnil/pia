@@ -6,10 +6,6 @@ jobs:
     container:
       image: cypress/browsers:latest
       options: --user 1001
-    env:
-      CYPRESS_URL: "localhost:3000"
-      CYPRESS_ID: "client_id"
-      CYPRESS_SECRET: "client_secret"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
