@@ -69,7 +69,7 @@
     "intro.js": "^2.9.3",
     "jspdf": "^2.5.1",
     "jszip": "^3.7.1",
-    "ng2-pdfjs-viewer": "^19.0.0",
+    "ng2-pdfjs-viewer": "^25.0.9",
     "ngx-chips": "3.0.0",
     "normalize.css": "^8.0.1",
     "rxjs": "^7.8.2",

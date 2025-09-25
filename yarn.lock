@@ -8869,10 +8869,10 @@ ng2-material-dropdown@>=1.0.0:
   dependencies:
     tslib "^2.0.0"
 
-ng2-pdfjs-viewer@^19.0.0:
-  version "19.0.0"
-  resolved "https://registry.yarnpkg.com/ng2-pdfjs-viewer/-/ng2-pdfjs-viewer-19.0.0.tgz#b0e3224be32b113f77bfa8ee8e7a6b6c00ce0201"
-  integrity sha512-1NMP79v91gfcLRhTxNpVrORjvGpYly0k4/rbGYw9yBu3+JD/FTXSSBQW/5lHbR6kWvPkOueDSDI5BGYvt69k0w==
+ng2-pdfjs-viewer@^25.0.9:
+  version "25.0.9"
+  resolved "https://registry.yarnpkg.com/ng2-pdfjs-viewer/-/ng2-pdfjs-viewer-25.0.9.tgz#b15e91afde3f4a130b424f39a890920d75c5d4ec"
+  integrity sha512-tKzLGmmJLzfrgUYjYNR05knPotD3aPKqerunhiiKaqvaF9mhqbsfROq55OI/oxaBoZqgJ6YjbclRV3BPY43meQ==
   dependencies:
     tslib "^2.3.0"
 
