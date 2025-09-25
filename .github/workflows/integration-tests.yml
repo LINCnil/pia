@@ -14,10 +14,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.20.0"
+
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Cypress
         uses: cypress-io/github-action@v6
         with:
           start: yarn start
           browser: chrome
-          headless: true
           wait-on: http://[::1]:4200

@@ -91,7 +91,7 @@
     "@types/node": "^22.18.6",
     "codelyzer": "^6.0.2",
     "commitlint": "^11.0.0",
-    "cypress": "^13.2.0",
+    "cypress": "^15.3.0",
     "electron": "35.7.5",
     "electron-builder": "^26.0.12",
     "husky": "^4.0.10",
@@ -157,5 +157,6 @@
       "perMachine": true,
       "allowToChangeInstallationDirectory": true
     }
-  }
+  },
+  "packageManager": "yarn@4.10.3"
 }
