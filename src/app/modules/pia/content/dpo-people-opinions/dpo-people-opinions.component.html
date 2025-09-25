@@ -5,82 +5,73 @@
       <div>
         <h2>{{ "opinions.dpo_opinion" | translate }}</h2>
       </div>
-      <ng-container
-        *ngIf="_sidStatusService.enableDpoValidation; else disableDpoBLock"
-      >
-        <form [formGroup]="DPOForm">
-          <p>
-            <span>
-              <ng-container
-                *ngIf="!pia.status || pia.status < 2; else displayNames1"
-              >
-                <div style="display:inline-block;">
-                  <input
-                    (focusout)="dpoNameFocusOut()"
-                    #DpoNames
-                    type="text"
-                    class="DPOName"
-                    formControlName="DPONames"
-                    placeholder="{{
-                      'opinions.placeholder_dpo_name' | translate
-                    }}"
-                  />
-                </div>
-              </ng-container>
-              <ng-template #displayNames1>
-                {{ pia.dpos_names }}
-              </ng-template>
-            </span>
-            {{ "opinions.content" | translate }}
-          </p>
-          <div class="pia-entryContentBlock-content-DPO-treatment">
-            <div (click)="changeFocusIfDisable('DPOName')">
+      @if (_sidStatusService.enableDpoValidation) {
+      <form [formGroup]="DPOForm">
+        <p>
+          <span>
+            @if (!pia.status || pia.status < 2) {
+            <div style="display:inline-block;">
               <input
-                type="radio"
-                id="treatment-1"
-                (click)="changeFocusIfDisable('DPOName')"
-                (change)="dpoStatusFocusOut()"
-                formControlName="DPOStatus"
-                [value]="1"
+                (focusout)="dpoNameFocusOut()"
+                #DpoNames
+                type="text"
+                class="DPOName"
+                formControlName="DPONames"
+                placeholder="{{ 'opinions.placeholder_dpo_name' | translate }}"
               />
-              <label for="treatment-1">
-                <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
-                <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
-                <span>{{ "opinions.treatment_ok" | translate }}</span>
-              </label>
             </div>
-            <div (click)="changeFocusIfDisable('DPOName')">
-              <input
-                type="radio"
-                id="treatment-2"
-                (change)="dpoStatusFocusOut()"
-                formControlName="DPOStatus"
-                [value]="0"
-              />
-              <label for="treatment-2">
-                <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
-                <fa-icon [icon]="faClose" class="fa-close"></fa-icon>
-                <span>{{ "opinions.treatment_nok" | translate }}</span>
-              </label>
-            </div>
+            } @else {
+            {{ pia.dpos_names }}
+            }
+          </span>
+          {{ "opinions.content" | translate }}
+        </p>
+        <div class="pia-entryContentBlock-content-DPO-treatment">
+          <div (click)="changeFocusIfDisable('DPOName')">
+            <input
+              type="radio"
+              id="treatment-1"
+              (click)="changeFocusIfDisable('DPOName')"
+              (change)="dpoStatusFocusOut()"
+              formControlName="DPOStatus"
+              [value]="1"
+            />
+            <label for="treatment-1">
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
+              <span>{{ "opinions.treatment_ok" | translate }}</span>
+            </label>
           </div>
-          <div class="pia-entryContentBlock-content-DPO-reasons">
-            <textarea
-              (focusout)="dpoOpinionFocusOut()"
-              (keyup)="autoTextareaResize($event)"
-              id="pia-opinions-dpo"
-              formControlName="DPOOpinion"
-              rows="8"
-              cols="50"
-              placeholder="{{ 'opinions.placeholder_dpo_opinion' | translate }}"
-            ></textarea>
+          <div (click)="changeFocusIfDisable('DPOName')">
+            <input
+              type="radio"
+              id="treatment-2"
+              (change)="dpoStatusFocusOut()"
+              formControlName="DPOStatus"
+              [value]="0"
+            />
+            <label for="treatment-2">
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faClose" class="fa-close"></fa-icon>
+              <span>{{ "opinions.treatment_nok" | translate }}</span>
+            </label>
           </div>
-        </form>
-      </ng-container>
-
-      <ng-template #disableDpoBLock>
-        {{ "opinions.dpo_lock" | translate }}
-      </ng-template>
+        </div>
+        <div class="pia-entryContentBlock-content-DPO-reasons">
+          <textarea
+            (focusout)="dpoOpinionFocusOut()"
+            (keyup)="autoTextareaResize($event)"
+            id="pia-opinions-dpo"
+            formControlName="DPOOpinion"
+            rows="8"
+            cols="50"
+            placeholder="{{ 'opinions.placeholder_dpo_opinion' | translate }}"
+          ></textarea>
+        </div>
+      </form>
+      } @else {
+      {{ "opinions.dpo_lock" | translate }}
+      }
     </div>
 
     <!-- Concerned people opinions -->
@@ -88,143 +79,127 @@
       <div>
         <h2>{{ "opinions.people_opinion" | translate }}</h2>
       </div>
-      <ng-container
-        *ngIf="
-          _sidStatusService.enableDpoValidation;
-          else disableConcernedPeopleBLock
-        "
-      >
-        <!-- Opinions searched or not searched -->
-        <form style="margin-top:16px;" [formGroup]="searchedOpinionsForm">
-          <div class="pia-entryContentBlock-content-people-treatment">
-            <div>
-              <input
-                type="radio"
-                id="concerned-people-choice-searched"
-                (change)="searchedOpinionsFocusOut()"
-                formControlName="searchStatus"
-                [value]="true"
-              />
-              <label for="concerned-people-choice-searched">
-                <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
-                <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
-                <span>{{ "summary.people_search_status_ok" | translate }}</span>
-              </label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id="concerned-people-choice-unsearched"
-                (change)="searchedOpinionsFocusOut()"
-                formControlName="searchStatus"
-                [value]="false"
-              />
-              <label for="concerned-people-choice-unsearched">
-                <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
-                <fa-icon [icon]="faClose" class="fa-close"></fa-icon>
-                <span>{{
-                  "summary.people_search_status_nok" | translate
-                }}</span>
-              </label>
-            </div>
+      @if ( _sidStatusService.enableDpoValidation) {
+      <!-- Opinions searched or not searched -->
+      <form style="margin-top:16px;" [formGroup]="searchedOpinionsForm">
+        <div class="pia-entryContentBlock-content-people-treatment">
+          <div>
+            <input
+              type="radio"
+              id="concerned-people-choice-searched"
+              (change)="searchedOpinionsFocusOut()"
+              formControlName="searchStatus"
+              [value]="true"
+            />
+            <label for="concerned-people-choice-searched">
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
+              <span>{{ "summary.people_search_status_ok" | translate }}</span>
+            </label>
           </div>
-          <div
-            *ngIf="displayPeopleSearchContent"
-            class="pia-entryContentBlock-content-DPO-reasons"
-          >
-            <textarea
-              (focusout)="peopleSearchContentFocusOut()"
-              (keyup)="autoTextareaResize($event)"
-              id="pia-people-search-content"
-              rows="8"
-              formControlName="searchContent"
-              cols="50"
-              placeholder="{{
-                'opinions.placeholder_search_content' | translate
-              }}"
-            ></textarea>
+          <div>
+            <input
+              type="radio"
+              id="concerned-people-choice-unsearched"
+              (change)="searchedOpinionsFocusOut()"
+              formControlName="searchStatus"
+              [value]="false"
+            />
+            <label for="concerned-people-choice-unsearched">
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faClose" class="fa-close"></fa-icon>
+              <span>{{ "summary.people_search_status_nok" | translate }}</span>
+            </label>
           </div>
-        </form>
-
-        <!-- Opinions content -->
-        <form
-          style="margin-top:30px;"
-          *ngIf="displayPeopleOpinions"
-          [formGroup]="peopleForm"
-        >
-          <p>
-            <span>
-              <ng-container
-                *ngIf="!pia.status || pia.status < 2; else displayNames2"
-              >
-                <div style="display:inline-block;">
-                  <input
-                    #PeopleNames
-                    type="text"
-                    class="peopleNames"
-                    (change)="concernedPeopleNameFocusOut()"
-                    formControlName="peopleNames"
-                    placeholder="{{
-                      'opinions.placeholder_concerned_people_name' | translate
-                    }}"
-                  />
-                </div>
-              </ng-container>
-              <ng-template #displayNames2>
-                {{ pia.people_names }}
-              </ng-template> </span
-            >{{ "opinions.content" | translate }}
-          </p>
-          <div class="pia-entryContentBlock-content-people-treatment">
-            <div (click)="changeFocusIfDisable('peopleNames')">
+        </div>
+        @if (displayPeopleSearchContent) {
+        <div class="pia-entryContentBlock-content-DPO-reasons">
+          <textarea
+            (focusout)="peopleSearchContentFocusOut()"
+            (keyup)="autoTextareaResize($event)"
+            id="pia-people-search-content"
+            rows="8"
+            formControlName="searchContent"
+            cols="50"
+            placeholder="{{
+              'opinions.placeholder_search_content' | translate
+            }}"
+          ></textarea>
+        </div>
+        }
+      </form>
+      <!-- Opinions content -->
+      @if (displayPeopleOpinions) {
+      <form style="margin-top:30px;" [formGroup]="peopleForm">
+        <p>
+          <span>
+            @if (!pia.status || pia.status < 2) {
+            <div style="display:inline-block;">
               <input
-                type="radio"
-                id="dpoAvis-1"
-                [checked]="pia.people_names && pia.concerned_people_status == 1"
-                (change)="concernedPeopleStatusFocusOut()"
-                formControlName="peopleStatus"
-                [value]="1"
+                #PeopleNames
+                type="text"
+                class="peopleNames"
+                (change)="concernedPeopleNameFocusOut()"
+                formControlName="peopleNames"
+                placeholder="{{
+                  'opinions.placeholder_concerned_people_name' | translate
+                }}"
               />
-              <label for="dpoAvis-1">
-                <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
-                <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
-                <span>{{ "opinions.treatment_ok" | translate }}</span>
-              </label>
             </div>
-            <div (click)="changeFocusIfDisable('peopleNames')">
-              <input
-                type="radio"
-                id="dpoAvis-2"
-                [checked]="pia.people_names && pia.concerned_people_status == 0"
-                (change)="concernedPeopleStatusFocusOut()"
-                formControlName="peopleStatus"
-                [value]="0"
-              />
-              <label for="dpoAvis-2">
-                <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
-                <fa-icon [icon]="faClose" class="fa-close"></fa-icon>
-                <span>{{ "opinions.treatment_nok" | translate }}</span>
-              </label>
-            </div>
+            } @else {
+            {{ pia.people_names }}
+            } </span
+          >{{ "opinions.content" | translate }}
+        </p>
+        <div class="pia-entryContentBlock-content-people-treatment">
+          <div (click)="changeFocusIfDisable('peopleNames')">
+            <input
+              type="radio"
+              id="dpoAvis-1"
+              [checked]="pia.people_names && pia.concerned_people_status == 1"
+              (change)="concernedPeopleStatusFocusOut()"
+              formControlName="peopleStatus"
+              [value]="1"
+            />
+            <label for="dpoAvis-1">
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
+              <span>{{ "opinions.treatment_ok" | translate }}</span>
+            </label>
           </div>
-          <div class="pia-entryContentBlock-content-people-reasons">
-            <textarea
-              (focusout)="concernedPeopleopinionFocusOut()"
-              (keyup)="autoTextareaResize($event)"
-              id="pia-opinions-people"
-              rows="8"
-              formControlName="peopleOpinion"
-              cols="50"
-              placeholder="{{
-                'opinions.placeholder_people_opinion' | translate
-              }}"
-            ></textarea>
+          <div (click)="changeFocusIfDisable('peopleNames')">
+            <input
+              type="radio"
+              id="dpoAvis-2"
+              [checked]="pia.people_names && pia.concerned_people_status == 0"
+              (change)="concernedPeopleStatusFocusOut()"
+              formControlName="peopleStatus"
+              [value]="0"
+            />
+            <label for="dpoAvis-2">
+              <fa-icon [icon]="faCircle" class="fa-circle"></fa-icon>
+              <fa-icon [icon]="faClose" class="fa-close"></fa-icon>
+              <span>{{ "opinions.treatment_nok" | translate }}</span>
+            </label>
           </div>
-        </form>
-      </ng-container>
-      <ng-template #disableConcernedPeopleBLock>
-        {{ "opinions.treatment_lock" | translate }}
-      </ng-template>
+        </div>
+        <div class="pia-entryContentBlock-content-people-reasons">
+          <textarea
+            (focusout)="concernedPeopleopinionFocusOut()"
+            (keyup)="autoTextareaResize($event)"
+            id="pia-opinions-people"
+            rows="8"
+            formControlName="peopleOpinion"
+            cols="50"
+            placeholder="{{
+              'opinions.placeholder_people_opinion' | translate
+            }}"
+          ></textarea>
+        </div>
+      </form>
+      } } @else {
+      {{ "opinions.treatment_lock" | translate }}
+      }
     </div>
   </div>
 </div>

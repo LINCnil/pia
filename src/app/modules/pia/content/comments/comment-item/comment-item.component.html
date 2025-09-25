@@ -1,26 +1,25 @@
 <div class="pia-commentsBlock-content fadeIn">
   <div class="pia-commentsBlock-date">
     {{ "comments.comment" | translate }}
-    <ng-container *ngIf="comment.user">
-      <span>
-        {{ "comments.written_by" | translate }}
-        {{
-          comment.user.firstname && comment.user.lastname
-            ? comment.user.firstname + " " + comment.user.lastname
-            : comment.user.email
-        }}
-      </span>
-    </ng-container>
+    @if (comment.user) {
+    <span>
+      {{ "comments.written_by" | translate }}
+      {{
+        comment.user.firstname && comment.user.lastname
+          ? comment.user.firstname + " " + comment.user.lastname
+          : comment.user.email
+      }}
+    </span>
+    } @if ( comment.created_at && comment.created_at.toString() !== 'Invalid
+    Date' ) {
     <time
-      *ngIf="
-        comment.created_at && comment.created_at.toString() !== 'Invalid Date'
-      "
       >le
       {{
         comment.created_at
           | date: "shortDate":"":_languagesService.selectedLanguage
       }}</time
     >
+    }
   </div>
   <textarea rows="3" disabled cols="50">{{ comment.description }}</textarea>
 </div>

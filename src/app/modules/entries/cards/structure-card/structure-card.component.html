@@ -26,8 +26,8 @@
             >{{ "homepage.cards.item.tools.duplicate" | translate }}</span
           >
         </a>
+        @if (!structure.is_example) {
         <a
-          *ngIf="!structure.is_example"
           href="javascript:;"
           (click)="remove(structure.id)"
           class="btn pia-tooltip"
@@ -39,6 +39,7 @@
             >{{ "homepage.cards.item.tools.remove" | translate }}</span
           >
         </a>
+        }
       </div>
     </div>
 
@@ -84,18 +85,19 @@
         }}</time>
       </div>
       <div class="pia-cardsBlock-item-btn">
+        @if (structure.is_example) {
         <a
-          *ngIf="structure.is_example"
           [routerLink]="['/structures', structure.id, 'section', 1, 'item', 1]"
           class="btn btn-green"
           >{{ "homepage.cards.item.consult_structure" | translate }}</a
         >
+        } @if (!structure.is_example) {
         <a
-          *ngIf="!structure.is_example"
           [routerLink]="['/structures', structure.id, 'section', 1, 'item', 1]"
           class="btn btn-green"
           >{{ "homepage.cards.item.edit_structure" | translate }}</a
         >
+        }
       </div>
     </form>
   </div>

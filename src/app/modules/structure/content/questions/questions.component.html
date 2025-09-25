@@ -1,44 +1,38 @@
 <div class="pia-questionBlock" [attr.data-id]="question.id">
   <form [formGroup]="questionForm">
-    <ng-container
-      *ngIf="
-        question.title && question.title.startsWith('sections');
-        else inputTitle
-      "
+    @if ( question.title && question.title.startsWith('sections')) {
+    <div
+      [innerHTML]="question.title | translate"
+      class="pia-questionBlock-title"
+    ></div>
+    } @else {
+    <div
+      (click)="questionTitleFocusIn()"
+      class="pia-questionBlock-title"
+      [ngClass]="{ hide: editTitle }"
+      [innerHTML]="questionForm.controls['title'].value | safeHtml"
+    ></div>
+    <div class="pia-questionBlock-title" style="padding:0;">
+      <textarea
+        maxlength="120"
+        rows="2"
+        [ngClass]="{ hide: !editTitle }"
+        [attr.data-id]="question.id"
+        id="pia-questionBlock-title-{{ question.id }}"
+        formControlName="title"
+        placeholder="{{ 'questions.placeholder_title' | translate }}"
+        (focusout)="questionTitleFocusOut($event)"
+      ></textarea>
+    </div>
+    <button
+      type="button"
+      class="btn pia-questionBlock-delete"
+      (click)="removeQuestion(question.id)"
+      title="{{ 'question.remove' | translate }}"
     >
-      <div
-        [innerHTML]="question.title | translate"
-        class="pia-questionBlock-title"
-      ></div>
-    </ng-container>
-    <ng-template #inputTitle>
-      <div
-        (click)="questionTitleFocusIn()"
-        class="pia-questionBlock-title"
-        [ngClass]="{ hide: editTitle }"
-        [innerHTML]="questionForm.controls['title'].value | safeHtml"
-      ></div>
-      <div class="pia-questionBlock-title" style="padding:0;">
-        <textarea
-          maxlength="120"
-          rows="2"
-          [ngClass]="{ hide: !editTitle }"
-          [attr.data-id]="question.id"
-          id="pia-questionBlock-title-{{ question.id }}"
-          formControlName="title"
-          placeholder="{{ 'questions.placeholder_title' | translate }}"
-          (focusout)="questionTitleFocusOut($event)"
-        ></textarea>
-      </div>
-      <button
-        type="button"
-        class="btn pia-questionBlock-delete"
-        (click)="removeQuestion(question.id)"
-        title="{{ 'question.remove' | translate }}"
-      >
-        <fa-icon [icon]="faTrash"></fa-icon>
-      </button>
-    </ng-template>
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </button>
+    }
     <button
       class="pia-icons pia-accordion pia-icon-accordion-up"
       type="button"
@@ -54,10 +48,9 @@
           [innerHTML]="questionForm.controls['text'].value | safeHtml"
           [ngClass]="{ hide: editor || !questionForm.controls['text'].value }"
         ></div>
+        @if ( question.answer_type == 'text' || question.answer_type == 'gauge'
+        ) {
         <textarea
-          *ngIf="
-            question.answer_type == 'text' || question.answer_type == 'gauge'
-          "
           [attr.data-id]="question.id"
           id="pia-question-content-{{ question.id }}"
           formControlName="text"
@@ -74,6 +67,7 @@
           placeholder="{{ question.placeholder | translate }}"
         >
         </textarea>
+        }
       </div>
     </div>
   </form>

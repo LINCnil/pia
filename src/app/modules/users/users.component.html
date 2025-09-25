@@ -62,97 +62,97 @@
             </th>
           </tr>
         </thead>
-        <ng-container *ngIf="!loading; else loadingUsers">
-          <tbody>
-            <tr *ngFor="let user of users">
-              <td class="pia-listsBlock-item">
-                <div class="pia-listsBlock-item-actions">
-                  <a
-                    (click)="onDelete(user.id)"
-                    class="btn pia-tooltip"
-                    *ngIf="
-                      user.id !== authService.currentUserValue.resource_owner_id
-                    "
+        @if (!loading) {
+        <tbody>
+          @for (user of users; track user) {
+          <tr>
+            <td class="pia-listsBlock-item">
+              <div class="pia-listsBlock-item-actions">
+                @if ( user.id !== authService.currentUserValue.resource_owner_id
+                ) {
+                <a (click)="onDelete(user.id)" class="btn pia-tooltip">
+                  <fa-icon [icon]="faTrash"></fa-icon>
+                  <span
+                    title="{{ 'users.remove' | translate }}"
+                    class="pia-tooltip-text"
+                    >{{ "users.remove" | translate }}</span
                   >
-                    <fa-icon [icon]="faTrash"></fa-icon>
-                    <span
-                      title="{{ 'users.remove' | translate }}"
-                      class="pia-tooltip-text"
-                      >{{ "users.remove" | translate }}</span
-                    >
-                  </a>
-                  <a (click)="onEdit(user.id)" class="btn pia-tooltip">
-                    <fa-icon [icon]="faPencil"></fa-icon>
-                    <span
-                      title="{{ 'users.update' | translate }}"
-                      class="pia-tooltip-text"
-                      >{{ "users.update" | translate }}</span
-                    >
-                  </a>
-                </div>
-              </td>
-              <td class="pia-listsBlock-item-value">{{ user.lastname }}</td>
-              <td class="pia-listsBlock-item-value">{{ user.firstname }}</td>
-              <td class="pia-listsBlock-item-value">{{ user.email }}</td>
-              <td class="pia-listsBlock-item-value">
-                {{ "users.access_locked." + user.access_locked | translate }}
-              </td>
-              <td class="pia-listsBlock-item-value">
-                <input
-                  type="checkbox"
-                  name=""
-                  id=""
-                  disabled
-                  [checked]="user.access_type.includes('technical')"
-                />
-                <span>
-                  {{ "users.technical_admin" | translate }}
-                </span>
-                <input
-                  type="checkbox"
-                  name=""
-                  id=""
-                  disabled
-                  [checked]="user.access_type.includes('functional')"
-                />
-                <span>
-                  {{ "users.functional_admin" | translate }}
-                </span>
-                <input
-                  type="checkbox"
-                  name=""
-                  id=""
-                  disabled
-                  [checked]="user.access_type.includes('user')"
-                />
-                <span>
-                  {{ "users.user" | translate }}
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </ng-container>
-        <ng-template #loadingUsers>
-          <tbody>
-            <div class="entries-loading entries-loading-line">
-              <app-loading-overlay
-                [visibility]="true"
-                [childMode]="true"
-              ></app-loading-overlay>
-            </div>
-          </tbody>
-        </ng-template>
+                </a>
+                }
+                <a (click)="onEdit(user.id)" class="btn pia-tooltip">
+                  <fa-icon [icon]="faPencil"></fa-icon>
+                  <span
+                    title="{{ 'users.update' | translate }}"
+                    class="pia-tooltip-text"
+                    >{{ "users.update" | translate }}</span
+                  >
+                </a>
+              </div>
+            </td>
+            <td class="pia-listsBlock-item-value">{{ user.lastname }}</td>
+            <td class="pia-listsBlock-item-value">{{ user.firstname }}</td>
+            <td class="pia-listsBlock-item-value">{{ user.email }}</td>
+            <td class="pia-listsBlock-item-value">
+              {{ "users.access_locked." + user.access_locked | translate }}
+            </td>
+            <td class="pia-listsBlock-item-value">
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                disabled
+                [checked]="user.access_type.includes('technical')"
+              />
+              <span>
+                {{ "users.technical_admin" | translate }}
+              </span>
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                disabled
+                [checked]="user.access_type.includes('functional')"
+              />
+              <span>
+                {{ "users.functional_admin" | translate }}
+              </span>
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                disabled
+                [checked]="user.access_type.includes('user')"
+              />
+              <span>
+                {{ "users.user" | translate }}
+              </span>
+            </td>
+          </tr>
+          }
+        </tbody>
+        } @else {
+        <tbody>
+          <div class="entries-loading entries-loading-line">
+            <app-loading-overlay
+              [visibility]="true"
+              [childMode]="true"
+            ></app-loading-overlay>
+          </div>
+        </tbody>
+        }
       </table>
     </div>
   </div>
 </div>
 
-<app-modal *ngIf="modal" (clickOnClose)="modal = false; userToEdit = null">
+@if (modal) {
+<app-modal (clickOnClose)="modal = false; userToEdit = null">
   <app-new-user
     [user]="userToEdit"
     (userAdded)="onUserAdded($event)"
     (canceled)="modal = false; userToEdit = null"
   ></app-new-user>
 </app-modal>
+}
 
 <app-dialog></app-dialog>

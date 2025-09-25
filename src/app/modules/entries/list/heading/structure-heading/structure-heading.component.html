@@ -2,81 +2,68 @@
 <th>
   <a (click)="sortBy('name')">
     <span>{{ "homepage.lists.column_structure" | translate }}</span>
-    <span
-      *ngIf="sortValue === 'name' && sortOrder == 'up'; else defaultNameOrder"
-    >
+    @if (sortValue === 'name' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultNameOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'name' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'name' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
 <th>
   <a (click)="sortBy('updated_at')">
     <span>{{ "homepage.lists.column_updated_at" | translate }}</span>
-    <span
-      *ngIf="
-        sortValue === 'updated_at' && sortOrder == 'up';
-        else defaultUpdatedAtOrder
-      "
-    >
+    @if ( sortValue === 'updated_at' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultUpdatedAtOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'updated_at' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'updated_at' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
 <th>
   <a (click)="sortBy('sector_name')">
     <span>{{ "homepage.lists.column_sector_name" | translate }}</span>
-    <span
-      *ngIf="
-        sortValue === 'sector_name' && sortOrder == 'up';
-        else defaultSectorNameOrder
-      "
-    >
+    @if ( sortValue === 'sector_name' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultSectorNameOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'sector_name' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'sector_name' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
 <th>
   <a (click)="sortBy('created_at')">
     <span>{{ "homepage.lists.column_creation" | translate }}</span>
-    <span
-      *ngIf="
-        sortValue === 'created_at' && sortOrder == 'up';
-        else defaultCreatedAtOrder
-      "
-    >
+    @if ( sortValue === 'created_at' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultCreatedAtOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'created_at' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'created_at' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>

@@ -1,7 +1,7 @@
 <td class="pia-listsBlock-item">
   <div class="pia-listsBlock-item-actions">
+    @if (structure.is_example) {
     <a
-      *ngIf="structure.is_example; else pencilBlock"
       [routerLink]="['/structures', structure.id, 'section', 1, 'item', 1]"
       class="btn pia-tooltip"
     >
@@ -12,19 +12,19 @@
         >{{ "homepage.cards.item.consult_pia" | translate }}</span
       >
     </a>
-    <ng-template #pencilBlock>
-      <a
-        [routerLink]="['/structures', structure.id, 'section', 1, 'item', 1]"
-        class="btn pia-tooltip"
+    } @else {
+    <a
+      [routerLink]="['/structures', structure.id, 'section', 1, 'item', 1]"
+      class="btn pia-tooltip"
+    >
+      <fa-icon [icon]="faPencil"></fa-icon>
+      <span
+        title="{{ 'homepage.lists.item.tools.edit' | translate }}"
+        class="pia-tooltip-text"
+        >{{ "homepage.lists.item.tools.edit" | translate }}</span
       >
-        <fa-icon [icon]="faPencil"></fa-icon>
-        <span
-          title="{{ 'homepage.lists.item.tools.edit' | translate }}"
-          class="pia-tooltip-text"
-          >{{ "homepage.lists.item.tools.edit" | translate }}</span
-        >
-      </a>
-    </ng-template>
+    </a>
+    }
     <a
       href="javascript:;"
       (click)="export(structure.id)"
@@ -49,11 +49,11 @@
         >{{ "homepage.lists.item.tools.duplicate" | translate }}</span
       >
     </a>
+    @if (!structure.is_example) {
     <a
       href="javascript:;"
       (click)="remove(structure.id)"
       class="btn pia-tooltip"
-      *ngIf="!structure.is_example"
     >
       <fa-icon [icon]="faTrash"></fa-icon>
       <span
@@ -62,42 +62,35 @@
         >{{ "homepage.lists.item.tools.remove" | translate }}</span
       >
     </a>
+    }
   </div>
 </td>
 <td class="pia-listsBlock-item">
-  <div
-    *ngIf="!structure.is_example; else readOnlyName"
-    contenteditable
-    (focusout)="onFocusOut('name', $event)"
-  >
+  @if (!structure.is_example) {
+  <div contenteditable (focusout)="onFocusOut('name', $event)">
     {{ structure.name }}
   </div>
-  <ng-template #readOnlyName>
-    <div>{{ structure.name }}</div>
-  </ng-template>
+  } @else {
+  <div>{{ structure.name }}</div>
+  }
 </td>
 <td class="pia-listsBlock-item">
-  <time
-    *ngIf="
-      structure.updated_at && structure.updated_at.toString() !== 'Invalid Date'
-    "
-    >{{
-      structure.updated_at
-        | date: "shortDate":"":languagesService.selectedLanguage
-    }}</time
-  >
+  @if ( structure.updated_at && structure.updated_at.toString() !== 'Invalid
+  Date' ) {
+  <time>{{
+    structure.updated_at
+      | date: "shortDate":"":languagesService.selectedLanguage
+  }}</time>
+  }
 </td>
 <td class="pia-listsBlock-item">
-  <div
-    *ngIf="!structure.is_example; else readOnlySectorName"
-    contenteditable
-    (focusout)="onFocusOut('sector_name', $event)"
-  >
+  @if (!structure.is_example) {
+  <div contenteditable (focusout)="onFocusOut('sector_name', $event)">
     {{ structure.sector_name }}
   </div>
-  <ng-template #readOnlySectorName>
-    <div>{{ structure.sector_name }}</div>
-  </ng-template>
+  } @else {
+  <div>{{ structure.sector_name }}</div>
+  }
 </td>
 <td class="pia-listsBlock-item">
   <time>{{

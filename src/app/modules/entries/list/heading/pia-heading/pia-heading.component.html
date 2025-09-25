@@ -4,165 +4,138 @@
 <th>
   <a (click)="sortBy('name')">
     <span>{{ "homepage.lists.column_pia" | translate }}</span>
-    <span
-      *ngIf="sortValue === 'name' && sortOrder == 'up'; else defaultNameOrder"
-    >
+    @if (sortValue === 'name' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultNameOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'name' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'name' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
 <th>
   <a (click)="sortBy('updated_at')">
     <span>{{ "homepage.lists.column_updated_at" | translate }}</span>
-    <span
-      *ngIf="
-        sortValue === 'updated_at' && sortOrder == 'up';
-        else defaultUpdatedAtOrder
-      "
-    >
+    @if ( sortValue === 'updated_at' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultUpdatedAtOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'updated_at' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'updated_at' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
 <th>
   <a (click)="sortBy('author_name')">
     <span>{{ "homepage.lists.column_author" | translate }}</span>
-    <span
-      *ngIf="
-        sortValue === 'author_name' && sortOrder == 'up';
-        else defaultAuthorNameOrder
-      "
-    >
+    @if ( sortValue === 'author_name' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultAuthorNameOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'author_name' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'author_name' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
 <th>
   <a (click)="sortBy('evaluator_name')">
     <span>{{ "homepage.lists.column_evaluation" | translate }}</span>
-    <span
-      *ngIf="
-        sortValue === 'evaluator_name' && sortOrder == 'up';
-        else defaultEvaluatorNameOrder
-      "
-    >
+    @if ( sortValue === 'evaluator_name' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultEvaluatorNameOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'evaluator_name' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'evaluator_name' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
 <th>
   <a (click)="sortBy('validator_name')">
     <span>{{ "homepage.lists.column_validation" | translate }}</span>
-    <span
-      *ngIf="
-        sortValue === 'validator_name' && sortOrder == 'up';
-        else defaultValidatorNameOrder
-      "
-    >
+    @if ( sortValue === 'validator_name' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultValidatorNameOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'validator_name' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'validator_name' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
-<th *ngIf="authService.state">
+@if (authService.state) {
+<th>
   <a (click)="sortBy('guests')">
     <span>Invité(s)</span>
-    <span
-      *ngIf="
-        sortValue === 'guests' && sortOrder == 'up';
-        else defaultguestsOrder
-      "
-    >
+    @if ( sortValue === 'guests' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultguestsOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'guests' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'guests' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
+}
 <th>
   <a (click)="sortBy('structure_name')">
     <span>{{ "homepage.lists.column_structure_name" | translate }}</span>
-    <span
-      *ngIf="
-        sortValue === 'structure_name' && sortOrder == 'up';
-        else defaultStructureNameOrder
-      "
-    >
+    @if ( sortValue === 'structure_name' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultStructureNameOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'structure_name' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'structure_name' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>
 <th>
   <a (click)="sortBy('progress')">
     <span>{{ "homepage.lists.column_status" | translate }}</span>
-    <span
-      *ngIf="
-        sortValue === 'progress' && sortOrder == 'up';
-        else defaultProgressOrder
-      "
-    >
+    @if ( sortValue === 'progress' && sortOrder == 'up') {
+    <span>
       <fa-icon [icon]="faCaretUp"></fa-icon>
     </span>
-    <ng-template #defaultProgressOrder>
-      <span>
-        <fa-icon
-          [icon]="faCaretDown"
-          [ngClass]="sortValue === 'progress' ? '' : 'deactivate'"
-        ></fa-icon>
-      </span>
-    </ng-template>
+    } @else {
+    <span>
+      <fa-icon
+        [icon]="faCaretDown"
+        [ngClass]="sortValue === 'progress' ? '' : 'deactivate'"
+      ></fa-icon>
+    </span>
+    }
   </a>
 </th>

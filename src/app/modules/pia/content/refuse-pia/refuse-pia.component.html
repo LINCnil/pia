@@ -24,7 +24,8 @@
         </div>
       </div>
     </form>
-    <form [formGroup]="modificationsMadeForm" *ngIf="pia.status === 1">
+    @if (pia.status === 1) {
+    <form [formGroup]="modificationsMadeForm">
       <div class="pia-entryContentBlock-content-subject">
         <div class="pia-entryContentBlock-content-subject-title">
           <h3>{{ "rejection_page.applied_adjustments" | translate }}</h3>
@@ -47,13 +48,12 @@
         </div>
       </div>
     </form>
+    }
   </div>
 
   <div class="pia-entryContentBlock-footer">
-    <div
-      class="pia-entryContentBlock-content-cancelButtons"
-      *ngIf="pia.status !== 1"
-    >
+    @if (pia.status !== 1) {
+    <div class="pia-entryContentBlock-content-cancelButtons">
       <button
         type="button"
         class="btn btn-red"
@@ -73,14 +73,15 @@
         {{ "rejection_page.button.reject_pia" | translate }}
       </button>
     </div>
+    } @if (pia.status === 1) {
     <button
       style="display:block;border-radius:0;width:100%;"
       [disabled]="!showResendValidationButton"
       [routerLink]="['/pia', pia.id, 'section', 4, 'item', 4]"
-      *ngIf="pia.status === 1"
       class="btn btn-green"
     >
       {{ "rejection_page.button.send_for_validation" | translate }}
     </button>
+    }
   </div>
 </div>

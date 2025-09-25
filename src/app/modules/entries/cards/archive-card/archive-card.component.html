@@ -1,27 +1,21 @@
 <div class="pia-cardsBlock pia" [attr.data-id]="archivedPia.id">
   <div class="pia-cardsBlock-item pia-doingBlock-item">
-    <div
-      *ngIf="attachments && attachments.length > 0"
-      class="pia-cardsBlock-item-attachment"
-      aria-hidden="true"
-    >
+    @if (attachments && attachments.length > 0) {
+    <div class="pia-cardsBlock-item-attachment" aria-hidden="true">
       <span class="pia-icons pia-icon-attachment"></span>
       <ul>
-        <ng-container *ngFor="let attachment of attachments">
-          <li>{{ attachment.name }}</li>
-        </ng-container>
+        @for (attachment of attachments; track attachment) {
+        <li>{{ attachment.name }}</li>
+        }
       </ul>
     </div>
+    }
 
     <div class="pia-cardsBlock-toolbar">
-      <div
-        class="pia-cardsBlock-toolbar-export"
-        *ngIf="
-          !authService.state ||
-          authService.currentUserValue.access_type.includes('technical') ||
-          authService.currentUserValue.access_type.includes('functional')
-        "
-      >
+      @if ( !authService.state ||
+      authService.currentUserValue.access_type.includes('technical') ||
+      authService.currentUserValue.access_type.includes('functional') ) {
+      <div class="pia-cardsBlock-toolbar-export">
         <a
           href="javascript:;"
           (click)="unarchive(archivedPia.id)"
@@ -47,6 +41,7 @@
           >
         </a>
       </div>
+      }
     </div>
 
     <form class="pia-cardsBlock-item-form" [formGroup]="piaForm">
@@ -61,12 +56,12 @@
         <label for="pia-edit-author-name">{{
           "homepage.cards.author" | translate
         }}</label>
+        @if (authService.state) {
         <tag-input
           [disable]="
             authService.currentUserValue &&
             !authService.currentUserValue.access_type.includes('functional')
           "
-          *ngIf="authService.state; else elseAuthorBlock"
           [theme]="'foundation-theme'"
           [removable]="false"
           formControlName="author_name"
@@ -82,20 +77,20 @@
             </div>
           </ng-template>
         </tag-input>
-        <ng-template #elseAuthorBlock>
-          <div class="archive">{{ archivedPia.author_name }}</div>
-        </ng-template>
+        } @else {
+        <div class="archive">{{ archivedPia.author_name }}</div>
+        }
       </div>
       <div>
         <label for="pia-edit-evaluator-name">{{
           "homepage.cards.evaluation" | translate
         }}</label>
+        @if (authService.state) {
         <tag-input
           [disable]="
             authService.currentUserValue &&
             !authService.currentUserValue.access_type.includes('functional')
           "
-          *ngIf="authService.state; else elseEvaluatorBlock"
           [theme]="'foundation-theme'"
           [removable]="false"
           formControlName="evaluator_name"
@@ -111,20 +106,20 @@
             </div>
           </ng-template>
         </tag-input>
-        <ng-template #elseEvaluatorBlock>
-          <div class="archive">{{ archivedPia.evaluator_name }}</div>
-        </ng-template>
+        } @else {
+        <div class="archive">{{ archivedPia.evaluator_name }}</div>
+        }
       </div>
       <div>
         <label for="pia-edit-validator-name">{{
           "homepage.cards.validation" | translate
         }}</label>
+        @if (authService.state) {
         <tag-input
           [disable]="
             authService.currentUserValue &&
             !authService.currentUserValue.access_type.includes('functional')
           "
-          *ngIf="authService.state; else elseValidatorBlock"
           [theme]="'foundation-theme'"
           [removable]="false"
           formControlName="validator_name"
@@ -140,11 +135,12 @@
             </div>
           </ng-template>
         </tag-input>
-        <ng-template #elseValidatorBlock>
-          <div class="archive">{{ archivedPia.validator_name }}</div>
-        </ng-template>
+        } @else {
+        <div class="archive">{{ archivedPia.validator_name }}</div>
+        }
       </div>
-      <div *ngIf="authService.state">
+      @if (authService.state) {
+      <div>
         <label for="pia-edit-guest-name">{{
           "homepage.cards.guest" | translate
         }}</label>
@@ -171,19 +167,19 @@
           </ng-template>
         </tag-input>
       </div>
+      }
       <div>
         <label for="pia-edit-category">{{
           "homepage.cards.category" | translate
         }}</label>
         <div class="archive">{{ archivedPia.category }}</div>
       </div>
-      <div
-        class="pia-cardsBlock-item-structure"
-        *ngIf="archivedPia.structure_id"
-      >
+      @if (archivedPia.structure_id) {
+      <div class="pia-cardsBlock-item-structure">
         <div>{{ "homepage.cards.structure" | translate }}</div>
         <span>{{ archivedPia.structure_name }}</span>
       </div>
+      }
       <div class="pia-cardsBlock-item-date">
         <div>{{ "homepage.cards.date" | translate }}</div>
         <time>{{
@@ -194,20 +190,15 @@
       <div class="pia-cardsBlock-item-status">
         <div class="pia-cardsBlock-item-status-infos">
           <div>{{ "homepage.cards.status" | translate }}</div>
-          <div
-            class="pendingValidation"
-            *ngIf="
-              archivedPia.status === 0 && archivedPia.progress === 100;
-              else defaultStatuses
-            "
-          >
+          @if ( archivedPia.status === 0 && archivedPia.progress === 100) {
+          <div class="pendingValidation">
             {{ "pia.statuses.5" | translate }}
           </div>
-          <ng-template #defaultStatuses>
-            <div>
-              {{ piaService.getStatusName(archivedPia.status) | translate }}
-            </div>
-          </ng-template>
+          } @else {
+          <div>
+            {{ piaService.getStatusName(archivedPia.status) | translate }}
+          </div>
+          }
         </div>
         <div class="pia-cardsBlock-item-status-progressBar">
           <div>{{ archivedPia.progress }}%</div>
