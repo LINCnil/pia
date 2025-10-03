@@ -54,7 +54,7 @@ export class EvaluationsComponent
   hasResizedContent = false;
   actionPlanCommentElementId: string;
   evaluationCommentElementId: string;
-  editor: any;
+  editorActionPlanComment: any;
   editorEvaluationComment: any;
   loading = false;
 
@@ -135,7 +135,7 @@ export class EvaluationsComponent
 
   ngOnDestroy(): void {
     this.placeholderSubscription.unsubscribe();
-    tinymce.remove(this.editor);
+    tinymce.remove(this.editorActionPlanComment);
     tinymce.remove(this.editorEvaluationComment);
   }
 
@@ -343,7 +343,7 @@ export class EvaluationsComponent
    */
   actionPlanCommentFocusOut(): void {
     this.knowledgeBaseService.placeholder = null;
-    this.editor = null;
+    this.editorActionPlanComment = null;
     let userText = this.evaluationForm.controls['actionPlanComment'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -374,28 +374,22 @@ export class EvaluationsComponent
    */
   evaluationCommentFocusOut(): void {
     this.knowledgeBaseService.placeholder = null;
-    this.editorEvaluationComment = false;
+    this.editorEvaluationComment = null;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.evaluation_comment = userText;
-
     this.evaluation.global_status = 0;
-    // this.loading = true;
     this.evaluationService.update(this.evaluation).then(() => {
       this.evaluationEvent.emit(this.evaluation);
       this.ngZone.run(() => {
-        // this.loading = true;
-        this.globalEvaluationService.validate();
-        // .finally(() => {
-        //   this.loading = false;
-        // });
+        this.loading = true;
+        this.globalEvaluationService.validate().finally(() => {
+          this.loading = false;
+        });
       });
     });
-    // .finally(() => {
-    //   this.loading = false;
-    // });
   }
 
   /**
@@ -488,21 +482,26 @@ export class EvaluationsComponent
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       placeholder: '',
       setup: editor => {
+        console.log(field);
         if (field === 'actionPlanComment') {
-          this.editor = editor;
+          this.editorActionPlanComment = editor;
+          this.editorActionPlanComment.on('focusout', () => {
+            this.evaluationForm.controls[field].patchValue(
+              this.editorActionPlanComment.getContent()
+            );
+            this.actionPlanCommentFocusOut();
+            tinymce.remove(this.editorActionPlanComment);
+          });
         } else {
           this.editorEvaluationComment = editor;
-        }
-        editor.on('focusout', () => {
-          this.evaluationForm.controls[field].patchValue(editor.getContent());
-          if (field === 'actionPlanComment') {
-            this.actionPlanCommentFocusOut();
-            tinymce.remove(this.editor);
-          } else {
+          this.editorEvaluationComment.on('focusout', () => {
+            this.evaluationForm.controls[field].patchValue(
+              this.editorEvaluationComment.getContent()
+            );
             this.evaluationCommentFocusOut();
             tinymce.remove(this.editorEvaluationComment);
-          }
-        });
+          });
+        }
       }
     });
   }
