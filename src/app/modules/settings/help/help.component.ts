@@ -22,7 +22,17 @@ export class HelpComponent implements OnInit {
 
   ngOnInit() {
     const language = this.translateService.currentLang;
-    let fileTranslation = language === 'fr' ? 'fr' : 'en';
+    let fileTranslation;
+    switch (language) {
+      case 'fr':
+        fileTranslation = 'fr';
+        break;
+      case 'zh':
+        fileTranslation = 'zh';
+        break;
+      default:
+        fileTranslation = 'en';
+    }
     let file = `./assets/files/pia_help_${fileTranslation}.html`;
 
     this.httpClient.get(file, { responseType: 'text' }).subscribe(res => {
@@ -32,7 +42,16 @@ export class HelpComponent implements OnInit {
 
     this.helpSubscription = this.translateService.onLangChange.subscribe(
       (event: LangChangeEvent) => {
-        fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
+        switch (event['lang']) {
+          case 'fr':
+            fileTranslation = 'fr';
+            break;
+          case 'zh':
+            fileTranslation = 'zh';
+            break;
+          default:
+            fileTranslation = 'en';
+        }
         file = `./assets/files/pia_help_${fileTranslation}.html`;
         this.httpClient.get(file, { responseType: 'text' }).subscribe(res => {
           this.content = res;
