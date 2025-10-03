@@ -240,11 +240,11 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   measureContentFocusOut(): void {
     this.knowledgeBaseService.placeholder = null;
-    this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
+
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.content = userText;
     this.measuresService
@@ -252,6 +252,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       .then((response: Measure) => {
         this.measureModel.lock_version = response.lock_version;
         this.ngZone.run(() => {
+          this.editor = null;
           this.globalEvaluationService.validate();
         });
       })
@@ -380,8 +381,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
             this.measureForm.controls['measureContent'].patchValue(
               editor.getContent()
             );
-            await this.measureContentFocusOut();
-            tinymce.remove(this.editor);
+            tinymce.remove(editor);
+            this.measureContentFocusOut();
           });
         }
       });
