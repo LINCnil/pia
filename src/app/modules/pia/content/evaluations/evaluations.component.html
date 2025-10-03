@@ -1,11 +1,11 @@
 @if ( globalEvaluationService && globalEvaluationService.status != null &&
 !loading) { @if (globalEvaluationService.status >= 3) {
-<div
-  class="pia-evaluationBlock"
-  [ngClass]="{
+  <div
+    class="pia-evaluationBlock"
+    [ngClass]="{
     'pia-evaluationBlock-shadowed': item.evaluation_mode === 'item'
   }"
->
+  >
   <div
     [ngClass]="{
       'pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'
@@ -145,7 +145,7 @@
             "
             [ngClass]="{
               hide:
-                editor || !evaluationForm.controls['actionPlanComment'].value
+                editorActionPlanComment || !evaluationForm.controls['actionPlanComment'].value
             }"
           ></div>
           <textarea
@@ -161,7 +161,7 @@
             (focusin)="actionPlanCommentFocusIn()"
             [ngClass]="{
               hide:
-                (!editor &&
+                (!editorActionPlanComment &&
                   evaluationForm.controls['actionPlanComment'].value &&
                   evaluationForm.controls['actionPlanComment'].value.length >
                     0) ||
