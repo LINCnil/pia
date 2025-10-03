@@ -30,13 +30,9 @@
     <div class="container">
       <div class="row">
         <div class="small-12 medium-12 columns">
-          <ul
-            class="pia-navigationBlock-list"
-            *ngIf="
-              (!authService.state && router.url !== '/') ||
-              authService.currentUserValue !== null
-            "
-          >
+          @if ( (!authService.state && router.url !== '/') ||
+          authService.currentUserValue !== null ) {
+          <ul class="pia-navigationBlock-list">
             <li
               class="pia-navigationBlock-withsub pia-navigationBlock-dropdown pia-navigationBlock-pias"
             >
@@ -87,6 +83,7 @@
               >
             </li>
           </ul>
+          }
           <ul class="pia-navigationBlock-list">
             <ng-container>
               <li
@@ -102,19 +99,15 @@
                 </a>
                 <form>
                   <fieldset>
-                    <div
-                      *ngIf="
-                        authService.state &&
-                        authService.currentUserValue !== null &&
-                        authService.currentUserValue.access_type.includes(
-                          'technical'
-                        )
-                      "
-                    >
+                    @if ( authService.state && authService.currentUserValue !==
+                    null && authService.currentUserValue.access_type.includes(
+                    'technical' ) ) {
+                    <div>
                       <a routerLink="/users">{{
                         "header.tools.users" | translate
                       }}</a>
                     </div>
+                    }
                     <div>
                       <a routerLink="/url">{{
                         "header.tools.url_setting" | translate
@@ -137,16 +130,14 @@
                         "header.tools.about" | translate
                       }}</a>
                     </div>
-                    <div
-                      *ngIf="
-                        authService.state &&
-                        authService.currentUserValue !== null
-                      "
-                    >
+                    @if ( authService.state && authService.currentUserValue !==
+                    null ) {
+                    <div>
                       <a (click)="disconnectUser()">{{
                         "authentication.sign_out_button" | translate
                       }}</a>
                     </div>
+                    }
                   </fieldset>
                 </form>
               </li>
@@ -161,29 +152,23 @@
                   ></span>
                 </a>
                 <ul>
-                  <li
-                    *ngIf="
-                      (languagesService.selectedLanguage === 'fr' &&
-                        !authService.state &&
-                        router.url !== '/') ||
-                      authService.currentUserValue !== null
-                    "
-                  >
+                  @if ( (languagesService.selectedLanguage === 'fr' &&
+                  !authService.state && router.url !== '/') ||
+                  authService.currentUserValue !== null ) {
+                  <li>
                     <a (click)="goToExample()">
                       {{ "header.help.pia_example_link" | translate }}
                     </a>
                   </li>
+                  }
                   <li>
                     <a routerLink="/help">{{
                       "header.help.manual" | translate
                     }}</a>
                   </li>
-                  <li
-                    *ngIf="
-                      (!authService.state && router.url !== '/') ||
-                      authService.currentUserValue !== null
-                    "
-                  >
+                  @if ( (!authService.state && router.url !== '/') ||
+                  authService.currentUserValue !== null ) {
+                  <li>
                     <button
                       type="button"
                       name="pia-onboarding"
@@ -193,6 +178,7 @@
                       {{ "header.tools.onboarding" | translate }}
                     </button>
                   </li>
+                  }
                   <li>
                     <a
                       target="_blank"

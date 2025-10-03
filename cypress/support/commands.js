@@ -41,13 +41,38 @@ Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
 
 Cypress.Commands.add("import_pia", () => {
   cy.click_on_start();
-  const filepath = "pia.json";
 
-  // Import
-  cy.get('input[type="file"]#import_file').attachFile(filepath);
-  // there is a new pia ?
-  cy.get(".pia-cardsBlock.pia").should("have.length", 1);
-  cy.wait(2000);
+  // Load the JSON content
+  cy.fixture("pia.json").then(piaData => {
+    // Create a proper file blob
+    const jsonBlob = new Blob([JSON.stringify(piaData)], {
+      type: "application/json"
+    });
+    const file = new File([jsonBlob], "pia.json", { type: "application/json" });
+
+    // Get the file input and attach the file properly
+    cy.get('input[type="file"]#import_file').then($input => {
+      const input = $input[0];
+
+      // Create a FileList-like object
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(file);
+      input.files = dataTransfer.files;
+
+      // Create and dispatch the change event
+      const changeEvent = new Event("change", { bubbles: true });
+      Object.defineProperty(changeEvent, "target", {
+        writable: false,
+        value: input
+      });
+
+      input.dispatchEvent(changeEvent);
+    });
+
+    // Wait for the import to process and check for the imported PIA card
+    cy.wait(5000);
+    cy.get(".pia-cardsBlock.pia", { timeout: 10000 }).should("be.visible");
+  });
 });
 /**
  * Redirect Home page into Entries

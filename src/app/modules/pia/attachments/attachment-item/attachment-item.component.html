@@ -1,7 +1,5 @@
-<div
-  class="pia-attachmentsBlock-item bounceIn"
-  *ngIf="attachment.file"
->
+@if (attachment.file) {
+<div class="pia-attachmentsBlock-item bounceIn">
   <a
     href="javascript:;"
     (click)="downloadAttachment()"
@@ -16,13 +14,9 @@
     class="truncate"
     >{{ attachment.name }}</a
   >
+  @if ( !isPreview && showAddAttachmentButton() && (['author', 'validator',
+  'evaluator'].indexOf(editMode[0]) >= 0 || editMode === 'local') ) {
   <button
-    *ngIf="
-      !isPreview &&
-      showAddAttachmentButton() &&
-      (['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
-        editMode === 'local')
-    "
     type="button"
     class="btn"
     (click)="removeAttachment(attachment.id)"
@@ -30,15 +24,19 @@
   >
     <span class="pia-icons pia-icon-close"></span>
   </button>
+  }
 </div>
+}
 <div class="pia-attachmentsBlock-item-preview hide">
   <button
     (click)="previewAttachment(false)"
     class="pia-icons pia-icon-close-big"
     title="{{ 'modals.close' | translate }}"
   ></button>
-  <img *ngIf="imgSrc" [src]="imgSrc">
-  <div style="width:80%; height:100%; margin:auto;" *ngIf="pdfSrc">
+  @if (imgSrc) {
+  <img [src]="imgSrc" />
+  } @if (pdfSrc) {
+  <div style="width:80%; height:100%; margin:auto;">
     <ng2-pdfjs-viewer
       [pdfSrc]="pdfSrc"
       [openFile]="false"
@@ -46,12 +44,11 @@
     >
     </ng2-pdfjs-viewer>
   </div>
+  }
 </div>
 
-<app-modal
-  *ngIf="showRemoveAttachmentForm"
-  (clickOnClose)="showRemoveAttachmentForm = false"
->
+@if (showRemoveAttachmentForm) {
+<app-modal (clickOnClose)="showRemoveAttachmentForm = false">
   <p [innerHTML]="'modals.remove_attachment.content' | translate"></p>
   <form
     [formGroup]="removeAttachmentForm"
@@ -84,3 +81,4 @@
     </button>
   </div>
 </app-modal>
+}

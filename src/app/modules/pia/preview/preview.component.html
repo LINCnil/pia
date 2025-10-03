@@ -1,35 +1,31 @@
 <section class="container pia-fullPreviewBlock pia-mainContainerBlock">
   <!-- Preview navigation -->
   <div class="row">
-    <ng-container *ngIf="!onlyData">
-      <div
-        *ngIf="pia.is_example === 1"
-        class="pia-breadcrumb hide-for-print small-12 medium-12 columns"
-      >
-        <a [routerLink]="['/entries']"
-          >{{ "header.help.title" | translate }} >
-          {{ "header.current_pias" | translate }}</a
-        ><strong> > {{ "header.help.pia_example_link" | translate }}</strong>
-      </div>
-      <div
-        *ngIf="pia.is_example === 0"
-        class="pia-breadcrumb hide-for-print small-12 medium-12 columns"
-      >
-        <span *ngIf="pia.is_archive === 1; else noArchivedPIA">
-          <a [routerLink]="['/entries', 'archive']"
-            >{{ "header.homepage_link" | translate }} >
-            {{ "header.archives" | translate }}</a
-          ><strong> > {{ pia.name }}</strong>
-        </span>
-        <ng-template #noArchivedPIA>
-          <a [routerLink]="['/entries']"
-            >{{ "header.homepage_link" | translate }} >
-            {{ "header.current_pias" | translate }}</a
-          ><strong> > {{ pia.name }}</strong>
-        </ng-template>
-      </div>
-    </ng-container>
-    <nav class="small-12 medium-3 columns hide-for-print" *ngIf="!onlyData">
+    @if (!onlyData) { @if (pia.is_example === 1) {
+    <div class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+      <a [routerLink]="['/entries']"
+        >{{ "header.help.title" | translate }} >
+        {{ "header.current_pias" | translate }}</a
+      ><strong> > {{ "header.help.pia_example_link" | translate }}</strong>
+    </div>
+    } @if (pia.is_example === 0) {
+    <div class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+      @if (pia.is_archive === 1) {
+      <span>
+        <a [routerLink]="['/entries', 'archive']"
+          >{{ "header.homepage_link" | translate }} >
+          {{ "header.archives" | translate }}</a
+        ><strong> > {{ pia.name }}</strong>
+      </span>
+      } @else {
+      <a [routerLink]="['/entries']"
+        >{{ "header.homepage_link" | translate }} >
+        {{ "header.current_pias" | translate }}</a
+      ><strong> > {{ pia.name }}</strong>
+      }
+    </div>
+    } } @if (!onlyData) {
+    <nav class="small-12 medium-3 columns hide-for-print">
       <div class="pia-leftSidebarBlock pia-fullPreviewBlock-section">
         <div class="pia-sectionsBlock">
           <div class="pia-sectionBlock-header">
@@ -42,43 +38,46 @@
               title="{{ 'pia.sections.homepage_link' | translate }}"
             ></a>
           </div>
-
-          <div class="pia-sectionBlock-structure" *ngIf="pia.structure_id">
+          @if (pia.structure_id) {
+          <div class="pia-sectionBlock-structure">
             {{ "pia.sections.based_on_structure_name" | translate }}
             {{ pia.structure_name }}
           </div>
-
-          <div class="pia-sectionBlock-category" *ngIf="pia.category">
+          } @if (pia.category) {
+          <div class="pia-sectionBlock-category">
             {{ "homepage.cards.category" | translate }} "{{ pia.category }}"
           </div>
-
+          }
           <div class="pia-sectionBlock-body">
-            <div *ngFor="let dataSection of data?.sections">
+            @for (dataSection of data?.sections; track dataSection) {
+            <div>
               <div class="pia-sectionBlock-title">
                 {{ dataSection.title | translate }}
                 <hr />
               </div>
               <ul class="pia-sectionBlock-list">
-                <ng-container *ngFor="let dataItem of dataSection?.items">
-                  <li *ngIf="!dataItem.hide">
-                    <a
-                      href="javascript:;"
-                      (click)="getAnchor($event, dataItem.title)"
-                      class="truncate"
-                    >
-                      {{ dataItem.title | translate }}</a
-                    >
-                  </li>
-                </ng-container>
+                @for (dataItem of dataSection?.items; track dataItem) { @if
+                (!dataItem.hide) {
+                <li>
+                  <a
+                    href="javascript:;"
+                    (click)="getAnchor($event, dataItem.title)"
+                    class="truncate"
+                  >
+                    {{ dataItem.title | translate }}</a
+                  >
+                </li>
+                } }
               </ul>
             </div>
+            }
           </div>
-
           <!-- Attachments -->
           <app-attachments [isPreview]="true" [pia]="pia"></app-attachments>
         </div>
       </div>
     </nav>
+    }
 
     <!-- Preview content + preview actions -->
     <section class=" small-12 medium-6 columns pia-fullPreviewBlock-content">
@@ -110,10 +109,12 @@
                     <div>{{ getUsersList("validator", "validator_name") }}</div>
                   </div>
 
-                  <div *ngIf="authService.state">
+                  @if (authService.state) {
+                  <div>
                     <div>{{ "summary.preview_guests" | translate }} :</div>
                     <div>{{ getUsersList("guest") }}</div>
                   </div>
+                  }
                 </div>
                 <div>
                   <div>
@@ -130,14 +131,15 @@
               </div>
             </div>
 
+            @if (!fromArchives || pia.is_example === 1) {
             <a
-              *ngIf="!fromArchives || pia.is_example === 1"
               routerLink="/pia/{{ pia.id }}/section/1/item/1"
               class="btn pia-previewBlock"
             >
               <fa-icon [icon]="faPencil"></fa-icon>
               <div>{{ "homepage.cards.item.edit_pia" | translate }}</div>
             </a>
+            }
           </header>
 
           <div class="row" id="pia-full-content">
@@ -201,10 +203,9 @@
                                   <h3>
                                     {{ "action_plan.principles" | translate }}
                                   </h3>
-                                  <div
-                                    class="pia-actionPlanGraphBlock-item"
-                                    *ngFor="let r of actionPlanService.results"
-                                  >
+                                  @for (r of actionPlanService.results; track r)
+                                  {
+                                  <div class="pia-actionPlanGraphBlock-item">
                                     <span class="pia-list">{{
                                       r.short_title | translate
                                     }}</span>
@@ -223,6 +224,7 @@
                                       }"
                                     ></span>
                                   </div>
+                                  }
                                 </div>
                                 <div
                                   class="medium-6 columns pia-actionPlanGraphBlock-right"
@@ -233,14 +235,14 @@
                                   <div
                                     class="pia-actionPlanGraphBlock-right-measures summaryMode"
                                   >
+                                    @if (actionPlanService.measures) {
                                     <div
                                       class="pia-actionPlanGraphBlock-right-measures-scroll summaryMode"
-                                      *ngIf="actionPlanService.measures"
                                     >
+                                      @for ( measure of
+                                      actionPlanService.measures ; track
+                                      measure) {
                                       <div
-                                        *ngFor="
-                                          let measure of actionPlanService.measures
-                                        "
                                         class="pia-actionPlanGraphBlock-item"
                                       >
                                         <span
@@ -261,7 +263,9 @@
                                           measure.name
                                         }}</span>
                                       </div>
+                                      }
                                     </div>
+                                    }
                                   </div>
                                   <h3>{{ "action_plan.risks" | translate }}</h3>
                                   <div class="pia-actionPlanGraphBlock-item">
@@ -390,258 +394,217 @@
 
                           <!-- VALIDATION - Action plan - Fundamental principles -->
                           <div class="">
-                            <ng-container
-                              *ngIf="
-                                actionPlanService.principlesActionPlanReady;
-                                else noFundamentalPrinciples
-                              "
-                            >
-                              <div class="actionplanbox">
-                                <h3 class="pia-fullPreviewBlock-subheadline">
-                                  {{
-                                    "summary.action_plan.fundamental_principles"
-                                      | translate
-                                  }}
-                                </h3>
-                                <div
-                                  *ngFor="
-                                    let entry of actionPlanService.results
-                                  "
-                                >
-                                  <div
-                                    style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;"
-                                    *ngIf="
-                                      entry.action_plan_comment &&
-                                      entry.action_plan_comment.length > 0
-                                    "
-                                  >
-                                    <h3 style="margin-bottom:2px;">
-                                      {{ entry.short_title | translate }}
-                                    </h3>
-                                    <div>
-                                      <strong
-                                        >{{
-                                          "evaluations.action_plan_comment"
-                                            | translate
-                                        }}
-                                        :<br
-                                      /></strong>
-                                      <span
-                                        [innerHTML]="
-                                          entry.action_plan_comment
-                                            | translate
-                                            | safeHtml
-                                        "
-                                      ></span>
-                                    </div>
-                                    <div
-                                      *ngIf="
-                                        entry.evaluation_comment &&
-                                        entry.evaluation_comment.length > 0
-                                      "
-                                    >
-                                      <strong
-                                        >{{
-                                          "evaluations.evaluation_comment"
-                                            | translate
-                                        }}
-                                        :<br
-                                      /></strong>
-                                      <span
-                                        [innerHTML]="
-                                          entry.evaluation_comment | safeHtml
-                                        "
-                                      ></span>
-                                    </div>
-                                    <div
-                                      *ngIf="
-                                        entry.evaluation &&
-                                        entry.evaluation
-                                          .estimated_implementation_date &&
-                                        entry.evaluation.estimated_implementation_date.toString() !==
-                                          'Invalid Date'
-                                      "
-                                    >
-                                      <strong
-                                        >{{
-                                          "summary.action_plan.implementation_date"
-                                            | translate
-                                        }}
-                                        :
-                                      </strong>
-                                      <time>{{
-                                        entry.evaluation
-                                          .estimated_implementation_date
-                                          | date
-                                            : "shortDate"
-                                            : ""
-                                            : languagesService.selectedLanguage
-                                      }}</time>
-                                    </div>
-                                    <div
-                                      *ngIf="
-                                        entry.evaluation &&
-                                        entry.evaluation.person_in_charge
-                                      "
-                                    >
-                                      <strong
-                                        >{{
-                                          "summary.action_plan.implementation_responsible"
-                                            | translate
-                                        }}
-                                        :
-                                      </strong>
-                                      {{ entry.evaluation.person_in_charge }}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </ng-container>
-                            <ng-template #noFundamentalPrinciples>
-                              <div class="actionplanbox">
-                                <h3 class="pia-fullPreviewBlock-subheadline">
-                                  {{
-                                    "summary.action_plan.fundamental_principles"
-                                      | translate
-                                  }}
-                                </h3>
+                            @if ( actionPlanService.principlesActionPlanReady) {
+                            <div class="actionplanbox">
+                              <h3 class="pia-fullPreviewBlock-subheadline">
                                 {{
-                                  "summary.action_plan.no_action_plan"
+                                  "summary.action_plan.fundamental_principles"
                                     | translate
                                 }}
+                              </h3>
+                              @for ( entry of actionPlanService.results ; track
+                              entry) {
+                              <div>
+                                @if ( entry.action_plan_comment &&
+                                entry.action_plan_comment.length > 0 ) {
+                                <div
+                                  style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;"
+                                >
+                                  <h3 style="margin-bottom:2px;">
+                                    {{ entry.short_title | translate }}
+                                  </h3>
+                                  <div>
+                                    <strong
+                                      >{{
+                                        "evaluations.action_plan_comment"
+                                          | translate
+                                      }}
+                                      :<br
+                                    /></strong>
+                                    <span
+                                      [innerHTML]="
+                                        entry.action_plan_comment
+                                          | translate
+                                          | safeHtml
+                                      "
+                                    ></span>
+                                  </div>
+                                  @if ( entry.evaluation_comment &&
+                                  entry.evaluation_comment.length > 0 ) {
+                                  <div>
+                                    <strong
+                                      >{{
+                                        "evaluations.evaluation_comment"
+                                          | translate
+                                      }}
+                                      :<br
+                                    /></strong>
+                                    <span
+                                      [innerHTML]="
+                                        entry.evaluation_comment | safeHtml
+                                      "
+                                    ></span>
+                                  </div>
+                                  } @if ( entry.evaluation && entry.evaluation
+                                  .estimated_implementation_date &&
+                                  entry.evaluation.estimated_implementation_date.toString()
+                                  !== 'Invalid Date' ) {
+                                  <div>
+                                    <strong
+                                      >{{
+                                        "summary.action_plan.implementation_date"
+                                          | translate
+                                      }}
+                                      :
+                                    </strong>
+                                    <time>{{
+                                      entry.evaluation
+                                        .estimated_implementation_date
+                                        | date
+                                          : "shortDate"
+                                          : ""
+                                          : languagesService.selectedLanguage
+                                    }}</time>
+                                  </div>
+                                  } @if ( entry.evaluation &&
+                                  entry.evaluation.person_in_charge ) {
+                                  <div>
+                                    <strong
+                                      >{{
+                                        "summary.action_plan.implementation_responsible"
+                                          | translate
+                                      }}
+                                      :
+                                    </strong>
+                                    {{ entry.evaluation.person_in_charge }}
+                                  </div>
+                                  }
+                                </div>
+                                }
                               </div>
-                            </ng-template>
+                              }
+                            </div>
+                            } @else {
+                            <div class="actionplanbox">
+                              <h3 class="pia-fullPreviewBlock-subheadline">
+                                {{
+                                  "summary.action_plan.fundamental_principles"
+                                    | translate
+                                }}
+                              </h3>
+                              {{
+                                "summary.action_plan.no_action_plan" | translate
+                              }}
+                            </div>
+                            }
                           </div>
 
                           <!-- VALIDATION - Action plan - Measures -->
                           <div class="">
-                            <ng-container
-                              *ngIf="
-                                actionPlanService.measuresActionPlanReady;
-                                else noMeasures
-                              "
-                            >
-                              <div class="actionplanbox">
-                                <h3 class="pia-fullPreviewBlock-subheadline">
-                                  {{
-                                    "summary.action_plan.measures" | translate
-                                  }}
-                                </h3>
+                            @if ( actionPlanService.measuresActionPlanReady) {
+                            <div class="actionplanbox">
+                              <h3 class="pia-fullPreviewBlock-subheadline">
+                                {{ "summary.action_plan.measures" | translate }}
+                              </h3>
+                              @for ( entry of actionPlanService.measures ; track
+                              entry) {
+                              <div>
+                                @if ( entry.action_plan_comment &&
+                                entry.action_plan_comment.length > 0 ) {
                                 <div
-                                  *ngFor="
-                                    let entry of actionPlanService.measures
-                                  "
+                                  style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;"
                                 >
-                                  <div
-                                    style="border:0.5px dotted #A7A7A7;padding:6px;margin:10px 0;"
-                                    *ngIf="
-                                      entry.action_plan_comment &&
-                                      entry.action_plan_comment.length > 0
-                                    "
-                                  >
-                                    <h3 style="margin-bottom:2px;">
-                                      {{ entry.short_title | translate }}
-                                    </h3>
-                                    <div>
-                                      <strong
-                                        >{{
-                                          "evaluations.action_plan_comment"
-                                            | translate
-                                        }}
-                                        :<br
-                                      /></strong>
-                                      <span
-                                        [innerHTML]="
-                                          entry.action_plan_comment
-                                            | translate
-                                            | safeHtml
-                                        "
-                                      ></span>
-                                    </div>
-                                    <div
-                                      *ngIf="
-                                        entry.evaluation_comment &&
-                                        entry.evaluation_comment.length > 0
+                                  <h3 style="margin-bottom:2px;">
+                                    {{ entry.short_title | translate }}
+                                  </h3>
+                                  <div>
+                                    <strong
+                                      >{{
+                                        "evaluations.action_plan_comment"
+                                          | translate
+                                      }}
+                                      :<br
+                                    /></strong>
+                                    <span
+                                      [innerHTML]="
+                                        entry.action_plan_comment
+                                          | translate
+                                          | safeHtml
                                       "
-                                    >
-                                      <strong
-                                        >{{
-                                          "evaluations.evaluation_comment"
-                                            | translate
-                                        }}
-                                        :<br
-                                      /></strong>
-                                      <span
-                                        [innerHTML]="
-                                          entry.evaluation_comment | safeHtml
-                                        "
-                                      ></span>
-                                    </div>
-                                    <div
-                                      *ngIf="
-                                        entry.evaluation &&
-                                        entry.evaluation
-                                          .estimated_implementation_date &&
-                                        entry.evaluation.estimated_implementation_date.toString() !==
-                                          'Invalid Date'
-                                      "
-                                    >
-                                      <strong
-                                        >{{
-                                          "summary.action_plan.implementation_date"
-                                            | translate
-                                        }}
-                                        :
-                                      </strong>
-                                      <time>{{
-                                        entry.evaluation
-                                          .estimated_implementation_date
-                                          | date
-                                            : "shortDate"
-                                            : ""
-                                            : languagesService.selectedLanguage
-                                      }}</time>
-                                    </div>
-                                    <div
-                                      *ngIf="
-                                        entry.evaluation &&
-                                        entry.evaluation.person_in_charge
-                                      "
-                                    >
-                                      <strong
-                                        >{{
-                                          "summary.action_plan.implementation_responsible"
-                                            | translate
-                                        }}
-                                        :
-                                      </strong>
-                                      {{ entry.evaluation.person_in_charge }}
-                                    </div>
+                                    ></span>
                                   </div>
+                                  @if ( entry.evaluation_comment &&
+                                  entry.evaluation_comment.length > 0 ) {
+                                  <div>
+                                    <strong
+                                      >{{
+                                        "evaluations.evaluation_comment"
+                                          | translate
+                                      }}
+                                      :<br
+                                    /></strong>
+                                    <span
+                                      [innerHTML]="
+                                        entry.evaluation_comment | safeHtml
+                                      "
+                                    ></span>
+                                  </div>
+                                  } @if ( entry.evaluation && entry.evaluation
+                                  .estimated_implementation_date &&
+                                  entry.evaluation.estimated_implementation_date.toString()
+                                  !== 'Invalid Date' ) {
+                                  <div>
+                                    <strong
+                                      >{{
+                                        "summary.action_plan.implementation_date"
+                                          | translate
+                                      }}
+                                      :
+                                    </strong>
+                                    <time>{{
+                                      entry.evaluation
+                                        .estimated_implementation_date
+                                        | date
+                                          : "shortDate"
+                                          : ""
+                                          : languagesService.selectedLanguage
+                                    }}</time>
+                                  </div>
+                                  } @if ( entry.evaluation &&
+                                  entry.evaluation.person_in_charge ) {
+                                  <div>
+                                    <strong
+                                      >{{
+                                        "summary.action_plan.implementation_responsible"
+                                          | translate
+                                      }}
+                                      :
+                                    </strong>
+                                    {{ entry.evaluation.person_in_charge }}
+                                  </div>
+                                  }
                                 </div>
+                                }
                               </div>
-                            </ng-container>
-                            <ng-template #noMeasures>
-                              <div class="actionplanbox">
-                                <h3 class="pia-fullPreviewBlock-subheadline">
-                                  {{
-                                    "summary.action_plan.measures" | translate
-                                  }}
-                                </h3>
-                                {{
-                                  "summary.action_plan.no_action_plan"
-                                    | translate
-                                }}
-                              </div>
-                            </ng-template>
+                              }
+                            </div>
+                            } @else {
+                            <div class="actionplanbox">
+                              <h3 class="pia-fullPreviewBlock-subheadline">
+                                {{ "summary.action_plan.measures" | translate }}
+                              </h3>
+                              {{
+                                "summary.action_plan.no_action_plan" | translate
+                              }}
+                            </div>
+                            }
                           </div>
 
                           <!-- VALIDATION - Action plan - Risks -->
                           <div class="">
                             <!-- Risk 1 -->
-                            <div
-                              *ngIf="actionPlanService.risksActionPlan32Ready"
-                            >
+                            @if (actionPlanService.risksActionPlan32Ready) {
+                            <div>
                               <div class="actionplanbox">
                                 <h3 class="pia-fullPreviewBlock-subheadline">
                                   {{ "summary.action_plan.risks" | translate }}
@@ -666,14 +629,11 @@
                                       | safeHtml
                                   "
                                 ></div>
-                                <div
-                                  *ngIf="
-                                    actionPlanService.risks['3.2']
-                                      .evaluation_comment &&
-                                    actionPlanService.risks['3.2']
-                                      .evaluation_comment.length > 0
-                                  "
-                                >
+                                @if ( actionPlanService.risks['3.2']
+                                .evaluation_comment &&
+                                actionPlanService.risks['3.2']
+                                .evaluation_comment.length > 0 ) {
+                                <div>
                                   <strong
                                     >{{
                                       "evaluations.evaluation_comment"
@@ -688,19 +648,15 @@
                                     "
                                   ></span>
                                 </div>
+                                }
                                 <!-- Estimated implementation date & implementation responsible -->
-                                <div
-                                  class="estimated-implementation-date"
-                                  *ngIf="
-                                    actionPlanService.risks['3.2'].evaluation &&
-                                    actionPlanService.risks['3.2'].evaluation
-                                      .estimated_implementation_date &&
-                                    actionPlanService.risks[
-                                      '3.2'
-                                    ].evaluation.estimated_implementation_date.toString() !==
-                                      'Invalid Date'
-                                  "
-                                >
+                                @if ( actionPlanService.risks['3.2'].evaluation
+                                && actionPlanService.risks['3.2'].evaluation
+                                .estimated_implementation_date &&
+                                actionPlanService.risks[ '3.2'
+                                ].evaluation.estimated_implementation_date.toString()
+                                !== 'Invalid Date' ) {
+                                <div class="estimated-implementation-date">
                                   <strong
                                     >{{
                                       "summary.action_plan.implementation_date"
@@ -717,16 +673,13 @@
                                         : languagesService.selectedLanguage
                                   }}</time>
                                 </div>
-                                <div
-                                  class="implementation-responsible"
-                                  *ngIf="
-                                    actionPlanService.risks['3.2'].evaluation &&
-                                    actionPlanService.risks['3.2'].evaluation
-                                      .person_in_charge &&
-                                    actionPlanService.risks['3.2'].evaluation
-                                      .person_in_charge.length > 0
-                                  "
-                                >
+                                } @if (
+                                actionPlanService.risks['3.2'].evaluation &&
+                                actionPlanService.risks['3.2'].evaluation
+                                .person_in_charge &&
+                                actionPlanService.risks['3.2'].evaluation
+                                .person_in_charge.length > 0 ) {
+                                <div class="implementation-responsible">
                                   <strong
                                     >{{
                                       "summary.action_plan.implementation_responsible"
@@ -739,15 +692,13 @@
                                       .person_in_charge
                                   }}
                                 </div>
+                                }
                                 <!-- Reviewer gauges -->
-                                <span
-                                  *ngIf="
-                                    actionPlanService.risks['3.2'].evaluation
-                                      .gauges &&
-                                    actionPlanService.risks['3.2'].evaluation
-                                      .gauges.x > 0
-                                  "
-                                >
+                                @if ( actionPlanService.risks['3.2'].evaluation
+                                .gauges &&
+                                actionPlanService.risks['3.2'].evaluation
+                                .gauges.x > 0 ) {
+                                <span>
                                   <span
                                     [innerHTML]="
                                       'evaluations.gauges.seriousness'
@@ -763,14 +714,12 @@
                                   >
                                   <br />
                                 </span>
-                                <span
-                                  *ngIf="
-                                    actionPlanService.risks['3.2'].evaluation
-                                      .gauges &&
-                                    actionPlanService.risks['3.2'].evaluation
-                                      .gauges.y > 0
-                                  "
-                                >
+                                } @if (
+                                actionPlanService.risks['3.2'].evaluation
+                                .gauges &&
+                                actionPlanService.risks['3.2'].evaluation
+                                .gauges.y > 0 ) {
+                                <span>
                                   <span
                                     [innerHTML]="
                                       'evaluations.gauges.likelihood'
@@ -785,13 +734,14 @@
                                     }}</strong
                                   >
                                 </span>
+                                }
                               </div>
                             </div>
+                            }
 
                             <!-- Risk 2 -->
-                            <div
-                              *ngIf="actionPlanService.risksActionPlan33Ready"
-                            >
+                            @if (actionPlanService.risksActionPlan33Ready) {
+                            <div>
                               <div class="actionplanbox">
                                 <h3 class="pia-fullPreviewBlock-subheadline">
                                   {{ "summary.action_plan.risks" | translate }}
@@ -816,14 +766,11 @@
                                       | safeHtml
                                   "
                                 ></div>
-                                <div
-                                  *ngIf="
-                                    actionPlanService.risks['3.3']
-                                      .evaluation_comment &&
-                                    actionPlanService.risks['3.3']
-                                      .evaluation_comment.length > 0
-                                  "
-                                >
+                                @if ( actionPlanService.risks['3.3']
+                                .evaluation_comment &&
+                                actionPlanService.risks['3.3']
+                                .evaluation_comment.length > 0 ) {
+                                <div>
                                   <strong
                                     >{{
                                       "evaluations.evaluation_comment"
@@ -838,19 +785,15 @@
                                     "
                                   ></span>
                                 </div>
+                                }
                                 <!-- Estimated implementation date & implementation responsible -->
-                                <div
-                                  class="estimated-implementation-date"
-                                  *ngIf="
-                                    actionPlanService.risks['3.3'].evaluation &&
-                                    actionPlanService.risks['3.3'].evaluation
-                                      .estimated_implementation_date &&
-                                    actionPlanService.risks[
-                                      '3.3'
-                                    ].evaluation.estimated_implementation_date.toString() !==
-                                      'Invalid Date'
-                                  "
-                                >
+                                @if ( actionPlanService.risks['3.3'].evaluation
+                                && actionPlanService.risks['3.3'].evaluation
+                                .estimated_implementation_date &&
+                                actionPlanService.risks[ '3.3'
+                                ].evaluation.estimated_implementation_date.toString()
+                                !== 'Invalid Date' ) {
+                                <div class="estimated-implementation-date">
                                   <strong
                                     >{{
                                       "summary.action_plan.implementation_date"
@@ -867,16 +810,13 @@
                                         : languagesService.selectedLanguage
                                   }}</time>
                                 </div>
-                                <div
-                                  class="implementation-responsible"
-                                  *ngIf="
-                                    actionPlanService.risks['3.3'].evaluation &&
-                                    actionPlanService.risks['3.3'].evaluation
-                                      .person_in_charge &&
-                                    actionPlanService.risks['3.3'].evaluation
-                                      .person_in_charge.length > 0
-                                  "
-                                >
+                                } @if (
+                                actionPlanService.risks['3.3'].evaluation &&
+                                actionPlanService.risks['3.3'].evaluation
+                                .person_in_charge &&
+                                actionPlanService.risks['3.3'].evaluation
+                                .person_in_charge.length > 0 ) {
+                                <div class="implementation-responsible">
                                   <strong
                                     >{{
                                       "summary.action_plan.implementation_responsible"
@@ -889,15 +829,13 @@
                                       .person_in_charge
                                   }}
                                 </div>
+                                }
                                 <!-- Reviewer gauges -->
-                                <span
-                                  *ngIf="
-                                    actionPlanService.risks['3.3'].evaluation
-                                      .gauges &&
-                                    actionPlanService.risks['3.3'].evaluation
-                                      .gauges.x > 0
-                                  "
-                                >
+                                @if ( actionPlanService.risks['3.3'].evaluation
+                                .gauges &&
+                                actionPlanService.risks['3.3'].evaluation
+                                .gauges.x > 0 ) {
+                                <span>
                                   <span
                                     [innerHTML]="
                                       'evaluations.gauges.seriousness'
@@ -913,14 +851,12 @@
                                   >
                                   <br />
                                 </span>
-                                <span
-                                  *ngIf="
-                                    actionPlanService.risks['3.3'].evaluation
-                                      .gauges &&
-                                    actionPlanService.risks['3.3'].evaluation
-                                      .gauges.y > 0
-                                  "
-                                >
+                                } @if (
+                                actionPlanService.risks['3.3'].evaluation
+                                .gauges &&
+                                actionPlanService.risks['3.3'].evaluation
+                                .gauges.y > 0 ) {
+                                <span>
                                   <span
                                     [innerHTML]="
                                       'evaluations.gauges.likelihood'
@@ -935,13 +871,14 @@
                                     }}</strong
                                   >
                                 </span>
+                                }
                               </div>
                             </div>
+                            }
 
                             <!-- Risk 3 -->
-                            <div
-                              *ngIf="actionPlanService.risksActionPlan34Ready"
-                            >
+                            @if (actionPlanService.risksActionPlan34Ready) {
+                            <div>
                               <div class="actionplanbox">
                                 <h3 class="pia-fullPreviewBlock-subheadline">
                                   {{ "summary.action_plan.risks" | translate }}
@@ -966,14 +903,11 @@
                                       | safeHtml
                                   "
                                 ></div>
-                                <div
-                                  *ngIf="
-                                    actionPlanService.risks['3.4']
-                                      .evaluation_comment &&
-                                    actionPlanService.risks['3.4']
-                                      .evaluation_comment.length > 0
-                                  "
-                                >
+                                @if ( actionPlanService.risks['3.4']
+                                .evaluation_comment &&
+                                actionPlanService.risks['3.4']
+                                .evaluation_comment.length > 0 ) {
+                                <div>
                                   <strong
                                     >{{
                                       "evaluations.evaluation_comment"
@@ -988,19 +922,15 @@
                                     "
                                   ></span>
                                 </div>
+                                }
                                 <!-- Estimated implementation date & implementation responsible -->
-                                <div
-                                  class="estimated-implementation-date"
-                                  *ngIf="
-                                    actionPlanService.risks['3.4'].evaluation &&
-                                    actionPlanService.risks['3.4'].evaluation
-                                      .estimated_implementation_date &&
-                                    actionPlanService.risks[
-                                      '3.4'
-                                    ].evaluation.estimated_implementation_date.toString() !==
-                                      'Invalid Date'
-                                  "
-                                >
+                                @if ( actionPlanService.risks['3.4'].evaluation
+                                && actionPlanService.risks['3.4'].evaluation
+                                .estimated_implementation_date &&
+                                actionPlanService.risks[ '3.4'
+                                ].evaluation.estimated_implementation_date.toString()
+                                !== 'Invalid Date' ) {
+                                <div class="estimated-implementation-date">
                                   <strong
                                     >{{
                                       "summary.action_plan.implementation_date"
@@ -1017,16 +947,13 @@
                                         : languagesService.selectedLanguage
                                   }}</time>
                                 </div>
-                                <div
-                                  class="implementation-responsible"
-                                  *ngIf="
-                                    actionPlanService.risks['3.4'].evaluation &&
-                                    actionPlanService.risks['3.4'].evaluation
-                                      .person_in_charge &&
-                                    actionPlanService.risks['3.4'].evaluation
-                                      .person_in_charge.length > 0
-                                  "
-                                >
+                                } @if (
+                                actionPlanService.risks['3.4'].evaluation &&
+                                actionPlanService.risks['3.4'].evaluation
+                                .person_in_charge &&
+                                actionPlanService.risks['3.4'].evaluation
+                                .person_in_charge.length > 0 ) {
+                                <div class="implementation-responsible">
                                   <strong
                                     >{{
                                       "summary.action_plan.implementation_responsible"
@@ -1039,15 +966,13 @@
                                       .person_in_charge
                                   }}
                                 </div>
+                                }
                                 <!-- Reviewer gauges -->
-                                <span
-                                  *ngIf="
-                                    actionPlanService.risks['3.4'].evaluation
-                                      .gauges &&
-                                    actionPlanService.risks['3.4'].evaluation
-                                      .gauges.x > 0
-                                  "
-                                >
+                                @if ( actionPlanService.risks['3.4'].evaluation
+                                .gauges &&
+                                actionPlanService.risks['3.4'].evaluation
+                                .gauges.x > 0 ) {
+                                <span>
                                   <span
                                     [innerHTML]="
                                       'evaluations.gauges.seriousness'
@@ -1063,14 +988,12 @@
                                   >
                                   <br />
                                 </span>
-                                <span
-                                  *ngIf="
-                                    actionPlanService.risks['3.4'].evaluation
-                                      .gauges &&
-                                    actionPlanService.risks['3.4'].evaluation
-                                      .gauges.y > 0
-                                  "
-                                >
+                                } @if (
+                                actionPlanService.risks['3.4'].evaluation
+                                .gauges &&
+                                actionPlanService.risks['3.4'].evaluation
+                                .gauges.y > 0 ) {
+                                <span>
                                   <span
                                     [innerHTML]="
                                       'evaluations.gauges.likelihood'
@@ -1085,17 +1008,16 @@
                                     }}</strong
                                   >
                                 </span>
+                                }
                               </div>
                             </div>
+                            }
 
                             <!-- No actions plan for risks -->
-                            <div
-                              *ngIf="
-                                !actionPlanService.risksActionPlan32Ready &&
-                                !actionPlanService.risksActionPlan33Ready &&
-                                !actionPlanService.risksActionPlan34Ready
-                              "
-                            >
+                            @if ( !actionPlanService.risksActionPlan32Ready &&
+                            !actionPlanService.risksActionPlan33Ready &&
+                            !actionPlanService.risksActionPlan34Ready ) {
+                            <div>
                               <div class="actionplanbox">
                                 <h3 class="pia-fullPreviewBlock-subheadline">
                                   {{ "summary.action_plan.risks" | translate }}
@@ -1106,6 +1028,7 @@
                                 }}
                               </div>
                             </div>
+                            }
                           </div>
                         </div>
                       </div>
@@ -1131,52 +1054,49 @@
                       </div>
 
                       <div class="">
-                        <div *ngFor="let c of content">
-                          <div *ngIf="c.data.length > 0; else noDpoDataBlock">
-                            <div class="databox" *ngFor="let d of c.data">
+                        @for (c of content; track c) {
+                        <div>
+                          @if (c.data.length > 0) {
+                          <div>
+                            @for (d of c.data; track d) {
+                            <div class="databox">
                               <h3 id="select">{{ d.title | translate }}</h3>
+                              @if (d.type !== 'date') {
                               <div
                                 style="font-weight:500;"
                                 [ngClass]="{
                                   'pia-attachment-removed':
                                     d.comment && d.comment.length > 0
                                 }"
-                                *ngIf="d.type !== 'date'; else dateBlock"
                                 [innerHTML]="d.content | translate | safeHtml"
                               ></div>
+                              } @else { @if ( d.content.toString() !== 'Invalid
+                              Date' ) {
+                              <time style="font-weight:500;">{{
+                                d.content
+                                  | date
+                                    : "shortDate"
+                                    : ""
+                                    : languagesService.selectedLanguage
+                              }}</time>
+                              } } @if ( d.type !== 'date' && d.comment &&
+                              d.comment.length > 0 ) {
                               <div
-                                *ngIf="
-                                  d.type !== 'date' &&
-                                  d.comment &&
-                                  d.comment.length > 0
-                                "
                                 [innerHTML]="d.comment | nl2br | safeHtml"
                               ></div>
-                              <ng-template #dateBlock>
-                                <time
-                                  style="font-weight:500;"
-                                  *ngIf="
-                                    d.content.toString() !== 'Invalid Date'
-                                  "
-                                  >{{
-                                    d.content
-                                      | date
-                                        : "shortDate"
-                                        : ""
-                                        : languagesService.selectedLanguage
-                                  }}</time
-                                >
-                              </ng-template>
+                              }
+                            </div>
+                            }
+                          </div>
+                          } @else {
+                          <div class="databox">
+                            <div>
+                              {{ "summary.preview_no_data" | translate }}
                             </div>
                           </div>
-                          <ng-template #noDpoDataBlock>
-                            <div class="databox">
-                              <div>
-                                {{ "summary.preview_no_data" | translate }}
-                              </div>
-                            </div>
-                          </ng-template>
+                          }
                         </div>
+                        }
                       </div>
                     </div>
                   </div>
@@ -1184,27 +1104,20 @@
               </div>
 
               <!-- CONTEXT + FUNDAMENTAL PRINCIPLES + RISKS -->
+              @if (allData) {
               <div
-                *ngIf="allData"
                 ng-class="{'text-success': model.copied, 'text-danger': !model.copied}"
                 ng-copy="events.onCopy($event)"
               >
-                <div *ngFor="let section of data.sections">
-                  <div
-                    class="section-preview section-{{ section.id }}"
-                    *ngIf="section.id !== 4 && allData[section.id]"
-                  >
-                    <div
-                      *ngFor="let item of section.items"
-                      class="pagebreak-before"
-                    >
-                      <div
-                        *ngIf="
-                          item.evaluation_mode !== '' &&
-                          allData[section.id][item.id]
-                        "
-                        style="padding-top: 10px;"
-                      >
+                @for (section of data.sections; track section) {
+                <div>
+                  @if (section.id !== 4 && allData[section.id]) {
+                  <div class="section-preview section-{{ section.id }}">
+                    @for (item of section.items; track item) {
+                    <div class="pagebreak-before">
+                      @if ( item.evaluation_mode !== '' &&
+                      allData[section.id][item.id] ) {
+                      <div style="padding-top: 10px;">
                         <div
                           [className]="
                             'pia-fullPreviewBlock-headline headline' +
@@ -1216,241 +1129,203 @@
                             <h2>{{ item.title | translate }}</h2>
                           </div>
                         </div>
-
                         <div class="databox">
                           <!-- Measures -->
-                          <div *ngIf="item.is_measure">
-                            <ng-container
-                              *ngIf="
-                                allData[section.id][item.id].length > 0;
-                                else noMeasuresData
-                              "
-                            >
+                          @if (item.is_measure) {
+                          <div>
+                            @if ( allData[section.id][item.id].length > 0) {
+                            @for ( measure of allData[section.id][item.id] ;
+                            track measure) {
+                            <div>
+                              <h3 [innerHTML]="measure.title"></h3>
                               <div
-                                *ngFor="
-                                  let measure of allData[section.id][item.id]
+                                [innerHTML]="
+                                  measure.content | translate | safeHtml
                                 "
-                              >
-                                <h3 [innerHTML]="measure.title"></h3>
-                                <div
-                                  [innerHTML]="
-                                    measure.content | translate | safeHtml
-                                  "
-                                ></div>
-                                <br />
-                                <!-- Measures' evaluations -->
-                                <div
-                                  class="evaluationbox"
-                                  *ngIf="measure.evaluation"
-                                >
-                                  <p>
-                                    <strong class="evaluationValue"
-                                      >{{ "evaluations.title" | translate }} :
-                                      {{
-                                        measure.evaluation.title | translate
-                                      }}</strong
-                                    >
-                                    <br />
-                                    <span
-                                      *ngIf="
-                                        measure.evaluation.action_plan_comment
-                                      "
-                                    >
-                                      <strong
-                                        >{{
-                                          "evaluations.action_plan_comment"
-                                            | translate
-                                        }}
-                                        :<br /></strong
-                                      ><span
-                                        style="font-weight:400;"
-                                        [innerHTML]="
-                                          measure.evaluation
-                                            .action_plan_comment | safeHtml
-                                        "
-                                      ></span>
-                                      <br />
-                                    </span>
-                                    <span
-                                      *ngIf="
-                                        measure.evaluation.evaluation_comment
-                                      "
-                                    >
-                                      <strong
-                                        >{{
-                                          "evaluations.evaluation_comment"
-                                            | translate
-                                        }}
-                                        :<br /></strong
-                                      ><span
-                                        style="font-weight:400;"
-                                        [innerHTML]="
-                                          measure.evaluation.evaluation_comment
-                                            | safeHtml
-                                        "
-                                      ></span>
-                                      <br />
-                                    </span>
-                                  </p>
-                                </div>
-                              </div>
-                            </ng-container>
-                            <ng-template #noMeasuresData>
-                              {{ "summary.preview_no_data" | translate }}
-                            </ng-template>
-                          </div>
-
-                          <!-- Questions -->
-                          <div *ngIf="item.questions">
-                            <div *ngFor="let question of item.questions">
-                              <h3 [innerHTML]="question.title | translate"></h3>
-                              <ng-container
-                                *ngIf="
-                                  allData[section.id][item.id][question.id]
-                                "
-                              >
-                                <div
-                                  *ngIf="
-                                    allData[section.id][item.id][question.id]
-                                      .content &&
-                                    allData[section.id][item.id][question.id]
-                                      .content.length > 0
-                                  "
-                                  [innerHTML]="
-                                    allData[section.id][item.id][question.id]
-                                      .content
-                                      | translate
-                                      | safeHtml
-                                  "
-                                ></div>
-                                <div
-                                  class="evaluationbox"
-                                  *ngIf="
-                                    allData[section.id][item.id][question.id]
-                                      .evaluation
-                                  "
-                                >
+                              ></div>
+                              <br />
+                              <!-- Measures' evaluations -->
+                              @if (measure.evaluation) {
+                              <div class="evaluationbox">
+                                <p>
+                                  <strong class="evaluationValue"
+                                    >{{ "evaluations.title" | translate }} :
+                                    {{
+                                      measure.evaluation.title | translate
+                                    }}</strong
+                                  >
                                   <br />
-                                  <p>
-                                    <strong class="evaluationValue"
-                                      >{{ "evaluations.title" | translate }} :
-                                      {{
-                                        allData[section.id][item.id][
-                                          question.id
-                                        ].evaluation.title | translate
-                                      }}</strong
-                                    >
+                                  @if ( measure.evaluation.action_plan_comment )
+                                  {
+                                  <span>
+                                    <strong
+                                      >{{
+                                        "evaluations.action_plan_comment"
+                                          | translate
+                                      }}
+                                      :<br /></strong
+                                    ><span
+                                      style="font-weight:400;"
+                                      [innerHTML]="
+                                        measure.evaluation.action_plan_comment
+                                          | safeHtml
+                                      "
+                                    ></span>
                                     <br />
-                                    <span
-                                      *ngIf="
+                                  </span>
+                                  } @if ( measure.evaluation.evaluation_comment
+                                  ) {
+                                  <span>
+                                    <strong
+                                      >{{
+                                        "evaluations.evaluation_comment"
+                                          | translate
+                                      }}
+                                      :<br /></strong
+                                    ><span
+                                      style="font-weight:400;"
+                                      [innerHTML]="
+                                        measure.evaluation.evaluation_comment
+                                          | safeHtml
+                                      "
+                                    ></span>
+                                    <br />
+                                  </span>
+                                  }
+                                </p>
+                              </div>
+                              }
+                            </div>
+                            } } @else {
+                            {{ "summary.preview_no_data" | translate }}
+                            }
+                          </div>
+                          }
+                          <!-- Questions -->
+                          @if (item.questions) {
+                          <div>
+                            @for (question of item.questions; track question) {
+                            <div>
+                              <h3 [innerHTML]="question.title | translate"></h3>
+                              @if ( allData[section.id][item.id][question.id] )
+                              { @if ( allData[section.id][item.id][question.id]
+                              .content &&
+                              allData[section.id][item.id][question.id]
+                              .content.length > 0 ) {
+                              <div
+                                [innerHTML]="
+                                  allData[section.id][item.id][question.id]
+                                    .content
+                                    | translate
+                                    | safeHtml
+                                "
+                              ></div>
+                              } @if ( allData[section.id][item.id][question.id]
+                              .evaluation ) {
+                              <div class="evaluationbox">
+                                <br />
+                                <p>
+                                  <strong class="evaluationValue"
+                                    >{{ "evaluations.title" | translate }} :
+                                    {{
+                                      allData[section.id][item.id][question.id]
+                                        .evaluation.title | translate
+                                    }}</strong
+                                  >
+                                  <br />
+                                  @if ( allData[section.id][item.id][
+                                  question.id ].evaluation.action_plan_comment )
+                                  {
+                                  <span>
+                                    <strong
+                                      >{{
+                                        "evaluations.action_plan_comment"
+                                          | translate
+                                      }}
+                                      :<br /></strong
+                                    ><span
+                                      [innerHTML]="
                                         allData[section.id][item.id][
                                           question.id
                                         ].evaluation.action_plan_comment
+                                          | safeHtml
                                       "
-                                    >
-                                      <strong
-                                        >{{
-                                          "evaluations.action_plan_comment"
-                                            | translate
-                                        }}
-                                        :<br /></strong
-                                      ><span
-                                        [innerHTML]="
-                                          allData[section.id][item.id][
-                                            question.id
-                                          ].evaluation.action_plan_comment
-                                            | safeHtml
-                                        "
-                                      ></span>
-                                      <br />
-                                    </span>
-                                    <span
-                                      *ngIf="
+                                    ></span>
+                                    <br />
+                                  </span>
+                                  } @if ( allData[section.id][item.id][
+                                  question.id ].evaluation.evaluation_comment )
+                                  {
+                                  <span>
+                                    <strong
+                                      >{{
+                                        "evaluations.evaluation_comment"
+                                          | translate
+                                      }}
+                                      :<br /></strong
+                                    ><span
+                                      [innerHTML]="
                                         allData[section.id][item.id][
                                           question.id
                                         ].evaluation.evaluation_comment
+                                          | safeHtml
                                       "
-                                    >
-                                      <strong
-                                        >{{
-                                          "evaluations.evaluation_comment"
-                                            | translate
-                                        }}
-                                        :<br /></strong
-                                      ><span
-                                        [innerHTML]="
-                                          allData[section.id][item.id][
-                                            question.id
-                                          ].evaluation.evaluation_comment
-                                            | safeHtml
-                                        "
-                                      ></span>
-                                      <br />
-                                    </span>
-
-                                    <!-- Gauges' values -->
+                                    ></span>
+                                    <br />
+                                  </span>
+                                  }
+                                  <!-- Gauges' values -->
+                                  @if ( allData[section.id][item.id][
+                                  question.id ].evaluation.gauges &&
+                                  allData[section.id][item.id][ question.id
+                                  ].evaluation.gauges.seriousness > 0 ) {
+                                  <span>
                                     <span
-                                      *ngIf="
-                                        allData[section.id][item.id][
-                                          question.id
-                                        ].evaluation.gauges &&
-                                        allData[section.id][item.id][
-                                          question.id
-                                        ].evaluation.gauges.seriousness > 0
-                                      "
-                                    >
-                                      <span
-                                        [innerHTML]="
-                                          'evaluations.gauges.seriousness'
-                                            | translate
-                                        "
-                                      ></span>
-                                      {{
-                                        "evaluations.gauges." +
-                                          allData[section.id][item.id][
-                                            question.id
-                                          ].evaluation.gauges.seriousness
+                                      [innerHTML]="
+                                        'evaluations.gauges.seriousness'
                                           | translate
-                                      }}
-                                      <br />
-                                    </span>
+                                      "
+                                    ></span>
+                                    {{
+                                      "evaluations.gauges." +
+                                        allData[section.id][item.id][
+                                          question.id
+                                        ].evaluation.gauges.seriousness
+                                        | translate
+                                    }}
+                                    <br />
+                                  </span>
+                                  } @if ( allData[section.id][item.id][
+                                  question.id ].evaluation.gauges &&
+                                  allData[section.id][item.id][ question.id
+                                  ].evaluation.gauges.likelihood > 0 ) {
+                                  <span>
                                     <span
-                                      *ngIf="
-                                        allData[section.id][item.id][
-                                          question.id
-                                        ].evaluation.gauges &&
-                                        allData[section.id][item.id][
-                                          question.id
-                                        ].evaluation.gauges.likelihood > 0
-                                      "
-                                    >
-                                      <span
-                                        [innerHTML]="
-                                          'evaluations.gauges.likelihood'
-                                            | translate
-                                        "
-                                      ></span>
-                                      {{
-                                        "evaluations.gauges." +
-                                          allData[section.id][item.id][
-                                            question.id
-                                          ].evaluation.gauges.likelihood
+                                      [innerHTML]="
+                                        'evaluations.gauges.likelihood'
                                           | translate
-                                      }}
-                                    </span>
-                                  </p>
-                                </div>
-                              </ng-container>
+                                      "
+                                    ></span>
+                                    {{
+                                      "evaluations.gauges." +
+                                        allData[section.id][item.id][
+                                          question.id
+                                        ].evaluation.gauges.likelihood
+                                        | translate
+                                    }}
+                                  </span>
+                                  }
+                                </p>
+                              </div>
+                              } }
                             </div>
+                            }
                           </div>
-
+                          }
                           <!-- Evaluations -->
-                          <div
-                            class="evaluationbox"
-                            *ngIf="
-                              allData[section.id][item.id]['evaluation_item']
-                            "
-                          >
+                          @if ( allData[section.id][item.id]['evaluation_item']
+                          ) {
+                          <div class="evaluationbox">
                             <br />
                             <p>
                               <strong class="evaluationValue"
@@ -1462,13 +1337,9 @@
                                 }}</strong
                               >
                               <br />
-                              <span
-                                *ngIf="
-                                  allData[section.id][item.id][
-                                    'evaluation_item'
-                                  ].action_plan_comment
-                                "
-                              >
+                              @if ( allData[section.id][item.id][
+                              'evaluation_item' ].action_plan_comment ) {
+                              <span>
                                 <strong
                                   >{{
                                     "evaluations.action_plan_comment"
@@ -1484,13 +1355,9 @@
                                 ></span>
                                 <br />
                               </span>
-                              <span
-                                *ngIf="
-                                  allData[section.id][item.id][
-                                    'evaluation_item'
-                                  ].evaluation_comment
-                                "
-                              >
+                              } @if ( allData[section.id][item.id][
+                              'evaluation_item' ].evaluation_comment ) {
+                              <span>
                                 <strong
                                   >{{
                                     "evaluations.evaluation_comment" | translate
@@ -1505,16 +1372,11 @@
                                 ></span>
                                 <br />
                               </span>
-                              <span
-                                *ngIf="
-                                  allData[section.id][item.id][
-                                    'evaluation_item'
-                                  ].gauges &&
-                                  allData[section.id][item.id][
-                                    'evaluation_item'
-                                  ].gauges.seriousness > 0
-                                "
-                              >
+                              } @if ( allData[section.id][item.id][
+                              'evaluation_item' ].gauges &&
+                              allData[section.id][item.id][ 'evaluation_item'
+                              ].gauges.seriousness > 0 ) {
+                              <span>
                                 <span
                                   [innerHTML]="
                                     'evaluations.gauges.seriousness' | translate
@@ -1528,16 +1390,11 @@
                                 }}
                                 <br />
                               </span>
-                              <span
-                                *ngIf="
-                                  allData[section.id][item.id][
-                                    'evaluation_item'
-                                  ].gauges &&
-                                  allData[section.id][item.id][
-                                    'evaluation_item'
-                                  ].gauges.likelihood > 0
-                                "
-                              >
+                              } @if ( allData[section.id][item.id][
+                              'evaluation_item' ].gauges &&
+                              allData[section.id][item.id][ 'evaluation_item'
+                              ].gauges.likelihood > 0 ) {
+                              <span>
                                 <span
                                   [innerHTML]="
                                     'evaluations.gauges.likelihood' | translate
@@ -1550,14 +1407,21 @@
                                     ].gauges.likelihood | translate
                                 }}
                               </span>
+                              }
                             </p>
                           </div>
+                          }
                         </div>
                       </div>
+                      }
                     </div>
+                    }
                   </div>
+                  }
                 </div>
+                }
               </div>
+              }
 
               <!-- RISKS - Risks overview -->
               <section class="section-overview">
@@ -1586,21 +1450,21 @@
       </div>
     </section>
 
-    <aside
-      class="small-12 medium-3 columns pia-fullPreviewBlock-aside"
-      *ngIf="!onlyData"
-    >
+    @if (!onlyData) {
+    <aside class="small-12 medium-3 columns pia-fullPreviewBlock-aside">
       <div class="pia-fullPreviewBlock-aside-content">
+        @if (pia.is_example == 0 && pia.is_archive == 0) {
         <app-revisions
-          *ngIf="pia.is_example == 0 && pia.is_archive == 0"
           [pia]="pia"
           [title]="false"
           [currentVersion]="pia.updated_at"
         >
         </app-revisions>
+        }
         <app-export [pia]="pia" (downloading)="download = $event"></app-export>
       </div>
     </aside>
+    }
   </div>
 </section>
 

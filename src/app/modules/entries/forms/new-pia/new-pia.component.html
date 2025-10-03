@@ -1,5 +1,5 @@
+@if (piaForm) {
 <form
-  *ngIf="piaForm"
   class="pia-cardsBlock-item-form"
   (ngSubmit)="onSubmit()"
   [formGroup]="piaForm"
@@ -14,11 +14,11 @@
       required
     />
   </div>
-
   <!-- AUTHOR FIELD DATA LIST -->
   <div>
     <label for="author_name">{{ "homepage.cards.author" | translate }}</label>
-    <div *ngIf="authService.state; else author_name">
+    @if (authService.state) {
+    <div>
       <tag-input
         id="author_name"
         identifyBy="id"
@@ -40,24 +40,24 @@
         ></tag-input-dropdown>
       </tag-input>
     </div>
-    <ng-template #author_name>
-      <input
-        formControlName="author_name"
-        type="text"
-        placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
-        id="author_name"
-        required
-      />
-    </ng-template>
+    } @else {
+    <input
+      formControlName="author_name"
+      type="text"
+      placeholder="{{ 'homepage.cards.placeholder_author' | translate }}"
+      id="author_name"
+      required
+    />
+    }
   </div>
   <!-- END AUTHOR FIELD DATA LIST -->
-
   <!-- EVALUATOR FIELD DATA LIST -->
   <div>
     <label for="evaluator_name">{{
       "homepage.cards.evaluation" | translate
     }}</label>
-    <div *ngIf="authService.state; else evaluator_name">
+    @if (authService.state) {
+    <div>
       <tag-input
         id="evaluator_name"
         identifyBy="id"
@@ -79,24 +79,24 @@
         ></tag-input-dropdown>
       </tag-input>
     </div>
-    <ng-template #evaluator_name>
-      <input
-        formControlName="evaluator_name"
-        type="text"
-        placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
-        id="evaluator_name"
-        required
-      />
-    </ng-template>
+    } @else {
+    <input
+      formControlName="evaluator_name"
+      type="text"
+      placeholder="{{ 'homepage.cards.placeholder_evaluation' | translate }}"
+      id="evaluator_name"
+      required
+    />
+    }
   </div>
   <!-- END EVALUATOR FIELD DATA LIST -->
-
   <!-- VALIDATOR FIELD DATA LIST -->
   <div>
     <label for="validator_name">{{
       "homepage.cards.validation" | translate
     }}</label>
-    <div *ngIf="authService.state; else validator_name">
+    @if (authService.state) {
+    <div>
       <tag-input
         id="validator_name"
         identifyBy="id"
@@ -118,20 +118,20 @@
         ></tag-input-dropdown>
       </tag-input>
     </div>
-    <ng-template #validator_name>
-      <input
-        formControlName="validator_name"
-        type="text"
-        placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
-        id="validator_name"
-        required
-      />
-    </ng-template>
+    } @else {
+    <input
+      formControlName="validator_name"
+      type="text"
+      placeholder="{{ 'homepage.cards.placeholder_validation' | translate }}"
+      id="validator_name"
+      required
+    />
+    }
   </div>
   <!-- END VALIDATOR FIELD DATA LIST -->
-
   <!-- GUEST FIELD DATA LIST -->
-  <div *ngIf="authService.state">
+  @if (authService.state) {
+  <div>
     <label for="guests">{{ "homepage.cards.guest" | translate }}</label>
     <div>
       <tag-input
@@ -157,8 +157,8 @@
       </tag-input>
     </div>
   </div>
+  }
   <!-- END GUEST FIELD DATA LIST -->
-
   <div>
     <label for="category">{{ "homepage.cards.category" | translate }}</label>
     <input
@@ -168,7 +168,6 @@
       id="category"
     />
   </div>
-
   <div>
     <label for="structure">{{ "homepage.cards.structure" | translate }}</label>
     <div class="pia-structure-wrapper">
@@ -176,13 +175,12 @@
         <option [value]="null" selected>{{
           "homepage.cards.placeholder_structure" | translate
         }}</option>
-        <option *ngFor="let item of structureList" [ngValue]="item.id">{{
-          item.name
-        }}</option>
+        @for (item of structureList; track item) {
+        <option [ngValue]="item.id">{{ item.name }}</option>
+        }
       </select>
     </div>
   </div>
-
   <div class="pia-cardsBlock-item-btn">
     <button
       type="submit"
@@ -195,3 +193,4 @@
     </button>
   </div>
 </form>
+}

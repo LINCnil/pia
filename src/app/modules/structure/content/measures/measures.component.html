@@ -29,15 +29,16 @@
     </div>
 
     <div class="pia-measureBlock-displayer fadeIn">
+      @if (!structure.is_example) {
       <button
         type="button"
         class="btn pia-measureBlock-delete"
-        *ngIf="!structure.is_example"
         (click)="removeMeasure()"
         title="{{ 'measures.remove' | translate }}"
       >
         <fa-icon [icon]="faTrash"></fa-icon>
       </button>
+      }
 
       <!-- Measure answer -->
       <div class="pia-measureBlock-content">

@@ -1,12 +1,13 @@
 <form class="pia-newUser" [formGroup]="userForm" (submit)="onSubmit()">
-  <h2 *ngIf="user; else addPia">{{ "users.edit_user" | translate }}</h2>
-  <ng-template #addPia
-    ><h2>{{ "users.add_new_user" | translate }}</h2></ng-template
-  >
-
-  <p class="msg" *ngIf="msgFromBack">
+  @if (user) {
+  <h2>{{ "users.edit_user" | translate }}</h2>
+  } @else {
+  <h2>{{ "users.add_new_user" | translate }}</h2>
+  } @if (msgFromBack) {
+  <p class="msg">
     {{ "users.errors.edit_user." + msgFromBack | translate }}
   </p>
+  }
 
   <legend>{{ "users.data" | translate }}</legend>
   <div class="input">
@@ -41,19 +42,15 @@
       formControlName="email"
       id="mail"
     />
-    <label
-      *ngIf="
-        f.email.value.length > 0 && f.email.hasError('email');
-        else emailBlock
-      "
-    >
+    @if ( f.email.value.length > 0 && f.email.hasError('email')) {
+    <label>
       {{ "authentication.wrong_email" | translate }}
     </label>
-    <ng-template #emailBlock>
-      <label>
-        {{ "authentication.email" | translate }}
-      </label>
-    </ng-template>
+    } @else {
+    <label>
+      {{ "authentication.email" | translate }}
+    </label>
+    }
   </div>
   <div class="pia-newUser-checkbox">
     <legend>{{ "users.choose_profile" | translate }}</legend>

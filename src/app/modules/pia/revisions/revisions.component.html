@@ -1,17 +1,19 @@
 <div class="pia-revisions hide-for-print">
-  <div class="pia-revisions-title" *ngIf="title">
+  @if (title) {
+  <div class="pia-revisions-title">
     <fa-icon [icon]="faHistory"></fa-icon>
     {{ "summary.revision.revision" | translate }}
   </div>
-  <div class="pia-revisions-box" *ngIf="revisions">
+  } @if (revisions) {
+  <div class="pia-revisions-box">
     <h4>{{ "summary.revision.pia_version" | translate }}</h4>
     <p>
       <fa-icon [icon]="faCircle"></fa-icon>
       {{ currentVersion | date: "short":"":languagesService.selectedLanguage }}
       - {{ "summary.revision.current_version" | translate }}
     </p>
+    @if (revisions.length > 0) {
     <a
-      *ngIf="revisions.length > 0"
       href="javascript;"
       class="pia-revisions-box-footer"
       (click)="opened = !opened; $event.preventDefault()"
@@ -19,23 +21,20 @@
       <span>{{
         "summary.revision.show" | translate: { length: revisions.length }
       }}</span>
-      <fa-icon [icon]="faChevronDown" *ngIf="!opened; else close"></fa-icon>
-      <ng-template #close>
-        <fa-icon [icon]="faChevronUp"></fa-icon>
-      </ng-template>
+      @if (!opened) {
+      <fa-icon [icon]="faChevronDown"></fa-icon>
+      } @else {
+      <fa-icon [icon]="faChevronUp"></fa-icon>
+      }
     </a>
-    <div
-      *ngIf="opened && revisionsGroupByMonth"
-      class="pia-revisions-box-content"
-    >
-      <div
-        class="pia-revisions-box-content-revision"
-        *ngFor="let date of revisionsGroupByMonthInArray.reverse()"
-      >
+    } @if (opened && revisionsGroupByMonth) {
+    <div class="pia-revisions-box-content">
+      @for (date of revisionsGroupByMonthInArray.reverse(); track date) {
+      <div class="pia-revisions-box-content-revision">
         <h5>{{ date }}</h5>
         <ul>
+          @for (revision of revisionsGroupByMonth[date]; track revision) {
           <li
-            *ngFor="let revision of revisionsGroupByMonth[date]"
             class="pia-revisions-box-content-revision-item"
             [attr.revision-id]="revision.id"
           >
@@ -58,31 +57,29 @@
               }}
             </span>
           </li>
+          }
         </ul>
       </div>
+      }
     </div>
-    <button
-      class="pia-revisions-new"
-      *ngIf="
-        ['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
-        editMode === 'local'
-      "
-      (click)="newRevision()"
-    >
+    } @if ( ['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
+    editMode === 'local' ) {
+    <button class="pia-revisions-new" (click)="newRevision()">
       <span class="pia-icons pia-icon-add-white"></span>
       {{ "summary.revision.save" | translate }}
     </button>
+    }
   </div>
+  }
 </div>
+@if (preview) {
 <app-modal
-  *ngIf="preview"
   (clickOnClose)="preview = null"
   specialClass="revision-preview-modal"
 >
-  <app-revision-preview
-    *ngIf="preview"
-    [revision]="preview"
-    [editMode]="editMode"
-  >
+  @if (preview) {
+  <app-revision-preview [revision]="preview" [editMode]="editMode">
   </app-revision-preview>
+  }
 </app-modal>
+}

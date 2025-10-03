@@ -1,5 +1,5 @@
+@if (!loading && measure) {
 <div
-  *ngIf="!loading && measure; else loadingElse"
   class="pia-measureBlock"
   [ngClass]="{ approved: evaluation.status === 2 || evaluation.status === 3 }"
   [attr.data-id]="measure.id"
@@ -19,7 +19,6 @@
         [ngClass]="{ hide: editTitle }"
         [innerHTML]="measureForm.controls['measureTitle'].value | safeHtml"
       ></div>
-
       <textarea
         maxlength="120"
         [attr.disabled]="
@@ -35,21 +34,18 @@
         placeholder="{{ 'measures.placeholder_title' | translate }}"
       ></textarea>
     </div>
-
     <div class="pia-measureBlock-displayer fadeIn">
+      @if ( globalEvaluationService.answerEditionEnabled &&
+      (editMode.includes('author') || editMode == 'local') ) {
       <button
         type="button"
         class="btn pia-measureBlock-delete"
-        *ngIf="
-          globalEvaluationService.answerEditionEnabled &&
-          (editMode.includes('author') || editMode == 'local')
-        "
         (click)="removeMeasure(measure.id)"
         title="{{ 'measures.remove' | translate }}"
       >
         <fa-icon [icon]="faTrash"></fa-icon>
       </button>
-
+      }
       <!-- Measure answer -->
       <div class="pia-measureBlock-content">
         <div
@@ -81,7 +77,6 @@
       </div>
     </div>
   </form>
-
   <app-comments
     [editMode]="editMode"
     [pia]="pia"
@@ -89,22 +84,22 @@
     [measureId]="measure.id"
     [answer]="measure"
   ></app-comments>
-
+  @if (item.evaluation_mode == 'question') {
   <app-evaluations
     [editMode]="editMode"
-    *ngIf="item.evaluation_mode == 'question'"
     (evaluationEvent)="evaluationChange($event)"
     [pia]="pia"
     [section]="section"
     [item]="item"
     [measureId]="measure.id"
   ></app-evaluations>
+  }
 </div>
-<ng-template #loadingElse>
-  <div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
-    <app-loading-overlay
-      [visibility]="true"
-      [childMode]="true"
-    ></app-loading-overlay>
-  </div>
-</ng-template>
+} @else {
+<div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
+  <app-loading-overlay
+    [visibility]="true"
+    [childMode]="true"
+  ></app-loading-overlay>
+</div>
+}

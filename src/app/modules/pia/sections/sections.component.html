@@ -8,161 +8,108 @@
     ></a>
   </div>
 
-  <div class="pia-sectionBlock-structure" *ngIf="pia.structure_id">
+  @if (pia.structure_id) {
+  <div class="pia-sectionBlock-structure">
     {{ "pia.sections.based_on_structure_name" | translate }}
     {{ pia.structure_name }}
   </div>
-
-  <div class="pia-sectionBlock-category" *ngIf="pia.category">
+  } @if (pia.category) {
+  <div class="pia-sectionBlock-category">
     {{ "homepage.cards.category" | translate }} "{{ pia.category }}"
   </div>
-
-  <div class="pia-sectionBlock-category" *ngIf="editMode !== 'local'">
-    {{ "users.role.label" | translate }}: [<ng-container
-      *ngFor="let item of editMode; let i = index"
-      >{{ "users.role." + item | translate
-      }}<span *ngIf="i < editMode.length - 1">, </span></ng-container
-    >]
+  } @if (editMode !== 'local') {
+  <div class="pia-sectionBlock-category">
+    {{ "users.role.label" | translate }}: [@for (item of editMode; track item;
+    let i = $index) { {{ "users.role." + item | translate }}@if (i <
+    editMode.length - 1) {
+    <span>, </span>
+    } }]
   </div>
-
-  <div class="pia-sectionBlock-body" *ngIf="!loading; else statusSettingElse">
-    <div
-      *ngFor="let dataSection of data?.sections"
-      [ngClass]="dataSection.title.split('.').join('-')"
-    >
+  } @if (!loading) {
+  <div class="pia-sectionBlock-body">
+    @for (dataSection of data?.sections; track dataSection) {
+    <div [ngClass]="dataSection.title.split('.').join('-')">
       <div class="pia-sectionBlock-title">
         {{ dataSection.title | translate }}
         <hr />
       </div>
-      <ul
-        class="pia-sectionBlock-list"
-        *ngIf="pia && section && item && sidStatusService.itemStatus"
-      >
-        <ng-container *ngFor="let dataItem of dataSection?.items">
-          <li *ngIf="!dataItem.hide">
-            <a
-              [routerLink]="[
-                '/pia',
-                pia.id,
-                'section',
-                dataSection.id,
-                'item',
-                dataItem.id
-              ]"
-              [ngClass]="{
-                active: section.id == dataSection.id && item.id == dataItem.id
-              }"
-              class="truncate"
-            >
-              {{ dataItem.title | translate }}</a
-            >
-            <span
-              *ngIf="
-                sidStatusService.sidStatusIcon[
-                  sidStatusService.itemStatus[
-                    dataSection.id + '.' + dataItem.id
-                  ]
-                ]
-              "
-            >
-              <fa-icon
-                *ngIf="
-                  sidStatusService.sidStatusIcon[
-                    sidStatusService.itemStatus[
-                      dataSection.id + '.' + dataItem.id
-                    ]
-                  ] == 'faPenToSquare'
-                "
-                [icon]="faPenToSquare"
-              ></fa-icon>
-              <fa-icon
-                *ngIf="
-                  sidStatusService.sidStatusIcon[
-                    sidStatusService.itemStatus[
-                      dataSection.id + '.' + dataItem.id
-                    ]
-                  ] == 'faPenToSquare,pia-fa-valid'
-                "
-                class="pia-fa-valid"
-                [icon]="faPenToSquare"
-              ></fa-icon>
-              <fa-icon
-                *ngIf="
-                  sidStatusService.sidStatusIcon[
-                    sidStatusService.itemStatus[
-                      dataSection.id + '.' + dataItem.id
-                    ]
-                  ] == 'faGear'
-                "
-                [icon]="faGear"
-              ></fa-icon>
-              <fa-icon
-                *ngIf="
-                  sidStatusService.sidStatusIcon[
-                    sidStatusService.itemStatus[
-                      dataSection.id + '.' + dataItem.id
-                    ]
-                  ] == 'faGear,pia-fa-valid'
-                "
-                class="pia-fa-valid"
-                [icon]="faGear"
-              ></fa-icon>
-              <fa-icon
-                *ngIf="
-                  sidStatusService.sidStatusIcon[
-                    sidStatusService.itemStatus[
-                      dataSection.id + '.' + dataItem.id
-                    ]
-                  ] == 'faSquareCheck'
-                "
-                class="pia-fa-valid"
-                [icon]="faSquareCheck"
-              ></fa-icon>
-            </span>
-          </li>
-        </ng-container>
+      @if (pia && section && item && sidStatusService.itemStatus) {
+      <ul class="pia-sectionBlock-list">
+        @for (dataItem of dataSection?.items; track dataItem) { @if
+        (!dataItem.hide) {
+        <li>
+          <a
+            [routerLink]="[
+              '/pia',
+              pia.id,
+              'section',
+              dataSection.id,
+              'item',
+              dataItem.id
+            ]"
+            [ngClass]="{
+              active: section.id == dataSection.id && item.id == dataItem.id
+            }"
+            class="truncate"
+          >
+            {{ dataItem.title | translate }}</a
+          >
+          @if ( sidStatusService.sidStatusIcon[ sidStatusService.itemStatus[
+          dataSection.id + '.' + dataItem.id ] ] ) {
+          <span>
+            @if ( sidStatusService.sidStatusIcon[ sidStatusService.itemStatus[
+            dataSection.id + '.' + dataItem.id ] ] == 'faPenToSquare' ) {
+            <fa-icon [icon]="faPenToSquare"></fa-icon>
+            } @if ( sidStatusService.sidStatusIcon[ sidStatusService.itemStatus[
+            dataSection.id + '.' + dataItem.id ] ] ==
+            'faPenToSquare,pia-fa-valid' ) {
+            <fa-icon class="pia-fa-valid" [icon]="faPenToSquare"></fa-icon>
+            } @if ( sidStatusService.sidStatusIcon[ sidStatusService.itemStatus[
+            dataSection.id + '.' + dataItem.id ] ] == 'faGear' ) {
+            <fa-icon [icon]="faGear"></fa-icon>
+            } @if ( sidStatusService.sidStatusIcon[ sidStatusService.itemStatus[
+            dataSection.id + '.' + dataItem.id ] ] == 'faGear,pia-fa-valid' ) {
+            <fa-icon class="pia-fa-valid" [icon]="faGear"></fa-icon>
+            } @if ( sidStatusService.sidStatusIcon[ sidStatusService.itemStatus[
+            dataSection.id + '.' + dataItem.id ] ] == 'faSquareCheck' ) {
+            <fa-icon class="pia-fa-valid" [icon]="faSquareCheck"></fa-icon>
+            }
+          </span>
+          }
+        </li>
+        } }
       </ul>
+      }
     </div>
+    }
   </div>
-  <ng-template #statusSettingElse>
-    <div
-      class="pia-sectionBlock-body"
-      style="position:relative; height: 150px;"
-    >
-      <app-loading-overlay
-        [visibility]="true"
-        [childMode]="true"
-      ></app-loading-overlay>
-    </div>
-  </ng-template>
+  } @else {
+  <div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
+    <app-loading-overlay
+      [visibility]="true"
+      [childMode]="true"
+    ></app-loading-overlay>
+  </div>
+  }
 </div>
 
 <div class="pia-validatePIABlock">
-  <ng-container
-    *ngIf="
-      ((editMode.includes('validator') || editMode === 'local') &&
-        sidStatusService.enablePiaValidation &&
-        sidStatusService.enableDpoValidation) ||
-        (sidStatusService.piaIsRefused && sidStatusService.enableDpoValidation);
-      else defaultButton
-    "
+  @if ( ((editMode.includes('validator') || editMode === 'local') &&
+  sidStatusService.enablePiaValidation && sidStatusService.enableDpoValidation)
+  || (sidStatusService.piaIsRefused && sidStatusService.enableDpoValidation)) {
+  @if (sidStatusService.enablePiaValidation) {
+  <a
+    [routerLink]="['/pia', pia.id, 'section', '4', 'item', '4']"
+    class="btn btn-green btn-active"
+    >{{ "pia.sections.validate_pia" | translate }}</a
   >
-    <a
-      [routerLink]="['/pia', pia.id, 'section', '4', 'item', '4']"
-      class="btn btn-green btn-active"
-      *ngIf="sidStatusService.enablePiaValidation"
-      >{{ "pia.sections.validate_pia" | translate }}</a
-    >
-    <a
-      [routerLink]="['/pia', pia.id, 'section', '4', 'item', '5']"
-      class="btn btn-red btn-active"
-      *ngIf="sidStatusService.piaIsRefused"
-      >{{ "pia.sections.refuse_pia" | translate }}</a
-    >
-  </ng-container>
-  <ng-template #defaultButton>
-    <a class="btn btn-inactive">{{
-      "pia.sections.validate_pia" | translate
-    }}</a>
-  </ng-template>
+  } @if (sidStatusService.piaIsRefused) {
+  <a
+    [routerLink]="['/pia', pia.id, 'section', '4', 'item', '5']"
+    class="btn btn-red btn-active"
+    >{{ "pia.sections.refuse_pia" | translate }}</a
+  >
+  } } @else {
+  <a class="btn btn-inactive">{{ "pia.sections.validate_pia" | translate }}</a>
+  }
 </div>

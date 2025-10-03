@@ -9,17 +9,15 @@
       [class.is-not-empty]="f.uuid.value.length > 0"
       [class.is-invalid]="f.uuid.value.length > 0 && f.uuid.errors"
     >
-      <ng-container *ngIf="reset; else noReset">
-        <legend>{{ "authentication.account_recovery" | translate }}</legend>
-        <p class="is-valid">
-          {{ "authentication.recovery_code_message" | translate }}
-        </p>
-      </ng-container>
-      <ng-template #noReset>
-        <legend>{{ "authentication.create_account" | translate }}</legend>
-      </ng-template>
-
-      <p class="msg" *ngIf="msgFromBack">
+      @if (reset) {
+      <legend>{{ "authentication.account_recovery" | translate }}</legend>
+      <p class="is-valid">
+        {{ "authentication.recovery_code_message" | translate }}
+      </p>
+      } @else {
+      <legend>{{ "authentication.create_account" | translate }}</legend>
+      } @if (msgFromBack) {
+      <p class="msg">
         {{
           "authentication.errors." +
             (reset ? "account_recovery" : "create_account") +
@@ -27,6 +25,7 @@
             msgFromBack | translate
         }}
       </p>
+      }
 
       <input
         type="text"
@@ -44,9 +43,9 @@
             ? ("authentication.recovery_code" | translate)
             : ("authentication.activation_code" | translate | translate)
         }}
-        <span *ngIf="f.uuid.hasError('pattern')">{{
-          "authentication.wrong_activation_code" | translate
-        }}</span></label
+        @if (f.uuid.hasError('pattern')) {
+        <span>{{ "authentication.wrong_activation_code" | translate }}</span>
+        }</label
       >
     </div>
     <div class="validForm">
@@ -58,12 +57,9 @@
         type="submit"
         class="btn btn-green"
       >
-        <ng-container *ngIf="loading; else loadingElse">
-          ...
-        </ng-container>
-        <ng-template #loadingElse>
-          {{ "authentication.continue" | translate }}
-        </ng-template>
+        @if (loading) { ... } @else {
+        {{ "authentication.continue" | translate }}
+        }
       </button>
     </div>
   </fieldset>
