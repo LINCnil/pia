@@ -513,6 +513,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       // @ts-ignore
       tinymce.init({
+        license_key: 'gpl',
+        base_url: '/tinymce',
+        suffix: '.min',
         branding: false,
         menubar: false,
         entity_encoding: 'raw',
@@ -525,20 +528,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         selector: '#' + this.elementId,
         toolbar:
           'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-        skin: false,
+        placeholder: '',
         setup: editor => {
-          editor.on('init', () => {
-            this.editor = editor;
-          });
+          this.editor = editor;
           editor.on('focusout', () => {
-            // Save content
             this.questionForm.controls['text'].patchValue(editor.getContent());
-            this.questionContentFocusOut().then(() => {
-              this.editor = null;
-              // @ts-ignore
-              tinymce.remove(this.editor); // Warning: take more time then a new initiation
-              this.knowledgeBaseService.placeholder = null;
-            });
+            this.questionContentFocusOut();
+            this.closeEditor();
           });
         }
       });
@@ -656,5 +652,15 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         }
       ]
     );
+  }
+
+  /**
+   * Close the editor.
+   * @private
+   */
+  private closeEditor(): void {
+    this.knowledgeBaseService.placeholder = null;
+    tinymce.remove(this.editor);
+    this.editor = null;
   }
 }

@@ -213,6 +213,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.knowledgeBaseService.placeholder = this.question.placeholder;
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
     tinymce.init({
+      license_key: 'gpl',
+      base_url: '/tinymce',
+      suffix: '.min',
       branding: false,
       menubar: false,
       statusbar: false,
@@ -221,10 +224,10 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      skin: false,
       selector: '#' + this.elementId,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      placeholder: '',
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {

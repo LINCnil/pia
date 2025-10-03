@@ -72,9 +72,6 @@ input {
     color: $pia-blue !important;
   }
 }
-.hide {
-  visibility: hidden;
-}
 .mask {
   visibility: hidden;
 }
@@ -97,7 +94,7 @@ input {
 // Mostly used for displayers
 .close,
 .hide {
-  display: none;
+  display: none !important;
 }
 .open {
   display: block !important;

@@ -155,7 +155,8 @@
               "
               [ngClass]="{
                 hide:
-                  editor || !evaluationForm.controls['actionPlanComment'].value
+                  editorActionPlanComment ||
+                  !evaluationForm.controls['actionPlanComment'].value
               }"
             ></div>
             <textarea
@@ -171,7 +172,7 @@
               (focusin)="actionPlanCommentFocusIn()"
               [ngClass]="{
                 hide:
-                  (!editor &&
+                  (!editorActionPlanComment &&
                     evaluationForm.controls['actionPlanComment'].value &&
                     evaluationForm.controls['actionPlanComment'].value.length >
                       0) ||

@@ -160,13 +160,13 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   measureContentFocusOut(): void {
     this.knowledgeBaseService.placeholder = null;
-    this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
 
     this.ngZone.run(() => {
+      this.editor = null;
       this.measure.content = userText;
       this.structureService.updateMeasureJson(
         this.section,
@@ -227,8 +227,10 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor(): void {
-    // this.knowledgeBaseService.placeholder = this.measure.placeholder;
     tinymce.init({
+      license_key: 'gpl',
+      base_url: '/tinymce',
+      suffix: '.min',
       branding: false,
       menubar: false,
       statusbar: false,
@@ -237,18 +239,18 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      skin: false,
       selector: '#' + this.elementId,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      placeholder: '',
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {
           this.measureForm.controls['measureContent'].patchValue(
             editor.getContent()
           );
+          tinymce.remove(editor);
           this.measureContentFocusOut();
-          tinymce.remove(this.editor);
         });
       }
     });

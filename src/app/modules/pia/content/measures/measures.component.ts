@@ -240,11 +240,11 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   measureContentFocusOut(): void {
     this.knowledgeBaseService.placeholder = null;
-    this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
+
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.content = userText;
     this.measuresService
@@ -252,6 +252,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       .then((response: Measure) => {
         this.measureModel.lock_version = response.lock_version;
         this.ngZone.run(() => {
+          this.editor = null;
           this.globalEvaluationService.validate();
         });
       })
@@ -358,6 +359,9 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.knowledgeBaseService.placeholder = this.measure.placeholder;
     setTimeout(() => {
       tinymce.init({
+        license_key: 'gpl',
+        base_url: '/tinymce',
+        suffix: '.min',
         branding: false,
         menubar: false,
         entity_encoding: 'raw',
@@ -370,15 +374,15 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         selector: '#' + this.elementId,
         toolbar:
           'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-        skin: false,
+        placeholder: '',
         setup: editor => {
           this.editor = editor;
           editor.on('focusout', async () => {
             this.measureForm.controls['measureContent'].patchValue(
               editor.getContent()
             );
-            await this.measureContentFocusOut();
-            tinymce.remove(this.editor);
+            tinymce.remove(editor);
+            this.measureContentFocusOut();
           });
         }
       });
