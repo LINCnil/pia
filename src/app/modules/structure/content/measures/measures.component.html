@@ -55,12 +55,7 @@
           id="pia-measure-content-{{ id }}"
           formControlName="measureContent"
           (focusin)="measureContentFocusIn()"
-          [ngClass]="{
-            hide:
-              !editor &&
-              measureForm.controls['measureContent'].value &&
-              measureForm.controls['measureContent'].value.length > 0
-          }"
+          [ngClass]="{ hide: hideTextarea }"
           rows="8"
           cols="50"
           placeholder="{{ measure.placeholder | translate }}"

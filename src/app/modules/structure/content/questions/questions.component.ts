@@ -27,17 +27,16 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   standalone: false
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
-  userMeasures = [];
   @Input() structure: Structure;
   @Input() question: any;
   @Input() item: any;
   @Input() section: any;
   @Output() questionDeleted = new EventEmitter();
   questionForm: UntypedFormGroup;
-  lastSelectedTag: string;
   elementId: string;
   editor: any;
   editTitle = true;
+  hideTextarea = false;
   protected readonly faTrash = faTrash;
 
   constructor(
@@ -72,6 +71,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     }
 
     this.questionForm.controls['text'].patchValue(this.question.answer);
+    this.hideTextarea = this.question.answer?.length > 0;
   }
 
   ngOnDestroy(): void {
@@ -175,7 +175,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   /**
    * Disables question field + shows edit button + save data.
    */
-  questionContentFocusOut(): void {
+  async questionContentFocusOut(): Promise<void> {
     let userText = this.questionForm.controls['text'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -220,32 +220,30 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
       selector: '#' + this.elementId,
+      content_style: `
+        body {
+          font-size: 0.8rem;
+        }`,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       placeholder: '',
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {
-          this.questionForm.controls['text'].patchValue(editor.getContent());
-          this.questionContentFocusOut();
-          this.closeEditor();
+          const newContent = editor.getContent();
+          this.questionForm.controls['text'].patchValue(newContent);
+          this.questionContentFocusOut().then(() => {
+            this.hideTextarea = newContent.length > 0;
+            this.knowledgeBaseService.placeholder = null;
+            tinymce.remove(this.editor);
+            this.editor = null;
+          });
         });
       }
     });
-  }
-
-  /**
-   * Close the editor.
-   * @private
-   */
-  private closeEditor(): void {
-    this.knowledgeBaseService.placeholder = null;
-    tinymce.remove(this.editor);
-    this.editor = null;
   }
 }

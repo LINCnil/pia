@@ -121,10 +121,7 @@
             (focusin)="evaluationCommentFocusIn()"
             [ngClass]="{
               hide:
-                (!editorEvaluationComment &&
-                  evaluationForm.controls['evaluationComment'].value &&
-                  evaluationForm.controls['evaluationComment'].value.length >
-                    0) ||
+                hideTextareaEvaluationComment ||
                 globalEvaluationService.status >= 7
             }"
             [attr.placeholder]="comment_placeholder"
@@ -161,10 +158,7 @@
             (focusin)="actionPlanCommentFocusIn()"
             [ngClass]="{
               hide:
-                (!editorActionPlanComment &&
-                  evaluationForm.controls['actionPlanComment'].value &&
-                  evaluationForm.controls['actionPlanComment'].value.length >
-                    0) ||
+                hideTextareaActionPlanComment ||
                 globalEvaluationService.status >= 7
             }"
             placeholder="{{

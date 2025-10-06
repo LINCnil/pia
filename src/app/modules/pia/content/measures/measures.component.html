@@ -51,9 +51,9 @@
         <div
           (click)="measureContentFocusIn()"
           class="pia-measureBlock-contentText"
-          [innerHTML]="measureForm.controls['measureContent'].value | safeHtml"
+          [innerHTML]="measureForm.controls['measureContent']?.value | safeHtml"
           [ngClass]="{
-            hide: editor || !measureForm.controls['measureContent'].value
+            hide: editor || !measureForm.controls['measureContent']?.value
           }"
         ></div>
         <textarea
@@ -64,12 +64,7 @@
           id="pia-measure-content-{{ measure.id }}"
           formControlName="measureContent"
           (focusin)="measureContentFocusIn()"
-          [ngClass]="{
-            hide:
-              !editor &&
-              measureForm.controls['measureContent'].value &&
-              measureForm.controls['measureContent'].value.length > 0
-          }"
+          [ngClass]="{ hide: hideTextarea }"
           rows="8"
           cols="50"
           placeholder="{{ measure.placeholder | translate }}"

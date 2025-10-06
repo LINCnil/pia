@@ -26,6 +26,7 @@
       right: 0;
       left: 0;
       border-top: 3px solid $pia-green;
+      background-color: transparent !important;
       &:before {
         content: "";
         position: absolute;
@@ -37,8 +38,10 @@
         margin-left: -16px;
       }
       .tox-toolbar-overlord {
+        background-color: transparent !important;
         .tox-toolbar__primary {
           justify-content: center;
+          background-color: transparent !important;
           .tox-toolbar__group {
             background-color: $pia-green !important;
           }

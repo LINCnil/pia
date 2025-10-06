@@ -57,6 +57,8 @@ export class EvaluationsComponent
   editorActionPlanComment: any;
   editorEvaluationComment: any;
   loading = false;
+  hideTextareaEvaluationComment = false;
+  hideTextareaActionPlanComment = false;
 
   protected readonly faCheck = faCheck;
   protected readonly faXmark = faXmark;
@@ -197,9 +199,13 @@ export class EvaluationsComponent
           this.evaluationForm.controls['actionPlanComment'].patchValue(
             this.evaluation.action_plan_comment
           );
+          this.hideTextareaActionPlanComment =
+            this.evaluation.action_plan_comment?.length > 0;
           this.evaluationForm.controls['evaluationComment'].patchValue(
             this.evaluation.evaluation_comment
           );
+          this.hideTextareaEvaluationComment =
+            this.evaluation.evaluation_comment?.length > 0;
           if (this.evaluation.gauges) {
             this.evaluationForm.controls['gaugeX'].patchValue(
               this.evaluation.gauges['x']
@@ -341,7 +347,7 @@ export class EvaluationsComponent
   /**
    * Executes actions when losing focus from action plan comment.
    */
-  actionPlanCommentFocusOut(): void {
+  async actionPlanCommentFocusOut(): Promise<void> {
     this.knowledgeBaseService.placeholder = null;
     this.editorActionPlanComment = null;
     let userText = this.evaluationForm.controls['actionPlanComment'].value;
@@ -372,7 +378,7 @@ export class EvaluationsComponent
   /**
    * Executes actions when losing focus from evaluation comment.
    */
-  evaluationCommentFocusOut(): void {
+  async evaluationCommentFocusOut(): Promise<void> {
     this.knowledgeBaseService.placeholder = null;
     this.editorEvaluationComment = null;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
@@ -473,11 +479,14 @@ export class EvaluationsComponent
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: autofocus ? elementId : '',
       autoresize_min_height: 40,
       selector: '#' + elementId,
+      content_style: `
+          body {
+            font-size: 0.8rem;
+          }`,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       placeholder: '',
@@ -486,20 +495,22 @@ export class EvaluationsComponent
         if (field === 'actionPlanComment') {
           this.editorActionPlanComment = editor;
           this.editorActionPlanComment.on('focusout', () => {
-            this.evaluationForm.controls[field].patchValue(
-              this.editorActionPlanComment.getContent()
-            );
-            this.actionPlanCommentFocusOut();
-            tinymce.remove(this.editorActionPlanComment);
+            const newContent = this.editorActionPlanComment.getContent();
+            this.evaluationForm.controls[field].patchValue(newContent);
+            this.actionPlanCommentFocusOut().then(() => {
+              this.hideTextareaActionPlanComment = newContent.length > 0;
+              tinymce.remove(this.editorActionPlanComment);
+            });
           });
         } else {
           this.editorEvaluationComment = editor;
           this.editorEvaluationComment.on('focusout', () => {
-            this.evaluationForm.controls[field].patchValue(
-              this.editorEvaluationComment.getContent()
-            );
-            this.evaluationCommentFocusOut();
-            tinymce.remove(this.editorEvaluationComment);
+            const newContent = this.editorEvaluationComment.getContent();
+            this.evaluationForm.controls[field].patchValue(newContent);
+            this.evaluationCommentFocusOut().then(() => {
+              this.hideTextareaEvaluationComment = newContent.length > 0;
+              tinymce.remove(this.editorEvaluationComment);
+            });
           });
         }
       }

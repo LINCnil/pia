@@ -7,8 +7,6 @@ import {
   NgZone
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import { debounceTime, map, filter } from 'rxjs/operators';
-
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { Evaluation } from 'src/app/models/evaluation.model';
 import { Measure } from 'src/app/models/measure.model';
@@ -48,6 +46,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   editor: any;
   loading = false;
   gaugeValue = 0;
+  hideTextarea = false;
 
   constructor(
     private router: Router,
@@ -92,6 +91,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             });
           }
           this.questionForm.controls['text'].patchValue(this.answer.data.text);
+          this.hideTextarea = this.answer.data.text?.length > 0;
           if (this.answer.data.list) {
             const dataList = this.answer.data.list.filter(l => {
               return l && l.length > 0;
@@ -293,7 +293,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         list: this.answer.data.list
       };
 
-      // this.loading = true;
       await this.answerService
         .update(this.answer)
         .then((answer: Answer) => {
@@ -307,9 +306,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.conflictDialog(error);
           }
         });
-      // .finally(() => {
-      //   this.loading = false;
-      // });
     } else if (!this.answer.id && userText !== '') {
       if (
         this.questionForm.value.text &&
@@ -323,15 +319,11 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           list: []
         };
 
-        // this.loading = true;
         await this.answerService.create(this.answer).then(() => {
           this.ngZone.run(() => {
             this.globalEvaluationService.validate();
           });
         });
-        // .finally(() => {
-        //   this.loading = false;
-        // });
       }
     }
   }
@@ -510,35 +502,41 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.knowledgeBaseService.placeholder = this.question.placeholder;
     this.knowledgeBaseService.search('', '', this.question.link_knowledge_base);
 
-    setTimeout(() => {
-      // @ts-ignore
-      tinymce.init({
-        license_key: 'gpl',
-        base_url: '/tinymce',
-        suffix: '.min',
-        branding: false,
-        menubar: false,
-        entity_encoding: 'raw',
-        statusbar: false,
-        plugins: 'autoresize lists',
-        forced_root_block: false,
-        autoresize_bottom_margin: 30,
-        auto_focus: this.elementId,
-        autoresize_min_height: 40,
-        selector: '#' + this.elementId,
-        toolbar:
-          'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-        placeholder: '',
-        setup: editor => {
-          this.editor = editor;
-          editor.on('focusout', () => {
-            this.questionForm.controls['text'].patchValue(editor.getContent());
-            this.questionContentFocusOut();
-            this.closeEditor();
+    // @ts-ignore
+    tinymce.init({
+      license_key: 'gpl',
+      base_url: '/tinymce',
+      suffix: '.min',
+      branding: false,
+      menubar: false,
+      entity_encoding: 'raw',
+      statusbar: false,
+      plugins: 'autoresize lists',
+      autoresize_bottom_margin: 30,
+      auto_focus: this.elementId,
+      autoresize_min_height: 40,
+      selector: '#' + this.elementId,
+      content_style: `
+        body {
+          font-size: 0.8rem;
+        }`,
+      toolbar:
+        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      placeholder: '',
+      setup: editor => {
+        this.editor = editor;
+        editor.on('focusout', () => {
+          const newContent = editor.getContent();
+          this.questionForm.controls['text'].patchValue(newContent);
+          this.questionContentFocusOut().then(() => {
+            this.hideTextarea = newContent.length > 0;
+            this.knowledgeBaseService.placeholder = null;
+            tinymce.remove(this.editor);
+            this.editor = null;
           });
-        }
-      });
-    }, 100);
+        });
+      }
+    });
   }
 
   /**
@@ -652,15 +650,5 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         }
       ]
     );
-  }
-
-  /**
-   * Close the editor.
-   * @private
-   */
-  private closeEditor(): void {
-    this.knowledgeBaseService.placeholder = null;
-    tinymce.remove(this.editor);
-    this.editor = null;
   }
 }
