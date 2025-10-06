@@ -3,15 +3,16 @@
     {{ "knowledge_base.choose_knowledge_base" | translate }}
   </h3>
 
+  @if (customKnowledgeBases) {
   <select
-    *ngIf="customKnowledgeBases"
     (change)="switch(selectedKnowledBase)"
     [(ngModel)]="selectedKnowledBase"
   >
-    <option [value]="base.id" *ngFor="let base of customKnowledgeBases">{{
-      base.name
-    }}</option>
+    @for (base of customKnowledgeBases; track base) {
+    <option [value]="base.id">{{ base.name }}</option>
+    }
   </select>
+  }
 
   <br /><br />
   <div class="pia-knowledgeBaseBlock-searchForm">
@@ -25,19 +26,16 @@
         <fa-icon [icon]="faSearch"></fa-icon>
       </button>
     </form>
-    <div
-      *ngIf="knowledgeBaseService.placeholder"
-      class="pia-knowledgeBaseBlock-placeholder bounceIn"
-    >
+    @if (knowledgeBaseService.placeholder) {
+    <div class="pia-knowledgeBaseBlock-placeholder bounceIn">
       <div>{{ "knowledge_base.placeholder_help" | translate }}</div>
       <div>{{ knowledgeBaseService.placeholder | translate }}</div>
     </div>
+    }
   </div>
 
-  <div
-    class="pia-knowledgeBaseBlock-filters"
-    *ngIf="item && item.filter_by === 'measure'"
-  >
+  @if (item && item.filter_by === 'measure') {
+  <div class="pia-knowledgeBaseBlock-filters">
     <div>{{ "knowledge_base.filters.title" | translate }}</div>
     <button
       class="btn active"
@@ -75,25 +73,20 @@
       {{ "knowledge_base.filters.general_measures" | translate }}
     </button>
   </div>
-
-  <div
-    *ngIf="
-      knowledgeBaseService.knowledgeBaseData.length > 0;
-      else noKnowledgeBaseData
-    "
-    class="pia-knowledgeBaseBlock-list"
-  >
+  } @if ( knowledgeBaseService.knowledgeBaseData.length > 0) {
+  <div class="pia-knowledgeBaseBlock-list">
+    @for (itemKb of knowledgeBaseService.knowledgeBaseData; track itemKb) {
     <app-knowledge-base-item
-      *ngFor="let itemKb of knowledgeBaseService.knowledgeBaseData"
       [item]="item"
       [itemKb]="itemKb"
       [editMode]="editMode"
       (newMeasureEvent)="addNewMeasure($event)"
     ></app-knowledge-base-item>
+    }
   </div>
-  <ng-template #noKnowledgeBaseData>
-    <div class="pia-knowledgeBaseBlock-list">
-      {{ "knowledge_base.filters.no_result" | translate }}
-    </div>
-  </ng-template>
+  } @else {
+  <div class="pia-knowledgeBaseBlock-list">
+    {{ "knowledge_base.filters.no_result" | translate }}
+  </div>
+  }
 </div>

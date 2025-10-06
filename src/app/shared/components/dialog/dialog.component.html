@@ -1,11 +1,11 @@
+@if (message) {
 <div
   class="pia-modalBlock open"
   [id]="message.data && message.data.modal_id ? message.data.modal_id : null"
-  *ngIf="message"
 >
   <div class="pia-modalBlock-content">
+    @if (!message.data || (message.data && !message.data.no_cross_button)) {
     <button
-      *ngIf="!message.data || (message.data && !message.data.no_cross_button)"
       tabindex="3"
       type="button"
       class="pia-modalBlock-close btn"
@@ -14,96 +14,79 @@
     >
       <span class="pia-icons pia-icon-close-big"></span>
     </button>
-    <ng-container *ngIf="message.data && message.data.date; else templateElse">
-      <p
-        [innerHTML]="
-          message.text
-            | translate
-              : {
-                  date:
-                    message.data.date
-                    | date: 'short':'':languagesService.selectedLanguage
-                }
-        "
-      ></p>
-    </ng-container>
-    <ng-template #templateElse>
-      <p [innerHTML]="message.text | translate"></p>
-    </ng-template>
+    } @if (message.data && message.data.date) {
+    <p
+      [innerHTML]="
+        message.text
+          | translate
+            : {
+                date:
+                  message.data.date
+                  | date: 'short':'':languagesService.selectedLanguage
+              }
+      "
+    ></p>
+    } @else {
+    <p [innerHTML]="message.text | translate"></p>
+    } @if (message.data && message.data.additional_text) {
     <div
-      *ngIf="message.data && message.data.additional_text"
       class="abandonText"
       [innerHTML]="message.data.additional_text | translate"
     ></div>
-    <p *ngIf="message.class; else defaultMessageIcon">
-      <fa-icon
-        *ngIf="message.icon === 'faPenToSquare'"
-        [icon]="faPenToSquare"
-        [ngClass]="message.class"
-      ></fa-icon>
-      <fa-icon
-        *ngIf="message.icon === 'faGear'"
-        [icon]="faGear"
-        [ngClass]="message.class"
-      ></fa-icon>
-      <fa-icon
-        *ngIf="message.icon === 'faXmark'"
-        [icon]="faXmark"
-        [ngClass]="message.class"
-      ></fa-icon>
-      <fa-icon
-        *ngIf="message.icon === 'faCheck'"
-        [icon]="faCheck"
-        [ngClass]="message.class"
-      ></fa-icon>
+    } @if (message.class) {
+    <p>
+      @if (message.icon === 'faPenToSquare') {
+      <fa-icon [icon]="faPenToSquare" [ngClass]="message.class"></fa-icon>
+      } @if (message.icon === 'faGear') {
+      <fa-icon [icon]="faGear" [ngClass]="message.class"></fa-icon>
+      } @if (message.icon === 'faXmark') {
+      <fa-icon [icon]="faXmark" [ngClass]="message.class"></fa-icon>
+      } @if (message.icon === 'faCheck') {
+      <fa-icon [icon]="faCheck" [ngClass]="message.class"></fa-icon>
+      }
     </p>
-    <ng-template #defaultMessageIcon>
-      <p>
-        <i [ngClass]="message.icon" aria-hidden="true"></i>
-      </p>
-    </ng-template>
+    } @else {
+    <p>
+      <i [ngClass]="message.icon" aria-hidden="true"></i>
+    </p>
+    }
     <div class="pia-modalBlock-buttons-choice">
-      <ng-container *ngIf="message.type != 'others'; else othersBtns">
-        <button
-          tabindex="2"
-          style="margin-right: 30px;"
-          class="btn"
-          [ngClass]="
-            message.data && message.data.btn_no
-              ? message.data.btn_no
-              : 'btn-red'
-          "
-          (click)="message.noFn()"
-          type="button"
-          *ngIf="message.type === 'confirm'"
-          [innerHtml]="message.no | translate"
-        ></button>
-        <button
-          tabindex="1"
-          class="btn"
-          *ngIf="message.yes"
-          [ngClass]="
-            message.data && message.data.btn_yes
-              ? message.data.btn_yes
-              : 'btn-green'
-          "
-          type="button"
-          (click)="message.yesFn()"
-          [innerHtml]="message.yes | translate"
-        ></button>
-      </ng-container>
-      <ng-template #othersBtns>
-        <ng-container *ngFor="let btn of message.othersActionsBtn">
-          <button
-            tabindex="2"
-            style="margin-right: 30px;"
-            class="btn"
-            (click)="btn.callback()"
-            type="button"
-            [innerHtml]="btn.label | translate"
-          ></button>
-        </ng-container>
-      </ng-template>
+      @if (message.type != 'others') { @if (message.type === 'confirm') {
+      <button
+        tabindex="2"
+        style="margin-right: 30px;"
+        class="btn"
+        [ngClass]="
+          message.data && message.data.btn_no ? message.data.btn_no : 'btn-red'
+        "
+        (click)="message.noFn()"
+        type="button"
+        [innerHtml]="message.no | translate"
+      ></button>
+      } @if (message.yes) {
+      <button
+        tabindex="1"
+        class="btn"
+        [ngClass]="
+          message.data && message.data.btn_yes
+            ? message.data.btn_yes
+            : 'btn-green'
+        "
+        type="button"
+        (click)="message.yesFn()"
+        [innerHtml]="message.yes | translate"
+      ></button>
+      } } @else { @for (btn of message.othersActionsBtn; track btn) {
+      <button
+        tabindex="2"
+        style="margin-right: 30px;"
+        class="btn"
+        (click)="btn.callback()"
+        type="button"
+        [innerHtml]="btn.label | translate"
+      ></button>
+      } }
     </div>
   </div>
 </div>
+}

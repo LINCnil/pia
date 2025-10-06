@@ -139,41 +139,33 @@
       </form>
 
       <!-- Display adequate text according to the signed attachment available or not -->
-      <div
-        class="pia-entryContentBlock-content-status"
-        *ngIf="pia.status === 3"
-      >
-        <ng-container
-          *ngIf="
-            !(
-              attachmentsService.signedAttachments &&
-              attachmentsService.signedAttachments.length > 0
-            );
-            else piaSignedAndValidated
-          "
-        >
-          <p>{{ "validation_page.waiting_for_signature" | translate }}</p>
-          <fa-icon [icon]="faCog"></fa-icon>
-        </ng-container>
-        <ng-template #piaSignedAndValidated>
-          <fa-icon [icon]="faCheckSquare"></fa-icon>
-          <p>
-            {{ "validation_page.validated_pia_with_signature" | translate }}
-          </p>
-        </ng-template>
+      @if (pia.status === 3) {
+      <div class="pia-entryContentBlock-content-status">
+        @if ( !( attachmentsService.signedAttachments &&
+        attachmentsService.signedAttachments.length > 0 )) {
+        <p>{{ "validation_page.waiting_for_signature" | translate }}</p>
+        <fa-icon [icon]="faCog"></fa-icon>
+        } @else {
+        <fa-icon [icon]="faCheckSquare"></fa-icon>
+        <p>
+          {{ "validation_page.validated_pia_with_signature" | translate }}
+        </p>
+        }
       </div>
+      }
     </div>
   </div>
 
+  @if (pia.status === 3) {
   <button
     [ngClass]="{ 'disabled-validation': pia.is_example === 1 }"
     type="button"
     (click)="addAttachment()"
-    *ngIf="pia.status === 3"
     class="pia-entryContentBlock-submitAttachmentButton btn btn-red"
   >
     {{ "validation_page.add_signed_pia" | translate }}
   </button>
+  }
 
   <div>
     <app-pia-validate-history [pia]="pia"></app-pia-validate-history>
@@ -181,14 +173,9 @@
 
   <div class="pia-entryContentBlock-footer">
     <!-- Attachments block -->
-    <div
-      class="pia-entryContentBlock-footer-validationAttachments"
-      *ngIf="
-        pia.status === 3 &&
-        attachmentsService.signedAttachments &&
-        attachmentsService.signedAttachments.length > 0
-      "
-    >
+    @if ( pia.status === 3 && attachmentsService.signedAttachments &&
+    attachmentsService.signedAttachments.length > 0 ) {
+    <div class="pia-entryContentBlock-footer-validationAttachments">
       <!-- Last signed attachment -->
       <div>
         <h2>{{ "validation_page.latest_signed_attachment" | translate }}</h2>
@@ -202,8 +189,8 @@
           >
             {{ attachmentsService.signedAttachments[0].name }}
           </a>
+          @if (pia.status !== 4) {
           <button
-            *ngIf="pia.status !== 4"
             type="button"
             class="btn"
             (click)="
@@ -213,51 +200,43 @@
           >
             <span class="pia-icons pia-icon-close"></span>
           </button>
+          }
         </div>
       </div>
-
       <!-- Previous signed attachments history -->
-      <div
-        *ngIf="
-          attachmentsService.signedAttachments &&
-          attachmentsService.signedAttachments.length > 1
-        "
-        class="pia-entryContentBlock-footer-validationAttachments-history"
-      >
+      @if ( attachmentsService.signedAttachments &&
+      attachmentsService.signedAttachments.length > 1 ) {
+      <div class="pia-entryContentBlock-footer-validationAttachments-history">
         <h2>{{ "validation_page.signed_attachments_history" | translate }}</h2>
-        <div
-          *ngFor="
-            let signed_attachment of attachmentsService.signedAttachments | slice:1;;
-            let i = index
-          "
-        >
+        @for ( signed_attachment of attachmentsService.signedAttachments |
+        slice:1; track signed_attachment) {
+        <div>
           <span class="pia-icons pia-icon-file-pdf-blue"></span>
+          @if ( signed_attachment.file && signed_attachment.file.length > 0) {
           <a
             href="javascript:;"
             (click)="downloadAttachment(signed_attachment.id)"
-            *ngIf="
-              signed_attachment.file && signed_attachment.file.length > 0;
-              else signedAttachmentName
-            "
           >
             {{ signed_attachment.name }}</a
           >
-          <ng-template #signedAttachmentName>
-            <span
-              ><del> {{ signed_attachment.name }}</del></span
-            >
-          </ng-template>
-          <div
-            *ngIf="signed_attachment.comment"
-            [innerHTML]="signed_attachment.comment | nl2br"
-          ></div>
+          } @else {
+          <span
+            ><del> {{ signed_attachment.name }}</del></span
+          >
+          } @if (signed_attachment.comment) {
+          <div [innerHTML]="signed_attachment.comment | nl2br"></div>
+          }
         </div>
+        }
       </div>
+      }
     </div>
+    }
   </div>
 </div>
 
-<app-modal *ngIf="removeAttachmentId">
+@if (removeAttachmentId) {
+<app-modal>
   <p [innerHTML]="'modals.remove_attachment.content' | translate"></p>
   <form
     [formGroup]="removeAttachmentForm"
@@ -295,3 +274,4 @@
     </button>
   </div>
 </app-modal>
+}

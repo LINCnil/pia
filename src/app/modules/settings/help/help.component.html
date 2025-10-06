@@ -18,22 +18,23 @@
             href="#/entries"
           ></a>
         </div>
-        <div *ngFor="let data of tableOfTitles">
+        @for (data of tableOfTitles; track data) {
+        <div>
           <div class="pia-sectionBlock-title">
             {{ data[0] }}
             <hr />
           </div>
           <ul class="pia-sectionBlock-list">
-            <li
-              *ngFor="let subTitle of data[1]"
-              [ngClass]="{ active: subTitle === activeElement }"
-            >
+            @for (subTitle of data[1]; track subTitle) {
+            <li [ngClass]="{ active: subTitle === activeElement }">
               <a href="javascript:;" (click)="getAnchor($event, subTitle)">{{
                 subTitle
               }}</a>
             </li>
+            }
           </ul>
         </div>
+        }
       </aside>
     </div>
     <div class="small-12 medium-9 columns">

@@ -1,8 +1,10 @@
 <div class="pia-exportBlock hide-for-print">
-  <div class="pia-exportBlock-title" *ngIf="!editMode">
+  @if (!editMode) {
+  <div class="pia-exportBlock-title">
     <fa-icon [icon]="faDownload"></fa-icon>
     {{ "summary.actions.print_and_download" | translate }}
   </div>
+  }
   <!-- Print -->
   <div class="pia-exportBlock-print">
     <button onclick="print()">{{ "summary.actions.print" | translate }}</button>

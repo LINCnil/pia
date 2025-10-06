@@ -12,13 +12,10 @@
     </div>
     <div class="pia-knowledgeBaseBlock-item-definition">
       <p (click)="displayItem()">{{ itemKb.category | translate }}</p>
+      @if ( itemKb.filters.startsWith('measure.') && itemKb.filters !==
+      'measure.definition' && _globalEvaluationService.answerEditionEnabled &&
+      (editMode.includes('author') || editMode === 'local') ) {
       <button
-        *ngIf="
-          itemKb.filters.startsWith('measure.') &&
-          itemKb.filters !== 'measure.definition' &&
-          _globalEvaluationService.answerEditionEnabled &&
-          (editMode.includes('author') || editMode === 'local')
-        "
         class="btn"
         type="button"
         (click)="addNewMeasure()"
@@ -30,6 +27,7 @@
         <span class="pia-icons pia-icon-add"></span>
         <span>{{ "knowledge_base.add_measure" | translate }}</span>
       </button>
+      }
       <div style="display:none;">
         <span class="pia-icons pia-icon-hand"></span>
         <p>{{ "knowledge_base.add_measure_hint" | translate }}</p>
