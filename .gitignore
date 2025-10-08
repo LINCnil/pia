@@ -55,7 +55,7 @@ projects/*
 
 .idea
 .env
-.yarn
+.yarn/install-state.gz
 dev-app-update.yml
 cypress.env.json
 electron/releases/
