@@ -291,10 +291,9 @@ export class EvaluationsComponent
       if (evaluationPlanValue && evaluationPlanValue.length > 0) {
         if (commentValue && commentValue.length > 0) {
           this.evaluationForm.controls['evaluationComment'].setValue(
-            evaluationPlanValue + '\n<br>' + commentValue
+            `${evaluationPlanValue}${commentValue}`
           );
-          this.evaluation.evaluation_comment =
-            evaluationPlanValue + '\n<br>' + commentValue;
+          this.evaluation.evaluation_comment = `${evaluationPlanValue}${commentValue}`;
         } else {
           this.evaluationForm.controls['evaluationComment'].setValue(
             evaluationPlanValue
@@ -302,6 +301,8 @@ export class EvaluationsComponent
           this.evaluation.evaluation_comment = evaluationPlanValue;
         }
         this.evaluationForm.controls['actionPlanComment'].setValue('');
+        this.hideTextareaActionPlanComment = false;
+        this.hideTextareaEvaluationComment = true;
         this.evaluation.action_plan_comment = undefined;
       }
     } else {
