@@ -8,7 +8,7 @@ export function context_validation() {
     });
 
     context("Validation for 'Vue d'ensemble'", () => {
-      it("should acept evaluation", () => {
+      it("should accept evaluation", () => {
         cy.get_current_pia_id(id => {
           cy.go_edited_pia(id, 1, 1);
           cy.acceptEval();
@@ -28,7 +28,7 @@ export function context_validation() {
     });
 
     context("Validation for 'Données, processus et supports'", () => {
-      it("should acept evaluation", () => {
+      it("should accept evaluation", () => {
         cy.get_current_pia_id(id => {
           cy.go_edited_pia(id, 1, 2);
           cy.acceptEval();

@@ -11,7 +11,7 @@ export function risk_validation() {
      */
 
     context("Validation for 'Mesures existantes ou prévues'", () => {
-      it("should acept evaluation", () => {
+      it("should accept evaluation", () => {
         cy.get_current_pia_id(id => {
           cy.go_edited_pia(id, 3, 1);
           cy.acceptMultipleEval();
@@ -31,7 +31,7 @@ export function risk_validation() {
     });
 
     context("Validation for 'Accès illégitime à des données'", () => {
-      it("should acept evaluation", () => {
+      it("should accept evaluation", () => {
         cy.get_current_pia_id(id => {
           cy.go_edited_pia(id, 3, 2);
           cy.acceptEval();
@@ -51,7 +51,7 @@ export function risk_validation() {
     });
 
     context("Validation for 'Modification non désirées de données'", () => {
-      it("should acept evaluation", () => {
+      it("should accept evaluation", () => {
         cy.get_current_pia_id(id => {
           cy.go_edited_pia(id, 3, 3);
           cy.acceptEval();
@@ -71,7 +71,7 @@ export function risk_validation() {
     });
 
     context("Validation for 'Disparition de données'", () => {
-      it("should acept evaluation", () => {
+      it("should accept evaluation", () => {
         cy.get_current_pia_id(id => {
           cy.go_edited_pia(id, 3, 4);
           cy.acceptEval();
