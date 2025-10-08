@@ -67,7 +67,7 @@
     "html2canvas": "1.0.0",
     "html2pdf.js": "^0.10.1",
     "intro.js": "^2.9.3",
-    "jspdf": "^2.5.1",
+    "jspdf": "^3.0.2",
     "jszip": "^3.7.1",
     "ng2-pdfjs-viewer": "^25.0.9",
     "ngx-chips": "3.0.0",
