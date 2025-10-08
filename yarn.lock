@@ -425,24 +425,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/core@npm:^20.3.2":
-  version: 20.3.3
-  resolution: "@angular/core@npm:20.3.3"
-  dependencies:
-    tslib: "npm:^2.3.0"
-  peerDependencies:
-    "@angular/compiler": 20.3.3
-    rxjs: ^6.5.3 || ^7.4.0
-    zone.js: ~0.15.0
-  peerDependenciesMeta:
-    "@angular/compiler":
-      optional: true
-    zone.js:
-      optional: true
-  checksum: 10c0/af10e914c98e4e4a5cb2a0548da9f9ec34c8cd6a750c3c25f2ca56c27286b33b3959bef2d6cc2cdea259593cde227b51ccc1eda745e03d45b5f65042b1156b16
-  languageName: node
-  linkType: hard
-
 "@angular/forms@npm:^20.3.2":
   version: 20.3.3
   resolution: "@angular/forms@npm:20.3.3"
@@ -11153,7 +11135,6 @@ __metadata:
     "@angular/common": "npm:^20.3.2"
     "@angular/compiler": "npm:^20.3.2"
     "@angular/compiler-cli": "npm:^20.3.2"
-    "@angular/core": "npm:^20.3.2"
     "@angular/forms": "npm:^20.3.2"
     "@angular/platform-browser": "npm:^20.3.2"
     "@angular/platform-browser-dynamic": "npm:^20.3.2"
