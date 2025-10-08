@@ -59,3 +59,4 @@ projects/*
 dev-app-update.yml
 cypress.env.json
 electron/releases/
+cypress/screenshots/
