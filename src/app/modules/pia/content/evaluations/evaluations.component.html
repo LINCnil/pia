@@ -1,11 +1,11 @@
 @if ( globalEvaluationService && globalEvaluationService.status != null &&
 !loading) { @if (globalEvaluationService.status >= 3) {
-<div
-  class="pia-evaluationBlock"
-  [ngClass]="{
+  <div
+    class="pia-evaluationBlock"
+    [ngClass]="{
     'pia-evaluationBlock-shadowed': item.evaluation_mode === 'item'
   }"
->
+  >
   <div
     [ngClass]="{
       'pia-evaluationBlock-self-padding': item.evaluation_mode === 'item'
@@ -121,10 +121,7 @@
             (focusin)="evaluationCommentFocusIn()"
             [ngClass]="{
               hide:
-                (!editorEvaluationComment &&
-                  evaluationForm.controls['evaluationComment'].value &&
-                  evaluationForm.controls['evaluationComment'].value.length >
-                    0) ||
+                hideTextareaEvaluationComment ||
                 globalEvaluationService.status >= 7
             }"
             [attr.placeholder]="comment_placeholder"
@@ -145,7 +142,7 @@
             "
             [ngClass]="{
               hide:
-                editor || !evaluationForm.controls['actionPlanComment'].value
+                editorActionPlanComment || !evaluationForm.controls['actionPlanComment'].value
             }"
           ></div>
           <textarea
@@ -161,10 +158,7 @@
             (focusin)="actionPlanCommentFocusIn()"
             [ngClass]="{
               hide:
-                (!editor &&
-                  evaluationForm.controls['actionPlanComment'].value &&
-                  evaluationForm.controls['actionPlanComment'].value.length >
-                    0) ||
+                hideTextareaActionPlanComment ||
                 globalEvaluationService.status >= 7
             }"
             placeholder="{{

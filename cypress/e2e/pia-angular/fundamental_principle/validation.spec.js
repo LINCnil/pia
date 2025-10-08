@@ -11,7 +11,7 @@ export function fundamental_principle_validation() {
      */
 
     context("Validation for 'Proportionnalité et nécessité'", () => {
-      it("should acept evaluation", () => {
+      it("should accept evaluation", () => {
         cy.get_current_pia_id(id => {
           cy.go_edited_pia(id, 2, 1);
           cy.acceptMultipleEval();
@@ -31,7 +31,7 @@ export function fundamental_principle_validation() {
     });
 
     context("Validation for 'Mesures protectrices des droits'", () => {
-      it("should acept evaluation", () => {
+      it("should accept evaluation", () => {
         cy.get_current_pia_id(id => {
           cy.go_edited_pia(id, 2, 2);
           cy.acceptMultipleEval();

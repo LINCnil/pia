@@ -29,6 +29,11 @@
                 "input": "node_modules/ng2-pdfjs-viewer/pdfjs",
                 "output": "/assets/pdfjs"
               },
+              {
+                "glob": "**/*",
+                "input": "node_modules/tinymce",
+                "output": "/tinymce/"
+              },
               "src/assets",
               "src/android-chrome-192x192.png",
               "src/android-chrome-256x256.png",
@@ -43,17 +48,10 @@
               "src/safari-pinned-tab.svg",
               "src/manifest.webmanifest"
             ],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/intro.js/introjs.css",
-              "node_modules/tinymce/skins/lightgray/skin.min.css"
-            ],
+            "styles": ["src/styles.scss", "node_modules/intro.js/introjs.css"],
             "scripts": [
               "node_modules/save-svg-as-png/lib/saveSvgAsPng.js",
-              "node_modules/tinymce/tinymce.js",
-              "node_modules/tinymce/themes/modern/theme.js",
-              "node_modules/tinymce/plugins/lists/plugin.js",
-              "node_modules/tinymce/plugins/autoresize/plugin.js",
+              "node_modules/tinymce/tinymce.min.js",
               "node_modules/intro.js/intro.js"
             ],
             "extractLicenses": false,

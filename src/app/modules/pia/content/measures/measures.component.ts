@@ -18,7 +18,6 @@ import { Measure } from 'src/app/models/measure.model';
 import { AnswerService } from 'src/app/services/answer.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { MeasureService } from 'src/app/services/measures.service';
-import { Pia } from '../../../../models/pia.model';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -41,11 +40,11 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   editor: any;
   elementId: string;
   evaluation: Evaluation = new Evaluation();
-  displayDeleteButton = true;
   measureForm: UntypedFormGroup;
   measureModel: Measure = new Measure();
   editTitle = true;
   loading = false;
+  hideTextarea = false;
 
   protected readonly faTrash = faTrash;
 
@@ -81,6 +80,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           this.measureForm.controls['measureContent'].patchValue(
             this.measureModel.content
           );
+          this.hideTextarea = this.measureModel.content?.length > 0;
           if (this.measureModel.title) {
             this.measureForm.controls['measureTitle'].disable();
             this.editTitle = false;
@@ -238,13 +238,13 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Shows measure edit button.
    * Saves data from content field.
    */
-  measureContentFocusOut(): void {
+  async measureContentFocusOut(): Promise<void> {
     this.knowledgeBaseService.placeholder = null;
-    this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
+
     this.measureModel.pia_id = this.pia.id;
     this.measureModel.content = userText;
     this.measuresService
@@ -252,6 +252,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       .then((response: Measure) => {
         this.measureModel.lock_version = response.lock_version;
         this.ngZone.run(() => {
+          this.editor = null;
           this.globalEvaluationService.validate();
         });
       })
@@ -356,40 +357,44 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   loadEditor(): void {
     this.knowledgeBaseService.placeholder = this.measure.placeholder;
-    setTimeout(() => {
-      tinymce.init({
-        branding: false,
-        menubar: false,
-        entity_encoding: 'raw',
-        statusbar: false,
-        plugins: 'autoresize lists',
-        forced_root_block: false,
-        autoresize_bottom_margin: 30,
-        auto_focus: this.elementId,
-        autoresize_min_height: 40,
-        selector: '#' + this.elementId,
-        toolbar:
-          'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-        skin: false,
-        setup: editor => {
-          this.editor = editor;
-          editor.on('focusout', async () => {
-            this.measureForm.controls['measureContent'].patchValue(
-              editor.getContent()
-            );
-            await this.measureContentFocusOut();
-            tinymce.remove(this.editor);
+    tinymce.init({
+      license_key: 'gpl',
+      base_url: '/tinymce',
+      suffix: '.min',
+      branding: false,
+      menubar: false,
+      entity_encoding: 'raw',
+      statusbar: false,
+      plugins: 'autoresize lists',
+      autoresize_bottom_margin: 30,
+      auto_focus: this.elementId,
+      autoresize_min_height: 40,
+      selector: '#' + this.elementId,
+      content_style: `
+        body {
+          font-size: 0.8rem;
+        }`,
+      toolbar:
+        'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      placeholder: '',
+      setup: editor => {
+        this.editor = editor;
+        editor.on('focusout', async () => {
+          const newContent = editor.getContent();
+          this.measureForm.controls['measureContent'].patchValue(newContent);
+          this.measureContentFocusOut().then(() => {
+            this.hideTextarea = newContent.length > 0;
+            tinymce.remove(editor);
           });
-        }
-      });
-    }, 100);
+        });
+      }
+    });
   }
 
   /**
    * Open a dialog modal for deal with the conflict
-   * @param err
    */
-  conflictDialog(field, error) {
+  conflictDialog(field, error): void {
     let additional_text: string;
     const currentUrl = this.router.url;
     // Text
@@ -439,7 +444,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.keep_new'),
           callback: () => {
-            let newMeasureFixed: Measure = { ...error.params };
+            const newMeasureFixed: Measure = { ...error.params };
             newMeasureFixed.id = error.record.id;
             newMeasureFixed.lock_version = error.record.lock_version;
             this.measuresService.update(newMeasureFixed).then(() => {
@@ -455,8 +460,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         {
           label: this.translateService.instant('conflict.merge'),
           callback: () => {
-            let newMeasureFixed: Measure = { ...error.record };
-            let separator = field === 'title' ? ' ' : '\n';
+            const newMeasureFixed: Measure = { ...error.record };
+            const separator = field === 'title' ? ' ' : '\n';
             newMeasureFixed[field] += separator + error.params[field];
             this.measuresService.update(newMeasureFixed).then(() => {
               this.router

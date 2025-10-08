@@ -35,6 +35,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   displayDeleteButton = true;
   measureForm: UntypedFormGroup;
   editTitle = true;
+  hideTextarea = false;
 
   protected readonly faTrash = faTrash;
 
@@ -66,6 +67,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         this.measure.content
       );
     }
+    this.hideTextarea = this.measure.content?.length > 0;
 
     this.elementId = 'pia-measure-content-' + this.id;
   }
@@ -158,15 +160,15 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Shows measure edit button.
    * Saves data from content field.
    */
-  measureContentFocusOut(): void {
+  async measureContentFocusOut(): Promise<void> {
     this.knowledgeBaseService.placeholder = null;
-    this.editor = null;
     let userText = this.measureForm.controls['measureContent'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
 
     this.ngZone.run(() => {
+      this.editor = null;
       this.measure.content = userText;
       this.structureService.updateMeasureJson(
         this.section,
@@ -227,28 +229,34 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    * Loads wysiwyg editor.
    */
   loadEditor(): void {
-    // this.knowledgeBaseService.placeholder = this.measure.placeholder;
     tinymce.init({
+      license_key: 'gpl',
+      base_url: '/tinymce',
+      suffix: '.min',
       branding: false,
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: this.elementId,
       autoresize_min_height: 40,
-      skin: false,
       selector: '#' + this.elementId,
+      content_style: `
+        body {
+          font-size: 0.8rem;
+        }`,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
+      placeholder: '',
       setup: editor => {
         this.editor = editor;
         editor.on('focusout', () => {
-          this.measureForm.controls['measureContent'].patchValue(
-            editor.getContent()
-          );
-          this.measureContentFocusOut();
-          tinymce.remove(this.editor);
+          const newContent = editor.getContent();
+          this.measureForm.controls['measureContent'].patchValue(newContent);
+          this.measureContentFocusOut().then(() => {
+            this.hideTextarea = newContent.length > 0;
+            tinymce.remove(editor);
+          });
         });
       }
     });

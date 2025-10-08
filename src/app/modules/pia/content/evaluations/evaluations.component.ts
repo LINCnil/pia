@@ -54,9 +54,11 @@ export class EvaluationsComponent
   hasResizedContent = false;
   actionPlanCommentElementId: string;
   evaluationCommentElementId: string;
-  editor: any;
+  editorActionPlanComment: any;
   editorEvaluationComment: any;
   loading = false;
+  hideTextareaEvaluationComment = false;
+  hideTextareaActionPlanComment = false;
 
   protected readonly faCheck = faCheck;
   protected readonly faXmark = faXmark;
@@ -135,7 +137,7 @@ export class EvaluationsComponent
 
   ngOnDestroy(): void {
     this.placeholderSubscription.unsubscribe();
-    tinymce.remove(this.editor);
+    tinymce.remove(this.editorActionPlanComment);
     tinymce.remove(this.editorEvaluationComment);
   }
 
@@ -197,9 +199,13 @@ export class EvaluationsComponent
           this.evaluationForm.controls['actionPlanComment'].patchValue(
             this.evaluation.action_plan_comment
           );
+          this.hideTextareaActionPlanComment =
+            this.evaluation.action_plan_comment?.length > 0;
           this.evaluationForm.controls['evaluationComment'].patchValue(
             this.evaluation.evaluation_comment
           );
+          this.hideTextareaEvaluationComment =
+            this.evaluation.evaluation_comment?.length > 0;
           if (this.evaluation.gauges) {
             this.evaluationForm.controls['gaugeX'].patchValue(
               this.evaluation.gauges['x']
@@ -285,10 +291,9 @@ export class EvaluationsComponent
       if (evaluationPlanValue && evaluationPlanValue.length > 0) {
         if (commentValue && commentValue.length > 0) {
           this.evaluationForm.controls['evaluationComment'].setValue(
-            evaluationPlanValue + '\n<br>' + commentValue
+            `${evaluationPlanValue}${commentValue}`
           );
-          this.evaluation.evaluation_comment =
-            evaluationPlanValue + '\n<br>' + commentValue;
+          this.evaluation.evaluation_comment = `${evaluationPlanValue}${commentValue}`;
         } else {
           this.evaluationForm.controls['evaluationComment'].setValue(
             evaluationPlanValue
@@ -296,6 +301,8 @@ export class EvaluationsComponent
           this.evaluation.evaluation_comment = evaluationPlanValue;
         }
         this.evaluationForm.controls['actionPlanComment'].setValue('');
+        this.hideTextareaActionPlanComment = false;
+        this.hideTextareaEvaluationComment = true;
         this.evaluation.action_plan_comment = undefined;
       }
     } else {
@@ -341,9 +348,9 @@ export class EvaluationsComponent
   /**
    * Executes actions when losing focus from action plan comment.
    */
-  actionPlanCommentFocusOut(): void {
+  async actionPlanCommentFocusOut(): Promise<void> {
     this.knowledgeBaseService.placeholder = null;
-    this.editor = null;
+    this.editorActionPlanComment = null;
     let userText = this.evaluationForm.controls['actionPlanComment'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -372,30 +379,24 @@ export class EvaluationsComponent
   /**
    * Executes actions when losing focus from evaluation comment.
    */
-  evaluationCommentFocusOut(): void {
+  async evaluationCommentFocusOut(): Promise<void> {
     this.knowledgeBaseService.placeholder = null;
-    this.editorEvaluationComment = false;
+    this.editorEvaluationComment = null;
     let userText = this.evaluationForm.controls['evaluationComment'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.evaluation.evaluation_comment = userText;
-
     this.evaluation.global_status = 0;
-    // this.loading = true;
     this.evaluationService.update(this.evaluation).then(() => {
       this.evaluationEvent.emit(this.evaluation);
       this.ngZone.run(() => {
-        // this.loading = true;
-        this.globalEvaluationService.validate();
-        // .finally(() => {
-        //   this.loading = false;
-        // });
+        this.loading = true;
+        this.globalEvaluationService.validate().finally(() => {
+          this.loading = false;
+        });
       });
     });
-    // .finally(() => {
-    //   this.loading = false;
-    // });
   }
 
   /**
@@ -472,34 +473,47 @@ export class EvaluationsComponent
       elementId = this.evaluationCommentElementId;
     }
     tinymce.init({
+      license_key: 'gpl',
+      base_url: '/tinymce',
+      suffix: '.min',
       branding: false,
       menubar: false,
       statusbar: false,
       plugins: 'autoresize lists',
-      forced_root_block: false,
       autoresize_bottom_margin: 30,
       auto_focus: autofocus ? elementId : '',
       autoresize_min_height: 40,
       selector: '#' + elementId,
+      content_style: `
+          body {
+            font-size: 0.8rem;
+          }`,
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
-      skin: false,
+      placeholder: '',
       setup: editor => {
+        console.log(field);
         if (field === 'actionPlanComment') {
-          this.editor = editor;
+          this.editorActionPlanComment = editor;
+          this.editorActionPlanComment.on('focusout', () => {
+            const newContent = this.editorActionPlanComment.getContent();
+            this.evaluationForm.controls[field].patchValue(newContent);
+            this.actionPlanCommentFocusOut().then(() => {
+              this.hideTextareaActionPlanComment = newContent.length > 0;
+              tinymce.remove(this.editorActionPlanComment);
+            });
+          });
         } else {
           this.editorEvaluationComment = editor;
+          this.editorEvaluationComment.on('focusout', () => {
+            const newContent = this.editorEvaluationComment.getContent();
+            this.evaluationForm.controls[field].patchValue(newContent);
+            this.evaluationCommentFocusOut().then(() => {
+              this.hideTextareaEvaluationComment = newContent.length > 0;
+              tinymce.remove(this.editorEvaluationComment);
+            });
+          });
         }
-        editor.on('focusout', () => {
-          this.evaluationForm.controls[field].patchValue(editor.getContent());
-          if (field === 'actionPlanComment') {
-            this.actionPlanCommentFocusOut();
-            tinymce.remove(this.editor);
-          } else {
-            this.evaluationCommentFocusOut();
-            tinymce.remove(this.editorEvaluationComment);
-          }
-        });
       }
     });
   }

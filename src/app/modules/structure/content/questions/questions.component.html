@@ -46,7 +46,7 @@
           (click)="questionContentFocusIn()"
           class="pia-questionBlock-contentText"
           [innerHTML]="questionForm.controls['text'].value | safeHtml"
-          [ngClass]="{ hide: editor || !questionForm.controls['text'].value }"
+          [ngClass]="{ hide: editor || !questionForm.controls['text']?.value }"
         ></div>
         @if ( question.answer_type == 'text' || question.answer_type == 'gauge'
         ) {
@@ -55,14 +55,9 @@
           id="pia-question-content-{{ question.id }}"
           formControlName="text"
           name="pia-question"
-          minRows="8"
+          rows="8"
           cols="50"
-          [ngClass]="{
-            hide:
-              !editor &&
-              questionForm.controls['text'].value &&
-              questionForm.controls['text'].value.length > 0
-          }"
+          [ngClass]="{ hide: hideTextarea }"
           (focusin)="questionContentFocusIn()"
           placeholder="{{ question.placeholder | translate }}"
         >

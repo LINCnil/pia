@@ -55,6 +55,8 @@ projects/*
 
 .idea
 .env
+.yarn
 dev-app-update.yml
 cypress.env.json
 electron/releases/
+cypress/screenshots/
