@@ -1,5 +1,3 @@
-# Pia [v.3.2.2](https://github.com/LINCnil/pia/releases/tag/v3.2.2)
-
 # Le logiciel PIA / The PIA Software
 
 ## Présentation / Presentation
@@ -18,12 +16,10 @@ To translate the software, we invite you to make your changes [here](https://git
 
 # Development information
 
-![CI](https://github.com/lincnil/pia/workflows/integration-tests/badge.svg?branch=master)
+[![CI](https://github.com/LINCnil/pia/actions/workflows/integration-tests.yml/badge.svg?branch=master)](https://github.com/LINCnil/pia/actions/workflows/integration-tests.yml)
 [![CodeQL](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
-
-NodeJs version: 20.10.0
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Package Version
 
