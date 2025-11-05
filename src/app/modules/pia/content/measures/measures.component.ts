@@ -359,7 +359,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.knowledgeBaseService.placeholder = this.measure.placeholder;
     tinymce.init({
       license_key: 'gpl',
-      base_url: '/tinymce',
+      base_url: './tinymce',
       suffix: '.min',
       branding: false,
       menubar: false,

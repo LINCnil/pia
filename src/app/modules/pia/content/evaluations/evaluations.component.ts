@@ -474,7 +474,7 @@ export class EvaluationsComponent
     }
     tinymce.init({
       license_key: 'gpl',
-      base_url: '/tinymce',
+      base_url: './tinymce',
       suffix: '.min',
       branding: false,
       menubar: false,
