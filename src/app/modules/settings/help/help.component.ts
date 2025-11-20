@@ -27,9 +27,6 @@ export class HelpComponent implements OnInit {
       case 'fr':
         fileTranslation = 'fr';
         break;
-      case 'zh':
-        fileTranslation = 'zh';
-        break;
       default:
         fileTranslation = 'en';
     }
