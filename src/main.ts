@@ -28,6 +28,7 @@ import localeRo from '@angular/common/locales/ro';
 import localeBg from '@angular/common/locales/bg';
 import localeCz from '@angular/common/locales/cs';
 import localeEt from '@angular/common/locales/et';
+import localeZh from '@angular/common/locales/zh';
 
 // Register all locales
 registerLocaleData(localeFr);
@@ -52,6 +53,7 @@ registerLocaleData(localeRo);
 registerLocaleData(localeBg);
 registerLocaleData(localeCz);
 registerLocaleData(localeEt);
+registerLocaleData(localeZh);
 
 if (environment.production) {
   enableProdMode();

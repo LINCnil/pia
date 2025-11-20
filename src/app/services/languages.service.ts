@@ -34,7 +34,8 @@ export class LanguagesService {
       'ro',
       'sl',
       'sv',
-      'lv'
+      'lv',
+      'zh'
     ]);
     this.translateService.setDefaultLang('fr');
   }
@@ -51,7 +52,7 @@ export class LanguagesService {
       // Set default language
       const browserLang = this.translateService.getBrowserLang();
       language = browserLang.match(
-        /bg|cz|de|dk|el|en|es|et|fi|fr|hr|hu|it|lt|lv|nl|no|pl|pt|ro|sl|sv/
+        /bg|cz|de|dk|el|en|es|et|fi|fr|hr|hu|it|lt|lv|nl|no|pl|pt|ro|sl|sv|zh/
       )
         ? browserLang
         : 'fr';
