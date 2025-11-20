@@ -32,16 +32,7 @@ export class HelpComponent implements OnInit {
 
     this.helpSubscription = this.translateService.onLangChange.subscribe(
       (event: LangChangeEvent) => {
-        switch (event['lang']) {
-          case 'fr':
-            fileTranslation = 'fr';
-            break;
-          case 'zh':
-            fileTranslation = 'zh';
-            break;
-          default:
-            fileTranslation = 'en';
-        }
+        fileTranslation = event['lang'] === 'fr' ? 'fr' : 'en';
         file = `./assets/files/pia_help_${fileTranslation}.html`;
         this.httpClient.get(file, { responseType: 'text' }).subscribe(res => {
           this.content = res;
