@@ -32,15 +32,19 @@ export class NewPiaComponent implements OnInit {
     public structureService: StructureService,
     public authService: AuthService
   ) {
-    // GET STRUCTURE LIST
-    this.structureService
-      .getAll()
-      .then((response: Array<Structure>) => {
-        this.structureList = response;
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    this.authService.currentUser.subscribe({
+      complete: () => {
+        // GET STRUCTURE LIST
+        this.structureService
+          .getAll()
+          .then((response: Array<Structure>) => {
+            this.structureList = response;
+          })
+          .catch(err => {
+            console.error(err);
+          });
+      }
+    });
   }
 
   ngOnInit(): void {
