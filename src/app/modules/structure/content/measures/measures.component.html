@@ -29,15 +29,16 @@
     </div>
 
     <div class="pia-measureBlock-displayer fadeIn">
+      @if (!structure.is_example) {
       <button
         type="button"
         class="btn pia-measureBlock-delete"
-        *ngIf="!structure.is_example"
         (click)="removeMeasure()"
         title="{{ 'measures.remove' | translate }}"
       >
         <fa-icon [icon]="faTrash"></fa-icon>
       </button>
+      }
 
       <!-- Measure answer -->
       <div class="pia-measureBlock-content">
@@ -54,12 +55,7 @@
           id="pia-measure-content-{{ id }}"
           formControlName="measureContent"
           (focusin)="measureContentFocusIn()"
-          [ngClass]="{
-            hide:
-              !editor &&
-              measureForm.controls['measureContent'].value &&
-              measureForm.controls['measureContent'].value.length > 0
-          }"
+          [ngClass]="{ hide: hideTextarea }"
           rows="8"
           cols="50"
           placeholder="{{ measure.placeholder | translate }}"

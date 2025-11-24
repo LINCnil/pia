@@ -1,121 +1,80 @@
+@if (section && item && editMode) {
 <section
   class="pia-entryContentBlock pia-entryContentBlock-section{{ section.id }}"
-  *ngIf="section && item && editMode"
 >
   <header autoscroll="true" class="pia-entryContentBlock-header">
     <div>
-      <span
-        *ngIf="
-          sidStatusService.sidStatusIcon[
-            sidStatusService.itemStatus[section.id + '.' + item.id]
-          ];
-          else specialIcon
-        "
-      >
-        <fa-icon
-          *ngIf="
-            sidStatusService.sidStatusIcon[
-              sidStatusService.itemStatus[section.id + '.' + item.id]
-            ] == 'faPenToSquare'
-          "
-          [icon]="faPenToSquare"
-        ></fa-icon>
-        <fa-icon
-          *ngIf="
-            sidStatusService.sidStatusIcon[
-              sidStatusService.itemStatus[section.id + '.' + item.id]
-            ] == 'faPenToSquare,pia-fa-valid'
-          "
-          [icon]="faPenToSquare"
-        ></fa-icon>
-        <fa-icon
-          *ngIf="
-            sidStatusService.sidStatusIcon[
-              sidStatusService.itemStatus[section.id + '.' + item.id]
-            ] == 'faGear'
-          "
-          [icon]="faGear"
-        ></fa-icon>
-        <fa-icon
-          *ngIf="
-            sidStatusService.sidStatusIcon[
-              sidStatusService.itemStatus[section.id + '.' + item.id]
-            ] == 'faGear,pia-fa-valid'
-          "
-          [icon]="faGear"
-        ></fa-icon>
-        <fa-icon
-          *ngIf="
-            sidStatusService.sidStatusIcon[
-              sidStatusService.itemStatus[section.id + '.' + item.id]
-            ] == 'faSquareCheck'
-          "
-          [icon]="faSquareCheck"
-        ></fa-icon>
+      @if ( sidStatusService.sidStatusIcon[
+      sidStatusService.itemStatus[section.id + '.' + item.id] ]) {
+      <span>
+        @if ( sidStatusService.sidStatusIcon[
+        sidStatusService.itemStatus[section.id + '.' + item.id] ] ==
+        'faPenToSquare' ) {
+        <fa-icon [icon]="faPenToSquare"></fa-icon>
+        } @if ( sidStatusService.sidStatusIcon[
+        sidStatusService.itemStatus[section.id + '.' + item.id] ] ==
+        'faPenToSquare,pia-fa-valid' ) {
+        <fa-icon [icon]="faPenToSquare"></fa-icon>
+        } @if ( sidStatusService.sidStatusIcon[
+        sidStatusService.itemStatus[section.id + '.' + item.id] ] == 'faGear' )
+        {
+        <fa-icon [icon]="faGear"></fa-icon>
+        } @if ( sidStatusService.sidStatusIcon[
+        sidStatusService.itemStatus[section.id + '.' + item.id] ] ==
+        'faGear,pia-fa-valid' ) {
+        <fa-icon [icon]="faGear"></fa-icon>
+        } @if ( sidStatusService.sidStatusIcon[
+        sidStatusService.itemStatus[section.id + '.' + item.id] ] ==
+        'faSquareCheck' ) {
+        <fa-icon [icon]="faSquareCheck"></fa-icon>
+        }
       </span>
-      <ng-template #specialIcon>
-        <fa-icon
-          *ngIf="
-            sidStatusService.specialIcon[section.id + '.' + item.id] ==
-            'faChartLine'
-          "
-          [icon]="faChartLine"
-        ></fa-icon>
-        <fa-icon
-          *ngIf="
-            sidStatusService.specialIcon[section.id + '.' + item.id] ==
-            'faCalendarCheck'
-          "
-          [icon]="faCalendarCheck"
-        ></fa-icon>
-      </ng-template>
+      } @else { @if ( sidStatusService.specialIcon[section.id + '.' + item.id]
+      == 'faChartLine' ) {
+      <fa-icon [icon]="faChartLine"></fa-icon>
+      } @if ( sidStatusService.specialIcon[section.id + '.' + item.id] ==
+      'faCalendarCheck' ) {
+      <fa-icon [icon]="faCalendarCheck"></fa-icon>
+      } }
       <div class="pia-entryContentBlock-header-progress">
-        <div
-          *ngIf="sidStatusService.itemStatus[section.id + '.' + item.id] <= 4"
-        >
+        @if (sidStatusService.itemStatus[section.id + '.' + item.id] <= 4) {
+        <div>
           {{ "pia.header.edition" | translate }}
         </div>
-        <div
-          *ngIf="
-            sidStatusService.itemStatus[section.id + '.' + item.id] > 4 &&
-            sidStatusService.itemStatus[section.id + '.' + item.id] <= 7
-          "
-        >
+        } @if ( sidStatusService.itemStatus[section.id + '.' + item.id] > 4 &&
+        sidStatusService.itemStatus[section.id + '.' + item.id] <= 7 ) {
+        <div>
           {{ "pia.header.evaluation" | translate }}
         </div>
+        }
       </div>
     </div>
     <div class="pia-entryContentBlock-header-title">
-      <h1 *ngIf="section.title">{{ section.title | translate }}</h1>
-      <h3 *ngIf="section.short_help">{{ section.short_help | translate }}</h3>
-      <h2 *ngIf="item.title">{{ item.title | translate }}</h2>
-      <h4 *ngIf="item.short_help">{{ item.short_help | translate }}</h4>
+      @if (section.title) {
+      <h1>{{ section.title | translate }}</h1>
+      } @if (section.short_help) {
+      <h3>{{ section.short_help | translate }}</h3>
+      } @if (item.title) {
+      <h2>{{ item.title | translate }}</h2>
+      } @if (item.short_help) {
+      <h4>{{ item.short_help | translate }}</h4>
+      }
     </div>
-    <a
-      *ngIf="pia.is_example === 1 || (pia.status != 0 && pia.status != 1)"
-      routerLink="/preview/{{ pia.id }}"
-      class="btn pia-previewBlock"
-    >
+    @if (pia.is_example === 1 || (pia.status != 0 && pia.status != 1)) {
+    <a routerLink="/preview/{{ pia.id }}" class="btn pia-previewBlock">
       <span class="pia-icons pia-icon-preview"></span>
-      <div
-        *ngIf="section.id === 4 && item.id === 2; else defaultBlock"
-        [innerHTML]="'pia.header.display_action_plan' | translate"
-      ></div>
-      <ng-template #defaultBlock>
-        <div>{{ "pia.header.preview" | translate }}</div>
-      </ng-template>
+      @if (section.id === 4 && item.id === 2) {
+      <div [innerHTML]="'pia.header.display_action_plan' | translate"></div>
+      } @else {
+      <div>{{ "pia.header.preview" | translate }}</div>
+      }
     </a>
+    }
   </header>
-
   <!-- Back to edition -->
-  <div
-    class="pia-status-info evaluationsStatus"
-    *ngIf="
-      globalEvaluationService.status === 4 &&
-      pia.is_example !== 1 &&
-      (editMode.includes('author') || editMode === 'local')
-    "
-  >
+  @if ( globalEvaluationService.status === 4 && pia.is_example !== 1 &&
+  (editMode.includes('author') || editMode === 'local') ) {
+  <div class="pia-status-info evaluationsStatus">
     <div>
       <strong>{{ "pia.sections.status.evaluation.title" | translate }}</strong>
       <p>
@@ -130,17 +89,12 @@
       </p>
     </div>
   </div>
-
+  }
   <!-- Back to evaluation -->
-  <div
-    class="pia-status-info"
-    *ngIf="
-      globalEvaluationService.status === 7 &&
-      pia.is_example !== 1 &&
-      !(section.id == 4 && item.id == 3) &&
-      (editMode.includes('evaluator') || editMode === 'local')
-    "
-  >
+  @if ( globalEvaluationService.status === 7 && pia.is_example !== 1 &&
+  !(section.id == 4 && item.id == 3) && (editMode.includes('evaluator') ||
+  editMode === 'local') ) {
+  <div class="pia-status-info">
     <div>
       <strong>{{ "pia.sections.status.validation.title" | translate }}</strong>
       <p>
@@ -155,112 +109,76 @@
       </p>
     </div>
   </div>
-
-  <ng-container *ngIf="!loading; else elseTemplate">
-    <ng-container *ngIf="item.is_measure; else appQuestions">
-      <button
-        (click)="onAddNewMeasure()"
-        class="btn btn-white btn-addMeasure"
-        type="button"
-        *ngIf="
-          globalEvaluationService.answerEditionEnabled &&
-          (editMode.includes('author') || editMode === 'local')
-        "
-      >
-        <span class="pia-icons pia-icon-add"></span>
-        {{ "measures.add" | translate }}
-      </button>
-      <app-measures
-        *ngFor="let measure of measures"
-        [editMode]="editMode"
-        [measure]="measure"
-        [pia]="pia"
-        [section]="section"
-        [item]="item"
-        (deleted)="onDeletedMeasure($event)"
-      >
-      </app-measures>
-    </ng-container>
-    <ng-template #appQuestions>
-      <app-questions
-        [editMode]="editMode"
-        *ngFor="let question of questions"
-        [question]="question"
-        [pia]="pia"
-        [section]="section"
-        [item]="item"
-      >
-      </app-questions>
-    </ng-template>
-  </ng-container>
-  <ng-template #elseTemplate>
-    <div
-      class="pia-sectionBlock-body"
-      style="position:relative; height: 150px;"
-    >
-      <app-loading-overlay
-        [visibility]="true"
-        [childMode]="true"
-      ></app-loading-overlay>
-    </div>
-  </ng-template>
-
+  } @if (!loading) { @if (item.is_measure) { @if (
+  globalEvaluationService.answerEditionEnabled && (editMode.includes('author')
+  || editMode === 'local') ) {
+  <button
+    (click)="onAddNewMeasure()"
+    class="btn btn-white btn-addMeasure"
+    type="button"
+  >
+    <span class="pia-icons pia-icon-add"></span>
+    {{ "measures.add" | translate }}
+  </button>
+  } @for (measure of measures; track measure) {
+  <app-measures
+    [editMode]="editMode"
+    [measure]="measure"
+    [pia]="pia"
+    [section]="section"
+    [item]="item"
+    (deleted)="onDeletedMeasure($event)"
+  >
+  </app-measures>
+  } } @else { @for (question of questions; track question) {
+  <app-questions
+    [editMode]="editMode"
+    [question]="question"
+    [pia]="pia"
+    [section]="section"
+    [item]="item"
+  >
+  </app-questions>
+  } } } @else {
+  <div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
+    <app-loading-overlay
+      [visibility]="true"
+      [childMode]="true"
+    ></app-loading-overlay>
+  </div>
+  } @if (item.evaluation_mode === 'item') {
   <app-evaluations
     [editMode]="editMode"
-    *ngIf="item.evaluation_mode === 'item'"
     [pia]="pia"
     [section]="section"
     [item]="item"
   >
   </app-evaluations>
-
-  <div
-    [pia]="pia"
-    class="app-overview-risks"
-    *ngIf="section.id == 3 && item.id == 5"
-  ></div>
-
-  <app-validate-pia
-    [editMode]="editMode"
-    [pia]="pia"
-    *ngIf="section.id == 4 && item.id == 4"
-  ></app-validate-pia>
-
-  <app-refuse-pia
-    [editMode]="editMode"
-    [pia]="pia"
-    *ngIf="section.id == 4 && item.id == 5"
-  ></app-refuse-pia>
-
-  <div
-    [pia]="pia"
-    class="app-risks-cartography"
-    *ngIf="section.id == 4 && item.id == 1"
-  ></div>
-
-  <app-action-plan
-    *ngIf="section.id == 4 && item.id == 2"
-    [pia]="pia"
-    [data]="data"
-  ></app-action-plan>
-
+  } @if (section.id == 3 && item.id == 5) {
+  <div [pia]="pia" class="app-overview-risks"></div>
+  } @if (section.id == 4 && item.id == 4) {
+  <app-validate-pia [editMode]="editMode" [pia]="pia"></app-validate-pia>
+  } @if (section.id == 4 && item.id == 5) {
+  <app-refuse-pia [editMode]="editMode" [pia]="pia"></app-refuse-pia>
+  } @if (section.id == 4 && item.id == 1) {
+  <div [pia]="pia" class="app-risks-cartography"></div>
+  } @if (section.id == 4 && item.id == 2) {
+  <app-action-plan [pia]="pia" [data]="data"></app-action-plan>
+  } @if (section.id == 4 && item.id == 3) {
   <app-dpo-people-opinions
     [editMode]="editMode"
     [pia]="pia"
-    *ngIf="section.id == 4 && item.id == 3"
   ></app-dpo-people-opinions>
-
+  }
   <footer class="pia-entryContentBlock-footer">
-    <div *ngIf="globalEvaluationService.status > 0">
+    @if (globalEvaluationService.status > 0) {
+    <div>
+      @if ( (globalEvaluationService.status === 1 ||
+      globalEvaluationService.status === 2 || globalEvaluationService.status ===
+      3) && (editMode.includes('author') || editMode === 'local') ) {
       <button
         class="btn btn-green"
         (click)="prepareForEvaluation()"
-        *ngIf="
-          (globalEvaluationService.status === 1 ||
-            globalEvaluationService.status === 2 ||
-            globalEvaluationService.status === 3) &&
-          (editMode.includes('author') || editMode === 'local')
-        "
         [ngClass]="{
           'btn-active':
             globalEvaluationService.status === 2 ||
@@ -270,63 +188,41 @@
       >
         {{ "pia.footer.ask_evaluation" | translate }}
       </button>
-
+      } @if ( (globalEvaluationService.status === 5 ||
+      globalEvaluationService.status === 6) && (editMode.includes('evaluator')
+      || editMode === 'local') ) {
       <button
         class="btn btn-green"
         (click)="validateEvaluation()"
-        *ngIf="
-          (globalEvaluationService.status === 5 ||
-            globalEvaluationService.status === 6) &&
-          (editMode.includes('evaluator') || editMode === 'local')
-        "
         [ngClass]="{ 'btn-active': globalEvaluationService.status === 6 }"
         [disabled]="globalEvaluationService.status === 5"
       >
         {{ "pia.footer.validate_evaluation" | translate }}
       </button>
-
-      <button
-        class="btn btn-pending-validation"
-        disabled
-        *ngIf="
-          globalEvaluationService.status === 7 &&
-          !(section.id == 4 && item.id == 3)
-        "
-      >
+      } @if ( globalEvaluationService.status === 7 && !(section.id == 4 &&
+      item.id == 3) ) {
+      <button class="btn btn-pending-validation" disabled>
         <fa-icon [icon]="faSquareCheck"></fa-icon>
         {{ "pia.footer.subsection_validated" | translate }}
       </button>
-
+      }
       <p class="pia-entryContentBlock-footer-requiredFields">
         {{ "pia.footer.mandatory_fields" | translate }}
       </p>
-
-      <button
-        class="btn pia-cancelBtn"
-        (click)="cancelAskForEvaluation()"
-        *ngIf="
-          pia.is_example !== 1 &&
-          globalEvaluationService.status === 4 &&
-          (editMode.includes('author') || editMode === 'local')
-        "
-      >
+      @if ( pia.is_example !== 1 && globalEvaluationService.status === 4 &&
+      (editMode.includes('author') || editMode === 'local') ) {
+      <button class="btn pia-cancelBtn" (click)="cancelAskForEvaluation()">
         {{ "pia.sections.status.evaluation.cancel_button" | translate }}
       </button>
-
-      <button
-        class="btn pia-cancelBtn"
-        (click)="cancelValidateEvaluation()"
-        *ngIf="
-          pia.is_example !== 1 &&
-          globalEvaluationService.status === 7 &&
-          !(section.id == 4 && item.id == 3) &&
-          (editMode.includes('evaluator') || editMode === 'local')
-        "
-      >
+      } @if ( pia.is_example !== 1 && globalEvaluationService.status === 7 &&
+      !(section.id == 4 && item.id == 3) && (editMode.includes('evaluator') ||
+      editMode === 'local') ) {
+      <button class="btn pia-cancelBtn" (click)="cancelValidateEvaluation()">
         {{ "pia.sections.status.validation.cancel_button" | translate }}
       </button>
+      }
     </div>
-
+    }
     <div class="pia-entryContentBlock-footer-nav">
       <a
         [ngClass]="{ mask: paginationService.hasPreviousLink === false }"
@@ -350,3 +246,4 @@
     </div>
   </footer>
 </section>
+}

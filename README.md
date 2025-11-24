@@ -1,5 +1,3 @@
-# Pia [v.3.2.2](https://github.com/LINCnil/pia/releases/tag/v3.2.2)
-
 # Le logiciel PIA / The PIA Software
 
 ## Présentation / Presentation
@@ -14,16 +12,14 @@ The latest version of the tool can be downloaded in the [Release](https://github
 
 ## Translating the PIA Software
 
-To translate the software, we invite you to visit the [related repository](https://github.com/LINCnil/pia-i18n/tree/main/src/lib/assets/i18n) where the translation steps are described.
+To translate the software, we invite you to make your changes [here](https://github.com/LINCnil/pia/tree/master/src/assets/i18n) where the translation steps are described.
 
 # Development information
 
-![CI](https://github.com/lincnil/pia/workflows/integration-tests/badge.svg?branch=master)
+[![CI](https://github.com/LINCnil/pia/actions/workflows/integration-tests.yml/badge.svg?branch=master)](https://github.com/LINCnil/pia/actions/workflows/integration-tests.yml)
 [![CodeQL](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
-
-NodeJs version: 20.10.0
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Package Version
 
@@ -57,7 +53,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### Mac:
 
-You must set the ENV variables `APPLEID` and `APPLEPIAPASSWORD` inside a `.env` file at the root of the project.
+You must set the ENV variables `APPLE_ID`, `APPLE_APP_SPECIFIC_PASSWORD` and `APPLE_TEAM_ID` inside a `.env` file at the root of the project.
 
 ```
 yarn electron:mac
@@ -82,46 +78,3 @@ See: https://www.electron.build/configuration/publish
 ```
 GH_TOKEN=YOUR_GITHUB_TOKEN yarn electron:publish-to-github
 ```
-
-## How to work on pia-i18n
-
-You can work on this project with a [pia-i18n](https://github.com/LINCnil/pia-i18n) directly in development process.
-
-This process permit to check your changes on the pia-i18n code (for traduction updates, fixes...) directly on the pia project
-
-### /!\ Requirements /!\ :
-
-- nodejs in lts version (14.17.4)
-- ng client `npm install -g @angular/cli`
-
-If you have to update your node version, you may to remove ./node_modules folder and type "npm i or yarn install" before continue.
-
-### Set up your pia project
-
-Get pia-i18n in the projects folder
-Clone pia-i18n in a ./projects/pia-i18n folder
-
-```
-git clone git@github.com:LINCnil/pia-i18n.git ./projects/pia-i18n
-```
-
-Stop using npm dependency
-
-- remove @atnos/pia-i18n dependency in package.json
-- yarn
-
-**warning** no commit this changes on the pia repository
-
-build / rebuild the local
-
-```
-ng build pia-i18n --prod
-```
-
-start pia project
-
-```
-yarn start
-```
-
-This process replace npm @atnos/pia-i18n by the local pia-i18n dist folder

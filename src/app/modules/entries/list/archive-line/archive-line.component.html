@@ -36,30 +36,25 @@
 </td>
 <td class="pia-listsBlock-item pia-listsBlock-item-title">
   <div>{{ archivedPia.name }}</div>
-  <div
-    *ngIf="attachments && attachments.length > 0"
-    class="pia-listsBlock-item-attachment"
-    aria-hidden="true"
-  >
+  @if (attachments && attachments.length > 0) {
+  <div class="pia-listsBlock-item-attachment" aria-hidden="true">
     <span class="pia-icons pia-icon-attachment"></span>
     <ul>
-      <ng-container *ngFor="let attachment of attachments">
-        <li>{{ attachment.name }}</li>
-      </ng-container>
+      @for (attachment of attachments; track attachment) {
+      <li>{{ attachment.name }}</li>
+      }
     </ul>
   </div>
+  }
 </td>
 <td class="pia-listsBlock-item">
-  <time
-    *ngIf="
-      archivedPia.updated_at &&
-      archivedPia.updated_at.toString() !== 'Invalid Date'
-    "
-    >{{
-      archivedPia.updated_at
-        | date: "shortDate":"":languagesService.selectedLanguage
-    }}</time
-  >
+  @if ( archivedPia.updated_at && archivedPia.updated_at.toString() !== 'Invalid
+  Date' ) {
+  <time>{{
+    archivedPia.updated_at
+      | date: "shortDate":"":languagesService.selectedLanguage
+  }}</time>
+  }
 </td>
 <td class="pia-listsBlock-item">
   <div>{{ archivedPia.author_name }}</div>
@@ -71,7 +66,9 @@
   <div>{{ archivedPia.validator_name }}</div>
 </td>
 <td class="pia-listsBlock-item">
-  <div *ngIf="archivedPia.structure_id">{{ archivedPia.structure_name }}</div>
+  @if (archivedPia.structure_id) {
+  <div>{{ archivedPia.structure_name }}</div>
+  }
 </td>
 <td class="pia-listsBlock-item progress">
   <div class="pia-cardsBlock-item-status-progressBar">

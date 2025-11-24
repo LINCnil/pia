@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { notarize } = require("electron-notarize");
+const { notarize } = require("@electron/notarize");
 
 exports.default = async function notarizing(context) {
   const { electronPlatformName, appOutDir } = context;
@@ -12,7 +12,8 @@ exports.default = async function notarizing(context) {
   return await notarize({
     appBundleId: "com.atnos.pia",
     appPath: `${appOutDir}/${appName}.app`,
-    appleId: process.env.APPLEID,
-    appleIdPassword: process.env.APPLEPIAPASSWORD
+    appleId: process.env.APPLE_ID,
+    appleIdPassword: process.env.APPLE_APP_SPECIFIC_PASSWORD,
+    teamId: process.env.APPLE_TEAM_ID
   });
 };

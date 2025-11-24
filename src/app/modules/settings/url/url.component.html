@@ -35,24 +35,24 @@
             placeholder="Client SECRET"
             (blur)="purify('client_secret', $event)"
           />
+          @if (!loading) {
           <button
-            *ngIf="!loading; else loadingElse"
             type="submit"
             class="btn btn-green"
             ngClass="{'btn--processing': formProcessing}"
           >
             {{ "settings.update" | translate }}
           </button>
-          <ng-template #loadingElse>
-            <div
-              style="margin: auto; text-align: center; position:relative; height: 150px;"
-            >
-              <app-loading-overlay
-                [visibility]="true"
-                [childMode]="true"
-              ></app-loading-overlay>
-            </div>
-          </ng-template>
+          } @else {
+          <div
+            style="margin: auto; text-align: center; position:relative; height: 150px;"
+          >
+            <app-loading-overlay
+              [visibility]="true"
+              [childMode]="true"
+            ></app-loading-overlay>
+          </div>
+          }
         </form>
       </div>
     </div>

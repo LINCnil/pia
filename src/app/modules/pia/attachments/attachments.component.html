@@ -1,28 +1,22 @@
-<div class="pia-attachmentsBlock" *ngIf="attachments">
+@if (attachments) {
+<div class="pia-attachmentsBlock">
   <p>{{ "pia.attachments.title" | translate }}</p>
-
-  <ng-container *ngIf="attachments.length > 0; else noAttachments">
-    <app-attachment-item
-      [editMode]="editMode"
-      *ngFor="let attachment of attachments; let i = index"
-      [attachment]="attachment"
-      (deleted)="onDeleted($event)"
-      [isPreview]="isPreview"
-      [pia]="pia"
-    >
-    </app-attachment-item>
-  </ng-container>
-  <ng-template #noAttachments>
-    <p>
-      <small>{{ "pia.attachments.no_attachment" | translate }}</small>
-    </p>
-  </ng-template>
-
-  <form
-    *ngIf="!isPreview && attachments"
-    enctype="multipart/form-data"
-    [formGroup]="attachmentForm"
+  @if (attachments.length > 0) { @for (attachment of attachments; track
+  attachment; let i = $index) {
+  <app-attachment-item
+    [editMode]="editMode"
+    [attachment]="attachment"
+    (deleted)="onDeleted($event)"
+    [isPreview]="isPreview"
+    [pia]="pia"
   >
+  </app-attachment-item>
+  } } @else {
+  <p>
+    <small>{{ "pia.attachments.no_attachment" | translate }}</small>
+  </p>
+  } @if (!isPreview && attachments) {
+  <form enctype="multipart/form-data" [formGroup]="attachmentForm">
     <input
       type="file"
       formControlName="attachment_file"
@@ -30,24 +24,24 @@
       (change)="uploadAttachement($event)"
       class="hide"
     />
+    @if ( ['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
+    editMode === 'local' ) {
     <button
       class="pia-attachmentsBlock-addBtn btn"
-      *ngIf="
-        ['author', 'validator', 'evaluator'].indexOf(editMode[0]) >= 0 ||
-        editMode === 'local'
-      "
       [disabled]="loading"
       [ngClass]="{ hide: !dispplayAttachmentButton }"
       type="button"
       (click)="addAttachment()"
     >
-      <ng-container *ngIf="!loading; else loadingElse">
-        <span class="pia-icons pia-icon-add"></span>
-        {{ "pia.attachments.add" | translate }}
-      </ng-container>
-      <ng-template #loadingElse>
-        {{ "pia.attachments.loading" | translate }}
-      </ng-template>
+      @if (!loading) {
+      <span class="pia-icons pia-icon-add"></span>
+      {{ "pia.attachments.add" | translate }}
+      } @else {
+      {{ "pia.attachments.loading" | translate }}
+      }
     </button>
+    }
   </form>
+  }
 </div>
+}

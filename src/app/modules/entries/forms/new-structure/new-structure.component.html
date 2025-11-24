@@ -1,17 +1,41 @@
-<form class="pia-cardsBlock-item-form" (ngSubmit)="onSubmit()" [formGroup]="structureForm">
+<form
+  class="pia-cardsBlock-item-form"
+  (ngSubmit)="onSubmit()"
+  [formGroup]="structureForm"
+>
   <div>
-    <label for="name">{{ 'homepage.cards.structure_name' | translate }}</label>
-    <input formControlName="name" type="text" placeholder="{{ 'homepage.cards.placeholder_structure_name' | translate }}" id="name" required>
+    <label for="name">{{ "homepage.cards.structure_name" | translate }}</label>
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="{{
+        'homepage.cards.placeholder_structure_name' | translate
+      }}"
+      id="name"
+      required
+    />
   </div>
   <div>
-    <label for="sector_name">{{ 'homepage.cards.sector_name' | translate }}</label>
-    <input formControlName="sector_name" type="text" placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}" id="sector_name" required>
+    <label for="sector_name">{{
+      "homepage.cards.sector_name" | translate
+    }}</label>
+    <input
+      formControlName="sector_name"
+      type="text"
+      placeholder="{{ 'homepage.cards.placeholder_sector_name' | translate }}"
+      id="sector_name"
+      required
+    />
   </div>
-  <!-- <div class="pia-cardsBlock-item-date" *ngIf="newStructure">
-    <div>{{ 'homepage.cards.date' | translate }}</div>
-    <time>{{ newStructure.created_at | date: 'shortDate': '': _languagesService.selectedLanguage}}</time>
-  </div> -->
   <div class="pia-cardsBlock-item-btn">
-    <button type="submit" [disabled]="structureForm.invalid" class="btn btn-green" id="structure-save-card-btn" title="{{ 'homepage.cards.placeholder_start' | translate }}">{{ 'homepage.cards.start' | translate }}</button>
+    <button
+      type="submit"
+      [disabled]="structureForm.invalid"
+      class="btn btn-green"
+      id="structure-save-card-btn"
+      title="{{ 'homepage.cards.placeholder_start' | translate }}"
+    >
+      {{ "homepage.cards.start" | translate }}
+    </button>
   </div>
 </form>

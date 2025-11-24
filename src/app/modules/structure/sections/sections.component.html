@@ -9,51 +9,49 @@
   </div>
 
   <div class="pia-sectionBlock-body">
-    <div *ngFor="let dataSection of data.sections">
-      <ng-container *ngIf="[1, 2, 3].includes(dataSection.id)">
-        <div class="pia-sectionBlock-title">
-          {{ dataSection.title | translate }}
-          <hr />
-        </div>
-        <ul class="pia-sectionBlock-list" *ngIf="structure && section && item">
-          <ng-container *ngFor="let dataItem of dataSection?.items">
-            <li
-              *ngIf="
-                !dataItem.hide &&
-                !['3.2', '3.3', '3.4', '3.5'].includes(
+    @for (dataSection of data.sections; track dataSection) {
+    <div>
+      @if ([1, 2, 3].includes(dataSection.id)) {
+      <div class="pia-sectionBlock-title">
+        {{ dataSection.title | translate }}
+        <hr />
+      </div>
+      @if (structure && section && item) {
+      <ul class="pia-sectionBlock-list">
+        @for (dataItem of dataSection?.items; track dataItem) { @if (
+        !dataItem.hide && !['3.2', '3.3', '3.4', '3.5'].includes( dataSection.id
+        + '.' + dataItem.id ) ) {
+        <li>
+          <a
+            [routerLink]="[
+              '/structures',
+              structure.id,
+              'section',
+              dataSection.id,
+              'item',
+              dataItem.id
+            ]"
+            [ngClass]="{
+              active: section.id == dataSection.id && item.id == dataItem.id
+            }"
+            class="truncate"
+          >
+            {{ dataItem.title | translate }}</a
+          >
+          <fa-icon
+            [icon]="faSitemap"
+            [ngClass]="{
+              'pia-fa-valid':
+                sidStatusService.structureStatus[
                   dataSection.id + '.' + dataItem.id
-                )
-              "
-            >
-              <a
-                [routerLink]="[
-                  '/structures',
-                  structure.id,
-                  'section',
-                  dataSection.id,
-                  'item',
-                  dataItem.id
-                ]"
-                [ngClass]="{
-                  active: section.id == dataSection.id && item.id == dataItem.id
-                }"
-                class="truncate"
-              >
-                {{ dataItem.title | translate }}</a
-              >
-              <fa-icon
-                [icon]="faSitemap"
-                [ngClass]="{
-                  'pia-fa-valid':
-                    sidStatusService.structureStatus[
-                      dataSection.id + '.' + dataItem.id
-                    ] === true
-                }"
-              ></fa-icon>
-            </li>
-          </ng-container>
-        </ul>
-      </ng-container>
+                ] === true
+            }"
+          ></fa-icon>
+        </li>
+        } }
+      </ul>
+      } }
     </div>
+    }
   </div>
 </div>

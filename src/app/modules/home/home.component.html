@@ -15,75 +15,72 @@
     </div>
     <div class="small-12 medium-4 columns">
       <div class="pia-authenticationBlock-auth">
-        <div *ngIf="authService.state; else elseBlock">
-          <div [ngSwitch]="stepForm">
+        @if (authService.state) {
+        <div>
+          <div>
+            @switch (stepForm) {
             <!-- Initial block / Sign in -->
-            <ng-container *ngSwitchCase="'logIn'">
-              <app-sign-in
-                [fromSignUp]="fromValidation"
-                (validated)="onSubmited()"
-                (canceled)="changeDisplay('checkUuid')"
-                (forget)="changeDisplay('forgetPassword')"
-              ></app-sign-in>
-            </ng-container>
-
+            @case ('logIn') {
+            <app-sign-in
+              [fromSignUp]="fromValidation"
+              (validated)="onSubmited()"
+              (canceled)="changeDisplay('checkUuid')"
+              (forget)="changeDisplay('forgetPassword')"
+            ></app-sign-in>
+            }
             <!-- New account - Activation code -->
-            <ng-container *ngSwitchCase="'checkUuid'">
-              <app-uuid
-                (canceled)="changeDisplay('logIn')"
-                (validated)="changeDisplay('signUp'); accountData = $event"
-              ></app-uuid>
-            </ng-container>
-
+            @case ('checkUuid') {
+            <app-uuid
+              (canceled)="changeDisplay('logIn')"
+              (validated)="changeDisplay('signUp'); accountData = $event"
+            ></app-uuid>
+            }
             <!-- New account - Define password -->
-            <ng-container *ngSwitchCase="'signUp'">
-              <app-password
-                (validated)="changeDisplay('logIn'); fromValidation = $event"
-                (canceled)="changeDisplay('checkUuid')"
-                [accountData]="accountData"
-              ></app-password>
-            </ng-container>
-
+            @case ('signUp') {
+            <app-password
+              (validated)="changeDisplay('logIn'); fromValidation = $event"
+              (canceled)="changeDisplay('checkUuid')"
+              [accountData]="accountData"
+            ></app-password>
+            }
             <!-- Account recovery - Email -->
-            <ng-container *ngSwitchCase="'forgetPassword'">
-              <app-forget-password
-                (canceled)="changeDisplay('logIn')"
-                (validated)="changeDisplay('resetPassword')"
-              ></app-forget-password>
-            </ng-container>
-
+            @case ('forgetPassword') {
+            <app-forget-password
+              (canceled)="changeDisplay('logIn')"
+              (validated)="changeDisplay('resetPassword')"
+            ></app-forget-password>
+            }
             <!-- Account recovery - Reset code -->
-            <ng-container *ngSwitchCase="'resetPassword'">
-              <app-uuid
-                [reset]="true"
-                (canceled)="changeDisplay('forgetPassword')"
-                (validated)="changeDisplay('newPassword'); accountData = $event"
-              ></app-uuid>
-            </ng-container>
-
+            @case ('resetPassword') {
+            <app-uuid
+              [reset]="true"
+              (canceled)="changeDisplay('forgetPassword')"
+              (validated)="changeDisplay('newPassword'); accountData = $event"
+            ></app-uuid>
+            }
             <!-- Account recovery - New password -->
-            <ng-container *ngSwitchCase="'newPassword'">
-              <app-password
-                [reset]="true"
-                (canceled)="changeDisplay('resetPassword')"
-                (validated)="changeDisplay('logIn'); fromValidation = $event"
-                [accountData]="accountData"
-              ></app-password>
-            </ng-container>
+            @case ('newPassword') {
+            <app-password
+              [reset]="true"
+              (canceled)="changeDisplay('resetPassword')"
+              (validated)="changeDisplay('logIn'); fromValidation = $event"
+              [accountData]="accountData"
+            ></app-password>
+            } }
           </div>
         </div>
-        <ng-template #elseBlock>
-          <div class="pia-authenticationBlock-enter">
-            <div>{{ "authentication.start_app" | translate }}</div>
-            <p
-              class="pia-authenticationBlock-warning"
-              [innerHTML]="'authentication.description' | translate"
-            ></p>
-            <a routerLink="/entries" class="btn btn-green">{{
-              "authentication.start" | translate
-            }}</a>
-          </div>
-        </ng-template>
+        } @else {
+        <div class="pia-authenticationBlock-enter">
+          <div>{{ "authentication.start_app" | translate }}</div>
+          <p
+            class="pia-authenticationBlock-warning"
+            [innerHTML]="'authentication.description' | translate"
+          ></p>
+          <a routerLink="/entries" class="btn btn-green">{{
+            "authentication.start" | translate
+          }}</a>
+        </div>
+        }
       </div>
     </div>
   </div>

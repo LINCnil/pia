@@ -1,9 +1,7 @@
-<div
-  class="pia-loading-overlay"
-  *ngIf="visibility"
-  [ngClass]="{ 'child-mode': childMode }"
->
+@if (visibility) {
+<div class="pia-loading-overlay" [ngClass]="{ 'child-mode': childMode }">
   <div class="cssload-container">
     <div class="cssload-speeding-wheel"></div>
   </div>
 </div>
+}

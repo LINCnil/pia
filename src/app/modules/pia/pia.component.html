@@ -1,46 +1,46 @@
-<section class="container pia-mainContainerBlock" *ngIf="pia && data">
+@if (pia && data) {
+<section class="container pia-mainContainerBlock">
   <div class="row">
-    <div
-      *ngIf="pia.is_example === 1; else breadcrumb"
-      class="pia-breadcrumb hide-for-print small-12 medium-12 columns"
-    >
+    @if (pia.is_example === 1) {
+    <div class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
       <strong
         >{{ "header.help.title" | translate }} >
         {{ "header.help.pia_example_link" | translate }}</strong
       >
     </div>
-    <ng-template #breadcrumb>
-      <div class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
-        <a [routerLink]="['/entries']"
-          >{{ "header.homepage_link" | translate }} >
-          {{ "header.current_pias" | translate }}</a
-        >
-        <strong> > {{ pia.name }}</strong>
-      </div>
-    </ng-template>
+    } @else {
+    <div class="pia-breadcrumb hide-for-print small-12 medium-12 columns">
+      <a [routerLink]="['/entries']"
+        >{{ "header.homepage_link" | translate }} >
+        {{ "header.current_pias" | translate }}</a
+      >
+      <strong> > {{ pia.name }}</strong>
+    </div>
+    }
     <!-- Left sidebar (sections) -->
     <nav class="hide-for-print small-12 medium-3 columns">
       <aside class="pia-leftSidebarBlock">
+        @if (section) {
         <app-sections
           [editMode]="editMode"
-          *ngIf="section"
           [data]="data"
           [pia]="pia"
           [section]="section"
           [item]="item"
         ></app-sections>
+        }
         <app-attachments [pia]="pia" [editMode]="editMode"></app-attachments>
+        @if (!pia.is_example && !pia.is_archive) {
         <app-revisions
-          *ngIf="!pia.is_example && !pia.is_archive"
           [pia]="pia"
           [title]="false"
           [currentVersion]="pia.updated_at"
           [editMode]="editMode"
         >
         </app-revisions>
+        }
       </aside>
     </nav>
-
     <!-- Main entry content -->
     <section class="small-12 medium-6 columns pia-mainContentForPrint">
       <app-content
@@ -54,7 +54,6 @@
       >
       </app-content>
     </section>
-
     <!-- Right sidebar (knowledge base) -->
     <aside
       class="hide-for-print small-12 medium-3 columns pia-rightSidebarBlock"
@@ -74,42 +73,41 @@
                 (click)="sideView = 'export'"
               ></fa-icon>
             </span>
-            <span *ngIf="sideView === 'knowledge'">{{
-              "knowledge_base.title" | translate
-            }}</span>
-            <span *ngIf="sideView === 'export'">{{
-              "summary.actions.print_and_download" | translate
-            }}</span>
+            @if (sideView === 'knowledge') {
+            <span>{{ "knowledge_base.title" | translate }}</span>
+            } @if (sideView === 'export') {
+            <span>{{ "summary.actions.print_and_download" | translate }}</span>
+            }
           </h1>
         </div>
+        @if (pia && sideView === 'export') {
         <app-export
           [editMode]="true"
           [pia]="pia"
-          *ngIf="pia && sideView === 'export'"
           (downloading)="download = $event"
         >
         </app-export>
+        } @if (sideView === 'knowledge') {
         <app-knowledge-base
           [editMode]="editMode"
           (newMeasureEvent)="newMeasureAdded($event)"
           answerService
           [pia]="pia"
-          *ngIf="sideView === 'knowledge'"
           [item]="item"
         >
         </app-knowledge-base>
+        }
       </div>
     </aside>
   </div>
 </section>
-
-<ng-container *ngIf="pia">
-  <app-loading-overlay [visibility]="download"></app-loading-overlay>
-  <app-preview
-    [pia]="pia"
-    [onlyData]="true"
-    [editMode]="editMode"
-    [ngClass]="{ hide: !download }"
-  ></app-preview>
-</ng-container>
+} @if (pia) {
+<app-loading-overlay [visibility]="download"></app-loading-overlay>
+<app-preview
+  [pia]="pia"
+  [onlyData]="true"
+  [editMode]="editMode"
+  [ngClass]="{ hide: !download }"
+></app-preview>
+}
 <app-dialog></app-dialog>
