@@ -166,6 +166,10 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
    * @param event - Any kind of event.
    */
   addNewMeasure(event): void {
+    const title = this.translateService.instant(event.name);
+    if (!this.knowledgeBaseService.toHide.includes(title)) {
+      this.knowledgeBaseService.toHide.push(title);
+    }
     if (this.pia) {
       this.measureService
         .addNewMeasure(this.pia, event.name, event.placeholder)
@@ -177,7 +181,6 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
         });
     } else if (this.structure) {
       this.structureService.find(this.structure.id).then(() => {
-        const title = this.translateService.instant(event.name);
         const measure = {
           title,
           content: ''

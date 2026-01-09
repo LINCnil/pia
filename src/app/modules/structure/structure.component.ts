@@ -96,7 +96,7 @@ export class StructureComponent implements OnInit {
    * @param {number} sectionId - The section id.
    * @param {number} itemId - The item id.
    */
-  private getSectionAndItem(sectionId: number, itemId: number): void {
+  private async getSectionAndItem(sectionId: number, itemId: number) {
     this.questions = [];
 
     this.data = this.structure.data;
@@ -117,6 +117,8 @@ export class StructureComponent implements OnInit {
         this.questions.push(question);
       });
     }
+
+    await this.globalEvaluationService.validate();
 
     this.measureService.listMeasures(this.structure.id);
     this.actionPlanService.data = this.data;

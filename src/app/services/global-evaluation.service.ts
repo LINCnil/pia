@@ -51,8 +51,11 @@ export class GlobalEvaluationService {
         this.item.evaluation_mode === 'item' ||
         this.item.evaluation_mode === 'question'
       ) {
-        await this.answersVerification();
-        await this.evaluationsVerification();
+        if (this.pia) {
+          // We apply this only to PIAs, not to Structures
+          await this.evaluationsVerification();
+          await this.answersVerification();
+        }
         this.verification();
         if (callSubject) {
           this.setAnswerEditionEnabled();
@@ -747,7 +750,12 @@ export class GlobalEvaluationService {
    * Set answer edition by status.
    */
   setAnswerEditionEnabled(): void {
-    this.answerEditionEnabled = [0, 1, 2, 3].includes(this.status);
+    if (this.pia) {
+      this.answerEditionEnabled = [0, 1, 2, 3].includes(this.status);
+    } else {
+      // Structures
+      this.answerEditionEnabled = true;
+    }
   }
 
   /**
