@@ -298,8 +298,11 @@ export class KnowledgeBaseService extends ApplicationDb {
       if (item.link_knowledge_base && item.link_knowledge_base.length > 0) {
         kbSlugs = item.link_knowledge_base;
       } else if (item.is_measure) {
-        const kbSlugs2 = this.knowledgeBaseData.filter(kbItem => {
-          return kbItem.filters.startsWith('measure.');
+        let kbSlugs2 = [];
+        kbSlugs2 = this.knowledgeBaseData.filter(kbItem => {
+          if (kbItem.filters) {
+            return kbItem.slug.startsWith('PIA_CUSTOM_31');
+          }
         });
         kbSlugs2.forEach(element => {
           kbSlugs.push(element.slug);
