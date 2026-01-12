@@ -47,23 +47,9 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
     private el: ElementRef,
     private translateService: TranslateService,
     private structureService: StructureService
-  ) {
-    // Parse default Knowledge base json
-    this.translateService
-      .get('knowledge_base.default_knowledge_base')
-      .subscribe((translation: string) => {
-        const defaultKnowledgeBase = new KnowledgeBase(
-          0,
-          translation,
-          'CNIL',
-          'CNIL'
-        );
-        defaultKnowledgeBase.is_example = true;
-        this.customKnowledgeBases.push(defaultKnowledgeBase);
-      });
-  }
+  ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     // INIT
     const knowledgeIdentifier = this.pia
       ? 'pia_' + this.route.snapshot.params.id + '_knowledgebase'
@@ -96,18 +82,12 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
       }
     };
 
-    this.loadKnowledgesBase().then(() => {
-      if (this.selectedKnowledBase !== null) {
-        this.switch(this.selectedKnowledBase);
-      }
-    });
+    this.updateDefaultKnowledgeBase();
+    this.loadAndSwitchKnowledgeBase();
 
     this.translateService.onLangChange.subscribe(() => {
-      this.loadKnowledgesBase().then(() => {
-        if (this.selectedKnowledBase !== null) {
-          this.switch(this.selectedKnowledBase);
-        }
-      });
+      this.updateDefaultKnowledgeBase();
+      this.loadAndSwitchKnowledgeBase();
     });
   }
 
@@ -123,10 +103,34 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
     this.knowledgeBaseService.previousKnowledgeBaseData = [];
   }
 
+  private updateDefaultKnowledgeBase(): void {
+    this.translateService
+      .get('knowledge_base.default_knowledge_base')
+      .subscribe((translation: string) => {
+        const defaultKnowledgeBase = new KnowledgeBase(
+          0,
+          translation,
+          'CNIL',
+          'CNIL'
+        );
+        defaultKnowledgeBase.is_example = true;
+
+        this.customKnowledgeBases = [defaultKnowledgeBase];
+      });
+  }
+
+  private async loadAndSwitchKnowledgeBase(): Promise<void> {
+    await this.loadKnowledgesBase();
+
+    if (this.selectedKnowledBase !== null) {
+      this.switch(this.selectedKnowledBase);
+    }
+  }
+
   /**
    * Load the knowledges List
    */
-  loadKnowledgesBase(): Promise<any> {
+  async loadKnowledgesBase(): Promise<any> {
     return new Promise((resolve, reject) => {
       // LOAD CUSTOM KNOWLEDGE BASE
       this.knowledgeBaseService
