@@ -138,8 +138,8 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
         .then((result: any) => {
           if (result) {
             this.customKnowledgeBases = [
-              ...this.customKnowledgeBases,
-              ...result
+              this.customKnowledgeBases[0],
+              ...(result ?? [])
             ];
           }
           resolve(this.customKnowledgeBases);
