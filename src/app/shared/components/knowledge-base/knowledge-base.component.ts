@@ -181,17 +181,20 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
         });
     } else if (this.structure) {
       this.structureService.find(this.structure.id).then(() => {
-        const measure = {
-          title,
-          content: ''
-        };
-        this.structure.data.sections
-          .filter(s => s.id === 3)[0]
-          .items.filter(i => i.id === 1)[0]
-          .answers.push(measure);
-        this.structureService.update(this.structure).then(() => {
-          this.item.answers.push(measure);
-        });
+        const title = this.translateService.instant(event.name);
+        const measure = { title, content: '' };
+
+        const section = this.structure.data.sections.filter(s => s.id === 3)[0];
+        const targetItem = section.items.filter(i => i.id === 1)[0];
+
+        targetItem.answers.push(measure);
+
+        this.structureService
+          .update(this.structure)
+          .then(() => {
+            this.item.answers = targetItem.answers;
+          })
+          .catch(console.error);
       });
     }
   }
