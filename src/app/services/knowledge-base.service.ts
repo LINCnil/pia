@@ -300,8 +300,12 @@ export class KnowledgeBaseService extends ApplicationDb {
       } else if (item.is_measure) {
         let kbSlugs2 = [];
         kbSlugs2 = this.knowledgeBaseData.filter(kbItem => {
-          if (kbItem.filters) {
+          // Custom knowledge base measure entries
+          if (kbItem.slug && kbItem.slug.startsWith('PIA_CUSTOM_')) {
             return kbItem.slug.startsWith('PIA_CUSTOM_31');
+            // Standard knowledge base measure entries (default CNIL's knowledge base)
+          } else if (kbItem.filters) {
+            return kbItem.filters.startsWith('measure.');
           }
         });
         kbSlugs2.forEach(element => {
