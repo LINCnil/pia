@@ -19,7 +19,7 @@ jobs:
         run: corepack enable
 
       - name: Cypress
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           start: yarn start
           browser: chrome
