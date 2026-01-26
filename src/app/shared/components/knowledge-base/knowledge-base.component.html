@@ -5,12 +5,14 @@
 
   @if (customKnowledgeBases) {
   <select
-    (change)="switch(selectedKnowledBase)"
     [(ngModel)]="selectedKnowledBase"
+    (change)="switch(selectedKnowledBase)"
   >
-    @for (base of customKnowledgeBases; track base) {
-    <option [value]="base.id">{{ base.name }}</option>
-    }
+    @for (base of customKnowledgeBases; track base) { @if (base) {
+    <option [value]="base.id">
+      {{ base.name }}
+    </option>
+    } }
   </select>
   }
 
