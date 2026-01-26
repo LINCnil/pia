@@ -26,7 +26,7 @@ import localeLt from '@angular/common/locales/lt';
 import localeLv from '@angular/common/locales/lv';
 import localeRo from '@angular/common/locales/ro';
 import localeBg from '@angular/common/locales/bg';
-import localeCz from '@angular/common/locales/cs';
+import localeCs from '@angular/common/locales/cs';
 import localeEt from '@angular/common/locales/et';
 
 // Register all locales
@@ -50,7 +50,7 @@ registerLocaleData(localeLt);
 registerLocaleData(localeLv);
 registerLocaleData(localeRo);
 registerLocaleData(localeBg);
-registerLocaleData(localeCz);
+registerLocaleData(localeCs);
 registerLocaleData(localeEt);
 
 if (environment.production) {
