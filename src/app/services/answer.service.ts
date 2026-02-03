@@ -46,37 +46,17 @@ export class AnswerService extends ApplicationDb {
 
   private setFormData(data): FormData {
     const formData = new FormData();
+    // Fields managed by the server or provided via URL route
+    const excludedFields = ['id', 'pia_id', 'created_at', 'updated_at'];
     for (const d in data) {
-      if (data.hasOwnProperty(d)) {
-        if (data[d] instanceof Object) {
-          for (const d2 in data[d]) {
-            if (data[d].hasOwnProperty(d2)) {
-              if (data[d][d2] instanceof Array) {
-                for (const d3 in data[d][d2]) {
-                  if (data[d].hasOwnProperty(d2)) {
-                    if (data[d][d2][d3]) {
-                      formData.append(
-                        'answer[' + d + '][' + d2 + '][]',
-                        data[d][d2][d3]
-                      );
-                    }
-                  }
-                }
-              } else {
-                if (data[d][d2]) {
-                  formData.append('answer[' + d + '][' + d2 + ']', data[d][d2]);
-                } else {
-                  formData.append('answer[' + d + '][' + d2 + ']', '');
-                }
-              }
-            }
-          }
+      if (data.hasOwnProperty(d) && !excludedFields.includes(d)) {
+        if (d === 'data' && data[d] instanceof Object) {
+          // Serialize the data object as JSON (like structures)
+          formData.append('answer[' + d + ']', JSON.stringify(data[d]));
+        } else if (data[d] != null) {
+          formData.append('answer[' + d + ']', data[d]);
         } else {
-          if (data[d] != null) {
-            formData.append('answer[' + d + ']', data[d]);
-          } else {
-            formData.append('answer[' + d + ']', '');
-          }
+          formData.append('answer[' + d + ']', '');
         }
       }
     }

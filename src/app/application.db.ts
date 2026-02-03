@@ -347,8 +347,15 @@ export class ApplicationDb {
       if (this.apiService && this.apiService.base) {
         let formData = new FormData();
         if (!preformated) {
+          // Fields managed by the server or relational data, not to be sent in updates
+          const excludedFields = [
+            'id',
+            'created_at',
+            'updated_at',
+            'user_pias'
+          ];
           for (const d in entry) {
-            if (entry.hasOwnProperty(d)) {
+            if (entry.hasOwnProperty(d) && !excludedFields.includes(d)) {
               let value = entry[d];
               if (
                 d === 'data' ||
