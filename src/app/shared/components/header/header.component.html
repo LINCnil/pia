@@ -152,9 +152,8 @@
                   ></span>
                 </a>
                 <ul>
-                  @if ( (languagesService.selectedLanguage === 'fr' &&
-                  !authService.state && router.url !== '/') ||
-                  authService.currentUserValue !== null ) {
+                  @if ((!authService.state && router.url !== '/') ||
+                  authService.currentUserValue !== null) {
                   <li>
                     <a (click)="goToExample()">
                       {{ "header.help.pia_example_link" | translate }}
