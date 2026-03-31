@@ -21,8 +21,10 @@
       <div class="pia-gaugeBlock">
         <input
           type="range"
+          (input)="onGaugeInput($event)"
           (change)="checkGaugeChanges($event)"
           formControlName="gauge"
+          [attr.disabled]="isGaugeDisabled() ? true : null"
           min="0"
           max="4"
           step="1"
@@ -90,6 +92,8 @@
           rows="8"
           cols="50"
           [ngClass]="{ hide: hideTextarea }"
+          [attr.tabindex]="hideTextarea ? -1 : 0"
+          [attr.aria-hidden]="hideTextarea ? 'true' : null"
           (focusin)="questionContentFocusIn()"
           placeholder="{{ question.placeholder | translate }}"
         >

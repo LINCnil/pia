@@ -17,6 +17,8 @@
         maxlength="120"
         rows="2"
         [ngClass]="{ hide: !editTitle }"
+        [attr.tabindex]="!editTitle ? -1 : 0"
+        [attr.aria-hidden]="!editTitle ? 'true' : null"
         [attr.data-id]="question.id"
         id="pia-questionBlock-title-{{ question.id }}"
         formControlName="title"
@@ -58,6 +60,8 @@
           rows="8"
           cols="50"
           [ngClass]="{ hide: hideTextarea }"
+          [attr.tabindex]="hideTextarea ? -1 : 0"
+          [attr.aria-hidden]="hideTextarea ? 'true' : null"
           (focusin)="questionContentFocusIn()"
           placeholder="{{ question.placeholder | translate }}"
         >
