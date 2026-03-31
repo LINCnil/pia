@@ -221,7 +221,18 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * Check gauge change.
    * @param {*} event - Any Event.
    */
+  onGaugeInput(event: any): void {
+    if (this.isGaugeDisabled()) {
+      event.target.value = this.gaugeValue ?? 0;
+      event.preventDefault();
+    }
+  }
+
   checkGaugeChanges(event: any): void {
+    if (this.isGaugeDisabled()) {
+      event.target.value = this.gaugeValue ?? 0;
+      return;
+    }
     const value: string = event.target.value;
     const bgElement = event.target.parentNode.querySelector(
       '.pia-gaugeBlock-background'
@@ -554,6 +565,13 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    * @returns {boolean} True if the input should be disabled, false otherwise.
    */
   isInputDisabled(): boolean {
+    return (
+      !this.globalEvaluationService.answerEditionEnabled ||
+      (!this.editMode.includes('author') && this.editMode !== 'local')
+    );
+  }
+
+  isGaugeDisabled(): boolean {
     return (
       !this.globalEvaluationService.answerEditionEnabled ||
       (!this.editMode.includes('author') && this.editMode !== 'local')
