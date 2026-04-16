@@ -478,6 +478,7 @@ export class EvaluationsComponent
       suffix: '.min',
       branding: false,
       menubar: false,
+      entity_encoding: 'raw',
       statusbar: false,
       plugins: 'autoresize lists',
       autoresize_bottom_margin: 30,
