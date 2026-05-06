@@ -272,7 +272,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   questionContentFocusIn(): void {
     if (this.globalEvaluationService.answerEditionEnabled) {
-      this.loadEditor();
+      // FIX: rendre la textarea visible AVANT l'init TinyMCE.
+      this.hideTextarea = false;
+      setTimeout(() => this.loadEditor(), 0);
     }
   }
 
