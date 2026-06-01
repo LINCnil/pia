@@ -14,41 +14,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  flatpak-builder:
+  flatpak:
     name: Build Flatpak
     runs-on: ubuntu-latest
     container:
-      # Freedesktop runtime image that already ships flatpak & flatpak-builder
-      image: ghcr.io/flathub-infra/flatpak-builder-lint:latest
-      options: --privileged
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Validate AppStream metainfo
-        run: |
-          flatpak-builder-lint appstream flatpak/fr.cnil.PIA.metainfo.xml
-
-      - name: Lint the Flatpak manifest
-        run: |
-          flatpak-builder-lint manifest flatpak/fr.cnil.PIA.yml
-
-  build-bundle:
-    name: Build & bundle Flatpak
-    runs-on: ubuntu-latest
-    container:
+      # Freedesktop runtime image matching the manifest runtime-version (24.08)
       image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-24.08
       options: --privileged
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
+      # The flatpak-builder action also runs `flatpak-builder-lint` on the
+      # manifest and the resulting repo, so no separate lint step is needed.
+      # NOTE: the build downloads the prebuilt tar.gz referenced in the manifest,
+      # so it only fully succeeds once a matching Release archive (url + sha256)
+      # is published.
       - name: Build Flatpak
-        uses: flathub-infra/flatpak-github-actions/flatpak-builder@v6
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: fr.cnil.PIA.flatpak
           manifest-path: flatpak/fr.cnil.PIA.yml
           cache-key: flatpak-builder-${{ github.sha }}
-          # The manifest downloads the prebuilt tar.gz artifact, so it can only
-          # succeed once a matching Release archive (url + sha256) is published.
-          # Until then this job documents the build and can be run on demand.
