@@ -23,6 +23,8 @@
     "electron:mac": "electron-builder -m",
     "electron:win": "electron-builder -w",
     "electron:linux": "electron-builder -l",
+    "electron:snap": "electron-builder -l snap",
+    "electron:flatpak": "flatpak-builder --user --install --force-clean build-dir flatpak/fr.cnil.PIA.yml",
     "electron:publish-to-github": "electron-builder -mwl -p onTagOrDraft"
   },
   "husky": {
@@ -149,7 +151,14 @@
       "verifyUpdateCodeSignature": false
     },
     "linux": {
-      "category": "Network"
+      "category": "Network",
+      "target": [
+        "AppImage",
+        "tar.gz"
+      ]
+    },
+    "snap": {
+      "base": "core22"
     },
     "nsis": {
       "oneClick": false,

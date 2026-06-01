@@ -1,0 +1,54 @@
+name: flatpak
+
+# Builds and validates the Flatpak package on a Linux runner so it can be
+# checked without a local Linux environment (e.g. when developing on macOS).
+on:
+  push:
+    paths:
+      - "flatpak/**"
+      - ".github/workflows/flatpak.yml"
+  pull_request:
+    paths:
+      - "flatpak/**"
+      - ".github/workflows/flatpak.yml"
+  workflow_dispatch:
+
+jobs:
+  flatpak-builder:
+    name: Build Flatpak
+    runs-on: ubuntu-latest
+    container:
+      # Freedesktop runtime image that already ships flatpak & flatpak-builder
+      image: ghcr.io/flathub-infra/flatpak-builder-lint:latest
+      options: --privileged
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate AppStream metainfo
+        run: |
+          flatpak-builder-lint appstream flatpak/fr.cnil.PIA.metainfo.xml
+
+      - name: Lint the Flatpak manifest
+        run: |
+          flatpak-builder-lint manifest flatpak/fr.cnil.PIA.yml
+
+  build-bundle:
+    name: Build & bundle Flatpak
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-24.08
+      options: --privileged
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Build Flatpak
+        uses: flathub-infra/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: fr.cnil.PIA.flatpak
+          manifest-path: flatpak/fr.cnil.PIA.yml
+          cache-key: flatpak-builder-${{ github.sha }}
+          # The manifest downloads the prebuilt tar.gz artifact, so it can only
+          # succeed once a matching Release archive (url + sha256) is published.
+          # Until then this job documents the build and can be run on demand.
