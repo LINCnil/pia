@@ -230,6 +230,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   measureContentFocusIn(): void {
     if (this.globalEvaluationService.answerEditionEnabled) {
       this.loadEditor();
+      this.hideTextarea = false;
+      setTimeout(() => this.loadEditor(), 0);
     }
   }
 
