@@ -11225,7 +11225,7 @@ __metadata:
     rxjs-compat: "npm:^6.5.5"
     sass: "npm:^1.29.0"
     save-svg-as-png: "npm:^1.4.17"
-    tinymce: "npm:^8.0.2"
+    tinymce: "npm:^8.5.1"
     ts-node: "npm:~8.3.0"
     tslib: "npm:^2.0.3"
     tslint: "npm:~6.1.3"
@@ -13270,10 +13270,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinymce@npm:^8.0.2":
-  version: 8.1.2
-  resolution: "tinymce@npm:8.1.2"
-  checksum: 10c0/61c25102b668257957c29312fe01fd3cfc9cf2851f7091d40c91c8e77edeeac09ba9b08aae0d09f66ebb27d848a60286347a3a5f001e4f202fcb5757d77205eb
+"tinymce@npm:^8.5.1":
+  version: 8.5.1
+  resolution: "tinymce@npm:8.5.1"
+  checksum: 10c0/9b9d500b887dd61a2b3d72a54c636329cf859c8d1c9738ee409e07e7ddfc7e609dcfd2561b14fb93108ba8a2ea0d1a7103001f94e17f85e736769ca3ea42fe33
   languageName: node
   linkType: hard
 
