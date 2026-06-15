@@ -229,7 +229,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
    */
   measureContentFocusIn(): void {
     if (this.globalEvaluationService.answerEditionEnabled) {
-      // FIX: rendre la textarea visible AVANT l'init TinyMCE.
       this.hideTextarea = false;
       setTimeout(() => this.loadEditor(), 0);
     }
