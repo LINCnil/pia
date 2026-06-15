@@ -501,17 +501,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/service-worker@npm:^20.3.2":
-  version: 20.3.3
-  resolution: "@angular/service-worker@npm:20.3.3"
+"@angular/service-worker@npm:^20.3.22":
+  version: 20.3.22
+  resolution: "@angular/service-worker@npm:20.3.22"
   dependencies:
     tslib: "npm:^2.3.0"
   peerDependencies:
-    "@angular/core": 20.3.3
+    "@angular/core": 20.3.22
     rxjs: ^6.5.3 || ^7.4.0
   bin:
     ngsw-config: ngsw-config.js
-  checksum: 10c0/9ffc4f9324247520867d22bd04fc2258eb90b86eedb81fe73d044c2b7416da6d5eb2d7d0a9529cc779473d5da65fd14c6890031c347d552308b149efd2eb1c20
+  checksum: 10c0/121e19e3eb3075f3a4cb5ff177bfd1c00aa00361663e40e4709f37cfc715fb65a999db954466605a6e82afa799e958e0ca93884ca39a76da813e2c51c04eda34
   languageName: node
   linkType: hard
 
@@ -11172,7 +11172,7 @@ __metadata:
     "@angular/platform-browser": "npm:^20.3.2"
     "@angular/platform-browser-dynamic": "npm:^20.3.2"
     "@angular/router": "npm:^20.3.2"
-    "@angular/service-worker": "npm:^20.3.2"
+    "@angular/service-worker": "npm:^20.3.22"
     "@commitlint/cli": "npm:^11.0.0"
     "@commitlint/config-conventional": "npm:^11.0.0"
     "@electron-forge/cli": "npm:^7.8.0"
