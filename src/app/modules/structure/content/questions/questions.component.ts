@@ -168,9 +168,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       questionTitleTextarea.classList.add('pia-required');
       questionTitleTextarea.focus();
     } else if (this.globalEvaluationService.answerEditionEnabled) {
-      // FIX: rendre la textarea visible AVANT l'init TinyMCE.
-      // TinyMCE 8 + autoresize echoue silencieusement si l'element cible
-      // est en display:none, ce qui se produit quand answer.length > 0.
       this.hideTextarea = false;
       setTimeout(() => this.loadEditor(), 0);
     }
