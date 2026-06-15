@@ -154,7 +154,6 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (this.structure.is_example) {
       return;
     }
-    // FIX: rendre la textarea visible AVANT l'init TinyMCE (cf. questions.component.ts).
     this.hideTextarea = false;
     setTimeout(() => this.loadEditor(), 0);
   }
