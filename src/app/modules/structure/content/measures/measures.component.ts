@@ -154,7 +154,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (this.structure.is_example) {
       return;
     }
-    this.loadEditor();
+    this.hideTextarea = false;
+    setTimeout(() => this.loadEditor(), 0);
   }
 
   /**
