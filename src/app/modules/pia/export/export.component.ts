@@ -721,7 +721,11 @@ export class ExportComponent implements OnInit {
           let table = tableHtml;
           table = table.replace(/<\/(td|th)>\s*<(td|th)[^>]*>/gi, ' | ');
           table = table.replace(/<\/tr>/gi, '\r\n');
-          table = table.replace(/<[^>]+>/g, '');
+          let previousTable;
+          do {
+            previousTable = table;
+            table = table.replace(/<[^>]+>/g, '');
+          } while (table !== previousTable);
           table = table.replace(/[ \t]*\r?\n[ \t]*(?:\r?\n[ \t]*)+/g, '\r\n');
           table = table.replace(/^\s+|\s+$/g, '');
           return '\r\n' + table + '\r\n';
