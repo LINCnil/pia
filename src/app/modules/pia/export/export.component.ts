@@ -5,6 +5,7 @@ import * as FileSaver from 'file-saver';
 import html2canvas from 'html2canvas';
 import { svgAsPngUri } from 'save-svg-as-png';
 import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 import { Answer } from 'src/app/models/answer.model';
 import { Evaluation } from 'src/app/models/evaluation.model';
@@ -643,41 +644,123 @@ export class ExportComponent implements OnInit {
         doc.setFontSize(fontSize);
         let startY = y;
         let startX = x;
-        const textMap = doc.splitTextToSize(
-          content,
-          doc.internal.pageSize.width - x - 20
+        // Split the content into plain-text segments and embedded table
+        // placeholders (injected by purifyString). Odd-indexed segments are
+        // the encoded table data and are rendered as real bordered grids.
+        const segments = String(content).split(
+          /\u0000TABLE\u0000([\s\S]*?)\u0000/
         );
-        textMap.map(text => {
-          startY = testPdfSize(startY);
-          const arrayOfNormalAndBoldText = text.split('**');
-          arrayOfNormalAndBoldText.map((textItems, i) => {
-            // Note: we might have to do it for arabic language later, if it's integrated
-            if (languagesService.selectedLanguage === 'el') {
-              if (i % 2 === 0) {
-                doc.setFont('GFSNeohellenic-Regular', 'normal');
+        segments.forEach((segment, segmentIndex) => {
+          if (segmentIndex % 2 === 1) {
+            startY = drawTable(
+              segment,
+              x,
+              startY,
+              fontSize,
+              lineSpacing,
+              languagesService
+            );
+            startX = x;
+            return;
+          }
+          if (!segment) {
+            return;
+          }
+          const textMap = doc.splitTextToSize(
+            segment,
+            doc.internal.pageSize.width - x - 20
+          );
+          textMap.map(text => {
+            startY = testPdfSize(startY);
+            const arrayOfNormalAndBoldText = text.split('**');
+            arrayOfNormalAndBoldText.map((textItems, i) => {
+              // Note: we might have to do it for arabic language later, if it's integrated
+              if (languagesService.selectedLanguage === 'el') {
+                if (i % 2 === 0) {
+                  doc.setFont('GFSNeohellenic-Regular', 'normal');
+                } else {
+                  doc.setFont('GFSNeohellenic-Bold', 'bold');
+                }
+              } else if (languagesService.selectedLanguage === 'bg') {
+                if (i % 2 === 0) {
+                  doc.setFont('Cousine-Regular', 'normal');
+                } else {
+                  doc.setFont('Cousine-Bold', 'bold');
+                }
               } else {
-                doc.setFont('GFSNeohellenic-Bold', 'bold');
+                if (i % 2 === 0) {
+                  doc.setFont('Roboto-Regular-webfont', 'normal');
+                } else {
+                  doc.setFont('Roboto-Bold-webfont', 'bold');
+                }
               }
-            } else if (languagesService.selectedLanguage === 'bg') {
-              if (i % 2 === 0) {
-                doc.setFont('Cousine-Regular', 'normal');
-              } else {
-                doc.setFont('Cousine-Bold', 'bold');
-              }
-            } else {
-              if (i % 2 === 0) {
-                doc.setFont('Roboto-Regular-webfont', 'normal');
-              } else {
-                doc.setFont('Roboto-Bold-webfont', 'bold');
-              }
-            }
-            doc.text(textItems, startX, startY);
-            startX += doc.getStringUnitWidth(textItems) * fontSize;
+              doc.text(textItems, startX, startY);
+              startX += doc.getStringUnitWidth(textItems) * fontSize;
+            });
+            pageSize += lineSpacing;
+            startY += lineSpacing;
+            startX = x;
           });
-          pageSize += lineSpacing;
-          startY += lineSpacing;
-          startX = x;
         });
+      }
+
+      // Render an encoded table placeholder as a real bordered grid.
+      function drawTable(
+        encoded,
+        x,
+        y,
+        fontSize,
+        lineSpacing,
+        languagesService
+      ) {
+        let rows;
+        try {
+          rows = JSON.parse(decodeURIComponent(encoded));
+        } catch (e) {
+          return y;
+        }
+        if (!Array.isArray(rows) || rows.length === 0) {
+          return y;
+        }
+
+        let regularFont = 'Roboto-Regular-webfont';
+        let boldFont = 'Roboto-Bold-webfont';
+        if (languagesService.selectedLanguage === 'el') {
+          regularFont = 'GFSNeohellenic-Regular';
+          boldFont = 'GFSNeohellenic-Bold';
+        } else if (languagesService.selectedLanguage === 'bg') {
+          regularFont = 'Cousine-Regular';
+          boldFont = 'Cousine-Bold';
+        }
+
+        const startY = testPdfSize(y);
+        autoTable(doc, {
+          startY,
+          margin: { left: x, right: 20 },
+          head: [rows[0]],
+          body: rows.slice(1),
+          theme: 'grid',
+          styles: {
+            font: regularFont,
+            fontStyle: 'normal',
+            fontSize: Math.max(fontSize - 2, 8),
+            cellPadding: 3,
+            overflow: 'linebreak',
+            lineColor: [180, 180, 180],
+            lineWidth: 0.5,
+            textColor: [0, 0, 0]
+          },
+          headStyles: {
+            font: boldFont,
+            fontStyle: 'bold',
+            fillColor: [241, 241, 241],
+            textColor: [0, 0, 0]
+          }
+        });
+
+        const finalY = (doc as any).lastAutoTable.finalY;
+        pageSize = finalY + lineSpacing;
+        return finalY + lineSpacing;
       }
 
       // Remove HTML tags from a string
@@ -713,22 +796,33 @@ export class ExportComponent implements OnInit {
         const htmlRegex3 = /<span class='strong'>/g;
         data = data.replace(htmlRegex3, '');
 
-        // Preserve table structure: convert each table to plain text with
-        // " | " between cells and a line break per row. Collapsing of blank
-        // lines is scoped to the table content only, so the spacing of the
-        // surrounding text is left untouched.
+        // Preserve table structure: encode each HTML table into a placeholder
+        // that writeBoldText renders as a real bordered grid in the PDF.
         data = data.replace(/<table[\s\S]*?<\/table>/gi, tableHtml => {
-          let table = tableHtml;
-          table = table.replace(/<\/(td|th)>\s*<(td|th)[^>]*>/gi, ' | ');
-          table = table.replace(/<\/tr>/gi, '\r\n');
-          let previousTable;
-          do {
-            previousTable = table;
-            table = table.replace(/<[^>]+>/g, '');
-          } while (table !== previousTable);
-          table = table.replace(/[ \t]*\r?\n[ \t]*(?:\r?\n[ \t]*)+/g, '\r\n');
-          table = table.replace(/^\s+|\s+$/g, '');
-          return '\r\n' + table + '\r\n';
+          const rows = [];
+          const rowMatches = tableHtml.match(/<tr[\s\S]*?<\/tr>/gi) || [];
+          rowMatches.forEach(rowHtml => {
+            const cells = [];
+            const cellMatches =
+              rowHtml.match(/<(td|th)[\s\S]*?<\/(td|th)>/gi) || [];
+            cellMatches.forEach(cellHtml => {
+              let text = cellHtml.replace(/<[^>]+>/g, '');
+              text = text.replace(/\*\*/g, '');
+              text = text.replace(/\s+/g, ' ').trim();
+              cells.push(text);
+            });
+            if (cells.length) {
+              rows.push(cells);
+            }
+          });
+          if (!rows.length) {
+            return '';
+          }
+          return (
+            '\r\n\u0000TABLE\u0000' +
+            encodeURIComponent(JSON.stringify(rows)) +
+            '\u0000\r\n'
+          );
         });
 
         const htmlRegexFinal = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
