@@ -712,6 +712,21 @@ export class ExportComponent implements OnInit {
         data = data.replace(htmlRegex2, '');
         const htmlRegex3 = /<span class='strong'>/g;
         data = data.replace(htmlRegex3, '');
+
+        // Preserve table structure: convert each table to plain text with
+        // " | " between cells and a line break per row. Collapsing of blank
+        // lines is scoped to the table content only, so the spacing of the
+        // surrounding text is left untouched.
+        data = data.replace(/<table[\s\S]*?<\/table>/gi, tableHtml => {
+          let table = tableHtml;
+          table = table.replace(/<\/(td|th)>\s*<(td|th)[^>]*>/gi, ' | ');
+          table = table.replace(/<\/tr>/gi, '\r\n');
+          table = table.replace(/<[^>]+>/g, '');
+          table = table.replace(/[ \t]*\r?\n[ \t]*(?:\r?\n[ \t]*)+/g, '\r\n');
+          table = table.replace(/^\s+|\s+$/g, '');
+          return '\r\n' + table + '\r\n';
+        });
+
         const htmlRegexFinal = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
         data = data.replace(htmlRegexFinal, '');
         return data;
