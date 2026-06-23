@@ -9014,6 +9014,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jspdf-autotable@npm:^3.8.2":
+  version: 3.8.4
+  resolution: "jspdf-autotable@npm:3.8.4"
+  peerDependencies:
+    jspdf: ^2.5.1
+  checksum: 10c0/0289ee8c23322f69f1e275d679b5ecb32f1a76933301742169a7d476bdca2f126a82aba005b209cb257f6797056c0ee3dae8d864735b7623dab3935453fd8b59
+  languageName: node
+  linkType: hard
+
 "jspdf@npm:^2.5.1":
   version: 2.5.2
   resolution: "jspdf@npm:2.5.2"
@@ -11208,6 +11217,7 @@ __metadata:
     jasmine-core: "npm:~3.6.0"
     jasmine-spec-reporter: "npm:~5.0.2"
     jspdf: "npm:^2.5.1"
+    jspdf-autotable: "npm:^3.8.2"
     jszip: "npm:^3.7.1"
     karma: "npm:~6.3.16"
     karma-chrome-launcher: "npm:~3.1.0"
