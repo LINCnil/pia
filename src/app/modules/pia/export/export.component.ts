@@ -806,7 +806,9 @@ export class ExportComponent implements OnInit {
             const cellMatches =
               rowHtml.match(/<(td|th)[\s\S]*?<\/(td|th)>/gi) || [];
             cellMatches.forEach(cellHtml => {
-              let text = cellHtml.replace(/<[^>]+>/g, '');
+              const tempElement = document.createElement('div');
+              tempElement.innerHTML = cellHtml;
+              let text = tempElement.textContent || '';
               text = text.replace(/\*\*/g, '');
               text = text.replace(/\s+/g, ' ').trim();
               cells.push(text);
