@@ -65,7 +65,7 @@
     "file-saver": "^2.0.5",
     "foundation-sites": "^6.6.3",
     "html2canvas": "1.0.0",
-    "html2pdf.js": "^0.10.1",
+    "html2pdf.js": "^0.14.0",
     "intro.js": "^2.9.3",
     "jspdf": "^2.5.1",
     "jszip": "^3.7.1",
