@@ -23,7 +23,6 @@ describe("Validation", () => {
   context("Avis du DPD et des personnes concernées", () => {
     it("should complete DPD", () => {
       cy.get_current_pia_id(id => {
-        visit_id = id;
         cy.go_edited_pia(id, 4, 3).then(() => {
           cy.validateDPO();
         });
