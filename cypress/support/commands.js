@@ -37,6 +37,7 @@ Cypress.Commands.add("focus_out", () => {
 
 Cypress.Commands.add("go_edited_pia", (id = 2, section = 1, item = 1) => {
   cy.visit(`/#/pia/${id}/section/${section}/item/${item}`);
+  cy.wait(2000);
 });
 
 Cypress.Commands.add("import_pia", () => {
