@@ -1,0 +1,38 @@
+name: flatpak
+
+# Builds and validates the Flatpak package on a Linux runner so it can be
+# checked without a local Linux environment (e.g. when developing on macOS).
+on:
+  push:
+    paths:
+      - "flatpak/**"
+      - ".github/workflows/flatpak.yml"
+  pull_request:
+    paths:
+      - "flatpak/**"
+      - ".github/workflows/flatpak.yml"
+  workflow_dispatch:
+
+jobs:
+  flatpak:
+    name: Build Flatpak
+    runs-on: ubuntu-latest
+    container:
+      # Freedesktop runtime image matching the manifest runtime-version (24.08)
+      image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-24.08
+      options: --privileged
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # The flatpak-builder action also runs `flatpak-builder-lint` on the
+      # manifest and the resulting repo, so no separate lint step is needed.
+      # NOTE: the build downloads the prebuilt tar.gz referenced in the manifest,
+      # so it only fully succeeds once a matching Release archive (url + sha256)
+      # is published.
+      - name: Build Flatpak
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: fr.cnil.PIA.flatpak
+          manifest-path: flatpak/fr.cnil.PIA.yml
+          cache-key: flatpak-builder-${{ github.sha }}
