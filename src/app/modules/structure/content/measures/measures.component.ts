@@ -70,6 +70,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     this.hideTextarea = this.measure.content?.length > 0;
 
     this.elementId = 'pia-measure-content-' + this.id;
+
+    this.knowledgeBaseService.toHide.push(this.measure.title);
   }
 
   ngOnDestroy(): void {
@@ -152,7 +154,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
     if (this.structure.is_example) {
       return;
     }
-    this.loadEditor();
+    this.hideTextarea = false;
+    setTimeout(() => this.loadEditor(), 0);
   }
 
   /**
@@ -216,7 +219,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           this.structure,
           this.section.id,
           this.item.id,
-          this.id
+          this.id,
+          this.measure.title
         );
       },
       () => {
@@ -235,6 +239,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       suffix: '.min',
       branding: false,
       menubar: false,
+      entity_encoding: 'raw',
       statusbar: false,
       plugins: 'autoresize lists',
       autoresize_bottom_margin: 30,

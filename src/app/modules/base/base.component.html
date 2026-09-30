@@ -218,10 +218,13 @@
             required
           ></textarea>
         </div>
-        <!-- Navigation associations (checkboxes) -->
+
         <h3>{{ "homepage.cards.knowledges_entry.linked_to" | translate }}</h3>
+
         @if (data && data.sections.length > 0) {
         <div class="pia-knowledges_base-form-checkboxes">
+          <!-- "SELECT ALL SECTIONS" CHECKBOX -->
+          <!-- Hidden if current category is linked to measures -->
           @if (!this.lockedChoice) {
           <div class="pia-knowledges_base-form-checkboxes-title">
             <input
@@ -240,6 +243,8 @@
           <div class="pia-knowledges_base-form-checkboxes-body">
             @for (dataSection of data?.sections; track dataSection) {
             <div>
+              <!-- SECTION CHECKBOXES -->
+              <!-- Each section checkbox is disabled if current category is linked to measures -->
               <div class="pia-knowledges_base-form-checkboxes-title">
                 <input
                   id="{{ dataSection.title }}"
@@ -255,6 +260,11 @@
                   dataSection.title | translate
                 }}</label>
               </div>
+
+              <!-- SECTION ITEM CHECKBOXES -->
+              <!-- Special case 1: item '31' is checked and disabled when current category is linked to measures -->
+              <!-- Special case 2: item '31' is checkable when current category is 'definition' -->
+              <!-- Special case 3: item '31' is disabled and not checkable in any other case -->
               <ul class="pia-knowledges_base-form-checkboxes-list">
                 @for (dataItem of dataSection?.items; track dataItem) {
                 <li>
@@ -273,6 +283,14 @@
                         dataSection.id.toString() + dataItem.id.toString()
                       }}"
                       [disabled]="
+                        (dataSection.id.toString() + dataItem.id.toString() ===
+                          '31' &&
+                          (entryForm.value.category ===
+                            'knowledge_base.category.organizational_measure' ||
+                            entryForm.value.category ===
+                              'knowledge_base.category.measure_on_data' ||
+                            entryForm.value.category ===
+                              'knowledge_base.category.general_measure')) ||
                         (lockedChoice &&
                           dataSection.id.toString() + dataItem.id.toString() !==
                             '31') ||

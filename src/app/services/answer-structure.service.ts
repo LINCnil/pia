@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Structure } from '../models/structure.model';
 import { StructureService } from './structure.service';
+import { KnowledgeBaseService } from './knowledge-base.service';
 
 @Injectable()
 export class AnswerStructureService {
   // measureToRemove = new Subject<number>();
   // questionToRemove = new Subject<number>();
 
-  constructor(private structureService: StructureService) {}
+  constructor(
+    private structureService: StructureService,
+    private knowledgeBaseService?: KnowledgeBaseService
+  ) {}
 
   async addQuestion(
     structure: Structure,
@@ -69,7 +73,8 @@ export class AnswerStructureService {
     structure: Structure,
     section_id: number,
     item_id: number,
-    measure_id: number
+    measure_id: number,
+    measure_name: string
   ): void {
     structure.data.sections
       .filter(s => s.id === section_id)[0]
@@ -77,6 +82,9 @@ export class AnswerStructureService {
       .answers.splice(measure_id, 1);
     this.structureService.update(structure).then(() => {
       // this.measureToRemove.next(measure_id);
+      this.knowledgeBaseService.toHide = this.knowledgeBaseService.toHide.filter(
+        item => item !== measure_name
+      );
     });
   }
 

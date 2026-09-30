@@ -47,23 +47,9 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
     private el: ElementRef,
     private translateService: TranslateService,
     private structureService: StructureService
-  ) {
-    // Parse default Knowledge base json
-    this.translateService
-      .get('knowledge_base.default_knowledge_base')
-      .subscribe((translation: string) => {
-        const defaultKnowledgeBase = new KnowledgeBase(
-          0,
-          translation,
-          'CNIL',
-          'CNIL'
-        );
-        defaultKnowledgeBase.is_example = true;
-        this.customKnowledgeBases.push(defaultKnowledgeBase);
-      });
-  }
+  ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     // INIT
     const knowledgeIdentifier = this.pia
       ? 'pia_' + this.route.snapshot.params.id + '_knowledgebase'
@@ -96,18 +82,12 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
       }
     };
 
-    this.loadKnowledgesBase().then(() => {
-      if (this.selectedKnowledBase !== null) {
-        this.switch(this.selectedKnowledBase);
-      }
-    });
+    this.updateDefaultKnowledgeBase();
+    this.loadAndSwitchKnowledgeBase();
 
     this.translateService.onLangChange.subscribe(() => {
-      this.loadKnowledgesBase().then(() => {
-        if (this.selectedKnowledBase !== null) {
-          this.switch(this.selectedKnowledBase);
-        }
-      });
+      this.updateDefaultKnowledgeBase();
+      this.loadAndSwitchKnowledgeBase();
     });
   }
 
@@ -123,10 +103,34 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
     this.knowledgeBaseService.previousKnowledgeBaseData = [];
   }
 
+  private updateDefaultKnowledgeBase(): void {
+    this.translateService
+      .get('knowledge_base.default_knowledge_base')
+      .subscribe((translation: string) => {
+        const defaultKnowledgeBase = new KnowledgeBase(
+          0,
+          translation,
+          'CNIL',
+          'CNIL'
+        );
+        defaultKnowledgeBase.is_example = true;
+
+        this.customKnowledgeBases = [defaultKnowledgeBase];
+      });
+  }
+
+  private async loadAndSwitchKnowledgeBase(): Promise<void> {
+    await this.loadKnowledgesBase();
+
+    if (this.selectedKnowledBase !== null) {
+      this.switch(this.selectedKnowledBase);
+    }
+  }
+
   /**
    * Load the knowledges List
    */
-  loadKnowledgesBase(): Promise<any> {
+  async loadKnowledgesBase(): Promise<any> {
     return new Promise((resolve, reject) => {
       // LOAD CUSTOM KNOWLEDGE BASE
       this.knowledgeBaseService
@@ -134,8 +138,8 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
         .then((result: any) => {
           if (result) {
             this.customKnowledgeBases = [
-              ...this.customKnowledgeBases,
-              ...result
+              this.customKnowledgeBases[0],
+              ...(result ?? [])
             ];
           }
           resolve(this.customKnowledgeBases);
@@ -166,6 +170,10 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
    * @param event - Any kind of event.
    */
   addNewMeasure(event): void {
+    const title = this.translateService.instant(event.name);
+    if (!this.knowledgeBaseService.toHide.includes(title)) {
+      this.knowledgeBaseService.toHide.push(title);
+    }
     if (this.pia) {
       this.measureService
         .addNewMeasure(this.pia, event.name, event.placeholder)
@@ -178,17 +186,19 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
     } else if (this.structure) {
       this.structureService.find(this.structure.id).then(() => {
         const title = this.translateService.instant(event.name);
-        const measure = {
-          title,
-          content: ''
-        };
-        this.structure.data.sections
-          .filter(s => s.id === 3)[0]
-          .items.filter(i => i.id === 1)[0]
-          .answers.push(measure);
-        this.structureService.update(this.structure).then(() => {
-          this.item.answers.push(measure);
-        });
+        const measure = { title, content: '' };
+
+        const section = this.structure.data.sections.filter(s => s.id === 3)[0];
+        const targetItem = section.items.filter(i => i.id === 1)[0];
+
+        targetItem.answers.push(measure);
+
+        this.structureService
+          .update(this.structure)
+          .then(() => {
+            this.item.answers = targetItem.answers;
+          })
+          .catch(console.error);
       });
     }
   }

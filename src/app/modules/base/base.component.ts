@@ -362,14 +362,26 @@ export class BaseComponent implements OnInit {
   globalCheckingElementInDataSection(dataSection: any, event: Event): void {
     const checkboxStatus = (event.target as HTMLInputElement).checked;
 
-    // Update itemsSelected immutably
     const updatedItemsSelected = [...this.itemsSelected];
+
+    const allowedCategories = [
+      'knowledge_base.category.organizational_measure',
+      'knowledge_base.category.measure_on_data',
+      'knowledge_base.category.general_measure',
+      'knowledge_base.category.definition'
+    ];
+
+    const category = this.entryForm.value.category;
 
     dataSection.items.forEach(item => {
       const itemId = `${dataSection.id}${item.id}`;
       const index = updatedItemsSelected.indexOf(itemId);
 
       if (checkboxStatus && index === -1) {
+        // Special case: item "31" is only added if the current category is one of the measure ones
+        if (itemId === '31' && !allowedCategories.includes(category)) {
+          return;
+        }
         updatedItemsSelected.push(itemId);
       } else if (!checkboxStatus && index !== -1) {
         updatedItemsSelected.splice(index, 1);
@@ -386,13 +398,25 @@ export class BaseComponent implements OnInit {
   globalCheckingAllElementInDataSection(event: Event): void {
     const checkboxStatus = (event.target as HTMLInputElement).checked;
 
-    // Update itemsSelected immutably
     const updatedItemsSelected = [];
+
+    const allowedCategories = [
+      'knowledge_base.category.organizational_measure',
+      'knowledge_base.category.measure_on_data',
+      'knowledge_base.category.general_measure',
+      'knowledge_base.category.definition'
+    ];
+
+    const category = this.entryForm.value.category;
 
     this.data.sections.forEach(section => {
       section.items.forEach(item => {
         const itemId = `${section.id}${item.id}`;
         if (checkboxStatus) {
+          // Special case: item "31" is only added if the current category is one of the measure ones
+          if (itemId === '31' && !allowedCategories.includes(category)) {
+            return;
+          }
           updatedItemsSelected.push(itemId);
         }
       });

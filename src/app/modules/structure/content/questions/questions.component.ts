@@ -168,7 +168,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       questionTitleTextarea.classList.add('pia-required');
       questionTitleTextarea.focus();
     } else if (this.globalEvaluationService.answerEditionEnabled) {
-      this.loadEditor();
+      this.hideTextarea = false;
+      setTimeout(() => this.loadEditor(), 0);
     }
   }
 
@@ -218,6 +219,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       suffix: '.min',
       branding: false,
       menubar: false,
+      entity_encoding: 'raw',
       statusbar: false,
       plugins: 'autoresize lists',
       autoresize_bottom_margin: 30,

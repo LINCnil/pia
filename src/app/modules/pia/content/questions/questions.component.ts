@@ -272,7 +272,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
    */
   questionContentFocusIn(): void {
     if (this.globalEvaluationService.answerEditionEnabled) {
-      this.loadEditor();
+      this.hideTextarea = false;
+      setTimeout(() => this.loadEditor(), 0);
     }
   }
 
