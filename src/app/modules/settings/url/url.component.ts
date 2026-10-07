@@ -71,7 +71,16 @@ export class UrlComponent implements OnInit {
           }
         })
         .then((response: any) => {
-          if (response.valid) {
+          const success =
+            (this.settingsForm.value.client_id &&
+              this.settingsForm.value.client_secret &&
+              response.valid &&
+              response.auth) ||
+            (!this.settingsForm.value.client_id &&
+              !this.settingsForm.value.client_secret &&
+              !response.valid &&
+              !response.auth);
+          if (success) {
             this.success(serverUrl);
             this.authService.state = response.auth;
           } else {
