@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require("electron/main");
+const { app, BrowserWindow, Menu, shell } = require("electron/main");
 const { setupAutoUpdater } = require("./updater");
 const path = require("path");
 
@@ -22,6 +22,25 @@ const createWindow = () => {
   win.loadFile(
     path.join(__dirname, "../dist", "pia-angular", "browser", "index.html")
   );
+
+  const isExternal = url => /^https?:\/\//i.test(url);
+
+  // Open external links (e.g. links added in a question/measure content)
+  // in the default browser instead of navigating away inside the app window.
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    if (isExternal(url)) {
+      shell.openExternal(url);
+      return { action: "deny" };
+    }
+    return { action: "allow" };
+  });
+
+  win.webContents.on("will-navigate", (event, url) => {
+    if (isExternal(url)) {
+      event.preventDefault();
+      shell.openExternal(url);
+    }
+  });
 };
 
 app.whenReady().then(() => {
