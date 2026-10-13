@@ -1,0 +1,54 @@
+app-id: fr.cnil.PIA
+runtime: org.freedesktop.Platform
+runtime-version: "24.08"
+sdk: org.freedesktop.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: "24.08"
+command: pia
+separate-locales: false
+
+finish-args:
+  # Display
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  # The PIA software needs network access for the optional client/server mode
+  - --share=network
+  # Allow the user to open / save PIA files, exports and PDF reports
+  - --filesystem=home
+  - --filesystem=xdg-download
+  - --filesystem=xdg-documents
+  # Desktop notifications
+  - --talk-name=org.freedesktop.Notifications
+
+modules:
+  - name: pia
+    buildsystem: simple
+    build-commands:
+      # Install the unpacked Electron application
+      - mkdir -p /app/main
+      - cp -a ./* /app/main
+      # Launcher wrapper (uses the Electron base-app zypak sandbox helper)
+      - install -Dm755 pia.sh /app/bin/pia
+      # Desktop integration files
+      - install -Dm644 fr.cnil.PIA.desktop /app/share/applications/fr.cnil.PIA.desktop
+      - install -Dm644 fr.cnil.PIA.metainfo.xml /app/share/metainfo/fr.cnil.PIA.metainfo.xml
+      - install -Dm644 icon.png /app/share/icons/hicolor/512x512/apps/fr.cnil.PIA.png
+    sources:
+      # Prebuilt application produced by `yarn electron:linux` (tar.gz target).
+      # Update the version, url and sha256 for every release.
+      - type: archive
+        url: https://github.com/LINCnil/pia/releases/download/v4.1.0/pia-4.1.0.tar.gz
+        sha256: 0000000000000000000000000000000000000000000000000000000000000000
+        strip-components: 1
+      - type: file
+        path: pia.sh
+      - type: file
+        path: fr.cnil.PIA.desktop
+      - type: file
+        path: fr.cnil.PIA.metainfo.xml
+      - type: file
+        path: ../electron/icons/icon.png
+        dest-filename: icon.png
