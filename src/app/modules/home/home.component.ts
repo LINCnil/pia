@@ -1,9 +1,15 @@
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
   UntypedFormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,7 +21,8 @@ import { AuthService } from 'src/app/services/auth.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class HomeComponent implements OnInit, OnDestroy {
   signUp: UntypedFormGroup;
@@ -39,7 +46,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             this.router.navigate(['entries']);
           }
         }
-      }
+      },
     });
 
     this.renderer.addClass(document.body, 'pia-authentication');
@@ -47,7 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     // Prepare login form
     this.logIn = this.formBuilder.group({
       login: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
     });
 
     // Prepare sign up form
@@ -63,26 +70,26 @@ export class HomeComponent implements OnInit, OnDestroy {
               CustomValidators.patternValidator(/\d/, { hasNumber: true }),
               // 3. check whether the entered password has upper case letter
               CustomValidators.patternValidator(/[A-Z]/, {
-                hasCapitalCase: true
+                hasCapitalCase: true,
               }),
               // 4. check whether the entered password has a lower-case letter
               CustomValidators.patternValidator(/[a-z]/, {
-                hasSmallCase: true
+                hasSmallCase: true,
               }),
               // 5. check whether the entered password has a special char
               CustomValidators.patternValidator(/[!@#$%^&*(),.?":{}|<>]/, {
-                hashSpecialChar: true
+                hashSpecialChar: true,
               }),
               // 6. Has a minimum length of 8 characters
-              Validators.minLength(12)
-            ])
-          ]
+              Validators.minLength(12),
+            ]),
+          ],
         ],
-        confirmPassword: new UntypedFormControl('', [Validators.required])
+        confirmPassword: new UntypedFormControl('', [Validators.required]),
       },
       {
         // check whether our password and confirm password match
-        validator: CustomValidators.passwordMatchValidator
+        validator: CustomValidators.passwordMatchValidator,
       }
     );
   }
@@ -94,7 +101,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     window.screenTop === 0 && window.screenY === 0
       ? displayMessage.classList.remove('hide')
       : displayMessage.classList.add('hide');
-    window.onresize = event => {
+    window.onresize = (event) => {
       window.screenTop === 0 && window.screenY === 0
         ? displayMessage.classList.remove('hide')
         : displayMessage.classList.add('hide');

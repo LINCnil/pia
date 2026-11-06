@@ -29,7 +29,7 @@ See the [package.json](https://github.com/LINCnil/pia/blob/master/package.json#L
 
 ## Prerequisites
 
-Angular 21 requires Node.js `^20.19.0`, `^22.12.0`, or `^24.0.0`.
+Angular 22 requires Node.js `^22.22.3`, `^24.15.0`, or `^26.0.0`.
 
 ## Development server
 

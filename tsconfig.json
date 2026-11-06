@@ -2,9 +2,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "resolveJsonModule": true,
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "esModuleInterop": true,
+    "strict": false,
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
@@ -14,8 +14,9 @@
     "typeRoots": ["node_modules/@types"],
     "module": "es2020",
     "paths": {
-      "@atnos/pia-i18n/*": ["projects/pia-i18n/*", "projects/pia-i18n"],
-      "@atnos/pia-i18n": ["dist/pia-i18n/*", "dist/pia-i18n"]
+      "src/*": ["./src/*"],
+      "@atnos/pia-i18n/*": ["./projects/pia-i18n/*", "./projects/pia-i18n"],
+      "@atnos/pia-i18n": ["./dist/pia-i18n/*", "./dist/pia-i18n"]
     },
     "useDefineForClassFields": false
   }

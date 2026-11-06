@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { Comment } from '../../../../models/comment.model';
@@ -12,7 +18,8 @@ import { faComment } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-comments',
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class CommentsComponent implements OnInit {
   commentsForm: UntypedFormGroup;
@@ -58,13 +65,13 @@ export class CommentsComponent implements OnInit {
         this.pia.id,
         this.measure ? this.measure.id : this.question.id
       )
-      .then(entries => {
+      .then((entries) => {
         this.comments = entries;
         this.comments.reverse();
       });
 
     this.commentsForm = new UntypedFormGroup({
-      description: new UntypedFormControl()
+      description: new UntypedFormControl(),
     });
   }
 
@@ -132,8 +139,8 @@ export class CommentsComponent implements OnInit {
             no: '',
             icon: 'pia-icons pia-icon-sorry',
             data: {
-              btn_yes: 'btn-blue'
-            }
+              btn_yes: 'btn-blue',
+            },
           },
           () => {
             return false;

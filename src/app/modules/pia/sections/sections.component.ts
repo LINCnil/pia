@@ -1,4 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { Pia } from 'src/app/models/pia.model';
@@ -7,14 +12,15 @@ import {
   faPenToSquare,
   faGear,
   faSquareCheck,
-  faChartLine
+  faChartLine,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-sections',
   templateUrl: './sections.component.html',
   styleUrls: ['./sections.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class SectionsComponent implements OnInit {
   @Input() editMode:

@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ArchiveService } from 'src/app/services/archive.service';
 import { AttachmentsService } from 'src/app/services/attachments.service';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -11,7 +18,8 @@ import { faEye, faRefresh, faTrash } from '@fortawesome/free-solid-svg-icons';
   selector: '[app-archive-line]',
   templateUrl: './archive-line.component.html',
   styleUrls: ['./archive-line.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class ArchiveLineComponent implements OnInit {
   @Input() archivedPia: any;
@@ -36,7 +44,7 @@ export class ArchiveLineComponent implements OnInit {
     this.attachmentsService
       .findAllByPia(this.archivedPia.id)
       .then((entries: any) => {
-        entries.forEach(element => {
+        entries.forEach((element) => {
           if (element['file'] && element['file'].length) {
             this.attachments.push(element);
           }
@@ -57,8 +65,8 @@ export class ArchiveLineComponent implements OnInit {
         no: 'modals.cancel',
         data: {
           btn_no: 'btn-blue',
-          btn_yes: 'btn-blue'
-        }
+          btn_yes: 'btn-blue',
+        },
       },
       () => {
         this.archiveService
@@ -89,8 +97,8 @@ export class ArchiveLineComponent implements OnInit {
         no: 'modals.cancel',
         icon: 'pia-icons pia-icon-sad',
         data: {
-          btn_yes: 'btn-red'
-        }
+          btn_yes: 'btn-red',
+        },
       },
       () => {
         this.archiveService

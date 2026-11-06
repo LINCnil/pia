@@ -1,8 +1,15 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   UntypedFormControl,
   UntypedFormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { Pia } from 'src/app/models/pia.model';
@@ -17,7 +24,8 @@ import { SimpleChanges } from '@angular/core';
   selector: 'app-new-pia',
   templateUrl: './new-pia.component.html',
   styleUrls: ['../form.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class NewPiaComponent implements OnInit {
   @Input() users: Array<User>;
@@ -38,7 +46,7 @@ export class NewPiaComponent implements OnInit {
       .then((response: Array<Structure>) => {
         this.structureList = response;
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   }
@@ -47,19 +55,19 @@ export class NewPiaComponent implements OnInit {
     this.authService.currentUser.subscribe({
       complete: () => {
         this.piaForm = new UntypedFormGroup(this.normalizeForm());
-      }
+      },
     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.users && changes.users.currentValue) {
-      this.userList = changes.users.currentValue.map(x => {
+      this.userList = changes.users.currentValue.map((x) => {
         return {
           display:
             x.firstname && x.lastname
               ? x.firstname + ' ' + x.lastname
               : x.email,
-          id: x.id
+          id: x.id,
         };
       });
     }
@@ -77,7 +85,7 @@ export class NewPiaComponent implements OnInit {
           let presence = false;
           for (const role of ['authors', 'evaluators', 'validators']) {
             if (
-              this.piaForm.controls[role].value.map(x => x.id).includes(u.id)
+              this.piaForm.controls[role].value.map((x) => x.id).includes(u.id)
             ) {
               presence = true;
             }
@@ -96,22 +104,22 @@ export class NewPiaComponent implements OnInit {
     const formFields = {
       name: new UntypedFormControl(),
       category: new UntypedFormControl(),
-      structure_id: new UntypedFormControl()
+      structure_id: new UntypedFormControl(),
     };
     if (this.authService.state) {
       [
         { field: 'authors', required: true },
         { field: 'evaluators', required: true },
         { field: 'validators', required: true },
-        { field: 'guests', required: false }
-      ].forEach(ob => {
+        { field: 'guests', required: false },
+      ].forEach((ob) => {
         formFields[ob.field] = new UntypedFormControl(
           [],
           ob.required ? [Validators.required, Validators.minLength(1)] : []
         );
       });
     } else {
-      ['author_name', 'evaluator_name', 'validator_name'].forEach(field => {
+      ['author_name', 'evaluator_name', 'validator_name'].forEach((field) => {
         formFields[field] = new UntypedFormControl('', Validators.required);
       });
     }
@@ -124,11 +132,11 @@ export class NewPiaComponent implements OnInit {
   onAddUser($event: any, field: string): void {
     // Get tag in form
     const tagIndex = this.piaForm.controls[field].value.findIndex(
-      f => f.id === $event.display
+      (f) => f.id === $event.display
     );
 
     // Open form
-    const index = this.users.findIndex(u => u.id === $event.id);
+    const index = this.users.findIndex((u) => u.id === $event.id);
 
     if (index === -1) {
       // USER NOT EXIST:
@@ -138,7 +146,7 @@ export class NewPiaComponent implements OnInit {
         lastname: $event.display.split(' ')[1],
         firstname: $event.display.split(' ')[0],
         access_type: ['user'],
-        email: ''
+        email: '',
       });
       const observable = userBehavior.asObservable();
 
@@ -153,7 +161,7 @@ export class NewPiaComponent implements OnInit {
             // Remove tag
             this.piaForm.controls[field].value.splice(tagIndex, 1);
           }
-        }
+        },
       });
     }
   }
@@ -165,7 +173,7 @@ export class NewPiaComponent implements OnInit {
     let data;
     if (this.authService.state) {
       data = {
-        ...this.piaForm.value
+        ...this.piaForm.value,
       };
 
       [
@@ -173,16 +181,16 @@ export class NewPiaComponent implements OnInit {
         {
           field: 'evaluators',
           role: 'evaluator',
-          dump_field: 'evaluator_name'
+          dump_field: 'evaluator_name',
         },
         {
           field: 'validators',
           role: 'validator',
-          dump_field: 'validator_name'
+          dump_field: 'validator_name',
         },
-        { field: 'guests', role: 'guest', dump_field: null }
-      ].forEach(ob => {
-        data[ob.field] = this.piaForm.controls[ob.field].value.map(x => x.id);
+        { field: 'guests', role: 'guest', dump_field: null },
+      ].forEach((ob) => {
+        data[ob.field] = this.piaForm.controls[ob.field].value.map((x) => x.id);
       });
     } else {
       data = { ...this.piaForm.value };

@@ -5,13 +5,14 @@ import {
   Input,
   ElementRef,
   Output,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import {
   UntypedFormBuilder,
   FormControl,
   UntypedFormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { Attachment } from 'src/app/models/attachment.model';
 
@@ -22,7 +23,8 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-attachment-item',
   templateUrl: './attachment-item.component.html',
   styleUrls: ['./attachment-item.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class AttachmentItemComponent implements OnInit {
   @ViewChild('pdfViewerAutoLoad', { static: false }) pdfViewerAutoLoad;
@@ -46,7 +48,7 @@ export class AttachmentItemComponent implements OnInit {
     private el: ElementRef
   ) {
     this.removeAttachmentForm = this.formBuilder.group({
-      comment: ['', [Validators.required, Validators.minLength(3)]]
+      comment: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
@@ -93,7 +95,7 @@ export class AttachmentItemComponent implements OnInit {
         let localUrl: string;
         if (!isFileUrl) {
           const blob = new Blob([this.attachment.file], {
-            type: this.attachment.mime_type
+            type: this.attachment.mime_type,
           });
           localUrl = URL.createObjectURL(blob);
         }
@@ -129,7 +131,7 @@ export class AttachmentItemComponent implements OnInit {
         this.deleted.emit(this.attachment.id);
         this.showRemoveAttachmentForm = false;
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }
