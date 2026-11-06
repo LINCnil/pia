@@ -36,7 +36,7 @@ modules:
       # Update the version, url and sha256 for every release.
       - type: archive
         url: https://github.com/atnos/pia-extras/releases/download/v4.1.0-flatpak-test.1/pia-4.1.0-flatpak-test.1.tar.gz
-        sha256: sha256:3ac52480ad3796da3d69de652b228f7caf734403589daf173b52b0d78aa20940
+        sha256: 3ac52480ad3796da3d69de652b228f7caf734403589daf173b52b0d78aa20940
         strip-components: 1
         dest: app
       - type: file
