@@ -1,0 +1,89 @@
+name: linux-release
+
+# Builds the Linux packages (AppImage, tar.gz and snap) on a Linux runner.
+# Publishing to the GitHub Release / Snap Store happens in a separate job that:
+#   1. only runs on a tag (refs/tags/v*), and
+#   2. requires a manual approval via the protected `release` environment.
+# Snapcraft is pinned to the 8.x channel because electron-builder still calls the
+# `snapcraft snap` command, which was removed in Snapcraft 9.
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Linux packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22.20.0"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install Snapcraft (8.x — compatible with electron-builder)
+        run: sudo snap install snapcraft --classic --channel=8.x
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build Angular (production)
+        run: yarn prod
+
+      - name: Build Linux packages (no publish)
+        run: npx electron-builder --linux AppImage tar.gz snap --publish never
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pia-linux
+          path: |
+            electron/releases/*.AppImage
+            electron/releases/*.tar.gz
+            electron/releases/*.snap
+          if-no-files-found: error
+
+  publish:
+    name: Publish Linux packages
+    needs: build
+    runs-on: ubuntu-latest
+    # Publish only on a tag...
+    if: startsWith(github.ref, 'refs/tags/v')
+    # ...and only after a manual approval on the protected `release` environment
+    # (configure required reviewers in repo Settings → Environments → release).
+    environment: release
+    permissions:
+      contents: write
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: pia-linux
+          path: dist-artifacts
+
+      - name: Publish to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist-artifacts/*.AppImage
+            dist-artifacts/*.tar.gz
+            dist-artifacts/*.snap
+
+      - name: Install Snapcraft (8.x)
+        if: env.SNAPCRAFT_STORE_CREDENTIALS != ''
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        run: sudo snap install snapcraft --classic --channel=8.x
+
+      - name: Publish snap to Snap Store
+        if: env.SNAPCRAFT_STORE_CREDENTIALS != ''
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        run: snapcraft upload --release=stable dist-artifacts/pia_*.snap
