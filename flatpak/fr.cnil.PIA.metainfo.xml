@@ -87,7 +87,7 @@
   </keywords>
 
   <releases>
-    <release version="4.1.0" date="2026-04-02">
+    <release version="v4.1.0-flatpak-test.1" date="2026-11-06">
       <description>
         <p>Latest release of the PIA software.</p>
         <p xml:lang="fr">Dernière version du logiciel PIA.</p>
@@ -95,4 +95,3 @@
     </release>
   </releases>
 </component>
-
