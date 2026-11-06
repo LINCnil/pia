@@ -25,6 +25,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 See the [package.json](https://github.com/LINCnil/pia/blob/master/package.json#L40) file
 
+## Prerequisites
+
+Angular 21 requires Node.js `^20.19.0`, `^22.12.0`, or `^24.0.0`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
