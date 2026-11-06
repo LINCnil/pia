@@ -17,14 +17,20 @@ import {
   faCalendarCheck,
   faSquareCheck,
   faGear,
-  faCheck
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
+
+interface EvaluationViewContext {
+  pia: Pia;
+  section: any;
+  item: any;
+}
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss'],
-  standalone: false
+  standalone: false,
 })
 export class ContentComponent implements OnInit {
   @Input() pia: Pia = null;
@@ -42,6 +48,7 @@ export class ContentComponent implements OnInit {
   userAnswersForSources = [];
 
   loading = false;
+  private pendingEvaluationOperations = 0;
 
   protected readonly faAngleDoubleLeft = faAngleDoubleLeft;
   protected readonly faAngleDoubleRight = faAngleDoubleRight;
@@ -95,11 +102,14 @@ export class ContentComponent implements OnInit {
   /**
    * Prepare entry for evaluation.
    */
-  prepareForEvaluation(): void {
-    this.loading = true;
-    this.globalEvaluationService
+  prepareForEvaluation(): Promise<void> {
+    const context = this.beginEvaluationOperation();
+    return this.globalEvaluationService
       .prepareForEvaluation()
       .then(() => {
+        if (!this.isCurrentEvaluationContext(context)) {
+          return;
+        }
         let isPiaFullyEdited = true;
         for (const el in this.sidStatusService.itemStatus) {
           if (
@@ -119,7 +129,7 @@ export class ContentComponent implements OnInit {
               yes: 'modals.continue',
               no: '',
               icon: 'faGear',
-              class: 'icon-gray'
+              class: 'icon-gray',
             },
             () => {
               return;
@@ -137,7 +147,7 @@ export class ContentComponent implements OnInit {
               yes: 'modals.continue',
               no: '',
               icon: 'faPenToSquare',
-              class: 'icon-green'
+              class: 'icon-green',
             },
             () => {
               return;
@@ -148,19 +158,25 @@ export class ContentComponent implements OnInit {
           );
         }
       })
+      .catch((error) => {
+        this.showEvaluationError(error);
+      })
       .finally(() => {
-        this.loading = false;
+        this.finishEvaluationOperation();
       });
   }
 
   /**
    * Allow an user to validate evaluation for a section.
    */
-  validateEvaluation(): void {
-    this.loading = true;
-    this.globalEvaluationService
+  validateEvaluation(): Promise<void> {
+    const context = this.beginEvaluationOperation();
+    return this.globalEvaluationService
       .validateAllEvaluation()
       .then((toFix: boolean) => {
+        if (!this.isCurrentEvaluationContext(context)) {
+          return;
+        }
         this.goToNextSectionItem(5, 7);
         let isPiaFullyEvaluated = true;
 
@@ -182,10 +198,10 @@ export class ContentComponent implements OnInit {
               yes: 'modals.continue',
               no: '',
               data: {
-                modal_id: 'completed-evaluation'
+                modal_id: 'completed-evaluation',
               },
               icon: 'faCheck',
-              class: 'icon-gray'
+              class: 'icon-gray',
             },
             () => {
               return;
@@ -202,7 +218,7 @@ export class ContentComponent implements OnInit {
               yes: 'modals.continue',
               no: '',
               icon: 'faPenToSquare',
-              class: 'icon-gray'
+              class: 'icon-gray',
             },
             () => {
               return;
@@ -216,13 +232,13 @@ export class ContentComponent implements OnInit {
             {
               text: 'modals.validate_evaluation.content',
               data: {
-                modal_id: 'validate-evaluation'
+                modal_id: 'validate-evaluation',
               },
               type: 'yes',
               yes: 'modals.continue',
               no: '',
               icon: 'faGear',
-              class: 'icon-green'
+              class: 'icon-green',
             },
             () => {
               return;
@@ -233,8 +249,11 @@ export class ContentComponent implements OnInit {
           );
         }
       })
+      .catch((error) => {
+        this.showEvaluationError(error);
+      })
       .finally(() => {
-        this.loading = false;
+        this.finishEvaluationOperation();
       });
   }
 
@@ -256,52 +275,29 @@ export class ContentComponent implements OnInit {
       'section',
       goto_section_item[0],
       'item',
-      goto_section_item[1]
+      goto_section_item[1],
     ]);
   }
 
   /**
    * Allow an user to return in edit mode.
    */
-  cancelAskForEvaluation(): void {
-    this.loading = true;
-    this.globalEvaluationService.cancelForEvaluation().finally(() => {
-      this.loading = false;
-      this.dialogService.confirmThis(
-        {
-          text: 'modals.back_to_edition.content',
-          type: 'yes',
-          yes: 'modals.continue',
-          no: '',
-          icon: 'faPenToSquare',
-          class: 'icon-gray'
-        },
-        () => {
-          return;
-        },
-        () => {
+  cancelAskForEvaluation(): Promise<void> {
+    const context = this.beginEvaluationOperation();
+    return this.globalEvaluationService
+      .cancelForEvaluation()
+      .then(() => {
+        if (!this.isCurrentEvaluationContext(context)) {
           return;
         }
-      );
-    });
-  }
-
-  /**
-   * Allow an user to cancel the validation.
-   */
-  cancelValidateEvaluation(): void {
-    this.loading = true;
-    this.globalEvaluationService
-      .cancelValidation(this.pia.id)
-      .then(() => {
         this.dialogService.confirmThis(
           {
-            text: 'modals.back_to_evaluation.content',
+            text: 'modals.back_to_edition.content',
             type: 'yes',
             yes: 'modals.continue',
             no: '',
-            icon: 'faGear',
-            class: 'icon-gray'
+            icon: 'faPenToSquare',
+            class: 'icon-gray',
           },
           () => {
             return;
@@ -311,20 +307,93 @@ export class ContentComponent implements OnInit {
           }
         );
       })
+      .catch((error) => {
+        this.showEvaluationError(error);
+      })
       .finally(() => {
-        this.loading = false;
+        this.finishEvaluationOperation();
       });
   }
 
+  /**
+   * Allow an user to cancel the validation.
+   */
+  cancelValidateEvaluation(): Promise<void> {
+    const context = this.beginEvaluationOperation();
+    return this.globalEvaluationService
+      .cancelValidation(this.pia.id)
+      .then(() => {
+        if (!this.isCurrentEvaluationContext(context)) {
+          return;
+        }
+        this.dialogService.confirmThis(
+          {
+            text: 'modals.back_to_evaluation.content',
+            type: 'yes',
+            yes: 'modals.continue',
+            no: '',
+            icon: 'faGear',
+            class: 'icon-gray',
+          },
+          () => {
+            return;
+          },
+          () => {
+            return;
+          }
+        );
+      })
+      .catch((error) => {
+        this.showEvaluationError(error);
+      })
+      .finally(() => {
+        this.finishEvaluationOperation();
+      });
+  }
+
+  private beginEvaluationOperation(): EvaluationViewContext {
+    this.pendingEvaluationOperations++;
+    this.loading = true;
+    return { pia: this.pia, section: this.section, item: this.item };
+  }
+
+  private finishEvaluationOperation(): void {
+    this.pendingEvaluationOperations--;
+    this.loading = this.pendingEvaluationOperations > 0;
+  }
+
+  private isCurrentEvaluationContext(context: EvaluationViewContext): boolean {
+    return (
+      this.pia === context.pia &&
+      this.section === context.section &&
+      this.item === context.item
+    );
+  }
+
+  private showEvaluationError(error: unknown): void {
+    console.error('Evaluation operation failed', error);
+    this.dialogService.confirmThis(
+      {
+        text: 'modals.general_error.content',
+        type: 'yes',
+        yes: 'modals.close',
+        no: '',
+        icon: 'pia-icons pia-icon-sad',
+      },
+      () => undefined,
+      () => undefined
+    );
+  }
+
   onAddNewMeasure(): void {
-    this.measureService.addNewMeasure(this.pia).then(measure => {
+    this.measureService.addNewMeasure(this.pia).then((measure) => {
       this.measures.unshift(measure);
       this.globalEvaluationService.validate();
     });
   }
 
   onDeletedMeasure(id): void {
-    const index = this.measures.findIndex(m => m.id === id);
+    const index = this.measures.findIndex((m) => m.id === id);
     if (index !== -1) {
       this.measures.splice(index, 1);
       this.globalEvaluationService.validate();

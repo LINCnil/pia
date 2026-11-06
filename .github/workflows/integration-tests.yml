@@ -1,6 +1,28 @@
 name: integration-tests
-on: [push]
+on: [push, pull_request]
 jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22.20.0"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+        env:
+          CYPRESS_INSTALL_BINARY: "0"
+
+      - name: Unit tests
+        run: yarn test --watch=false --browsers=ChromeHeadless --code-coverage
+
   cypress-run:
     runs-on: ubuntu-latest
     container:
@@ -21,6 +43,18 @@ jobs:
       - name: Cypress
         uses: cypress-io/github-action@v7
         with:
-          start: yarn start
+          install-command: yarn install --immutable
+          package-manager-cache: false
+          start: yarn ng serve pia-angular --host 127.0.0.1
           browser: chrome
-          wait-on: http://[::1]:4200
+          config: baseUrl=http://127.0.0.1:4200
+          wait-on: http://127.0.0.1:4200
+          wait-on-timeout: 180
+
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore

@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { EntriesModule } from 'src/app/modules/entries/entries.module';
+import { setComponentTestRoute } from 'src/app/testing/component-test-services';
 import { StructureHeadingComponent } from './structure-heading.component';
 
 describe('StructureHeadingComponent', () => {
@@ -8,15 +11,18 @@ describe('StructureHeadingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StructureHeadingComponent ]
-    })
-    .compileComponents();
-  });
+      imports: [EntriesModule, RouterTestingModule, TranslateModule.forRoot()],
+    }).compileComponents();
+    setComponentTestRoute();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(StructureHeadingComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.autoDetectChanges();
+    await fixture.whenStable();
+  });
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
   it('should create', () => {
