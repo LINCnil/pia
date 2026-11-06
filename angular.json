@@ -126,7 +126,7 @@
             "stylePreprocessorOptions": {
               "includePaths": ["."]
             },
-            "scripts": []
+            "scripts": ["node_modules/tinymce/tinymce.min.js"]
           }
         },
         "e2e": {

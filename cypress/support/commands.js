@@ -1,6 +1,37 @@
 import "cypress-localstorage-commands";
 import "cypress-file-upload";
 
+const editorContent =
+  "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque";
+
+Cypress.Commands.addQuery("editorBody", () => ($iframe) => {
+  const iframe = $iframe && $iframe[0];
+  const body =
+    iframe && iframe.isConnected && iframe.contentDocument
+      ? iframe.contentDocument.body
+      : null;
+  return Cypress.$(body || []);
+});
+
+function fillEditor($element, contentSelector) {
+  cy.wrap($element)
+    .find("iframe")
+    .editorBody()
+    .should(($body) => {
+      expect($body).to.have.length(1);
+      expect($body).to.have.attr("contenteditable", "true");
+    })
+    .clear({ force: true })
+    .type(editorContent);
+
+  cy.get(".pia-entryContentBlock-header").click({ force: true });
+  cy.wrap($element).find("iframe").should("not.exist");
+  cy.wrap($element)
+    .find(contentSelector)
+    .should("be.visible")
+    .and("contain", editorContent);
+}
+
 Cypress.Commands.add("init", () => {
   // TODO: DO IT IF PIA.id 2 exist
   indexedDB.deleteDatabase("pia");
@@ -11,7 +42,7 @@ Cypress.Commands.add("init", () => {
   indexedDB.deleteDatabase("structure");
   cy.clearLocalStorage();
   cy.clearCookies();
-  cy.window().then($win => {
+  cy.window().then(($win) => {
     $win.sessionStorage.clear();
     cy.reload(true);
   });
@@ -43,15 +74,15 @@ Cypress.Commands.add("import_pia", () => {
   cy.click_on_start();
 
   // Load the JSON content
-  cy.fixture("pia.json").then(piaData => {
+  cy.fixture("pia.json").then((piaData) => {
     // Create a proper file blob
     const jsonBlob = new Blob([JSON.stringify(piaData)], {
-      type: "application/json"
+      type: "application/json",
     });
     const file = new File([jsonBlob], "pia.json", { type: "application/json" });
 
     // Get the file input and attach the file properly
-    cy.get('input[type="file"]#import_file').then($input => {
+    cy.get('input[type="file"]#import_file').then(($input) => {
       const input = $input[0];
 
       // Create a FileList-like object
@@ -63,7 +94,7 @@ Cypress.Commands.add("import_pia", () => {
       const changeEvent = new Event("change", { bubbles: true });
       Object.defineProperty(changeEvent, "target", {
         writable: false,
-        value: input
+        value: input,
       });
 
       input.dispatchEvent(changeEvent);
@@ -89,49 +120,20 @@ Cypress.Commands.add("create_new_pia", () => {
   cy.get("#author_name").type("Author name");
   cy.get("#evaluator_name").type("Evaluator name");
   cy.get("#validator_name").type("Validator name");
-  cy.get("#pia-save-card-btn")
-    .first()
-    .click();
+  cy.get("#pia-save-card-btn").first().click();
 });
 
-Cypress.Commands.add("get_current_pia_id", callback => {
-  cy.hash().then(value => {
+Cypress.Commands.add("get_current_pia_id", (callback) => {
+  cy.hash().then((value) => {
     const id = value.split("/")[2];
     callback(id);
   });
 });
 
 Cypress.Commands.add("test_writing_on_textarea", () => {
-  cy.get(".pia-questionBlock").each($el => {
-    cy.wrap($el)
-      .find(`textarea`)
-      .first()
-      .click({ force: true });
-
-    // Wait for TinyMCE iframe to be ready
-    cy.wait(1000);
-
-    cy.wrap($el)
-      .find("iframe")
-      .then($iframe => {
-        const $body = $iframe.contents().find("body");
-        cy.wrap($body)
-          .clear({ force: true })
-          .type(
-            "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
-          )
-          .trigger("blur", { force: true });
-      });
-
-    // Wait for editor to save and remove
-    cy.wait(2000);
-  });
-  cy.get(".pia-questionBlock").each($el => {
-    cy.wrap($el)
-      .find(`textarea`)
-      .first()
-      .click({ force: true });
-    cy.wait(1000);
+  cy.get(".pia-questionBlock").each(($el) => {
+    cy.wrap($el).find(`textarea`).first().click({ force: true });
+    fillEditor($el, ".pia-questionBlock-contentText");
   });
   cy.focus_out();
 });
@@ -139,38 +141,9 @@ Cypress.Commands.add("test_writing_on_textarea", () => {
 Cypress.Commands.add("test_writing_on_textarea_gauges", () => {
   cy.get(".pia-gaugeBlock")
     .parent()
-    .each($el => {
-      cy.wrap($el)
-        .find(`textarea`)
-        .last()
-        .click({ force: true });
-
-      // Wait for TinyMCE iframe to be ready
-      cy.wait(1000);
-
-      cy.wrap($el)
-        .find("iframe")
-        .then($iframe => {
-          const $body = $iframe.contents().find("body");
-          cy.wrap($body)
-            .clear({ force: true })
-            .type(
-              "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
-            )
-            .trigger("blur", { force: true });
-        });
-
-      // Wait for editor to save and remove
-      cy.wait(2000);
-    });
-  cy.get(".pia-gaugeBlock")
-    .parent()
-    .each($el => {
-      cy.wrap($el)
-        .find(`textarea`)
-        .last()
-        .click({ force: true });
-      cy.wait(1000);
+    .each(($el) => {
+      cy.wrap($el).find(`textarea`).last().click({ force: true });
+      fillEditor($el, ".pia-questionBlock-contentText");
     });
   cy.focus_out();
 });
@@ -187,47 +160,22 @@ Cypress.Commands.add("test_add_measure", () => {
   });
 
   // Set content of measure
-  cy.get(".pia-measureBlock-content").each($el => {
-    cy.wrap($el)
-      .find(`textarea`)
-      .first()
-      .click({ force: true });
-
-    // Wait for TinyMCE iframe to be ready
-    cy.wait(1000);
-
-    cy.wrap($el)
-      .find("iframe")
-      .then($iframe => {
-        const $body = $iframe.contents().find("body");
-        cy.wrap($body)
-          .clear({ force: true })
-          .type(
-            "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
-          )
-          .trigger("blur", { force: true });
-      });
-
-    // Wait for editor to save and remove
-    cy.wait(2000);
+  cy.get(".pia-measureBlock-content").each(($el) => {
+    cy.wrap($el).find(`textarea`).first().click({ force: true });
+    fillEditor($el, ".pia-measureBlock-contentText");
   });
   cy.focus_out();
 });
 
 Cypress.Commands.add("test_add_measure_from_sidebar", () => {
-  cy.get(".pia-knowledgeBaseBlock-item-definition > .btn")
-    .first()
-    .click();
-  cy.get(".pia-measureBlock-content").each($el => {
+  cy.get(".pia-knowledgeBaseBlock-item-definition > .btn").first().click();
+  cy.get(".pia-measureBlock-content").each(($el) => {
     $el
       .find("textarea")
       .val(
         "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque"
       );
-    cy.wrap($el)
-      .parent()
-      .wait(500)
-      .click();
+    cy.wrap($el).parent().wait(500).click();
 
     expect($el.find("textarea").val().length > 0).to.be.true;
   });
@@ -240,15 +188,9 @@ Cypress.Commands.add("test_add_tags", () => {
   cy.get("[aria-label='Enter the potential impacts']")
     .type("Tag 1.1")
     .type("{enter}");
-  cy.get("[aria-label='Enter the threats']")
-    .type("Tag 2")
-    .type("{enter}");
-  cy.get("[aria-label='Enter the threats']")
-    .type("Tag 2.1")
-    .type("{enter}");
-  cy.get("[aria-label='Enter the risk sources']")
-    .type("Tag 3")
-    .type("{enter}");
+  cy.get("[aria-label='Enter the threats']").type("Tag 2").type("{enter}");
+  cy.get("[aria-label='Enter the threats']").type("Tag 2.1").type("{enter}");
+  cy.get("[aria-label='Enter the risk sources']").type("Tag 3").type("{enter}");
   cy.get("[aria-label='Enter the risk sources']")
     .type("Tag 3.1")
     .type("{enter}");
@@ -256,40 +198,31 @@ Cypress.Commands.add("test_add_tags", () => {
     "[aria-label='Click here to select controls which address the risk.']"
   ).type("Measure");
   cy.wait(500);
-  cy.get(".ng2-menu-item")
-    .first()
-    .click({ force: true });
+  cy.get(".ng2-menu-item").first().click({ force: true });
 });
 Cypress.Commands.add("test_add_tags_next", () => {
   cy.get("[aria-label='Enter the potential impacts']").type("Tag");
   cy.wait(500);
-  cy.get(".ng2-menu-item")
-    .first()
-    .click({ force: true });
+  cy.get(".ng2-menu-item").first().click({ force: true });
   cy.get("[aria-label='Enter the threats']").type("Tag");
   cy.wait(500);
-  cy.get(".ng2-menu-item")
-    .first()
-    .click({ force: true });
+  cy.get(".ng2-menu-item").first().click({ force: true });
   cy.get("[aria-label='Enter the risk sources']").type("Tag");
   cy.wait(500);
-  cy.get(".ng2-menu-item")
-    .first()
-    .click({ force: true });
+  cy.get(".ng2-menu-item").first().click({ force: true });
   cy.get(
     "[aria-label='Click here to select controls which address the risk.']"
   ).type("Measure");
   cy.wait(500);
-  cy.get(".ng2-menu-item")
-    .first()
-    .click({ force: true });
+  cy.get(".ng2-menu-item").first().click({ force: true });
 });
 
 Cypress.Commands.add("test_move_gauges", () => {
-  cy.get(".pia-gaugeBlock").each($el => {
+  cy.get(".pia-gaugeBlock").each(($el) => {
     cy.wrap($el)
       .find("input")
       .invoke("val", 3)
+      .trigger("input", { force: true })
       .trigger("change", { force: true });
   });
 });
@@ -311,7 +244,7 @@ Cypress.Commands.add("acceptEval", () => {
 });
 Cypress.Commands.add("acceptMultipleEval", () => {
   cy.wait(3000);
-  cy.get(".pia-evaluationBlock .btn-green").each($el => {
+  cy.get(".pia-evaluationBlock .btn-green").each(($el) => {
     cy.wait(500);
     cy.wrap($el).click({ force: true });
   });
@@ -370,16 +303,11 @@ Cypress.Commands.add("validateDPO", () => {
     .first()
     .click({ force: true });
 
-  cy.get(
-    baseContentPeople + "textarea"
-  ).type(
+  cy.get(baseContentPeople + "textarea").type(
     "Nam tincidunt sem vel pretium scelerisque. Aliquam tincidunt commodo magna, vitae rutrum massa. Praesent lobortis porttitor gravida. Fusce nulla libero, feugiat eu sodales at, semper ac diam. Morbi sit amet luctus libero, eu sagittis neque",
     { force: true }
   );
-  cy.get(baseContentPeople)
-    .find("form")
-    .parent()
-    .click({ force: true });
+  cy.get(baseContentPeople).find("form").parent().click({ force: true });
 });
 Cypress.Commands.add("validatePia", () => {
   cy.get(".pia-validatePIABlock")
@@ -387,10 +315,8 @@ Cypress.Commands.add("validatePia", () => {
     .should("have.class", "btn-active")
     .click({ force: true });
   cy.get(".pia-entryContentBlock-content-list-confirm")
-    .each($el => {
-      cy.wrap($el)
-        .find("label")
-        .click({ force: true });
+    .each(($el) => {
+      cy.wrap($el).find("label").click({ force: true });
     })
     .then(() => {
       cy.get("#pia-simple-validation").click({ force: true });
@@ -405,15 +331,11 @@ Cypress.Commands.add("refusePia", () => {
     .should("have.class", "btn-active")
     .click({ force: true });
   cy.get(".pia-entryContentBlock-content-list-confirm")
-    .each($el => {
-      cy.wrap($el)
-        .find("label")
-        .click({ force: true });
+    .each(($el) => {
+      cy.wrap($el).find("label").click({ force: true });
     })
     .then(() => {
-      cy.get(".btn-red")
-        .first()
-        .click({ force: true });
+      cy.get(".btn-red").first().click({ force: true });
       cy.get(".pia-entryContentBlock-content-subject-textarea")
         .find("textarea", { force: true })
         .then(() => {
@@ -424,7 +346,7 @@ Cypress.Commands.add("refusePia", () => {
               { force: true }
             );
           cy.get(".pia-entryContentBlock-content-subject").click("bottom", {
-            force: true
+            force: true,
           });
 
           cy.get(".pia-entryContentBlock-footer")

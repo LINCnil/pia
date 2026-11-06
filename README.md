@@ -19,6 +19,8 @@ To translate the software, we invite you to make your changes [here](https://git
 [![CI](https://github.com/LINCnil/pia/actions/workflows/integration-tests.yml/badge.svg?branch=master)](https://github.com/LINCnil/pia/actions/workflows/integration-tests.yml)
 [![CodeQL](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/LINCnil/pia/actions/workflows/codeql-analysis.yml)
 
+CI runs the application unit tests and Cypress tests on pushes and pull requests.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Package Version
@@ -43,11 +45,15 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `yarn test` to execute the application unit tests via [Karma](https://karma-runner.github.io). For a single headless run, use `yarn test --watch=false --browsers=ChromeHeadless`.
+
+Running `ng test` without a project also targets the optional `pia-i18n` library, whose sources are not included in this repository. If available locally, test it separately with `yarn ng test pia-i18n`.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Start the application with `yarn start`, then run `yarn cypress run --headless --browser chrome` to execute the [Cypress](https://www.cypress.io/) end-to-end tests. Use `yarn e2e` to open the interactive runner.
+
+The server-configuration tests use mocked responses by default. To additionally test a real PIA backend, set `CYPRESS_URL`, `CYPRESS_ID`, and `CYPRESS_SECRET` in the environment before running Cypress.
 
 ## Further help
 
