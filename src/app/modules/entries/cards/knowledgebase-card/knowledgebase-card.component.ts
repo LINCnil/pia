@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
@@ -14,7 +21,8 @@ import { faDownload, faFile, faTrash } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-knowledgebase-card',
   templateUrl: './knowledgebase-card.component.html',
   styleUrls: ['./knowledgebase-card.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class KnowledgebaseCardComponent implements OnInit {
   knowledgeBaseForm: UntypedFormGroup;
@@ -52,7 +60,7 @@ export class KnowledgebaseCardComponent implements OnInit {
       contributors: new UntypedFormControl(
         { value: this.base.contributors, disabled: this.base.is_example },
         null
-      )
+      ),
     });
 
     if (!this.base.is_example) {
@@ -61,7 +69,7 @@ export class KnowledgebaseCardComponent implements OnInit {
         .then((result: Knowledge[]) => {
           this.nbEntries = result.length;
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     } else {
@@ -87,7 +95,7 @@ export class KnowledgebaseCardComponent implements OnInit {
         .then((response: KnowledgeBase) => {
           this.base = response;
         })
-        .catch(err => {
+        .catch((err) => {
           if (err.statusText === 'Conflict') {
             this.conflictDetected.emit({ field: 'name', err });
           }
@@ -104,8 +112,8 @@ export class KnowledgebaseCardComponent implements OnInit {
         no: 'modals.cancel',
         icon: 'pia-icons pia-icon-sad',
         data: {
-          btn_yes: 'btn-red'
-        }
+          btn_yes: 'btn-red',
+        },
       },
       () => {
         this.knowledgeBaseService

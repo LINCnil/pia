@@ -1,4 +1,10 @@
-import { Component, OnInit, NgZone, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  NgZone,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import * as d3 from 'd3';
 import { Subscription } from 'rxjs';
 
@@ -13,7 +19,8 @@ import { Pia } from 'src/app/models/pia.model';
   selector: `.app-overview-risks`,
   templateUrl: './overview-risks.component.html',
   styleUrls: ['./overview-risks.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class OverviewRisksComponent implements OnInit {
   @Input() pia: Pia = null;
@@ -62,23 +69,23 @@ export class OverviewRisksComponent implements OnInit {
         {
           id: 1,
           key: 'overview-risks.potential_impacts',
-          reference_to: [321, 331, 341]
+          reference_to: [321, 331, 341],
         },
         {
           id: 2,
           key: 'overview-risks.threat',
-          reference_to: [322, 332, 342]
+          reference_to: [322, 332, 342],
         },
         {
           id: 3,
           key: 'overview-risks.sources',
-          reference_to: [323, 333, 343]
+          reference_to: [323, 333, 343],
         },
         {
           id: 4,
           key: 'overview-risks.measures',
-          reference_to: [324, 334, 344]
-        }
+          reference_to: [324, 334, 344],
+        },
       ];
       for (const dt of dataTags) {
         const tags = {};
@@ -107,7 +114,7 @@ export class OverviewRisksComponent implements OnInit {
         this.data.push({
           id: dt.id,
           name,
-          tags
+          tags,
         });
       }
 
@@ -172,58 +179,55 @@ export class OverviewRisksComponent implements OnInit {
               .on('click', () => {
                 let ids = new Array<string>();
                 const id = a.id;
-                const elements2: any = document.querySelectorAll(
-                  '[data-rect-id]'
-                );
-                const elements3: any = document.querySelectorAll(
-                  '[data-right]'
-                );
+                const elements2: any =
+                  document.querySelectorAll('[data-rect-id]');
+                const elements3: any =
+                  document.querySelectorAll('[data-right]');
                 const elements4: any = document.querySelectorAll(
                   '[data-rect-id="' + id + '"]'
                 );
                 const elements5: any = document.querySelectorAll(
                   '[data-id="' + id + '"]'
                 );
-                const elements6: any = document.querySelectorAll(
-                  'path[data-id]'
-                );
+                const elements6: any =
+                  document.querySelectorAll('path[data-id]');
                 const previousId = parseInt(
                   localStorage.getItem('d3PreviousIdClicked'),
                   10
                 );
                 if (previousId && previousId > 0 && previousId === a.id) {
                   localStorage.removeItem('d3PreviousIdClicked');
-                  elements2.forEach(el3 => {
+                  elements2.forEach((el3) => {
                     el3.classList.remove('rect_2');
                     el3.classList.add('rect_1');
                   });
-                  elements3.forEach(el3 => {
+                  elements3.forEach((el3) => {
                     el3.classList.remove('right_c');
                   });
-                  elements6.forEach(el1 => {
+                  elements6.forEach((el1) => {
                     el1.classList.remove('hide');
                   });
                 } else {
                   localStorage.setItem('d3PreviousIdClicked', a.id);
-                  elements2.forEach(el3 => {
+                  elements2.forEach((el3) => {
                     el3.classList.remove('rect_1');
                     el3.classList.add('rect_2');
                   });
-                  elements3.forEach(el3 => {
+                  elements3.forEach((el3) => {
                     el3.classList.add('right_c');
                   });
-                  elements4.forEach(el3 => {
+                  elements4.forEach((el3) => {
                     el3.classList.remove('rect_2');
                     el3.classList.add('rect_1');
                   });
-                  elements5.forEach(el3 => {
+                  elements5.forEach((el3) => {
                     ids.push(el3.dataset.to_links.split(','));
                   });
                   ids = ids.reduce((aa, bb) => {
                     return aa.concat(bb);
                   }, []);
                   const uniqLinks = Array.from(new Set(ids));
-                  elements6.forEach(el1 => {
+                  elements6.forEach((el1) => {
                     el1.classList.add('hide');
                   });
                   for (const link of ids) {
@@ -243,7 +247,7 @@ export class OverviewRisksComponent implements OnInit {
               x: x + 185,
               y: y + 10,
               from: a.id,
-              to: links
+              to: links,
             });
             y += 22;
           }
@@ -263,15 +267,14 @@ export class OverviewRisksComponent implements OnInit {
             const id = section.id.toString() + item.id.toString();
             const x = 380;
             const g = this.svg.append('g').attr('data-right', id);
-            g.on('click', event => {
+            g.on('click', (event) => {
               const previousId = parseInt(
                 localStorage.getItem('d3PreviousIdClicked2'),
                 10
               );
               const elements8: any = svgBlock.querySelectorAll('[data-right]');
-              const elements9: any = svgBlock.querySelectorAll(
-                '[data-rect-id]'
-              );
+              const elements9: any =
+                svgBlock.querySelectorAll('[data-rect-id]');
               const elements10: any = svgBlock.querySelectorAll('path');
               const elements11: any = svgBlock.querySelectorAll(
                 'path[data-id$="' + id + '"]'
@@ -285,33 +288,33 @@ export class OverviewRisksComponent implements OnInit {
                 previousId === parseInt(id, 10)
               ) {
                 localStorage.removeItem('d3PreviousIdClicked2');
-                elements8.forEach(el3 => {
+                elements8.forEach((el3) => {
                   el3.classList.remove('right_c');
                 });
-                elements9.forEach(el3 => {
+                elements9.forEach((el3) => {
                   el3.classList.remove('rect_2');
                   el3.classList.add('rect_1');
                 });
-                elements10.forEach(el3 => {
+                elements10.forEach((el3) => {
                   el3.classList.remove('hide');
                 });
               } else {
                 localStorage.setItem('d3PreviousIdClicked2', id);
-                elements8.forEach(el3 => {
+                elements8.forEach((el3) => {
                   el3.classList.add('right_c');
                 });
                 event.target.parentNode.classList.remove('right_c');
-                elements9.forEach(el3 => {
+                elements9.forEach((el3) => {
                   el3.classList.remove('rect_1');
                   el3.classList.add('rect_2');
                 });
-                elements10.forEach(el3 => {
+                elements10.forEach((el3) => {
                   el3.classList.add('hide');
                 });
-                elements11.forEach(el3 => {
+                elements11.forEach((el3) => {
                   el3.classList.remove('hide');
                 });
-                elements12.forEach(el3 => {
+                elements12.forEach((el3) => {
                   el3.classList.remove('rect_2');
                   el3.classList.add('rect_1');
                 });
@@ -325,10 +328,10 @@ export class OverviewRisksComponent implements OnInit {
               .attr('y', y)
               .text(name_1)
               .attr('class', 'c' + id);
-            const lft = this.linkFromTo.filter(l => {
+            const lft = this.linkFromTo.filter((l) => {
               return l.to.includes(id);
             });
-            lft.forEach(bb => {
+            lft.forEach((bb) => {
               const x1 = bb.x + 100;
               const y1 = bb.y;
               const x2 = x - 4 - 100;
@@ -363,7 +366,7 @@ export class OverviewRisksComponent implements OnInit {
               .attr('y', y)
               .text(name_2)
               .attr('class', 'c' + id);
-            const questionGauges = item.questions.filter(question => {
+            const questionGauges = item.questions.filter((question) => {
               return question.answer_type === 'gauge';
             });
             this.parseQuestions(questionGauges, g, x, y);
@@ -390,10 +393,10 @@ export class OverviewRisksComponent implements OnInit {
       1: this.translateService.instant('overview-risks.negligible'),
       2: this.translateService.instant('overview-risks.limited'),
       3: this.translateService.instant('overview-risks.important'),
-      4: this.translateService.instant('overview-risks.maximal')
+      4: this.translateService.instant('overview-risks.maximal'),
     };
     return new Promise((resolve, reject) => {
-      questionGauges.forEach(async question => {
+      questionGauges.forEach(async (question) => {
         i++;
         this.answerService
           .getByReferenceAndPia(this.pia.id, question.id)

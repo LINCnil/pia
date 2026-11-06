@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { AppDataService } from 'src/app/services/app-data.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -17,7 +24,7 @@ import { User } from 'src/app/models/user.model';
 import {
   faPrint,
   faDownload,
-  faRefresh
+  faRefresh,
 } from '@fortawesome/free-solid-svg-icons';
 
 function slugify(text) {
@@ -40,9 +47,10 @@ function slugify(text) {
     SidStatusService,
     RevisionService,
     TranslateService,
-    DatePipe
+    DatePipe,
   ],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class RevisionPreviewComponent implements OnInit {
   @Input() revision: Revision;
@@ -112,7 +120,7 @@ export class RevisionPreviewComponent implements OnInit {
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
-                evaluation
+                evaluation,
               });
             }
           }
@@ -124,7 +132,7 @@ export class RevisionPreviewComponent implements OnInit {
             // Find answer
             const answerModel = new Answer();
             const answer = this.export.answers.find(
-              a => a.reference_to == question.id
+              (a) => a.reference_to == question.id
             );
 
             if (answer) {
@@ -153,13 +161,11 @@ export class RevisionPreviewComponent implements OnInit {
                       item.id,
                       ref + '.' + question.id
                     );
-                    this.allData[section.id][item.id][
-                      question.id
-                    ].evaluation = evaluation;
+                    this.allData[section.id][item.id][question.id].evaluation =
+                      evaluation;
                   }
-                  this.allData[section.id][item.id][
-                    question.id
-                  ].content = content.join(', ');
+                  this.allData[section.id][item.id][question.id].content =
+                    content.join(', ');
                 }
               }
             }
@@ -182,7 +188,7 @@ export class RevisionPreviewComponent implements OnInit {
       let evaluation = null;
       const evaluationModel = new Evaluation();
       // const exist = await evaluationModel.getByReference(this.export.pia.id, ref);
-      const exist = this.export.evaluations.find(e => e.reference_to === ref);
+      const exist = this.export.evaluations.find((e) => e.reference_to === ref);
       if (exist) {
         evaluationModel.id = exist.id;
         evaluationModel.status = exist.status;
@@ -206,8 +212,10 @@ export class RevisionPreviewComponent implements OnInit {
             seriousness: evaluationModel.gauges
               ? evaluationModel.gauges.x
               : null,
-            likelihood: evaluationModel.gauges ? evaluationModel.gauges.y : null
-          }
+            likelihood: evaluationModel.gauges
+              ? evaluationModel.gauges.y
+              : null,
+          },
         };
       }
       resolve(evaluation);
@@ -248,8 +256,8 @@ export class RevisionPreviewComponent implements OnInit {
         yes: 'modals.recover_version.continue',
         no: 'modals.cancel',
         data: {
-          date: new Date(this.revision.created_at)
-        }
+          date: new Date(this.revision.created_at),
+        },
       },
       () => {
         this.revisionService
@@ -264,7 +272,7 @@ export class RevisionPreviewComponent implements OnInit {
                   'section',
                   1,
                   'item',
-                  1
+                  1,
                 ]);
               });
           });
@@ -293,8 +301,8 @@ export class RevisionPreviewComponent implements OnInit {
   public showUserRole(pia, field: string, dumpField: string) {
     if (this.authService.state) {
       const list = pia.user_pias
-        .filter(user_pia => user_pia.role === field)
-        .map(u =>
+        .filter((user_pia) => user_pia.role === field)
+        .map((u) =>
           u.user.firstname && u.user.lastname
             ? u.user.firstname + ' ' + u.user.lastname
             : u.user.email

@@ -79,7 +79,10 @@
         <div
           (click)="questionContentFocusIn()"
           class="pia-questionBlock-contentText"
-          [innerHTML]="questionForm.controls['text']?.value | safeHtml"
+          [innerHTML]="
+            $safeNavigationMigration(questionForm.controls['text']?.value)
+              | safeHtml
+          "
           [ngClass]="{ hide: editor || !questionForm.controls['text']?.value }"
         ></div>
         @if ( (question.answer_type == 'text' || question.answer_type ==
@@ -103,7 +106,7 @@
     </form>
   </div>
   } @else {
-  <div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
+  <div class="pia-sectionBlock-body" style="position: relative; height: 150px">
     <app-loading-overlay
       [visibility]="true"
       [childMode]="true"

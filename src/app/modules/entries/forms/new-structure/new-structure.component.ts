@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Structure } from 'src/app/models/structure.model';
 import { AppDataService } from 'src/app/services/app-data.service';
@@ -8,7 +14,8 @@ import { StructureService } from 'src/app/services/structure.service';
   selector: 'app-new-structure',
   templateUrl: './new-structure.component.html',
   styleUrls: ['../form.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class NewStructureComponent implements OnInit {
   @Output() submitted: EventEmitter<any> = new EventEmitter<any>();
@@ -23,7 +30,7 @@ export class NewStructureComponent implements OnInit {
     this.appDataService.resetDataNav();
     this.structureForm = new UntypedFormGroup({
       name: new UntypedFormControl(),
-      sector_name: new UntypedFormControl()
+      sector_name: new UntypedFormControl(),
     });
   }
 
@@ -38,6 +45,6 @@ export class NewStructureComponent implements OnInit {
     structure.data = this.appDataService.dataNav;
     this.structureService
       .create(structure)
-      .then(result => this.submitted.emit(result));
+      .then((result) => this.submitted.emit(result));
   }
 }

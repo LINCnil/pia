@@ -3,7 +3,8 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewChild
+  ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
@@ -18,7 +19,8 @@ import { faDownload, faFile, faTrash } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-structure-card',
   templateUrl: './structure-card.component.html',
   styleUrls: ['./structure-card.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class StructureCardComponent implements OnInit {
   @Input() structure: any;
@@ -49,12 +51,12 @@ export class StructureCardComponent implements OnInit {
       id: new UntypedFormControl(this.structure.id),
       name: new UntypedFormControl({
         value: this.structure.name,
-        disabled: this.structure.is_example
+        disabled: this.structure.is_example,
       }),
       sector_name: new UntypedFormControl({
         value: this.structure.sector_name,
-        disabled: this.structure.is_example
-      })
+        disabled: this.structure.is_example,
+      }),
     });
   }
 
@@ -110,7 +112,7 @@ export class StructureCardComponent implements OnInit {
         .then(() => {
           this.changed.emit(this.structure);
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     }
@@ -129,15 +131,15 @@ export class StructureCardComponent implements OnInit {
         no: 'modals.cancel',
         icon: 'pia-icons pia-icon-sad',
         data: {
-          btn_yes: 'btn-red'
-        }
+          btn_yes: 'btn-red',
+        },
       },
       () => {
         this.structureService
           .remove(id)
           .then(() => {
             this.piaService.getAllWithStructure(id).then((items: any) => {
-              items.forEach(item => {
+              items.forEach((item) => {
                 item.structure_id = null;
                 this.piaService.update(item);
               });
