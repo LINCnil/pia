@@ -44,6 +44,9 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
+  app.setAboutPanelOptions({
+    copyright: ""
+  });
   createWindow();
   setupAutoUpdater();
 });
