@@ -2,10 +2,6 @@
 
 When a PIA is exported (or duplicated) the tool produces a single JSON document. The same document is accepted by the **Import** feature. This page describes its structure.
 
-Sources: `src/app/services/pia.service.ts` (`exportData`, `importData`), `src/app/models/*.model.ts`, `src/assets/files/pia_architecture.json` (form structure) and `src/assets/files/2018-02-21-pia-example.json` (example).
-
-French version: [import-export-json-format.fr.md](import-export-json-format.fr.md).
-
 ## General structure
 
 ```json
