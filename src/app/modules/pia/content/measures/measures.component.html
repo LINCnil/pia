@@ -51,7 +51,11 @@
         <div
           (click)="measureContentFocusIn()"
           class="pia-measureBlock-contentText"
-          [innerHTML]="measureForm.controls['measureContent']?.value | safeHtml"
+          [innerHTML]="
+            $safeNavigationMigration(
+              measureForm.controls['measureContent']?.value
+            ) | safeHtml
+          "
           [ngClass]="{
             hide: editor || !measureForm.controls['measureContent']?.value
           }"
@@ -91,7 +95,7 @@
   }
 </div>
 } @else {
-<div class="pia-sectionBlock-body" style="position:relative; height: 150px;">
+<div class="pia-sectionBlock-body" style="position: relative; height: 150px">
   <app-loading-overlay
     [visibility]="true"
     [childMode]="true"

@@ -1,4 +1,10 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -11,7 +17,8 @@ import { DialogService } from 'src/app/services/dialog.service';
   selector: 'app-refuse-pia',
   templateUrl: './refuse-pia.component.html',
   styleUrls: ['./refuse-pia.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class RefusePIAComponent implements OnInit {
   @Input() pia: Pia;
@@ -34,11 +41,11 @@ export class RefusePIAComponent implements OnInit {
 
   ngOnInit() {
     this.rejectionReasonForm = new UntypedFormGroup({
-      rejectionReason: new UntypedFormControl(this.pia.rejection_reason)
+      rejectionReason: new UntypedFormControl(this.pia.rejection_reason),
     });
 
     this.modificationsMadeForm = new UntypedFormGroup({
-      modificationsMade: new UntypedFormControl(this.pia.applied_adjustments)
+      modificationsMade: new UntypedFormControl(this.pia.applied_adjustments),
     });
 
     if (this.pia.rejection_reason) {
@@ -81,11 +88,11 @@ export class RefusePIAComponent implements OnInit {
         class: 'icon-red',
         data: {
           additional_text: 'modals.abandon_pia.additional_text',
-          btn_yes: 'btn-red'
-        }
+          btn_yes: 'btn-red',
+        },
       },
       () => {
-        this.piaService.abandonTreatment(this.pia).then(dataUpdated => {
+        this.piaService.abandonTreatment(this.pia).then((dataUpdated) => {
           if (dataUpdated.lock_version) {
             // Update lock_version
             this.pia.lock_version = dataUpdated.lock_version;
@@ -116,13 +123,13 @@ export class RefusePIAComponent implements OnInit {
               class: 'icon-red',
               data: {
                 modal_id: 'modal-refuse-pia',
-                btn_yes: 'btn-red'
-              }
+                btn_yes: 'btn-red',
+              },
             },
             () => {
               this.piaService
                 .resetDpoPage(this.pia.id)
-                .then(dataUpdated => {
+                .then((dataUpdated) => {
                   if (dataUpdated.lock_version) {
                     this.pia.lock_version = dataUpdated.lock_version;
                   }
@@ -132,10 +139,10 @@ export class RefusePIAComponent implements OnInit {
                     'section',
                     1,
                     'item',
-                    1
+                    1,
                   ]);
                 })
-                .catch(err => {
+                .catch((err) => {
                   console.log(err);
                 });
             },
@@ -171,7 +178,7 @@ export class RefusePIAComponent implements OnInit {
     this.pia.rejection_reason = userText;
     this.piaService
       .update(this.pia)
-      .then(dataUpdated => {
+      .then((dataUpdated) => {
         if (dataUpdated.lock_version) {
           // Update lock_version
           this.pia.lock_version = dataUpdated.lock_version;
@@ -201,8 +208,8 @@ export class RefusePIAComponent implements OnInit {
    * Executes functionalities when losing focus from modifications made field.
    */
   modificationsMadeFocusOut(): void {
-    let userText = this.modificationsMadeForm.controls['modificationsMade']
-      .value;
+    let userText =
+      this.modificationsMadeForm.controls['modificationsMade'].value;
     const resendButton = this.el.nativeElement.querySelector(
       '.pia-entryContentBlock-footer > button'
     );
@@ -212,7 +219,7 @@ export class RefusePIAComponent implements OnInit {
     this.pia.applied_adjustments = userText;
     this.piaService
       .update(this.pia)
-      .then(dataUpdated => {
+      .then((dataUpdated) => {
         if (dataUpdated.lock_version) {
           // Update lock_version
           this.pia.lock_version = dataUpdated.lock_version;

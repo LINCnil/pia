@@ -1,10 +1,10 @@
-import { Input } from '@angular/core';
+import { Input, ChangeDetectionStrategy } from '@angular/core';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   UntypedFormGroup,
   UntypedFormBuilder,
   UntypedFormControl,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { CustomValidators } from 'src/app/shared/validators/custom-validators';
 
@@ -15,7 +15,8 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-password',
   templateUrl: './password.component.html',
   styleUrls: ['../form.scss', './password.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class PasswordComponent implements OnInit {
   @Input() reset = false;
@@ -44,30 +45,30 @@ export class PasswordComponent implements OnInit {
               CustomValidators.patternValidator(/\d/, { hasNumber: true }),
               // 3. check whether the entered password has upper case letter
               CustomValidators.patternValidator(/[A-Z]/, {
-                hasCapitalCase: true
+                hasCapitalCase: true,
               }),
               // 4. check whether the entered password has a lower-case letter
               CustomValidators.patternValidator(/[a-z]/, {
-                hasSmallCase: true
+                hasSmallCase: true,
               }),
               // 5. check whether the entered password has a special char
               CustomValidators.patternValidator(/[!@#$%^&*(),.?":{}|<>_' -]/, {
-                hashSpecialChar: true
+                hashSpecialChar: true,
               }),
               // 6. Has a minimum length of 8 characters
-              Validators.minLength(12)
-            ])
-          ]
+              Validators.minLength(12),
+            ]),
+          ],
         ],
-        confirmPassword: new UntypedFormControl('', [Validators.required])
+        confirmPassword: new UntypedFormControl('', [Validators.required]),
       },
       {
         // check whether our password and confirm password match
-        validator: CustomValidators.passwordMatchValidator
+        validator: CustomValidators.passwordMatchValidator,
       }
     );
 
-    this.signUp.get('password').valueChanges.subscribe(x => {
+    this.signUp.get('password').valueChanges.subscribe((x) => {
       if (x.length <= 0 || this.f.password.errors) {
         this.signUp.controls['confirmPassword'].disable();
         this.signUp.patchValue({ confirmPassword: '' });
@@ -100,7 +101,7 @@ export class PasswordComponent implements OnInit {
         this.loading = false;
         this.validated.emit(true);
       })
-      .catch(err => {
+      .catch((err) => {
         this.loading = false;
         this.msgFromBack = err.status;
       });

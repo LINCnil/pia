@@ -1,4 +1,9 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  OnInit,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Answer } from 'src/app/models/answer.model';
@@ -23,7 +28,8 @@ import { faDownload, faBook } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-pia',
   templateUrl: './pia.component.html',
   styleUrls: ['./pia.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class PiaComponent implements OnInit, DoCheck {
   section: { id: number; title: string; short_help: string; items: any };
@@ -72,7 +78,7 @@ export class PiaComponent implements OnInit, DoCheck {
     public authService: AuthService,
     public apiService: ApiService
   ) {
-    this.introjsService.entrySideViewChange.subscribe(value => {
+    this.introjsService.entrySideViewChange.subscribe((value) => {
       this.sideView = value;
     });
   }
@@ -89,7 +95,7 @@ export class PiaComponent implements OnInit, DoCheck {
           await this.setupPage(sectionId, itemId);
           this.router.navigate(['pia', pia.id, 'section', 1, 'item', 1]);
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     } else {
@@ -99,7 +105,7 @@ export class PiaComponent implements OnInit, DoCheck {
           this.pia = pia;
           await this.setupPage(sectionId, itemId);
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     }
@@ -121,11 +127,11 @@ export class PiaComponent implements OnInit, DoCheck {
 
       // Update tags when removing measures from 3.1
       const itemsQuestions = [];
-      this.appDataService.dataNav.sections.forEach(section => {
-        section.items.forEach(item => {
+      this.appDataService.dataNav.sections.forEach((section) => {
+        section.items.forEach((item) => {
           if (item.questions) {
             itemsQuestions.push(
-              item.questions.filter(question => {
+              item.questions.filter((question) => {
                 return (
                   question.answer_type === 'list' &&
                   question.is_measure === true
@@ -138,12 +144,12 @@ export class PiaComponent implements OnInit, DoCheck {
 
       // Keep only questions with measures lists
       const listQuestions = itemsQuestions.filter(
-        v => Object.keys(v).length !== 0
+        (v) => Object.keys(v).length !== 0
       );
 
       // For each of these questions, get their respective answer
-      listQuestions.forEach(questionsSet => {
-        questionsSet.forEach(q => {
+      listQuestions.forEach((questionsSet) => {
+        questionsSet.forEach((q) => {
           this.answerService
             .getByReferenceAndPia(parseInt(this.route.snapshot.params.id), q.id)
             .then((answer: Answer) => {
@@ -183,7 +189,7 @@ export class PiaComponent implements OnInit, DoCheck {
       window.scroll(0, 0);
     });
     // Subscribe to measure service messages
-    this.subscription = this.measureService.behaviorSubject.subscribe(val => {
+    this.subscription = this.measureService.behaviorSubject.subscribe((val) => {
       this.measureToRemoveFromTags = val;
     });
     // Start onboarding
@@ -204,7 +210,7 @@ export class PiaComponent implements OnInit, DoCheck {
           } else if (this.pia.is_example) {
             this.editMode = ['guest'];
           } else {
-            this.pia.user_pias.forEach(up => {
+            this.pia.user_pias.forEach((up) => {
               if (
                 parseInt(up.user.id) ===
                   this.authService.currentUserValue.resource_owner_id &&
@@ -217,7 +223,7 @@ export class PiaComponent implements OnInit, DoCheck {
         } else {
           this.editMode = 'local';
         }
-      }
+      },
     });
   }
 
@@ -233,12 +239,12 @@ export class PiaComponent implements OnInit, DoCheck {
 
     this.data = this.appDataService.dataNav;
 
-    this.section = this.data.sections.filter(section => {
+    this.section = this.data.sections.filter((section) => {
       return section.id === sectionId;
     })[0];
 
     if (this.section) {
-      this.item = this.section.items.filter(item => {
+      this.item = this.section.items.filter((item) => {
         return item.id === itemId;
       })[0];
     }
@@ -251,14 +257,14 @@ export class PiaComponent implements OnInit, DoCheck {
     this.questions = [];
 
     if (this.item.questions) {
-      this.item.questions.forEach(question => {
+      this.item.questions.forEach((question) => {
         this.questions.push(question);
       });
     }
 
     await this.globalEvaluationService.validate();
 
-    this.measureService.findAllByPia(this.pia.id).then(measures => {
+    this.measureService.findAllByPia(this.pia.id).then((measures) => {
       this.measures = measures;
       /* Modal for risks if no measures yet */
       let displayModal = true;
@@ -267,7 +273,7 @@ export class PiaComponent implements OnInit, DoCheck {
         (this.item.id === 2 || this.item.id === 3 || this.item.id === 4)
       ) {
         if (measures.length > 0) {
-          measures.forEach(element => {
+          measures.forEach((element) => {
             if (element.title && element.title.length > 0) {
               displayModal = false;
             }
@@ -284,8 +290,8 @@ export class PiaComponent implements OnInit, DoCheck {
               icon: 'faArrowLeft',
               class: 'icon-blue',
               data: {
-                no_cross_button: true
-              }
+                no_cross_button: true,
+              },
             },
             () => {
               this.router.navigate([
@@ -294,7 +300,7 @@ export class PiaComponent implements OnInit, DoCheck {
                 'section',
                 3,
                 'item',
-                1
+                1,
               ]);
             },
             () => {
@@ -320,8 +326,8 @@ export class PiaComponent implements OnInit, DoCheck {
             class: 'icon-blue',
             data: {
               btn_yes: 'btn-blue',
-              no_cross_button: true
-            }
+              no_cross_button: true,
+            },
           },
           () => {
             const gotoSectionItem = this.paginationService.getNextSectionItem(
@@ -334,7 +340,7 @@ export class PiaComponent implements OnInit, DoCheck {
               'section',
               gotoSectionItem[0],
               'item',
-              gotoSectionItem[1]
+              gotoSectionItem[1],
             ]);
           },
           () => {
@@ -359,8 +365,8 @@ export class PiaComponent implements OnInit, DoCheck {
             class: 'icon-blue',
             data: {
               btn_yes: 'btn-blue',
-              no_cross_button: true
-            }
+              no_cross_button: true,
+            },
           },
           () => {
             const gotoSectionItem = this.paginationService.getNextSectionItem(
@@ -373,7 +379,7 @@ export class PiaComponent implements OnInit, DoCheck {
               'section',
               gotoSectionItem[0],
               'item',
-              gotoSectionItem[1]
+              gotoSectionItem[1],
             ]);
           },
           () => {

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
   UntypedFormGroup,
   UntypedFormBuilder,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -13,7 +13,8 @@ import { ApiService } from 'src/app/services/api.service';
   selector: 'app-url',
   templateUrl: './url.component.html',
   styleUrls: ['./url.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class UrlComponent implements OnInit {
   settingsForm: UntypedFormGroup;
@@ -30,7 +31,7 @@ export class UrlComponent implements OnInit {
       id: 1,
       server_url: ['', Validators.required],
       client_id: ['', Validators.required],
-      client_secret: ['', Validators.required]
+      client_secret: ['', Validators.required],
     });
 
     this.settingsForm.patchValue({
@@ -40,7 +41,7 @@ export class UrlComponent implements OnInit {
         : '',
       client_secret: localStorage.getItem('client_secret')
         ? localStorage.getItem('client_secret')
-        : ''
+        : '',
     });
   }
 
@@ -62,9 +63,9 @@ export class UrlComponent implements OnInit {
       fetch(serverUrl + '/info', {
         mode: 'cors',
         method: 'POST',
-        body: formData
+        body: formData,
       })
-        .then(async response => {
+        .then(async (response) => {
           if (response.ok) {
             const result = await response.json();
             return result;
@@ -78,7 +79,7 @@ export class UrlComponent implements OnInit {
             this.errorOnIntrospect();
           }
         })
-        .catch(error => {
+        .catch((error) => {
           console.error('Request failed', error);
           this.dialogService.confirmThis(
             {
@@ -86,7 +87,7 @@ export class UrlComponent implements OnInit {
               type: 'yes',
               yes: 'modals.close',
               no: '',
-              icon: 'pia-icons pia-icon-sad'
+              icon: 'pia-icons pia-icon-sad',
             },
             () => {
               return;
@@ -113,8 +114,8 @@ export class UrlComponent implements OnInit {
           no: '',
           icon: 'pia-icons pia-icon-happy',
           data: {
-            no_cross_button: true
-          }
+            no_cross_button: true,
+          },
         },
         () => {
           window.location.href = './#/';
@@ -151,8 +152,8 @@ export class UrlComponent implements OnInit {
         no: '',
         icon: 'pia-icons pia-icon-happy',
         data: {
-          no_cross_button: true
-        }
+          no_cross_button: true,
+        },
       },
       () => {
         if (this.authService.currentUserValue == null) {
@@ -175,7 +176,7 @@ export class UrlComponent implements OnInit {
         yes: 'modals.back_to_home',
         no: '',
         icon: 'pia-icons pia-icon-sad',
-        data: {}
+        data: {},
       },
       () => {
         return;

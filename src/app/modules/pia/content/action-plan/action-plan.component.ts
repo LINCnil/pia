@@ -1,11 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ActionPlanService } from 'src/app/services/action-plan.service';
 
 @Component({
   selector: 'app-action-plan',
   templateUrl: './action-plan.component.html',
   styleUrls: ['./action-plan.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class ActionPlanComponent implements OnInit {
   @Input() pia: any;
