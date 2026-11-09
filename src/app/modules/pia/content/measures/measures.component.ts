@@ -6,7 +6,8 @@ import {
   OnDestroy,
   NgZone,
   Output,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
@@ -26,7 +27,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-measures',
   templateUrl: './measures.component.html',
   styleUrls: ['./measures.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
   @Input() editMode:
@@ -63,7 +65,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.measureForm = new UntypedFormGroup({
       measureTitle: new UntypedFormControl(),
-      measureContent: new UntypedFormControl()
+      measureContent: new UntypedFormControl(),
     });
     this.measureModel.pia_id = this.pia.id;
     this.loading = true;
@@ -217,7 +219,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
 
         this.globalEvaluationService.validate();
       })
-      .catch(err => {
+      .catch((err) => {
         if (err.statusText === 'Conflict') {
           this.conflictDialog('title', err);
         }
@@ -257,7 +259,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           this.globalEvaluationService.validate();
         });
       })
-      .catch(err => {
+      .catch((err) => {
         if (err.statusText === 'Conflict') {
           this.conflictDialog('content', err);
         }
@@ -319,8 +321,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           no: '',
           icon: 'pia-icons pia-icon-sorry',
           data: {
-            btn_yes: 'btn-blue'
-          }
+            btn_yes: 'btn-blue',
+          },
         },
         () => {
           return false;
@@ -338,8 +340,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
           no: 'modals.remove_measure.keep',
           icon: 'pia-icons pia-icon-sad',
           data: {
-            btn_yes: 'btn-red'
-          }
+            btn_yes: 'btn-red',
+          },
         },
         () => {
           this.measuresService.removeMeasure(measureId).then(() => {
@@ -378,7 +380,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       placeholder: '',
-      setup: editor => {
+      setup: (editor) => {
         this.editor = editor;
         editor.on('focusout', async () => {
           const newContent = editor.getContent();
@@ -388,7 +390,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
             tinymce.remove(editor);
           });
         });
-      }
+      },
     });
   }
 
@@ -421,8 +423,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         data: {
           no_cross_button: true,
           btn_no: false,
-          additional_text
-        }
+          additional_text,
+        },
       },
       () => {
         return;
@@ -440,7 +442,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
                 this.router.navigate([currentUrl]);
               });
             return;
-          }
+          },
         },
         {
           label: this.translateService.instant('conflict.keep_new'),
@@ -456,7 +458,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
                 });
               return;
             });
-          }
+          },
         },
         {
           label: this.translateService.instant('conflict.merge'),
@@ -472,8 +474,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
                 });
               return;
             });
-          }
-        }
+          },
+        },
       ]
     );
   }

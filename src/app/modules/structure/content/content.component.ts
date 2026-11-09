@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -14,7 +19,8 @@ import { faSitemap, faPlus } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class ContentComponent implements OnInit {
   @Input() structure: any;
@@ -107,7 +113,7 @@ export class ContentComponent implements OnInit {
       'section',
       goto_section_item[0],
       'item',
-      goto_section_item[1]
+      goto_section_item[1],
     ]);
   }
 
@@ -116,7 +122,7 @@ export class ContentComponent implements OnInit {
   // }
 
   onQuestionDeleted($event) {
-    const index = this.questions.findIndex(q => q.id === $event);
+    const index = this.questions.findIndex((q) => q.id === $event);
     if (index !== -1) {
       this.questions.splice(index, 1);
     }

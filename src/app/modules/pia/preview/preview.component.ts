@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewChecked, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewChecked,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PiaService } from 'src/app/services/pia.service';
 import { AppDataService } from 'src/app/services/app-data.service';
@@ -20,7 +26,8 @@ import { faPencil } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-preview',
   templateUrl: './preview.component.html',
   styleUrls: ['./preview.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class PreviewComponent implements OnInit, AfterViewChecked {
   public activeElement: string;
@@ -70,7 +77,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
         }
 
         // Load PIA's revisions
-        this.revisionService.findAllByPia(this.pia.id).then(resp => {
+        this.revisionService.findAllByPia(this.pia.id).then((resp) => {
           this.revisions = resp;
         });
 
@@ -92,9 +99,9 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     window.onscroll = () => {
       const scrollPosition =
         document.documentElement.scrollTop || document.body.scrollTop;
-      sections.forEach(s => {
+      sections.forEach((s) => {
         if (s.offsetTop < scrollPosition + 100) {
-          menus.forEach(l => {
+          menus.forEach((l) => {
             l.classList.remove('active');
             if (l.innerText === s.innerText) {
               l.setAttribute('class', 'active');
@@ -138,7 +145,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     if (this.pia.dpos_names && this.pia.dpos_names.length > 0) {
       el.data.push({
         title: 'summary.dpo_name',
-        content: this.pia.dpos_names
+        content: this.pia.dpos_names,
       });
     }
     if (this.pia.dpo_status && this.pia.dpo_status > 0) {
@@ -146,13 +153,13 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
         title: 'summary.dpo_status',
         content: this.piaService.getOpinionsStatus(
           this.pia.dpo_status.toString()
-        )
+        ),
       });
     }
     if (this.pia.dpo_opinion && this.pia.dpo_opinion.length > 0) {
       el.data.push({
         title: 'summary.dpo_opinion',
-        content: this.pia.dpo_opinion
+        content: this.pia.dpo_opinion,
       });
     }
 
@@ -162,12 +169,12 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
         title: 'summary.concerned_people_searched_opinion',
         content: this.piaService.getPeopleSearchStatus(
           this.pia.concerned_people_searched_opinion
-        )
+        ),
       });
       if (this.pia.people_names && this.pia.people_names.length > 0) {
         el.data.push({
           title: 'summary.concerned_people_name',
-          content: this.pia.people_names
+          content: this.pia.people_names,
         });
       }
       if (this.pia.concerned_people_status >= 0) {
@@ -175,7 +182,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
           title: 'summary.concerned_people_status',
           content: this.piaService.getOpinionsStatus(
             this.pia.concerned_people_status.toString()
-          )
+          ),
         });
       }
       if (
@@ -184,7 +191,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
       ) {
         el.data.push({
           title: 'summary.concerned_people_opinion',
-          content: this.pia.concerned_people_opinion
+          content: this.pia.concerned_people_opinion,
         });
       }
     }
@@ -195,7 +202,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
         title: 'summary.concerned_people_searched_opinion',
         content: this.piaService.getPeopleSearchStatus(
           this.pia.concerned_people_searched_opinion
-        )
+        ),
       });
       if (
         this.pia.concerned_people_searched_content &&
@@ -203,7 +210,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
       ) {
         el.data.push({
           title: 'summary.concerned_people_unsearched_opinion_comment',
-          content: this.pia.concerned_people_searched_content
+          content: this.pia.concerned_people_searched_content,
         });
       }
     }
@@ -214,13 +221,13 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
     ) {
       el.data.push({
         title: 'summary.modification_made',
-        content: this.pia.applied_adjustments
+        content: this.pia.applied_adjustments,
       });
     }
     if (this.pia.rejection_reason && this.pia.rejection_reason.length > 0) {
       el.data.push({
         title: 'summary.rejection_reason',
-        content: this.pia.rejection_reason
+        content: this.pia.rejection_reason,
       });
     }
 
@@ -263,7 +270,7 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
-                evaluation
+                evaluation,
               });
             }
           }
@@ -296,15 +303,14 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
                         section.id,
                         item.id,
                         ref + '.' + question.id
-                      ).then(evaluation => {
+                      ).then((evaluation) => {
                         this.allData[section.id][item.id][
                           question.id
                         ].evaluation = evaluation;
                       });
                     }
-                    this.allData[section.id][item.id][
-                      question.id
-                    ].content = content.join(', ');
+                    this.allData[section.id][item.id][question.id].content =
+                      content.join(', ');
                   }
                 }
               });
@@ -343,13 +349,13 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
               evaluation_comment: exist.evaluation_comment,
               gauges: {
                 seriousness: exist.gauges ? exist.gauges.x : null,
-                likelihood: exist.gauges ? exist.gauges.y : null
-              }
+                likelihood: exist.gauges ? exist.gauges.y : null,
+              },
             };
           }
           resolve(evaluation);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     });
@@ -358,8 +364,8 @@ export class PreviewComponent implements OnInit, AfterViewChecked {
   getUsersList(type: string, dump_field: string = null): string {
     if (this.authService.state) {
       return this.pia.user_pias
-        .filter(up => up.role === type)
-        .map(x =>
+        .filter((up) => up.role === type)
+        .map((x) =>
           x.user.firstname
             ? x.user.firstname + ' ' + x.user.lastname
             : x.user.email

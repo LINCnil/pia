@@ -5,7 +5,8 @@ import {
   Renderer2,
   OnInit,
   OnDestroy,
-  NgZone
+  NgZone,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
@@ -22,7 +23,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-measures',
   templateUrl: './measures.component.html',
   styleUrls: ['./measures.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class MeasuresComponent implements OnInit, OnDestroy {
   @Input() id: number;
@@ -53,7 +55,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.measureForm = new UntypedFormGroup({
       measureTitle: new UntypedFormControl(),
-      measureContent: new UntypedFormControl()
+      measureContent: new UntypedFormControl(),
     });
 
     if (this.measure.title && this.measure.title.length > 0) {
@@ -211,8 +213,8 @@ export class MeasuresComponent implements OnInit, OnDestroy {
         no: 'modals.remove_measure.keep',
         icon: 'pia-icons pia-icon-sad',
         data: {
-          btn_yes: 'btn-red'
-        }
+          btn_yes: 'btn-red',
+        },
       },
       () => {
         this.answerStructureService.removeMeasure(
@@ -253,7 +255,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       placeholder: '',
-      setup: editor => {
+      setup: (editor) => {
         this.editor = editor;
         editor.on('focusout', () => {
           const newContent = editor.getContent();
@@ -263,7 +265,7 @@ export class MeasuresComponent implements OnInit, OnDestroy {
             tinymce.remove(editor);
           });
         });
-      }
+      },
     });
   }
 }

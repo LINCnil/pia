@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -14,7 +14,7 @@ import {
   faFolderOpen,
   faTrash,
   faFile,
-  faCopy
+  faCopy,
 } from '@fortawesome/free-solid-svg-icons';
 
 function slugify(text): string {
@@ -32,7 +32,8 @@ function slugify(text): string {
   selector: 'app-base',
   templateUrl: './base.component.html',
   styleUrls: ['./base.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class BaseComponent implements OnInit {
   base: KnowledgeBase = null;
@@ -52,7 +53,7 @@ export class BaseComponent implements OnInit {
     'knowledge_base.category.measure_on_data': 'measure.data_processing',
     'knowledge_base.category.general_measure': 'measure.security',
     'knowledge_base.category.organizational_measure': 'measure.governance',
-    'knowledge_base.category.definition': 'measure.definition'
+    'knowledge_base.category.definition': 'measure.definition',
   };
 
   protected readonly faFolderOpen = faFolderOpen;
@@ -93,7 +94,7 @@ export class BaseComponent implements OnInit {
         name: new UntypedFormControl(),
         category: new UntypedFormControl(),
         description: new UntypedFormControl(),
-        lock_version: new UntypedFormControl()
+        lock_version: new UntypedFormControl(),
       });
 
       // get default categories
@@ -124,7 +125,7 @@ export class BaseComponent implements OnInit {
         name: new UntypedFormControl({ disabled: true }),
         category: new UntypedFormControl({ disabled: true }),
         description: new UntypedFormControl({ disabled: true }),
-        lock_version: new UntypedFormControl({ disabled: true })
+        lock_version: new UntypedFormControl({ disabled: true }),
       });
     }
   }
@@ -143,7 +144,7 @@ export class BaseComponent implements OnInit {
       return true;
     } else {
       this.lockedChoice = false;
-      const index = this.itemsSelected.findIndex(e => e === '31');
+      const index = this.itemsSelected.findIndex((e) => e === '31');
       if (index !== -1) {
         this.itemsSelected.splice(index, 1);
       }
@@ -179,7 +180,7 @@ export class BaseComponent implements OnInit {
     entry.description = this.entryForm.value.description;
     entry.slug = slugify(entry.name);
     entry.category = this.entryForm.value.category;
-    entry.items = this.itemsSelected.map(x => parseInt(x));
+    entry.items = this.itemsSelected.map((x) => parseInt(x));
     entry.filters = this.checkFilters();
     entry.created_at = new Date();
     entry.updated_at = entry.created_at;
@@ -211,12 +212,12 @@ export class BaseComponent implements OnInit {
           this.entryForm.controls['lock_version'].setValue(result.lock_version);
           this.itemsSelected = [];
           if (result.items) {
-            this.itemsSelected = result.items.map(x => x.toString());
+            this.itemsSelected = result.items.map((x) => x.toString());
           }
           this.checkLockedChoice();
 
           // Update list
-          const index = this.knowledges.findIndex(e => e.id === result.id);
+          const index = this.knowledges.findIndex((e) => e.id === result.id);
           if (index !== -1) {
             this.knowledges[index] = result;
           }
@@ -224,7 +225,7 @@ export class BaseComponent implements OnInit {
           this.editMode = 'edit';
           this.showForm = true;
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         })
         .finally(() => {
@@ -239,7 +240,7 @@ export class BaseComponent implements OnInit {
       .then((entry: Knowledge) => {
         this.knowledges.push(entry);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   }
@@ -253,14 +254,14 @@ export class BaseComponent implements OnInit {
         no: 'modals.cancel',
         icon: 'pia-icons pia-icon-sad',
         data: {
-          btn_yes: 'btn-red'
-        }
+          btn_yes: 'btn-red',
+        },
       },
       () => {
         this.knowledgesService
           .delete(id)
           .then(() => {
-            const index = this.knowledges.findIndex(e => e.id === id);
+            const index = this.knowledges.findIndex((e) => e.id === id);
             if (index !== -1) {
               this.knowledges.splice(index, 1);
             }
@@ -286,20 +287,20 @@ export class BaseComponent implements OnInit {
       entry.slug = slugify(entry.name);
       entry.category = this.entryForm.value.category;
       entry.lock_version = this.entryForm.value.lock_version;
-      entry.items = this.itemsSelected.map(x => parseInt(x));
+      entry.items = this.itemsSelected.map((x) => parseInt(x));
       entry.filters = this.checkFilters();
       entry.knowledge_base_id = this.base.id;
       this.knowledgesService
         .update(entry)
-        .then(response => {
+        .then((response) => {
           this.entryForm.controls.lock_version.setValue(response.lock_version);
           // Update list
-          const index = this.knowledges.findIndex(e => e.id === entry.id);
+          const index = this.knowledges.findIndex((e) => e.id === entry.id);
           if (index !== -1) {
             this.knowledges[index] = response;
           }
         })
-        .catch(err => {
+        .catch((err) => {
           if (err.statusText === 'Conflict' && field) {
             // AUTO FIX checkboxes conflict, here because we have to update form
             // force entry with the new lock_version
@@ -309,10 +310,10 @@ export class BaseComponent implements OnInit {
               entry.lock_version = err.record.lock_version;
               this.knowledgesService
                 .update(entry)
-                .then(kbFixed => {
+                .then((kbFixed) => {
                   // Update list
                   const index = this.knowledges.findIndex(
-                    e => e.id === entry.id
+                    (e) => e.id === entry.id
                   );
                   if (index !== -1) {
                     this.knowledges[index] = entry;
@@ -326,11 +327,11 @@ export class BaseComponent implements OnInit {
                     kbFixed.lock_version
                   );
                   if (kbFixed.items) {
-                    this.itemsSelected = kbFixed.items.map(x => x.toString());
+                    this.itemsSelected = kbFixed.items.map((x) => x.toString());
                   }
                   this.checkLockedChoice();
                 })
-                .catch(err => {
+                .catch((err) => {
                   console.log(err);
                 });
             } else {
@@ -352,7 +353,7 @@ export class BaseComponent implements OnInit {
     // Update itemsSelected immutably
     this.itemsSelected = isChecked
       ? [...this.itemsSelected, checkboxValue]
-      : this.itemsSelected.filter(item => item !== checkboxValue);
+      : this.itemsSelected.filter((item) => item !== checkboxValue);
     this.focusOut('checkbox');
   }
 
@@ -368,12 +369,12 @@ export class BaseComponent implements OnInit {
       'knowledge_base.category.organizational_measure',
       'knowledge_base.category.measure_on_data',
       'knowledge_base.category.general_measure',
-      'knowledge_base.category.definition'
+      'knowledge_base.category.definition',
     ];
 
     const category = this.entryForm.value.category;
 
-    dataSection.items.forEach(item => {
+    dataSection.items.forEach((item) => {
       const itemId = `${dataSection.id}${item.id}`;
       const index = updatedItemsSelected.indexOf(itemId);
 
@@ -404,13 +405,13 @@ export class BaseComponent implements OnInit {
       'knowledge_base.category.organizational_measure',
       'knowledge_base.category.measure_on_data',
       'knowledge_base.category.general_measure',
-      'knowledge_base.category.definition'
+      'knowledge_base.category.definition',
     ];
 
     const category = this.entryForm.value.category;
 
-    this.data.sections.forEach(section => {
-      section.items.forEach(item => {
+    this.data.sections.forEach((section) => {
+      section.items.forEach((item) => {
         const itemId = `${section.id}${item.id}`;
         if (checkboxStatus) {
           // Special case: item "31" is only added if the current category is one of the measure ones
@@ -434,7 +435,7 @@ export class BaseComponent implements OnInit {
    * Checked the parent checkbox attribute
    */
   sectionCheckedVerification(dataSection: any): boolean {
-    return dataSection.items.every(item =>
+    return dataSection.items.every((item) =>
       this.itemsSelected.includes(`${dataSection.id}${item.id}`)
     );
   }
@@ -443,8 +444,8 @@ export class BaseComponent implements OnInit {
    * Verify every checkboxes to check or uncheck the "all section" checkbox.
    */
   allSectionCheckedVerification(sections: any[]): boolean {
-    return sections.every(section =>
-      section.items.every(item =>
+    return sections.every((section) =>
+      section.items.every((item) =>
         this.itemsSelected.includes(`${section.id}${item.id}`)
       )
     );
@@ -487,8 +488,8 @@ export class BaseComponent implements OnInit {
         data: {
           no_cross_button: true,
           btn_no: false,
-          additional_text
-        }
+          additional_text,
+        },
       },
       () => {
         return;
@@ -506,7 +507,7 @@ export class BaseComponent implements OnInit {
                 this.router.navigate([currentUrl]);
               });
             return;
-          }
+          },
         },
         {
           label: this.translateService.instant('conflict.keep_new'),
@@ -522,7 +523,7 @@ export class BaseComponent implements OnInit {
                 });
               return;
             });
-          }
+          },
         },
         {
           label: this.translateService.instant('conflict.merge'),
@@ -538,8 +539,8 @@ export class BaseComponent implements OnInit {
                 });
               return;
             });
-          }
-        }
+          },
+        },
       ]
     );
   }

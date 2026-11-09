@@ -1,4 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Attachment } from 'src/app/models/attachment.model';
 import { Pia } from 'src/app/models/pia.model';
@@ -8,7 +13,8 @@ import { AttachmentsService } from 'src/app/services/attachments.service';
   selector: 'app-attachments',
   templateUrl: './attachments.component.html',
   styleUrls: ['./attachments.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class AttachmentsComponent implements OnInit {
   @Input() isPreview: boolean;
@@ -24,14 +30,14 @@ export class AttachmentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.attachmentForm = new UntypedFormGroup({
-      attachment_file: new UntypedFormControl('', [])
+      attachment_file: new UntypedFormControl('', []),
     });
     this._attachmentsService
       .findAllByPia(this.pia.id)
       .then((attachments: Array<Attachment>) => {
         this.attachments = attachments;
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
     this.dispplayAttachmentButton =
@@ -45,13 +51,15 @@ export class AttachmentsComponent implements OnInit {
     if (this.pia.is_example === 1) {
       return false;
     } else {
-      const attachment = document.querySelector('[formcontrolname="attachment_file"]') as HTMLInputElement;
+      const attachment = document.querySelector(
+        '[formcontrolname="attachment_file"]'
+      ) as HTMLInputElement;
       attachment.click();
     }
   }
 
   onDeleted($event): void {
-    const index = this.attachments.findIndex(a => a.id === $event);
+    const index = this.attachments.findIndex((a) => a.id === $event);
     if (index !== -1) {
       this.attachments.splice(index, 1);
     }

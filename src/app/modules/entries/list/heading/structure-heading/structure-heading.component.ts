@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -6,7 +12,8 @@ import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
   selector: '[app-structure-heading]',
   templateUrl: './structure-heading.component.html',
   styleUrls: ['./structure-heading.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class StructureHeadingComponent implements OnInit {
   sortOrder: string;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Structure } from 'src/app/models/structure.model';
@@ -13,7 +13,8 @@ import { StructureService } from 'src/app/services/structure.service';
   selector: 'app-structure',
   templateUrl: './structure.component.html',
   styleUrls: ['./structure.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class StructureComponent implements OnInit {
   structure: Structure = null;
@@ -53,7 +54,7 @@ export class StructureComponent implements OnInit {
           this.initStructure(structure);
           this.getSectionAndItem(sectionId, itemId);
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     } else {
@@ -64,7 +65,7 @@ export class StructureComponent implements OnInit {
     }
 
     // Subscribe to measure service messages
-    this.subscription = this.measureService.behaviorSubject.subscribe(val => {
+    this.subscription = this.measureService.behaviorSubject.subscribe((val) => {
       this.measureToRemoveFromTags = val;
     });
   }
@@ -74,8 +75,8 @@ export class StructureComponent implements OnInit {
     this.data = structure.data;
 
     // define section
-    this.data.sections.forEach(section => {
-      section.items.forEach(item => {
+    this.data.sections.forEach((section) => {
+      section.items.forEach((item) => {
         this.sidStatusService.setStructureStatus(section, item);
       });
     });
@@ -101,11 +102,11 @@ export class StructureComponent implements OnInit {
 
     this.data = this.structure.data;
 
-    this.section = this.data.sections.filter(section => {
+    this.section = this.data.sections.filter((section) => {
       return section.id === sectionId;
     })[0];
 
-    this.item = this.section.items.filter(item => {
+    this.item = this.section.items.filter((item) => {
       return item.id === itemId;
     })[0];
 
@@ -113,7 +114,7 @@ export class StructureComponent implements OnInit {
     this.globalEvaluationService.item = this.item;
 
     if (this.item.questions) {
-      this.item.questions.forEach(question => {
+      this.item.questions.forEach((question) => {
         this.questions.push(question);
       });
     }

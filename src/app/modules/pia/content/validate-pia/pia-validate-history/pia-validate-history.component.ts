@@ -1,4 +1,10 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import { PiaService } from 'src/app/services/pia.service';
 import { LanguagesService } from 'src/app/services/languages.service';
@@ -9,7 +15,8 @@ import { Pia } from 'src/app/models/pia.model';
   templateUrl: './pia-validate-history.component.html',
   styleUrls: ['./pia-validate-history.component.scss'],
   providers: [PiaService],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class PiaValidateHistoryComponent implements OnInit {
   @Input() pia: Pia = null;

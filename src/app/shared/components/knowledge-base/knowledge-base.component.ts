@@ -7,7 +7,8 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  SimpleChanges
+  SimpleChanges,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -24,7 +25,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-knowledge-base',
   templateUrl: './knowledge-base.component.html',
   styleUrls: ['./knowledge-base.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
   searchForm: UntypedFormGroup;
@@ -59,10 +61,10 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
       : 0;
 
     this.searchForm = new UntypedFormGroup({
-      q: new UntypedFormControl()
+      q: new UntypedFormControl(),
     });
 
-    window.onscroll = ev => {
+    window.onscroll = (ev) => {
       if (window.innerWidth > 640) {
         const el: any = document.querySelector('.pia-knowledgeBaseBlock');
         const el2 = document.querySelector('.pia-knowledgeBaseBlock-list');
@@ -139,7 +141,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
           if (result) {
             this.customKnowledgeBases = [
               this.customKnowledgeBases[0],
-              ...(result ?? [])
+              ...(result ?? []),
             ];
           }
           resolve(this.customKnowledgeBases);
@@ -177,10 +179,10 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
     if (this.pia) {
       this.measureService
         .addNewMeasure(this.pia, event.name, event.placeholder)
-        .then(res => {
+        .then((res) => {
           this.newMeasureEvent.emit(res);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     } else if (this.structure) {
@@ -188,8 +190,10 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
         const title = this.translateService.instant(event.name);
         const measure = { title, content: '' };
 
-        const section = this.structure.data.sections.filter(s => s.id === 3)[0];
-        const targetItem = section.items.filter(i => i.id === 1)[0];
+        const section = this.structure.data.sections.filter(
+          (s) => s.id === 3
+        )[0];
+        const targetItem = section.items.filter((i) => i.id === 1)[0];
 
         targetItem.answers.push(measure);
 
@@ -214,7 +218,7 @@ export class KnowledgeBaseComponent implements OnInit, OnChanges, OnDestroy {
           selectedKnowledBase
         );
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }

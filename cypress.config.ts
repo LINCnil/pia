@@ -18,11 +18,6 @@ export default defineConfig({
       return require('./cypress/plugins/index.js')(on, config);
     },
     baseUrl: 'http://localhost:4200',
-    specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}'
+    specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
   },
-  env: {
-    URL: 'localhost:3000',
-    ID: 'client_id',
-    SECRET: 'client_secret'
-  }
 });

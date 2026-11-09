@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
 import {
   faPenToSquare,
   faGear,
   faXmark,
-  faCheck
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['../modal/modal.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class DialogComponent implements OnInit {
   message: any;
@@ -26,7 +27,7 @@ export class DialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dialogService.getMessage().subscribe(message => {
+    this.dialogService.getMessage().subscribe((message) => {
       this.message = message;
     });
   }

@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Knowledge } from 'src/app/models/knowledge.model';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -10,7 +17,7 @@ import {
   faEye,
   faDownload,
   faFile,
-  faTrash
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -18,7 +25,8 @@ import {
   selector: '[app-knowledgebase-line]',
   templateUrl: './knowledgebase-line.component.html',
   styleUrls: ['./knowledgebase-line.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class KnowledgebaseLineComponent implements OnInit {
   @Input() base: KnowledgeBase;
@@ -47,7 +55,7 @@ export class KnowledgebaseLineComponent implements OnInit {
         .then((result: Knowledge[]) => {
           this.nbEntries = result.length;
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     } else {
@@ -61,11 +69,11 @@ export class KnowledgebaseLineComponent implements OnInit {
     this.base[attribute] = text;
     this.knowledgeBaseService
       .update(this.base)
-      .then(response => {
+      .then((response) => {
         this.base = response;
         this.changed.emit(this.base);
       })
-      .catch(err => {
+      .catch((err) => {
         if (err.statusText === 'Conflict') {
           this.conflictDetected.emit({ field: attribute, err });
         }
@@ -81,8 +89,8 @@ export class KnowledgebaseLineComponent implements OnInit {
         no: 'modals.cancel',
         icon: 'pia-icons pia-icon-sad',
         data: {
-          btn_yes: 'btn-red'
-        }
+          btn_yes: 'btn-red',
+        },
       },
       () => {
         this.knowledgeBaseService

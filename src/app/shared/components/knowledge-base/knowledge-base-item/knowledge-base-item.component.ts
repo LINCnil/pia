@@ -4,7 +4,8 @@ import {
   OnInit,
   Input,
   Output,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -16,7 +17,8 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
   selector: 'app-knowledge-base-item',
   templateUrl: './knowledge-base-item.component.html',
   styleUrls: ['./knowledge-base-item.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class KnowledgeBaseItemComponent implements OnInit {
   @Input() editMode:
@@ -38,7 +40,7 @@ export class KnowledgeBaseItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._translateService.get(this.itemKb.name).subscribe(value => {
+    this._translateService.get(this.itemKb.name).subscribe((value) => {
       this.titleKb = value;
     });
   }

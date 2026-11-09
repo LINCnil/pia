@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,7 +13,8 @@ import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
   selector: '[app-pia-heading]',
   templateUrl: './pia-heading.component.html',
   styleUrls: ['./pia-heading.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class PiaHeadingComponent implements OnInit {
   sortOrder: string;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pia } from 'src/app/models/pia.model';
 import { PiaService } from 'src/app/services/pia.service';
@@ -7,7 +7,8 @@ import { PiaService } from 'src/app/services/pia.service';
   selector: 'app-example',
   templateUrl: './example.component.html',
   styleUrls: ['./example.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class ExampleComponent implements OnInit {
   public pia = null;
