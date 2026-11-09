@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { PiaService } from 'src/app/services/pia.service';
@@ -15,7 +21,8 @@ import { EvaluationService } from 'src/app/services/evaluation.service';
   selector: `.app-risks-cartography`,
   templateUrl: './risks-cartography.component.html',
   styleUrls: ['./risks-cartography.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class RisksCartographyComponent implements OnInit, OnDestroy {
   @Input() pia: Pia = null;
@@ -60,37 +67,37 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
         '1': 50,
         '2': 150,
         '3': 250,
-        '4': 350
+        '4': 350,
       },
       y: {
         '1': 350,
         '2': 250,
         '3': 150,
-        '4': 50
-      }
+        '4': 50,
+      },
     };
 
     // JSON data
     this.dataJSON = {
       'risk-access': {
         author: { x: null, y: null },
-        evaluator: { x: null, y: null }
+        evaluator: { x: null, y: null },
       },
       'risk-change': {
         author: { x: null, y: null },
-        evaluator: { x: null, y: null }
+        evaluator: { x: null, y: null },
       },
       'risk-disappearance': {
         author: { x: null, y: null },
-        evaluator: { x: null, y: null }
-      }
+        evaluator: { x: null, y: null },
+      },
     };
 
     const dataNav = this.appDataService.dataNav;
     dataNav.sections.forEach((section: any) => {
       section.items.forEach((item: any) => {
         if (item.questions) {
-          item.questions.forEach(question => {
+          item.questions.forEach((question) => {
             if (question.answer_type === 'gauge') {
               this.questions.push(question);
             }
@@ -99,11 +106,11 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
       });
     });
     this.answerService.getGaugeByPia(this.pia.id).then((entries: any) => {
-      this.answersGauge = entries.filter(entry => {
+      this.answersGauge = entries.filter((entry) => {
         return entry.data.gauge >= 0;
       });
-      this.answersGauge.forEach(answer => {
-        const question: any = this.questions.filter(entry => {
+      this.answersGauge.forEach((answer) => {
+        const question: any = this.questions.filter((entry) => {
           return entry.id.toString() === answer.reference_to.toString();
         });
         if (question[0]) {
@@ -117,15 +124,14 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
             } else if (cartographyKey[0] === 'risk-disappearance') {
               pointPosition -= 20;
             }
-            this.dataJSON[cartographyKey[0]]['author'][
-              axeValue
-            ] = pointPosition;
+            this.dataJSON[cartographyKey[0]]['author'][axeValue] =
+              pointPosition;
           }
         }
       });
       this.evaluationService
         .getByReference(this.pia.id, '3.2')
-        .then(evaluation => {
+        .then((evaluation) => {
           if (evaluation && evaluation.gauges) {
             this.dataJSON['risk-access']['evaluator']['y'] =
               positions['y'][evaluation.gauges['x']];
@@ -134,7 +140,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
           }
           this.evaluationService
             .getByReference(this.pia.id, '3.3')
-            .then(evaluation2 => {
+            .then((evaluation2) => {
               if (evaluation2 && evaluation2.gauges) {
                 this.dataJSON['risk-change']['evaluator']['y'] =
                   positions['y'][evaluation2.gauges['x']];
@@ -143,7 +149,7 @@ export class RisksCartographyComponent implements OnInit, OnDestroy {
               }
               this.evaluationService
                 .getByReference(this.pia.id, '3.4')
-                .then(evaluation3 => {
+                .then((evaluation3) => {
                   if (evaluation3 && evaluation3.gauges) {
                     this.dataJSON['risk-disappearance']['evaluator']['y'] =
                       positions['y'][evaluation3.gauges['x']];

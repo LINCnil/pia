@@ -1,4 +1,11 @@
-import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
@@ -10,7 +17,8 @@ import { EvaluationService } from 'src/app/services/evaluation.service';
   selector: 'app-action-plan-implementation',
   templateUrl: './action-plan-implementation.component.html',
   styleUrls: ['./action-plan-implementation.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class ActionPlanImplementationComponent implements OnInit {
   @Input() pia: Pia = null;
@@ -32,7 +40,7 @@ export class ActionPlanImplementationComponent implements OnInit {
   ngOnInit(): void {
     this.actionPlanForm = new UntypedFormGroup({
       estimatedEvaluationDate: new UntypedFormControl(),
-      personInCharge: new UntypedFormControl()
+      personInCharge: new UntypedFormControl(),
     });
     if (this.data.evaluation) {
       this.evaluation = this.data.evaluation;
@@ -78,8 +86,8 @@ export class ActionPlanImplementationComponent implements OnInit {
    * Updates estimated evaluation date field.
    */
   estimatedEvaluationDateFocusOut(): void {
-    const userText = this.actionPlanForm.controls['estimatedEvaluationDate']
-      .value;
+    const userText =
+      this.actionPlanForm.controls['estimatedEvaluationDate'].value;
     this.evaluation.estimated_implementation_date = new Date(userText);
     this.evaluationService.update(this.evaluation).then(() => {
       if (userText && userText.length > 0) {

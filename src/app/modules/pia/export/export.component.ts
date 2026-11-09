@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import * as FileSaver from 'file-saver';
@@ -47,7 +54,8 @@ function slugify(text): string {
   selector: 'app-export',
   templateUrl: './export.component.html',
   styleUrls: ['./export.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class ExportComponent implements OnInit {
   constructor(
@@ -217,7 +225,7 @@ export class ExportComponent implements OnInit {
         const pdf = await this.generatePdf();
         const blob = new Blob([pdf], { type: 'application/pdf' });
         zip.file('pia-' + slugify(this.pia.name) + '.pdf', blob, {
-          binary: true
+          binary: true,
         });
       }
 
@@ -234,7 +242,7 @@ export class ExportComponent implements OnInit {
         await this.piaService.export(this.pia.id).then((json: any) => {
           const blob = new Blob([json], { type: 'text/plain' });
           zip2.file('pia-' + slugify(this.pia.name) + '.json', blob, {
-            type: 'string'
+            type: 'string',
           });
         });
       }
@@ -247,7 +255,7 @@ export class ExportComponent implements OnInit {
         );
         const blob = this.csvToBlob(fileTitle);
         zip2.file('CSV/' + slugify(fileTitle) + '.csv', blob, {
-          type: 'string'
+          type: 'string',
         });
       }
 
@@ -255,13 +263,13 @@ export class ExportComponent implements OnInit {
       if (exports.includes('images')) {
         window.scroll(0, 0);
         await this.addImagesToZip(zip2).then(async (zip3: any) => {
-          await zip3.generateAsync({ type: 'blob' }).then(blobContent => {
+          await zip3.generateAsync({ type: 'blob' }).then((blobContent) => {
             FileSaver.saveAs(blobContent, zipName);
           });
         });
       } else {
         window.scroll(0, 0);
-        await zip2.generateAsync({ type: 'blob' }).then(blobContent => {
+        await zip2.generateAsync({ type: 'blob' }).then((blobContent) => {
           FileSaver.saveAs(blobContent, zipName);
         });
       }
@@ -315,8 +323,8 @@ export class ExportComponent implements OnInit {
         `"${this.translateService.instant('summary.csv_action_plan_comment')}"`,
         `"${this.translateService.instant('summary.csv_evaluation_comment')}"`,
         `"${this.translateService.instant('summary.csv_implement_date')}"`,
-        `"${this.translateService.instant('summary.csv_people_in_charge')}"`
-      ]
+        `"${this.translateService.instant('summary.csv_people_in_charge')}"`,
+      ],
     };
     this.csvContent = this.actionPlanService.csvRows;
   }
@@ -336,12 +344,12 @@ export class ExportComponent implements OnInit {
       )}"`,
       csv_people_in_charge: `"${this.translateService.instant(
         'summary.csv_people_in_charge'
-      )}"`
+      )}"`,
     };
 
     const csvContentFormatted = [];
 
-    this.csvContent.forEach(item => {
+    this.csvContent.forEach((item) => {
       csvContentFormatted.push({
         title: item.title ? `"${item.title}"` : '',
         blank: item.blank ? `"${item.blank}"` : '',
@@ -359,7 +367,7 @@ export class ExportComponent implements OnInit {
           : '',
         evaluation_charge: item.evaluation_charge
           ? `"${item.evaluation_charge}"`
-          : ''
+          : '',
       });
     });
 
@@ -372,7 +380,7 @@ export class ExportComponent implements OnInit {
    */
   async generateDoc(element): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.prepareDocFile(element).then(dataDoc => {
+      this.prepareDocFile(element).then((dataDoc) => {
         const navigator: any = window.navigator;
         setTimeout(() => {
           const downloadLink = document.createElement('a');
@@ -429,7 +437,7 @@ export class ExportComponent implements OnInit {
       document.getElementById(element).innerHTML +
       postHtml;
     const blob = new Blob(['\ufeff', html], {
-      type: 'application/msword'
+      type: 'application/msword',
     });
     const risksCartographyContainer = document.querySelector(
       '.pia-risksCartographyContainer'
@@ -461,7 +469,7 @@ export class ExportComponent implements OnInit {
         'data:application/vnd.ms-word;charset=utf-8,' +
         encodeURIComponent(html),
       blob,
-      filename: data + '-pia.doc'
+      filename: data + '-pia.doc',
     };
   }
 
@@ -475,7 +483,7 @@ export class ExportComponent implements OnInit {
       this.attachmentsService
         .findAllByPia(this.pia.id)
         .then((attachments: Array<any>) => {
-          attachments.forEach(attachment => {
+          attachments.forEach((attachment) => {
             if (attachment.file && attachment.file.length > 0) {
               window.scroll(0, 0);
               const byteCharacters1 = atob(
@@ -485,7 +493,7 @@ export class ExportComponent implements OnInit {
                 'summary.attachments'
               );
               zip.file(folderName + '/' + attachment.name, byteCharacters1, {
-                binary: true
+                binary: true,
               });
             }
           });
@@ -503,7 +511,7 @@ export class ExportComponent implements OnInit {
     const zip = new JSZip();
     return new Promise((resolve, reject) => {
       this.addImagesToZip(zip).then((zip2: any) => {
-        zip2.generateAsync({ type: 'blob' }).then(blobContent => {
+        zip2.generateAsync({ type: 'blob' }).then((blobContent) => {
           FileSaver.saveAs(blobContent, 'pia-images.zip');
           resolve();
         });
@@ -532,10 +540,10 @@ export class ExportComponent implements OnInit {
       const byteCharacters3 = atob((risksOverviewImg as any).split(',')[1]);
 
       zip.file('Images/actionPlanOverview.png', byteCharacters1, {
-        binary: true
+        binary: true,
       });
       zip.file('Images/risksCartography.png', byteCharacters2, {
-        binary: true
+        binary: true,
       });
       zip.file('Images/risksOverview.png', byteCharacters3, { binary: true });
       resolve(zip);
@@ -555,7 +563,7 @@ export class ExportComponent implements OnInit {
         );
         if (actionPlanOverviewImg) {
           html2canvas(actionPlanOverviewImg as HTMLElement, { scale: 4 }).then(
-            canvas => {
+            (canvas) => {
               if (canvas) {
                 const img = canvas.toDataURL();
                 resolve(img);
@@ -580,7 +588,7 @@ export class ExportComponent implements OnInit {
         );
         if (risksCartographyImg) {
           html2canvas(risksCartographyImg as HTMLElement, { scale: 4 }).then(
-            canvas => {
+            (canvas) => {
               if (canvas) {
                 const img = canvas.toDataURL();
                 resolve(img);
@@ -602,7 +610,7 @@ export class ExportComponent implements OnInit {
         window.scroll(0, 0);
         const mysvg = document.getElementById('risksOverviewSvg');
         if (mysvg) {
-          svgAsPngUri(mysvg, {}, uri => {
+          svgAsPngUri(mysvg, {}, (uri) => {
             resolve(uri);
           });
         }
@@ -670,7 +678,7 @@ export class ExportComponent implements OnInit {
             segment,
             doc.internal.pageSize.width - x - 20
           );
-          textMap.map(text => {
+          textMap.map((text) => {
             startY = testPdfSize(startY);
             const arrayOfNormalAndBoldText = text.split('**');
             arrayOfNormalAndBoldText.map((textItems, i) => {
@@ -748,14 +756,14 @@ export class ExportComponent implements OnInit {
             overflow: 'linebreak',
             lineColor: [180, 180, 180],
             lineWidth: 0.5,
-            textColor: [0, 0, 0]
+            textColor: [0, 0, 0],
           },
           headStyles: {
             font: boldFont,
             fontStyle: 'bold',
             fillColor: [241, 241, 241],
-            textColor: [0, 0, 0]
-          }
+            textColor: [0, 0, 0],
+          },
         });
 
         const finalY = (doc as any).lastAutoTable.finalY;
@@ -798,14 +806,14 @@ export class ExportComponent implements OnInit {
 
         // Preserve table structure: encode each HTML table into a placeholder
         // that writeBoldText renders as a real bordered grid in the PDF.
-        data = data.replace(/<table[\s\S]*?<\/table>/gi, tableHtml => {
+        data = data.replace(/<table[\s\S]*?<\/table>/gi, (tableHtml) => {
           const rows = [];
           const rowMatches = tableHtml.match(/<tr[\s\S]*?<\/tr>/gi) || [];
-          rowMatches.forEach(rowHtml => {
+          rowMatches.forEach((rowHtml) => {
             const cells = [];
             const cellMatches =
               rowHtml.match(/<(td|th)[\s\S]*?<\/(td|th)>/gi) || [];
-            cellMatches.forEach(cellHtml => {
+            cellMatches.forEach((cellHtml) => {
               const tempElement = document.createElement('div');
               tempElement.innerHTML = cellHtml;
               let text = tempElement.textContent || '';
@@ -1987,7 +1995,7 @@ export class ExportComponent implements OnInit {
         this.languagesService
       );
       window.scroll(0, 0);
-      await this.getRisksOverviewImgForZip().then(data => {
+      await this.getRisksOverviewImgForZip().then((data) => {
         doc.addImage(data, 'PNG', 10, 75, 560, 560);
       });
 
@@ -2005,7 +2013,7 @@ export class ExportComponent implements OnInit {
         this.languagesService
       );
       window.scroll(0, 0);
-      await this.getRisksCartographyImg().then(data => {
+      await this.getRisksCartographyImg().then((data) => {
         doc.addImage(data, 'PNG', 10, 75, 560, 560);
       });
 
@@ -2021,7 +2029,7 @@ export class ExportComponent implements OnInit {
         this.languagesService
       );
       window.scroll(0, 0);
-      await this.getActionPlanOverviewImg().then(data => {
+      await this.getActionPlanOverviewImg().then((data) => {
         doc.addImage(data, 'PNG', 10, 75, 560, 560);
       });
       // Action plan
@@ -2061,9 +2069,9 @@ export class ExportComponent implements OnInit {
    */
   private async getJsonInfo(): Promise<void> {
     this.allData = {};
-    this.piaService.data.sections.forEach(async section => {
+    this.piaService.data.sections.forEach(async (section) => {
       this.allData[section.id] = {};
-      section.items.forEach(async item => {
+      section.items.forEach(async (item) => {
         this.allData[section.id][item.id] = {};
         const ref = section.id.toString() + '.' + item.id.toString();
 
@@ -2074,7 +2082,7 @@ export class ExportComponent implements OnInit {
           const entries: any = await this.measureService.findAllByPia(
             this.pia.id
           );
-          entries.forEach(async measure => {
+          entries.forEach(async (measure) => {
             /* Completed measures */
             if (measure.title !== undefined && measure.content !== undefined) {
               let evaluation = null;
@@ -2088,13 +2096,13 @@ export class ExportComponent implements OnInit {
               this.allData[section.id][item.id].push({
                 title: measure.title,
                 content: measure.content,
-                evaluation
+                evaluation,
               });
             }
           });
         } else if (item.questions) {
           // Question
-          item.questions.forEach(async question => {
+          item.questions.forEach(async (question) => {
             this.allData[section.id][item.id][question.id] = {};
             this.answerService
               .getByReferenceAndPia(this.pia.id, question.id)
@@ -2121,15 +2129,14 @@ export class ExportComponent implements OnInit {
                         section.id,
                         item.id,
                         ref + '.' + question.id
-                      ).then(evaluation => {
+                      ).then((evaluation) => {
                         this.allData[section.id][item.id][
                           question.id
                         ].evaluation = evaluation;
                       });
                     }
-                    this.allData[section.id][item.id][
-                      question.id
-                    ].content = content.join(', ');
+                    this.allData[section.id][item.id][question.id].content =
+                      content.join(', ');
                   }
                 }
               });
@@ -2168,13 +2175,13 @@ export class ExportComponent implements OnInit {
               evaluation_comment: exist.evaluation_comment,
               gauges: {
                 seriousness: exist.gauges ? exist.gauges.x : null,
-                likelihood: exist.gauges ? exist.gauges.y : null
-              }
+                likelihood: exist.gauges ? exist.gauges.y : null,
+              },
             };
           }
           resolve(evaluation);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     });
@@ -2183,8 +2190,8 @@ export class ExportComponent implements OnInit {
   getUsersList(type: string, dump_field: string = null): string {
     if (this.authService.state) {
       const foundUsers = this.pia.user_pias
-        .filter(up => up.role === type)
-        .map(x =>
+        .filter((up) => up.role === type)
+        .map((x) =>
           x.user.firstname
             ? x.user.firstname + ' ' + x.user.lastname
             : x.user.email

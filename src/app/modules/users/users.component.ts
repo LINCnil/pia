@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -7,14 +7,15 @@ import {
   faRefresh,
   faFolderOpen,
   faTrash,
-  faPencil
+  faPencil,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class UsersComponent implements OnInit {
   public loading = false;
@@ -46,7 +47,7 @@ export class UsersComponent implements OnInit {
         this.users = users;
         this.loading = false;
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         this.loading = false;
       });
@@ -56,7 +57,7 @@ export class UsersComponent implements OnInit {
     this.usersService
       .preventDeleteUser(userId)
       .then(() => {
-        const index = this.users.findIndex(u => u.id === userId);
+        const index = this.users.findIndex((u) => u.id === userId);
         this.dialogService.confirmThis(
           {
             text: 'modals.users.delete.content',
@@ -71,8 +72,8 @@ export class UsersComponent implements OnInit {
                   : null,
               btn_no: 'btn-blue',
               btn_yes: 'btn-red',
-              modal_id: 'deleteUser'
-            }
+              modal_id: 'deleteUser',
+            },
           },
           () => {
             // QUERY
@@ -85,7 +86,7 @@ export class UsersComponent implements OnInit {
                 }
                 return;
               })
-              .catch(err => {
+              .catch((err) => {
                 console.log(err);
               });
           },
@@ -106,8 +107,8 @@ export class UsersComponent implements OnInit {
             class: 'icon-red',
             data: {
               btn_yes: 'btn-blue',
-              no_cross_button: true
-            }
+              no_cross_button: true,
+            },
           },
           () => {
             return false;
@@ -120,7 +121,7 @@ export class UsersComponent implements OnInit {
   }
 
   onEdit(userId): void {
-    const user = this.users.find(u => u.id === userId);
+    const user = this.users.find((u) => u.id === userId);
     if (user) {
       this.userToEdit = user;
       this.modal = true;

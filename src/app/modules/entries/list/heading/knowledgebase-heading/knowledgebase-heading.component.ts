@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -6,7 +12,8 @@ import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
   selector: '[app-knowledgebase-heading]',
   templateUrl: './knowledgebase-heading.component.html',
   styleUrls: ['./knowledgebase-heading.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class KnowledgebaseHeadingComponent implements OnInit {
   sortOrder: string;

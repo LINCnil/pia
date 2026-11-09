@@ -6,7 +6,8 @@ import {
   OnDestroy,
   NgZone,
   Output,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { debounceTime, map, filter } from 'rxjs/operators';
@@ -24,7 +25,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
   @Input() structure: Structure;
@@ -57,7 +59,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       title: new UntypedFormControl(),
       gauge: new UntypedFormControl(0),
       text: new UntypedFormControl(),
-      list: new UntypedFormControl()
+      list: new UntypedFormControl(),
     });
 
     if (
@@ -87,8 +89,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         no: 'modals.remove_question.keep',
         icon: 'pia-icons pia-icon-sad',
         data: {
-          btn_yes: 'btn-red'
-        }
+          btn_yes: 'btn-red',
+        },
       },
       () => {
         this.answerStructureService.removeQuestion(
@@ -233,7 +235,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       placeholder: '',
-      setup: editor => {
+      setup: (editor) => {
         this.editor = editor;
         editor.on('focusout', () => {
           const newContent = editor.getContent();
@@ -245,7 +247,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.editor = null;
           });
         });
-      }
+      },
     });
   }
 }

@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
@@ -11,7 +16,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import {
   faEarthEurope,
   faList,
-  faUser
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -19,7 +24,8 @@ import {
   templateUrl: './header.component.html',
   providers: [{ provide: Window, useValue: window }],
   styleUrls: ['./header.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class HeaderComponent implements OnInit {
   public increaseContrast: string;

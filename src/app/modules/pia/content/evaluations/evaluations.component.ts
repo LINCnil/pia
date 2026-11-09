@@ -8,7 +8,8 @@ import {
   EventEmitter,
   AfterViewChecked,
   DoCheck,
-  NgZone
+  NgZone,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -24,17 +25,19 @@ import { EvaluationService } from 'src/app/services/evaluation.service';
 import {
   faCheck,
   faXmark,
-  faCircleNotch
+  faCircleNotch,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-evaluations',
   templateUrl: './evaluations.component.html',
   styleUrls: ['./evaluations.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class EvaluationsComponent
-  implements OnInit, AfterViewChecked, OnDestroy, DoCheck {
+  implements OnInit, AfterViewChecked, OnDestroy, DoCheck
+{
   private placeholderSubscription: Subscription;
   evaluationForm: UntypedFormGroup;
   @Input() editMode:
@@ -164,13 +167,13 @@ export class EvaluationsComponent
       actionPlanComment: new UntypedFormControl(),
       evaluationComment: new UntypedFormControl(),
       gaugeX: new UntypedFormControl(),
-      gaugeY: new UntypedFormControl()
+      gaugeY: new UntypedFormControl(),
     });
 
     this.loading = true;
     this.evaluationService
       .getByReference(this.pia.id, this.reference_to)
-      .then(evaluation => {
+      .then((evaluation) => {
         if (evaluation) {
           this.evaluation = evaluation;
           // Translation for comment's placeholder
@@ -224,7 +227,7 @@ export class EvaluationsComponent
       });
 
     if (this.item.questions) {
-      const questions: any[] = this.item.questions.filter(question => {
+      const questions: any[] = this.item.questions.filter((question) => {
         return question.answer_type === 'gauge';
       });
 
@@ -270,11 +273,10 @@ export class EvaluationsComponent
 
     // Action plan comment : hides action plan field + switches its value to comment field + removes its value.
     if (status !== 2) {
-      const evaluationPlanValue = this.evaluationForm.controls[
-        'actionPlanComment'
-      ].value;
-      const commentValue = this.evaluationForm.controls['evaluationComment']
-        .value;
+      const evaluationPlanValue =
+        this.evaluationForm.controls['actionPlanComment'].value;
+      const commentValue =
+        this.evaluationForm.controls['evaluationComment'].value;
 
       // Sets up the adequate placeholder for comment
       if (status === 1) {
@@ -492,7 +494,7 @@ export class EvaluationsComponent
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       placeholder: '',
-      setup: editor => {
+      setup: (editor) => {
         console.log(field);
         if (field === 'actionPlanComment') {
           this.editorActionPlanComment = editor;
@@ -515,7 +517,7 @@ export class EvaluationsComponent
             });
           });
         }
-      }
+      },
     });
   }
 }

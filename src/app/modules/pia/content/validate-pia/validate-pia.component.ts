@@ -1,9 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
   UntypedFormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 
 import { PiaService } from 'src/app/services/pia.service';
@@ -17,14 +22,15 @@ import {
   faCircle,
   faCheck,
   faCog,
-  faCheckSquare
+  faCheckSquare,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-validate-pia',
   templateUrl: './validate-pia.component.html',
   styleUrls: ['./validate-pia.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class ValidatePIAComponent implements OnInit {
   @Input() pia: Pia = null;
@@ -52,7 +58,7 @@ export class ValidatePIAComponent implements OnInit {
     private dialogService: DialogService
   ) {
     this.removeAttachmentForm = this.formBuilder.group({
-      comment: ['', [Validators.required, Validators.minLength(3)]]
+      comment: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
@@ -61,7 +67,7 @@ export class ValidatePIAComponent implements OnInit {
       validateStatus1: new UntypedFormControl(),
       validateStatus2: new UntypedFormControl(),
       validateStatus3: new UntypedFormControl(),
-      validateStatus4: new UntypedFormControl()
+      validateStatus4: new UntypedFormControl(),
     });
 
     this.validateForm.controls['validateStatus1'].patchValue(
@@ -154,8 +160,8 @@ export class ValidatePIAComponent implements OnInit {
           icon: 'faCheck',
           class: 'icon-green',
           data: {
-            modal_id: 'validate-evaluation'
-          }
+            modal_id: 'validate-evaluation',
+          },
         },
         () => {
           this.router.navigate(['/entries']);
@@ -180,7 +186,7 @@ export class ValidatePIAComponent implements OnInit {
           yes: 'modals.close',
           no: '',
           icon: 'faCheck',
-          class: 'icon-green'
+          class: 'icon-green',
         },
         () => {
           return;
@@ -206,7 +212,7 @@ export class ValidatePIAComponent implements OnInit {
     );
     const signValidationBtn = document.getElementById('pia-sign-validation');
 
-    [].forEach.call(radioButtons, currentRadioBtn => {
+    [].forEach.call(radioButtons, (currentRadioBtn) => {
       if (!currentRadioBtn.checked) {
         allBtnChecked = false;
       }

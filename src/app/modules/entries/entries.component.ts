@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
@@ -20,14 +27,15 @@ import {
   faFilter,
   faList,
   faUpload,
-  faFolderOpen
+  faFolderOpen,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-entries',
   templateUrl: './entries.component.html',
   styleUrls: ['./entries.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class EntriesComponent implements OnInit, OnDestroy {
   @Input() pia: any;
@@ -102,11 +110,11 @@ export class EntriesComponent implements OnInit, OnDestroy {
             .then((response: Array<User>) => {
               this.users = response;
             })
-            .catch(err => {
+            .catch((err) => {
               console.log(err);
             });
         }
-      }
+      },
     });
   }
 
@@ -129,7 +137,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
     // INIT IMPORT FORM
     this.importForm = new UntypedFormGroup({
-      import_file: new UntypedFormControl('', [])
+      import_file: new UntypedFormControl('', []),
     });
   }
 
@@ -186,7 +194,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
               this.entries = entries;
 
               // Remove example from list
-              const index = this.entries.findIndex(p => p.is_example);
+              const index = this.entries.findIndex((p) => p.is_example);
               if (index !== -1) {
                 this.entries.splice(index, 1);
               }
@@ -209,7 +217,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
           break;
         case 'structure':
           let data;
-          await this.structureService.getAll().then(response => {
+          await this.structureService.getAll().then((response) => {
             data = response;
             this.structureService
               .loadExample()
@@ -252,7 +260,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
 
   updateEntrie(entry): void {
     if (this.entries.includes(entry)) {
-      this.entries.forEach(item => {
+      this.entries.forEach((item) => {
         if (item.id === entry.id) {
           item = entry;
         }
@@ -311,14 +319,14 @@ export class EntriesComponent implements OnInit, OnDestroy {
           .then(() => {
             this.refreshContent();
           })
-          .catch(err => {
+          .catch((err) => {
             this.dialogService.confirmThis(
               {
                 text: 'modals.import_wrong_pia_file.content',
                 type: 'yes',
                 yes: 'modals.close',
                 no: '',
-                icon: 'pia-icons pia-icon-sad'
+                icon: 'pia-icons pia-icon-sad',
               },
               () => {
                 return;
@@ -335,14 +343,14 @@ export class EntriesComponent implements OnInit, OnDestroy {
           .then(() => {
             this.refreshContent();
           })
-          .catch(err => {
+          .catch((err) => {
             this.dialogService.confirmThis(
               {
                 text: 'modals.import_wrong_structure_file.content',
                 type: 'yes',
                 yes: 'modals.close',
                 no: '',
-                icon: 'pia-icons pia-icon-sad'
+                icon: 'pia-icons pia-icon-sad',
               },
               () => {
                 return;
@@ -359,7 +367,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
           .then(() => {
             this.refreshContent();
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
       }
@@ -545,7 +553,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
                 });
               return;
             })
-            .catch(err => {});
+            .catch((err) => {});
         };
 
         // merge
@@ -563,7 +571,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
                 });
               return;
             })
-            .catch(err => {});
+            .catch((err) => {});
         };
         break;
       case 'knowledge_base':
@@ -593,7 +601,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
         // keep new action
         keep_new = () => {
           let newKnwoledgeBaseFixed: KnowledgeBase = <KnowledgeBase>{
-            ...err.record
+            ...err.record,
           };
           newKnwoledgeBaseFixed[error.field] = err.params[error.field];
           newKnwoledgeBaseFixed.lock_version = err.record.lock_version;
@@ -607,13 +615,13 @@ export class EntriesComponent implements OnInit, OnDestroy {
                 });
               return;
             })
-            .catch(err => {});
+            .catch((err) => {});
         };
 
         // merge
         merge = () => {
           let newKnwoledgeBaseFixed: KnowledgeBase = <KnowledgeBase>{
-            ...err.record
+            ...err.record,
           };
           let separator = error.field === 'name' ? ' ' : ',';
           newKnwoledgeBaseFixed[error.field] +=
@@ -628,7 +636,7 @@ export class EntriesComponent implements OnInit, OnDestroy {
                 });
               return;
             })
-            .catch(err => {});
+            .catch((err) => {});
         };
         break;
     }
@@ -644,8 +652,8 @@ export class EntriesComponent implements OnInit, OnDestroy {
         data: {
           no_cross_button: true,
           btn_no: false,
-          additional_text
-        }
+          additional_text,
+        },
       },
       () => {
         return;
@@ -658,20 +666,20 @@ export class EntriesComponent implements OnInit, OnDestroy {
           label: this.translateService.instant('conflict.keep_initial'),
           callback: () => {
             keep_initial();
-          }
+          },
         },
         {
           label: this.translateService.instant('conflict.keep_new'),
           callback: () => {
             keep_new();
-          }
+          },
         },
         {
           label: this.translateService.instant('conflict.merge'),
           callback: () => {
             merge();
-          }
-        }
+          },
+        },
       ]
     );
   }

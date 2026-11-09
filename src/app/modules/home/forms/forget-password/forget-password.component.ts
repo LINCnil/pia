@@ -1,8 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/auth.service';
@@ -12,7 +18,8 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
   styleUrls: ['../form.scss', './forget-password.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class ForgetPasswordComponent implements OnInit {
   @Output() canceled = new EventEmitter<boolean>();
@@ -28,7 +35,7 @@ export class ForgetPasswordComponent implements OnInit {
   ) {
     // Prepare forgetPassword form
     this.forgetPassword = this.formBuilder.group({
-      email: ['', Validators.required]
+      email: ['', Validators.required],
     });
   }
 

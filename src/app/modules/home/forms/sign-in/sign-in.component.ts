@@ -1,8 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   UntypedFormGroup,
   UntypedFormBuilder,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,7 +17,8 @@ import { AuthService } from 'src/app/services/auth.service';
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['../form.scss', './sign-in.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class SignInComponent implements OnInit {
   @Output() canceled = new EventEmitter<boolean>();
@@ -28,7 +36,7 @@ export class SignInComponent implements OnInit {
     // Prepare login form
     this.logIn = this.formBuilder.group({
       login: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
     });
   }
 
@@ -57,7 +65,7 @@ export class SignInComponent implements OnInit {
         this.loading = false;
         this.validated.emit(true);
       })
-      .catch(err => {
+      .catch((err) => {
         this.loading = false;
         this.msgFromBack = err.status;
       });

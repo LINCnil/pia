@@ -47,7 +47,7 @@
         <thead>
           <tr>
             @if (!base.is_example) {
-            <th style="width:75px;"></th>
+            <th style="width: 75px"></th>
             }
             <th colspan="2">
               <a
@@ -56,7 +56,7 @@
                 }}</span></a
               >
             </th>
-            <th style="width:260px;">
+            <th style="width: 260px">
               <a
                 ><span>{{
                   "homepage.cards.knowledges_entry.placeholder_category"
@@ -64,7 +64,7 @@
                 }}</span></a
               >
             </th>
-            <th style="width:130px;text-align:center;">
+            <th style="width: 130px; text-align: center">
               <a
                 ><span>{{
                   "homepage.cards.knowledges_entry.placeholder_updated_at"
@@ -122,11 +122,11 @@
             <td
               class="pia-listsBlock-item-click"
               (click)="editEntry(item.id)"
-              style="text-align:center;"
+              style="text-align: center"
             >
               {{
                 item.updated_at
-                  | date: "shortDate":"":languagesService.selectedLanguage
+                  | date : "shortDate" : "" : languagesService.selectedLanguage
               }}
             </td>
             <!-- Display element data block in absolute -->
@@ -184,9 +184,11 @@
               (change)="checkLockedChoice(); focusOut()"
               required
             >
-              <option value="null" disabled>{{
-                "homepage.cards.knowledges_entry.choose_category" | translate
-              }}</option>
+              <option value="null" disabled>
+                {{
+                  "homepage.cards.knowledges_entry.choose_category" | translate
+                }}
+              </option>
               @for (category of categories; track category) {
               <option value="{{ category }}">{{ category | translate }}</option>
               }
@@ -233,7 +235,11 @@
               type="checkbox"
               [disabled]="lockedChoice"
               (click)="globalCheckingAllElementInDataSection($event)"
-              [checked]="allSectionCheckedVerification(data?.sections)"
+              [checked]="
+                allSectionCheckedVerification(
+                  $safeNavigationMigration(data?.sections)
+                )
+              "
             />
             <label for="select_all_sections">{{
               "homepage.cards.knowledges_entry.all_sections" | translate
@@ -335,7 +341,7 @@
     } @else {
     <div
       class="small-3 medium-3 columns"
-      style="position:relative; height: 150px;"
+      style="position: relative; height: 150px"
     >
       <app-loading-overlay
         [visibility]="true"
