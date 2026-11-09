@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { KnowledgeBase } from 'src/app/models/knowledgeBase.model';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
@@ -7,7 +13,8 @@ import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
   selector: 'app-new-knowledgebase',
   templateUrl: './new-knowledgebase.component.html',
   styleUrls: ['../form.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class NewKnowledgebaseComponent implements OnInit {
   @Output() submitted = new EventEmitter();
@@ -19,7 +26,7 @@ export class NewKnowledgebaseComponent implements OnInit {
     this.knowledgeBaseForm = new UntypedFormGroup({
       name: new UntypedFormControl(),
       author: new UntypedFormControl(),
-      contributors: new UntypedFormControl()
+      contributors: new UntypedFormControl(),
     });
   }
 
@@ -36,7 +43,7 @@ export class NewKnowledgebaseComponent implements OnInit {
       .then((result: KnowledgeBase) => {
         this.submitted.emit(result.id);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   }

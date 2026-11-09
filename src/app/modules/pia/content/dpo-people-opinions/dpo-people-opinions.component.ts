@@ -1,4 +1,11 @@
-import { Component, ViewChild, ElementRef, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { SidStatusService } from 'src/app/services/sid-status.service';
@@ -10,7 +17,8 @@ import { faCircle, faCheck, faClose } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-dpo-people-opinions',
   templateUrl: './dpo-people-opinions.component.html',
   styleUrls: ['./dpo-people-opinions.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class DPOPeopleOpinionsComponent implements OnInit {
   @Input() pia: Pia;
@@ -39,7 +47,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     this.DPOForm = new UntypedFormGroup({
       DPOStatus: new UntypedFormControl(this.pia.dpo_status),
       DPOOpinion: new UntypedFormControl(this.pia.dpo_opinion),
-      DPONames: new UntypedFormControl(this.pia.dpos_names)
+      DPONames: new UntypedFormControl(this.pia.dpos_names),
     });
 
     if (!this.pia.dpos_names) {
@@ -54,20 +62,20 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       ),
       searchContent: new UntypedFormControl(
         this.pia.concerned_people_searched_content
-      )
+      ),
     });
 
     if (this.pia.concerned_people_searched_opinion !== undefined) {
       this.displayPeopleOpinions = this.pia.concerned_people_searched_opinion;
-      this.displayPeopleSearchContent = !this.pia
-        .concerned_people_searched_opinion;
+      this.displayPeopleSearchContent =
+        !this.pia.concerned_people_searched_opinion;
     }
 
     // peopleForm form  init
     this.peopleForm = new UntypedFormGroup({
       peopleStatus: new UntypedFormControl(this.pia.concerned_people_status),
       peopleOpinion: new UntypedFormControl(this.pia.concerned_people_opinion),
-      peopleNames: new UntypedFormControl(this.pia.people_names)
+      peopleNames: new UntypedFormControl(this.pia.people_names),
     });
 
     if (!this.pia.people_names) {
@@ -82,7 +90,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
 
     // OBSERVABLES
-    this.DPOForm.controls.DPONames.valueChanges.subscribe(data => {
+    this.DPOForm.controls.DPONames.valueChanges.subscribe((data) => {
       if (data) {
         if (this.editMode.includes('evaluator') || this.editMode == 'local') {
           this.DPOForm.controls.DPOStatus.enable();
@@ -97,7 +105,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     });
 
     this.searchedOpinionsForm.controls.searchStatus.valueChanges.subscribe(
-      data => {
+      (data) => {
         this.displayPeopleOpinions = data;
         this.displayPeopleSearchContent = !data;
 
@@ -149,7 +157,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
     this.pia.dpo_opinion = userText;
 
-    this._piaService.update(this.pia).then(dataUpdated => {
+    this._piaService.update(this.pia).then((dataUpdated) => {
       if (dataUpdated.lock_version) {
         // Update lock_version
         this.pia.lock_version = dataUpdated.lock_version;
@@ -163,7 +171,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    */
   dpoStatusFocusOut(): void {
     this.pia.dpo_status = parseInt(this.DPOForm.value.DPOStatus, 10);
-    this._piaService.update(this.pia).then(dataUpdated => {
+    this._piaService.update(this.pia).then((dataUpdated) => {
       if (dataUpdated.lock_version) {
         // Update lock_version
         this.pia.lock_version = dataUpdated.lock_version;
@@ -181,7 +189,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.dpo_opinion = userText;
-    this._piaService.update(this.pia).then(dataUpdated => {
+    this._piaService.update(this.pia).then((dataUpdated) => {
       if (dataUpdated.lock_version) {
         // Update lock_version
         this.pia.lock_version = dataUpdated.lock_version;
@@ -194,7 +202,8 @@ export class DPOPeopleOpinionsComponent implements OnInit {
    * Updates concerned people searched or unsearched opinion.
    */
   searchedOpinionsFocusOut() {
-    this.pia.concerned_people_searched_opinion = this.searchedOpinionsForm.value.searchStatus;
+    this.pia.concerned_people_searched_opinion =
+      this.searchedOpinionsForm.value.searchStatus;
     let userText = this.searchedOpinionsForm.controls['searchContent'].value;
     if (userText) {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
@@ -207,7 +216,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
     }
 
     this.pia.concerned_people_searched_content = userText;
-    this._piaService.update(this.pia).then(dataUpdated => {
+    this._piaService.update(this.pia).then((dataUpdated) => {
       if (dataUpdated.lock_version) {
         // Update lock_version
         this.pia.lock_version = dataUpdated.lock_version;
@@ -225,7 +234,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.concerned_people_searched_content = userText;
-    this._piaService.update(this.pia).then(dataUpdated => {
+    this._piaService.update(this.pia).then((dataUpdated) => {
       if (dataUpdated.lock_version) {
         // Update lock_version
         this.pia.lock_version = dataUpdated.lock_version;
@@ -275,14 +284,14 @@ export class DPOPeopleOpinionsComponent implements OnInit {
 
     this._piaService
       .update(this.pia)
-      .then(dataUpdated => {
+      .then((dataUpdated) => {
         if (dataUpdated.lock_version) {
           // Update lock_version
           this.pia.lock_version = dataUpdated.lock_version;
         }
         this._sidStatusService.setSidStatus(this.pia, { id: 4 }, { id: 3 });
       })
-      .catch(err => {});
+      .catch((err) => {});
   }
 
   /**
@@ -294,7 +303,7 @@ export class DPOPeopleOpinionsComponent implements OnInit {
       userText = userText.replace(/^\s+/, '').replace(/\s+$/, '');
     }
     this.pia.concerned_people_opinion = userText;
-    this._piaService.update(this.pia).then(dataUpdated => {
+    this._piaService.update(this.pia).then((dataUpdated) => {
       if (dataUpdated.lock_version) {
         // Update lock_version
         this.pia.lock_version = dataUpdated.lock_version;
