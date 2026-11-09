@@ -13,8 +13,8 @@ import { AuthGuard } from './shared/guards/auth.guards';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
-  }
+    component: HomeComponent,
+  },
 ];
 
 @NgModule({
@@ -27,9 +27,10 @@ const routes: Routes = [
     SettingsRoutingModule,
     UsersRoutingModule,
     RouterModule.forRoot(routes, {
-      useHash: true
-    })
+      useHash: true,
+      paramsInheritanceStrategy: 'emptyOnly',
+    }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

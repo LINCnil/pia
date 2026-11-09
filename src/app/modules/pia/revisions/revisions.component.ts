@@ -4,7 +4,8 @@ import {
   OnDestroy,
   Input,
   SimpleChanges,
-  OnChanges
+  OnChanges,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -20,7 +21,7 @@ import {
   faCircle,
   faCircleCheck,
   faChevronDown,
-  faChevronUp
+  faChevronUp,
 } from '@fortawesome/free-solid-svg-icons';
 
 function slugify(data): string {
@@ -34,7 +35,7 @@ function slugify(data): string {
     .toString()
     .toLowerCase()
     .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+    .replace(p, (c) => b.charAt(a.indexOf(c))) // Replace special characters
     .replace(/&/g, '-and-') // Replace & with 'and'
     .replace(/[^\w\-]+/g, '') // Remove all non-word characters
     .replace(/\-\-+/g, '-') // Replace multiple - with single -
@@ -47,7 +48,8 @@ function slugify(data): string {
   templateUrl: './revisions.component.html',
   styleUrls: ['./revisions.component.scss'],
   providers: [RevisionService, TranslateService],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() pia: Pia;
@@ -105,7 +107,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     this.revisionsGroupByMonth = {};
     this.revisionsGroupByMonthInArray = [];
 
-    this.revisions.forEach(obj => {
+    this.revisions.forEach((obj) => {
       // Determite key and translate it
 
       let temp: string | string[] = slugify(
@@ -146,7 +148,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
    */
   newRevision(): void {
     // emit revision query
-    this.revisionService.export(this.pia.id).then(exportResult => {
+    this.revisionService.export(this.pia.id).then((exportResult) => {
       this.revisionService
         .add(exportResult, this.pia.id)
         .then((resp: Revision) => {
@@ -155,7 +157,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
           this.revisions.push(resp);
           this.parsingDate();
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     });
@@ -165,9 +167,9 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     // Change circle color
     document
       .querySelectorAll('.pia-revisions-box-content-revision-item')
-      .forEach(revision => {
+      .forEach((revision) => {
         if (revision.classList.contains('revision-active')) {
-          revision.querySelectorAll('.ng-fa-icon').forEach(icon => {
+          revision.querySelectorAll('.ng-fa-icon').forEach((icon) => {
             icon.classList.toggle('hide');
           });
           revision.classList.remove('revision-active');
@@ -181,7 +183,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
     );
     if (displayRevisionData) {
       /* Update circle design */
-      displayRevisionData.querySelectorAll('.ng-fa-icon').forEach(icon => {
+      displayRevisionData.querySelectorAll('.ng-fa-icon').forEach((icon) => {
         icon.classList.toggle('hide');
       });
       /* Display data */
@@ -194,7 +196,7 @@ export class RevisionsComponent implements OnInit, OnDestroy, OnChanges {
       .then((revision: any) => {
         this.preview = revision;
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   ngOnDestroy(): void {

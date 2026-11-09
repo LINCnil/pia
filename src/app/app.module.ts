@@ -10,7 +10,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
   HttpClient,
   provideHttpClient,
-  withInterceptorsFromDi
+  withInterceptorsFromDi,
+  withXhr,
 } from '@angular/common/http';
 
 import { SharedModule } from './shared/shared.module';
@@ -32,8 +33,8 @@ import { UsersModule } from './modules/users/users.module';
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     SharedModule,
     HomeModule,
@@ -45,12 +46,12 @@ import { UsersModule } from './modules/users/users.module';
     AppRoutingModule,
     UsersModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production
-    })
+      enabled: environment.production,
+    }),
   ],
   exports: [],
-  providers: [provideHttpClient(withInterceptorsFromDi())],
-  bootstrap: [AppComponent]
+  providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
 

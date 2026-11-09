@@ -2,7 +2,8 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   provideHttpClient,
-  withInterceptorsFromDi
+  withInterceptorsFromDi,
+  withXhr,
 } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TagInputModule } from 'ngx-chips';
@@ -12,7 +13,7 @@ import {
   SafeHtmlPipe,
   Nl2brPipe,
   FormatTheDate,
-  FilterForUser
+  FilterForUser,
 } from '../tools';
 import { IntrojsService } from '../services/introjs.service';
 import { LanguagesService } from '../services/languages.service';
@@ -49,7 +50,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
     DialogComponent,
     KnowledgeBaseComponent,
     KnowledgeBaseItemComponent,
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
   ],
   exports: [
     BrowserModule,
@@ -68,7 +69,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
     KnowledgeBaseComponent,
     KnowledgeBaseItemComponent,
     LoadingOverlayComponent,
-    PdfJsViewerModule
+    PdfJsViewerModule,
   ],
   imports: [
     CommonModule,
@@ -79,7 +80,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
     RouterModule,
     PdfJsViewerModule,
     TranslatePipe,
-    FaIconComponent
+    FaIconComponent,
   ],
   providers: [
     AppDataService,
@@ -96,13 +97,13 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
     PdfJsViewerModule,
     AuthService,
     ApiService,
-    provideHttpClient(withInterceptorsFromDi())
-  ]
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
+  ],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {
     return {
-      ngModule: SharedModule
+      ngModule: SharedModule,
     };
   }
 }

@@ -1,9 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   UntypedFormGroup,
   UntypedFormBuilder,
   UntypedFormControl,
-  Validators
+  Validators,
 } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,7 +20,8 @@ import { User } from 'src/app/models/user.model';
   selector: 'app-uuid',
   templateUrl: './uuid.component.html',
   styleUrls: ['../form.scss', './uuid.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class UuidComponent implements OnInit {
   @Input() reset = false;
@@ -36,8 +44,8 @@ export class UuidComponent implements OnInit {
     this.uuidActivation = this.formBuilder.group({
       uuid: new UntypedFormControl('', [
         Validators.required,
-        Validators.pattern(this.uuidRegex)
-      ])
+        Validators.pattern(this.uuidRegex),
+      ]),
     });
   }
 
@@ -59,11 +67,11 @@ export class UuidComponent implements OnInit {
         this.loading = false;
         const user: User = {
           ...response,
-          uuid: this.uuidActivation.controls.uuid.value
+          uuid: this.uuidActivation.controls.uuid.value,
         };
         this.validated.emit(user);
       })
-      .catch(err => {
+      .catch((err) => {
         this.loading = false;
         this.msgFromBack = err.status;
       });

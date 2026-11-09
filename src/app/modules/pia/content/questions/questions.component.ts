@@ -4,7 +4,8 @@ import {
   ElementRef,
   OnInit,
   OnDestroy,
-  NgZone
+  NgZone,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
@@ -22,7 +23,8 @@ import { Router } from '@angular/router';
   selector: 'app-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
   userMeasures = [];
@@ -66,7 +68,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     this.questionForm = new UntypedFormGroup({
       gauge: new UntypedFormControl(0),
       text: new UntypedFormControl(),
-      list: new UntypedFormControl()
+      list: new UntypedFormControl(),
     });
 
     this.loading = true;
@@ -77,23 +79,23 @@ export class QuestionsComponent implements OnInit, OnDestroy {
           this.answer = answer;
           this.gaugeValue = this.answer.data.gauge;
           this.questionForm.controls['gauge'].setValue(this.answer.data.gauge, {
-            emitEvent: false
+            emitEvent: false,
           });
           if (this.isInputDisabled()) {
             this.questionForm.controls['gauge'].disable({
               onlySelf: true,
-              emitEvent: false
+              emitEvent: false,
             });
           } else {
             this.questionForm.controls['gauge'].enable({
               onlySelf: true,
-              emitEvent: false
+              emitEvent: false,
             });
           }
           this.questionForm.controls['text'].patchValue(this.answer.data.text);
           this.hideTextarea = this.answer.data.text?.length > 0;
           if (this.answer.data.list) {
-            const dataList = this.answer.data.list.filter(l => {
+            const dataList = this.answer.data.list.filter((l) => {
               return l && l.length > 0;
             });
             this.questionForm.controls['list'].patchValue(dataList);
@@ -113,7 +115,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       .findAllByPia(this.pia.id)
       .then((entries: any[]) => {
         if (entries) {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.title) {
               this.userMeasures.push(entry.title);
             }
@@ -133,7 +135,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.allUserAnswersForThreats = [];
         this.allUserAnswersForSources = [];
         if (entries) {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.data.list && entry.data.list.length > 0) {
               // All user answers for Impacts
               if (
@@ -250,7 +252,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.data = {
         text: this.answer.data.text,
         gauge: gaugeValue,
-        list: this.answer.data.list
+        list: this.answer.data.list,
       };
 
       this.answerService.update(this.answer).then((answer: Answer) => {
@@ -302,7 +304,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.data = {
         text: userText,
         gauge: this.answer.data.gauge,
-        list: this.answer.data.list
+        list: this.answer.data.list,
       };
 
       await this.answerService
@@ -313,7 +315,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.globalEvaluationService.validate();
           });
         })
-        .catch(error => {
+        .catch((error) => {
           if (error.statusText === 'Conflict') {
             this.conflictDialog(error);
           }
@@ -328,7 +330,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         this.answer.data = {
           text: this.questionForm.value.text,
           gauge: gaugeValueForCurrentQuestion,
-          list: []
+          list: [],
         };
 
         await this.answerService.create(this.answer).then(() => {
@@ -441,7 +443,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       this.answer.data = {
         text: this.answer.data.text,
         gauge: this.answer.data.gauge,
-        list
+        list,
       };
 
       this.answerService
@@ -535,7 +537,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
       toolbar:
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       placeholder: '',
-      setup: editor => {
+      setup: (editor) => {
         this.editor = editor;
         editor.on('focusout', () => {
           const newContent = editor.getContent();
@@ -547,7 +549,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
             this.editor = null;
           });
         });
-      }
+      },
     });
   }
 
@@ -609,8 +611,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
         data: {
           no_cross_button: true,
           btn_no: false,
-          additional_text
-        }
+          additional_text,
+        },
       },
       () => {
         return;
@@ -628,7 +630,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
                 this.router.navigate([currentUrl]);
               });
             return;
-          }
+          },
         },
         {
           label: this.translateService.instant('conflict.keep_new'),
@@ -646,8 +648,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
                   });
                 return;
               })
-              .catch(error => {});
-          }
+              .catch((error) => {});
+          },
         },
         {
           label: this.translateService.instant('conflict.merge'),
@@ -664,9 +666,9 @@ export class QuestionsComponent implements OnInit, OnDestroy {
                   });
                 return;
               })
-              .catch(error => {});
-          }
-        }
+              .catch((error) => {});
+          },
+        },
       ]
     );
   }

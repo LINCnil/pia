@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Structure } from 'src/app/models/structure.model';
 import { DialogService } from 'src/app/services/dialog.service';
 import { LanguagesService } from 'src/app/services/languages.service';
@@ -9,7 +16,7 @@ import {
   faPencil,
   faDownload,
   faFile,
-  faTrash
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -17,7 +24,8 @@ import {
   selector: '[app-structure-line]',
   templateUrl: './structure-line.component.html',
   styleUrls: ['./structure-line.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class StructureLineComponent implements OnInit {
   @Input() structure: any;
@@ -53,7 +61,7 @@ export class StructureLineComponent implements OnInit {
       .then((result: Structure) => {
         this.changed.emit(result);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   }
@@ -71,15 +79,15 @@ export class StructureLineComponent implements OnInit {
         no: 'modals.cancel',
         icon: 'pia-icons pia-icon-sad',
         data: {
-          btn_yes: 'btn-red'
-        }
+          btn_yes: 'btn-red',
+        },
       },
       () => {
         this.structureService
           .remove(id)
           .then(() => {
             this.piaService.getAllWithStructure(id).then((items: any) => {
-              items.forEach(item => {
+              items.forEach((item) => {
                 item.structure_id = null;
                 this.piaService.update(item);
               });

@@ -4,12 +4,13 @@ import {
   Output,
   Input,
   SimpleChanges,
-  OnChanges
+  OnChanges,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 
@@ -19,7 +20,8 @@ import { UsersService } from 'src/app/services/users.service';
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.scss'],
-  standalone: false
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
 export class NewUserComponent implements OnInit, OnChanges {
   @Input() forceUserType = false;
@@ -39,7 +41,7 @@ export class NewUserComponent implements OnInit, OnChanges {
       lastname: ['', [Validators.required]],
       firstname: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      access_type: [[], Validators.required]
+      access_type: [[], Validators.required],
     });
   }
 
@@ -47,14 +49,14 @@ export class NewUserComponent implements OnInit, OnChanges {
     // Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     if (changes.user.currentValue) {
       this.userForm.patchValue({
-        lastname: changes.user.currentValue.lastname
+        lastname: changes.user.currentValue.lastname,
       });
       this.userForm.patchValue({
-        firstname: changes.user.currentValue.firstname
+        firstname: changes.user.currentValue.firstname,
       });
       this.userForm.patchValue({ email: changes.user.currentValue.email });
       this.userForm.patchValue({
-        access_type: changes.user.currentValue.access_type
+        access_type: changes.user.currentValue.access_type,
       });
     }
   }
@@ -69,11 +71,11 @@ export class NewUserComponent implements OnInit, OnChanges {
     this.loading = true;
     this.usersService
       .editUser(this.user ? this.user.id : null, this.userForm.value)
-      .then(response => {
+      .then((response) => {
         this.loading = false;
         this.userAdded.emit(response);
       })
-      .catch(err => {
+      .catch((err) => {
         this.loading = false;
         this.msgFromBack = err.status;
         console.log(err);
@@ -86,7 +88,7 @@ export class NewUserComponent implements OnInit, OnChanges {
       switch ($event.target.value) {
         case 'technical':
           this.userForm.patchValue({
-            access_type: ['technical', 'functional', 'user']
+            access_type: ['technical', 'functional', 'user'],
           });
           break;
         case 'functional':
@@ -100,12 +102,12 @@ export class NewUserComponent implements OnInit, OnChanges {
       }
     } else {
       const index = this.userForm.controls.access_type.value.findIndex(
-        e => e === $event.target.value
+        (e) => e === $event.target.value
       );
       if (index !== -1) {
         this.userForm.controls.access_type.value.splice(index, 1);
         this.userForm.patchValue({
-          access_type: this.userForm.controls.access_type.value
+          access_type: this.userForm.controls.access_type.value,
         });
       }
     }
