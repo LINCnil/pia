@@ -35,8 +35,8 @@ modules:
       # Prebuilt application produced by `yarn electron:linux` (tar.gz target).
       # Update the version, url and sha256 for every release.
       - type: archive
-        url: https://github.com/LINCnil/pia/releases/download/v4.1.0/pia-4.1.0.tar.gz
-        sha256: 0000000000000000000000000000000000000000000000000000000000000000
+        url:
+        sha256:
         strip-components: 1
         dest: app
       - type: file
