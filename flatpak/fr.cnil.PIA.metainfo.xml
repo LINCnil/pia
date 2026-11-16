@@ -57,11 +57,10 @@
   <url type="translate">https://github.com/LINCnil/pia/tree/master/src/assets/i18n</url>
 
   <screenshots>
-    <!-- TODO: replace with a real screenshot of the app, linked to a tag or commit -->
     <screenshot type="default">
-      <caption>The PIA dashboard</caption>
-      <caption xml:lang="fr">Le tableau de bord de PIA</caption>
-      <image>https://raw.githubusercontent.com/LINCnil/pia/master/src/assets/images/pia-auth-logo.png</image>
+      <caption>The PIA home screen</caption>
+      <caption xml:lang="fr">L’écran d’accueil de PIA</caption>
+      <image>https://raw.githubusercontent.com/LINCnil/pia/master/docs/screenshots/pia-home.png</image>
     </screenshot>
   </screenshots>
 
