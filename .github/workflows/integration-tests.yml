@@ -23,4 +23,14 @@ jobs:
         with:
           start: yarn start
           browser: chrome
-          wait-on: http://[::1]:4200
+          config: baseUrl=http://127.0.0.1:4200
+          wait-on: http://127.0.0.1:4200
+          wait-on-timeout: 180
+
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
