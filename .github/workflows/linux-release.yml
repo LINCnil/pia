@@ -38,7 +38,7 @@ jobs:
         run: yarn prod
 
       - name: Build Linux packages (no publish)
-        run: npx electron-builder --linux AppImage tar.gz snap --publish never
+        run: npx electron-builder --linux AppImage tar.gz snap --x64 --publish never
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
