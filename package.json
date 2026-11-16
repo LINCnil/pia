@@ -6,6 +6,7 @@
   "repository": "https://github.com/LINCnil/pia",
   "description": "Version Portable Outil PIA",
   "main": "electron/main.js",
+  "desktopName": "pia.desktop",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -23,7 +24,7 @@
     "electron:mac": "electron-builder -m",
     "electron:win": "electron-builder -w",
     "electron:linux": "electron-builder -l --x64",
-    "electron:snap": "electron-builder -l snap",
+    "electron:snap": "electron-builder -l snap --x64",
     "electron:flatpak": "flatpak-builder --user --install --force-clean build-dir flatpak/fr.cnil.PIA.yml",
     "electron:publish-to-github": "electron-builder -mwl -p onTagOrDraft"
   },
@@ -153,6 +154,7 @@
     },
     "linux": {
       "category": "Network",
+      "syncDesktopName": true,
       "target": [
         {
           "target": "AppImage",
