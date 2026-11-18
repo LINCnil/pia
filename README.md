@@ -79,10 +79,10 @@ Build AppImages and `.tar.gz` archives for x86-64 and ARM64:
 yarn electron:linux
 ```
 
-For a Snap build, run `yarn electron:snap` on the target architecture with
-Snapcraft 8.x installed. To build all ARM64 formats on Ubuntu 22.04 ARM64,
-run `SNAP_DESTRUCTIVE_MODE=true yarn electron:linux:arm64`. Snapcraft builds
-directly on the host in this mode; use a dedicated VM or CI runner.
+To build the x86-64 Snap, run `yarn electron:snap` on x86-64 with Snapcraft 8.x
+installed. To build all ARM64 formats, including the core24 Snap, run
+`yarn electron:linux:arm64` on Ubuntu 24.04 ARM64 with Snapcraft 8.x and an
+initialized LXD installation that your user can access.
 
 ## Publish the application to Github
 
