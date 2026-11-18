@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "22.20.0"
+          node-version: "22.22.3"
 
       - name: Enable Corepack
         run: corepack enable
@@ -40,6 +40,9 @@ jobs:
       - name: Build Linux packages (no publish)
         run: npx electron-builder --linux AppImage tar.gz snap --x64 --publish never
 
+      - name: Verify x86-64 executable
+        run: readelf -h electron/releases/linux-unpacked/pia | grep -E 'Machine:.*(X86-64|x86-64)'
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -51,9 +54,43 @@ jobs:
             electron/releases/latest-linux.yml
           if-no-files-found: error
 
+  build-arm64:
+    name: Build Linux ARM64 archive
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22.22.3"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build Angular (production)
+        run: yarn prod
+
+      - name: Build Linux ARM64 archive
+        run: yarn electron:linux:arm64
+
+      - name: Verify ARM64 executable
+        run: readelf -h electron/releases/linux-arm64-unpacked/pia | grep -E 'Machine:.*AArch64'
+
+      - name: Upload ARM64 archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: pia-linux-arm64
+          path: electron/releases/*-arm64.tar.gz
+          if-no-files-found: error
+
   publish:
     name: Publish Linux packages
-    needs: build
+    needs: [build, build-arm64]
     runs-on: ubuntu-latest
     # Publish only on a tag...
     if: startsWith(github.ref, 'refs/tags/v')
@@ -67,6 +104,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: pia-linux
+          path: dist-artifacts
+
+      - name: Download ARM64 archive
+        uses: actions/download-artifact@v4
+        with:
+          name: pia-linux-arm64
           path: dist-artifacts
 
       - name: Publish to GitHub Release
