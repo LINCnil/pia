@@ -4,8 +4,7 @@ name: linux-release
 # Publishing to the GitHub Release / Snap Store happens in a separate job that:
 #   1. only runs on a tag (refs/tags/v*), and
 #   2. requires a manual approval via the protected `release` environment.
-# Snapcraft is pinned to the 8.x channel because electron-builder still calls the
-# `snapcraft snap` command, which was removed in Snapcraft 9.
+# Use Snapcraft 8.x for compatibility with the legacy x86-64 Snap build.
 on:
   push:
     tags:
@@ -63,8 +62,9 @@ jobs:
 
   build-arm64:
     name: Build Linux ARM64 packages
-    # ARM64 has no prebuilt Snap template. Build core22 directly on Ubuntu 22.04.
-    runs-on: ubuntu-22.04-arm
+    # ARM64 has no prebuilt template; the legacy core22 path pulls gnome-3-28-1804.
+    # Build with core24 in LXD so Snapcraft can use the current GNOME extension.
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -77,8 +77,13 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      - name: Install Snapcraft (8.x — compatible with electron-builder)
+      - name: Install Snapcraft (8.x)
         run: sudo snap install snapcraft --classic --channel=8.x
+
+      - name: Set up LXD
+        uses: canonical/setup-lxd@8c6a87bfb56aa48f3fb9b830baa18562d8bfd4ee # v1
+        with:
+          channel: 5.21/stable
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -87,8 +92,6 @@ jobs:
         run: yarn prod
 
       - name: Build Linux ARM64 packages (no publish)
-        env:
-          SNAP_DESTRUCTIVE_MODE: "true"
         run: yarn electron:linux:arm64
 
       - name: Verify ARM64 packages
@@ -100,6 +103,7 @@ jobs:
           test -s "pia_${version}_arm64.snap"
           test -s latest-linux-arm64.yml
           readelf -h "pia-$version-arm64.AppImage" | grep -E 'Machine:.*AArch64'
+          unsquashfs -cat "pia_${version}_arm64.snap" meta/snap.yaml | grep -Fx 'base: core24'
 
       - name: Upload ARM64 packages
         uses: actions/upload-artifact@v4
