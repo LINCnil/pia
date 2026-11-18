@@ -17,7 +17,9 @@ The manifest does **not** rebuild the Angular/Electron app from scratch. Instead
 it downloads the `pia-X.Y.Z.tar.gz` archive produced by `electron-builder`
 (`tar.gz` target, see the `linux` section in `package.json`) from the matching
 [GitHub Release](https://github.com/LINCnil/pia/releases) and integrates it into
-the Flatpak sandbox.
+the Flatpak sandbox. The current manifest supports x86-64 only; the ARM64
+archive must be published and added as a separate architecture-specific source
+before building for aarch64.
 
 ## Building / testing in CI (no Linux needed)
 
@@ -49,16 +51,20 @@ flatpak run fr.cnil.PIA
 
 ## Releasing a new version
 
-1. `yarn electron:linux` to produce `electron/releases/pia-X.Y.Z.tar.gz`.
-2. Publish the archive on the GitHub Release.
-3. In `fr.cnil.PIA.yml`, update the archive `url` and its `sha256`
-   (`sha256sum electron/releases/pia-X.Y.Z.tar.gz`).
+1. Build both Linux archives with `yarn electron:linux`. The Linux release
+   workflow builds each architecture on a native runner.
+2. Publish `pia-X.Y.Z.tar.gz` and `pia-X.Y.Z-arm64.tar.gz` on the GitHub Release.
+3. In `fr.cnil.PIA.yml`, configure an archive source for each architecture,
+   using `only-arches: [x86_64]` and `only-arches: [aarch64]`, and update each
+   URL and SHA-256 (`sha256sum electron/releases/*.tar.gz`).
 4. Add the matching `<release>` entry in `fr.cnil.PIA.metainfo.xml`.
 5. Submit/update the manifest on https://github.com/flathub/flathub.
 
-On the Flathub repository, the manifest lives without this source tree: the
-local `path` sources (`../LICENSE`, `../electron/icons/icon.png` and the files in
-this folder) must be copied next to it or replaced by URLs pinned to a tag.
+The PIA manifest uses files from the checkout so CI tests changes to them.
+In the Flathub repository, fetch the desktop file, metadata, icon and
+application license from an immutable PIA revision, with SHA-256 hashes.
+Remove any temporary architecture restriction from `flathub.json` after both
+archive sources are configured and tested.
 
 ## Permissions
 

@@ -63,9 +63,16 @@ CSC_LINK=../path_to_your/file.pfx CSC_KEY_PASSWORD="Your PFX file password" yarn
 
 ### GNU/Linux:
 
+Build AppImages and `.tar.gz` archives for x86-64 and ARM64:
+
 ```
 yarn electron:linux
 ```
+
+For a Snap build, run `yarn electron:snap` on the target architecture with
+Snapcraft 8.x installed. To build all ARM64 formats on Ubuntu 22.04 ARM64,
+run `SNAP_DESTRUCTIVE_MODE=true yarn electron:linux:arm64`. Snapcraft builds
+directly on the host in this mode; use a dedicated VM or CI runner.
 
 ## Publish the application to Github
 

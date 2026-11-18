@@ -1,6 +1,6 @@
 name: linux-release
 
-# Builds the Linux packages (AppImage, tar.gz and snap) on a Linux runner.
+# Builds AppImage, tar.gz and Snap on native x86-64 and ARM64 runners.
 # Publishing to the GitHub Release / Snap Store happens in a separate job that:
 #   1. only runs on a tag (refs/tags/v*), and
 #   2. requires a manual approval via the protected `release` environment.
@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "22.20.0"
+          node-version: "22.22.3"
 
       - name: Enable Corepack
         run: corepack enable
@@ -38,7 +38,17 @@ jobs:
         run: yarn prod
 
       - name: Build Linux packages (no publish)
-        run: npx electron-builder --linux AppImage tar.gz snap --x64 --publish never
+        run: yarn electron-builder --linux AppImage tar.gz snap --x64 --publish never
+
+      - name: Verify x86-64 packages
+        run: |
+          version=$(node -p "require('./package.json').version")
+          cd electron/releases
+          test -s "pia-$version.AppImage"
+          test -s "pia-$version.tar.gz"
+          test -s "pia_${version}_amd64.snap"
+          test -s latest-linux.yml
+          readelf -h "pia-$version.AppImage" | grep -E 'Machine:.*(X86-64|x86-64)'
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -51,9 +61,60 @@ jobs:
             electron/releases/latest-linux.yml
           if-no-files-found: error
 
+  build-arm64:
+    name: Build Linux ARM64 packages
+    # ARM64 has no prebuilt Snap template. Build core22 directly on Ubuntu 22.04.
+    runs-on: ubuntu-22.04-arm
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22.22.3"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install Snapcraft (8.x — compatible with electron-builder)
+        run: sudo snap install snapcraft --classic --channel=8.x
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build Angular (production)
+        run: yarn prod
+
+      - name: Build Linux ARM64 packages (no publish)
+        env:
+          SNAP_DESTRUCTIVE_MODE: "true"
+        run: yarn electron:linux:arm64
+
+      - name: Verify ARM64 packages
+        run: |
+          version=$(node -p "require('./package.json').version")
+          cd electron/releases
+          test -s "pia-$version-arm64.AppImage"
+          test -s "pia-$version-arm64.tar.gz"
+          test -s "pia_${version}_arm64.snap"
+          test -s latest-linux-arm64.yml
+          readelf -h "pia-$version-arm64.AppImage" | grep -E 'Machine:.*AArch64'
+
+      - name: Upload ARM64 packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: pia-linux-arm64
+          path: |
+            electron/releases/*-arm64.AppImage
+            electron/releases/*-arm64.tar.gz
+            electron/releases/*_arm64.snap
+            electron/releases/latest-linux-arm64.yml
+          if-no-files-found: error
+
   publish:
     name: Publish Linux packages
-    needs: build
+    needs: [build, build-arm64]
     runs-on: ubuntu-latest
     # Publish only on a tag...
     if: startsWith(github.ref, 'refs/tags/v')
@@ -69,6 +130,12 @@ jobs:
           name: pia-linux
           path: dist-artifacts
 
+      - name: Download ARM64 packages
+        uses: actions/download-artifact@v4
+        with:
+          name: pia-linux-arm64
+          path: dist-artifacts
+
       - name: Publish to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -77,6 +144,7 @@ jobs:
             dist-artifacts/*.tar.gz
             dist-artifacts/*.snap
             dist-artifacts/latest-linux.yml
+            dist-artifacts/latest-linux-arm64.yml
 
       - name: Install Snapcraft (8.x)
         if: env.SNAPCRAFT_STORE_CREDENTIALS != ''
@@ -84,8 +152,11 @@ jobs:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         run: sudo snap install snapcraft --classic --channel=8.x
 
-      - name: Publish snap to Snap Store
+      - name: Publish snaps to Snap Store
         if: env.SNAPCRAFT_STORE_CREDENTIALS != ''
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
-        run: snapcraft upload --release=stable dist-artifacts/pia_*.snap
+        run: |
+          for snap in dist-artifacts/pia_*_amd64.snap dist-artifacts/pia_*_arm64.snap; do
+            snapcraft upload --release=stable "$snap"
+          done
