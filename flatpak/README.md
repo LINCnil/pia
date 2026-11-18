@@ -51,9 +51,8 @@ flatpak run fr.cnil.PIA
 
 ## Releasing a new version
 
-1. Build the x86-64 packages with `yarn electron:linux` and the ARM64 archive
-   with `yarn electron:linux:arm64`. The Linux release workflow builds both
-   architectures on native runners.
+1. Build both Linux archives with `yarn electron:linux`. The Linux release
+   workflow builds each architecture on a native runner.
 2. Publish `pia-X.Y.Z.tar.gz` and `pia-X.Y.Z-arm64.tar.gz` on the GitHub Release.
 3. In `fr.cnil.PIA.yml`, configure an archive source for each architecture,
    using `only-arches: [x86_64]` and `only-arches: [aarch64]`, and update each
@@ -61,8 +60,9 @@ flatpak run fr.cnil.PIA
 4. Add the matching `<release>` entry in `fr.cnil.PIA.metainfo.xml`.
 5. Submit/update the manifest on https://github.com/flathub/flathub.
 
-On the Flathub repository, source the desktop file, metadata, icon and
-application license from an immutable upstream revision, with SHA-256 hashes.
+The PIA manifest uses files from the checkout so CI tests changes to them.
+In the Flathub repository, fetch the desktop file, metadata, icon and
+application license from an immutable PIA revision, with SHA-256 hashes.
 Remove any temporary architecture restriction from `flathub.json` after both
 archive sources are configured and tested.
 
