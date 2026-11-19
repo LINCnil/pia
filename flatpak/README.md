@@ -17,9 +17,8 @@ The manifest does **not** rebuild the Angular/Electron app from scratch. Instead
 it downloads the `pia-X.Y.Z.tar.gz` archive produced by `electron-builder`
 (`tar.gz` target, see the `linux` section in `package.json`) from the matching
 [GitHub Release](https://github.com/LINCnil/pia/releases) and integrates it into
-the Flatpak sandbox. The current manifest supports x86-64 only; the ARM64
-archive must be published and added as a separate architecture-specific source
-before building for aarch64.
+the Flatpak sandbox. The manifest declares one source per architecture: that
+archive for x86-64, and `pia-X.Y.Z-arm64.tar.gz` for ARM64 (aarch64).
 
 ## Validation in CI
 
