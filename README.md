@@ -73,16 +73,25 @@ CSC_LINK=../path_to_your/file.pfx CSC_KEY_PASSWORD="Your PFX file password" yarn
 
 ### GNU/Linux:
 
-Build AppImages and `.tar.gz` archives for x86-64 and ARM64:
+Build AppImage, `.tar.gz`, and Snap packages on a native Linux machine. Run
+`yarn prod` first, then choose the command matching the machine:
 
-```
-yarn electron:linux
+```sh
+yarn electron:linux:x64    # on x86-64
+yarn electron:linux:arm64  # on ARM64
 ```
 
-To build the x86-64 Snap, run `yarn electron:snap` on x86-64 with Snapcraft 8.x
-installed. To build all ARM64 formats, including the core24 Snap, run
-`yarn electron:linux:arm64` on Ubuntu 24.04 ARM64 with Snapcraft 8.x and an
-initialized LXD installation that your user can access.
+Both builds require Snapcraft 8.x. The ARM64 build uses a core24 Snap and
+requires Ubuntu 24.04 ARM64 and an initialized LXD installation that your user
+can access. The x86-64 build uses core22.
+
+To build only the `.tar.gz` archives for both architectures, without Snap:
+
+```sh
+yarn electron:linux:archives
+```
+
+To build only the x86-64 Snap, run `yarn electron:snap` on x86-64.
 
 ## Publish the application to Github
 

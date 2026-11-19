@@ -23,8 +23,10 @@
     "electron:start": "electron .",
     "electron:mac": "electron-builder -m",
     "electron:win": "electron-builder -w",
-    "electron:linux": "electron-builder --linux AppImage tar.gz --x64 --arm64 --publish never",
-    "electron:linux:arm64": "electron-builder --linux AppImage tar.gz snap --arm64 --publish never --config.snapcraft.base=core24",
+    "electron:linux": "electron-builder --linux AppImage tar.gz snap --publish never",
+    "electron:linux:x64": "yarn electron:linux --x64",
+    "electron:linux:arm64": "yarn electron:linux --arm64 --config.snapcraft.base=core24",
+    "electron:linux:archives": "electron-builder --linux tar.gz --x64 --arm64 --publish never",
     "electron:snap": "electron-builder --linux snap --publish never",
     "electron:flatpak": "flatpak-builder --user --install --force-clean build-dir flatpak/fr.cnil.PIA.yml",
     "electron:publish-to-github": "electron-builder -mwl -p onTagOrDraft"

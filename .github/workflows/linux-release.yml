@@ -37,7 +37,7 @@ jobs:
         run: yarn prod
 
       - name: Build Linux packages (no publish)
-        run: yarn electron-builder --linux AppImage tar.gz snap --x64 --publish never
+        run: yarn electron:linux:x64
 
       - name: Verify x86-64 packages
         run: |

@@ -51,8 +51,9 @@ flatpak run fr.cnil.PIA
 
 ## Releasing a new version
 
-1. Build both Linux archives with `yarn electron:linux`. The Linux release
-   workflow builds each architecture on a native runner.
+1. Build both Linux archives with `yarn electron:linux:archives` after
+   `yarn prod`. The Linux release workflow builds each architecture on a
+   native runner.
 2. Publish `pia-X.Y.Z.tar.gz` and `pia-X.Y.Z-arm64.tar.gz` on the GitHub Release.
 3. In `fr.cnil.PIA.yml`, configure an archive source for each architecture,
    using `only-arches: [x86_64]` and `only-arches: [aarch64]`, and update each
