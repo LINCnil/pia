@@ -1,0 +1,37 @@
+name: snap-store
+
+# Sends the snaps attached to a GitHub Release to the Snap Store once that
+# release is published, i.e. when the draft created by linux-release is
+# published by hand. Pre-releases are not sent to the stable channel.
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Publish snaps to the Snap Store
+    if: ${{ !github.event.release.prerelease }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Download snaps from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.snap' --dir snaps
+
+      - name: Install Snapcraft (8.x)
+        if: env.SNAPCRAFT_STORE_CREDENTIALS != ''
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        run: sudo snap install snapcraft --classic --channel=8.x
+
+      - name: Publish snaps to Snap Store
+        if: env.SNAPCRAFT_STORE_CREDENTIALS != ''
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        run: |
+          for snap in snaps/*.snap; do
+            snapcraft upload --release=stable "$snap"
+          done

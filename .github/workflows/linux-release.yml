@@ -1,9 +1,11 @@
 name: linux-release
 
 # Builds AppImage, tar.gz and Snap on native x86-64 and ARM64 runners.
-# Publishing to the GitHub Release / Snap Store happens in a separate job that:
+# Uploading them to the GitHub Release happens in a separate job that:
 #   1. only runs on a tag (refs/tags/v*), and
 #   2. requires a manual approval via the protected `release` environment.
+# The release is left as a draft, to be published by hand. Publishing it
+# triggers the snap-store workflow, which sends its snaps to the Snap Store.
 # Use Snapcraft 8.x for compatibility with the legacy x86-64 Snap build.
 on:
   push:
@@ -140,27 +142,13 @@ jobs:
           name: pia-linux-arm64
           path: dist-artifacts
 
-      - name: Publish to GitHub Release
+      - name: Upload to a draft GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          draft: true
           files: |
             dist-artifacts/*.AppImage
             dist-artifacts/*.tar.gz
             dist-artifacts/*.snap
             dist-artifacts/latest-linux.yml
             dist-artifacts/latest-linux-arm64.yml
-
-      - name: Install Snapcraft (8.x)
-        if: env.SNAPCRAFT_STORE_CREDENTIALS != ''
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
-        run: sudo snap install snapcraft --classic --channel=8.x
-
-      - name: Publish snaps to Snap Store
-        if: env.SNAPCRAFT_STORE_CREDENTIALS != ''
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
-        run: |
-          for snap in dist-artifacts/pia_*_amd64.snap dist-artifacts/pia_*_arm64.snap; do
-            snapcraft upload --release=stable "$snap"
-          done
