@@ -36,18 +36,17 @@ modules:
       # Prebuilt application produced by `yarn electron:linux:archives`.
       # Update the version, url and sha256 for every release.
       - type: archive
-        url: https://github.com/LINCnil/pia/releases/download/v4.1.1/pia-4.1.1.tar.gz
-        sha256: 840c5c93334fe7902340c757408ef69ada0b3f33c44a8d070e0f4eaddad5e894
+        url: https://github.com/LINCnil/pia/releases/download/v<VERSION>/pia-<VERSION>.tar.gz
+        sha256: <SHA256>
         only-arches: [x86_64]
         strip-components: 1
         dest: app
-      # Enable after both archives are published for the same release.
-      # - type: archive
-      #   url: https://github.com/LINCnil/pia/releases/download/v<VERSION>/pia-<VERSION>-arm64.tar.gz
-      #   sha256: <SHA256>
-      #   only-arches: [aarch64]
-      #   strip-components: 1
-      #   dest: app
+      - type: archive
+        url: https://github.com/LINCnil/pia/releases/download/v<VERSION>/pia-<VERSION>-arm64.tar.gz
+        sha256: <SHA256>
+        only-arches: [aarch64]
+        strip-components: 1
+        dest: app
       - type: file
         path: pia.sh
       - type: file
