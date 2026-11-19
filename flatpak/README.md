@@ -17,23 +17,19 @@ The manifest does **not** rebuild the Angular/Electron app from scratch. Instead
 it downloads the `pia-X.Y.Z.tar.gz` archive produced by `electron-builder`
 (`tar.gz` target, see the `linux` section in `package.json`) from the matching
 [GitHub Release](https://github.com/LINCnil/pia/releases) and integrates it into
-the Flatpak sandbox. The current manifest supports x86-64 only; the ARM64
-archive must be published and added as a separate architecture-specific source
-before building for aarch64.
+the Flatpak sandbox. The manifest declares one source per architecture: that
+archive for x86-64, and `pia-X.Y.Z-arm64.tar.gz` for ARM64 (aarch64).
 
-## Building / testing in CI (no Linux needed)
+## Validation in CI
 
-Because `flatpak-builder` only runs on Linux, a GitHub Actions workflow
-([`.github/workflows/flatpak.yml`](../.github/workflows/flatpak.yml)) builds and
-validates the package on a Linux runner. It runs automatically on any change
-under `flatpak/`, and can also be triggered manually (`workflow_dispatch`). It:
+A GitHub Actions workflow
+([`.github/workflows/flatpak.yml`](../.github/workflows/flatpak.yml)) validates
+the AppStream metainfo with `appstreamcli`. It runs on pull requests and on
+pushes to `master` that change the metainfo, and can also be triggered manually
+(`workflow_dispatch`).
 
-- lints the manifest and validates the AppStream metainfo, and
-- builds a `fr.cnil.PIA.flatpak` bundle artifact (once a matching Release archive
-  with a valid `url`/`sha256` is available).
-
-This is the recommended way to verify the package when developing on macOS or
-Windows.
+The package itself is not built here: the manifest in this repository holds
+`<VERSION>` and `<SHA256>` placeholders, and the real build runs on Flathub.
 
 ## Building / testing locally
 
@@ -51,8 +47,9 @@ flatpak run fr.cnil.PIA
 
 ## Releasing a new version
 
-1. Build both Linux archives with `yarn electron:linux`. The Linux release
-   workflow builds each architecture on a native runner.
+1. Build both Linux archives with `yarn electron:linux:archives` after
+   `yarn prod`. The Linux release workflow builds each architecture on a
+   native runner.
 2. Publish `pia-X.Y.Z.tar.gz` and `pia-X.Y.Z-arm64.tar.gz` on the GitHub Release.
 3. In `fr.cnil.PIA.yml`, configure an archive source for each architecture,
    using `only-arches: [x86_64]` and `only-arches: [aarch64]`, and update each
@@ -60,7 +57,7 @@ flatpak run fr.cnil.PIA
 4. Add the matching `<release>` entry in `fr.cnil.PIA.metainfo.xml`.
 5. Submit/update the manifest on https://github.com/flathub/flathub.
 
-The PIA manifest uses files from the checkout so CI tests changes to them.
+The PIA manifest uses files from the checkout.
 In the Flathub repository, fetch the desktop file, metadata, icon and
 application license from an immutable PIA revision, with SHA-256 hashes.
 Remove any temporary architecture restriction from `flathub.json` after both
