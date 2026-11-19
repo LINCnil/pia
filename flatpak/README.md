@@ -25,8 +25,9 @@ before building for aarch64.
 
 Because `flatpak-builder` only runs on Linux, a GitHub Actions workflow
 ([`.github/workflows/flatpak.yml`](../.github/workflows/flatpak.yml)) builds and
-validates the package on a Linux runner. It runs automatically on any change
-under `flatpak/`, and can also be triggered manually (`workflow_dispatch`). It:
+validates the package on a Linux runner. It runs on pull requests and on pushes
+to `master` that change `flatpak/`, the application icon or `LICENSE`, and can
+also be triggered manually (`workflow_dispatch`). It:
 
 - lints the manifest and validates the AppStream metainfo, and
 - builds a `fr.cnil.PIA.flatpak` bundle artifact (once a matching Release archive

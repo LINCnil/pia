@@ -4,12 +4,18 @@ name: flatpak
 # checked without a local Linux environment (e.g. when developing on macOS).
 on:
   push:
+    branches:
+      - master
     paths:
       - "flatpak/**"
+      - "electron/icons/icon.png"
+      - "LICENSE"
       - ".github/workflows/flatpak.yml"
   pull_request:
     paths:
       - "flatpak/**"
+      - "electron/icons/icon.png"
+      - "LICENSE"
       - ".github/workflows/flatpak.yml"
   workflow_dispatch:
 
@@ -29,12 +35,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # The flatpak-builder action also runs `flatpak-builder-lint` on the
-      # manifest and the resulting repo, so no separate lint step is needed.
+      # flatpak-builder-lint ships with the container image. It also checks
+      # that the app-id domain (https://cnil.fr) is reachable, so the following
+      # steps still run when it fails.
+      - name: Lint manifest
+        run: flatpak-builder-lint manifest flatpak/fr.cnil.PIA.yml
+
+      - name: Validate AppStream metainfo
+        if: ${{ !cancelled() }}
+        run: appstreamcli validate --no-net flatpak/fr.cnil.PIA.metainfo.xml
+
       # NOTE: the build downloads the prebuilt tar.gz referenced in the manifest,
       # so it only fully succeeds once a matching Release archive (url + sha256)
       # is published.
       - name: Build Flatpak
+        if: ${{ !cancelled() }}
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: fr.cnil.PIA.flatpak
