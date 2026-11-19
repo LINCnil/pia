@@ -21,6 +21,10 @@ jobs:
       # Freedesktop runtime image matching the manifest runtime-version (26.08)
       image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-26.08
       options: --privileged
+      # Docker copies the preinstalled SDK into a fresh volume so Flatpak
+      # can rename its deployments during updates without overlayfs EXDEV.
+      volumes:
+        - /var/lib/flatpak
     steps:
       - name: Checkout
         uses: actions/checkout@v4
