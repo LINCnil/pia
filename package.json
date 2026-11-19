@@ -121,6 +121,11 @@
   "build": {
     "appId": "com.atnos.pia",
     "afterSign": "electron/notarize.js",
+    "files": [
+      "dist/pia-angular/**/*",
+      "electron/*.js",
+      "electron/progress.html"
+    ],
     "directories": {
       "buildResources": "electron/icons",
       "output": "electron/releases"
