@@ -21,20 +21,16 @@ the Flatpak sandbox. The current manifest supports x86-64 only; the ARM64
 archive must be published and added as a separate architecture-specific source
 before building for aarch64.
 
-## Building / testing in CI (no Linux needed)
+## Validation in CI
 
-Because `flatpak-builder` only runs on Linux, a GitHub Actions workflow
-([`.github/workflows/flatpak.yml`](../.github/workflows/flatpak.yml)) builds and
-validates the package on a Linux runner. It runs on pull requests and on pushes
-to `master` that change `flatpak/`, the application icon or `LICENSE`, and can
-also be triggered manually (`workflow_dispatch`). It:
+A GitHub Actions workflow
+([`.github/workflows/flatpak.yml`](../.github/workflows/flatpak.yml)) validates
+the AppStream metainfo with `appstreamcli`. It runs on pull requests and on
+pushes to `master` that change the metainfo, and can also be triggered manually
+(`workflow_dispatch`).
 
-- lints the manifest and validates the AppStream metainfo, and
-- builds a `fr.cnil.PIA.flatpak` bundle artifact (once a matching Release archive
-  with a valid `url`/`sha256` is available).
-
-This is the recommended way to verify the package when developing on macOS or
-Windows.
+The package itself is not built here: the manifest in this repository holds
+`<VERSION>` and `<SHA256>` placeholders, and the real build runs on Flathub.
 
 ## Building / testing locally
 
@@ -62,7 +58,7 @@ flatpak run fr.cnil.PIA
 4. Add the matching `<release>` entry in `fr.cnil.PIA.metainfo.xml`.
 5. Submit/update the manifest on https://github.com/flathub/flathub.
 
-The PIA manifest uses files from the checkout so CI tests changes to them.
+The PIA manifest uses files from the checkout.
 In the Flathub repository, fetch the desktop file, metadata, icon and
 application license from an immutable PIA revision, with SHA-256 hashes.
 Remove any temporary architecture restriction from `flathub.json` after both

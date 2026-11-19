@@ -1,57 +1,33 @@
 name: flatpak
 
-# Builds and validates the Flatpak package on a Linux runner so it can be
-# checked without a local Linux environment (e.g. when developing on macOS).
+# Validates the AppStream metainfo that Flathub consumes. The package itself is
+# built on Flathub: the manifest in this repository only holds placeholders for
+# the release archive URLs and checksums.
 on:
   push:
     branches:
       - master
     paths:
-      - "flatpak/**"
-      - "electron/icons/icon.png"
-      - "LICENSE"
+      - "flatpak/fr.cnil.PIA.metainfo.xml"
       - ".github/workflows/flatpak.yml"
   pull_request:
     paths:
-      - "flatpak/**"
-      - "electron/icons/icon.png"
-      - "LICENSE"
+      - "flatpak/fr.cnil.PIA.metainfo.xml"
       - ".github/workflows/flatpak.yml"
   workflow_dispatch:
 
 jobs:
-  flatpak:
-    name: Build Flatpak
+  metainfo:
+    name: Validate AppStream metainfo
     runs-on: ubuntu-latest
-    container:
-      # Freedesktop runtime image matching the manifest runtime-version (26.08)
-      image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-26.08
-      options: --privileged
-      # Docker copies the preinstalled SDK into a fresh volume so Flatpak
-      # can rename its deployments during updates without overlayfs EXDEV.
-      volumes:
-        - /var/lib/flatpak
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # flatpak-builder-lint ships with the container image. It also checks
-      # that the app-id domain (https://cnil.fr) is reachable, so the following
-      # steps still run when it fails.
-      - name: Lint manifest
-        run: flatpak-builder-lint manifest flatpak/fr.cnil.PIA.yml
+      - name: Install AppStream
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends appstream
 
       - name: Validate AppStream metainfo
-        if: ${{ !cancelled() }}
         run: appstreamcli validate --no-net flatpak/fr.cnil.PIA.metainfo.xml
-
-      # NOTE: the build downloads the prebuilt tar.gz referenced in the manifest,
-      # so it only fully succeeds once a matching Release archive (url + sha256)
-      # is published.
-      - name: Build Flatpak
-        if: ${{ !cancelled() }}
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
-        with:
-          bundle: fr.cnil.PIA.flatpak
-          manifest-path: flatpak/fr.cnil.PIA.yml
-          cache-key: flatpak-builder-${{ github.sha }}
