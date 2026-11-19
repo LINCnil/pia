@@ -10,20 +10,23 @@ const createWindow = () => {
     minWidth: 1281,
     minHeight: 800,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js")
-    }
+      preload: path.join(__dirname, "preload.js"),
+    },
   });
 
   const menu = Menu.getApplicationMenu();
-  menu.items.find(item => item.role === "help").visible = false;
-  Menu.setApplicationMenu(menu);
+  const helpItem = menu.items.find((item) => item.role === "help");
+  if (helpItem) {
+    helpItem.visible = false;
+    Menu.setApplicationMenu(menu);
+  }
 
   // win.webContents.openDevTools();
   win.loadFile(
     path.join(__dirname, "../dist", "pia-angular", "browser", "index.html")
   );
 
-  const isExternal = url => /^https?:\/\//i.test(url);
+  const isExternal = (url) => /^https?:\/\//i.test(url);
 
   // Open external links (e.g. links added in a question/measure content)
   // in the default browser instead of navigating away inside the app window.
@@ -45,7 +48,7 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
   app.setAboutPanelOptions({
-    copyright: ""
+    copyright: "",
   });
   createWindow();
   setupAutoUpdater();
