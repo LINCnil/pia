@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, shell } = require("electron/main");
+const { app, BrowserWindow, Menu, session, shell } = require("electron/main");
 const { setupAutoUpdater } = require("./updater");
 const path = require("path");
 
@@ -46,10 +46,18 @@ const createWindow = () => {
   });
 };
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
   app.setAboutPanelOptions({
     copyright: "",
   });
+  // Remove the Angular service worker registered by previous versions.
+  try {
+    await session.defaultSession.clearStorageData({
+      storages: ["serviceworkers", "cachestorage"],
+    });
+  } catch (err) {
+    console.error("Failed to clear service workers", err);
+  }
   createWindow();
   setupAutoUpdater();
 });
