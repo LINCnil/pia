@@ -131,13 +131,13 @@ jobs:
       contents: write
     steps:
       - name: Download build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: pia-linux
           path: dist-artifacts
 
       - name: Download ARM64 packages
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: pia-linux-arm64
           path: dist-artifacts
