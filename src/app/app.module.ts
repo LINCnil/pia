@@ -46,8 +46,7 @@ import { UsersModule } from './modules/users/users.module';
     AppRoutingModule,
     UsersModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
-      // The service worker is not needed in the Electron app (file://) and
-      // makes the first load of non-cached assets (e.g. TinyMCE theme) fail.
+      // Service worker registration requires HTTP(S), not Electron's file://.
       enabled: environment.production && location.protocol !== 'file:',
     }),
   ],
