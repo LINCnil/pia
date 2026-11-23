@@ -52,7 +52,7 @@ jobs:
           readelf -h "pia-$version.AppImage" | grep -E 'Machine:.*(X86-64|x86-64)'
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pia-linux
           path: |
@@ -108,7 +108,7 @@ jobs:
           unsquashfs -cat "pia_${version}_arm64.snap" meta/snap.yaml | grep -Fx 'base: core24'
 
       - name: Upload ARM64 packages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pia-linux-arm64
           path: |
