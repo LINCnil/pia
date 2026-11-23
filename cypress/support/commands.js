@@ -201,20 +201,22 @@ Cypress.Commands.add("test_add_tags", () => {
   cy.get(".ng2-menu-item").first().click({ force: true });
 });
 Cypress.Commands.add("test_add_tags_next", () => {
-  cy.get("[aria-label='Enter the potential impacts']").type("Tag");
-  cy.wait(500);
-  cy.get(".ng2-menu-item").first().click({ force: true });
-  cy.get("[aria-label='Enter the threats']").type("Tag");
-  cy.wait(500);
-  cy.get(".ng2-menu-item").first().click({ force: true });
-  cy.get("[aria-label='Enter the risk sources']").type("Tag");
-  cy.wait(500);
-  cy.get(".ng2-menu-item").first().click({ force: true });
-  cy.get(
-    "[aria-label='Click here to select controls which address the risk.']"
-  ).type("Measure");
-  cy.wait(500);
-  cy.get(".ng2-menu-item").first().click({ force: true });
+  // Pick an existing suggestion if the autocomplete has one, else create the tag
+  const addTag = (label, text) => {
+    cy.get(`[aria-label='${label}']`).type(text);
+    cy.wait(1000);
+    cy.get("body").then(($body) => {
+      if ($body.find(".ng2-menu-item").length) {
+        cy.get(".ng2-menu-item").first().click({ force: true });
+      } else {
+        cy.get(`[aria-label='${label}']`).type("{enter}");
+      }
+    });
+  };
+  addTag("Enter the potential impacts", "Tag");
+  addTag("Enter the threats", "Tag");
+  addTag("Enter the risk sources", "Tag");
+  addTag("Click here to select controls which address the risk.", "Measure");
 });
 
 Cypress.Commands.add("test_move_gauges", () => {
