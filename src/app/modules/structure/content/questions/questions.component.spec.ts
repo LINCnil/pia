@@ -1,7 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { StructureModule } from 'src/app/modules/structure/structure.module';
+import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import {
   ComponentTestData,
   createComponentTestData,
@@ -54,4 +60,26 @@ describe('QuestionsComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it('opens the template editor when PIA answer editing is disabled', fakeAsync(() => {
+    const evaluationService = TestBed.inject(GlobalEvaluationService);
+    evaluationService.answerEditionEnabled = false;
+    const loadEditor = spyOn(component, 'loadEditor');
+
+    component.questionContentFocusIn();
+    tick();
+
+    expect(loadEditor).toHaveBeenCalled();
+    expect(evaluationService.answerEditionEnabled).toBeFalse();
+  }));
+
+  it('does not open the editor for an example template', fakeAsync(() => {
+    component.structure.is_example = true;
+    const loadEditor = spyOn(component, 'loadEditor');
+
+    component.questionContentFocusIn();
+    tick();
+
+    expect(loadEditor).not.toHaveBeenCalled();
+  }));
 });

@@ -12,7 +12,6 @@ import {
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { debounceTime, map, filter } from 'rxjs/operators';
 
-import { GlobalEvaluationService } from 'src/app/services/global-evaluation.service';
 import { StructureService } from 'src/app/services/structure.service';
 import { SidStatusService } from 'src/app/services/sid-status.service';
 import { KnowledgeBaseService } from 'src/app/services/knowledge-base.service';
@@ -45,7 +44,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     private el: ElementRef,
     private knowledgeBaseService: KnowledgeBaseService,
     private ngZone: NgZone,
-    public globalEvaluationService: GlobalEvaluationService,
     private sidStatusService: SidStatusService,
     private structureService: StructureService,
     private answerStructureService: AnswerStructureService,
@@ -53,7 +51,6 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.globalEvaluationService.answerEditionEnabled = true;
     this.elementId = 'pia-question-content-' + this.question.id;
     this.questionForm = new UntypedFormGroup({
       title: new UntypedFormControl(),
@@ -169,7 +166,7 @@ export class QuestionsComponent implements OnInit, OnDestroy {
     if (questionTitleTextarea && !questionTitle) {
       questionTitleTextarea.classList.add('pia-required');
       questionTitleTextarea.focus();
-    } else if (this.globalEvaluationService.answerEditionEnabled) {
+    } else {
       this.hideTextarea = false;
       setTimeout(() => this.loadEditor(), 0);
     }
