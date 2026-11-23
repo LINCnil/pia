@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "22.22.3"
 
@@ -52,7 +52,7 @@ jobs:
           readelf -h "pia-$version.AppImage" | grep -E 'Machine:.*(X86-64|x86-64)'
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pia-linux
           path: |
@@ -69,10 +69,10 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "22.22.3"
 
@@ -108,7 +108,7 @@ jobs:
           unsquashfs -cat "pia_${version}_arm64.snap" meta/snap.yaml | grep -Fx 'base: core24'
 
       - name: Upload ARM64 packages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pia-linux-arm64
           path: |
@@ -131,13 +131,13 @@ jobs:
       contents: write
     steps:
       - name: Download build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: pia-linux
           path: dist-artifacts
 
       - name: Download ARM64 packages
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: pia-linux-arm64
           path: dist-artifacts
