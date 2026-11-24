@@ -50,6 +50,7 @@ jobs:
           test -s "pia_${version}_amd64.snap"
           test -s latest-linux.yml
           readelf -h "pia-$version.AppImage" | grep -E 'Machine:.*(X86-64|x86-64)'
+          unsquashfs -cat "pia_${version}_amd64.snap" meta/snap.yaml | grep -Fx 'name: fr-cnil-pia'
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v7
@@ -106,6 +107,7 @@ jobs:
           test -s latest-linux-arm64.yml
           readelf -h "pia-$version-arm64.AppImage" | grep -E 'Machine:.*AArch64'
           unsquashfs -cat "pia_${version}_arm64.snap" meta/snap.yaml | grep -Fx 'base: core24'
+          unsquashfs -cat "pia_${version}_arm64.snap" meta/snap.yaml | grep -Fx 'name: fr-cnil-pia'
 
       - name: Upload ARM64 packages
         uses: actions/upload-artifact@v7

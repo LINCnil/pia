@@ -160,6 +160,7 @@
     },
     "linux": {
       "category": "Office",
+      "executableName": "fr-cnil-pia",
       "syncDesktopName": true,
       "target": [
         {
