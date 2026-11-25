@@ -19,6 +19,10 @@ it downloads the `pia-X.Y.Z.tar.gz` archive produced by `electron-builder`
 [GitHub Release](https://github.com/LINCnil/pia/releases) and integrates it into
 the Flatpak sandbox. The manifest declares one source per architecture: that
 archive for x86-64, and `pia-X.Y.Z-arm64.tar.gz` for ARM64 (aarch64).
+Both archives include `fr.cnil.PIA.desktop`, `fr.cnil.PIA.metainfo.xml`,
+`icon.png`, and `LICENSE` at the root of the application directory (under
+`app/` after the manifest extracts the archive). The manifest installs these
+files from the archive; older archives without them cannot be used.
 
 ## Validation in CI
 
@@ -47,19 +51,16 @@ flatpak run fr.cnil.PIA
 
 ## Releasing a new version
 
-1. Build both Linux archives with `yarn electron:linux:archives` after
+1. Add the matching `<release>` entry in `fr.cnil.PIA.metainfo.xml`.
+2. Build both Linux archives with `yarn electron:linux:archives` after
    `yarn prod`. The Linux release workflow builds each architecture on a
    native runner.
-2. Publish `pia-X.Y.Z.tar.gz` and `pia-X.Y.Z-arm64.tar.gz` on the GitHub Release.
-3. In `fr.cnil.PIA.yml`, configure an archive source for each architecture,
+3. Publish `pia-X.Y.Z.tar.gz` and `pia-X.Y.Z-arm64.tar.gz` on the GitHub Release.
+4. In `fr.cnil.PIA.yml`, configure an archive source for each architecture,
    using `only-arches: [x86_64]` and `only-arches: [aarch64]`, and update each
    URL and SHA-256 (`sha256sum electron/releases/*.tar.gz`).
-4. Add the matching `<release>` entry in `fr.cnil.PIA.metainfo.xml`.
 5. Submit/update the manifest on https://github.com/flathub/flathub.
 
-The PIA manifest uses files from the checkout.
-In the Flathub repository, fetch the desktop file, metadata, icon and
-application license from an immutable PIA revision, with SHA-256 hashes.
 Remove any temporary architecture restriction from `flathub.json` after both
 archive sources are configured and tested.
 
