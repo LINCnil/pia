@@ -84,6 +84,8 @@ yarn electron:linux:arm64  # on ARM64
 Both builds require Snapcraft 8.x. The ARM64 build uses a core24 Snap and
 requires Ubuntu 24.04 ARM64 and an initialized LXD installation that your user
 can access. The x86-64 build uses core22.
+The Snap Store name `pia` was unavailable, so Snap is built separately as
+`privacy-impact-assessment`; AppImage and archives retain the `pia` executable.
 
 To build only the `.tar.gz` archives for both architectures, without Snap:
 
