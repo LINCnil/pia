@@ -93,6 +93,11 @@ To build only the `.tar.gz` archives for both architectures, without Snap:
 yarn electron:linux:archives
 ```
 
+Each archive contains `fr.cnil.PIA.desktop`, `fr.cnil.PIA.metainfo.xml`,
+`icon.png`, and `LICENSE` at the root of its application directory. Linux
+packages for other targets also include these files. The release workflow
+checks their contents against the source files for both architectures.
+
 To build only the x86-64 Snap, run `yarn electron:snap` on x86-64.
 
 ## Publish the application to Github

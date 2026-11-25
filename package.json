@@ -162,6 +162,24 @@
     "linux": {
       "category": "Office",
       "syncDesktopName": true,
+      "extraFiles": [
+        {
+          "from": "flatpak/fr.cnil.PIA.desktop",
+          "to": "fr.cnil.PIA.desktop"
+        },
+        {
+          "from": "flatpak/fr.cnil.PIA.metainfo.xml",
+          "to": "fr.cnil.PIA.metainfo.xml"
+        },
+        {
+          "from": "electron/icons/icon.png",
+          "to": "icon.png"
+        },
+        {
+          "from": "LICENSE",
+          "to": "LICENSE"
+        }
+      ],
       "target": [
         {
           "target": "AppImage",

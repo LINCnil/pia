@@ -44,6 +44,7 @@ jobs:
       - name: Verify x86-64 packages
         run: |
           version=$(node -p "require('./package.json').version")
+          bash scripts/verify-linux-archive.sh "electron/releases/pia-$version.tar.gz"
           cd electron/releases
           test -s "pia-$version.AppImage"
           test -s "pia-$version.tar.gz"
@@ -101,6 +102,7 @@ jobs:
       - name: Verify ARM64 packages
         run: |
           version=$(node -p "require('./package.json').version")
+          bash scripts/verify-linux-archive.sh "electron/releases/pia-$version-arm64.tar.gz"
           cd electron/releases
           test -s "pia-$version-arm64.AppImage"
           test -s "pia-$version-arm64.tar.gz"
