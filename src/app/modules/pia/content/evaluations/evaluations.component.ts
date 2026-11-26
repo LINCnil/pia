@@ -140,8 +140,12 @@ export class EvaluationsComponent
 
   ngOnDestroy(): void {
     this.placeholderSubscription.unsubscribe();
-    tinymce.remove(this.editorActionPlanComment);
-    tinymce.remove(this.editorEvaluationComment);
+    if (this.editorActionPlanComment) {
+      tinymce.remove(this.editorActionPlanComment);
+    }
+    if (this.editorEvaluationComment) {
+      tinymce.remove(this.editorEvaluationComment);
+    }
   }
 
   /**
@@ -360,10 +364,7 @@ export class EvaluationsComponent
     this.evaluation.action_plan_comment = userText;
     this.evaluationService.update(this.evaluation).then(() => {
       this.ngZone.run(() => {
-        this.loading = true;
-        this.globalEvaluationService.validate().finally(() => {
-          this.loading = false;
-        });
+        this.globalEvaluationService.validate();
       });
     });
   }
@@ -393,10 +394,7 @@ export class EvaluationsComponent
     this.evaluationService.update(this.evaluation).then(() => {
       this.evaluationEvent.emit(this.evaluation);
       this.ngZone.run(() => {
-        this.loading = true;
-        this.globalEvaluationService.validate().finally(() => {
-          this.loading = false;
-        });
+        this.globalEvaluationService.validate();
       });
     });
   }
@@ -495,7 +493,6 @@ export class EvaluationsComponent
         'undo redo bold italic alignleft aligncenter alignright bullist numlist outdent indent',
       placeholder: '',
       setup: (editor) => {
-        console.log(field);
         if (field === 'actionPlanComment') {
           this.editorActionPlanComment = editor;
           this.editorActionPlanComment.on('focusout', () => {
@@ -503,7 +500,7 @@ export class EvaluationsComponent
             this.evaluationForm.controls[field].patchValue(newContent);
             this.actionPlanCommentFocusOut().then(() => {
               this.hideTextareaActionPlanComment = newContent.length > 0;
-              tinymce.remove(this.editorActionPlanComment);
+              tinymce.remove(editor);
             });
           });
         } else {
@@ -513,7 +510,7 @@ export class EvaluationsComponent
             this.evaluationForm.controls[field].patchValue(newContent);
             this.evaluationCommentFocusOut().then(() => {
               this.hideTextareaEvaluationComment = newContent.length > 0;
-              tinymce.remove(this.editorEvaluationComment);
+              tinymce.remove(editor);
             });
           });
         }
